@@ -124,6 +124,7 @@ use AlibabaCloud\SDK\Chatbot\V20171011\Models\QueryIntentsRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\QueryIntentsResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\QueryKnowledgesRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\QueryKnowledgesResponse;
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\QueryPerspectivesRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\QueryPerspectivesResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\QuerySystemEntitiesRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\QuerySystemEntitiesResponse;
@@ -158,6 +159,7 @@ use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Chatbot extends OpenApiClient
@@ -202,11 +204,29 @@ class Chatbot extends OpenApiClient
     public function activatePerspectiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->perspectiveId)) {
+            $query['PerspectiveId'] = $request->perspectiveId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ActivatePerspective',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ActivatePerspectiveResponse::fromMap($this->doRPCRequest('ActivatePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ActivatePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -230,11 +250,32 @@ class Chatbot extends OpenApiClient
     public function addSynonymWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->coreWordName)) {
+            $query['CoreWordName'] = $request->coreWordName;
+        }
+        if (!Utils::isUnset($request->synonym)) {
+            $query['Synonym'] = $request->synonym;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSynonym',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddSynonymResponse::fromMap($this->doRPCRequest('AddSynonym', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddSynonymResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -263,11 +304,35 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->member)) {
             $request->memberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->member), 'Member', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->applyType)) {
+            $query['ApplyType'] = $request->applyType;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->memberShrink)) {
+            $query['Member'] = $request->memberShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AppendEntityMember',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AppendEntityMemberResponse::fromMap($this->doRPCRequest('AppendEntityMember', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AppendEntityMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -291,11 +356,38 @@ class Chatbot extends OpenApiClient
     public function associateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->perspective)) {
+            $query['Perspective'] = $request->perspective;
+        }
+        if (!Utils::isUnset($request->recommendNum)) {
+            $query['RecommendNum'] = $request->recommendNum;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->utterance)) {
+            $query['Utterance'] = $request->utterance;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Associate',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssociateResponse::fromMap($this->doRPCRequest('Associate', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -319,11 +411,56 @@ class Chatbot extends OpenApiClient
     public function chatWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->intentName)) {
+            $query['IntentName'] = $request->intentName;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
+        if (!Utils::isUnset($request->perspective)) {
+            $query['Perspective'] = $request->perspective;
+        }
+        if (!Utils::isUnset($request->recommend)) {
+            $query['Recommend'] = $request->recommend;
+        }
+        if (!Utils::isUnset($request->senderId)) {
+            $query['SenderId'] = $request->senderId;
+        }
+        if (!Utils::isUnset($request->senderNick)) {
+            $query['SenderNick'] = $request->senderNick;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->utterance)) {
+            $query['Utterance'] = $request->utterance;
+        }
+        if (!Utils::isUnset($request->vendorParam)) {
+            $query['VendorParam'] = $request->vendorParam;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Chat',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ChatResponse::fromMap($this->doRPCRequest('Chat', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -347,11 +484,41 @@ class Chatbot extends OpenApiClient
     public function createBotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->avatar)) {
+            $query['Avatar'] = $request->avatar;
+        }
+        if (!Utils::isUnset($request->introduction)) {
+            $query['Introduction'] = $request->introduction;
+        }
+        if (!Utils::isUnset($request->languageCode)) {
+            $query['LanguageCode'] = $request->languageCode;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->robotType)) {
+            $query['RobotType'] = $request->robotType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBot',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBotResponse::fromMap($this->doRPCRequest('CreateBot', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -375,11 +542,38 @@ class Chatbot extends OpenApiClient
     public function createCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
+        }
+        if (!Utils::isUnset($request->knowledgeType)) {
+            $query['KnowledgeType'] = $request->knowledgeType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentCategoryId)) {
+            $query['ParentCategoryId'] = $request->parentCategoryId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCategory',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCategoryResponse::fromMap($this->doRPCRequest('CreateCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -403,11 +597,29 @@ class Chatbot extends OpenApiClient
     public function createCoreWordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->coreWordName)) {
+            $query['CoreWordName'] = $request->coreWordName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCoreWord',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCoreWordResponse::fromMap($this->doRPCRequest('CreateCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCoreWordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -431,11 +643,35 @@ class Chatbot extends OpenApiClient
     public function createDialogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dialogName)) {
+            $query['DialogName'] = $request->dialogName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDialog',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDialogResponse::fromMap($this->doRPCRequest('CreateDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDialogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -464,11 +700,41 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->members)) {
             $request->membersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
+        if (!Utils::isUnset($request->entityName)) {
+            $query['EntityName'] = $request->entityName;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->membersShrink)) {
+            $query['Members'] = $request->membersShrink;
+        }
+        if (!Utils::isUnset($request->regex)) {
+            $query['Regex'] = $request->regex;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEntity',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEntityResponse::fromMap($this->doRPCRequest('CreateEntity', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -497,11 +763,32 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->intentDefinition)) {
             $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->intentDefinition), 'IntentDefinition', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
+        if (!Utils::isUnset($request->intentDefinitionShrink)) {
+            $query['IntentDefinition'] = $request->intentDefinitionShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIntent',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateIntentResponse::fromMap($this->doRPCRequest('CreateIntent', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -530,11 +817,31 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->knowledge)) {
             $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->knowledge), 'Knowledge', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->knowledgeShrink)) {
+            $body['Knowledge'] = $request->knowledgeShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateKnowledge',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateKnowledgeResponse::fromMap($this->doRPCRequest('CreateKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -558,11 +865,29 @@ class Chatbot extends OpenApiClient
     public function createPerspectiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePerspective',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePerspectiveResponse::fromMap($this->doRPCRequest('CreatePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,11 +911,29 @@ class Chatbot extends OpenApiClient
     public function deleteBotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBot',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteBotResponse::fromMap($this->doRPCRequest('DeleteBot', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -614,11 +957,29 @@ class Chatbot extends OpenApiClient
     public function deleteCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCategory',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCategoryResponse::fromMap($this->doRPCRequest('DeleteCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -642,11 +1003,29 @@ class Chatbot extends OpenApiClient
     public function deleteCoreWordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->coreWordName)) {
+            $query['CoreWordName'] = $request->coreWordName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCoreWord',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCoreWordResponse::fromMap($this->doRPCRequest('DeleteCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCoreWordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -670,11 +1049,29 @@ class Chatbot extends OpenApiClient
     public function deleteDialogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDialog',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDialogResponse::fromMap($this->doRPCRequest('DeleteDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDialogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -698,11 +1095,29 @@ class Chatbot extends OpenApiClient
     public function deleteEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEntity',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEntityResponse::fromMap($this->doRPCRequest('DeleteEntity', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -726,11 +1141,29 @@ class Chatbot extends OpenApiClient
     public function deleteIntentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->intentId)) {
+            $query['IntentId'] = $request->intentId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIntent',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteIntentResponse::fromMap($this->doRPCRequest('DeleteIntent', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -754,11 +1187,29 @@ class Chatbot extends OpenApiClient
     public function deleteKnowledgeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteKnowledge',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteKnowledgeResponse::fromMap($this->doRPCRequest('DeleteKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -782,11 +1233,29 @@ class Chatbot extends OpenApiClient
     public function describeBotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBot',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBotResponse::fromMap($this->doRPCRequest('DescribeBot', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -810,11 +1279,29 @@ class Chatbot extends OpenApiClient
     public function describeCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCategory',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCategoryResponse::fromMap($this->doRPCRequest('DescribeCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -838,11 +1325,29 @@ class Chatbot extends OpenApiClient
     public function describeCoreWordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->coreWordName)) {
+            $query['CoreWordName'] = $request->coreWordName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCoreWord',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCoreWordResponse::fromMap($this->doRPCRequest('DescribeCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCoreWordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -866,11 +1371,29 @@ class Chatbot extends OpenApiClient
     public function describeDialogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDialog',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDialogResponse::fromMap($this->doRPCRequest('DescribeDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDialogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -894,11 +1417,29 @@ class Chatbot extends OpenApiClient
     public function describeDialogFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDialogFlow',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDialogFlowResponse::fromMap($this->doRPCRequest('DescribeDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDialogFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -922,11 +1463,29 @@ class Chatbot extends OpenApiClient
     public function describeEntitiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEntities',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEntitiesResponse::fromMap($this->doRPCRequest('DescribeEntities', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -950,11 +1509,29 @@ class Chatbot extends OpenApiClient
     public function describeIntentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->intentId)) {
+            $query['IntentId'] = $request->intentId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIntent',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIntentResponse::fromMap($this->doRPCRequest('DescribeIntent', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -978,11 +1555,29 @@ class Chatbot extends OpenApiClient
     public function describeKnowledgeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeKnowledge',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeKnowledgeResponse::fromMap($this->doRPCRequest('DescribeKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1006,11 +1601,29 @@ class Chatbot extends OpenApiClient
     public function describePerspectiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->perspectiveId)) {
+            $query['PerspectiveId'] = $request->perspectiveId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePerspective',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePerspectiveResponse::fromMap($this->doRPCRequest('DescribePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1034,11 +1647,29 @@ class Chatbot extends OpenApiClient
     public function disableDialogFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDialogFlow',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableDialogFlowResponse::fromMap($this->doRPCRequest('DisableDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableDialogFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1062,11 +1693,29 @@ class Chatbot extends OpenApiClient
     public function disableKnowledgeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableKnowledge',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableKnowledgeResponse::fromMap($this->doRPCRequest('DisableKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1090,11 +1739,38 @@ class Chatbot extends OpenApiClient
     public function feedbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->feedback)) {
+            $query['Feedback'] = $request->feedback;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $query['MessageId'] = $request->messageId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Feedback',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FeedbackResponse::fromMap($this->doRPCRequest('Feedback', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1118,11 +1794,29 @@ class Chatbot extends OpenApiClient
     public function getAsyncResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsyncResult',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAsyncResultResponse::fromMap($this->doRPCRequest('GetAsyncResult', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAsyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1146,11 +1840,35 @@ class Chatbot extends OpenApiClient
     public function getBotChatDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBotChatData',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBotChatDataResponse::fromMap($this->doRPCRequest('GetBotChatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBotChatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1174,11 +1892,35 @@ class Chatbot extends OpenApiClient
     public function getBotDsStatDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBotDsStatData',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBotDsStatDataResponse::fromMap($this->doRPCRequest('GetBotDsStatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBotDsStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1202,11 +1944,35 @@ class Chatbot extends OpenApiClient
     public function getBotKnowledgeStatDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBotKnowledgeStatData',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBotKnowledgeStatDataResponse::fromMap($this->doRPCRequest('GetBotKnowledgeStatData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBotKnowledgeStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1230,11 +1996,35 @@ class Chatbot extends OpenApiClient
     public function getBotSessionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBotSessionData',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBotSessionDataResponse::fromMap($this->doRPCRequest('GetBotSessionData', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBotSessionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1258,11 +2048,47 @@ class Chatbot extends OpenApiClient
     public function getConversationListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->senderId)) {
+            $query['SenderId'] = $request->senderId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConversationList',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConversationListResponse::fromMap($this->doRPCRequest('GetConversationList', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConversationListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1286,11 +2112,38 @@ class Chatbot extends OpenApiClient
     public function listBotChatHistorysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBotChatHistorys',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBotChatHistorysResponse::fromMap($this->doRPCRequest('ListBotChatHistorys', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBotChatHistorysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1314,11 +2167,38 @@ class Chatbot extends OpenApiClient
     public function listBotColdDsDatasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBotColdDsDatas',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBotColdDsDatasResponse::fromMap($this->doRPCRequest('ListBotColdDsDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBotColdDsDatasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1342,11 +2222,38 @@ class Chatbot extends OpenApiClient
     public function listBotColdKnowledgesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBotColdKnowledges',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBotColdKnowledgesResponse::fromMap($this->doRPCRequest('ListBotColdKnowledges', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBotColdKnowledgesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1370,11 +2277,38 @@ class Chatbot extends OpenApiClient
     public function listBotDsDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBotDsDetails',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBotDsDetailsResponse::fromMap($this->doRPCRequest('ListBotDsDetails', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBotDsDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1398,11 +2332,38 @@ class Chatbot extends OpenApiClient
     public function listBotHotDsDatasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBotHotDsDatas',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBotHotDsDatasResponse::fromMap($this->doRPCRequest('ListBotHotDsDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBotHotDsDatasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1426,11 +2387,38 @@ class Chatbot extends OpenApiClient
     public function listBotHotKnowledgesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBotHotKnowledges',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBotHotKnowledgesResponse::fromMap($this->doRPCRequest('ListBotHotKnowledges', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBotHotKnowledgesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1454,11 +2442,38 @@ class Chatbot extends OpenApiClient
     public function listBotKnowledgeDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBotKnowledgeDetails',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBotKnowledgeDetailsResponse::fromMap($this->doRPCRequest('ListBotKnowledgeDetails', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBotKnowledgeDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1482,11 +2497,35 @@ class Chatbot extends OpenApiClient
     public function listBotReceptionDetailDatasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBotReceptionDetailDatas',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBotReceptionDetailDatasResponse::fromMap($this->doRPCRequest('ListBotReceptionDetailDatas', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBotReceptionDetailDatasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1510,11 +2549,29 @@ class Chatbot extends OpenApiClient
     public function listConversationLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConversationLogs',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListConversationLogsResponse::fromMap($this->doRPCRequest('ListConversationLogs', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListConversationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1538,11 +2595,32 @@ class Chatbot extends OpenApiClient
     public function moveKnowledgeCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveKnowledgeCategory',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveKnowledgeCategoryResponse::fromMap($this->doRPCRequest('MoveKnowledgeCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveKnowledgeCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1566,11 +2644,29 @@ class Chatbot extends OpenApiClient
     public function publishDialogFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishDialogFlow',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishDialogFlowResponse::fromMap($this->doRPCRequest('PublishDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishDialogFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1594,11 +2690,32 @@ class Chatbot extends OpenApiClient
     public function publishKnowledgeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->async)) {
+            $query['Async'] = $request->async;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishKnowledge',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishKnowledgeResponse::fromMap($this->doRPCRequest('PublishKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1622,11 +2739,32 @@ class Chatbot extends OpenApiClient
     public function queryBotsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBots',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBotsResponse::fromMap($this->doRPCRequest('QueryBots', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBotsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1650,11 +2788,35 @@ class Chatbot extends OpenApiClient
     public function queryCategoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->knowledgeType)) {
+            $query['KnowledgeType'] = $request->knowledgeType;
+        }
+        if (!Utils::isUnset($request->parentCategoryId)) {
+            $query['ParentCategoryId'] = $request->parentCategoryId;
+        }
+        if (!Utils::isUnset($request->showChildrens)) {
+            $query['ShowChildrens'] = $request->showChildrens;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCategories',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCategoriesResponse::fromMap($this->doRPCRequest('QueryCategories', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1678,11 +2840,38 @@ class Chatbot extends OpenApiClient
     public function queryCoreWordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->coreWordName)) {
+            $query['CoreWordName'] = $request->coreWordName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->synonym)) {
+            $query['Synonym'] = $request->synonym;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCoreWords',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCoreWordsResponse::fromMap($this->doRPCRequest('QueryCoreWords', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCoreWordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1706,11 +2895,38 @@ class Chatbot extends OpenApiClient
     public function queryDialogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogName)) {
+            $query['DialogName'] = $request->dialogName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDialogs',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDialogsResponse::fromMap($this->doRPCRequest('QueryDialogs', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDialogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1734,11 +2950,38 @@ class Chatbot extends OpenApiClient
     public function queryEntitiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
+        if (!Utils::isUnset($request->entityName)) {
+            $query['EntityName'] = $request->entityName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEntities',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEntitiesResponse::fromMap($this->doRPCRequest('QueryEntities', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1762,11 +3005,38 @@ class Chatbot extends OpenApiClient
     public function queryIntentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
+        if (!Utils::isUnset($request->intentName)) {
+            $query['IntentName'] = $request->intentName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryIntents',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryIntentsResponse::fromMap($this->doRPCRequest('QueryIntents', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryIntentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1790,11 +3060,41 @@ class Chatbot extends OpenApiClient
     public function queryKnowledgesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->coreWordName)) {
+            $query['CoreWordName'] = $request->coreWordName;
+        }
+        if (!Utils::isUnset($request->knowledgeTitle)) {
+            $query['KnowledgeTitle'] = $request->knowledgeTitle;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryKnowledges',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryKnowledgesResponse::fromMap($this->doRPCRequest('QueryKnowledges', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryKnowledgesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1810,25 +3110,46 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param QueryPerspectivesRequest $request
+     * @param RuntimeOptions           $runtime
      *
      * @return QueryPerspectivesResponse
      */
-    public function queryPerspectivesWithOptions($runtime)
+    public function queryPerspectivesWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPerspectives',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryPerspectivesResponse::fromMap($this->doRPCRequest('QueryPerspectives', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPerspectivesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param QueryPerspectivesRequest $request
+     *
      * @return QueryPerspectivesResponse
      */
-    public function queryPerspectives()
+    public function queryPerspectives($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->queryPerspectivesWithOptions($runtime);
+        return $this->queryPerspectivesWithOptions($request, $runtime);
     }
 
     /**
@@ -1840,11 +3161,29 @@ class Chatbot extends OpenApiClient
     public function querySystemEntitiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->entityName)) {
+            $query['EntityName'] = $request->entityName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySystemEntities',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySystemEntitiesResponse::fromMap($this->doRPCRequest('QuerySystemEntities', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySystemEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1873,11 +3212,35 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->member)) {
             $request->memberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->member), 'Member', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->memberShrink)) {
+            $query['Member'] = $request->memberShrink;
+        }
+        if (!Utils::isUnset($request->removeType)) {
+            $query['RemoveType'] = $request->removeType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveEntityMember',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveEntityMemberResponse::fromMap($this->doRPCRequest('RemoveEntityMember', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveEntityMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1901,11 +3264,32 @@ class Chatbot extends OpenApiClient
     public function removeSynonymWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->coreWordName)) {
+            $query['CoreWordName'] = $request->coreWordName;
+        }
+        if (!Utils::isUnset($request->synonym)) {
+            $query['Synonym'] = $request->synonym;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveSynonym',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveSynonymResponse::fromMap($this->doRPCRequest('RemoveSynonym', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveSynonymResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1929,11 +3313,29 @@ class Chatbot extends OpenApiClient
     public function testDialogFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TestDialogFlow',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TestDialogFlowResponse::fromMap($this->doRPCRequest('TestDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TestDialogFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1957,11 +3359,32 @@ class Chatbot extends OpenApiClient
     public function updateCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCategory',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCategoryResponse::fromMap($this->doRPCRequest('UpdateCategory', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1985,11 +3408,32 @@ class Chatbot extends OpenApiClient
     public function updateCoreWordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->coreWordCode)) {
+            $query['CoreWordCode'] = $request->coreWordCode;
+        }
+        if (!Utils::isUnset($request->coreWordName)) {
+            $query['CoreWordName'] = $request->coreWordName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCoreWord',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCoreWordResponse::fromMap($this->doRPCRequest('UpdateCoreWord', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCoreWordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2013,11 +3457,35 @@ class Chatbot extends OpenApiClient
     public function updateDialogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
+        if (!Utils::isUnset($request->dialogName)) {
+            $query['DialogName'] = $request->dialogName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDialog',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDialogResponse::fromMap($this->doRPCRequest('UpdateDialog', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDialogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2046,11 +3514,34 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->moduleDefinition)) {
             $request->moduleDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->moduleDefinition), 'ModuleDefinition', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->moduleDefinitionShrink)) {
+            $body['ModuleDefinition'] = $request->moduleDefinitionShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDialogFlow',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDialogFlowResponse::fromMap($this->doRPCRequest('UpdateDialogFlow', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDialogFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2079,11 +3570,43 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->members)) {
             $request->membersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->entityName)) {
+            $query['EntityName'] = $request->entityName;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->regex)) {
+            $query['Regex'] = $request->regex;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->membersShrink)) {
+            $body['Members'] = $request->membersShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEntity',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEntityResponse::fromMap($this->doRPCRequest('UpdateEntity', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2112,11 +3635,32 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->intentDefinition)) {
             $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->intentDefinition), 'IntentDefinition', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->intentDefinitionShrink)) {
+            $query['IntentDefinition'] = $request->intentDefinitionShrink;
+        }
+        if (!Utils::isUnset($request->intentId)) {
+            $query['IntentId'] = $request->intentId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIntent',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateIntentResponse::fromMap($this->doRPCRequest('UpdateIntent', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2145,11 +3689,31 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->knowledge)) {
             $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->knowledge), 'Knowledge', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->knowledgeShrink)) {
+            $body['Knowledge'] = $request->knowledgeShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateKnowledge',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateKnowledgeResponse::fromMap($this->doRPCRequest('UpdateKnowledge', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2173,11 +3737,32 @@ class Chatbot extends OpenApiClient
     public function updatePerspectiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->perspectiveId)) {
+            $query['PerspectiveId'] = $request->perspectiveId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePerspective',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdatePerspectiveResponse::fromMap($this->doRPCRequest('UpdatePerspective', '2017-10-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

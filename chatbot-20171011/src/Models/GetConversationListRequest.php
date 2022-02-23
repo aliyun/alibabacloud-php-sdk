@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetConversationListRequest extends Model
 {
     /**
+     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     *
+     * @var string
+     */
+    public $agentKey;
+
+    /**
      * @var string
      */
     public $endDate;
@@ -43,6 +50,7 @@ class GetConversationListRequest extends Model
      */
     public $startDate;
     protected $_name = [
+        'agentKey'   => 'AgentKey',
         'endDate'    => 'EndDate',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
@@ -59,6 +67,9 @@ class GetConversationListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentKey) {
+            $res['AgentKey'] = $this->agentKey;
+        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
@@ -92,6 +103,9 @@ class GetConversationListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentKey'])) {
+            $model->agentKey = $map['AgentKey'];
+        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }

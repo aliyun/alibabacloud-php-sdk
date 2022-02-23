@@ -9,10 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DeleteEntityRequest extends Model
 {
     /**
+     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     *
+     * @var string
+     */
+    public $agentKey;
+
+    /**
      * @var int
      */
     public $entityId;
     protected $_name = [
+        'agentKey' => 'AgentKey',
         'entityId' => 'EntityId',
     ];
 
@@ -23,6 +31,9 @@ class DeleteEntityRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentKey) {
+            $res['AgentKey'] = $this->agentKey;
+        }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
@@ -38,6 +49,9 @@ class DeleteEntityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentKey'])) {
+            $model->agentKey = $map['AgentKey'];
+        }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }

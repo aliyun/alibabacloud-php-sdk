@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateIntentShrinkRequest extends Model
 {
     /**
+     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     *
+     * @var string
+     */
+    public $agentKey;
+
+    /**
      * @var string
      */
     public $intentDefinitionShrink;
@@ -18,6 +25,7 @@ class UpdateIntentShrinkRequest extends Model
      */
     public $intentId;
     protected $_name = [
+        'agentKey'               => 'AgentKey',
         'intentDefinitionShrink' => 'IntentDefinition',
         'intentId'               => 'IntentId',
     ];
@@ -29,6 +37,9 @@ class UpdateIntentShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentKey) {
+            $res['AgentKey'] = $this->agentKey;
+        }
         if (null !== $this->intentDefinitionShrink) {
             $res['IntentDefinition'] = $this->intentDefinitionShrink;
         }
@@ -47,6 +58,9 @@ class UpdateIntentShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentKey'])) {
+            $model->agentKey = $map['AgentKey'];
+        }
         if (isset($map['IntentDefinition'])) {
             $model->intentDefinitionShrink = $map['IntentDefinition'];
         }

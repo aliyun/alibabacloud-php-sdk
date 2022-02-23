@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class AppendEntityMemberRequest extends Model
 {
     /**
+     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     *
+     * @var string
+     */
+    public $agentKey;
+
+    /**
      * @var string
      */
     public $applyType;
@@ -24,6 +31,7 @@ class AppendEntityMemberRequest extends Model
      */
     public $member;
     protected $_name = [
+        'agentKey'  => 'AgentKey',
         'applyType' => 'ApplyType',
         'entityId'  => 'EntityId',
         'member'    => 'Member',
@@ -36,6 +44,9 @@ class AppendEntityMemberRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentKey) {
+            $res['AgentKey'] = $this->agentKey;
+        }
         if (null !== $this->applyType) {
             $res['ApplyType'] = $this->applyType;
         }
@@ -57,6 +68,9 @@ class AppendEntityMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentKey'])) {
+            $model->agentKey = $map['AgentKey'];
+        }
         if (isset($map['ApplyType'])) {
             $model->applyType = $map['ApplyType'];
         }
