@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAggregateResourceComplianceByConfigRuleRequest extends Model
+class StartAggregateRemediationRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,10 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     /**
      * @var string
      */
-    public $complianceType;
-
-    /**
-     * @var string
-     */
     public $configRuleId;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
     protected $_name = [
-        'aggregatorId'    => 'AggregatorId',
-        'complianceType'  => 'ComplianceType',
-        'configRuleId'    => 'ConfigRuleId',
-        'resourceOwnerId' => 'ResourceOwnerId',
+        'aggregatorId' => 'AggregatorId',
+        'configRuleId' => 'ConfigRuleId',
     ];
 
     public function validate()
@@ -44,14 +32,8 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
-        if (null !== $this->complianceType) {
-            $res['ComplianceType'] = $this->complianceType;
-        }
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -60,7 +42,7 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAggregateResourceComplianceByConfigRuleRequest
+     * @return StartAggregateRemediationRequest
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +50,8 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
-        if (isset($map['ComplianceType'])) {
-            $model->complianceType = $map['ComplianceType'];
-        }
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

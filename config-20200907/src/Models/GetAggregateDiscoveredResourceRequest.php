@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAggregateResourceComplianceByConfigRuleRequest extends Model
+class GetAggregateDiscoveredResourceRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,28 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     /**
      * @var string
      */
-    public $complianceType;
+    public $region;
 
     /**
      * @var string
      */
-    public $configRuleId;
+    public $resourceId;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
         'aggregatorId'    => 'AggregatorId',
-        'complianceType'  => 'ComplianceType',
-        'configRuleId'    => 'ConfigRuleId',
+        'region'          => 'Region',
+        'resourceId'      => 'ResourceId',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -44,14 +50,17 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
-        if (null !== $this->complianceType) {
-            $res['ComplianceType'] = $this->complianceType;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -60,7 +69,7 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAggregateResourceComplianceByConfigRuleRequest
+     * @return GetAggregateDiscoveredResourceRequest
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +77,17 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
-        if (isset($map['ComplianceType'])) {
-            $model->complianceType = $map['ComplianceType'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

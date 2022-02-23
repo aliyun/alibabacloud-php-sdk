@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackShrink
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateRemediationRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregatorRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregatorResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregatorShrinkRequest;
@@ -27,6 +29,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\CreateCompliancePackShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateRemediationRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveAggregateConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveConfigRulesRequest;
@@ -35,10 +39,14 @@ use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateCompliancePacksReque
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateCompliancePacksResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateConfigRulesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateRemediationsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregatorsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregatorsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteCompliancePacksResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachConfigRuleToCompliancePackRequest;
@@ -65,6 +73,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRulesReportReques
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRulesReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleSummaryByRiskLevelRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleSummaryByRiskLevelResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateDiscoveredResourceRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateDiscoveredResourceResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByPackRequest;
@@ -98,6 +108,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByR
 use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByRegionResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByResourceTypeRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByResourceTypeResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetManagedRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetManagedRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceByConfigRuleRequest;
@@ -124,6 +136,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationRe
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsRequest;
@@ -134,8 +150,14 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListDiscoveredResourcesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListDiscoveredResourcesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\RevertAggregateEvaluationResultsRequest;
@@ -146,12 +168,18 @@ use AlibabaCloud\SDK\Config\V20200907\Models\RevertEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\RevertEvaluationResultsShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateConfigRuleEvaluationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateConfigRuleEvaluationResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateRemediationRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateRemediationResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\StartRemediationRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\StartRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateRemediationRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorShrinkRequest;
@@ -520,6 +548,70 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param CreateAggregateRemediationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateAggregateRemediationResponse
+     */
+    public function createAggregateRemediationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $body['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $body['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->invokeType)) {
+            $body['InvokeType'] = $request->invokeType;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->remediationTemplateId)) {
+            $body['RemediationTemplateId'] = $request->remediationTemplateId;
+        }
+        if (!Utils::isUnset($request->remediationType)) {
+            $body['RemediationType'] = $request->remediationType;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAggregateRemediation',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAggregateRemediationRequest $request
+     *
+     * @return CreateAggregateRemediationResponse
+     */
+    public function createAggregateRemediation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAggregateRemediationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateAggregatorRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
@@ -739,6 +831,67 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param CreateRemediationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateRemediationResponse
+     */
+    public function createRemediationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $body['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->invokeType)) {
+            $body['InvokeType'] = $request->invokeType;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->remediationTemplateId)) {
+            $body['RemediationTemplateId'] = $request->remediationTemplateId;
+        }
+        if (!Utils::isUnset($request->remediationType)) {
+            $body['RemediationType'] = $request->remediationType;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRemediation',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRemediationRequest $request
+     *
+     * @return CreateRemediationResponse
+     */
+    public function createRemediation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRemediationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeactiveAggregateConfigRulesRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -926,6 +1079,52 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param DeleteAggregateRemediationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteAggregateRemediationsResponse
+     */
+    public function deleteAggregateRemediationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $body['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->remediationIds)) {
+            $body['RemediationIds'] = $request->remediationIds;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAggregateRemediations',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAggregateRemediationsRequest $request
+     *
+     * @return DeleteAggregateRemediationsResponse
+     */
+    public function deleteAggregateRemediations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAggregateRemediationsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAggregatorsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1018,6 +1217,49 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCompliancePacksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRemediationsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteRemediationsResponse
+     */
+    public function deleteRemediationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->remediationIds)) {
+            $body['RemediationIds'] = $request->remediationIds;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRemediations',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRemediationsRequest $request
+     *
+     * @return DeleteRemediationsResponse
+     */
+    public function deleteRemediations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRemediationsWithOptions($request, $runtime);
     }
 
     /**
@@ -1598,6 +1840,46 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param GetAggregateDiscoveredResourceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetAggregateDiscoveredResourceResponse
+     */
+    public function getAggregateDiscoveredResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateDiscoveredResource',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAggregateDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateDiscoveredResourceRequest $request
+     *
+     * @return GetAggregateDiscoveredResourceResponse
+     */
+    public function getAggregateDiscoveredResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateDiscoveredResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAggregateResourceComplianceByConfigRuleRequest $request
      * @param RuntimeOptions                                    $runtime
      *
@@ -1615,6 +1897,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->configRuleId)) {
             $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2218,6 +2503,46 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param GetDiscoveredResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDiscoveredResourceResponse
+     */
+    public function getDiscoveredResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiscoveredResource',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDiscoveredResourceRequest $request
+     *
+     * @return GetDiscoveredResourceResponse
+     */
+    public function getDiscoveredResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDiscoveredResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
      * @param RuntimeOptions                                  $runtime
      *
@@ -2818,6 +3143,116 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param ListAggregateDiscoveredResourcesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListAggregateDiscoveredResourcesResponse
+     */
+    public function listAggregateDiscoveredResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regions)) {
+            $query['Regions'] = $request->regions;
+        }
+        if (!Utils::isUnset($request->resourceDeleted)) {
+            $query['ResourceDeleted'] = $request->resourceDeleted;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceTypes)) {
+            $query['ResourceTypes'] = $request->resourceTypes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateDiscoveredResources',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAggregateDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateDiscoveredResourcesRequest $request
+     *
+     * @return ListAggregateDiscoveredResourcesResponse
+     */
+    public function listAggregateDiscoveredResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateDiscoveredResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateRemediationsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListAggregateRemediationsResponse
+     */
+    public function listAggregateRemediationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateRemediations',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateRemediationsRequest $request
+     *
+     * @return ListAggregateRemediationsResponse
+     */
+    public function listAggregateRemediations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateRemediationsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAggregateResourceEvaluationResultsRequest $request
      * @param RuntimeOptions                                $runtime
      *
@@ -3039,6 +3474,64 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param ListDiscoveredResourcesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDiscoveredResourcesResponse
+     */
+    public function listDiscoveredResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regions)) {
+            $query['Regions'] = $request->regions;
+        }
+        if (!Utils::isUnset($request->resourceDeleted)) {
+            $query['ResourceDeleted'] = $request->resourceDeleted;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceTypes)) {
+            $query['ResourceTypes'] = $request->resourceTypes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDiscoveredResources',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDiscoveredResourcesRequest $request
+     *
+     * @return ListDiscoveredResourcesResponse
+     */
+    public function listDiscoveredResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDiscoveredResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListManagedRulesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3088,6 +3581,95 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listManagedRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRemediationTemplatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListRemediationTemplatesResponse
+     */
+    public function listRemediationTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->managedRuleIdentifier)) {
+            $query['ManagedRuleIdentifier'] = $request->managedRuleIdentifier;
+        }
+        if (!Utils::isUnset($request->remediationType)) {
+            $query['RemediationType'] = $request->remediationType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRemediationTemplates',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRemediationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRemediationTemplatesRequest $request
+     *
+     * @return ListRemediationTemplatesResponse
+     */
+    public function listRemediationTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRemediationTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRemediationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListRemediationsResponse
+     */
+    public function listRemediationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRemediations',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRemediationsRequest $request
+     *
+     * @return ListRemediationsResponse
+     */
+    public function listRemediations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRemediationsWithOptions($request, $runtime);
     }
 
     /**
@@ -3306,6 +3888,95 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param StartAggregateRemediationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return StartAggregateRemediationResponse
+     */
+    public function startAggregateRemediationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartAggregateRemediation',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartAggregateRemediationRequest $request
+     *
+     * @return StartAggregateRemediationResponse
+     */
+    public function startAggregateRemediation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startAggregateRemediationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartRemediationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartRemediationResponse
+     */
+    public function startRemediationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartRemediation',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartRemediationRequest $request
+     *
+     * @return StartRemediationResponse
+     */
+    public function startRemediation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startRemediationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateAggregateCompliancePackRequest $tmpReq
      * @param RuntimeOptions                       $runtime
      *
@@ -3474,6 +4145,67 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAggregateConfigRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAggregateRemediationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateAggregateRemediationResponse
+     */
+    public function updateAggregateRemediationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $body['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->invokeType)) {
+            $body['InvokeType'] = $request->invokeType;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->remediationId)) {
+            $body['RemediationId'] = $request->remediationId;
+        }
+        if (!Utils::isUnset($request->remediationTemplateId)) {
+            $body['RemediationTemplateId'] = $request->remediationTemplateId;
+        }
+        if (!Utils::isUnset($request->remediationType)) {
+            $body['RemediationType'] = $request->remediationType;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAggregateRemediation',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAggregateRemediationRequest $request
+     *
+     * @return UpdateAggregateRemediationResponse
+     */
+    public function updateAggregateRemediation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAggregateRemediationWithOptions($request, $runtime);
     }
 
     /**
