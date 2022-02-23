@@ -46,11 +46,6 @@ class VerifyMaterialRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $userId;
     protected $_name = [
         'bizId'               => 'BizId',
@@ -60,12 +55,16 @@ class VerifyMaterialRequest extends Model
         'idCardFrontImageUrl' => 'IdCardFrontImageUrl',
         'idCardNumber'        => 'IdCardNumber',
         'name'                => 'Name',
-        'regionId'            => 'RegionId',
         'userId'              => 'UserId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('bizId', $this->bizId, true);
+        Model::validateRequired('bizType', $this->bizType, true);
+        Model::validateRequired('faceImageUrl', $this->faceImageUrl, true);
+        Model::validateRequired('idCardNumber', $this->idCardNumber, true);
+        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()
@@ -91,9 +90,6 @@ class VerifyMaterialRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -130,9 +126,6 @@ class VerifyMaterialRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

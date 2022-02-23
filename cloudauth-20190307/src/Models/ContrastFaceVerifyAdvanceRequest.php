@@ -90,11 +90,6 @@ class ContrastFaceVerifyAdvanceRequest extends Model
     public $productCode;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $sceneId;
@@ -120,7 +115,6 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         'ossObjectName'          => 'OssObjectName',
         'outerOrderNo'           => 'OuterOrderNo',
         'productCode'            => 'ProductCode',
-        'regionId'               => 'RegionId',
         'sceneId'                => 'SceneId',
         'userId'                 => 'UserId',
     ];
@@ -180,9 +174,6 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
@@ -249,9 +240,6 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];

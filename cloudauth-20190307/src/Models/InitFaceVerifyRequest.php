@@ -11,6 +11,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $authId;
+
+    /**
+     * @var string
+     */
     public $callbackToken;
 
     /**
@@ -101,11 +106,6 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $returnUrl;
 
     /**
@@ -118,6 +118,7 @@ class InitFaceVerifyRequest extends Model
      */
     public $userId;
     protected $_name = [
+        'authId'                 => 'AuthId',
         'callbackToken'          => 'CallbackToken',
         'callbackUrl'            => 'CallbackUrl',
         'certName'               => 'CertName',
@@ -136,7 +137,6 @@ class InitFaceVerifyRequest extends Model
         'ossObjectName'          => 'OssObjectName',
         'outerOrderNo'           => 'OuterOrderNo',
         'productCode'            => 'ProductCode',
-        'regionId'               => 'RegionId',
         'returnUrl'              => 'ReturnUrl',
         'sceneId'                => 'SceneId',
         'userId'                 => 'UserId',
@@ -149,6 +149,9 @@ class InitFaceVerifyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authId) {
+            $res['AuthId'] = $this->authId;
+        }
         if (null !== $this->callbackToken) {
             $res['CallbackToken'] = $this->callbackToken;
         }
@@ -203,9 +206,6 @@ class InitFaceVerifyRequest extends Model
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->returnUrl) {
             $res['ReturnUrl'] = $this->returnUrl;
         }
@@ -227,6 +227,9 @@ class InitFaceVerifyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthId'])) {
+            $model->authId = $map['AuthId'];
+        }
         if (isset($map['CallbackToken'])) {
             $model->callbackToken = $map['CallbackToken'];
         }
@@ -280,9 +283,6 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ReturnUrl'])) {
             $model->returnUrl = $map['ReturnUrl'];
