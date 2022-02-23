@@ -16,7 +16,17 @@ class vulnerabilities extends Model
     /**
      * @var string
      */
+    public $aliasName;
+
+    /**
+     * @var string
+     */
     public $cveLink;
+
+    /**
+     * @var string
+     */
+    public $cveLocation;
 
     /**
      * @var string
@@ -41,6 +51,11 @@ class vulnerabilities extends Model
     /**
      * @var string
      */
+    public $scanType;
+
+    /**
+     * @var string
+     */
     public $severity;
 
     /**
@@ -59,11 +74,14 @@ class vulnerabilities extends Model
     public $versionFormat;
     protected $_name = [
         'addedBy'       => 'AddedBy',
+        'aliasName'     => 'AliasName',
         'cveLink'       => 'CveLink',
+        'cveLocation'   => 'CveLocation',
         'cveName'       => 'CveName',
         'description'   => 'Description',
         'feature'       => 'Feature',
         'fixCmd'        => 'FixCmd',
+        'scanType'      => 'ScanType',
         'severity'      => 'Severity',
         'version'       => 'Version',
         'versionFixed'  => 'VersionFixed',
@@ -80,8 +98,14 @@ class vulnerabilities extends Model
         if (null !== $this->addedBy) {
             $res['AddedBy'] = $this->addedBy;
         }
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
+        }
         if (null !== $this->cveLink) {
             $res['CveLink'] = $this->cveLink;
+        }
+        if (null !== $this->cveLocation) {
+            $res['CveLocation'] = $this->cveLocation;
         }
         if (null !== $this->cveName) {
             $res['CveName'] = $this->cveName;
@@ -94,6 +118,9 @@ class vulnerabilities extends Model
         }
         if (null !== $this->fixCmd) {
             $res['FixCmd'] = $this->fixCmd;
+        }
+        if (null !== $this->scanType) {
+            $res['ScanType'] = $this->scanType;
         }
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
@@ -122,8 +149,14 @@ class vulnerabilities extends Model
         if (isset($map['AddedBy'])) {
             $model->addedBy = $map['AddedBy'];
         }
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
+        }
         if (isset($map['CveLink'])) {
             $model->cveLink = $map['CveLink'];
+        }
+        if (isset($map['CveLocation'])) {
+            $model->cveLocation = $map['CveLocation'];
         }
         if (isset($map['CveName'])) {
             $model->cveName = $map['CveName'];
@@ -136,6 +169,9 @@ class vulnerabilities extends Model
         }
         if (isset($map['FixCmd'])) {
             $model->fixCmd = $map['FixCmd'];
+        }
+        if (isset($map['ScanType'])) {
+            $model->scanType = $map['ScanType'];
         }
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];

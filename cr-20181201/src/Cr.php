@@ -3787,6 +3787,9 @@ class Cr extends OpenApiClient
         if (!Utils::isUnset($request->digest)) {
             $query['Digest'] = $request->digest;
         }
+        if (!Utils::isUnset($request->filterValue)) {
+            $query['FilterValue'] = $request->filterValue;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -3802,11 +3805,17 @@ class Cr extends OpenApiClient
         if (!Utils::isUnset($request->scanTaskId)) {
             $query['ScanTaskId'] = $request->scanTaskId;
         }
+        if (!Utils::isUnset($request->scanType)) {
+            $query['ScanType'] = $request->scanType;
+        }
         if (!Utils::isUnset($request->severity)) {
             $query['Severity'] = $request->severity;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vulQueryKey)) {
+            $query['VulQueryKey'] = $request->vulQueryKey;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

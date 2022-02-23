@@ -16,6 +16,11 @@ class ListRepoTagScanResultRequest extends Model
     /**
      * @var string
      */
+    public $filterValue;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -41,21 +46,34 @@ class ListRepoTagScanResultRequest extends Model
     /**
      * @var string
      */
+    public $scanType;
+
+    /**
+     * @var string
+     */
     public $severity;
 
     /**
      * @var string
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $vulQueryKey;
     protected $_name = [
-        'digest'     => 'Digest',
-        'instanceId' => 'InstanceId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'repoId'     => 'RepoId',
-        'scanTaskId' => 'ScanTaskId',
-        'severity'   => 'Severity',
-        'tag'        => 'Tag',
+        'digest'      => 'Digest',
+        'filterValue' => 'FilterValue',
+        'instanceId'  => 'InstanceId',
+        'pageNo'      => 'PageNo',
+        'pageSize'    => 'PageSize',
+        'repoId'      => 'RepoId',
+        'scanTaskId'  => 'ScanTaskId',
+        'scanType'    => 'ScanType',
+        'severity'    => 'Severity',
+        'tag'         => 'Tag',
+        'vulQueryKey' => 'VulQueryKey',
     ];
 
     public function validate()
@@ -67,6 +85,9 @@ class ListRepoTagScanResultRequest extends Model
         $res = [];
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
+        }
+        if (null !== $this->filterValue) {
+            $res['FilterValue'] = $this->filterValue;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -83,11 +104,17 @@ class ListRepoTagScanResultRequest extends Model
         if (null !== $this->scanTaskId) {
             $res['ScanTaskId'] = $this->scanTaskId;
         }
+        if (null !== $this->scanType) {
+            $res['ScanType'] = $this->scanType;
+        }
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->vulQueryKey) {
+            $res['VulQueryKey'] = $this->vulQueryKey;
         }
 
         return $res;
@@ -104,6 +131,9 @@ class ListRepoTagScanResultRequest extends Model
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
         }
+        if (isset($map['FilterValue'])) {
+            $model->filterValue = $map['FilterValue'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -119,11 +149,17 @@ class ListRepoTagScanResultRequest extends Model
         if (isset($map['ScanTaskId'])) {
             $model->scanTaskId = $map['ScanTaskId'];
         }
+        if (isset($map['ScanType'])) {
+            $model->scanType = $map['ScanType'];
+        }
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['VulQueryKey'])) {
+            $model->vulQueryKey = $map['VulQueryKey'];
         }
 
         return $model;
