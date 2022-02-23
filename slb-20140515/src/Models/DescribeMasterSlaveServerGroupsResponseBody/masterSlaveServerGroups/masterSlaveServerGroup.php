@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class masterSlaveServerGroup extends Model
 {
     /**
+     * @var associatedObjects
+     */
+    public $associatedObjects;
+
+    /**
      * @var string
      */
     public $masterSlaveServerGroupId;
@@ -18,15 +23,10 @@ class masterSlaveServerGroup extends Model
      * @var string
      */
     public $masterSlaveServerGroupName;
-
-    /**
-     * @var associatedObjects
-     */
-    public $associatedObjects;
     protected $_name = [
+        'associatedObjects'          => 'AssociatedObjects',
         'masterSlaveServerGroupId'   => 'MasterSlaveServerGroupId',
         'masterSlaveServerGroupName' => 'MasterSlaveServerGroupName',
-        'associatedObjects'          => 'AssociatedObjects',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class masterSlaveServerGroup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->associatedObjects) {
+            $res['AssociatedObjects'] = null !== $this->associatedObjects ? $this->associatedObjects->toMap() : null;
+        }
         if (null !== $this->masterSlaveServerGroupId) {
             $res['MasterSlaveServerGroupId'] = $this->masterSlaveServerGroupId;
         }
         if (null !== $this->masterSlaveServerGroupName) {
             $res['MasterSlaveServerGroupName'] = $this->masterSlaveServerGroupName;
-        }
-        if (null !== $this->associatedObjects) {
-            $res['AssociatedObjects'] = null !== $this->associatedObjects ? $this->associatedObjects->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class masterSlaveServerGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssociatedObjects'])) {
+            $model->associatedObjects = associatedObjects::fromMap($map['AssociatedObjects']);
+        }
         if (isset($map['MasterSlaveServerGroupId'])) {
             $model->masterSlaveServerGroupId = $map['MasterSlaveServerGroupId'];
         }
         if (isset($map['MasterSlaveServerGroupName'])) {
             $model->masterSlaveServerGroupName = $map['MasterSlaveServerGroupName'];
-        }
-        if (isset($map['AssociatedObjects'])) {
-            $model->associatedObjects = associatedObjects::fromMap($map['AssociatedObjects']);
         }
 
         return $model;

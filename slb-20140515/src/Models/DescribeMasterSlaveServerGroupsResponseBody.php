@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeMasterSlaveServerGroupsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var masterSlaveServerGroups
      */
     public $masterSlaveServerGroups;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'               => 'RequestId',
         'masterSlaveServerGroups' => 'MasterSlaveServerGroups',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeMasterSlaveServerGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->masterSlaveServerGroups) {
             $res['MasterSlaveServerGroups'] = null !== $this->masterSlaveServerGroups ? $this->masterSlaveServerGroups->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeMasterSlaveServerGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MasterSlaveServerGroups'])) {
             $model->masterSlaveServerGroups = masterSlaveServerGroups::fromMap($map['MasterSlaveServerGroups']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,16 +11,6 @@ class masterSlaveBackendServer extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $weight;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -37,13 +27,23 @@ class masterSlaveBackendServer extends Model
      * @var string
      */
     public $serverType;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
-        'type'        => 'Type',
-        'weight'      => 'Weight',
         'description' => 'Description',
         'port'        => 'Port',
         'serverId'    => 'ServerId',
         'serverType'  => 'ServerType',
+        'type'        => 'Type',
+        'weight'      => 'Weight',
     ];
 
     public function validate()
@@ -53,12 +53,6 @@ class masterSlaveBackendServer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -70,6 +64,12 @@ class masterSlaveBackendServer extends Model
         }
         if (null !== $this->serverType) {
             $res['ServerType'] = $this->serverType;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -83,12 +83,6 @@ class masterSlaveBackendServer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -100,6 +94,12 @@ class masterSlaveBackendServer extends Model
         }
         if (isset($map['ServerType'])) {
             $model->serverType = $map['ServerType'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

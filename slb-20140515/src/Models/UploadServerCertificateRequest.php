@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UploadServerCertificateRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $aliCloudCertificateId;
@@ -46,7 +26,12 @@ class UploadServerCertificateRequest extends Model
     /**
      * @var string
      */
-    public $serverCertificate;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -56,30 +41,45 @@ class UploadServerCertificateRequest extends Model
     /**
      * @var string
      */
-    public $serverCertificateName;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $regionId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $serverCertificate;
+
+    /**
+     * @var string
+     */
+    public $serverCertificateName;
     protected $_name = [
-        'ownerId'                     => 'OwnerId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
-        'regionId'                    => 'RegionId',
         'aliCloudCertificateId'       => 'AliCloudCertificateId',
         'aliCloudCertificateName'     => 'AliCloudCertificateName',
         'aliCloudCertificateRegionId' => 'AliCloudCertificateRegionId',
-        'serverCertificate'           => 'ServerCertificate',
-        'privateKey'                  => 'PrivateKey',
-        'serverCertificateName'       => 'ServerCertificateName',
         'ownerAccount'                => 'OwnerAccount',
+        'ownerId'                     => 'OwnerId',
+        'privateKey'                  => 'PrivateKey',
+        'regionId'                    => 'RegionId',
         'resourceGroupId'             => 'ResourceGroupId',
+        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
+        'resourceOwnerId'             => 'ResourceOwnerId',
+        'serverCertificate'           => 'ServerCertificate',
+        'serverCertificateName'       => 'ServerCertificateName',
     ];
 
     public function validate()
@@ -89,18 +89,6 @@ class UploadServerCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->aliCloudCertificateId) {
             $res['AliCloudCertificateId'] = $this->aliCloudCertificateId;
         }
@@ -110,20 +98,32 @@ class UploadServerCertificateRequest extends Model
         if (null !== $this->aliCloudCertificateRegionId) {
             $res['AliCloudCertificateRegionId'] = $this->aliCloudCertificateRegionId;
         }
-        if (null !== $this->serverCertificate) {
-            $res['ServerCertificate'] = $this->serverCertificate;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
         }
-        if (null !== $this->serverCertificateName) {
-            $res['ServerCertificateName'] = $this->serverCertificateName;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->serverCertificate) {
+            $res['ServerCertificate'] = $this->serverCertificate;
+        }
+        if (null !== $this->serverCertificateName) {
+            $res['ServerCertificateName'] = $this->serverCertificateName;
         }
 
         return $res;
@@ -137,18 +137,6 @@ class UploadServerCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AliCloudCertificateId'])) {
             $model->aliCloudCertificateId = $map['AliCloudCertificateId'];
         }
@@ -158,20 +146,32 @@ class UploadServerCertificateRequest extends Model
         if (isset($map['AliCloudCertificateRegionId'])) {
             $model->aliCloudCertificateRegionId = $map['AliCloudCertificateRegionId'];
         }
-        if (isset($map['ServerCertificate'])) {
-            $model->serverCertificate = $map['ServerCertificate'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
         }
-        if (isset($map['ServerCertificateName'])) {
-            $model->serverCertificateName = $map['ServerCertificateName'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ServerCertificate'])) {
+            $model->serverCertificate = $map['ServerCertificate'];
+        }
+        if (isset($map['ServerCertificateName'])) {
+            $model->serverCertificateName = $map['ServerCertificateName'];
         }
 
         return $model;

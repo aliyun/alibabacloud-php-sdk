@@ -11,15 +11,15 @@ class CreateTLSCipherPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $TLSCipherPolicyId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $TLSCipherPolicyId;
     protected $_name = [
-        'TLSCipherPolicyId' => 'TLSCipherPolicyId',
         'requestId'         => 'RequestId',
+        'TLSCipherPolicyId' => 'TLSCipherPolicyId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateTLSCipherPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->TLSCipherPolicyId) {
-            $res['TLSCipherPolicyId'] = $this->TLSCipherPolicyId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->TLSCipherPolicyId) {
+            $res['TLSCipherPolicyId'] = $this->TLSCipherPolicyId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateTLSCipherPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TLSCipherPolicyId'])) {
-            $model->TLSCipherPolicyId = $map['TLSCipherPolicyId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TLSCipherPolicyId'])) {
+            $model->TLSCipherPolicyId = $map['TLSCipherPolicyId'];
         }
 
         return $model;

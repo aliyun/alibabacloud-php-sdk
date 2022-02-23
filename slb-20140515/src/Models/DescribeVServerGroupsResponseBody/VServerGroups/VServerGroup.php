@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class VServerGroup extends Model
 {
     /**
+     * @var associatedObjects
+     */
+    public $associatedObjects;
+
+    /**
+     * @var int
+     */
+    public $serverCount;
+
+    /**
      * @var string
      */
     public $VServerGroupId;
@@ -18,15 +28,11 @@ class VServerGroup extends Model
      * @var string
      */
     public $VServerGroupName;
-
-    /**
-     * @var associatedObjects
-     */
-    public $associatedObjects;
     protected $_name = [
+        'associatedObjects' => 'AssociatedObjects',
+        'serverCount'       => 'ServerCount',
         'VServerGroupId'    => 'VServerGroupId',
         'VServerGroupName'  => 'VServerGroupName',
-        'associatedObjects' => 'AssociatedObjects',
     ];
 
     public function validate()
@@ -36,14 +42,17 @@ class VServerGroup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->associatedObjects) {
+            $res['AssociatedObjects'] = null !== $this->associatedObjects ? $this->associatedObjects->toMap() : null;
+        }
+        if (null !== $this->serverCount) {
+            $res['ServerCount'] = $this->serverCount;
+        }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
         if (null !== $this->VServerGroupName) {
             $res['VServerGroupName'] = $this->VServerGroupName;
-        }
-        if (null !== $this->associatedObjects) {
-            $res['AssociatedObjects'] = null !== $this->associatedObjects ? $this->associatedObjects->toMap() : null;
         }
 
         return $res;
@@ -57,14 +66,17 @@ class VServerGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssociatedObjects'])) {
+            $model->associatedObjects = associatedObjects::fromMap($map['AssociatedObjects']);
+        }
+        if (isset($map['ServerCount'])) {
+            $model->serverCount = $map['ServerCount'];
+        }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
         if (isset($map['VServerGroupName'])) {
             $model->VServerGroupName = $map['VServerGroupName'];
-        }
-        if (isset($map['AssociatedObjects'])) {
-            $model->associatedObjects = associatedObjects::fromMap($map['AssociatedObjects']);
         }
 
         return $model;

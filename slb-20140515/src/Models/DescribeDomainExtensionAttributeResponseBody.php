@@ -16,12 +16,7 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $loadBalancerId;
+    public $domainExtensionId;
 
     /**
      * @var int
@@ -31,19 +26,24 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $serverCertificateId;
+    public $loadBalancerId;
 
     /**
      * @var string
      */
-    public $domainExtensionId;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $serverCertificateId;
     protected $_name = [
         'domain'              => 'Domain',
-        'requestId'           => 'RequestId',
-        'loadBalancerId'      => 'LoadBalancerId',
-        'listenerPort'        => 'ListenerPort',
-        'serverCertificateId' => 'ServerCertificateId',
         'domainExtensionId'   => 'DomainExtensionId',
+        'listenerPort'        => 'ListenerPort',
+        'loadBalancerId'      => 'LoadBalancerId',
+        'requestId'           => 'RequestId',
+        'serverCertificateId' => 'ServerCertificateId',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
+        if (null !== $this->domainExtensionId) {
+            $res['DomainExtensionId'] = $this->domainExtensionId;
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->serverCertificateId) {
             $res['ServerCertificateId'] = $this->serverCertificateId;
-        }
-        if (null !== $this->domainExtensionId) {
-            $res['DomainExtensionId'] = $this->domainExtensionId;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
+        if (isset($map['DomainExtensionId'])) {
+            $model->domainExtensionId = $map['DomainExtensionId'];
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ServerCertificateId'])) {
             $model->serverCertificateId = $map['ServerCertificateId'];
-        }
-        if (isset($map['DomainExtensionId'])) {
-            $model->domainExtensionId = $map['DomainExtensionId'];
         }
 
         return $model;

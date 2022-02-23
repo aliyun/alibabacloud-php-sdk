@@ -11,12 +11,12 @@ class rule extends Model
     /**
      * @var string
      */
-    public $url;
+    public $domain;
 
     /**
      * @var string
      */
-    public $domain;
+    public $ruleId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class rule extends Model
     /**
      * @var string
      */
-    public $ruleId;
+    public $url;
     protected $_name = [
-        'url'      => 'Url',
         'domain'   => 'Domain',
-        'ruleName' => 'RuleName',
         'ruleId'   => 'RuleId',
+        'ruleName' => 'RuleName',
+        'url'      => 'Url',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class rule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class rule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

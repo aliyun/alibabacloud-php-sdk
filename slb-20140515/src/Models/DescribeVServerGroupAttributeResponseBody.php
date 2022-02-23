@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeVServerGroupAttributeResponseBody extends Model
 {
     /**
-     * @var string
+     * @var backendServers
      */
-    public $VServerGroupId;
+    public $backendServers;
 
     /**
      * @var string
      */
-    public $VServerGroupName;
+    public $loadBalancerId;
 
     /**
      * @var string
@@ -27,18 +27,18 @@ class DescribeVServerGroupAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $loadBalancerId;
+    public $VServerGroupId;
 
     /**
-     * @var backendServers
+     * @var string
      */
-    public $backendServers;
+    public $VServerGroupName;
     protected $_name = [
+        'backendServers'   => 'BackendServers',
+        'loadBalancerId'   => 'LoadBalancerId',
+        'requestId'        => 'RequestId',
         'VServerGroupId'   => 'VServerGroupId',
         'VServerGroupName' => 'VServerGroupName',
-        'requestId'        => 'RequestId',
-        'loadBalancerId'   => 'LoadBalancerId',
-        'backendServers'   => 'BackendServers',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeVServerGroupAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServers) {
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
+        }
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
         if (null !== $this->VServerGroupName) {
             $res['VServerGroupName'] = $this->VServerGroupName;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
-        }
-        if (null !== $this->backendServers) {
-            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeVServerGroupAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServers'])) {
+            $model->backendServers = backendServers::fromMap($map['BackendServers']);
+        }
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
         if (isset($map['VServerGroupName'])) {
             $model->VServerGroupName = $map['VServerGroupName'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
-        }
-        if (isset($map['BackendServers'])) {
-            $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
 
         return $model;

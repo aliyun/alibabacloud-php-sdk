@@ -11,15 +11,15 @@ class supportResource extends Model
     /**
      * @var string
      */
-    public $addressType;
+    public $addressIPVersion;
 
     /**
      * @var string
      */
-    public $addressIPVersion;
+    public $addressType;
     protected $_name = [
-        'addressType'      => 'AddressType',
         'addressIPVersion' => 'AddressIPVersion',
+        'addressType'      => 'AddressType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class supportResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->addressType) {
-            $res['AddressType'] = $this->addressType;
-        }
         if (null !== $this->addressIPVersion) {
             $res['AddressIPVersion'] = $this->addressIPVersion;
+        }
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class supportResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AddressType'])) {
-            $model->addressType = $map['AddressType'];
-        }
         if (isset($map['AddressIPVersion'])) {
             $model->addressIPVersion = $map['AddressIPVersion'];
+        }
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
         }
 
         return $model;

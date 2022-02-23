@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Slb\V20140515;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Slb\V20140515\Models\AddAccessControlListEntryRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\AddAccessControlListEntryResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\AddBackendServersRequest;
@@ -178,6 +179,7 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\UploadServerCertificateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Slb extends OpenApiClient
@@ -267,11 +269,44 @@ class Slb extends OpenApiClient
     public function addAccessControlListEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclEntrys)) {
+            $query['AclEntrys'] = $request->aclEntrys;
+        }
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAccessControlListEntry',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddAccessControlListEntryResponse::fromMap($this->doRPCRequest('AddAccessControlListEntry', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAccessControlListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -295,11 +330,44 @@ class Slb extends OpenApiClient
     public function addBackendServersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendServers)) {
+            $query['BackendServers'] = $request->backendServers;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddBackendServers',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddBackendServersResponse::fromMap($this->doRPCRequest('AddBackendServers', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddBackendServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -323,11 +391,50 @@ class Slb extends OpenApiClient
     public function addListenerWhiteListItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceItems)) {
+            $query['SourceItems'] = $request->sourceItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddListenerWhiteListItem',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddListenerWhiteListItemResponse::fromMap($this->doRPCRequest('AddListenerWhiteListItem', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddListenerWhiteListItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -351,11 +458,44 @@ class Slb extends OpenApiClient
     public function addTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTags',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddTagsResponse::fromMap($this->doRPCRequest('AddTags', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -379,11 +519,44 @@ class Slb extends OpenApiClient
     public function addVServerGroupBackendServersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendServers)) {
+            $query['BackendServers'] = $request->backendServers;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddVServerGroupBackendServers',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddVServerGroupBackendServersResponse::fromMap($this->doRPCRequest('AddVServerGroupBackendServers', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddVServerGroupBackendServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -407,11 +580,47 @@ class Slb extends OpenApiClient
     public function createAccessControlListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccessControlList',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAccessControlListResponse::fromMap($this->doRPCRequest('CreateAccessControlList', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAccessControlListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -435,11 +644,50 @@ class Slb extends OpenApiClient
     public function createDomainExtensionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serverCertificateId)) {
+            $query['ServerCertificateId'] = $request->serverCertificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomainExtension',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDomainExtensionResponse::fromMap($this->doRPCRequest('CreateDomainExtension', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDomainExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -463,11 +711,98 @@ class Slb extends OpenApiClient
     public function createLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
+        }
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deleteProtection)) {
+            $query['DeleteProtection'] = $request->deleteProtection;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->loadBalancerName)) {
+            $query['LoadBalancerName'] = $request->loadBalancerName;
+        }
+        if (!Utils::isUnset($request->loadBalancerSpec)) {
+            $query['LoadBalancerSpec'] = $request->loadBalancerSpec;
+        }
+        if (!Utils::isUnset($request->masterZoneId)) {
+            $query['MasterZoneId'] = $request->masterZoneId;
+        }
+        if (!Utils::isUnset($request->modificationProtectionReason)) {
+            $query['ModificationProtectionReason'] = $request->modificationProtectionReason;
+        }
+        if (!Utils::isUnset($request->modificationProtectionStatus)) {
+            $query['ModificationProtectionStatus'] = $request->modificationProtectionStatus;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->slaveZoneId)) {
+            $query['SlaveZoneId'] = $request->slaveZoneId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoadBalancer',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLoadBalancerResponse::fromMap($this->doRPCRequest('CreateLoadBalancer', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -491,11 +826,137 @@ class Slb extends OpenApiClient
     public function createLoadBalancerHTTPListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclStatus)) {
+            $query['AclStatus'] = $request->aclStatus;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->backendServerPort)) {
+            $query['BackendServerPort'] = $request->backendServerPort;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->cookie)) {
+            $query['Cookie'] = $request->cookie;
+        }
+        if (!Utils::isUnset($request->cookieTimeout)) {
+            $query['CookieTimeout'] = $request->cookieTimeout;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->forwardPort)) {
+            $query['ForwardPort'] = $request->forwardPort;
+        }
+        if (!Utils::isUnset($request->gzip)) {
+            $query['Gzip'] = $request->gzip;
+        }
+        if (!Utils::isUnset($request->healthCheck)) {
+            $query['HealthCheck'] = $request->healthCheck;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckDomain)) {
+            $query['HealthCheckDomain'] = $request->healthCheckDomain;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpCode)) {
+            $query['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckMethod)) {
+            $query['HealthCheckMethod'] = $request->healthCheckMethod;
+        }
+        if (!Utils::isUnset($request->healthCheckTimeout)) {
+            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckURI)) {
+            $query['HealthCheckURI'] = $request->healthCheckURI;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
+        if (!Utils::isUnset($request->listenerForward)) {
+            $query['ListenerForward'] = $request->listenerForward;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->stickySession)) {
+            $query['StickySession'] = $request->stickySession;
+        }
+        if (!Utils::isUnset($request->stickySessionType)) {
+            $query['StickySessionType'] = $request->stickySessionType;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->XForwardedFor)) {
+            $query['XForwardedFor'] = $request->XForwardedFor;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBID)) {
+            $query['XForwardedFor_SLBID'] = $request->XForwardedFor_SLBID;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBIP)) {
+            $query['XForwardedFor_SLBIP'] = $request->XForwardedFor_SLBIP;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_proto)) {
+            $query['XForwardedFor_proto'] = $request->XForwardedFor_proto;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoadBalancerHTTPListener',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLoadBalancerHTTPListenerResponse::fromMap($this->doRPCRequest('CreateLoadBalancerHTTPListener', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLoadBalancerHTTPListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -519,11 +980,143 @@ class Slb extends OpenApiClient
     public function createLoadBalancerHTTPSListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclStatus)) {
+            $query['AclStatus'] = $request->aclStatus;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->backendServerPort)) {
+            $query['BackendServerPort'] = $request->backendServerPort;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->CACertificateId)) {
+            $query['CACertificateId'] = $request->CACertificateId;
+        }
+        if (!Utils::isUnset($request->cookie)) {
+            $query['Cookie'] = $request->cookie;
+        }
+        if (!Utils::isUnset($request->cookieTimeout)) {
+            $query['CookieTimeout'] = $request->cookieTimeout;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enableHttp2)) {
+            $query['EnableHttp2'] = $request->enableHttp2;
+        }
+        if (!Utils::isUnset($request->gzip)) {
+            $query['Gzip'] = $request->gzip;
+        }
+        if (!Utils::isUnset($request->healthCheck)) {
+            $query['HealthCheck'] = $request->healthCheck;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckDomain)) {
+            $query['HealthCheckDomain'] = $request->healthCheckDomain;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpCode)) {
+            $query['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckMethod)) {
+            $query['HealthCheckMethod'] = $request->healthCheckMethod;
+        }
+        if (!Utils::isUnset($request->healthCheckTimeout)) {
+            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckURI)) {
+            $query['HealthCheckURI'] = $request->healthCheckURI;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->serverCertificateId)) {
+            $query['ServerCertificateId'] = $request->serverCertificateId;
+        }
+        if (!Utils::isUnset($request->stickySession)) {
+            $query['StickySession'] = $request->stickySession;
+        }
+        if (!Utils::isUnset($request->stickySessionType)) {
+            $query['StickySessionType'] = $request->stickySessionType;
+        }
+        if (!Utils::isUnset($request->TLSCipherPolicy)) {
+            $query['TLSCipherPolicy'] = $request->TLSCipherPolicy;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->XForwardedFor)) {
+            $query['XForwardedFor'] = $request->XForwardedFor;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBID)) {
+            $query['XForwardedFor_SLBID'] = $request->XForwardedFor_SLBID;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBIP)) {
+            $query['XForwardedFor_SLBIP'] = $request->XForwardedFor_SLBIP;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_proto)) {
+            $query['XForwardedFor_proto'] = $request->XForwardedFor_proto;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoadBalancerHTTPSListener',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLoadBalancerHTTPSListenerResponse::fromMap($this->doRPCRequest('CreateLoadBalancerHTTPSListener', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLoadBalancerHTTPSListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -547,11 +1140,110 @@ class Slb extends OpenApiClient
     public function createLoadBalancerTCPListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclStatus)) {
+            $query['AclStatus'] = $request->aclStatus;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->backendServerPort)) {
+            $query['BackendServerPort'] = $request->backendServerPort;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->connectionDrain)) {
+            $query['ConnectionDrain'] = $request->connectionDrain;
+        }
+        if (!Utils::isUnset($request->connectionDrainTimeout)) {
+            $query['ConnectionDrainTimeout'] = $request->connectionDrainTimeout;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->establishedTimeout)) {
+            $query['EstablishedTimeout'] = $request->establishedTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectTimeout)) {
+            $query['HealthCheckConnectTimeout'] = $request->healthCheckConnectTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckDomain)) {
+            $query['HealthCheckDomain'] = $request->healthCheckDomain;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpCode)) {
+            $query['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+        }
+        if (!Utils::isUnset($request->healthCheckType)) {
+            $query['HealthCheckType'] = $request->healthCheckType;
+        }
+        if (!Utils::isUnset($request->healthCheckURI)) {
+            $query['HealthCheckURI'] = $request->healthCheckURI;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->masterSlaveServerGroupId)) {
+            $query['MasterSlaveServerGroupId'] = $request->masterSlaveServerGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->persistenceTimeout)) {
+            $query['PersistenceTimeout'] = $request->persistenceTimeout;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['healthCheckInterval'] = $request->healthCheckInterval;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoadBalancerTCPListener',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLoadBalancerTCPListenerResponse::fromMap($this->doRPCRequest('CreateLoadBalancerTCPListener', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLoadBalancerTCPListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -575,11 +1267,92 @@ class Slb extends OpenApiClient
     public function createLoadBalancerUDPListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclStatus)) {
+            $query['AclStatus'] = $request->aclStatus;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->backendServerPort)) {
+            $query['BackendServerPort'] = $request->backendServerPort;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectTimeout)) {
+            $query['HealthCheckConnectTimeout'] = $request->healthCheckConnectTimeout;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->masterSlaveServerGroupId)) {
+            $query['MasterSlaveServerGroupId'] = $request->masterSlaveServerGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->healthCheckExp)) {
+            $query['healthCheckExp'] = $request->healthCheckExp;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['healthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckReq)) {
+            $query['healthCheckReq'] = $request->healthCheckReq;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoadBalancerUDPListener',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLoadBalancerUDPListenerResponse::fromMap($this->doRPCRequest('CreateLoadBalancerUDPListener', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLoadBalancerUDPListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -603,11 +1376,47 @@ class Slb extends OpenApiClient
     public function createMasterSlaveServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->masterSlaveBackendServers)) {
+            $query['MasterSlaveBackendServers'] = $request->masterSlaveBackendServers;
+        }
+        if (!Utils::isUnset($request->masterSlaveServerGroupName)) {
+            $query['MasterSlaveServerGroupName'] = $request->masterSlaveServerGroupName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMasterSlaveServerGroup',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMasterSlaveServerGroupResponse::fromMap($this->doRPCRequest('CreateMasterSlaveServerGroup', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMasterSlaveServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -631,11 +1440,50 @@ class Slb extends OpenApiClient
     public function createRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleList)) {
+            $query['RuleList'] = $request->ruleList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRules',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRulesResponse::fromMap($this->doRPCRequest('CreateRules', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -659,11 +1507,47 @@ class Slb extends OpenApiClient
     public function createTLSCipherPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ciphers)) {
+            $query['Ciphers'] = $request->ciphers;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->TLSVersions)) {
+            $query['TLSVersions'] = $request->TLSVersions;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTLSCipherPolicy',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTLSCipherPolicyResponse::fromMap($this->doRPCRequest('CreateTLSCipherPolicy', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTLSCipherPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -687,11 +1571,47 @@ class Slb extends OpenApiClient
     public function createVServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendServers)) {
+            $query['BackendServers'] = $request->backendServers;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VServerGroupName)) {
+            $query['VServerGroupName'] = $request->VServerGroupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVServerGroup',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVServerGroupResponse::fromMap($this->doRPCRequest('CreateVServerGroup', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateVServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -715,11 +1635,41 @@ class Slb extends OpenApiClient
     public function deleteAccessControlListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccessControlList',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAccessControlListResponse::fromMap($this->doRPCRequest('DeleteAccessControlList', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAccessControlListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -743,11 +1693,41 @@ class Slb extends OpenApiClient
     public function deleteCACertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->CACertificateId)) {
+            $query['CACertificateId'] = $request->CACertificateId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCACertificate',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCACertificateResponse::fromMap($this->doRPCRequest('DeleteCACertificate', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -771,11 +1751,41 @@ class Slb extends OpenApiClient
     public function deleteDomainExtensionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainExtensionId)) {
+            $query['DomainExtensionId'] = $request->domainExtensionId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomainExtension',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDomainExtensionResponse::fromMap($this->doRPCRequest('DeleteDomainExtension', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDomainExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -799,11 +1809,41 @@ class Slb extends OpenApiClient
     public function deleteLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLoadBalancer',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteLoadBalancerResponse::fromMap($this->doRPCRequest('DeleteLoadBalancer', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -827,11 +1867,47 @@ class Slb extends OpenApiClient
     public function deleteLoadBalancerListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLoadBalancerListener',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteLoadBalancerListenerResponse::fromMap($this->doRPCRequest('DeleteLoadBalancerListener', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLoadBalancerListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -855,11 +1931,41 @@ class Slb extends OpenApiClient
     public function deleteMasterSlaveServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->masterSlaveServerGroupId)) {
+            $query['MasterSlaveServerGroupId'] = $request->masterSlaveServerGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMasterSlaveServerGroup',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMasterSlaveServerGroupResponse::fromMap($this->doRPCRequest('DeleteMasterSlaveServerGroup', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMasterSlaveServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -883,11 +1989,41 @@ class Slb extends OpenApiClient
     public function deleteRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleIds)) {
+            $query['RuleIds'] = $request->ruleIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRules',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRulesResponse::fromMap($this->doRPCRequest('DeleteRules', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -911,11 +2047,41 @@ class Slb extends OpenApiClient
     public function deleteServerCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serverCertificateId)) {
+            $query['ServerCertificateId'] = $request->serverCertificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServerCertificate',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteServerCertificateResponse::fromMap($this->doRPCRequest('DeleteServerCertificate', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -939,11 +2105,41 @@ class Slb extends OpenApiClient
     public function deleteTLSCipherPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->TLSCipherPolicyId)) {
+            $query['TLSCipherPolicyId'] = $request->TLSCipherPolicyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTLSCipherPolicy',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTLSCipherPolicyResponse::fromMap($this->doRPCRequest('DeleteTLSCipherPolicy', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTLSCipherPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -967,11 +2163,41 @@ class Slb extends OpenApiClient
     public function deleteVServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVServerGroup',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVServerGroupResponse::fromMap($this->doRPCRequest('DeleteVServerGroup', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -995,11 +2221,44 @@ class Slb extends OpenApiClient
     public function describeAccessControlListAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclEntryComment)) {
+            $query['AclEntryComment'] = $request->aclEntryComment;
+        }
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessControlListAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAccessControlListAttributeResponse::fromMap($this->doRPCRequest('DescribeAccessControlListAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAccessControlListAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1023,11 +2282,53 @@ class Slb extends OpenApiClient
     public function describeAccessControlListsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessControlLists',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAccessControlListsResponse::fromMap($this->doRPCRequest('DescribeAccessControlLists', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAccessControlListsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1051,11 +2352,44 @@ class Slb extends OpenApiClient
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
+        }
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAvailableResource',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAvailableResourceResponse::fromMap($this->doRPCRequest('DescribeAvailableResource', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1079,11 +2413,44 @@ class Slb extends OpenApiClient
     public function describeCACertificatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->CACertificateId)) {
+            $query['CACertificateId'] = $request->CACertificateId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCACertificates',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCACertificatesResponse::fromMap($this->doRPCRequest('DescribeCACertificates', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCACertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1107,11 +2474,41 @@ class Slb extends OpenApiClient
     public function describeDomainExtensionAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainExtensionId)) {
+            $query['DomainExtensionId'] = $request->domainExtensionId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainExtensionAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainExtensionAttributeResponse::fromMap($this->doRPCRequest('DescribeDomainExtensionAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainExtensionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1135,11 +2532,47 @@ class Slb extends OpenApiClient
     public function describeDomainExtensionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainExtensionId)) {
+            $query['DomainExtensionId'] = $request->domainExtensionId;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainExtensions',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainExtensionsResponse::fromMap($this->doRPCRequest('DescribeDomainExtensions', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1163,11 +2596,47 @@ class Slb extends OpenApiClient
     public function describeHealthStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHealthStatus',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHealthStatusResponse::fromMap($this->doRPCRequest('DescribeHealthStatus', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1191,11 +2660,47 @@ class Slb extends OpenApiClient
     public function describeListenerAccessControlAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeListenerAccessControlAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeListenerAccessControlAttributeResponse::fromMap($this->doRPCRequest('DescribeListenerAccessControlAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeListenerAccessControlAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1219,11 +2724,41 @@ class Slb extends OpenApiClient
     public function describeLoadBalancerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLoadBalancerAttributeResponse::fromMap($this->doRPCRequest('DescribeLoadBalancerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1247,11 +2782,44 @@ class Slb extends OpenApiClient
     public function describeLoadBalancerHTTPListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancerHTTPListenerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLoadBalancerHTTPListenerAttributeResponse::fromMap($this->doRPCRequest('DescribeLoadBalancerHTTPListenerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLoadBalancerHTTPListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1275,11 +2843,44 @@ class Slb extends OpenApiClient
     public function describeLoadBalancerHTTPSListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancerHTTPSListenerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLoadBalancerHTTPSListenerAttributeResponse::fromMap($this->doRPCRequest('DescribeLoadBalancerHTTPSListenerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLoadBalancerHTTPSListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1303,11 +2904,50 @@ class Slb extends OpenApiClient
     public function describeLoadBalancerListenersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancerListeners',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLoadBalancerListenersResponse::fromMap($this->doRPCRequest('DescribeLoadBalancerListeners', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLoadBalancerListenersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1323,34 +2963,6 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancersRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeLoadBalancersResponse
-     */
-    public function describeLoadBalancersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeLoadBalancersResponse::fromMap($this->doRPCRequest('DescribeLoadBalancers', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLoadBalancersRequest $request
-     *
-     * @return DescribeLoadBalancersResponse
-     */
-    public function describeLoadBalancers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLoadBalancersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeLoadBalancerTCPListenerAttributeRequest $request
      * @param RuntimeOptions                                  $runtime
      *
@@ -1359,11 +2971,44 @@ class Slb extends OpenApiClient
     public function describeLoadBalancerTCPListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancerTCPListenerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLoadBalancerTCPListenerAttributeResponse::fromMap($this->doRPCRequest('DescribeLoadBalancerTCPListenerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLoadBalancerTCPListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1387,11 +3032,44 @@ class Slb extends OpenApiClient
     public function describeLoadBalancerUDPListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancerUDPListenerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLoadBalancerUDPListenerAttributeResponse::fromMap($this->doRPCRequest('DescribeLoadBalancerUDPListenerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLoadBalancerUDPListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1407,6 +3085,118 @@ class Slb extends OpenApiClient
     }
 
     /**
+     * @param DescribeLoadBalancersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeLoadBalancersResponse
+     */
+    public function describeLoadBalancersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
+        }
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->loadBalancerName)) {
+            $query['LoadBalancerName'] = $request->loadBalancerName;
+        }
+        if (!Utils::isUnset($request->loadBalancerStatus)) {
+            $query['LoadBalancerStatus'] = $request->loadBalancerStatus;
+        }
+        if (!Utils::isUnset($request->masterZoneId)) {
+            $query['MasterZoneId'] = $request->masterZoneId;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serverId)) {
+            $query['ServerId'] = $request->serverId;
+        }
+        if (!Utils::isUnset($request->serverIntranetAddress)) {
+            $query['ServerIntranetAddress'] = $request->serverIntranetAddress;
+        }
+        if (!Utils::isUnset($request->slaveZoneId)) {
+            $query['SlaveZoneId'] = $request->slaveZoneId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancers',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLoadBalancersRequest $request
+     *
+     * @return DescribeLoadBalancersResponse
+     */
+    public function describeLoadBalancers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLoadBalancersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeMasterSlaveServerGroupAttributeRequest $request
      * @param RuntimeOptions                                 $runtime
      *
@@ -1415,11 +3205,41 @@ class Slb extends OpenApiClient
     public function describeMasterSlaveServerGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->masterSlaveServerGroupId)) {
+            $query['MasterSlaveServerGroupId'] = $request->masterSlaveServerGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMasterSlaveServerGroupAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMasterSlaveServerGroupAttributeResponse::fromMap($this->doRPCRequest('DescribeMasterSlaveServerGroupAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMasterSlaveServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1443,11 +3263,44 @@ class Slb extends OpenApiClient
     public function describeMasterSlaveServerGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->includeListener)) {
+            $query['IncludeListener'] = $request->includeListener;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMasterSlaveServerGroups',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMasterSlaveServerGroupsResponse::fromMap($this->doRPCRequest('DescribeMasterSlaveServerGroups', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMasterSlaveServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1471,11 +3324,41 @@ class Slb extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1499,11 +3382,41 @@ class Slb extends OpenApiClient
     public function describeRuleAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRuleAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRuleAttributeResponse::fromMap($this->doRPCRequest('DescribeRuleAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1527,11 +3440,47 @@ class Slb extends OpenApiClient
     public function describeRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRules',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRulesResponse::fromMap($this->doRPCRequest('DescribeRules', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1555,11 +3504,44 @@ class Slb extends OpenApiClient
     public function describeServerCertificatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serverCertificateId)) {
+            $query['ServerCertificateId'] = $request->serverCertificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServerCertificates',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeServerCertificatesResponse::fromMap($this->doRPCRequest('DescribeServerCertificates', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1583,11 +3565,53 @@ class Slb extends OpenApiClient
     public function describeTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->distinctKey)) {
+            $query['DistinctKey'] = $request->distinctKey;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTags',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTagsResponse::fromMap($this->doRPCRequest('DescribeTags', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1611,11 +3635,41 @@ class Slb extends OpenApiClient
     public function describeVServerGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVServerGroupAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVServerGroupAttributeResponse::fromMap($this->doRPCRequest('DescribeVServerGroupAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1639,11 +3693,47 @@ class Slb extends OpenApiClient
     public function describeVServerGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->includeListener)) {
+            $query['IncludeListener'] = $request->includeListener;
+        }
+        if (!Utils::isUnset($request->includeRule)) {
+            $query['IncludeRule'] = $request->includeRule;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVServerGroups',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVServerGroupsResponse::fromMap($this->doRPCRequest('DescribeVServerGroups', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1667,11 +3757,38 @@ class Slb extends OpenApiClient
     public function describeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeZones',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1687,34 +3804,6 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
-     */
-    public function listTagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
-     */
-    public function listTagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListTLSCipherPoliciesRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1723,11 +3812,53 @@ class Slb extends OpenApiClient
     public function listTLSCipherPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->includeListener)) {
+            $query['IncludeListener'] = $request->includeListener;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->TLSCipherPolicyId)) {
+            $query['TLSCipherPolicyId'] = $request->TLSCipherPolicyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTLSCipherPolicies',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTLSCipherPoliciesResponse::fromMap($this->doRPCRequest('ListTLSCipherPolicies', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTLSCipherPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1743,6 +3874,73 @@ class Slb extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyLoadBalancerInstanceSpecRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -1751,11 +3949,47 @@ class Slb extends OpenApiClient
     public function modifyLoadBalancerInstanceSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->loadBalancerSpec)) {
+            $query['LoadBalancerSpec'] = $request->loadBalancerSpec;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLoadBalancerInstanceSpec',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyLoadBalancerInstanceSpecResponse::fromMap($this->doRPCRequest('ModifyLoadBalancerInstanceSpec', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyLoadBalancerInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1779,11 +4013,50 @@ class Slb extends OpenApiClient
     public function modifyLoadBalancerInternetSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLoadBalancerInternetSpec',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyLoadBalancerInternetSpecResponse::fromMap($this->doRPCRequest('ModifyLoadBalancerInternetSpec', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyLoadBalancerInternetSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1807,11 +4080,53 @@ class Slb extends OpenApiClient
     public function modifyLoadBalancerPayTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLoadBalancerPayType',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyLoadBalancerPayTypeResponse::fromMap($this->doRPCRequest('ModifyLoadBalancerPayType', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyLoadBalancerPayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1835,11 +4150,47 @@ class Slb extends OpenApiClient
     public function modifyVServerGroupBackendServersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newBackendServers)) {
+            $query['NewBackendServers'] = $request->newBackendServers;
+        }
+        if (!Utils::isUnset($request->oldBackendServers)) {
+            $query['OldBackendServers'] = $request->oldBackendServers;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVServerGroupBackendServers',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyVServerGroupBackendServersResponse::fromMap($this->doRPCRequest('ModifyVServerGroupBackendServers', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyVServerGroupBackendServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1863,11 +4214,44 @@ class Slb extends OpenApiClient
     public function removeAccessControlListEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclEntrys)) {
+            $query['AclEntrys'] = $request->aclEntrys;
+        }
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveAccessControlListEntry',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveAccessControlListEntryResponse::fromMap($this->doRPCRequest('RemoveAccessControlListEntry', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveAccessControlListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1891,11 +4275,44 @@ class Slb extends OpenApiClient
     public function removeBackendServersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendServers)) {
+            $query['BackendServers'] = $request->backendServers;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveBackendServers',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveBackendServersResponse::fromMap($this->doRPCRequest('RemoveBackendServers', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveBackendServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1919,11 +4336,50 @@ class Slb extends OpenApiClient
     public function removeListenerWhiteListItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceItems)) {
+            $query['SourceItems'] = $request->sourceItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveListenerWhiteListItem',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveListenerWhiteListItemResponse::fromMap($this->doRPCRequest('RemoveListenerWhiteListItem', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveListenerWhiteListItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1947,11 +4403,44 @@ class Slb extends OpenApiClient
     public function removeTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveTags',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveTagsResponse::fromMap($this->doRPCRequest('RemoveTags', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1975,11 +4464,44 @@ class Slb extends OpenApiClient
     public function removeVServerGroupBackendServersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendServers)) {
+            $query['BackendServers'] = $request->backendServers;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveVServerGroupBackendServers',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveVServerGroupBackendServersResponse::fromMap($this->doRPCRequest('RemoveVServerGroupBackendServers', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveVServerGroupBackendServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2003,11 +4525,44 @@ class Slb extends OpenApiClient
     public function setAccessControlListAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAccessControlListAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetAccessControlListAttributeResponse::fromMap($this->doRPCRequest('SetAccessControlListAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetAccessControlListAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2031,11 +4586,44 @@ class Slb extends OpenApiClient
     public function setBackendServersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendServers)) {
+            $query['BackendServers'] = $request->backendServers;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetBackendServers',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetBackendServersResponse::fromMap($this->doRPCRequest('SetBackendServers', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetBackendServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2059,11 +4647,44 @@ class Slb extends OpenApiClient
     public function setCACertificateNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->CACertificateId)) {
+            $query['CACertificateId'] = $request->CACertificateId;
+        }
+        if (!Utils::isUnset($request->CACertificateName)) {
+            $query['CACertificateName'] = $request->CACertificateName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCACertificateName',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetCACertificateNameResponse::fromMap($this->doRPCRequest('SetCACertificateName', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetCACertificateNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2087,11 +4708,44 @@ class Slb extends OpenApiClient
     public function setDomainExtensionAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainExtensionId)) {
+            $query['DomainExtensionId'] = $request->domainExtensionId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serverCertificateId)) {
+            $query['ServerCertificateId'] = $request->serverCertificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomainExtensionAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainExtensionAttributeResponse::fromMap($this->doRPCRequest('SetDomainExtensionAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainExtensionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2115,11 +4769,50 @@ class Slb extends OpenApiClient
     public function setListenerAccessControlStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessControlStatus)) {
+            $query['AccessControlStatus'] = $request->accessControlStatus;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetListenerAccessControlStatus',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetListenerAccessControlStatusResponse::fromMap($this->doRPCRequest('SetListenerAccessControlStatus', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetListenerAccessControlStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2143,11 +4836,44 @@ class Slb extends OpenApiClient
     public function setLoadBalancerDeleteProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deleteProtection)) {
+            $query['DeleteProtection'] = $request->deleteProtection;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoadBalancerDeleteProtection',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetLoadBalancerDeleteProtectionResponse::fromMap($this->doRPCRequest('SetLoadBalancerDeleteProtection', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetLoadBalancerDeleteProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2171,11 +4897,131 @@ class Slb extends OpenApiClient
     public function setLoadBalancerHTTPListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclStatus)) {
+            $query['AclStatus'] = $request->aclStatus;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->cookie)) {
+            $query['Cookie'] = $request->cookie;
+        }
+        if (!Utils::isUnset($request->cookieTimeout)) {
+            $query['CookieTimeout'] = $request->cookieTimeout;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->gzip)) {
+            $query['Gzip'] = $request->gzip;
+        }
+        if (!Utils::isUnset($request->healthCheck)) {
+            $query['HealthCheck'] = $request->healthCheck;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckDomain)) {
+            $query['HealthCheckDomain'] = $request->healthCheckDomain;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpCode)) {
+            $query['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckMethod)) {
+            $query['HealthCheckMethod'] = $request->healthCheckMethod;
+        }
+        if (!Utils::isUnset($request->healthCheckTimeout)) {
+            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckURI)) {
+            $query['HealthCheckURI'] = $request->healthCheckURI;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->stickySession)) {
+            $query['StickySession'] = $request->stickySession;
+        }
+        if (!Utils::isUnset($request->stickySessionType)) {
+            $query['StickySessionType'] = $request->stickySessionType;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroup)) {
+            $query['VServerGroup'] = $request->VServerGroup;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->XForwardedFor)) {
+            $query['XForwardedFor'] = $request->XForwardedFor;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBID)) {
+            $query['XForwardedFor_SLBID'] = $request->XForwardedFor_SLBID;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBIP)) {
+            $query['XForwardedFor_SLBIP'] = $request->XForwardedFor_SLBIP;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_proto)) {
+            $query['XForwardedFor_proto'] = $request->XForwardedFor_proto;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoadBalancerHTTPListenerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetLoadBalancerHTTPListenerAttributeResponse::fromMap($this->doRPCRequest('SetLoadBalancerHTTPListenerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetLoadBalancerHTTPListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2199,11 +5045,143 @@ class Slb extends OpenApiClient
     public function setLoadBalancerHTTPSListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclStatus)) {
+            $query['AclStatus'] = $request->aclStatus;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->CACertificateId)) {
+            $query['CACertificateId'] = $request->CACertificateId;
+        }
+        if (!Utils::isUnset($request->cookie)) {
+            $query['Cookie'] = $request->cookie;
+        }
+        if (!Utils::isUnset($request->cookieTimeout)) {
+            $query['CookieTimeout'] = $request->cookieTimeout;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enableHttp2)) {
+            $query['EnableHttp2'] = $request->enableHttp2;
+        }
+        if (!Utils::isUnset($request->gzip)) {
+            $query['Gzip'] = $request->gzip;
+        }
+        if (!Utils::isUnset($request->healthCheck)) {
+            $query['HealthCheck'] = $request->healthCheck;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckDomain)) {
+            $query['HealthCheckDomain'] = $request->healthCheckDomain;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpCode)) {
+            $query['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckMethod)) {
+            $query['HealthCheckMethod'] = $request->healthCheckMethod;
+        }
+        if (!Utils::isUnset($request->healthCheckTimeout)) {
+            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckURI)) {
+            $query['HealthCheckURI'] = $request->healthCheckURI;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->serverCertificateId)) {
+            $query['ServerCertificateId'] = $request->serverCertificateId;
+        }
+        if (!Utils::isUnset($request->stickySession)) {
+            $query['StickySession'] = $request->stickySession;
+        }
+        if (!Utils::isUnset($request->stickySessionType)) {
+            $query['StickySessionType'] = $request->stickySessionType;
+        }
+        if (!Utils::isUnset($request->TLSCipherPolicy)) {
+            $query['TLSCipherPolicy'] = $request->TLSCipherPolicy;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroup)) {
+            $query['VServerGroup'] = $request->VServerGroup;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->XForwardedFor)) {
+            $query['XForwardedFor'] = $request->XForwardedFor;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBID)) {
+            $query['XForwardedFor_SLBID'] = $request->XForwardedFor_SLBID;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBIP)) {
+            $query['XForwardedFor_SLBIP'] = $request->XForwardedFor_SLBIP;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_proto)) {
+            $query['XForwardedFor_proto'] = $request->XForwardedFor_proto;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoadBalancerHTTPSListenerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetLoadBalancerHTTPSListenerAttributeResponse::fromMap($this->doRPCRequest('SetLoadBalancerHTTPSListenerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetLoadBalancerHTTPSListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2227,11 +5205,47 @@ class Slb extends OpenApiClient
     public function setLoadBalancerModificationProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->modificationProtectionReason)) {
+            $query['ModificationProtectionReason'] = $request->modificationProtectionReason;
+        }
+        if (!Utils::isUnset($request->modificationProtectionStatus)) {
+            $query['ModificationProtectionStatus'] = $request->modificationProtectionStatus;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoadBalancerModificationProtection',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetLoadBalancerModificationProtectionResponse::fromMap($this->doRPCRequest('SetLoadBalancerModificationProtection', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetLoadBalancerModificationProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2255,11 +5269,44 @@ class Slb extends OpenApiClient
     public function setLoadBalancerNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->loadBalancerName)) {
+            $query['LoadBalancerName'] = $request->loadBalancerName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoadBalancerName',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetLoadBalancerNameResponse::fromMap($this->doRPCRequest('SetLoadBalancerName', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetLoadBalancerNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2283,11 +5330,44 @@ class Slb extends OpenApiClient
     public function setLoadBalancerStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->loadBalancerStatus)) {
+            $query['LoadBalancerStatus'] = $request->loadBalancerStatus;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoadBalancerStatus',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetLoadBalancerStatusResponse::fromMap($this->doRPCRequest('SetLoadBalancerStatus', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetLoadBalancerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2311,11 +5391,116 @@ class Slb extends OpenApiClient
     public function setLoadBalancerTCPListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclStatus)) {
+            $query['AclStatus'] = $request->aclStatus;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->connectionDrain)) {
+            $query['ConnectionDrain'] = $request->connectionDrain;
+        }
+        if (!Utils::isUnset($request->connectionDrainTimeout)) {
+            $query['ConnectionDrainTimeout'] = $request->connectionDrainTimeout;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->establishedTimeout)) {
+            $query['EstablishedTimeout'] = $request->establishedTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectTimeout)) {
+            $query['HealthCheckConnectTimeout'] = $request->healthCheckConnectTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckDomain)) {
+            $query['HealthCheckDomain'] = $request->healthCheckDomain;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpCode)) {
+            $query['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckType)) {
+            $query['HealthCheckType'] = $request->healthCheckType;
+        }
+        if (!Utils::isUnset($request->healthCheckURI)) {
+            $query['HealthCheckURI'] = $request->healthCheckURI;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->masterSlaveServerGroup)) {
+            $query['MasterSlaveServerGroup'] = $request->masterSlaveServerGroup;
+        }
+        if (!Utils::isUnset($request->masterSlaveServerGroupId)) {
+            $query['MasterSlaveServerGroupId'] = $request->masterSlaveServerGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->persistenceTimeout)) {
+            $query['PersistenceTimeout'] = $request->persistenceTimeout;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->synProxy)) {
+            $query['SynProxy'] = $request->synProxy;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroup)) {
+            $query['VServerGroup'] = $request->VServerGroup;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoadBalancerTCPListenerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetLoadBalancerTCPListenerAttributeResponse::fromMap($this->doRPCRequest('SetLoadBalancerTCPListenerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetLoadBalancerTCPListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2339,11 +5524,95 @@ class Slb extends OpenApiClient
     public function setLoadBalancerUDPListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclStatus)) {
+            $query['AclStatus'] = $request->aclStatus;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectTimeout)) {
+            $query['HealthCheckConnectTimeout'] = $request->healthCheckConnectTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->masterSlaveServerGroup)) {
+            $query['MasterSlaveServerGroup'] = $request->masterSlaveServerGroup;
+        }
+        if (!Utils::isUnset($request->masterSlaveServerGroupId)) {
+            $query['MasterSlaveServerGroupId'] = $request->masterSlaveServerGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroup)) {
+            $query['VServerGroup'] = $request->VServerGroup;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->healthCheckExp)) {
+            $query['healthCheckExp'] = $request->healthCheckExp;
+        }
+        if (!Utils::isUnset($request->healthCheckReq)) {
+            $query['healthCheckReq'] = $request->healthCheckReq;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoadBalancerUDPListenerAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetLoadBalancerUDPListenerAttributeResponse::fromMap($this->doRPCRequest('SetLoadBalancerUDPListenerAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetLoadBalancerUDPListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2367,11 +5636,92 @@ class Slb extends OpenApiClient
     public function setRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cookie)) {
+            $query['Cookie'] = $request->cookie;
+        }
+        if (!Utils::isUnset($request->cookieTimeout)) {
+            $query['CookieTimeout'] = $request->cookieTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheck)) {
+            $query['HealthCheck'] = $request->healthCheck;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckDomain)) {
+            $query['HealthCheckDomain'] = $request->healthCheckDomain;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpCode)) {
+            $query['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckTimeout)) {
+            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckURI)) {
+            $query['HealthCheckURI'] = $request->healthCheckURI;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->listenerSync)) {
+            $query['ListenerSync'] = $request->listenerSync;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->stickySession)) {
+            $query['StickySession'] = $request->stickySession;
+        }
+        if (!Utils::isUnset($request->stickySessionType)) {
+            $query['StickySessionType'] = $request->stickySessionType;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetRule',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetRuleResponse::fromMap($this->doRPCRequest('SetRule', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2395,11 +5745,44 @@ class Slb extends OpenApiClient
     public function setServerCertificateNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serverCertificateId)) {
+            $query['ServerCertificateId'] = $request->serverCertificateId;
+        }
+        if (!Utils::isUnset($request->serverCertificateName)) {
+            $query['ServerCertificateName'] = $request->serverCertificateName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetServerCertificateName',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetServerCertificateNameResponse::fromMap($this->doRPCRequest('SetServerCertificateName', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetServerCertificateNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2423,11 +5806,50 @@ class Slb extends OpenApiClient
     public function setTLSCipherPolicyAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ciphers)) {
+            $query['Ciphers'] = $request->ciphers;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->TLSCipherPolicyId)) {
+            $query['TLSCipherPolicyId'] = $request->TLSCipherPolicyId;
+        }
+        if (!Utils::isUnset($request->TLSVersions)) {
+            $query['TLSVersions'] = $request->TLSVersions;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetTLSCipherPolicyAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetTLSCipherPolicyAttributeResponse::fromMap($this->doRPCRequest('SetTLSCipherPolicyAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetTLSCipherPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2451,11 +5873,47 @@ class Slb extends OpenApiClient
     public function setVServerGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendServers)) {
+            $query['BackendServers'] = $request->backendServers;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->VServerGroupName)) {
+            $query['VServerGroupName'] = $request->VServerGroupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetVServerGroupAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetVServerGroupAttributeResponse::fromMap($this->doRPCRequest('SetVServerGroupAttribute', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetVServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2479,11 +5937,47 @@ class Slb extends OpenApiClient
     public function startLoadBalancerListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartLoadBalancerListener',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartLoadBalancerListenerResponse::fromMap($this->doRPCRequest('StartLoadBalancerListener', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartLoadBalancerListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2507,11 +6001,47 @@ class Slb extends OpenApiClient
     public function stopLoadBalancerListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopLoadBalancerListener',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopLoadBalancerListenerResponse::fromMap($this->doRPCRequest('StopLoadBalancerListener', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopLoadBalancerListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2535,11 +6065,47 @@ class Slb extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2563,11 +6129,50 @@ class Slb extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2591,11 +6196,47 @@ class Slb extends OpenApiClient
     public function uploadCACertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->CACertificate)) {
+            $query['CACertificate'] = $request->CACertificate;
+        }
+        if (!Utils::isUnset($request->CACertificateName)) {
+            $query['CACertificateName'] = $request->CACertificateName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadCACertificate',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadCACertificateResponse::fromMap($this->doRPCRequest('UploadCACertificate', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2619,11 +6260,59 @@ class Slb extends OpenApiClient
     public function uploadServerCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliCloudCertificateId)) {
+            $query['AliCloudCertificateId'] = $request->aliCloudCertificateId;
+        }
+        if (!Utils::isUnset($request->aliCloudCertificateName)) {
+            $query['AliCloudCertificateName'] = $request->aliCloudCertificateName;
+        }
+        if (!Utils::isUnset($request->aliCloudCertificateRegionId)) {
+            $query['AliCloudCertificateRegionId'] = $request->aliCloudCertificateRegionId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->privateKey)) {
+            $query['PrivateKey'] = $request->privateKey;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serverCertificate)) {
+            $query['ServerCertificate'] = $request->serverCertificate;
+        }
+        if (!Utils::isUnset($request->serverCertificateName)) {
+            $query['ServerCertificateName'] = $request->serverCertificateName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadServerCertificate',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadServerCertificateResponse::fromMap($this->doRPCRequest('UploadServerCertificate', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

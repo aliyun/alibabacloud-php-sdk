@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class SetVServerGroupAttributeResponseBody extends Model
 {
     /**
+     * @var backendServers
+     */
+    public $backendServers;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var string
      */
     public $VServerGroupId;
@@ -18,21 +28,11 @@ class SetVServerGroupAttributeResponseBody extends Model
      * @var string
      */
     public $VServerGroupName;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var backendServers
-     */
-    public $backendServers;
     protected $_name = [
+        'backendServers'   => 'BackendServers',
+        'requestId'        => 'RequestId',
         'VServerGroupId'   => 'VServerGroupId',
         'VServerGroupName' => 'VServerGroupName',
-        'requestId'        => 'RequestId',
-        'backendServers'   => 'BackendServers',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class SetVServerGroupAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServers) {
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
         if (null !== $this->VServerGroupName) {
             $res['VServerGroupName'] = $this->VServerGroupName;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->backendServers) {
-            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class SetVServerGroupAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServers'])) {
+            $model->backendServers = backendServers::fromMap($map['BackendServers']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
         if (isset($map['VServerGroupName'])) {
             $model->VServerGroupName = $map['VServerGroupName'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['BackendServers'])) {
-            $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
 
         return $model;

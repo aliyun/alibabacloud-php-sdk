@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class backendServer extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $weight;
-
-    /**
      * @var int
      */
     public $port;
@@ -27,11 +17,21 @@ class backendServer extends Model
      * @var string
      */
     public $serverId;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
-        'type'     => 'Type',
-        'weight'   => 'Weight',
         'port'     => 'Port',
         'serverId' => 'ServerId',
+        'type'     => 'Type',
+        'weight'   => 'Weight',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class backendServer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
-        }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class backendServer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
-        }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

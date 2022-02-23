@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeTagsResponseBody\tagSets;
+namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancersResponseBody\loadBalancers\loadBalancer\tags;
 
 use AlibabaCloud\Tea\Model;
 
-class tagSet extends Model
+class tag extends Model
 {
-    /**
-     * @var int
-     */
-    public $instanceCount;
-
     /**
      * @var string
      */
@@ -23,9 +18,8 @@ class tagSet extends Model
      */
     public $tagValue;
     protected $_name = [
-        'instanceCount' => 'InstanceCount',
-        'tagKey'        => 'TagKey',
-        'tagValue'      => 'TagValue',
+        'tagKey'   => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class tagSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
-        }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
@@ -51,14 +42,11 @@ class tagSet extends Model
     /**
      * @param array $map
      *
-     * @return tagSet
+     * @return tag
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
-        }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }

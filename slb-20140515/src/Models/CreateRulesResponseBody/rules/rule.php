@@ -11,15 +11,15 @@ class rule extends Model
     /**
      * @var string
      */
-    public $ruleName;
+    public $ruleId;
 
     /**
      * @var string
      */
-    public $ruleId;
+    public $ruleName;
     protected $_name = [
-        'ruleName' => 'RuleName',
         'ruleId'   => 'RuleId',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class rule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class rule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
 
         return $model;

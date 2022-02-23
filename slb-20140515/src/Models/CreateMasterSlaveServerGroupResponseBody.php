@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateMasterSlaveServerGroupResponseBody extends Model
 {
     /**
+     * @var masterSlaveBackendServers
+     */
+    public $masterSlaveBackendServers;
+
+    /**
      * @var string
      */
     public $masterSlaveServerGroupId;
@@ -18,15 +23,10 @@ class CreateMasterSlaveServerGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var masterSlaveBackendServers
-     */
-    public $masterSlaveBackendServers;
     protected $_name = [
+        'masterSlaveBackendServers' => 'MasterSlaveBackendServers',
         'masterSlaveServerGroupId'  => 'MasterSlaveServerGroupId',
         'requestId'                 => 'RequestId',
-        'masterSlaveBackendServers' => 'MasterSlaveBackendServers',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class CreateMasterSlaveServerGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->masterSlaveBackendServers) {
+            $res['MasterSlaveBackendServers'] = null !== $this->masterSlaveBackendServers ? $this->masterSlaveBackendServers->toMap() : null;
+        }
         if (null !== $this->masterSlaveServerGroupId) {
             $res['MasterSlaveServerGroupId'] = $this->masterSlaveServerGroupId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->masterSlaveBackendServers) {
-            $res['MasterSlaveBackendServers'] = null !== $this->masterSlaveBackendServers ? $this->masterSlaveBackendServers->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class CreateMasterSlaveServerGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MasterSlaveBackendServers'])) {
+            $model->masterSlaveBackendServers = masterSlaveBackendServers::fromMap($map['MasterSlaveBackendServers']);
+        }
         if (isset($map['MasterSlaveServerGroupId'])) {
             $model->masterSlaveServerGroupId = $map['MasterSlaveServerGroupId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MasterSlaveBackendServers'])) {
-            $model->masterSlaveBackendServers = masterSlaveBackendServers::fromMap($map['MasterSlaveBackendServers']);
         }
 
         return $model;

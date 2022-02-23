@@ -12,7 +12,22 @@ class UploadServerCertificateResponseBody extends Model
     /**
      * @var string
      */
+    public $aliCloudCertificateId;
+
+    /**
+     * @var string
+     */
     public $aliCloudCertificateName;
+
+    /**
+     * @var string
+     */
+    public $commonName;
+
+    /**
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @var int
@@ -25,19 +40,19 @@ class UploadServerCertificateResponseBody extends Model
     public $expireTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $createTime;
+    public $expireTimeStamp;
 
     /**
      * @var string
      */
-    public $serverCertificateId;
+    public $fingerprint;
 
     /**
      * @var int
      */
-    public $expireTimeStamp;
+    public $isAliCloudCertificate;
 
     /**
      * @var string
@@ -52,7 +67,12 @@ class UploadServerCertificateResponseBody extends Model
     /**
      * @var string
      */
-    public $fingerprint;
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $serverCertificateId;
 
     /**
      * @var string
@@ -60,44 +80,24 @@ class UploadServerCertificateResponseBody extends Model
     public $serverCertificateName;
 
     /**
-     * @var string
-     */
-    public $commonName;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $aliCloudCertificateId;
-
-    /**
-     * @var int
-     */
-    public $isAliCloudCertificate;
-
-    /**
      * @var subjectAlternativeNames
      */
     public $subjectAlternativeNames;
     protected $_name = [
+        'aliCloudCertificateId'   => 'AliCloudCertificateId',
         'aliCloudCertificateName' => 'AliCloudCertificateName',
+        'commonName'              => 'CommonName',
+        'createTime'              => 'CreateTime',
         'createTimeStamp'         => 'CreateTimeStamp',
         'expireTime'              => 'ExpireTime',
-        'createTime'              => 'CreateTime',
-        'serverCertificateId'     => 'ServerCertificateId',
         'expireTimeStamp'         => 'ExpireTimeStamp',
+        'fingerprint'             => 'Fingerprint',
+        'isAliCloudCertificate'   => 'IsAliCloudCertificate',
         'regionId'                => 'RegionId',
         'requestId'               => 'RequestId',
-        'fingerprint'             => 'Fingerprint',
-        'serverCertificateName'   => 'ServerCertificateName',
-        'commonName'              => 'CommonName',
         'resourceGroupId'         => 'ResourceGroupId',
-        'aliCloudCertificateId'   => 'AliCloudCertificateId',
-        'isAliCloudCertificate'   => 'IsAliCloudCertificate',
+        'serverCertificateId'     => 'ServerCertificateId',
+        'serverCertificateName'   => 'ServerCertificateName',
         'subjectAlternativeNames' => 'SubjectAlternativeNames',
     ];
 
@@ -108,8 +108,17 @@ class UploadServerCertificateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliCloudCertificateId) {
+            $res['AliCloudCertificateId'] = $this->aliCloudCertificateId;
+        }
         if (null !== $this->aliCloudCertificateName) {
             $res['AliCloudCertificateName'] = $this->aliCloudCertificateName;
+        }
+        if (null !== $this->commonName) {
+            $res['CommonName'] = $this->commonName;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->createTimeStamp) {
             $res['CreateTimeStamp'] = $this->createTimeStamp;
@@ -117,14 +126,14 @@ class UploadServerCertificateResponseBody extends Model
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->serverCertificateId) {
-            $res['ServerCertificateId'] = $this->serverCertificateId;
-        }
         if (null !== $this->expireTimeStamp) {
             $res['ExpireTimeStamp'] = $this->expireTimeStamp;
+        }
+        if (null !== $this->fingerprint) {
+            $res['Fingerprint'] = $this->fingerprint;
+        }
+        if (null !== $this->isAliCloudCertificate) {
+            $res['IsAliCloudCertificate'] = $this->isAliCloudCertificate;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -132,23 +141,14 @@ class UploadServerCertificateResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->fingerprint) {
-            $res['Fingerprint'] = $this->fingerprint;
-        }
-        if (null !== $this->serverCertificateName) {
-            $res['ServerCertificateName'] = $this->serverCertificateName;
-        }
-        if (null !== $this->commonName) {
-            $res['CommonName'] = $this->commonName;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->aliCloudCertificateId) {
-            $res['AliCloudCertificateId'] = $this->aliCloudCertificateId;
+        if (null !== $this->serverCertificateId) {
+            $res['ServerCertificateId'] = $this->serverCertificateId;
         }
-        if (null !== $this->isAliCloudCertificate) {
-            $res['IsAliCloudCertificate'] = $this->isAliCloudCertificate;
+        if (null !== $this->serverCertificateName) {
+            $res['ServerCertificateName'] = $this->serverCertificateName;
         }
         if (null !== $this->subjectAlternativeNames) {
             $res['SubjectAlternativeNames'] = null !== $this->subjectAlternativeNames ? $this->subjectAlternativeNames->toMap() : null;
@@ -165,8 +165,17 @@ class UploadServerCertificateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliCloudCertificateId'])) {
+            $model->aliCloudCertificateId = $map['AliCloudCertificateId'];
+        }
         if (isset($map['AliCloudCertificateName'])) {
             $model->aliCloudCertificateName = $map['AliCloudCertificateName'];
+        }
+        if (isset($map['CommonName'])) {
+            $model->commonName = $map['CommonName'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['CreateTimeStamp'])) {
             $model->createTimeStamp = $map['CreateTimeStamp'];
@@ -174,14 +183,14 @@ class UploadServerCertificateResponseBody extends Model
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ServerCertificateId'])) {
-            $model->serverCertificateId = $map['ServerCertificateId'];
-        }
         if (isset($map['ExpireTimeStamp'])) {
             $model->expireTimeStamp = $map['ExpireTimeStamp'];
+        }
+        if (isset($map['Fingerprint'])) {
+            $model->fingerprint = $map['Fingerprint'];
+        }
+        if (isset($map['IsAliCloudCertificate'])) {
+            $model->isAliCloudCertificate = $map['IsAliCloudCertificate'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -189,23 +198,14 @@ class UploadServerCertificateResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Fingerprint'])) {
-            $model->fingerprint = $map['Fingerprint'];
-        }
-        if (isset($map['ServerCertificateName'])) {
-            $model->serverCertificateName = $map['ServerCertificateName'];
-        }
-        if (isset($map['CommonName'])) {
-            $model->commonName = $map['CommonName'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['AliCloudCertificateId'])) {
-            $model->aliCloudCertificateId = $map['AliCloudCertificateId'];
+        if (isset($map['ServerCertificateId'])) {
+            $model->serverCertificateId = $map['ServerCertificateId'];
         }
-        if (isset($map['IsAliCloudCertificate'])) {
-            $model->isAliCloudCertificate = $map['IsAliCloudCertificate'];
+        if (isset($map['ServerCertificateName'])) {
+            $model->serverCertificateName = $map['ServerCertificateName'];
         }
         if (isset($map['SubjectAlternativeNames'])) {
             $model->subjectAlternativeNames = subjectAlternativeNames::fromMap($map['SubjectAlternativeNames']);

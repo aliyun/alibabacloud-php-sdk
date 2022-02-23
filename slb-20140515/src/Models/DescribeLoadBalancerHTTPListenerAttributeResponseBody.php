@@ -12,57 +12,17 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $aclType;
-
-    /**
-     * @var string
-     */
-    public $VServerGroupId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $cookie;
-
-    /**
-     * @var string
-     */
-    public $gzip;
-
-    /**
-     * @var int
-     */
-    public $healthCheckConnectPort;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $bandwidth;
-
-    /**
-     * @var int
-     */
-    public $healthCheckTimeout;
+    public $aclId;
 
     /**
      * @var string
      */
     public $aclStatus;
+
+    /**
+     * @var string
+     */
+    public $aclType;
 
     /**
      * @var int
@@ -72,17 +32,22 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     /**
      * @var int
      */
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $cookie;
+
+    /**
+     * @var int
+     */
     public $cookieTimeout;
 
     /**
      * @var string
      */
-    public $healthCheckDomain;
-
-    /**
-     * @var int
-     */
-    public $unhealthyThreshold;
+    public $description;
 
     /**
      * @var int
@@ -92,42 +57,27 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $XForwardedFor_SLBID;
+    public $gzip;
 
     /**
      * @var string
      */
-    public $securityStatus;
+    public $healthCheck;
+
+    /**
+     * @var int
+     */
+    public $healthCheckConnectPort;
+
+    /**
+     * @var string
+     */
+    public $healthCheckDomain;
 
     /**
      * @var string
      */
     public $healthCheckHttpCode;
-
-    /**
-     * @var string
-     */
-    public $listenerForward;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor;
-
-    /**
-     * @var int
-     */
-    public $idleTimeout;
-
-    /**
-     * @var int
-     */
-    public $requestTimeout;
-
-    /**
-     * @var int
-     */
-    public $listenerPort;
 
     /**
      * @var int
@@ -137,22 +87,17 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $healthCheckMethod;
+
+    /**
+     * @var int
+     */
+    public $healthCheckTimeout;
+
+    /**
+     * @var string
+     */
     public $healthCheckURI;
-
-    /**
-     * @var string
-     */
-    public $stickySessionType;
-
-    /**
-     * @var string
-     */
-    public $aclId;
-
-    /**
-     * @var string
-     */
-    public $scheduler;
 
     /**
      * @var int
@@ -160,14 +105,49 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $healthyThreshold;
 
     /**
-     * @var string
+     * @var int
      */
-    public $XForwardedFor_proto;
+    public $idleTimeout;
 
     /**
      * @var string
      */
-    public $XForwardedFor_SLBIP;
+    public $listenerForward;
+
+    /**
+     * @var int
+     */
+    public $listenerPort;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $requestTimeout;
+
+    /**
+     * @var rules
+     */
+    public $rules;
+
+    /**
+     * @var string
+     */
+    public $scheduler;
+
+    /**
+     * @var string
+     */
+    public $securityStatus;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var string
@@ -177,54 +157,74 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $healthCheckMethod;
+    public $stickySessionType;
+
+    /**
+     * @var int
+     */
+    public $unhealthyThreshold;
 
     /**
      * @var string
      */
-    public $healthCheck;
+    public $VServerGroupId;
 
     /**
-     * @var rules
+     * @var string
      */
-    public $rules;
+    public $XForwardedFor;
+
+    /**
+     * @var string
+     */
+    public $XForwardedFor_SLBID;
+
+    /**
+     * @var string
+     */
+    public $XForwardedFor_SLBIP;
+
+    /**
+     * @var string
+     */
+    public $XForwardedFor_proto;
     protected $_name = [
-        'aclType'                => 'AclType',
-        'VServerGroupId'         => 'VServerGroupId',
-        'status'                 => 'Status',
-        'cookie'                 => 'Cookie',
-        'gzip'                   => 'Gzip',
-        'healthCheckConnectPort' => 'HealthCheckConnectPort',
-        'requestId'              => 'RequestId',
-        'description'            => 'Description',
-        'bandwidth'              => 'Bandwidth',
-        'healthCheckTimeout'     => 'HealthCheckTimeout',
-        'aclStatus'              => 'AclStatus',
-        'backendServerPort'      => 'BackendServerPort',
-        'cookieTimeout'          => 'CookieTimeout',
-        'healthCheckDomain'      => 'HealthCheckDomain',
-        'unhealthyThreshold'     => 'UnhealthyThreshold',
-        'forwardPort'            => 'ForwardPort',
-        'XForwardedFor_SLBID'    => 'XForwardedFor_SLBID',
-        'securityStatus'         => 'SecurityStatus',
-        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
-        'listenerForward'        => 'ListenerForward',
-        'XForwardedFor'          => 'XForwardedFor',
-        'idleTimeout'            => 'IdleTimeout',
-        'requestTimeout'         => 'RequestTimeout',
-        'listenerPort'           => 'ListenerPort',
-        'healthCheckInterval'    => 'HealthCheckInterval',
-        'healthCheckURI'         => 'HealthCheckURI',
-        'stickySessionType'      => 'StickySessionType',
         'aclId'                  => 'AclId',
-        'scheduler'              => 'Scheduler',
-        'healthyThreshold'       => 'HealthyThreshold',
-        'XForwardedFor_proto'    => 'XForwardedFor_proto',
-        'XForwardedFor_SLBIP'    => 'XForwardedFor_SLBIP',
-        'stickySession'          => 'StickySession',
-        'healthCheckMethod'      => 'HealthCheckMethod',
+        'aclStatus'              => 'AclStatus',
+        'aclType'                => 'AclType',
+        'backendServerPort'      => 'BackendServerPort',
+        'bandwidth'              => 'Bandwidth',
+        'cookie'                 => 'Cookie',
+        'cookieTimeout'          => 'CookieTimeout',
+        'description'            => 'Description',
+        'forwardPort'            => 'ForwardPort',
+        'gzip'                   => 'Gzip',
         'healthCheck'            => 'HealthCheck',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
+        'healthCheckDomain'      => 'HealthCheckDomain',
+        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
+        'healthCheckInterval'    => 'HealthCheckInterval',
+        'healthCheckMethod'      => 'HealthCheckMethod',
+        'healthCheckTimeout'     => 'HealthCheckTimeout',
+        'healthCheckURI'         => 'HealthCheckURI',
+        'healthyThreshold'       => 'HealthyThreshold',
+        'idleTimeout'            => 'IdleTimeout',
+        'listenerForward'        => 'ListenerForward',
+        'listenerPort'           => 'ListenerPort',
+        'requestId'              => 'RequestId',
+        'requestTimeout'         => 'RequestTimeout',
         'rules'                  => 'Rules',
+        'scheduler'              => 'Scheduler',
+        'securityStatus'         => 'SecurityStatus',
+        'status'                 => 'Status',
+        'stickySession'          => 'StickySession',
+        'stickySessionType'      => 'StickySessionType',
+        'unhealthyThreshold'     => 'UnhealthyThreshold',
+        'VServerGroupId'         => 'VServerGroupId',
+        'XForwardedFor'          => 'XForwardedFor',
+        'XForwardedFor_SLBID'    => 'XForwardedFor_SLBID',
+        'XForwardedFor_SLBIP'    => 'XForwardedFor_SLBIP',
+        'XForwardedFor_proto'    => 'XForwardedFor_proto',
     ];
 
     public function validate()
@@ -234,113 +234,113 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclType) {
-            $res['AclType'] = $this->aclType;
-        }
-        if (null !== $this->VServerGroupId) {
-            $res['VServerGroupId'] = $this->VServerGroupId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->cookie) {
-            $res['Cookie'] = $this->cookie;
-        }
-        if (null !== $this->gzip) {
-            $res['Gzip'] = $this->gzip;
-        }
-        if (null !== $this->healthCheckConnectPort) {
-            $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->healthCheckTimeout) {
-            $res['HealthCheckTimeout'] = $this->healthCheckTimeout;
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
         }
         if (null !== $this->aclStatus) {
             $res['AclStatus'] = $this->aclStatus;
         }
+        if (null !== $this->aclType) {
+            $res['AclType'] = $this->aclType;
+        }
         if (null !== $this->backendServerPort) {
             $res['BackendServerPort'] = $this->backendServerPort;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->cookie) {
+            $res['Cookie'] = $this->cookie;
         }
         if (null !== $this->cookieTimeout) {
             $res['CookieTimeout'] = $this->cookieTimeout;
         }
-        if (null !== $this->healthCheckDomain) {
-            $res['HealthCheckDomain'] = $this->healthCheckDomain;
-        }
-        if (null !== $this->unhealthyThreshold) {
-            $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->forwardPort) {
             $res['ForwardPort'] = $this->forwardPort;
         }
-        if (null !== $this->XForwardedFor_SLBID) {
-            $res['XForwardedFor_SLBID'] = $this->XForwardedFor_SLBID;
-        }
-        if (null !== $this->securityStatus) {
-            $res['SecurityStatus'] = $this->securityStatus;
-        }
-        if (null !== $this->healthCheckHttpCode) {
-            $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
-        }
-        if (null !== $this->listenerForward) {
-            $res['ListenerForward'] = $this->listenerForward;
-        }
-        if (null !== $this->XForwardedFor) {
-            $res['XForwardedFor'] = $this->XForwardedFor;
-        }
-        if (null !== $this->idleTimeout) {
-            $res['IdleTimeout'] = $this->idleTimeout;
-        }
-        if (null !== $this->requestTimeout) {
-            $res['RequestTimeout'] = $this->requestTimeout;
-        }
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
-        }
-        if (null !== $this->healthCheckInterval) {
-            $res['HealthCheckInterval'] = $this->healthCheckInterval;
-        }
-        if (null !== $this->healthCheckURI) {
-            $res['HealthCheckURI'] = $this->healthCheckURI;
-        }
-        if (null !== $this->stickySessionType) {
-            $res['StickySessionType'] = $this->stickySessionType;
-        }
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
-        }
-        if (null !== $this->scheduler) {
-            $res['Scheduler'] = $this->scheduler;
-        }
-        if (null !== $this->healthyThreshold) {
-            $res['HealthyThreshold'] = $this->healthyThreshold;
-        }
-        if (null !== $this->XForwardedFor_proto) {
-            $res['XForwardedFor_proto'] = $this->XForwardedFor_proto;
-        }
-        if (null !== $this->XForwardedFor_SLBIP) {
-            $res['XForwardedFor_SLBIP'] = $this->XForwardedFor_SLBIP;
-        }
-        if (null !== $this->stickySession) {
-            $res['StickySession'] = $this->stickySession;
-        }
-        if (null !== $this->healthCheckMethod) {
-            $res['HealthCheckMethod'] = $this->healthCheckMethod;
+        if (null !== $this->gzip) {
+            $res['Gzip'] = $this->gzip;
         }
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = $this->healthCheck;
         }
+        if (null !== $this->healthCheckConnectPort) {
+            $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
+        }
+        if (null !== $this->healthCheckDomain) {
+            $res['HealthCheckDomain'] = $this->healthCheckDomain;
+        }
+        if (null !== $this->healthCheckHttpCode) {
+            $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
+        }
+        if (null !== $this->healthCheckInterval) {
+            $res['HealthCheckInterval'] = $this->healthCheckInterval;
+        }
+        if (null !== $this->healthCheckMethod) {
+            $res['HealthCheckMethod'] = $this->healthCheckMethod;
+        }
+        if (null !== $this->healthCheckTimeout) {
+            $res['HealthCheckTimeout'] = $this->healthCheckTimeout;
+        }
+        if (null !== $this->healthCheckURI) {
+            $res['HealthCheckURI'] = $this->healthCheckURI;
+        }
+        if (null !== $this->healthyThreshold) {
+            $res['HealthyThreshold'] = $this->healthyThreshold;
+        }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
+        }
+        if (null !== $this->listenerForward) {
+            $res['ListenerForward'] = $this->listenerForward;
+        }
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
+        }
         if (null !== $this->rules) {
             $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+        }
+        if (null !== $this->scheduler) {
+            $res['Scheduler'] = $this->scheduler;
+        }
+        if (null !== $this->securityStatus) {
+            $res['SecurityStatus'] = $this->securityStatus;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->stickySession) {
+            $res['StickySession'] = $this->stickySession;
+        }
+        if (null !== $this->stickySessionType) {
+            $res['StickySessionType'] = $this->stickySessionType;
+        }
+        if (null !== $this->unhealthyThreshold) {
+            $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
+        }
+        if (null !== $this->VServerGroupId) {
+            $res['VServerGroupId'] = $this->VServerGroupId;
+        }
+        if (null !== $this->XForwardedFor) {
+            $res['XForwardedFor'] = $this->XForwardedFor;
+        }
+        if (null !== $this->XForwardedFor_SLBID) {
+            $res['XForwardedFor_SLBID'] = $this->XForwardedFor_SLBID;
+        }
+        if (null !== $this->XForwardedFor_SLBIP) {
+            $res['XForwardedFor_SLBIP'] = $this->XForwardedFor_SLBIP;
+        }
+        if (null !== $this->XForwardedFor_proto) {
+            $res['XForwardedFor_proto'] = $this->XForwardedFor_proto;
         }
 
         return $res;
@@ -354,113 +354,113 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclType'])) {
-            $model->aclType = $map['AclType'];
-        }
-        if (isset($map['VServerGroupId'])) {
-            $model->VServerGroupId = $map['VServerGroupId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Cookie'])) {
-            $model->cookie = $map['Cookie'];
-        }
-        if (isset($map['Gzip'])) {
-            $model->gzip = $map['Gzip'];
-        }
-        if (isset($map['HealthCheckConnectPort'])) {
-            $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['HealthCheckTimeout'])) {
-            $model->healthCheckTimeout = $map['HealthCheckTimeout'];
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
         }
         if (isset($map['AclStatus'])) {
             $model->aclStatus = $map['AclStatus'];
         }
+        if (isset($map['AclType'])) {
+            $model->aclType = $map['AclType'];
+        }
         if (isset($map['BackendServerPort'])) {
             $model->backendServerPort = $map['BackendServerPort'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['Cookie'])) {
+            $model->cookie = $map['Cookie'];
         }
         if (isset($map['CookieTimeout'])) {
             $model->cookieTimeout = $map['CookieTimeout'];
         }
-        if (isset($map['HealthCheckDomain'])) {
-            $model->healthCheckDomain = $map['HealthCheckDomain'];
-        }
-        if (isset($map['UnhealthyThreshold'])) {
-            $model->unhealthyThreshold = $map['UnhealthyThreshold'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['ForwardPort'])) {
             $model->forwardPort = $map['ForwardPort'];
         }
-        if (isset($map['XForwardedFor_SLBID'])) {
-            $model->XForwardedFor_SLBID = $map['XForwardedFor_SLBID'];
-        }
-        if (isset($map['SecurityStatus'])) {
-            $model->securityStatus = $map['SecurityStatus'];
-        }
-        if (isset($map['HealthCheckHttpCode'])) {
-            $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
-        }
-        if (isset($map['ListenerForward'])) {
-            $model->listenerForward = $map['ListenerForward'];
-        }
-        if (isset($map['XForwardedFor'])) {
-            $model->XForwardedFor = $map['XForwardedFor'];
-        }
-        if (isset($map['IdleTimeout'])) {
-            $model->idleTimeout = $map['IdleTimeout'];
-        }
-        if (isset($map['RequestTimeout'])) {
-            $model->requestTimeout = $map['RequestTimeout'];
-        }
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
-        }
-        if (isset($map['HealthCheckInterval'])) {
-            $model->healthCheckInterval = $map['HealthCheckInterval'];
-        }
-        if (isset($map['HealthCheckURI'])) {
-            $model->healthCheckURI = $map['HealthCheckURI'];
-        }
-        if (isset($map['StickySessionType'])) {
-            $model->stickySessionType = $map['StickySessionType'];
-        }
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
-        }
-        if (isset($map['Scheduler'])) {
-            $model->scheduler = $map['Scheduler'];
-        }
-        if (isset($map['HealthyThreshold'])) {
-            $model->healthyThreshold = $map['HealthyThreshold'];
-        }
-        if (isset($map['XForwardedFor_proto'])) {
-            $model->XForwardedFor_proto = $map['XForwardedFor_proto'];
-        }
-        if (isset($map['XForwardedFor_SLBIP'])) {
-            $model->XForwardedFor_SLBIP = $map['XForwardedFor_SLBIP'];
-        }
-        if (isset($map['StickySession'])) {
-            $model->stickySession = $map['StickySession'];
-        }
-        if (isset($map['HealthCheckMethod'])) {
-            $model->healthCheckMethod = $map['HealthCheckMethod'];
+        if (isset($map['Gzip'])) {
+            $model->gzip = $map['Gzip'];
         }
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = $map['HealthCheck'];
         }
+        if (isset($map['HealthCheckConnectPort'])) {
+            $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
+        }
+        if (isset($map['HealthCheckDomain'])) {
+            $model->healthCheckDomain = $map['HealthCheckDomain'];
+        }
+        if (isset($map['HealthCheckHttpCode'])) {
+            $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
+        }
+        if (isset($map['HealthCheckInterval'])) {
+            $model->healthCheckInterval = $map['HealthCheckInterval'];
+        }
+        if (isset($map['HealthCheckMethod'])) {
+            $model->healthCheckMethod = $map['HealthCheckMethod'];
+        }
+        if (isset($map['HealthCheckTimeout'])) {
+            $model->healthCheckTimeout = $map['HealthCheckTimeout'];
+        }
+        if (isset($map['HealthCheckURI'])) {
+            $model->healthCheckURI = $map['HealthCheckURI'];
+        }
+        if (isset($map['HealthyThreshold'])) {
+            $model->healthyThreshold = $map['HealthyThreshold'];
+        }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
+        }
+        if (isset($map['ListenerForward'])) {
+            $model->listenerForward = $map['ListenerForward'];
+        }
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
+        }
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
+        }
+        if (isset($map['Scheduler'])) {
+            $model->scheduler = $map['Scheduler'];
+        }
+        if (isset($map['SecurityStatus'])) {
+            $model->securityStatus = $map['SecurityStatus'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StickySession'])) {
+            $model->stickySession = $map['StickySession'];
+        }
+        if (isset($map['StickySessionType'])) {
+            $model->stickySessionType = $map['StickySessionType'];
+        }
+        if (isset($map['UnhealthyThreshold'])) {
+            $model->unhealthyThreshold = $map['UnhealthyThreshold'];
+        }
+        if (isset($map['VServerGroupId'])) {
+            $model->VServerGroupId = $map['VServerGroupId'];
+        }
+        if (isset($map['XForwardedFor'])) {
+            $model->XForwardedFor = $map['XForwardedFor'];
+        }
+        if (isset($map['XForwardedFor_SLBID'])) {
+            $model->XForwardedFor_SLBID = $map['XForwardedFor_SLBID'];
+        }
+        if (isset($map['XForwardedFor_SLBIP'])) {
+            $model->XForwardedFor_SLBIP = $map['XForwardedFor_SLBIP'];
+        }
+        if (isset($map['XForwardedFor_proto'])) {
+            $model->XForwardedFor_proto = $map['XForwardedFor_proto'];
         }
 
         return $model;

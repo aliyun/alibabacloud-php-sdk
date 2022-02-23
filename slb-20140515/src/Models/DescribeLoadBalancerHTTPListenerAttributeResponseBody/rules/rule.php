@@ -11,17 +11,12 @@ class rule extends Model
     /**
      * @var string
      */
-    public $VServerGroupId;
-
-    /**
-     * @var string
-     */
-    public $url;
-
-    /**
-     * @var string
-     */
     public $domain;
+
+    /**
+     * @var string
+     */
+    public $ruleId;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class rule extends Model
     /**
      * @var string
      */
-    public $ruleId;
+    public $url;
+
+    /**
+     * @var string
+     */
+    public $VServerGroupId;
     protected $_name = [
-        'VServerGroupId' => 'VServerGroupId',
-        'url'            => 'Url',
         'domain'         => 'Domain',
-        'ruleName'       => 'RuleName',
         'ruleId'         => 'RuleId',
+        'ruleName'       => 'RuleName',
+        'url'            => 'Url',
+        'VServerGroupId' => 'VServerGroupId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class rule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->VServerGroupId) {
-            $res['VServerGroupId'] = $this->VServerGroupId;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
+        }
+        if (null !== $this->VServerGroupId) {
+            $res['VServerGroupId'] = $this->VServerGroupId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class rule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VServerGroupId'])) {
-            $model->VServerGroupId = $map['VServerGroupId'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
+        }
+        if (isset($map['VServerGroupId'])) {
+            $model->VServerGroupId = $map['VServerGroupId'];
         }
 
         return $model;

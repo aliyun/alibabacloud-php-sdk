@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class SetVServerGroupAttributeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $backendServers;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -26,36 +41,21 @@ class SetVServerGroupAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
     public $VServerGroupId;
 
     /**
      * @var string
      */
     public $VServerGroupName;
-
-    /**
-     * @var string
-     */
-    public $backendServers;
     protected $_name = [
+        'backendServers'       => 'BackendServers',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'ownerAccount'         => 'OwnerAccount',
         'VServerGroupId'       => 'VServerGroupId',
         'VServerGroupName'     => 'VServerGroupName',
-        'backendServers'       => 'BackendServers',
     ];
 
     public function validate()
@@ -65,8 +65,17 @@ class SetVServerGroupAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServers) {
+            $res['BackendServers'] = $this->backendServers;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,20 +83,11 @@ class SetVServerGroupAttributeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
         if (null !== $this->VServerGroupName) {
             $res['VServerGroupName'] = $this->VServerGroupName;
-        }
-        if (null !== $this->backendServers) {
-            $res['BackendServers'] = $this->backendServers;
         }
 
         return $res;
@@ -101,8 +101,17 @@ class SetVServerGroupAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServers'])) {
+            $model->backendServers = $map['BackendServers'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -110,20 +119,11 @@ class SetVServerGroupAttributeRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
         if (isset($map['VServerGroupName'])) {
             $model->VServerGroupName = $map['VServerGroupName'];
-        }
-        if (isset($map['BackendServers'])) {
-            $model->backendServers = $map['BackendServers'];
         }
 
         return $model;

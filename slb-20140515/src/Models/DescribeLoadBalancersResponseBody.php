@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancersResponseBody extends Model
 {
     /**
-     * @var string
+     * @var loadBalancers
      */
-    public $requestId;
+    public $loadBalancers;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeLoadBalancersResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var loadBalancers
-     */
-    public $loadBalancers;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'loadBalancers' => 'LoadBalancers',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'requestId'     => 'RequestId',
         'totalCount'    => 'TotalCount',
-        'loadBalancers' => 'LoadBalancers',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeLoadBalancersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->loadBalancers) {
+            $res['LoadBalancers'] = null !== $this->loadBalancers ? $this->loadBalancers->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -57,11 +57,11 @@ class DescribeLoadBalancersResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->loadBalancers) {
-            $res['LoadBalancers'] = null !== $this->loadBalancers ? $this->loadBalancers->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeLoadBalancersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['LoadBalancers'])) {
+            $model->loadBalancers = loadBalancers::fromMap($map['LoadBalancers']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -84,11 +84,11 @@ class DescribeLoadBalancersResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['LoadBalancers'])) {
-            $model->loadBalancers = loadBalancers::fromMap($map['LoadBalancers']);
         }
 
         return $model;

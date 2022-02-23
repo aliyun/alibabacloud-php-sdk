@@ -16,12 +16,12 @@ class acl extends Model
     /**
      * @var string
      */
-    public $addressIPVersion;
+    public $aclName;
 
     /**
      * @var string
      */
-    public $aclName;
+    public $addressIPVersion;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class acl extends Model
     public $resourceGroupId;
     protected $_name = [
         'aclId'            => 'AclId',
-        'addressIPVersion' => 'AddressIPVersion',
         'aclName'          => 'AclName',
+        'addressIPVersion' => 'AddressIPVersion',
         'resourceGroupId'  => 'ResourceGroupId',
     ];
 
@@ -44,11 +44,11 @@ class acl extends Model
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
-        if (null !== $this->addressIPVersion) {
-            $res['AddressIPVersion'] = $this->addressIPVersion;
-        }
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -68,11 +68,11 @@ class acl extends Model
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
-        if (isset($map['AddressIPVersion'])) {
-            $model->addressIPVersion = $map['AddressIPVersion'];
-        }
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
+        }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

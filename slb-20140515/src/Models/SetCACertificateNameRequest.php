@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SetCACertificateNameRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $CACertificateId;
+
+    /**
+     * @var string
+     */
+    public $CACertificateName;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -22,34 +42,14 @@ class SetCACertificateNameRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $CACertificateId;
-
-    /**
-     * @var string
-     */
-    public $CACertificateName;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
         'CACertificateId'      => 'CACertificateId',
         'CACertificateName'    => 'CACertificateName',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class SetCACertificateNameRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->CACertificateId) {
+            $res['CACertificateId'] = $this->CACertificateId;
+        }
+        if (null !== $this->CACertificateName) {
+            $res['CACertificateName'] = $this->CACertificateName;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->CACertificateId) {
-            $res['CACertificateId'] = $this->CACertificateId;
-        }
-        if (null !== $this->CACertificateName) {
-            $res['CACertificateName'] = $this->CACertificateName;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class SetCACertificateNameRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CACertificateId'])) {
+            $model->CACertificateId = $map['CACertificateId'];
+        }
+        if (isset($map['CACertificateName'])) {
+            $model->CACertificateName = $map['CACertificateName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['CACertificateId'])) {
-            $model->CACertificateId = $map['CACertificateId'];
-        }
-        if (isset($map['CACertificateName'])) {
-            $model->CACertificateName = $map['CACertificateName'];
         }
 
         return $model;

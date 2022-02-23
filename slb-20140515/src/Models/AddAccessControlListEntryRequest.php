@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AddAccessControlListEntryRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $aclEntrys;
+
+    /**
+     * @var string
+     */
+    public $aclId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -22,34 +42,14 @@ class AddAccessControlListEntryRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $aclId;
-
-    /**
-     * @var string
-     */
-    public $aclEntrys;
     protected $_name = [
+        'aclEntrys'            => 'AclEntrys',
+        'aclId'                => 'AclId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'aclId'                => 'AclId',
-        'aclEntrys'            => 'AclEntrys',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class AddAccessControlListEntryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aclEntrys) {
+            $res['AclEntrys'] = $this->aclEntrys;
+        }
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
-        }
-        if (null !== $this->aclEntrys) {
-            $res['AclEntrys'] = $this->aclEntrys;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class AddAccessControlListEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AclEntrys'])) {
+            $model->aclEntrys = $map['AclEntrys'];
+        }
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
-        }
-        if (isset($map['AclEntrys'])) {
-            $model->aclEntrys = $map['AclEntrys'];
         }
 
         return $model;

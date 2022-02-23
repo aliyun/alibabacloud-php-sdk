@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class TLSCipherPolicies extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $status;
+    public $ciphers;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -25,32 +30,27 @@ class TLSCipherPolicies extends Model
     public $name;
 
     /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
      * @var relateListeners[]
      */
     public $relateListeners;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $TLSVersions;
+    public $status;
 
     /**
      * @var string[]
      */
-    public $ciphers;
+    public $TLSVersions;
     protected $_name = [
-        'status'          => 'Status',
+        'ciphers'         => 'Ciphers',
+        'createTime'      => 'CreateTime',
         'instanceId'      => 'InstanceId',
         'name'            => 'Name',
-        'createTime'      => 'CreateTime',
         'relateListeners' => 'RelateListeners',
+        'status'          => 'Status',
         'TLSVersions'     => 'TLSVersions',
-        'ciphers'         => 'Ciphers',
     ];
 
     public function validate()
@@ -60,17 +60,17 @@ class TLSCipherPolicies extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->ciphers) {
+            $res['Ciphers'] = $this->ciphers;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->relateListeners) {
             $res['RelateListeners'] = [];
@@ -81,11 +81,11 @@ class TLSCipherPolicies extends Model
                 }
             }
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->TLSVersions) {
             $res['TLSVersions'] = $this->TLSVersions;
-        }
-        if (null !== $this->ciphers) {
-            $res['Ciphers'] = $this->ciphers;
         }
 
         return $res;
@@ -99,17 +99,19 @@ class TLSCipherPolicies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Ciphers'])) {
+            if (!empty($map['Ciphers'])) {
+                $model->ciphers = $map['Ciphers'];
+            }
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['RelateListeners'])) {
             if (!empty($map['RelateListeners'])) {
@@ -120,14 +122,12 @@ class TLSCipherPolicies extends Model
                 }
             }
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['TLSVersions'])) {
             if (!empty($map['TLSVersions'])) {
                 $model->TLSVersions = $map['TLSVersions'];
-            }
-        }
-        if (isset($map['Ciphers'])) {
-            if (!empty($map['Ciphers'])) {
-                $model->ciphers = $map['Ciphers'];
             }
         }
 

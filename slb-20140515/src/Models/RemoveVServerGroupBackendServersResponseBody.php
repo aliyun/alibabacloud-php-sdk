@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveVServerGroupBackendServersResponseBody extends Model
 {
     /**
-     * @var string
+     * @var backendServers
      */
-    public $VServerGroupId;
+    public $backendServers;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class RemoveVServerGroupBackendServersResponseBody extends Model
     public $requestId;
 
     /**
-     * @var backendServers
+     * @var string
      */
-    public $backendServers;
+    public $VServerGroupId;
     protected $_name = [
-        'VServerGroupId' => 'VServerGroupId',
-        'requestId'      => 'RequestId',
         'backendServers' => 'BackendServers',
+        'requestId'      => 'RequestId',
+        'VServerGroupId' => 'VServerGroupId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class RemoveVServerGroupBackendServersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->VServerGroupId) {
-            $res['VServerGroupId'] = $this->VServerGroupId;
+        if (null !== $this->backendServers) {
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->backendServers) {
-            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
+        if (null !== $this->VServerGroupId) {
+            $res['VServerGroupId'] = $this->VServerGroupId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class RemoveVServerGroupBackendServersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VServerGroupId'])) {
-            $model->VServerGroupId = $map['VServerGroupId'];
+        if (isset($map['BackendServers'])) {
+            $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['BackendServers'])) {
-            $model->backendServers = backendServers::fromMap($map['BackendServers']);
+        if (isset($map['VServerGroupId'])) {
+            $model->VServerGroupId = $map['VServerGroupId'];
         }
 
         return $model;

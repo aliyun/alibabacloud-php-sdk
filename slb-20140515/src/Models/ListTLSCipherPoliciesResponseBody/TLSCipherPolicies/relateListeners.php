@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class relateListeners extends Model
 {
     /**
+     * @var string
+     */
+    public $loadBalancerId;
+
+    /**
      * @var int
      */
     public $port;
@@ -17,15 +22,10 @@ class relateListeners extends Model
      * @var string
      */
     public $protocol;
-
-    /**
-     * @var string
-     */
-    public $loadBalancerId;
     protected $_name = [
+        'loadBalancerId' => 'LoadBalancerId',
         'port'           => 'Port',
         'protocol'       => 'Protocol',
-        'loadBalancerId' => 'LoadBalancerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class relateListeners extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class relateListeners extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
+        }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
         }
 
         return $model;

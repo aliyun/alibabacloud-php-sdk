@@ -12,20 +12,20 @@ class availableResource extends Model
     /**
      * @var string
      */
-    public $slaveZoneId;
+    public $masterZoneId;
 
     /**
      * @var string
      */
-    public $masterZoneId;
+    public $slaveZoneId;
 
     /**
      * @var supportResources
      */
     public $supportResources;
     protected $_name = [
-        'slaveZoneId'      => 'SlaveZoneId',
         'masterZoneId'     => 'MasterZoneId',
+        'slaveZoneId'      => 'SlaveZoneId',
         'supportResources' => 'SupportResources',
     ];
 
@@ -36,11 +36,11 @@ class availableResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->slaveZoneId) {
-            $res['SlaveZoneId'] = $this->slaveZoneId;
-        }
         if (null !== $this->masterZoneId) {
             $res['MasterZoneId'] = $this->masterZoneId;
+        }
+        if (null !== $this->slaveZoneId) {
+            $res['SlaveZoneId'] = $this->slaveZoneId;
         }
         if (null !== $this->supportResources) {
             $res['SupportResources'] = null !== $this->supportResources ? $this->supportResources->toMap() : null;
@@ -57,11 +57,11 @@ class availableResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SlaveZoneId'])) {
-            $model->slaveZoneId = $map['SlaveZoneId'];
-        }
         if (isset($map['MasterZoneId'])) {
             $model->masterZoneId = $map['MasterZoneId'];
+        }
+        if (isset($map['SlaveZoneId'])) {
+            $model->slaveZoneId = $map['SlaveZoneId'];
         }
         if (isset($map['SupportResources'])) {
             $model->supportResources = supportResources::fromMap($map['SupportResources']);

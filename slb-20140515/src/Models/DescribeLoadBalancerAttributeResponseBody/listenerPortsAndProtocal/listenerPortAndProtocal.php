@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class listenerPortAndProtocal extends Model
 {
     /**
-     * @var string
-     */
-    public $listenerProtocal;
-
-    /**
      * @var int
      */
     public $listenerPort;
+
+    /**
+     * @var string
+     */
+    public $listenerProtocal;
     protected $_name = [
-        'listenerProtocal' => 'ListenerProtocal',
         'listenerPort'     => 'ListenerPort',
+        'listenerProtocal' => 'ListenerProtocal',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class listenerPortAndProtocal extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerProtocal) {
-            $res['ListenerProtocal'] = $this->listenerProtocal;
-        }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
+        }
+        if (null !== $this->listenerProtocal) {
+            $res['ListenerProtocal'] = $this->listenerProtocal;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class listenerPortAndProtocal extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerProtocal'])) {
-            $model->listenerProtocal = $map['ListenerProtocal'];
-        }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
+        }
+        if (isset($map['ListenerProtocal'])) {
+            $model->listenerProtocal = $map['ListenerProtocal'];
         }
 
         return $model;

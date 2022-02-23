@@ -9,14 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoadBalancerInstanceSpecRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $loadBalancerId;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerSpec;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -27,35 +47,15 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $loadBalancerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $loadBalancerSpec;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
     protected $_name = [
-        'regionId'             => 'RegionId',
+        'autoPay'              => 'AutoPay',
+        'loadBalancerId'       => 'LoadBalancerId',
+        'loadBalancerSpec'     => 'LoadBalancerSpec',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'loadBalancerId'       => 'LoadBalancerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'loadBalancerSpec'     => 'LoadBalancerSpec',
-        'autoPay'              => 'AutoPay',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+        if (null !== $this->loadBalancerSpec) {
+            $res['LoadBalancerSpec'] = $this->loadBalancerSpec;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->loadBalancerSpec) {
-            $res['LoadBalancerSpec'] = $this->loadBalancerSpec;
-        }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+        if (isset($map['LoadBalancerSpec'])) {
+            $model->loadBalancerSpec = $map['LoadBalancerSpec'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['LoadBalancerSpec'])) {
-            $model->loadBalancerSpec = $map['LoadBalancerSpec'];
-        }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class relatedListener extends Model
 {
     /**
+     * @var string
+     */
+    public $aclType;
+
+    /**
      * @var int
      */
     public $listenerPort;
@@ -16,22 +21,17 @@ class relatedListener extends Model
     /**
      * @var string
      */
-    public $aclType;
+    public $loadBalancerId;
 
     /**
      * @var string
      */
     public $protocol;
-
-    /**
-     * @var string
-     */
-    public $loadBalancerId;
     protected $_name = [
-        'listenerPort'   => 'ListenerPort',
         'aclType'        => 'AclType',
-        'protocol'       => 'Protocol',
+        'listenerPort'   => 'ListenerPort',
         'loadBalancerId' => 'LoadBalancerId',
+        'protocol'       => 'Protocol',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class relatedListener extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
-        }
         if (null !== $this->aclType) {
             $res['AclType'] = $this->aclType;
         }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
         }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class relatedListener extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
-        }
         if (isset($map['AclType'])) {
             $model->aclType = $map['AclType'];
         }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
         }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
 
         return $model;

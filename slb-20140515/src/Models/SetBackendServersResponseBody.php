@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SetBackendServersResponseBody extends Model
 {
     /**
+     * @var backendServers
+     */
+    public $backendServers;
+
+    /**
      * @var string
      */
     public $loadBalancerId;
@@ -18,15 +23,10 @@ class SetBackendServersResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var backendServers
-     */
-    public $backendServers;
     protected $_name = [
+        'backendServers' => 'BackendServers',
         'loadBalancerId' => 'LoadBalancerId',
         'requestId'      => 'RequestId',
-        'backendServers' => 'BackendServers',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class SetBackendServersResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServers) {
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
+        }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->backendServers) {
-            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class SetBackendServersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServers'])) {
+            $model->backendServers = backendServers::fromMap($map['BackendServers']);
+        }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['BackendServers'])) {
-            $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
 
         return $model;

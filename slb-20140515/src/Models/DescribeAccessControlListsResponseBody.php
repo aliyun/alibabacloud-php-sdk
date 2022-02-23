@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListsResponseBody extends Model
 {
     /**
+     * @var acls
+     */
+    public $acls;
+
+    /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -28,23 +38,13 @@ class DescribeAccessControlListsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $count;
-
-    /**
-     * @var acls
-     */
-    public $acls;
     protected $_name = [
+        'acls'       => 'Acls',
+        'count'      => 'Count',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'count'      => 'Count',
-        'acls'       => 'Acls',
     ];
 
     public function validate()
@@ -54,6 +54,12 @@ class DescribeAccessControlListsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acls) {
+            $res['Acls'] = null !== $this->acls ? $this->acls->toMap() : null;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -65,12 +71,6 @@ class DescribeAccessControlListsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
-        if (null !== $this->acls) {
-            $res['Acls'] = null !== $this->acls ? $this->acls->toMap() : null;
         }
 
         return $res;
@@ -84,6 +84,12 @@ class DescribeAccessControlListsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Acls'])) {
+            $model->acls = acls::fromMap($map['Acls']);
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -95,12 +101,6 @@ class DescribeAccessControlListsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
-        if (isset($map['Acls'])) {
-            $model->acls = acls::fromMap($map['Acls']);
         }
 
         return $model;
