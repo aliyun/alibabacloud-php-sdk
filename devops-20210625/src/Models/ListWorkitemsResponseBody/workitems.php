@@ -2,15 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody;
+namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsResponseBody;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\customFields;
 use AlibabaCloud\Tea\Model;
 
-class workitem extends Model
+class workitems extends Model
 {
     /**
-     * @description 负责人
+     * @description 负责人aliyunPk
      *
      * @var string
      */
@@ -24,18 +23,11 @@ class workitem extends Model
     public $categoryIdentifier;
 
     /**
-     * @description 创建人
+     * @description 创建人aliyunPK
      *
      * @var string
      */
     public $creator;
-
-    /**
-     * @description 自定义字段列表
-     *
-     * @var customFields[]
-     */
-    public $customFields;
 
     /**
      * @description 工作项内容
@@ -73,7 +65,7 @@ class workitem extends Model
     public $logicalStatus;
 
     /**
-     * @description 修改人
+     * @description 修改人aliyunPK
      *
      * @var string
      */
@@ -85,13 +77,6 @@ class workitem extends Model
      * @var string
      */
     public $parentIdentifier;
-
-    /**
-     * @description 参与人aliyunPk id列表
-     *
-     * @var string[]
-     */
-    public $participant;
 
     /**
      * @description 编号
@@ -122,13 +107,6 @@ class workitem extends Model
     public $spaceType;
 
     /**
-     * @description 关联的迭代id
-     *
-     * @var string[]
-     */
-    public $sprint;
-
-    /**
      * @description 状态名称
      *
      * @var string
@@ -136,7 +114,7 @@ class workitem extends Model
     public $status;
 
     /**
-     * @description 状态id
+     * @description 状态唯一标识
      *
      * @var string
      */
@@ -157,32 +135,11 @@ class workitem extends Model
     public $subject;
 
     /**
-     * @description 标签id列表
-     *
-     * @var string[]
-     */
-    public $tag;
-
-    /**
-     * @description 抄送人的aliyunPk id列表
-     *
-     * @var string[]
-     */
-    public $tracker;
-
-    /**
      * @description 状态更新时间
      *
      * @var int
      */
     public $updateStatusAt;
-
-    /**
-     * @description 验证者的aliyunPk id列表
-     *
-     * @var string[]
-     */
-    public $verifier;
 
     /**
      * @description 工作项类型id
@@ -194,7 +151,6 @@ class workitem extends Model
         'assignedTo'             => 'assignedTo',
         'categoryIdentifier'     => 'categoryIdentifier',
         'creator'                => 'creator',
-        'customFields'           => 'customFields',
         'document'               => 'document',
         'gmtCreate'              => 'gmtCreate',
         'gmtModified'            => 'gmtModified',
@@ -202,20 +158,15 @@ class workitem extends Model
         'logicalStatus'          => 'logicalStatus',
         'modifier'               => 'modifier',
         'parentIdentifier'       => 'parentIdentifier',
-        'participant'            => 'participant',
         'serialNumber'           => 'serialNumber',
         'spaceIdentifier'        => 'spaceIdentifier',
         'spaceName'              => 'spaceName',
         'spaceType'              => 'spaceType',
-        'sprint'                 => 'sprint',
         'status'                 => 'status',
         'statusIdentifier'       => 'statusIdentifier',
         'statusStageIdentifier'  => 'statusStageIdentifier',
         'subject'                => 'subject',
-        'tag'                    => 'tag',
-        'tracker'                => 'tracker',
         'updateStatusAt'         => 'updateStatusAt',
-        'verifier'               => 'verifier',
         'workitemTypeIdentifier' => 'workitemTypeIdentifier',
     ];
 
@@ -234,15 +185,6 @@ class workitem extends Model
         }
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
-        }
-        if (null !== $this->customFields) {
-            $res['customFields'] = [];
-            if (null !== $this->customFields && \is_array($this->customFields)) {
-                $n = 0;
-                foreach ($this->customFields as $item) {
-                    $res['customFields'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->document) {
             $res['document'] = $this->document;
@@ -265,9 +207,6 @@ class workitem extends Model
         if (null !== $this->parentIdentifier) {
             $res['parentIdentifier'] = $this->parentIdentifier;
         }
-        if (null !== $this->participant) {
-            $res['participant'] = $this->participant;
-        }
         if (null !== $this->serialNumber) {
             $res['serialNumber'] = $this->serialNumber;
         }
@@ -279,9 +218,6 @@ class workitem extends Model
         }
         if (null !== $this->spaceType) {
             $res['spaceType'] = $this->spaceType;
-        }
-        if (null !== $this->sprint) {
-            $res['sprint'] = $this->sprint;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -295,17 +231,8 @@ class workitem extends Model
         if (null !== $this->subject) {
             $res['subject'] = $this->subject;
         }
-        if (null !== $this->tag) {
-            $res['tag'] = $this->tag;
-        }
-        if (null !== $this->tracker) {
-            $res['tracker'] = $this->tracker;
-        }
         if (null !== $this->updateStatusAt) {
             $res['updateStatusAt'] = $this->updateStatusAt;
-        }
-        if (null !== $this->verifier) {
-            $res['verifier'] = $this->verifier;
         }
         if (null !== $this->workitemTypeIdentifier) {
             $res['workitemTypeIdentifier'] = $this->workitemTypeIdentifier;
@@ -317,7 +244,7 @@ class workitem extends Model
     /**
      * @param array $map
      *
-     * @return workitem
+     * @return workitems
      */
     public static function fromMap($map = [])
     {
@@ -330,15 +257,6 @@ class workitem extends Model
         }
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
-        }
-        if (isset($map['customFields'])) {
-            if (!empty($map['customFields'])) {
-                $model->customFields = [];
-                $n                   = 0;
-                foreach ($map['customFields'] as $item) {
-                    $model->customFields[$n++] = null !== $item ? customFields::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['document'])) {
             $model->document = $map['document'];
@@ -361,11 +279,6 @@ class workitem extends Model
         if (isset($map['parentIdentifier'])) {
             $model->parentIdentifier = $map['parentIdentifier'];
         }
-        if (isset($map['participant'])) {
-            if (!empty($map['participant'])) {
-                $model->participant = $map['participant'];
-            }
-        }
         if (isset($map['serialNumber'])) {
             $model->serialNumber = $map['serialNumber'];
         }
@@ -377,11 +290,6 @@ class workitem extends Model
         }
         if (isset($map['spaceType'])) {
             $model->spaceType = $map['spaceType'];
-        }
-        if (isset($map['sprint'])) {
-            if (!empty($map['sprint'])) {
-                $model->sprint = $map['sprint'];
-            }
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
@@ -395,23 +303,8 @@ class workitem extends Model
         if (isset($map['subject'])) {
             $model->subject = $map['subject'];
         }
-        if (isset($map['tag'])) {
-            if (!empty($map['tag'])) {
-                $model->tag = $map['tag'];
-            }
-        }
-        if (isset($map['tracker'])) {
-            if (!empty($map['tracker'])) {
-                $model->tracker = $map['tracker'];
-            }
-        }
         if (isset($map['updateStatusAt'])) {
             $model->updateStatusAt = $map['updateStatusAt'];
-        }
-        if (isset($map['verifier'])) {
-            if (!empty($map['verifier'])) {
-                $model->verifier = $map['verifier'];
-            }
         }
         if (isset($map['workitemTypeIdentifier'])) {
             $model->workitemTypeIdentifier = $map['workitemTypeIdentifier'];

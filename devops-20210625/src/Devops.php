@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemWorkFlowStatusRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemWorkFlowStatusResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesRequest;
@@ -2919,6 +2921,67 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string               $organizationId
+     * @param ListWorkitemsRequest $request
+     *
+     * @return ListWorkitemsResponse
+     */
+    public function listWorkitems($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkitemsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $organizationId
+     * @param ListWorkitemsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWorkitemsResponse
+     */
+    public function listWorkitemsWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        if (!Utils::isUnset($request->spaceType)) {
+            $query['spaceType'] = $request->spaceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkitems',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/listWorkitems',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkitemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param ListWorkspacesRequest $request
      *
      * @return ListWorkspacesResponse
@@ -4160,6 +4223,9 @@ class Devops extends OpenApiClient
         Utils::validateModel($request);
         $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
         $body           = [];
+        if (!Utils::isUnset($request->fieldType)) {
+            $body['fieldType'] = $request->fieldType;
+        }
         if (!Utils::isUnset($request->identifier)) {
             $body['identifier'] = $request->identifier;
         }

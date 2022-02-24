@@ -9,7 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkItemRequest extends Model
 {
     /**
-     * @description 工作项id
+     * @description 更新字段的类型，标题：subject/自定义字段：customField/状态：status/描述：document/基本字段：basic(包括负责人、迭代、参与人等)
+     *
+     * @var string
+     */
+    public $fieldType;
+
+    /**
+     * @description 工作项唯一标识id
      *
      * @var string
      */
@@ -29,6 +36,7 @@ class UpdateWorkItemRequest extends Model
      */
     public $propertyValue;
     protected $_name = [
+        'fieldType'     => 'fieldType',
         'identifier'    => 'identifier',
         'propertyKey'   => 'propertyKey',
         'propertyValue' => 'propertyValue',
@@ -41,6 +49,9 @@ class UpdateWorkItemRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fieldType) {
+            $res['fieldType'] = $this->fieldType;
+        }
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
@@ -62,6 +73,9 @@ class UpdateWorkItemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['fieldType'])) {
+            $model->fieldType = $map['fieldType'];
+        }
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }

@@ -114,6 +114,13 @@ class workitem extends Model
     public $status;
 
     /**
+     * @description 状态id
+     *
+     * @var string
+     */
+    public $statusIdentifier;
+
+    /**
      * @description 状态阶段id
      *
      * @var string
@@ -156,6 +163,7 @@ class workitem extends Model
         'spaceName'              => 'spaceName',
         'spaceType'              => 'spaceType',
         'status'                 => 'status',
+        'statusIdentifier'       => 'statusIdentifier',
         'statusStageIdentifier'  => 'statusStageIdentifier',
         'subject'                => 'subject',
         'updateStatusAt'         => 'updateStatusAt',
@@ -213,6 +221,9 @@ class workitem extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->statusIdentifier) {
+            $res['statusIdentifier'] = $this->statusIdentifier;
         }
         if (null !== $this->statusStageIdentifier) {
             $res['statusStageIdentifier'] = $this->statusStageIdentifier;
@@ -282,6 +293,9 @@ class workitem extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['statusIdentifier'])) {
+            $model->statusIdentifier = $map['statusIdentifier'];
         }
         if (isset($map['statusStageIdentifier'])) {
             $model->statusStageIdentifier = $map['statusStageIdentifier'];
