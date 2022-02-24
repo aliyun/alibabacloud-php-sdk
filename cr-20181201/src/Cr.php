@@ -694,6 +694,9 @@ class Cr extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->buildArgs)) {
+            $query['BuildArgs'] = $request->buildArgs;
+        }
         if (!Utils::isUnset($request->dockerfileLocation)) {
             $query['DockerfileLocation'] = $request->dockerfileLocation;
         }
@@ -705,6 +708,9 @@ class Cr extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->platforms)) {
+            $query['Platforms'] = $request->platforms;
         }
         if (!Utils::isUnset($request->pushName)) {
             $query['PushName'] = $request->pushName;

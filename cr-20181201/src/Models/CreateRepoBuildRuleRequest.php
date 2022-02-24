@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoBuildRuleRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $buildArgs;
+
+    /**
      * @var string
      */
     public $dockerfileLocation;
@@ -29,6 +34,11 @@ class CreateRepoBuildRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @var string[]
+     */
+    public $platforms;
+
+    /**
      * @var string
      */
     public $pushName;
@@ -43,10 +53,12 @@ class CreateRepoBuildRuleRequest extends Model
      */
     public $repoId;
     protected $_name = [
+        'buildArgs'          => 'BuildArgs',
         'dockerfileLocation' => 'DockerfileLocation',
         'dockerfileName'     => 'DockerfileName',
         'imageTag'           => 'ImageTag',
         'instanceId'         => 'InstanceId',
+        'platforms'          => 'Platforms',
         'pushName'           => 'PushName',
         'pushType'           => 'PushType',
         'repoId'             => 'RepoId',
@@ -59,6 +71,9 @@ class CreateRepoBuildRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildArgs) {
+            $res['BuildArgs'] = $this->buildArgs;
+        }
         if (null !== $this->dockerfileLocation) {
             $res['DockerfileLocation'] = $this->dockerfileLocation;
         }
@@ -70,6 +85,9 @@ class CreateRepoBuildRuleRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->platforms) {
+            $res['Platforms'] = $this->platforms;
         }
         if (null !== $this->pushName) {
             $res['PushName'] = $this->pushName;
@@ -92,6 +110,11 @@ class CreateRepoBuildRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildArgs'])) {
+            if (!empty($map['BuildArgs'])) {
+                $model->buildArgs = $map['BuildArgs'];
+            }
+        }
         if (isset($map['DockerfileLocation'])) {
             $model->dockerfileLocation = $map['DockerfileLocation'];
         }
@@ -103,6 +126,11 @@ class CreateRepoBuildRuleRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Platforms'])) {
+            if (!empty($map['Platforms'])) {
+                $model->platforms = $map['Platforms'];
+            }
         }
         if (isset($map['PushName'])) {
             $model->pushName = $map['PushName'];
