@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -123,9 +125,11 @@ class Cas extends OpenApiClient
     public function cancelCertificateForPackageRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -164,9 +168,11 @@ class Cas extends OpenApiClient
     public function cancelOrderRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -205,16 +211,32 @@ class Cas extends OpenApiClient
     public function createCertificateForPackageRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['CompanyName']  = $request->companyName;
-        $query['Csr']          = $request->csr;
-        $query['Domain']       = $request->domain;
-        $query['Email']        = $request->email;
-        $query['Phone']        = $request->phone;
-        $query['ProductCode']  = $request->productCode;
-        $query['Username']     = $request->username;
-        $query['ValidateType'] = $request->validateType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->companyName)) {
+            $query['CompanyName'] = $request->companyName;
+        }
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $query['Phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        if (!Utils::isUnset($request->validateType)) {
+            $query['ValidateType'] = $request->validateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -253,14 +275,26 @@ class Cas extends OpenApiClient
     public function createCertificateRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Domain']       = $request->domain;
-        $query['Email']        = $request->email;
-        $query['Phone']        = $request->phone;
-        $query['ProductCode']  = $request->productCode;
-        $query['Username']     = $request->username;
-        $query['ValidateType'] = $request->validateType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $query['Phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        if (!Utils::isUnset($request->validateType)) {
+            $query['ValidateType'] = $request->validateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -299,14 +333,26 @@ class Cas extends OpenApiClient
     public function createCertificateWithCsrRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Csr']          = $request->csr;
-        $query['Email']        = $request->email;
-        $query['Phone']        = $request->phone;
-        $query['ProductCode']  = $request->productCode;
-        $query['Username']     = $request->username;
-        $query['ValidateType'] = $request->validateType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $query['Phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        if (!Utils::isUnset($request->validateType)) {
+            $query['ValidateType'] = $request->validateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -345,9 +391,11 @@ class Cas extends OpenApiClient
     public function deleteCertificateRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -386,9 +434,11 @@ class Cas extends OpenApiClient
     public function describeCertificateStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -427,9 +477,11 @@ class Cas extends OpenApiClient
     public function describePackageStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ProductCode'] = $request->productCode;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -460,6 +512,61 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @param ListUserCertificateOrderRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListUserCertificateOrderResponse
+     */
+    public function listUserCertificateOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserCertificateOrder',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserCertificateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserCertificateOrderRequest $request
+     *
+     * @return ListUserCertificateOrderResponse
+     */
+    public function listUserCertificateOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserCertificateOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RenewCertificateOrderForPackageRequestRequest $request
      * @param RuntimeOptions                                $runtime
      *
@@ -468,10 +575,14 @@ class Cas extends OpenApiClient
     public function renewCertificateOrderForPackageRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['Csr']     = $request->csr;
-        $query['OrderId'] = $request->orderId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
