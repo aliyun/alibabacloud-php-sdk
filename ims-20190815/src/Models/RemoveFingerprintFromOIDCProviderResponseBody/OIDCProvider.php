@@ -21,6 +21,11 @@ class OIDCProvider extends Model
     /**
      * @var string
      */
+    public $createDate;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -47,15 +52,22 @@ class OIDCProvider extends Model
      * @var string
      */
     public $OIDCProviderName;
+
+    /**
+     * @var string
+     */
+    public $updateDate;
     protected $_name = [
         'arn'              => 'Arn',
         'clientIds'        => 'ClientIds',
+        'createDate'       => 'CreateDate',
         'description'      => 'Description',
         'fingerprints'     => 'Fingerprints',
         'gmtCreate'        => 'GmtCreate',
         'gmtModified'      => 'GmtModified',
         'issuerUrl'        => 'IssuerUrl',
         'OIDCProviderName' => 'OIDCProviderName',
+        'updateDate'       => 'UpdateDate',
     ];
 
     public function validate()
@@ -70,6 +82,9 @@ class OIDCProvider extends Model
         }
         if (null !== $this->clientIds) {
             $res['ClientIds'] = $this->clientIds;
+        }
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -89,6 +104,9 @@ class OIDCProvider extends Model
         if (null !== $this->OIDCProviderName) {
             $res['OIDCProviderName'] = $this->OIDCProviderName;
         }
+        if (null !== $this->updateDate) {
+            $res['UpdateDate'] = $this->updateDate;
+        }
 
         return $res;
     }
@@ -107,6 +125,9 @@ class OIDCProvider extends Model
         if (isset($map['ClientIds'])) {
             $model->clientIds = $map['ClientIds'];
         }
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -124,6 +145,9 @@ class OIDCProvider extends Model
         }
         if (isset($map['OIDCProviderName'])) {
             $model->OIDCProviderName = $map['OIDCProviderName'];
+        }
+        if (isset($map['UpdateDate'])) {
+            $model->updateDate = $map['UpdateDate'];
         }
 
         return $model;

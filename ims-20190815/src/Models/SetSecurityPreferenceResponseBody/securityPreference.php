@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBod
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\accessKeyPreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\loginProfilePreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\MFAPreference;
-use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\verificationPreference;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\personalInfoPreference;
 use AlibabaCloud\Tea\Model;
 
 class securityPreference extends Model
@@ -28,14 +28,14 @@ class securityPreference extends Model
     public $MFAPreference;
 
     /**
-     * @var verificationPreference
+     * @var personalInfoPreference
      */
-    public $verificationPreference;
+    public $personalInfoPreference;
     protected $_name = [
         'accessKeyPreference'    => 'AccessKeyPreference',
         'loginProfilePreference' => 'LoginProfilePreference',
         'MFAPreference'          => 'MFAPreference',
-        'verificationPreference' => 'VerificationPreference',
+        'personalInfoPreference' => 'PersonalInfoPreference',
     ];
 
     public function validate()
@@ -54,8 +54,8 @@ class securityPreference extends Model
         if (null !== $this->MFAPreference) {
             $res['MFAPreference'] = null !== $this->MFAPreference ? $this->MFAPreference->toMap() : null;
         }
-        if (null !== $this->verificationPreference) {
-            $res['VerificationPreference'] = null !== $this->verificationPreference ? $this->verificationPreference->toMap() : null;
+        if (null !== $this->personalInfoPreference) {
+            $res['PersonalInfoPreference'] = null !== $this->personalInfoPreference ? $this->personalInfoPreference->toMap() : null;
         }
 
         return $res;
@@ -78,8 +78,8 @@ class securityPreference extends Model
         if (isset($map['MFAPreference'])) {
             $model->MFAPreference = MFAPreference::fromMap($map['MFAPreference']);
         }
-        if (isset($map['VerificationPreference'])) {
-            $model->verificationPreference = verificationPreference::fromMap($map['VerificationPreference']);
+        if (isset($map['PersonalInfoPreference'])) {
+            $model->personalInfoPreference = personalInfoPreference::fromMap($map['PersonalInfoPreference']);
         }
 
         return $model;

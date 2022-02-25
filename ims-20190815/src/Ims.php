@@ -116,7 +116,6 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\SetPasswordPolicyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponse;
-use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceShrinkRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetUserSsoSettingsRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetUserSsoSettingsResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UnbindMFADeviceRequest;
@@ -138,6 +137,7 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateUserResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Ims extends OpenApiClient
@@ -182,11 +182,29 @@ class Ims extends OpenApiClient
     public function addClientIdToOIDCProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddClientIdToOIDCProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddClientIdToOIDCProviderResponse::fromMap($this->doRPCRequest('AddClientIdToOIDCProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddClientIdToOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -210,11 +228,29 @@ class Ims extends OpenApiClient
     public function addFingerprintToOIDCProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fingerprint)) {
+            $query['Fingerprint'] = $request->fingerprint;
+        }
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddFingerprintToOIDCProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddFingerprintToOIDCProviderResponse::fromMap($this->doRPCRequest('AddFingerprintToOIDCProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddFingerprintToOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -238,11 +274,29 @@ class Ims extends OpenApiClient
     public function addUserToGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddUserToGroup',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddUserToGroupResponse::fromMap($this->doRPCRequest('AddUserToGroup', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddUserToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -266,11 +320,35 @@ class Ims extends OpenApiClient
     public function bindMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authenticationCode1)) {
+            $query['AuthenticationCode1'] = $request->authenticationCode1;
+        }
+        if (!Utils::isUnset($request->authenticationCode2)) {
+            $query['AuthenticationCode2'] = $request->authenticationCode2;
+        }
+        if (!Utils::isUnset($request->serialNumber)) {
+            $query['SerialNumber'] = $request->serialNumber;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindMFADevice',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindMFADeviceResponse::fromMap($this->doRPCRequest('BindMFADevice', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -294,11 +372,29 @@ class Ims extends OpenApiClient
     public function changePasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newPassword)) {
+            $query['NewPassword'] = $request->newPassword;
+        }
+        if (!Utils::isUnset($request->oldPassword)) {
+            $query['OldPassword'] = $request->oldPassword;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangePassword',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangePasswordResponse::fromMap($this->doRPCRequest('ChangePassword', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -322,11 +418,26 @@ class Ims extends OpenApiClient
     public function createAccessKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccessKey',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAccessKeyResponse::fromMap($this->doRPCRequest('CreateAccessKey', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -350,11 +461,26 @@ class Ims extends OpenApiClient
     public function createAppSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppSecret',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAppSecretResponse::fromMap($this->doRPCRequest('CreateAppSecret', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -378,11 +504,50 @@ class Ims extends OpenApiClient
     public function createApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessTokenValidity)) {
+            $query['AccessTokenValidity'] = $request->accessTokenValidity;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->isMultiTenant)) {
+            $query['IsMultiTenant'] = $request->isMultiTenant;
+        }
+        if (!Utils::isUnset($request->predefinedScopes)) {
+            $query['PredefinedScopes'] = $request->predefinedScopes;
+        }
+        if (!Utils::isUnset($request->redirectUris)) {
+            $query['RedirectUris'] = $request->redirectUris;
+        }
+        if (!Utils::isUnset($request->refreshTokenValidity)) {
+            $query['RefreshTokenValidity'] = $request->refreshTokenValidity;
+        }
+        if (!Utils::isUnset($request->secretRequired)) {
+            $query['SecretRequired'] = $request->secretRequired;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateApplicationResponse::fromMap($this->doRPCRequest('CreateApplication', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -406,11 +571,32 @@ class Ims extends OpenApiClient
     public function createGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comments)) {
+            $query['Comments'] = $request->comments;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroup',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGroupResponse::fromMap($this->doRPCRequest('CreateGroup', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -434,11 +620,38 @@ class Ims extends OpenApiClient
     public function createLoginProfileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->MFABindRequired)) {
+            $query['MFABindRequired'] = $request->MFABindRequired;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->passwordResetRequired)) {
+            $query['PasswordResetRequired'] = $request->passwordResetRequired;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoginProfile',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLoginProfileResponse::fromMap($this->doRPCRequest('CreateLoginProfile', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -462,11 +675,38 @@ class Ims extends OpenApiClient
     public function createOIDCProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientIds)) {
+            $query['ClientIds'] = $request->clientIds;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fingerprints)) {
+            $query['Fingerprints'] = $request->fingerprints;
+        }
+        if (!Utils::isUnset($request->issuerUrl)) {
+            $query['IssuerUrl'] = $request->issuerUrl;
+        }
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOIDCProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOIDCProviderResponse::fromMap($this->doRPCRequest('CreateOIDCProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -490,11 +730,32 @@ class Ims extends OpenApiClient
     public function createSAMLProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->encodedSAMLMetadataDocument)) {
+            $query['EncodedSAMLMetadataDocument'] = $request->encodedSAMLMetadataDocument;
+        }
+        if (!Utils::isUnset($request->SAMLProviderName)) {
+            $query['SAMLProviderName'] = $request->SAMLProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSAMLProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSAMLProviderResponse::fromMap($this->doRPCRequest('CreateSAMLProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSAMLProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -518,11 +779,38 @@ class Ims extends OpenApiClient
     public function createUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comments)) {
+            $query['Comments'] = $request->comments;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->mobilePhone)) {
+            $query['MobilePhone'] = $request->mobilePhone;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUser',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUserResponse::fromMap($this->doRPCRequest('CreateUser', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -546,11 +834,26 @@ class Ims extends OpenApiClient
     public function createVirtualMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->virtualMFADeviceName)) {
+            $query['VirtualMFADeviceName'] = $request->virtualMFADeviceName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVirtualMFADevice',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVirtualMFADeviceResponse::fromMap($this->doRPCRequest('CreateVirtualMFADevice', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateVirtualMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -574,11 +877,29 @@ class Ims extends OpenApiClient
     public function deleteAccessKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccessKey',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAccessKeyResponse::fromMap($this->doRPCRequest('DeleteAccessKey', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -602,11 +923,29 @@ class Ims extends OpenApiClient
     public function deleteAppSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appSecretId)) {
+            $query['AppSecretId'] = $request->appSecretId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppSecret',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAppSecretResponse::fromMap($this->doRPCRequest('DeleteAppSecret', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -630,11 +969,26 @@ class Ims extends OpenApiClient
     public function deleteApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteApplicationResponse::fromMap($this->doRPCRequest('DeleteApplication', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -658,11 +1012,26 @@ class Ims extends OpenApiClient
     public function deleteGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroup',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGroupResponse::fromMap($this->doRPCRequest('DeleteGroup', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -686,11 +1055,26 @@ class Ims extends OpenApiClient
     public function deleteLoginProfileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLoginProfile',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteLoginProfileResponse::fromMap($this->doRPCRequest('DeleteLoginProfile', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -714,11 +1098,26 @@ class Ims extends OpenApiClient
     public function deleteOIDCProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOIDCProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteOIDCProviderResponse::fromMap($this->doRPCRequest('DeleteOIDCProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -742,11 +1141,26 @@ class Ims extends OpenApiClient
     public function deleteSAMLProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->SAMLProviderName)) {
+            $query['SAMLProviderName'] = $request->SAMLProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSAMLProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSAMLProviderResponse::fromMap($this->doRPCRequest('DeleteSAMLProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSAMLProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -770,11 +1184,29 @@ class Ims extends OpenApiClient
     public function deleteUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUser',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteUserResponse::fromMap($this->doRPCRequest('DeleteUser', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -798,11 +1230,26 @@ class Ims extends OpenApiClient
     public function deleteVirtualMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serialNumber)) {
+            $query['SerialNumber'] = $request->serialNumber;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVirtualMFADevice',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVirtualMFADeviceResponse::fromMap($this->doRPCRequest('DeleteVirtualMFADevice', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVirtualMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -826,11 +1273,26 @@ class Ims extends OpenApiClient
     public function disableVirtualMFAWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableVirtualMFA',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableVirtualMFAResponse::fromMap($this->doRPCRequest('DisableVirtualMFA', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableVirtualMFAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -852,9 +1314,20 @@ class Ims extends OpenApiClient
      */
     public function generateCredentialReportWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GenerateCredentialReport',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GenerateCredentialReportResponse::fromMap($this->doRPCRequest('GenerateCredentialReport', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateCredentialReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -876,11 +1349,29 @@ class Ims extends OpenApiClient
     public function getAccessKeyLastUsedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessKeyLastUsed',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAccessKeyLastUsedResponse::fromMap($this->doRPCRequest('GetAccessKeyLastUsed', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAccessKeyLastUsedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -902,9 +1393,20 @@ class Ims extends OpenApiClient
      */
     public function getAccountMFAInfoWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAccountMFAInfo',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAccountMFAInfoResponse::fromMap($this->doRPCRequest('GetAccountMFAInfo', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAccountMFAInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -924,9 +1426,20 @@ class Ims extends OpenApiClient
      */
     public function getAccountSecurityPracticeReportWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAccountSecurityPracticeReport',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAccountSecurityPracticeReportResponse::fromMap($this->doRPCRequest('GetAccountSecurityPracticeReport', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAccountSecurityPracticeReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -946,9 +1459,20 @@ class Ims extends OpenApiClient
      */
     public function getAccountSummaryWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAccountSummary',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAccountSummaryResponse::fromMap($this->doRPCRequest('GetAccountSummary', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAccountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -970,11 +1494,29 @@ class Ims extends OpenApiClient
     public function getAppSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appSecretId)) {
+            $query['AppSecretId'] = $request->appSecretId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppSecret',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAppSecretResponse::fromMap($this->doRPCRequest('GetAppSecret', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,11 +1540,26 @@ class Ims extends OpenApiClient
     public function getApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetApplicationResponse::fromMap($this->doRPCRequest('GetApplication', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1024,9 +1581,20 @@ class Ims extends OpenApiClient
      */
     public function getCredentialReportWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetCredentialReport',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetCredentialReportResponse::fromMap($this->doRPCRequest('GetCredentialReport', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCredentialReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1046,9 +1614,20 @@ class Ims extends OpenApiClient
      */
     public function getDefaultDomainWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetDefaultDomain',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDefaultDomainResponse::fromMap($this->doRPCRequest('GetDefaultDomain', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1070,11 +1649,26 @@ class Ims extends OpenApiClient
     public function getGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGroup',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGroupResponse::fromMap($this->doRPCRequest('GetGroup', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1098,11 +1692,26 @@ class Ims extends OpenApiClient
     public function getLoginProfileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLoginProfile',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLoginProfileResponse::fromMap($this->doRPCRequest('GetLoginProfile', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1126,11 +1735,26 @@ class Ims extends OpenApiClient
     public function getOIDCProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOIDCProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOIDCProviderResponse::fromMap($this->doRPCRequest('GetOIDCProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1152,9 +1776,20 @@ class Ims extends OpenApiClient
      */
     public function getPasswordPolicyWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetPasswordPolicy',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetPasswordPolicyResponse::fromMap($this->doRPCRequest('GetPasswordPolicy', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1176,11 +1811,26 @@ class Ims extends OpenApiClient
     public function getSAMLProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->SAMLProviderName)) {
+            $query['SAMLProviderName'] = $request->SAMLProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSAMLProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSAMLProviderResponse::fromMap($this->doRPCRequest('GetSAMLProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSAMLProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1202,9 +1852,20 @@ class Ims extends OpenApiClient
      */
     public function getSecurityPreferenceWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetSecurityPreference',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSecurityPreferenceResponse::fromMap($this->doRPCRequest('GetSecurityPreference', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSecurityPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1226,11 +1887,32 @@ class Ims extends OpenApiClient
     public function getUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUser',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUserResponse::fromMap($this->doRPCRequest('GetUser', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1254,11 +1936,26 @@ class Ims extends OpenApiClient
     public function getUserMFAInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserMFAInfo',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUserMFAInfoResponse::fromMap($this->doRPCRequest('GetUserMFAInfo', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserMFAInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1280,9 +1977,20 @@ class Ims extends OpenApiClient
      */
     public function getUserSsoSettingsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetUserSsoSettings',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetUserSsoSettingsResponse::fromMap($this->doRPCRequest('GetUserSsoSettings', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserSsoSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1304,11 +2012,26 @@ class Ims extends OpenApiClient
     public function listAccessKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccessKeys',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAccessKeysResponse::fromMap($this->doRPCRequest('ListAccessKeys', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAccessKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1332,11 +2055,26 @@ class Ims extends OpenApiClient
     public function listAppSecretIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAppSecretIds',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAppSecretIdsResponse::fromMap($this->doRPCRequest('ListAppSecretIds', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAppSecretIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1358,9 +2096,20 @@ class Ims extends OpenApiClient
      */
     public function listApplicationsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListApplications',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListApplicationsResponse::fromMap($this->doRPCRequest('ListApplications', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1382,11 +2131,29 @@ class Ims extends OpenApiClient
     public function listGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroups',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListGroupsResponse::fromMap($this->doRPCRequest('ListGroups', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1410,11 +2177,26 @@ class Ims extends OpenApiClient
     public function listGroupsForUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupsForUser',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListGroupsForUserResponse::fromMap($this->doRPCRequest('ListGroupsForUser', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1438,11 +2220,29 @@ class Ims extends OpenApiClient
     public function listOIDCProvidersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOIDCProviders',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOIDCProvidersResponse::fromMap($this->doRPCRequest('ListOIDCProviders', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOIDCProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1466,11 +2266,26 @@ class Ims extends OpenApiClient
     public function listPredefinedScopesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPredefinedScopes',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPredefinedScopesResponse::fromMap($this->doRPCRequest('ListPredefinedScopes', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPredefinedScopesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1494,11 +2309,29 @@ class Ims extends OpenApiClient
     public function listSAMLProvidersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSAMLProviders',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSAMLProvidersResponse::fromMap($this->doRPCRequest('ListSAMLProviders', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSAMLProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1522,11 +2355,29 @@ class Ims extends OpenApiClient
     public function listUserBasicInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserBasicInfos',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUserBasicInfosResponse::fromMap($this->doRPCRequest('ListUserBasicInfos', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUserBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1550,11 +2401,29 @@ class Ims extends OpenApiClient
     public function listUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsers',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUsersResponse::fromMap($this->doRPCRequest('ListUsers', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1578,11 +2447,32 @@ class Ims extends OpenApiClient
     public function listUsersForGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsersForGroup',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUsersForGroupResponse::fromMap($this->doRPCRequest('ListUsersForGroup', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1606,11 +2496,29 @@ class Ims extends OpenApiClient
     public function listVirtualMFADevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVirtualMFADevices',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVirtualMFADevicesResponse::fromMap($this->doRPCRequest('ListVirtualMFADevices', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVirtualMFADevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1634,11 +2542,29 @@ class Ims extends OpenApiClient
     public function removeClientIdFromOIDCProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveClientIdFromOIDCProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveClientIdFromOIDCProviderResponse::fromMap($this->doRPCRequest('RemoveClientIdFromOIDCProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveClientIdFromOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1662,11 +2588,29 @@ class Ims extends OpenApiClient
     public function removeFingerprintFromOIDCProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fingerprint)) {
+            $query['Fingerprint'] = $request->fingerprint;
+        }
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveFingerprintFromOIDCProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveFingerprintFromOIDCProviderResponse::fromMap($this->doRPCRequest('RemoveFingerprintFromOIDCProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveFingerprintFromOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1690,11 +2634,29 @@ class Ims extends OpenApiClient
     public function removeUserFromGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveUserFromGroup',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveUserFromGroupResponse::fromMap($this->doRPCRequest('RemoveUserFromGroup', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveUserFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1718,11 +2680,26 @@ class Ims extends OpenApiClient
     public function setDefaultDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defaultDomainName)) {
+            $query['DefaultDomainName'] = $request->defaultDomainName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDefaultDomain',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDefaultDomainResponse::fromMap($this->doRPCRequest('SetDefaultDomain', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1746,11 +2723,56 @@ class Ims extends OpenApiClient
     public function setPasswordPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hardExpire)) {
+            $query['HardExpire'] = $request->hardExpire;
+        }
+        if (!Utils::isUnset($request->maxLoginAttemps)) {
+            $query['MaxLoginAttemps'] = $request->maxLoginAttemps;
+        }
+        if (!Utils::isUnset($request->maxPasswordAge)) {
+            $query['MaxPasswordAge'] = $request->maxPasswordAge;
+        }
+        if (!Utils::isUnset($request->minimumPasswordDifferentCharacter)) {
+            $query['MinimumPasswordDifferentCharacter'] = $request->minimumPasswordDifferentCharacter;
+        }
+        if (!Utils::isUnset($request->minimumPasswordLength)) {
+            $query['MinimumPasswordLength'] = $request->minimumPasswordLength;
+        }
+        if (!Utils::isUnset($request->passwordNotContainUserName)) {
+            $query['PasswordNotContainUserName'] = $request->passwordNotContainUserName;
+        }
+        if (!Utils::isUnset($request->passwordReusePrevention)) {
+            $query['PasswordReusePrevention'] = $request->passwordReusePrevention;
+        }
+        if (!Utils::isUnset($request->requireLowercaseCharacters)) {
+            $query['RequireLowercaseCharacters'] = $request->requireLowercaseCharacters;
+        }
+        if (!Utils::isUnset($request->requireNumbers)) {
+            $query['RequireNumbers'] = $request->requireNumbers;
+        }
+        if (!Utils::isUnset($request->requireSymbols)) {
+            $query['RequireSymbols'] = $request->requireSymbols;
+        }
+        if (!Utils::isUnset($request->requireUppercaseCharacters)) {
+            $query['RequireUppercaseCharacters'] = $request->requireUppercaseCharacters;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPasswordPolicy',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetPasswordPolicyResponse::fromMap($this->doRPCRequest('SetPasswordPolicy', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1766,24 +2788,55 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param SetSecurityPreferenceRequest $tmpReq
+     * @param SetSecurityPreferenceRequest $request
      * @param RuntimeOptions               $runtime
      *
      * @return SetSecurityPreferenceResponse
      */
-    public function setSecurityPreferenceWithOptions($tmpReq, $runtime)
+    public function setSecurityPreferenceWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new SetSecurityPreferenceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->verificationTypes)) {
-            $request->verificationTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->verificationTypes, 'VerificationTypes', 'json');
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowUserToChangePassword)) {
+            $query['AllowUserToChangePassword'] = $request->allowUserToChangePassword;
+        }
+        if (!Utils::isUnset($request->allowUserToManageAccessKeys)) {
+            $query['AllowUserToManageAccessKeys'] = $request->allowUserToManageAccessKeys;
+        }
+        if (!Utils::isUnset($request->allowUserToManageMFADevices)) {
+            $query['AllowUserToManageMFADevices'] = $request->allowUserToManageMFADevices;
+        }
+        if (!Utils::isUnset($request->allowUserToManagePersonalDingTalk)) {
+            $query['AllowUserToManagePersonalDingTalk'] = $request->allowUserToManagePersonalDingTalk;
+        }
+        if (!Utils::isUnset($request->enableSaveMFATicket)) {
+            $query['EnableSaveMFATicket'] = $request->enableSaveMFATicket;
+        }
+        if (!Utils::isUnset($request->enforceMFAForLogin)) {
+            $query['EnforceMFAForLogin'] = $request->enforceMFAForLogin;
+        }
+        if (!Utils::isUnset($request->loginNetworkMasks)) {
+            $query['LoginNetworkMasks'] = $request->loginNetworkMasks;
+        }
+        if (!Utils::isUnset($request->loginSessionDuration)) {
+            $query['LoginSessionDuration'] = $request->loginSessionDuration;
         }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSecurityPreference',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetSecurityPreferenceResponse::fromMap($this->doRPCRequest('SetSecurityPreference', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetSecurityPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1807,11 +2860,32 @@ class Ims extends OpenApiClient
     public function setUserSsoSettingsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auxiliaryDomain)) {
+            $query['AuxiliaryDomain'] = $request->auxiliaryDomain;
+        }
+        if (!Utils::isUnset($request->metadataDocument)) {
+            $query['MetadataDocument'] = $request->metadataDocument;
+        }
+        if (!Utils::isUnset($request->ssoEnabled)) {
+            $query['SsoEnabled'] = $request->ssoEnabled;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetUserSsoSettings',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetUserSsoSettingsResponse::fromMap($this->doRPCRequest('SetUserSsoSettings', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetUserSsoSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1835,11 +2909,26 @@ class Ims extends OpenApiClient
     public function unbindMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindMFADevice',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindMFADeviceResponse::fromMap($this->doRPCRequest('UnbindMFADevice', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1863,11 +2952,32 @@ class Ims extends OpenApiClient
     public function updateAccessKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAccessKey',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAccessKeyResponse::fromMap($this->doRPCRequest('UpdateAccessKey', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1891,11 +3001,47 @@ class Ims extends OpenApiClient
     public function updateApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->newAccessTokenValidity)) {
+            $query['NewAccessTokenValidity'] = $request->newAccessTokenValidity;
+        }
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
+        }
+        if (!Utils::isUnset($request->newIsMultiTenant)) {
+            $query['NewIsMultiTenant'] = $request->newIsMultiTenant;
+        }
+        if (!Utils::isUnset($request->newPredefinedScopes)) {
+            $query['NewPredefinedScopes'] = $request->newPredefinedScopes;
+        }
+        if (!Utils::isUnset($request->newRedirectUris)) {
+            $query['NewRedirectUris'] = $request->newRedirectUris;
+        }
+        if (!Utils::isUnset($request->newRefreshTokenValidity)) {
+            $query['NewRefreshTokenValidity'] = $request->newRefreshTokenValidity;
+        }
+        if (!Utils::isUnset($request->newSecretRequired)) {
+            $query['NewSecretRequired'] = $request->newSecretRequired;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateApplicationResponse::fromMap($this->doRPCRequest('UpdateApplication', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1919,11 +3065,35 @@ class Ims extends OpenApiClient
     public function updateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->newComments)) {
+            $query['NewComments'] = $request->newComments;
+        }
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
+        }
+        if (!Utils::isUnset($request->newGroupName)) {
+            $query['NewGroupName'] = $request->newGroupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGroup',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGroupResponse::fromMap($this->doRPCRequest('UpdateGroup', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1947,11 +3117,38 @@ class Ims extends OpenApiClient
     public function updateLoginProfileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->MFABindRequired)) {
+            $query['MFABindRequired'] = $request->MFABindRequired;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->passwordResetRequired)) {
+            $query['PasswordResetRequired'] = $request->passwordResetRequired;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLoginProfile',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateLoginProfileResponse::fromMap($this->doRPCRequest('UpdateLoginProfile', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1975,11 +3172,32 @@ class Ims extends OpenApiClient
     public function updateOIDCProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientIds)) {
+            $query['ClientIds'] = $request->clientIds;
+        }
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
+        }
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOIDCProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateOIDCProviderResponse::fromMap($this->doRPCRequest('UpdateOIDCProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2003,11 +3221,32 @@ class Ims extends OpenApiClient
     public function updateSAMLProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
+        }
+        if (!Utils::isUnset($request->newEncodedSAMLMetadataDocument)) {
+            $query['NewEncodedSAMLMetadataDocument'] = $request->newEncodedSAMLMetadataDocument;
+        }
+        if (!Utils::isUnset($request->SAMLProviderName)) {
+            $query['SAMLProviderName'] = $request->SAMLProviderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSAMLProvider',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSAMLProviderResponse::fromMap($this->doRPCRequest('UpdateSAMLProvider', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSAMLProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2031,11 +3270,44 @@ class Ims extends OpenApiClient
     public function updateUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newComments)) {
+            $query['NewComments'] = $request->newComments;
+        }
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
+        }
+        if (!Utils::isUnset($request->newEmail)) {
+            $query['NewEmail'] = $request->newEmail;
+        }
+        if (!Utils::isUnset($request->newMobilePhone)) {
+            $query['NewMobilePhone'] = $request->newMobilePhone;
+        }
+        if (!Utils::isUnset($request->newUserPrincipalName)) {
+            $query['NewUserPrincipalName'] = $request->newUserPrincipalName;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUser',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateUserResponse::fromMap($this->doRPCRequest('UpdateUser', '2019-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

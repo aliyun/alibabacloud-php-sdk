@@ -26,6 +26,11 @@ class SetSecurityPreferenceRequest extends Model
     /**
      * @var bool
      */
+    public $allowUserToManagePersonalDingTalk;
+
+    /**
+     * @var bool
+     */
     public $enableSaveMFATicket;
 
     /**
@@ -42,20 +47,15 @@ class SetSecurityPreferenceRequest extends Model
      * @var int
      */
     public $loginSessionDuration;
-
-    /**
-     * @var string[]
-     */
-    public $verificationTypes;
     protected $_name = [
-        'allowUserToChangePassword'   => 'AllowUserToChangePassword',
-        'allowUserToManageAccessKeys' => 'AllowUserToManageAccessKeys',
-        'allowUserToManageMFADevices' => 'AllowUserToManageMFADevices',
-        'enableSaveMFATicket'         => 'EnableSaveMFATicket',
-        'enforceMFAForLogin'          => 'EnforceMFAForLogin',
-        'loginNetworkMasks'           => 'LoginNetworkMasks',
-        'loginSessionDuration'        => 'LoginSessionDuration',
-        'verificationTypes'           => 'VerificationTypes',
+        'allowUserToChangePassword'         => 'AllowUserToChangePassword',
+        'allowUserToManageAccessKeys'       => 'AllowUserToManageAccessKeys',
+        'allowUserToManageMFADevices'       => 'AllowUserToManageMFADevices',
+        'allowUserToManagePersonalDingTalk' => 'AllowUserToManagePersonalDingTalk',
+        'enableSaveMFATicket'               => 'EnableSaveMFATicket',
+        'enforceMFAForLogin'                => 'EnforceMFAForLogin',
+        'loginNetworkMasks'                 => 'LoginNetworkMasks',
+        'loginSessionDuration'              => 'LoginSessionDuration',
     ];
 
     public function validate()
@@ -74,6 +74,9 @@ class SetSecurityPreferenceRequest extends Model
         if (null !== $this->allowUserToManageMFADevices) {
             $res['AllowUserToManageMFADevices'] = $this->allowUserToManageMFADevices;
         }
+        if (null !== $this->allowUserToManagePersonalDingTalk) {
+            $res['AllowUserToManagePersonalDingTalk'] = $this->allowUserToManagePersonalDingTalk;
+        }
         if (null !== $this->enableSaveMFATicket) {
             $res['EnableSaveMFATicket'] = $this->enableSaveMFATicket;
         }
@@ -85,9 +88,6 @@ class SetSecurityPreferenceRequest extends Model
         }
         if (null !== $this->loginSessionDuration) {
             $res['LoginSessionDuration'] = $this->loginSessionDuration;
-        }
-        if (null !== $this->verificationTypes) {
-            $res['VerificationTypes'] = $this->verificationTypes;
         }
 
         return $res;
@@ -110,6 +110,9 @@ class SetSecurityPreferenceRequest extends Model
         if (isset($map['AllowUserToManageMFADevices'])) {
             $model->allowUserToManageMFADevices = $map['AllowUserToManageMFADevices'];
         }
+        if (isset($map['AllowUserToManagePersonalDingTalk'])) {
+            $model->allowUserToManagePersonalDingTalk = $map['AllowUserToManagePersonalDingTalk'];
+        }
         if (isset($map['EnableSaveMFATicket'])) {
             $model->enableSaveMFATicket = $map['EnableSaveMFATicket'];
         }
@@ -121,11 +124,6 @@ class SetSecurityPreferenceRequest extends Model
         }
         if (isset($map['LoginSessionDuration'])) {
             $model->loginSessionDuration = $map['LoginSessionDuration'];
-        }
-        if (isset($map['VerificationTypes'])) {
-            if (!empty($map['VerificationTypes'])) {
-                $model->verificationTypes = $map['VerificationTypes'];
-            }
         }
 
         return $model;
