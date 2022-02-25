@@ -11,12 +11,22 @@ class DescribePropertyCountResponseBody extends Model
     /**
      * @var int
      */
-    public $autoRun;
+    public $autorun;
 
     /**
      * @var int
      */
     public $cron;
+
+    /**
+     * @var int
+     */
+    public $database;
+
+    /**
+     * @var int
+     */
+    public $lkm;
 
     /**
      * @var int
@@ -47,15 +57,29 @@ class DescribePropertyCountResponseBody extends Model
      * @var int
      */
     public $user;
+
+    /**
+     * @var int
+     */
+    public $web;
+
+    /**
+     * @var int
+     */
+    public $webserver;
     protected $_name = [
-        'autoRun'   => 'AutoRun',
+        'autorun'   => 'Autorun',
         'cron'      => 'Cron',
+        'database'  => 'Database',
+        'lkm'       => 'Lkm',
         'port'      => 'Port',
         'process'   => 'Process',
         'requestId' => 'RequestId',
         'sca'       => 'Sca',
         'software'  => 'Software',
         'user'      => 'User',
+        'web'       => 'Web',
+        'webserver' => 'Webserver',
     ];
 
     public function validate()
@@ -65,11 +89,17 @@ class DescribePropertyCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->autoRun) {
-            $res['AutoRun'] = $this->autoRun;
+        if (null !== $this->autorun) {
+            $res['Autorun'] = $this->autorun;
         }
         if (null !== $this->cron) {
             $res['Cron'] = $this->cron;
+        }
+        if (null !== $this->database) {
+            $res['Database'] = $this->database;
+        }
+        if (null !== $this->lkm) {
+            $res['Lkm'] = $this->lkm;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -89,6 +119,12 @@ class DescribePropertyCountResponseBody extends Model
         if (null !== $this->user) {
             $res['User'] = $this->user;
         }
+        if (null !== $this->web) {
+            $res['Web'] = $this->web;
+        }
+        if (null !== $this->webserver) {
+            $res['Webserver'] = $this->webserver;
+        }
 
         return $res;
     }
@@ -101,11 +137,17 @@ class DescribePropertyCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoRun'])) {
-            $model->autoRun = $map['AutoRun'];
+        if (isset($map['Autorun'])) {
+            $model->autorun = $map['Autorun'];
         }
         if (isset($map['Cron'])) {
             $model->cron = $map['Cron'];
+        }
+        if (isset($map['Database'])) {
+            $model->database = $map['Database'];
+        }
+        if (isset($map['Lkm'])) {
+            $model->lkm = $map['Lkm'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
@@ -124,6 +166,12 @@ class DescribePropertyCountResponseBody extends Model
         }
         if (isset($map['User'])) {
             $model->user = $map['User'];
+        }
+        if (isset($map['Web'])) {
+            $model->web = $map['Web'];
+        }
+        if (isset($map['Webserver'])) {
+            $model->webserver = $map['Webserver'];
         }
 
         return $model;
