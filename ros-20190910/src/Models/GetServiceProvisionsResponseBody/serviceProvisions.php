@@ -15,6 +15,11 @@ class serviceProvisions extends Model
     public $autoEnableService;
 
     /**
+     * @var string[]
+     */
+    public $dependentServiceNames;
+
+    /**
      * @var string
      */
     public $enableURL;
@@ -39,12 +44,13 @@ class serviceProvisions extends Model
      */
     public $statusReason;
     protected $_name = [
-        'autoEnableService' => 'AutoEnableService',
-        'enableURL'         => 'EnableURL',
-        'roleProvision'     => 'RoleProvision',
-        'serviceName'       => 'ServiceName',
-        'status'            => 'Status',
-        'statusReason'      => 'StatusReason',
+        'autoEnableService'     => 'AutoEnableService',
+        'dependentServiceNames' => 'DependentServiceNames',
+        'enableURL'             => 'EnableURL',
+        'roleProvision'         => 'RoleProvision',
+        'serviceName'           => 'ServiceName',
+        'status'                => 'Status',
+        'statusReason'          => 'StatusReason',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class serviceProvisions extends Model
         $res = [];
         if (null !== $this->autoEnableService) {
             $res['AutoEnableService'] = $this->autoEnableService;
+        }
+        if (null !== $this->dependentServiceNames) {
+            $res['DependentServiceNames'] = $this->dependentServiceNames;
         }
         if (null !== $this->enableURL) {
             $res['EnableURL'] = $this->enableURL;
@@ -86,6 +95,11 @@ class serviceProvisions extends Model
         $model = new self();
         if (isset($map['AutoEnableService'])) {
             $model->autoEnableService = $map['AutoEnableService'];
+        }
+        if (isset($map['DependentServiceNames'])) {
+            if (!empty($map['DependentServiceNames'])) {
+                $model->dependentServiceNames = $map['DependentServiceNames'];
+            }
         }
         if (isset($map['EnableURL'])) {
             $model->enableURL = $map['EnableURL'];

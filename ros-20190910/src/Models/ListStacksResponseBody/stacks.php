@@ -40,6 +40,16 @@ class stacks extends Model
     public $resourceGroupId;
 
     /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
+
+    /**
      * @var string
      */
     public $stackDriftStatus;
@@ -90,6 +100,8 @@ class stacks extends Model
         'parentStackId'      => 'ParentStackId',
         'regionId'           => 'RegionId',
         'resourceGroupId'    => 'ResourceGroupId',
+        'serviceManaged'     => 'ServiceManaged',
+        'serviceName'        => 'ServiceName',
         'stackDriftStatus'   => 'StackDriftStatus',
         'stackId'            => 'StackId',
         'stackName'          => 'StackName',
@@ -125,6 +137,12 @@ class stacks extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
         if (null !== $this->stackDriftStatus) {
             $res['StackDriftStatus'] = $this->stackDriftStatus;
@@ -188,6 +206,12 @@ class stacks extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
         if (isset($map['StackDriftStatus'])) {
             $model->stackDriftStatus = $map['StackDriftStatus'];
