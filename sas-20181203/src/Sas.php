@@ -15,10 +15,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyShrinkRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageScanTaskRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
@@ -267,8 +263,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageAnalysisRuleProjectRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageAnalysisRuleProjectResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupRequest;
@@ -328,14 +322,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\PageImageRegistryRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\PageImageRegistryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\QueryJenkinsImageRegistryPersistenceDayRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\QueryJenkinsImageRegistryPersistenceDayResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsRequest;
@@ -350,23 +340,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitImageAnalysisOutputRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitImageAnalysisOutputResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryNameRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryNameResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryPersistenceDayRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryPersistenceDayResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageScanTaskStatusRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageScanTaskStatusResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UploadAnalyzerRuntimeLogRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UploadAnalyzerRuntimeLogResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -679,174 +658,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateJenkinsImageRegistryRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateJenkinsImageRegistryResponse
-     */
-    public function createJenkinsImageRegistryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->extraParam)) {
-            $body['ExtraParam'] = $request->extraParam;
-        }
-        if (!Utils::isUnset($request->netType)) {
-            $body['NetType'] = $request->netType;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $body['Password'] = $request->password;
-        }
-        if (!Utils::isUnset($request->persistenceDay)) {
-            $body['PersistenceDay'] = $request->persistenceDay;
-        }
-        if (!Utils::isUnset($request->protocolType)) {
-            $body['ProtocolType'] = $request->protocolType;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->registryHostIp)) {
-            $body['RegistryHostIp'] = $request->registryHostIp;
-        }
-        if (!Utils::isUnset($request->registryName)) {
-            $body['RegistryName'] = $request->registryName;
-        }
-        if (!Utils::isUnset($request->registryType)) {
-            $body['RegistryType'] = $request->registryType;
-        }
-        if (!Utils::isUnset($request->registryVersion)) {
-            $body['RegistryVersion'] = $request->registryVersion;
-        }
-        if (!Utils::isUnset($request->transPerHour)) {
-            $body['TransPerHour'] = $request->transPerHour;
-        }
-        if (!Utils::isUnset($request->userName)) {
-            $body['UserName'] = $request->userName;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
-        }
-        if (!Utils::isUnset($request->whiteList)) {
-            $body['WhiteList'] = $request->whiteList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateJenkinsImageRegistry',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateJenkinsImageRegistryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateJenkinsImageRegistryRequest $request
-     *
-     * @return CreateJenkinsImageRegistryResponse
-     */
-    public function createJenkinsImageRegistry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createJenkinsImageRegistryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateJenkinsImageScanTaskRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateJenkinsImageScanTaskResponse
-     */
-    public function createJenkinsImageScanTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jenkinsEnv)) {
-            $query['JenkinsEnv'] = $request->jenkinsEnv;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->digest)) {
-            $body['Digest'] = $request->digest;
-        }
-        if (!Utils::isUnset($request->imageCreate)) {
-            $body['ImageCreate'] = $request->imageCreate;
-        }
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
-        }
-        if (!Utils::isUnset($request->imageSize)) {
-            $body['ImageSize'] = $request->imageSize;
-        }
-        if (!Utils::isUnset($request->imageUpdate)) {
-            $body['ImageUpdate'] = $request->imageUpdate;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->repoName)) {
-            $body['RepoName'] = $request->repoName;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
-        }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateJenkinsImageScanTask',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateJenkinsImageScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateJenkinsImageScanTaskRequest $request
-     *
-     * @return CreateJenkinsImageScanTaskResponse
-     */
-    public function createJenkinsImageScanTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createJenkinsImageScanTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -7727,57 +7538,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListImageAnalysisRuleProjectRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListImageAnalysisRuleProjectResponse
-     */
-    public function listImageAnalysisRuleProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListImageAnalysisRuleProject',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListImageAnalysisRuleProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListImageAnalysisRuleProjectRequest $request
-     *
-     * @return ListImageAnalysisRuleProjectResponse
-     */
-    public function listImageAnalysisRuleProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listImageAnalysisRuleProjectWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyAntiBruteForceRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -9345,66 +9105,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PageImageRegistryRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return PageImageRegistryResponse
-     */
-    public function pageImageRegistryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->registryNameLike)) {
-            $body['RegistryNameLike'] = $request->registryNameLike;
-        }
-        if (!Utils::isUnset($request->registryTypeInList)) {
-            $body['RegistryTypeInList'] = $request->registryTypeInList;
-        }
-        if (!Utils::isUnset($request->registryTypeNotInList)) {
-            $body['RegistryTypeNotInList'] = $request->registryTypeNotInList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PageImageRegistry',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return PageImageRegistryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param PageImageRegistryRequest $request
-     *
-     * @return PageImageRegistryResponse
-     */
-    public function pageImageRegistry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->pageImageRegistryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param PauseClientRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -9494,49 +9194,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryGroupIdByGroupNameWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryJenkinsImageRegistryPersistenceDayRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return QueryJenkinsImageRegistryPersistenceDayResponse
-     */
-    public function queryJenkinsImageRegistryPersistenceDayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryJenkinsImageRegistryPersistenceDay',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryJenkinsImageRegistryPersistenceDayResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryJenkinsImageRegistryPersistenceDayRequest $request
-     *
-     * @return QueryJenkinsImageRegistryPersistenceDayResponse
-     */
-    public function queryJenkinsImageRegistryPersistenceDay($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryJenkinsImageRegistryPersistenceDayWithOptions($request, $runtime);
     }
 
     /**
@@ -9886,69 +9543,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SubmitImageAnalysisOutputRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SubmitImageAnalysisOutputResponse
-     */
-    public function submitImageAnalysisOutputWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['Body'] = $request->body;
-        }
-        if (!Utils::isUnset($request->isCompress)) {
-            $body['IsCompress'] = $request->isCompress;
-        }
-        if (!Utils::isUnset($request->isEncrypt)) {
-            $body['IsEncrypt'] = $request->isEncrypt;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitImageAnalysisOutput',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitImageAnalysisOutputResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SubmitImageAnalysisOutputRequest $request
-     *
-     * @return SubmitImageAnalysisOutputResponse
-     */
-    public function submitImageAnalysisOutput($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitImageAnalysisOutputWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UnbindAegisRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -10038,227 +9632,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uninstallBackupClientWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateJenkinsImageRegistryNameRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return UpdateJenkinsImageRegistryNameResponse
-     */
-    public function updateJenkinsImageRegistryNameWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->registryId)) {
-            $body['RegistryId'] = $request->registryId;
-        }
-        if (!Utils::isUnset($request->registryName)) {
-            $body['RegistryName'] = $request->registryName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateJenkinsImageRegistryName',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateJenkinsImageRegistryNameResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateJenkinsImageRegistryNameRequest $request
-     *
-     * @return UpdateJenkinsImageRegistryNameResponse
-     */
-    public function updateJenkinsImageRegistryName($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateJenkinsImageRegistryNameWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateJenkinsImageRegistryPersistenceDayRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return UpdateJenkinsImageRegistryPersistenceDayResponse
-     */
-    public function updateJenkinsImageRegistryPersistenceDayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->persistenceDay)) {
-            $body['PersistenceDay'] = $request->persistenceDay;
-        }
-        if (!Utils::isUnset($request->registryId)) {
-            $body['RegistryId'] = $request->registryId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateJenkinsImageRegistryPersistenceDay',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateJenkinsImageRegistryPersistenceDayResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateJenkinsImageRegistryPersistenceDayRequest $request
-     *
-     * @return UpdateJenkinsImageRegistryPersistenceDayResponse
-     */
-    public function updateJenkinsImageRegistryPersistenceDay($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateJenkinsImageRegistryPersistenceDayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateJenkinsImageScanTaskStatusRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return UpdateJenkinsImageScanTaskStatusResponse
-     */
-    public function updateJenkinsImageScanTaskStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->result)) {
-            $body['Result'] = $request->result;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateJenkinsImageScanTaskStatus',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateJenkinsImageScanTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateJenkinsImageScanTaskStatusRequest $request
-     *
-     * @return UpdateJenkinsImageScanTaskStatusResponse
-     */
-    public function updateJenkinsImageScanTaskStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateJenkinsImageScanTaskStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UploadAnalyzerRuntimeLogRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UploadAnalyzerRuntimeLogResponse
-     */
-    public function uploadAnalyzerRuntimeLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
-        }
-        $bodyFlat = [];
-        if (!Utils::isUnset($request->extendedContent)) {
-            $bodyFlat['ExtendedContent'] = $request->extendedContent;
-        }
-        if (!Utils::isUnset($request->level)) {
-            $body['Level'] = $request->level;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
-        }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UploadAnalyzerRuntimeLog',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UploadAnalyzerRuntimeLogResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UploadAnalyzerRuntimeLogRequest $request
-     *
-     * @return UploadAnalyzerRuntimeLogResponse
-     */
-    public function uploadAnalyzerRuntimeLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->uploadAnalyzerRuntimeLogWithOptions($request, $runtime);
     }
 
     /**

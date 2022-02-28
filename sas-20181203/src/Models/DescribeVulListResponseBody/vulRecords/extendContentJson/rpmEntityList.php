@@ -31,12 +31,22 @@ class rpmEntityList extends Model
     /**
      * @var string
      */
+    public $matchList;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
      * @var string
      */
     public $path;
+
+    /**
+     * @var string
+     */
+    public $pid;
 
     /**
      * @var string
@@ -52,8 +62,10 @@ class rpmEntityList extends Model
         'fullVersion'   => 'FullVersion',
         'imageName'     => 'ImageName',
         'matchDetail'   => 'MatchDetail',
+        'matchList'     => 'MatchList',
         'name'          => 'Name',
         'path'          => 'Path',
+        'pid'           => 'Pid',
         'updateCmd'     => 'UpdateCmd',
         'version'       => 'Version',
     ];
@@ -77,11 +89,17 @@ class rpmEntityList extends Model
         if (null !== $this->matchDetail) {
             $res['MatchDetail'] = $this->matchDetail;
         }
+        if (null !== $this->matchList) {
+            $res['MatchList'] = $this->matchList;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
         }
         if (null !== $this->updateCmd) {
             $res['UpdateCmd'] = $this->updateCmd;
@@ -113,11 +131,17 @@ class rpmEntityList extends Model
         if (isset($map['MatchDetail'])) {
             $model->matchDetail = $map['MatchDetail'];
         }
+        if (isset($map['MatchList'])) {
+            $model->matchList = $map['MatchList'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
         }
         if (isset($map['UpdateCmd'])) {
             $model->updateCmd = $map['UpdateCmd'];
