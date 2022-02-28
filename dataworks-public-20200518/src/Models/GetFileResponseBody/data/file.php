@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class file extends Model
 {
     /**
+     * @var string
+     */
+    public $advancedSettings;
+
+    /**
      * @var bool
      */
     public $autoParsing;
@@ -113,27 +118,28 @@ class file extends Model
      */
     public $useType;
     protected $_name = [
-        'autoParsing'     => 'AutoParsing',
-        'bizId'           => 'BizId',
-        'businessId'      => 'BusinessId',
-        'commitStatus'    => 'CommitStatus',
-        'connectionName'  => 'ConnectionName',
-        'content'         => 'Content',
-        'createTime'      => 'CreateTime',
-        'createUser'      => 'CreateUser',
-        'currentVersion'  => 'CurrentVersion',
-        'deletedStatus'   => 'DeletedStatus',
-        'fileDescription' => 'FileDescription',
-        'fileFolderId'    => 'FileFolderId',
-        'fileName'        => 'FileName',
-        'fileType'        => 'FileType',
-        'isMaxCompute'    => 'IsMaxCompute',
-        'lastEditTime'    => 'LastEditTime',
-        'lastEditUser'    => 'LastEditUser',
-        'nodeId'          => 'NodeId',
-        'owner'           => 'Owner',
-        'parentId'        => 'ParentId',
-        'useType'         => 'UseType',
+        'advancedSettings' => 'AdvancedSettings',
+        'autoParsing'      => 'AutoParsing',
+        'bizId'            => 'BizId',
+        'businessId'       => 'BusinessId',
+        'commitStatus'     => 'CommitStatus',
+        'connectionName'   => 'ConnectionName',
+        'content'          => 'Content',
+        'createTime'       => 'CreateTime',
+        'createUser'       => 'CreateUser',
+        'currentVersion'   => 'CurrentVersion',
+        'deletedStatus'    => 'DeletedStatus',
+        'fileDescription'  => 'FileDescription',
+        'fileFolderId'     => 'FileFolderId',
+        'fileName'         => 'FileName',
+        'fileType'         => 'FileType',
+        'isMaxCompute'     => 'IsMaxCompute',
+        'lastEditTime'     => 'LastEditTime',
+        'lastEditUser'     => 'LastEditUser',
+        'nodeId'           => 'NodeId',
+        'owner'            => 'Owner',
+        'parentId'         => 'ParentId',
+        'useType'          => 'UseType',
     ];
 
     public function validate()
@@ -143,6 +149,9 @@ class file extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advancedSettings) {
+            $res['AdvancedSettings'] = $this->advancedSettings;
+        }
         if (null !== $this->autoParsing) {
             $res['AutoParsing'] = $this->autoParsing;
         }
@@ -218,6 +227,9 @@ class file extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedSettings'])) {
+            $model->advancedSettings = $map['AdvancedSettings'];
+        }
         if (isset($map['AutoParsing'])) {
             $model->autoParsing = $map['AutoParsing'];
         }

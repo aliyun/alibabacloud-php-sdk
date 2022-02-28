@@ -14,17 +14,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckEngineMetaPartitionRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckEngineMetaPartitionResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckEngineMetaTableRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckEngineMetaTableResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckFileDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckFileDeploymentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateConnectionRequest;
@@ -80,8 +75,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateTableThemeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateUdfFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateUdfFileResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateViewRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateViewResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteConnectionRequest;
@@ -120,8 +113,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteTableRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteTableResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteTableThemeResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteViewRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteViewResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployDISyncTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileRequest;
@@ -130,12 +121,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportConnectionsRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportConnectionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDataSourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDataSourcesResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForCreatingRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForCreatingResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForUpdatingRequest;
@@ -148,8 +135,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBusinessResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetConnectionMetaRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetConnectionMetaResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiRequest;
@@ -270,12 +255,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetTopicInfluenceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetTopicInfluenceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetTopicRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetTopicResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportConnectionsRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportConnectionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDataSourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDataSourcesResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDISyncTasksRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDISyncTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListAlertMessagesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListAlertMessagesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBaselineConfigsRequest;
@@ -310,8 +291,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDISyncTasksRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDISyncTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFilesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFilesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFileTypeRequest;
@@ -400,8 +379,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetConnectionShareRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetConnectionShareResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetDataSourceShareRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetDataSourceShareResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceRequest;
@@ -554,8 +531,18 @@ class Dataworkspublic extends OpenApiClient
     public function abolishDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AbolishDataServiceApi',
@@ -593,14 +580,21 @@ class Dataworkspublic extends OpenApiClient
     public function addProjectMemberToRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['ProjectId']   = $request->projectId;
-        $query['RoleCode']    = $request->roleCode;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->roleCode)) {
+            $query['RoleCode'] = $request->roleCode;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddProjectMemberToRole',
@@ -610,7 +604,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -638,12 +632,15 @@ class Dataworkspublic extends OpenApiClient
     public function addToMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['CategoryId'] = $request->categoryId;
-        $query['TableGuid']  = $request->tableGuid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddToMetaCategory',
@@ -653,7 +650,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -681,13 +678,18 @@ class Dataworkspublic extends OpenApiClient
     public function approvePermissionApplyOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ApproveAction']  = $request->approveAction;
-        $query['ApproveComment'] = $request->approveComment;
-        $query['FlowId']         = $request->flowId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->approveAction)) {
+            $query['ApproveAction'] = $request->approveAction;
+        }
+        if (!Utils::isUnset($request->approveComment)) {
+            $query['ApproveComment'] = $request->approveComment;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ApprovePermissionApplyOrder',
@@ -697,7 +699,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -717,93 +719,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CheckEngineMetaPartitionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CheckEngineMetaPartitionResponse
-     */
-    public function checkEngineMetaPartitionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                   = [];
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['Partition']      = $request->partition;
-        $query['TableGuid']      = $request->tableGuid;
-        $req                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckEngineMetaPartition',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CheckEngineMetaPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CheckEngineMetaPartitionRequest $request
-     *
-     * @return CheckEngineMetaPartitionResponse
-     */
-    public function checkEngineMetaPartition($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkEngineMetaPartitionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CheckEngineMetaTableRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CheckEngineMetaTableResponse
-     */
-    public function checkEngineMetaTableWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                   = [];
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['TableGuid']      = $request->tableGuid;
-        $req                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckEngineMetaTable',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CheckEngineMetaTableResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CheckEngineMetaTableRequest $request
-     *
-     * @return CheckEngineMetaTableResponse
-     */
-    public function checkEngineMetaTable($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkEngineMetaTableWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CheckFileDeploymentRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -812,8 +727,18 @@ class Dataworkspublic extends OpenApiClient
     public function checkFileDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->checkDetailUrl)) {
+            $body['CheckDetailUrl'] = $request->checkDetailUrl;
+        }
+        if (!Utils::isUnset($request->checkerInstanceId)) {
+            $body['CheckerInstanceId'] = $request->checkerInstanceId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CheckFileDeployment',
@@ -851,16 +776,27 @@ class Dataworkspublic extends OpenApiClient
     public function checkMetaPartitionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClusterId']      = $request->clusterId;
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['DatabaseName']   = $request->databaseName;
-        $query['Partition']      = $request->partition;
-        $query['TableGuid']      = $request->tableGuid;
-        $query['TableName']      = $request->tableName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->partition)) {
+            $query['Partition'] = $request->partition;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CheckMetaPartition',
@@ -870,7 +806,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -898,15 +834,24 @@ class Dataworkspublic extends OpenApiClient
     public function checkMetaTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClusterId']      = $request->clusterId;
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['DatabaseName']   = $request->databaseName;
-        $query['TableGuid']      = $request->tableGuid;
-        $query['TableName']      = $request->tableName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CheckMetaTable',
@@ -916,7 +861,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -936,39 +881,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return CheckMetaTableTaskResponse
-     */
-    public function checkMetaTableTaskWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'CheckMetaTableTask',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CheckMetaTableTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return CheckMetaTableTaskResponse
-     */
-    public function checkMetaTableTask()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkMetaTableTaskWithOptions($runtime);
-    }
-
-    /**
      * @param CreateBusinessRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -977,8 +889,27 @@ class Dataworkspublic extends OpenApiClient
     public function createBusinessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->businessName)) {
+            $body['BusinessName'] = $request->businessName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->useType)) {
+            $body['UseType'] = $request->useType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateBusiness',
@@ -1016,17 +947,30 @@ class Dataworkspublic extends OpenApiClient
     public function createConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ConnectionType'] = $request->connectionType;
-        $query['Content']        = $request->content;
-        $query['Description']    = $request->description;
-        $query['EnvType']        = $request->envType;
-        $query['Name']           = $request->name;
-        $query['ProjectId']      = $request->projectId;
-        $query['SubType']        = $request->subType;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionType)) {
+            $query['ConnectionType'] = $request->connectionType;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->subType)) {
+            $query['SubType'] = $request->subType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateConnection',
@@ -1036,7 +980,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1064,16 +1008,27 @@ class Dataworkspublic extends OpenApiClient
     public function createDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['ProjectId']   = $request->projectId;
-        $query['TaskContent'] = $request->taskContent;
-        $query['TaskName']    = $request->taskName;
-        $query['TaskParam']   = $request->taskParam;
-        $query['TaskType']    = $request->taskType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskContent)) {
+            $query['TaskContent'] = $request->taskContent;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskParam)) {
+            $query['TaskParam'] = $request->taskParam;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDISyncTask',
@@ -1083,7 +1038,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1111,8 +1066,42 @@ class Dataworkspublic extends OpenApiClient
     public function createDagComplementWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizBeginTime)) {
+            $body['BizBeginTime'] = $request->bizBeginTime;
+        }
+        if (!Utils::isUnset($request->bizEndTime)) {
+            $body['BizEndTime'] = $request->bizEndTime;
+        }
+        if (!Utils::isUnset($request->endBizDate)) {
+            $body['EndBizDate'] = $request->endBizDate;
+        }
+        if (!Utils::isUnset($request->excludeNodeIds)) {
+            $body['ExcludeNodeIds'] = $request->excludeNodeIds;
+        }
+        if (!Utils::isUnset($request->includeNodeIds)) {
+            $body['IncludeNodeIds'] = $request->includeNodeIds;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nodeParams)) {
+            $body['NodeParams'] = $request->nodeParams;
+        }
+        if (!Utils::isUnset($request->parallelism)) {
+            $body['Parallelism'] = $request->parallelism;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->rootNodeId)) {
+            $body['RootNodeId'] = $request->rootNodeId;
+        }
+        if (!Utils::isUnset($request->startBizDate)) {
+            $body['StartBizDate'] = $request->startBizDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDagComplement',
@@ -1150,8 +1139,24 @@ class Dataworkspublic extends OpenApiClient
     public function createDagTestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizdate)) {
+            $body['Bizdate'] = $request->bizdate;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeParams)) {
+            $body['NodeParams'] = $request->nodeParams;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDagTest',
@@ -1189,8 +1194,57 @@ class Dataworkspublic extends OpenApiClient
     public function createDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiDescription)) {
+            $body['ApiDescription'] = $request->apiDescription;
+        }
+        if (!Utils::isUnset($request->apiMode)) {
+            $body['ApiMode'] = $request->apiMode;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $body['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->apiPath)) {
+            $body['ApiPath'] = $request->apiPath;
+        }
+        if (!Utils::isUnset($request->folderId)) {
+            $body['FolderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->protocols)) {
+            $body['Protocols'] = $request->protocols;
+        }
+        if (!Utils::isUnset($request->registrationDetails)) {
+            $body['RegistrationDetails'] = $request->registrationDetails;
+        }
+        if (!Utils::isUnset($request->requestMethod)) {
+            $body['RequestMethod'] = $request->requestMethod;
+        }
+        if (!Utils::isUnset($request->responseContentType)) {
+            $body['ResponseContentType'] = $request->responseContentType;
+        }
+        if (!Utils::isUnset($request->scriptDetails)) {
+            $body['ScriptDetails'] = $request->scriptDetails;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->visibleRange)) {
+            $body['VisibleRange'] = $request->visibleRange;
+        }
+        if (!Utils::isUnset($request->wizardDetails)) {
+            $body['WizardDetails'] = $request->wizardDetails;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataServiceApi',
@@ -1228,8 +1282,24 @@ class Dataworkspublic extends OpenApiClient
     public function createDataServiceApiAuthorityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->authorizedProjectId)) {
+            $body['AuthorizedProjectId'] = $request->authorizedProjectId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataServiceApiAuthority',
@@ -1267,8 +1337,24 @@ class Dataworkspublic extends OpenApiClient
     public function createDataServiceFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->folderName)) {
+            $body['FolderName'] = $request->folderName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $body['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataServiceFolder',
@@ -1306,8 +1392,24 @@ class Dataworkspublic extends OpenApiClient
     public function createDataServiceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiGatewayGroupId)) {
+            $body['ApiGatewayGroupId'] = $request->apiGatewayGroupId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataServiceGroup',
@@ -1345,17 +1447,30 @@ class Dataworkspublic extends OpenApiClient
     public function createDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Content']        = $request->content;
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['Description']    = $request->description;
-        $query['EnvType']        = $request->envType;
-        $query['Name']           = $request->name;
-        $query['ProjectId']      = $request->projectId;
-        $query['SubType']        = $request->subType;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->subType)) {
+            $query['SubType'] = $request->subType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDataSource',
@@ -1365,7 +1480,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1393,8 +1508,27 @@ class Dataworkspublic extends OpenApiClient
     public function createExportMigrationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->exportMode)) {
+            $body['ExportMode'] = $request->exportMode;
+        }
+        if (!Utils::isUnset($request->exportObjectStatus)) {
+            $body['ExportObjectStatus'] = $request->exportObjectStatus;
+        }
+        if (!Utils::isUnset($request->incrementalSince)) {
+            $body['IncrementalSince'] = $request->incrementalSince;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateExportMigration',
@@ -1432,8 +1566,90 @@ class Dataworkspublic extends OpenApiClient
     public function createFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->advancedSettings)) {
+            $body['AdvancedSettings'] = $request->advancedSettings;
+        }
+        if (!Utils::isUnset($request->autoParsing)) {
+            $body['AutoParsing'] = $request->autoParsing;
+        }
+        if (!Utils::isUnset($request->autoRerunIntervalMillis)) {
+            $body['AutoRerunIntervalMillis'] = $request->autoRerunIntervalMillis;
+        }
+        if (!Utils::isUnset($request->autoRerunTimes)) {
+            $body['AutoRerunTimes'] = $request->autoRerunTimes;
+        }
+        if (!Utils::isUnset($request->connectionName)) {
+            $body['ConnectionName'] = $request->connectionName;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->cronExpress)) {
+            $body['CronExpress'] = $request->cronExpress;
+        }
+        if (!Utils::isUnset($request->cycleType)) {
+            $body['CycleType'] = $request->cycleType;
+        }
+        if (!Utils::isUnset($request->dependentNodeIdList)) {
+            $body['DependentNodeIdList'] = $request->dependentNodeIdList;
+        }
+        if (!Utils::isUnset($request->dependentType)) {
+            $body['DependentType'] = $request->dependentType;
+        }
+        if (!Utils::isUnset($request->endEffectDate)) {
+            $body['EndEffectDate'] = $request->endEffectDate;
+        }
+        if (!Utils::isUnset($request->fileDescription)) {
+            $body['FileDescription'] = $request->fileDescription;
+        }
+        if (!Utils::isUnset($request->fileFolderPath)) {
+            $body['FileFolderPath'] = $request->fileFolderPath;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $body['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $body['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->inputList)) {
+            $body['InputList'] = $request->inputList;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->paraValue)) {
+            $body['ParaValue'] = $request->paraValue;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->rerunMode)) {
+            $body['RerunMode'] = $request->rerunMode;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceGroupIdentifier)) {
+            $body['ResourceGroupIdentifier'] = $request->resourceGroupIdentifier;
+        }
+        if (!Utils::isUnset($request->schedulerType)) {
+            $body['SchedulerType'] = $request->schedulerType;
+        }
+        if (!Utils::isUnset($request->startEffectDate)) {
+            $body['StartEffectDate'] = $request->startEffectDate;
+        }
+        if (!Utils::isUnset($request->startImmediately)) {
+            $body['StartImmediately'] = $request->startImmediately;
+        }
+        if (!Utils::isUnset($request->stop)) {
+            $body['Stop'] = $request->stop;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateFile',
@@ -1471,8 +1687,18 @@ class Dataworkspublic extends OpenApiClient
     public function createFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->folderPath)) {
+            $body['FolderPath'] = $request->folderPath;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateFolder',
@@ -1510,8 +1736,36 @@ class Dataworkspublic extends OpenApiClient
     public function createImportMigrationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->calculateEngineMap)) {
+            $body['CalculateEngineMap'] = $request->calculateEngineMap;
+        }
+        if (!Utils::isUnset($request->commitRule)) {
+            $body['CommitRule'] = $request->commitRule;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->packageFile)) {
+            $body['PackageFile'] = $request->packageFile;
+        }
+        if (!Utils::isUnset($request->packageType)) {
+            $body['PackageType'] = $request->packageType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceGroupMap)) {
+            $body['ResourceGroupMap'] = $request->resourceGroupMap;
+        }
+        if (!Utils::isUnset($request->workspaceMap)) {
+            $body['WorkspaceMap'] = $request->workspaceMap;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateImportMigration',
@@ -1627,8 +1881,33 @@ class Dataworkspublic extends OpenApiClient
     public function createManualDagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizDate)) {
+            $body['BizDate'] = $request->bizDate;
+        }
+        if (!Utils::isUnset($request->dagParameters)) {
+            $body['DagParameters'] = $request->dagParameters;
+        }
+        if (!Utils::isUnset($request->excludeNodeIds)) {
+            $body['ExcludeNodeIds'] = $request->excludeNodeIds;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->includeNodeIds)) {
+            $body['IncludeNodeIds'] = $request->includeNodeIds;
+        }
+        if (!Utils::isUnset($request->nodeParameters)) {
+            $body['NodeParameters'] = $request->nodeParameters;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateManualDag',
@@ -1666,8 +1945,18 @@ class Dataworkspublic extends OpenApiClient
     public function createMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $body['ParentId'] = $request->parentId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateMetaCategory',
@@ -1705,18 +1994,33 @@ class Dataworkspublic extends OpenApiClient
     public function createPermissionApplyOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['ApplyObject']           = $request->applyObject;
-        $query['ApplyReason']           = $request->applyReason;
-        $query['ApplyUserIds']          = $request->applyUserIds;
-        $query['Deadline']              = $request->deadline;
-        $query['EngineType']            = $request->engineType;
-        $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
-        $query['OrderType']             = $request->orderType;
-        $query['WorkspaceId']           = $request->workspaceId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->applyObject)) {
+            $query['ApplyObject'] = $request->applyObject;
+        }
+        if (!Utils::isUnset($request->applyReason)) {
+            $query['ApplyReason'] = $request->applyReason;
+        }
+        if (!Utils::isUnset($request->applyUserIds)) {
+            $query['ApplyUserIds'] = $request->applyUserIds;
+        }
+        if (!Utils::isUnset($request->deadline)) {
+            $query['Deadline'] = $request->deadline;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->maxComputeProjectName)) {
+            $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreatePermissionApplyOrder',
@@ -1726,7 +2030,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1754,14 +2058,21 @@ class Dataworkspublic extends OpenApiClient
     public function createProjectMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['ProjectId']   = $request->projectId;
-        $query['RoleCode']    = $request->roleCode;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->roleCode)) {
+            $query['RoleCode'] = $request->roleCode;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateProjectMember',
@@ -1771,7 +2082,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1799,8 +2110,24 @@ class Dataworkspublic extends OpenApiClient
     public function createQualityEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->entityLevel)) {
+            $body['EntityLevel'] = $request->entityLevel;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $body['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->matchExpression)) {
+            $body['MatchExpression'] = $request->matchExpression;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $body['TableName'] = $request->tableName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateQualityEntity',
@@ -1838,8 +2165,21 @@ class Dataworkspublic extends OpenApiClient
     public function createQualityFollowerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alarmMode)) {
+            $body['AlarmMode'] = $request->alarmMode;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->follower)) {
+            $body['Follower'] = $request->follower;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateQualityFollower',
@@ -1877,8 +2217,33 @@ class Dataworkspublic extends OpenApiClient
     public function createQualityRelativeNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->envType)) {
+            $body['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->matchExpression)) {
+            $body['MatchExpression'] = $request->matchExpression;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $body['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->targetNodeProjectId)) {
+            $body['TargetNodeProjectId'] = $request->targetNodeProjectId;
+        }
+        if (!Utils::isUnset($request->targetNodeProjectName)) {
+            $body['TargetNodeProjectName'] = $request->targetNodeProjectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateQualityRelativeNode',
@@ -1916,8 +2281,63 @@ class Dataworkspublic extends OpenApiClient
     public function createQualityRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->blockType)) {
+            $body['BlockType'] = $request->blockType;
+        }
+        if (!Utils::isUnset($request->checker)) {
+            $body['Checker'] = $request->checker;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->criticalThreshold)) {
+            $body['CriticalThreshold'] = $request->criticalThreshold;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->expectValue)) {
+            $body['ExpectValue'] = $request->expectValue;
+        }
+        if (!Utils::isUnset($request->methodName)) {
+            $body['MethodName'] = $request->methodName;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $body['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->predictType)) {
+            $body['PredictType'] = $request->predictType;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->property)) {
+            $body['Property'] = $request->property;
+        }
+        if (!Utils::isUnset($request->propertyType)) {
+            $body['PropertyType'] = $request->propertyType;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $body['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $body['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->trend)) {
+            $body['Trend'] = $request->trend;
+        }
+        if (!Utils::isUnset($request->warningThreshold)) {
+            $body['WarningThreshold'] = $request->warningThreshold;
+        }
+        if (!Utils::isUnset($request->whereCondition)) {
+            $body['WhereCondition'] = $request->whereCondition;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateQualityRule',
@@ -1955,8 +2375,54 @@ class Dataworkspublic extends OpenApiClient
     public function createRemindWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertInterval)) {
+            $body['AlertInterval'] = $request->alertInterval;
+        }
+        if (!Utils::isUnset($request->alertMethods)) {
+            $body['AlertMethods'] = $request->alertMethods;
+        }
+        if (!Utils::isUnset($request->alertTargets)) {
+            $body['AlertTargets'] = $request->alertTargets;
+        }
+        if (!Utils::isUnset($request->alertUnit)) {
+            $body['AlertUnit'] = $request->alertUnit;
+        }
+        if (!Utils::isUnset($request->baselineIds)) {
+            $body['BaselineIds'] = $request->baselineIds;
+        }
+        if (!Utils::isUnset($request->bizProcessIds)) {
+            $body['BizProcessIds'] = $request->bizProcessIds;
+        }
+        if (!Utils::isUnset($request->detail)) {
+            $body['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->dndEnd)) {
+            $body['DndEnd'] = $request->dndEnd;
+        }
+        if (!Utils::isUnset($request->maxAlertTimes)) {
+            $body['MaxAlertTimes'] = $request->maxAlertTimes;
+        }
+        if (!Utils::isUnset($request->nodeIds)) {
+            $body['NodeIds'] = $request->nodeIds;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->remindName)) {
+            $body['RemindName'] = $request->remindName;
+        }
+        if (!Utils::isUnset($request->remindType)) {
+            $body['RemindType'] = $request->remindType;
+        }
+        if (!Utils::isUnset($request->remindUnit)) {
+            $body['RemindUnit'] = $request->remindUnit;
+        }
+        if (!Utils::isUnset($request->robotUrls)) {
+            $body['RobotUrls'] = $request->robotUrls;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRemind',
@@ -1994,25 +2460,68 @@ class Dataworkspublic extends OpenApiClient
     public function createTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AppGuid']           = $request->appGuid;
-        $query['CategoryId']        = $request->categoryId;
-        $query['ClientToken']       = $request->clientToken;
-        $query['Comment']           = $request->comment;
-        $query['ExternalTableType'] = $request->externalTableType;
-        $query['HasPart']           = $request->hasPart;
-        $query['IsView']            = $request->isView;
-        $query['LifeCycle']         = $request->lifeCycle;
-        $query['Location']          = $request->location;
-        $query['LogicalLevelId']    = $request->logicalLevelId;
-        $query['OwnerId']           = $request->ownerId;
-        $query['PhysicsLevelId']    = $request->physicsLevelId;
-        $query['ProjectId']         = $request->projectId;
-        $query['TableName']         = $request->tableName;
-        $query['Visibility']        = $request->visibility;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appGuid)) {
+            $query['AppGuid'] = $request->appGuid;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->externalTableType)) {
+            $query['ExternalTableType'] = $request->externalTableType;
+        }
+        if (!Utils::isUnset($request->hasPart)) {
+            $query['HasPart'] = $request->hasPart;
+        }
+        if (!Utils::isUnset($request->isView)) {
+            $query['IsView'] = $request->isView;
+        }
+        if (!Utils::isUnset($request->lifeCycle)) {
+            $query['LifeCycle'] = $request->lifeCycle;
+        }
+        if (!Utils::isUnset($request->location)) {
+            $query['Location'] = $request->location;
+        }
+        if (!Utils::isUnset($request->logicalLevelId)) {
+            $query['LogicalLevelId'] = $request->logicalLevelId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->physicsLevelId)) {
+            $query['PhysicsLevelId'] = $request->physicsLevelId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->columns)) {
+            $body['Columns'] = $request->columns;
+        }
+        if (!Utils::isUnset($request->endpoint)) {
+            $body['Endpoint'] = $request->endpoint;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $body['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->themes)) {
+            $body['Themes'] = $request->themes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTable',
@@ -2050,14 +2559,21 @@ class Dataworkspublic extends OpenApiClient
     public function createTableLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Description'] = $request->description;
-        $query['LevelType']   = $request->levelType;
-        $query['Name']        = $request->name;
-        $query['ProjectId']   = $request->projectId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->levelType)) {
+            $query['LevelType'] = $request->levelType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateTableLevel',
@@ -2067,7 +2583,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2095,14 +2611,21 @@ class Dataworkspublic extends OpenApiClient
     public function createTableThemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Level']     = $request->level;
-        $query['Name']      = $request->name;
-        $query['ParentId']  = $request->parentId;
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateTableTheme',
@@ -2112,7 +2635,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2140,8 +2663,45 @@ class Dataworkspublic extends OpenApiClient
     public function createUdfFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->className)) {
+            $body['ClassName'] = $request->className;
+        }
+        if (!Utils::isUnset($request->cmdDescription)) {
+            $body['CmdDescription'] = $request->cmdDescription;
+        }
+        if (!Utils::isUnset($request->example)) {
+            $body['Example'] = $request->example;
+        }
+        if (!Utils::isUnset($request->fileFolderPath)) {
+            $body['FileFolderPath'] = $request->fileFolderPath;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $body['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->functionType)) {
+            $body['FunctionType'] = $request->functionType;
+        }
+        if (!Utils::isUnset($request->parameterDescription)) {
+            $body['ParameterDescription'] = $request->parameterDescription;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $body['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->returnValue)) {
+            $body['ReturnValue'] = $request->returnValue;
+        }
+        if (!Utils::isUnset($request->udfDescription)) {
+            $body['UdfDescription'] = $request->udfDescription;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateUdfFile',
@@ -2171,45 +2731,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateViewRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateViewResponse
-     */
-    public function createViewWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateView',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateViewResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateViewRequest $request
-     *
-     * @return CreateViewResponse
-     */
-    public function createView($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createViewWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteBusinessRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2218,8 +2739,18 @@ class Dataworkspublic extends OpenApiClient
     public function deleteBusinessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->businessId)) {
+            $body['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteBusiness',
@@ -2257,11 +2788,12 @@ class Dataworkspublic extends OpenApiClient
     public function deleteConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ConnectionId'] = $request->connectionId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionId)) {
+            $query['ConnectionId'] = $request->connectionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteConnection',
@@ -2271,7 +2803,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2299,13 +2831,18 @@ class Dataworkspublic extends OpenApiClient
     public function deleteDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['FileId']    = $request->fileId;
-        $query['ProjectId'] = $request->projectId;
-        $query['TaskType']  = $request->taskType;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDISyncTask',
@@ -2315,7 +2852,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2343,8 +2880,18 @@ class Dataworkspublic extends OpenApiClient
     public function deleteDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataServiceApi',
@@ -2382,8 +2929,21 @@ class Dataworkspublic extends OpenApiClient
     public function deleteDataServiceApiAuthorityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->authorizedProjectId)) {
+            $body['AuthorizedProjectId'] = $request->authorizedProjectId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataServiceApiAuthority',
@@ -2421,11 +2981,12 @@ class Dataworkspublic extends OpenApiClient
     public function deleteDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DataSourceId'] = $request->dataSourceId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataSource',
@@ -2435,7 +2996,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2463,8 +3024,18 @@ class Dataworkspublic extends OpenApiClient
     public function deleteFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteFile',
@@ -2502,8 +3073,18 @@ class Dataworkspublic extends OpenApiClient
     public function deleteFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->folderId)) {
+            $body['FolderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteFolder',
@@ -2541,12 +3122,15 @@ class Dataworkspublic extends OpenApiClient
     public function deleteFromMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['CategoryId'] = $request->categoryId;
-        $query['TableGuid']  = $request->tableGuid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteFromMetaCategory',
@@ -2556,7 +3140,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2596,7 +3180,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2624,12 +3208,15 @@ class Dataworkspublic extends OpenApiClient
     public function deleteProjectMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $query['UserId']    = $request->userId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteProjectMember',
@@ -2639,7 +3226,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2667,8 +3254,18 @@ class Dataworkspublic extends OpenApiClient
     public function deleteQualityEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $body['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteQualityEntity',
@@ -2706,8 +3303,15 @@ class Dataworkspublic extends OpenApiClient
     public function deleteQualityFollowerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->followerId)) {
+            $body['FollowerId'] = $request->followerId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteQualityFollower',
@@ -2745,8 +3349,33 @@ class Dataworkspublic extends OpenApiClient
     public function deleteQualityRelativeNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->envType)) {
+            $body['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->matchExpression)) {
+            $body['MatchExpression'] = $request->matchExpression;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $body['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->targetNodeProjectId)) {
+            $body['TargetNodeProjectId'] = $request->targetNodeProjectId;
+        }
+        if (!Utils::isUnset($request->targetNodeProjectName)) {
+            $body['TargetNodeProjectName'] = $request->targetNodeProjectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteQualityRelativeNode',
@@ -2784,8 +3413,15 @@ class Dataworkspublic extends OpenApiClient
     public function deleteQualityRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteQualityRule',
@@ -2823,8 +3459,12 @@ class Dataworkspublic extends OpenApiClient
     public function deleteRemindWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->remindId)) {
+            $body['RemindId'] = $request->remindId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRemind',
@@ -2862,14 +3502,21 @@ class Dataworkspublic extends OpenApiClient
     public function deleteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppGuid']   = $request->appGuid;
-        $query['EnvType']   = $request->envType;
-        $query['ProjectId'] = $request->projectId;
-        $query['TableName'] = $request->tableName;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appGuid)) {
+            $query['AppGuid'] = $request->appGuid;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTable',
@@ -2879,7 +3526,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2907,12 +3554,15 @@ class Dataworkspublic extends OpenApiClient
     public function deleteTableLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['LevelId']   = $request->levelId;
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->levelId)) {
+            $query['LevelId'] = $request->levelId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTableLevel',
@@ -2922,7 +3572,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2950,12 +3600,15 @@ class Dataworkspublic extends OpenApiClient
     public function deleteTableThemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $query['ThemeId']   = $request->themeId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->themeId)) {
+            $query['ThemeId'] = $request->themeId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTableTheme',
@@ -2965,7 +3618,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2985,49 +3638,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteViewRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteViewResponse
-     */
-    public function deleteViewWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query             = [];
-        $query['AppGuid']  = $request->appGuid;
-        $query['ViewName'] = $request->viewName;
-        $req               = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteView',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteViewResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteViewRequest $request
-     *
-     * @return DeleteViewResponse
-     */
-    public function deleteView($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteViewWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeployDISyncTaskRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3036,13 +3646,18 @@ class Dataworkspublic extends OpenApiClient
     public function deployDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['FileId']    = $request->fileId;
-        $query['ProjectId'] = $request->projectId;
-        $query['TaskType']  = $request->taskType;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeployDISyncTask',
@@ -3052,7 +3667,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3080,8 +3695,24 @@ class Dataworkspublic extends OpenApiClient
     public function deployFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeployFile',
@@ -3159,8 +3790,24 @@ class Dataworkspublic extends OpenApiClient
     public function establishRelationTableToBusinessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->businessId)) {
+            $body['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->folderId)) {
+            $body['FolderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $body['TableGuid'] = $request->tableGuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EstablishRelationTableToBusiness',
@@ -3190,90 +3837,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ExportConnectionsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExportConnectionsResponse
-     */
-    public function exportConnectionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ExportConnections',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ExportConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ExportConnectionsRequest $request
-     *
-     * @return ExportConnectionsResponse
-     */
-    public function exportConnections($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->exportConnectionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ExportDISyncTasksRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExportDISyncTasksResponse
-     */
-    public function exportDISyncTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $query['TaskParam'] = $request->taskParam;
-        $query['TaskType']  = $request->taskType;
-        $req                = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ExportDISyncTasks',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ExportDISyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ExportDISyncTasksRequest $request
-     *
-     * @return ExportDISyncTasksResponse
-     */
-    public function exportDISyncTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->exportDISyncTasksWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ExportDataSourcesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3294,7 +3857,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3322,14 +3885,21 @@ class Dataworkspublic extends OpenApiClient
     public function generateDISyncTaskConfigForCreatingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['ProjectId']   = $request->projectId;
-        $query['TaskParam']   = $request->taskParam;
-        $query['TaskType']    = $request->taskType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskParam)) {
+            $query['TaskParam'] = $request->taskParam;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GenerateDISyncTaskConfigForCreating',
@@ -3339,7 +3909,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3367,15 +3937,24 @@ class Dataworkspublic extends OpenApiClient
     public function generateDISyncTaskConfigForUpdatingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['ProjectId']   = $request->projectId;
-        $query['TaskId']      = $request->taskId;
-        $query['TaskParam']   = $request->taskParam;
-        $query['TaskType']    = $request->taskType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskParam)) {
+            $query['TaskParam'] = $request->taskParam;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GenerateDISyncTaskConfigForUpdating',
@@ -3385,7 +3964,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3413,8 +3992,12 @@ class Dataworkspublic extends OpenApiClient
     public function getBaselineConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetBaselineConfig',
@@ -3452,8 +4035,18 @@ class Dataworkspublic extends OpenApiClient
     public function getBaselineKeyPathWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->bizdate)) {
+            $body['Bizdate'] = $request->bizdate;
+        }
+        if (!Utils::isUnset($request->inGroupId)) {
+            $body['InGroupId'] = $request->inGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetBaselineKeyPath',
@@ -3491,8 +4084,18 @@ class Dataworkspublic extends OpenApiClient
     public function getBaselineStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->bizdate)) {
+            $body['Bizdate'] = $request->bizdate;
+        }
+        if (!Utils::isUnset($request->inGroupId)) {
+            $body['InGroupId'] = $request->inGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetBaselineStatus',
@@ -3530,8 +4133,18 @@ class Dataworkspublic extends OpenApiClient
     public function getBusinessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->businessId)) {
+            $body['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetBusiness',
@@ -3561,52 +4174,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetConnectionMetaRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetConnectionMetaResponse
-     */
-    public function getConnectionMetaWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                   = [];
-        $query['DatasourceName'] = $request->datasourceName;
-        $query['EnvType']        = $request->envType;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['ProjectId']      = $request->projectId;
-        $req                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GetConnectionMeta',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetConnectionMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetConnectionMetaRequest $request
-     *
-     * @return GetConnectionMetaResponse
-     */
-    public function getConnectionMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConnectionMetaWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetDDLJobStatusRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3627,7 +4194,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3655,13 +4222,18 @@ class Dataworkspublic extends OpenApiClient
     public function getDISyncInstanceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['FileId']    = $request->fileId;
-        $query['ProjectId'] = $request->projectId;
-        $query['TaskType']  = $request->taskType;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDISyncInstanceInfo',
@@ -3671,7 +4243,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3699,13 +4271,18 @@ class Dataworkspublic extends OpenApiClient
     public function getDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['FileId']    = $request->fileId;
-        $query['ProjectId'] = $request->projectId;
-        $query['TaskType']  = $request->taskType;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDISyncTask',
@@ -3715,7 +4292,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3755,7 +4332,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3783,8 +4360,15 @@ class Dataworkspublic extends OpenApiClient
     public function getDagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $body['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDag',
@@ -3822,8 +4406,18 @@ class Dataworkspublic extends OpenApiClient
     public function getDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataServiceApi',
@@ -3861,8 +4455,18 @@ class Dataworkspublic extends OpenApiClient
     public function getDataServiceApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataServiceApplication',
@@ -3900,8 +4504,18 @@ class Dataworkspublic extends OpenApiClient
     public function getDataServiceFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->folderId)) {
+            $body['FolderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataServiceFolder',
@@ -3939,8 +4553,18 @@ class Dataworkspublic extends OpenApiClient
     public function getDataServiceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataServiceGroup',
@@ -3978,8 +4602,18 @@ class Dataworkspublic extends OpenApiClient
     public function getDataServicePublishedApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataServicePublishedApi',
@@ -4017,15 +4651,24 @@ class Dataworkspublic extends OpenApiClient
     public function getDataSourceMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DatasourceName'] = $request->datasourceName;
-        $query['EnvType']        = $request->envType;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['ProjectId']      = $request->projectId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasourceName)) {
+            $query['DatasourceName'] = $request->datasourceName;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDataSourceMeta',
@@ -4035,7 +4678,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4063,8 +4706,18 @@ class Dataworkspublic extends OpenApiClient
     public function getDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deploymentId)) {
+            $body['DeploymentId'] = $request->deploymentId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDeployment',
@@ -4102,8 +4755,21 @@ class Dataworkspublic extends OpenApiClient
     public function getFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetFile',
@@ -4141,8 +4807,15 @@ class Dataworkspublic extends OpenApiClient
     public function getFileTypeStatisticWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetFileTypeStatistic',
@@ -4180,8 +4853,21 @@ class Dataworkspublic extends OpenApiClient
     public function getFileVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->fileVersion)) {
+            $body['FileVersion'] = $request->fileVersion;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetFileVersion',
@@ -4219,8 +4905,21 @@ class Dataworkspublic extends OpenApiClient
     public function getFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->folderId)) {
+            $body['FolderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->folderPath)) {
+            $body['FolderPath'] = $request->folderPath;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetFolder',
@@ -4258,8 +4957,15 @@ class Dataworkspublic extends OpenApiClient
     public function getIDEEventDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->messageId)) {
+            $body['MessageId'] = $request->messageId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetIDEEventDetail',
@@ -4297,8 +5003,15 @@ class Dataworkspublic extends OpenApiClient
     public function getInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInstance',
@@ -4336,8 +5049,15 @@ class Dataworkspublic extends OpenApiClient
     public function getInstanceConsumeTimeRankWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizdate)) {
+            $body['Bizdate'] = $request->bizdate;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceConsumeTimeRank',
@@ -4375,8 +5095,18 @@ class Dataworkspublic extends OpenApiClient
     public function getInstanceCountTrendWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->beginDate)) {
+            $body['BeginDate'] = $request->beginDate;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceCountTrend',
@@ -4414,8 +5144,12 @@ class Dataworkspublic extends OpenApiClient
     public function getInstanceErrorRankWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceErrorRank',
@@ -4453,8 +5187,15 @@ class Dataworkspublic extends OpenApiClient
     public function getInstanceLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceLog',
@@ -4492,8 +5233,18 @@ class Dataworkspublic extends OpenApiClient
     public function getInstanceStatusCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizDate)) {
+            $body['BizDate'] = $request->bizDate;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceStatusCount',
@@ -4531,8 +5282,24 @@ class Dataworkspublic extends OpenApiClient
     public function getInstanceStatusStatisticWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizDate)) {
+            $body['BizDate'] = $request->bizDate;
+        }
+        if (!Utils::isUnset($request->dagType)) {
+            $body['DagType'] = $request->dagType;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->schedulerType)) {
+            $body['SchedulerType'] = $request->schedulerType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceStatusStatistic',
@@ -4570,8 +5337,18 @@ class Dataworkspublic extends OpenApiClient
     public function getManualDagInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $body['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetManualDagInstances',
@@ -4609,13 +5386,18 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['PageNum']          = $request->pageNum;
-        $query['PageSize']         = $request->pageSize;
-        $query['ParentCategoryId'] = $request->parentCategoryId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentCategoryId)) {
+            $query['ParentCategoryId'] = $request->parentCategoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaCategory',
@@ -4625,7 +5407,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4653,19 +5435,36 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaColumnLineageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClusterId']      = $request->clusterId;
-        $query['ColumnGuid']     = $request->columnGuid;
-        $query['ColumnName']     = $request->columnName;
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['DatabaseName']   = $request->databaseName;
-        $query['Direction']      = $request->direction;
-        $query['PageNum']        = $request->pageNum;
-        $query['PageSize']       = $request->pageSize;
-        $query['TableName']      = $request->tableName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->columnGuid)) {
+            $query['ColumnGuid'] = $request->columnGuid;
+        }
+        if (!Utils::isUnset($request->columnName)) {
+            $query['ColumnName'] = $request->columnName;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaColumnLineage',
@@ -4675,7 +5474,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4715,7 +5514,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4743,16 +5542,27 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaDBTableListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AppGuid']        = $request->appGuid;
-        $query['ClusterId']      = $request->clusterId;
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['DatabaseName']   = $request->databaseName;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appGuid)) {
+            $query['AppGuid'] = $request->appGuid;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaDBTableList',
@@ -4762,7 +5572,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4802,7 +5612,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4830,8 +5640,30 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTableChangeLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->changeType)) {
+            $body['ChangeType'] = $request->changeType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $body['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $body['TableGuid'] = $request->tableGuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTableChangeLog',
@@ -4881,7 +5713,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4921,7 +5753,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4949,12 +5781,15 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTableIntroWikiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['TableGuid']   = $request->tableGuid;
-        $query['WikiVersion'] = $request->wikiVersion;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->wikiVersion)) {
+            $query['WikiVersion'] = $request->wikiVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTableIntroWiki',
@@ -4964,7 +5799,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4992,18 +5827,33 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTableLineageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClusterId']      = $request->clusterId;
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['DatabaseName']   = $request->databaseName;
-        $query['Direction']      = $request->direction;
-        $query['NextPrimaryKey'] = $request->nextPrimaryKey;
-        $query['PageSize']       = $request->pageSize;
-        $query['TableGuid']      = $request->tableGuid;
-        $query['TableName']      = $request->tableName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->nextPrimaryKey)) {
+            $query['NextPrimaryKey'] = $request->nextPrimaryKey;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTableLineage',
@@ -5013,7 +5863,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5053,7 +5903,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5081,15 +5931,24 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTableOutputWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EndDate']    = $request->endDate;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['StartDate']  = $request->startDate;
-        $query['TableGuid']  = $request->tableGuid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTableOutput',
@@ -5099,7 +5958,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5127,17 +5986,30 @@ class Dataworkspublic extends OpenApiClient
     public function getMetaTablePartitionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClusterId']      = $request->clusterId;
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['DatabaseName']   = $request->databaseName;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['TableGuid']      = $request->tableGuid;
-        $query['TableName']      = $request->tableName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTablePartition',
@@ -5147,7 +6019,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5187,7 +6059,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5215,8 +6087,15 @@ class Dataworkspublic extends OpenApiClient
     public function getMigrationProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->migrationId)) {
+            $body['MigrationId'] = $request->migrationId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetMigrationProcess',
@@ -5254,8 +6133,15 @@ class Dataworkspublic extends OpenApiClient
     public function getMigrationSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->migrationId)) {
+            $body['MigrationId'] = $request->migrationId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetMigrationSummary',
@@ -5293,8 +6179,15 @@ class Dataworkspublic extends OpenApiClient
     public function getNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetNode',
@@ -5332,8 +6225,15 @@ class Dataworkspublic extends OpenApiClient
     public function getNodeChildrenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetNodeChildren',
@@ -5371,8 +6271,15 @@ class Dataworkspublic extends OpenApiClient
     public function getNodeCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetNodeCode',
@@ -5410,8 +6317,12 @@ class Dataworkspublic extends OpenApiClient
     public function getNodeOnBaselineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetNodeOnBaseline',
@@ -5449,8 +6360,15 @@ class Dataworkspublic extends OpenApiClient
     public function getNodeParentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetNodeParents',
@@ -5488,8 +6406,27 @@ class Dataworkspublic extends OpenApiClient
     public function getNodeTypeListInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->locale)) {
+            $body['Locale'] = $request->locale;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetNodeTypeListInfo',
@@ -5539,7 +6476,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5579,7 +6516,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5607,11 +6544,12 @@ class Dataworkspublic extends OpenApiClient
     public function getPermissionApplyOrderDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['FlowId'] = $request->flowId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPermissionApplyOrderDetail',
@@ -5621,7 +6559,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5649,11 +6587,12 @@ class Dataworkspublic extends OpenApiClient
     public function getProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetProject',
@@ -5663,7 +6602,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5691,11 +6630,12 @@ class Dataworkspublic extends OpenApiClient
     public function getProjectDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetProjectDetail',
@@ -5705,7 +6645,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5733,8 +6673,21 @@ class Dataworkspublic extends OpenApiClient
     public function getQualityEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->envType)) {
+            $body['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->matchExpression)) {
+            $body['MatchExpression'] = $request->matchExpression;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $body['TableName'] = $request->tableName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetQualityEntity',
@@ -5772,8 +6725,15 @@ class Dataworkspublic extends OpenApiClient
     public function getQualityFollowerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetQualityFollower',
@@ -5811,8 +6771,15 @@ class Dataworkspublic extends OpenApiClient
     public function getQualityRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetQualityRule',
@@ -5850,8 +6817,12 @@ class Dataworkspublic extends OpenApiClient
     public function getRemindWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->remindId)) {
+            $body['RemindId'] = $request->remindId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRemind',
@@ -5901,7 +6872,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5929,8 +6900,12 @@ class Dataworkspublic extends OpenApiClient
     public function getSuccessInstanceTrendWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSuccessInstanceTrend',
@@ -5968,8 +6943,12 @@ class Dataworkspublic extends OpenApiClient
     public function getTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->topicId)) {
+            $body['TopicId'] = $request->topicId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetTopic',
@@ -6007,8 +6986,12 @@ class Dataworkspublic extends OpenApiClient
     public function getTopicInfluenceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->topicId)) {
+            $body['TopicId'] = $request->topicId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetTopicInfluence',
@@ -6038,93 +7021,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ImportConnectionsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ImportConnectionsResponse
-     */
-    public function importConnectionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                = [];
-        $query['Connections'] = $request->connections;
-        $query['ProjectId']   = $request->projectId;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportConnections',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ImportConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ImportConnectionsRequest $request
-     *
-     * @return ImportConnectionsResponse
-     */
-    public function importConnections($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importConnectionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ImportDISyncTasksRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ImportDISyncTasksResponse
-     */
-    public function importDISyncTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $query['TaskParam'] = $request->taskParam;
-        $query['TaskType']  = $request->taskType;
-        $req                = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportDISyncTasks',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ImportDISyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ImportDISyncTasksRequest $request
-     *
-     * @return ImportDISyncTasksResponse
-     */
-    public function importDISyncTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importDISyncTasksWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ImportDataSourcesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -6133,12 +7029,15 @@ class Dataworkspublic extends OpenApiClient
     public function importDataSourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DataSources'] = $request->dataSources;
-        $query['ProjectId']   = $request->projectId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dataSources)) {
+            $query['DataSources'] = $request->dataSources;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ImportDataSources',
@@ -6148,7 +7047,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6176,8 +7075,33 @@ class Dataworkspublic extends OpenApiClient
     public function listAlertMessagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertMethods)) {
+            $body['AlertMethods'] = $request->alertMethods;
+        }
+        if (!Utils::isUnset($request->alertRuleTypes)) {
+            $body['AlertRuleTypes'] = $request->alertRuleTypes;
+        }
+        if (!Utils::isUnset($request->alertUser)) {
+            $body['AlertUser'] = $request->alertUser;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $body['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remindId)) {
+            $body['RemindId'] = $request->remindId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListAlertMessages',
@@ -6215,8 +7139,33 @@ class Dataworkspublic extends OpenApiClient
     public function listBaselineConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineTypes)) {
+            $body['BaselineTypes'] = $request->baselineTypes;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->searchText)) {
+            $body['SearchText'] = $request->searchText;
+        }
+        if (!Utils::isUnset($request->useflag)) {
+            $body['Useflag'] = $request->useflag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListBaselineConfigs',
@@ -6254,8 +7203,39 @@ class Dataworkspublic extends OpenApiClient
     public function listBaselineStatusesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineTypes)) {
+            $body['BaselineTypes'] = $request->baselineTypes;
+        }
+        if (!Utils::isUnset($request->bizdate)) {
+            $body['Bizdate'] = $request->bizdate;
+        }
+        if (!Utils::isUnset($request->finishStatus)) {
+            $body['FinishStatus'] = $request->finishStatus;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->searchText)) {
+            $body['SearchText'] = $request->searchText;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->topicId)) {
+            $body['TopicId'] = $request->topicId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListBaselineStatuses',
@@ -6293,8 +7273,24 @@ class Dataworkspublic extends OpenApiClient
     public function listBusinessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListBusiness',
@@ -6332,16 +7328,27 @@ class Dataworkspublic extends OpenApiClient
     public function listCalcEnginesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['CalcEngineType'] = $request->calcEngineType;
-        $query['EnvType']        = $request->envType;
-        $query['Name']           = $request->name;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['ProjectId']      = $request->projectId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->calcEngineType)) {
+            $query['CalcEngineType'] = $request->calcEngineType;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListCalcEngines',
@@ -6351,7 +7358,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6391,7 +7398,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6419,13 +7426,18 @@ class Dataworkspublic extends OpenApiClient
     public function listDIProjectConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DestinationType'] = $request->destinationType;
-        $query['ProjectId']       = $request->projectId;
-        $query['SourceType']      = $request->sourceType;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDIProjectConfig',
@@ -6435,7 +7447,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6455,51 +7467,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDISyncTasksRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListDISyncTasksResponse
-     */
-    public function listDISyncTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ProjectId']  = $request->projectId;
-        $query['TaskType']   = $request->taskType;
-        $req                 = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDISyncTasks',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDISyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDISyncTasksRequest $request
-     *
-     * @return ListDISyncTasksResponse
-     */
-    public function listDISyncTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDISyncTasksWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListDagsRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -6508,8 +7475,15 @@ class Dataworkspublic extends OpenApiClient
     public function listDagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->opSeq)) {
+            $body['OpSeq'] = $request->opSeq;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDags',
@@ -6547,12 +7521,26 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServiceApiAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->apiNameKeyword)) {
+            $body['ApiNameKeyword'] = $request->apiNameKeyword;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataServiceApiAuthorities',
@@ -6590,8 +7578,30 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServiceApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiNameKeyword)) {
+            $body['ApiNameKeyword'] = $request->apiNameKeyword;
+        }
+        if (!Utils::isUnset($request->apiPathKeyword)) {
+            $body['ApiPathKeyword'] = $request->apiPathKeyword;
+        }
+        if (!Utils::isUnset($request->creatorId)) {
+            $body['CreatorId'] = $request->creatorId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataServiceApis',
@@ -6629,8 +7639,21 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServiceApplicationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectIdList)) {
+            $body['ProjectIdList'] = $request->projectIdList;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataServiceApplications',
@@ -6668,12 +7691,26 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServiceAuthorizedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->apiNameKeyword)) {
+            $body['ApiNameKeyword'] = $request->apiNameKeyword;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataServiceAuthorizedApis',
@@ -6711,8 +7748,27 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServiceFoldersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->folderNameKeyword)) {
+            $body['FolderNameKeyword'] = $request->folderNameKeyword;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataServiceFolders',
@@ -6750,8 +7806,24 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServiceGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupNameKeyword)) {
+            $body['GroupNameKeyword'] = $request->groupNameKeyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataServiceGroups',
@@ -6789,8 +7861,30 @@ class Dataworkspublic extends OpenApiClient
     public function listDataServicePublishedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiNameKeyword)) {
+            $body['ApiNameKeyword'] = $request->apiNameKeyword;
+        }
+        if (!Utils::isUnset($request->apiPathKeyword)) {
+            $body['ApiPathKeyword'] = $request->apiPathKeyword;
+        }
+        if (!Utils::isUnset($request->creatorId)) {
+            $body['CreatorId'] = $request->creatorId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataServicePublishedApis',
@@ -6840,7 +7934,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6868,8 +7962,39 @@ class Dataworkspublic extends OpenApiClient
     public function listDeploymentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->creator)) {
+            $body['Creator'] = $request->creator;
+        }
+        if (!Utils::isUnset($request->endCreateTime)) {
+            $body['EndCreateTime'] = $request->endCreateTime;
+        }
+        if (!Utils::isUnset($request->endExecuteTime)) {
+            $body['EndExecuteTime'] = $request->endExecuteTime;
+        }
+        if (!Utils::isUnset($request->executor)) {
+            $body['Executor'] = $request->executor;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDeployments',
@@ -6907,8 +8032,27 @@ class Dataworkspublic extends OpenApiClient
     public function listFileTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->locale)) {
+            $body['Locale'] = $request->locale;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListFileType',
@@ -6946,8 +8090,24 @@ class Dataworkspublic extends OpenApiClient
     public function listFileVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListFileVersions',
@@ -6985,8 +8145,39 @@ class Dataworkspublic extends OpenApiClient
     public function listFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileFolderPath)) {
+            $body['FileFolderPath'] = $request->fileFolderPath;
+        }
+        if (!Utils::isUnset($request->fileTypes)) {
+            $body['FileTypes'] = $request->fileTypes;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->useType)) {
+            $body['UseType'] = $request->useType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListFiles',
@@ -7024,8 +8215,24 @@ class Dataworkspublic extends OpenApiClient
     public function listFoldersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentFolderPath)) {
+            $body['ParentFolderPath'] = $request->parentFolderPath;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListFolders',
@@ -7063,8 +8270,18 @@ class Dataworkspublic extends OpenApiClient
     public function listInstanceAmountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->beginDate)) {
+            $body['BeginDate'] = $request->beginDate;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceAmount',
@@ -7102,8 +8319,48 @@ class Dataworkspublic extends OpenApiClient
     public function listInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->beginBizdate)) {
+            $body['BeginBizdate'] = $request->beginBizdate;
+        }
+        if (!Utils::isUnset($request->bizName)) {
+            $body['BizName'] = $request->bizName;
+        }
+        if (!Utils::isUnset($request->bizdate)) {
+            $body['Bizdate'] = $request->bizdate;
+        }
+        if (!Utils::isUnset($request->dagId)) {
+            $body['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->endBizdate)) {
+            $body['EndBizdate'] = $request->endBizdate;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $body['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->programType)) {
+            $body['ProgramType'] = $request->programType;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListInstances',
@@ -7141,8 +8398,18 @@ class Dataworkspublic extends OpenApiClient
     public function listManualDagInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $body['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListManualDagInstances',
@@ -7192,7 +8459,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7220,8 +8487,18 @@ class Dataworkspublic extends OpenApiClient
     public function listNodeIOWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ioType)) {
+            $body['IoType'] = $request->ioType;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListNodeIO',
@@ -7259,8 +8536,18 @@ class Dataworkspublic extends OpenApiClient
     public function listNodeInputOrOutputWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ioType)) {
+            $body['IoType'] = $request->ioType;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListNodeInputOrOutput',
@@ -7298,8 +8585,33 @@ class Dataworkspublic extends OpenApiClient
     public function listNodesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizName)) {
+            $body['BizName'] = $request->bizName;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $body['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->programType)) {
+            $body['ProgramType'] = $request->programType;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListNodes',
@@ -7337,8 +8649,12 @@ class Dataworkspublic extends OpenApiClient
     public function listNodesByBaselineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListNodesByBaseline',
@@ -7376,8 +8692,15 @@ class Dataworkspublic extends OpenApiClient
     public function listNodesByOutputWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->outputs)) {
+            $body['Outputs'] = $request->outputs;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListNodesByOutput',
@@ -7415,21 +8738,42 @@ class Dataworkspublic extends OpenApiClient
     public function listPermissionApplyOrdersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['EndTime']               = $request->endTime;
-        $query['EngineType']            = $request->engineType;
-        $query['FlowStatus']            = $request->flowStatus;
-        $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
-        $query['OrderType']             = $request->orderType;
-        $query['PageNum']               = $request->pageNum;
-        $query['PageSize']              = $request->pageSize;
-        $query['QueryType']             = $request->queryType;
-        $query['StartTime']             = $request->startTime;
-        $query['TableName']             = $request->tableName;
-        $query['WorkspaceId']           = $request->workspaceId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->flowStatus)) {
+            $query['FlowStatus'] = $request->flowStatus;
+        }
+        if (!Utils::isUnset($request->maxComputeProjectName)) {
+            $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListPermissionApplyOrders',
@@ -7439,7 +8783,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7467,8 +8811,15 @@ class Dataworkspublic extends OpenApiClient
     public function listProgramTypeCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListProgramTypeCount',
@@ -7506,11 +8857,12 @@ class Dataworkspublic extends OpenApiClient
     public function listProjectIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['UserId'] = $request->userId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProjectIds',
@@ -7520,7 +8872,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7548,13 +8900,18 @@ class Dataworkspublic extends OpenApiClient
     public function listProjectMembersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ProjectId']  = $request->projectId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProjectMembers',
@@ -7564,7 +8921,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7592,11 +8949,12 @@ class Dataworkspublic extends OpenApiClient
     public function listProjectRolesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProjectRoles',
@@ -7606,7 +8964,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7634,12 +8992,15 @@ class Dataworkspublic extends OpenApiClient
     public function listProjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProjects',
@@ -7649,7 +9010,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7677,8 +9038,27 @@ class Dataworkspublic extends OpenApiClient
     public function listQualityResultsByEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListQualityResultsByEntity',
@@ -7716,8 +9096,27 @@ class Dataworkspublic extends OpenApiClient
     public function listQualityResultsByRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListQualityResultsByRule',
@@ -7755,8 +9154,21 @@ class Dataworkspublic extends OpenApiClient
     public function listQualityRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListQualityRules',
@@ -7794,16 +9206,27 @@ class Dataworkspublic extends OpenApiClient
     public function listRefDISyncTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DatasourceName'] = $request->datasourceName;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['ProjectId']      = $request->projectId;
-        $query['RefType']        = $request->refType;
-        $query['TaskType']       = $request->taskType;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasourceName)) {
+            $query['DatasourceName'] = $request->datasourceName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->refType)) {
+            $query['RefType'] = $request->refType;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRefDISyncTasks',
@@ -7813,7 +9236,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7841,8 +9264,30 @@ class Dataworkspublic extends OpenApiClient
     public function listRemindsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertTarget)) {
+            $body['AlertTarget'] = $request->alertTarget;
+        }
+        if (!Utils::isUnset($request->founder)) {
+            $body['Founder'] = $request->founder;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remindTypes)) {
+            $body['RemindTypes'] = $request->remindTypes;
+        }
+        if (!Utils::isUnset($request->searchText)) {
+            $body['SearchText'] = $request->searchText;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListReminds',
@@ -7880,13 +9325,18 @@ class Dataworkspublic extends OpenApiClient
     public function listResourceGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['BizExtKey']         = $request->bizExtKey;
-        $query['Keyword']           = $request->keyword;
-        $query['ResourceGroupType'] = $request->resourceGroupType;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bizExtKey)) {
+            $query['BizExtKey'] = $request->bizExtKey;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->resourceGroupType)) {
+            $query['ResourceGroupType'] = $request->resourceGroupType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListResourceGroups',
@@ -7896,7 +9346,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7924,8 +9374,12 @@ class Dataworkspublic extends OpenApiClient
     public function listSuccessInstanceAmountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListSuccessInstanceAmount',
@@ -7975,7 +9429,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8015,7 +9469,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8043,8 +9497,36 @@ class Dataworkspublic extends OpenApiClient
     public function listTopicsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $body['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->topicStatuses)) {
+            $body['TopicStatuses'] = $request->topicStatuses;
+        }
+        if (!Utils::isUnset($request->topicTypes)) {
+            $body['TopicTypes'] = $request->topicTypes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListTopics',
@@ -8082,8 +9564,18 @@ class Dataworkspublic extends OpenApiClient
     public function publishDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PublishDataServiceApi',
@@ -8121,13 +9613,18 @@ class Dataworkspublic extends OpenApiClient
     public function queryDISyncTaskConfigProcessResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AsyncProcessId'] = $request->asyncProcessId;
-        $query['ProjectId']      = $request->projectId;
-        $query['TaskType']       = $request->taskType;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->asyncProcessId)) {
+            $query['AsyncProcessId'] = $request->asyncProcessId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryDISyncTaskConfigProcessResult',
@@ -8137,7 +9634,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8165,8 +9662,15 @@ class Dataworkspublic extends OpenApiClient
     public function queryPublicModelEngineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $body['Text'] = $request->text;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryPublicModelEngine',
@@ -8204,13 +9708,18 @@ class Dataworkspublic extends OpenApiClient
     public function removeProjectMemberFromRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $query['RoleCode']  = $request->roleCode;
-        $query['UserId']    = $request->userId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->roleCode)) {
+            $query['RoleCode'] = $request->roleCode;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveProjectMemberFromRole',
@@ -8220,7 +9729,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8248,8 +9757,15 @@ class Dataworkspublic extends OpenApiClient
     public function restartInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RestartInstance',
@@ -8287,8 +9803,15 @@ class Dataworkspublic extends OpenApiClient
     public function resumeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ResumeInstance',
@@ -8326,16 +9849,27 @@ class Dataworkspublic extends OpenApiClient
     public function revokeColumnPermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['Columns']               = $request->columns;
-        $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
-        $query['RevokeUserId']          = $request->revokeUserId;
-        $query['RevokeUserName']        = $request->revokeUserName;
-        $query['TableName']             = $request->tableName;
-        $query['WorkspaceId']           = $request->workspaceId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->columns)) {
+            $query['Columns'] = $request->columns;
+        }
+        if (!Utils::isUnset($request->maxComputeProjectName)) {
+            $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
+        }
+        if (!Utils::isUnset($request->revokeUserId)) {
+            $query['RevokeUserId'] = $request->revokeUserId;
+        }
+        if (!Utils::isUnset($request->revokeUserName)) {
+            $query['RevokeUserName'] = $request->revokeUserName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RevokeColumnPermission',
@@ -8345,7 +9879,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8373,16 +9907,27 @@ class Dataworkspublic extends OpenApiClient
     public function revokeTablePermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['Actions']               = $request->actions;
-        $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
-        $query['RevokeUserId']          = $request->revokeUserId;
-        $query['RevokeUserName']        = $request->revokeUserName;
-        $query['TableName']             = $request->tableName;
-        $query['WorkspaceId']           = $request->workspaceId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->actions)) {
+            $query['Actions'] = $request->actions;
+        }
+        if (!Utils::isUnset($request->maxComputeProjectName)) {
+            $query['MaxComputeProjectName'] = $request->maxComputeProjectName;
+        }
+        if (!Utils::isUnset($request->revokeUserId)) {
+            $query['RevokeUserId'] = $request->revokeUserId;
+        }
+        if (!Utils::isUnset($request->revokeUserName)) {
+            $query['RevokeUserName'] = $request->revokeUserName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RevokeTablePermission',
@@ -8392,7 +9937,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8420,8 +9965,42 @@ class Dataworkspublic extends OpenApiClient
     public function runCycleDagNodesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizBeginTime)) {
+            $body['BizBeginTime'] = $request->bizBeginTime;
+        }
+        if (!Utils::isUnset($request->bizEndTime)) {
+            $body['BizEndTime'] = $request->bizEndTime;
+        }
+        if (!Utils::isUnset($request->endBizDate)) {
+            $body['EndBizDate'] = $request->endBizDate;
+        }
+        if (!Utils::isUnset($request->excludeNodeIds)) {
+            $body['ExcludeNodeIds'] = $request->excludeNodeIds;
+        }
+        if (!Utils::isUnset($request->includeNodeIds)) {
+            $body['IncludeNodeIds'] = $request->includeNodeIds;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nodeParams)) {
+            $body['NodeParams'] = $request->nodeParams;
+        }
+        if (!Utils::isUnset($request->parallelism)) {
+            $body['Parallelism'] = $request->parallelism;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->rootNodeId)) {
+            $body['RootNodeId'] = $request->rootNodeId;
+        }
+        if (!Utils::isUnset($request->startBizDate)) {
+            $body['StartBizDate'] = $request->startBizDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RunCycleDagNodes',
@@ -8459,8 +10038,36 @@ class Dataworkspublic extends OpenApiClient
     public function runManualDagNodesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizDate)) {
+            $body['BizDate'] = $request->bizDate;
+        }
+        if (!Utils::isUnset($request->dagParameters)) {
+            $body['DagParameters'] = $request->dagParameters;
+        }
+        if (!Utils::isUnset($request->excludeNodeIds)) {
+            $body['ExcludeNodeIds'] = $request->excludeNodeIds;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->includeNodeIds)) {
+            $body['IncludeNodeIds'] = $request->includeNodeIds;
+        }
+        if (!Utils::isUnset($request->nodeParameters)) {
+            $body['NodeParameters'] = $request->nodeParameters;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RunManualDagNodes',
@@ -8498,8 +10105,24 @@ class Dataworkspublic extends OpenApiClient
     public function runSmokeTestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizdate)) {
+            $body['Bizdate'] = $request->bizdate;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeParams)) {
+            $body['NodeParams'] = $request->nodeParams;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RunSmokeTest',
@@ -8537,8 +10160,21 @@ class Dataworkspublic extends OpenApiClient
     public function runTriggerNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->bizDate)) {
+            $body['BizDate'] = $request->bizDate;
+        }
+        if (!Utils::isUnset($request->cycleTime)) {
+            $body['CycleTime'] = $request->cycleTime;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RunTriggerNode',
@@ -8588,7 +10224,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8616,17 +10252,30 @@ class Dataworkspublic extends OpenApiClient
     public function searchMetaTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AppGuid']        = $request->appGuid;
-        $query['ClusterId']      = $request->clusterId;
-        $query['DataSourceType'] = $request->dataSourceType;
-        $query['EntityType']     = $request->entityType;
-        $query['Keyword']        = $request->keyword;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appGuid)) {
+            $query['AppGuid'] = $request->appGuid;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchMetaTables',
@@ -8636,7 +10285,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8664,8 +10313,15 @@ class Dataworkspublic extends OpenApiClient
     public function searchNodesByOutputWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->outputs)) {
+            $body['Outputs'] = $request->outputs;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SearchNodesByOutput',
@@ -8695,52 +10351,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SetConnectionShareRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetConnectionShareResponse
-     */
-    public function setConnectionShareWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                       = [];
-        $query['DatasourceName']     = $request->datasourceName;
-        $query['EnvType']            = $request->envType;
-        $query['ProjectId']          = $request->projectId;
-        $query['ProjectPermissions'] = $request->projectPermissions;
-        $query['UserPermissions']    = $request->userPermissions;
-        $req                         = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'SetConnectionShare',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetConnectionShareResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetConnectionShareRequest $request
-     *
-     * @return SetConnectionShareResponse
-     */
-    public function setConnectionShare($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setConnectionShareWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetDataSourceShareRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -8749,15 +10359,24 @@ class Dataworkspublic extends OpenApiClient
     public function setDataSourceShareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['DatasourceName']     = $request->datasourceName;
-        $query['EnvType']            = $request->envType;
-        $query['ProjectId']          = $request->projectId;
-        $query['ProjectPermissions'] = $request->projectPermissions;
-        $query['UserPermissions']    = $request->userPermissions;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasourceName)) {
+            $query['DatasourceName'] = $request->datasourceName;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectPermissions)) {
+            $query['ProjectPermissions'] = $request->projectPermissions;
+        }
+        if (!Utils::isUnset($request->userPermissions)) {
+            $query['UserPermissions'] = $request->userPermissions;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDataSourceShare',
@@ -8767,7 +10386,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8795,8 +10414,15 @@ class Dataworkspublic extends OpenApiClient
     public function setSuccessInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SetSuccessInstance',
@@ -8834,14 +10460,21 @@ class Dataworkspublic extends OpenApiClient
     public function startDISyncInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['FileId']     = $request->fileId;
-        $query['ProjectId']  = $request->projectId;
-        $query['StartParam'] = $request->startParam;
-        $query['TaskType']   = $request->taskType;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->startParam)) {
+            $query['StartParam'] = $request->startParam;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartDISyncInstance',
@@ -8851,7 +10484,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8879,8 +10512,15 @@ class Dataworkspublic extends OpenApiClient
     public function startMigrationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->migrationId)) {
+            $body['MigrationId'] = $request->migrationId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartMigration',
@@ -8918,13 +10558,18 @@ class Dataworkspublic extends OpenApiClient
     public function stopDISyncInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['FileId']    = $request->fileId;
-        $query['ProjectId'] = $request->projectId;
-        $query['TaskType']  = $request->taskType;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopDISyncInstance',
@@ -8934,7 +10579,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8962,8 +10607,15 @@ class Dataworkspublic extends OpenApiClient
     public function stopInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopInstance',
@@ -9001,8 +10653,21 @@ class Dataworkspublic extends OpenApiClient
     public function submitFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitFile',
@@ -9040,8 +10705,15 @@ class Dataworkspublic extends OpenApiClient
     public function suspendInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SuspendInstance',
@@ -9079,13 +10751,18 @@ class Dataworkspublic extends OpenApiClient
     public function terminateDISyncInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['FileId']    = $request->fileId;
-        $query['ProjectId'] = $request->projectId;
-        $query['TaskType']  = $request->taskType;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TerminateDISyncInstance',
@@ -9095,7 +10772,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9123,14 +10800,21 @@ class Dataworkspublic extends OpenApiClient
     public function testNetworkConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DatasourceName'] = $request->datasourceName;
-        $query['EnvType']        = $request->envType;
-        $query['ProjectId']      = $request->projectId;
-        $query['ResourceGroup']  = $request->resourceGroup;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasourceName)) {
+            $query['DatasourceName'] = $request->datasourceName;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceGroup)) {
+            $query['ResourceGroup'] = $request->resourceGroup;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TestNetworkConnection',
@@ -9140,7 +10824,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9168,8 +10852,12 @@ class Dataworkspublic extends OpenApiClient
     public function topTenElapsedTimeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TopTenElapsedTimeInstance',
@@ -9207,8 +10895,12 @@ class Dataworkspublic extends OpenApiClient
     public function topTenErrorTimesInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TopTenErrorTimesInstance',
@@ -9246,8 +10938,27 @@ class Dataworkspublic extends OpenApiClient
     public function updateBusinessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->businessId)) {
+            $body['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->businessName)) {
+            $body['BusinessName'] = $request->businessName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateBusiness',
@@ -9285,15 +10996,24 @@ class Dataworkspublic extends OpenApiClient
     public function updateConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ConnectionId'] = $request->connectionId;
-        $query['Content']      = $request->content;
-        $query['Description']  = $request->description;
-        $query['EnvType']      = $request->envType;
-        $query['Status']       = $request->status;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionId)) {
+            $query['ConnectionId'] = $request->connectionId;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateConnection',
@@ -9303,7 +11023,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9331,14 +11051,21 @@ class Dataworkspublic extends OpenApiClient
     public function updateDIProjectConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DestinationType'] = $request->destinationType;
-        $query['ProjectConfig']   = $request->projectConfig;
-        $query['ProjectId']       = $request->projectId;
-        $query['SourceType']      = $request->sourceType;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->projectConfig)) {
+            $query['ProjectConfig'] = $request->projectConfig;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateDIProjectConfig',
@@ -9348,7 +11075,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9376,15 +11103,24 @@ class Dataworkspublic extends OpenApiClient
     public function updateDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['FileId']      = $request->fileId;
-        $query['ProjectId']   = $request->projectId;
-        $query['TaskContent'] = $request->taskContent;
-        $query['TaskParam']   = $request->taskParam;
-        $query['TaskType']    = $request->taskType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskContent)) {
+            $query['TaskContent'] = $request->taskContent;
+        }
+        if (!Utils::isUnset($request->taskParam)) {
+            $query['TaskParam'] = $request->taskParam;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateDISyncTask',
@@ -9394,7 +11130,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9422,8 +11158,48 @@ class Dataworkspublic extends OpenApiClient
     public function updateDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiDescription)) {
+            $body['ApiDescription'] = $request->apiDescription;
+        }
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiPath)) {
+            $body['ApiPath'] = $request->apiPath;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->protocols)) {
+            $body['Protocols'] = $request->protocols;
+        }
+        if (!Utils::isUnset($request->registrationDetails)) {
+            $body['RegistrationDetails'] = $request->registrationDetails;
+        }
+        if (!Utils::isUnset($request->requestMethod)) {
+            $body['RequestMethod'] = $request->requestMethod;
+        }
+        if (!Utils::isUnset($request->responseContentType)) {
+            $body['ResponseContentType'] = $request->responseContentType;
+        }
+        if (!Utils::isUnset($request->scriptDetails)) {
+            $body['ScriptDetails'] = $request->scriptDetails;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->visibleRange)) {
+            $body['VisibleRange'] = $request->visibleRange;
+        }
+        if (!Utils::isUnset($request->wizardDetails)) {
+            $body['WizardDetails'] = $request->wizardDetails;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataServiceApi',
@@ -9461,15 +11237,24 @@ class Dataworkspublic extends OpenApiClient
     public function updateDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Content']      = $request->content;
-        $query['DataSourceId'] = $request->dataSourceId;
-        $query['Description']  = $request->description;
-        $query['EnvType']      = $request->envType;
-        $query['Status']       = $request->status;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataSource',
@@ -9479,7 +11264,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9507,8 +11292,90 @@ class Dataworkspublic extends OpenApiClient
     public function updateFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->advancedSettings)) {
+            $body['AdvancedSettings'] = $request->advancedSettings;
+        }
+        if (!Utils::isUnset($request->autoParsing)) {
+            $body['AutoParsing'] = $request->autoParsing;
+        }
+        if (!Utils::isUnset($request->autoRerunIntervalMillis)) {
+            $body['AutoRerunIntervalMillis'] = $request->autoRerunIntervalMillis;
+        }
+        if (!Utils::isUnset($request->autoRerunTimes)) {
+            $body['AutoRerunTimes'] = $request->autoRerunTimes;
+        }
+        if (!Utils::isUnset($request->connectionName)) {
+            $body['ConnectionName'] = $request->connectionName;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->cronExpress)) {
+            $body['CronExpress'] = $request->cronExpress;
+        }
+        if (!Utils::isUnset($request->cycleType)) {
+            $body['CycleType'] = $request->cycleType;
+        }
+        if (!Utils::isUnset($request->dependentNodeIdList)) {
+            $body['DependentNodeIdList'] = $request->dependentNodeIdList;
+        }
+        if (!Utils::isUnset($request->dependentType)) {
+            $body['DependentType'] = $request->dependentType;
+        }
+        if (!Utils::isUnset($request->endEffectDate)) {
+            $body['EndEffectDate'] = $request->endEffectDate;
+        }
+        if (!Utils::isUnset($request->fileDescription)) {
+            $body['FileDescription'] = $request->fileDescription;
+        }
+        if (!Utils::isUnset($request->fileFolderPath)) {
+            $body['FileFolderPath'] = $request->fileFolderPath;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $body['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->inputList)) {
+            $body['InputList'] = $request->inputList;
+        }
+        if (!Utils::isUnset($request->outputList)) {
+            $body['OutputList'] = $request->outputList;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->paraValue)) {
+            $body['ParaValue'] = $request->paraValue;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->rerunMode)) {
+            $body['RerunMode'] = $request->rerunMode;
+        }
+        if (!Utils::isUnset($request->resourceGroupIdentifier)) {
+            $body['ResourceGroupIdentifier'] = $request->resourceGroupIdentifier;
+        }
+        if (!Utils::isUnset($request->schedulerType)) {
+            $body['SchedulerType'] = $request->schedulerType;
+        }
+        if (!Utils::isUnset($request->startEffectDate)) {
+            $body['StartEffectDate'] = $request->startEffectDate;
+        }
+        if (!Utils::isUnset($request->startImmediately)) {
+            $body['StartImmediately'] = $request->startImmediately;
+        }
+        if (!Utils::isUnset($request->stop)) {
+            $body['Stop'] = $request->stop;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFile',
@@ -9546,8 +11413,21 @@ class Dataworkspublic extends OpenApiClient
     public function updateFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->folderId)) {
+            $body['FolderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->folderName)) {
+            $body['FolderName'] = $request->folderName;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFolder',
@@ -9585,8 +11465,21 @@ class Dataworkspublic extends OpenApiClient
     public function updateIDEEventResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->checkResult)) {
+            $body['CheckResult'] = $request->checkResult;
+        }
+        if (!Utils::isUnset($request->checkResultTip)) {
+            $body['CheckResultTip'] = $request->checkResultTip;
+        }
+        if (!Utils::isUnset($request->extensionCode)) {
+            $body['ExtensionCode'] = $request->extensionCode;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $body['MessageId'] = $request->messageId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateIDEEventResult',
@@ -9624,8 +11517,18 @@ class Dataworkspublic extends OpenApiClient
     public function updateMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateMetaCategory',
@@ -9663,18 +11566,41 @@ class Dataworkspublic extends OpenApiClient
     public function updateMetaTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Caption']    = $request->caption;
-        $query['CategoryId'] = $request->categoryId;
-        $query['EnvType']    = $request->envType;
-        $query['NewOwnerId'] = $request->newOwnerId;
-        $query['ProjectId']  = $request->projectId;
-        $query['TableGuid']  = $request->tableGuid;
-        $query['TableName']  = $request->tableName;
-        $query['Visibility'] = $request->visibility;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->caption)) {
+            $query['Caption'] = $request->caption;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->newOwnerId)) {
+            $query['NewOwnerId'] = $request->newOwnerId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->addedLabels)) {
+            $body['AddedLabels'] = $request->addedLabels;
+        }
+        if (!Utils::isUnset($request->removedLabels)) {
+            $body['RemovedLabels'] = $request->removedLabels;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateMetaTable',
@@ -9712,11 +11638,17 @@ class Dataworkspublic extends OpenApiClient
     public function updateMetaTableIntroWikiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['TableGuid'] = $request->tableGuid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateMetaTableIntroWiki',
@@ -9754,8 +11686,18 @@ class Dataworkspublic extends OpenApiClient
     public function updateNodeOwnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateNodeOwner',
@@ -9793,8 +11735,18 @@ class Dataworkspublic extends OpenApiClient
     public function updateNodeRunModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->schedulerType)) {
+            $body['SchedulerType'] = $request->schedulerType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateNodeRunMode',
@@ -9832,8 +11784,21 @@ class Dataworkspublic extends OpenApiClient
     public function updateQualityFollowerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alarmMode)) {
+            $body['AlarmMode'] = $request->alarmMode;
+        }
+        if (!Utils::isUnset($request->follower)) {
+            $body['Follower'] = $request->follower;
+        }
+        if (!Utils::isUnset($request->followerId)) {
+            $body['FollowerId'] = $request->followerId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateQualityFollower',
@@ -9871,8 +11836,66 @@ class Dataworkspublic extends OpenApiClient
     public function updateQualityRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->blockType)) {
+            $body['BlockType'] = $request->blockType;
+        }
+        if (!Utils::isUnset($request->checker)) {
+            $body['Checker'] = $request->checker;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->criticalThreshold)) {
+            $body['CriticalThreshold'] = $request->criticalThreshold;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->expectValue)) {
+            $body['ExpectValue'] = $request->expectValue;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->methodName)) {
+            $body['MethodName'] = $request->methodName;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $body['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->predictType)) {
+            $body['PredictType'] = $request->predictType;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->property)) {
+            $body['Property'] = $request->property;
+        }
+        if (!Utils::isUnset($request->propertyType)) {
+            $body['PropertyType'] = $request->propertyType;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $body['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $body['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->trend)) {
+            $body['Trend'] = $request->trend;
+        }
+        if (!Utils::isUnset($request->warningThreshold)) {
+            $body['WarningThreshold'] = $request->warningThreshold;
+        }
+        if (!Utils::isUnset($request->whereCondition)) {
+            $body['WhereCondition'] = $request->whereCondition;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateQualityRule',
@@ -9910,8 +11933,60 @@ class Dataworkspublic extends OpenApiClient
     public function updateRemindWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertInterval)) {
+            $body['AlertInterval'] = $request->alertInterval;
+        }
+        if (!Utils::isUnset($request->alertMethods)) {
+            $body['AlertMethods'] = $request->alertMethods;
+        }
+        if (!Utils::isUnset($request->alertTargets)) {
+            $body['AlertTargets'] = $request->alertTargets;
+        }
+        if (!Utils::isUnset($request->alertUnit)) {
+            $body['AlertUnit'] = $request->alertUnit;
+        }
+        if (!Utils::isUnset($request->baselineIds)) {
+            $body['BaselineIds'] = $request->baselineIds;
+        }
+        if (!Utils::isUnset($request->bizProcessIds)) {
+            $body['BizProcessIds'] = $request->bizProcessIds;
+        }
+        if (!Utils::isUnset($request->detail)) {
+            $body['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->dndEnd)) {
+            $body['DndEnd'] = $request->dndEnd;
+        }
+        if (!Utils::isUnset($request->maxAlertTimes)) {
+            $body['MaxAlertTimes'] = $request->maxAlertTimes;
+        }
+        if (!Utils::isUnset($request->nodeIds)) {
+            $body['NodeIds'] = $request->nodeIds;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->remindId)) {
+            $body['RemindId'] = $request->remindId;
+        }
+        if (!Utils::isUnset($request->remindName)) {
+            $body['RemindName'] = $request->remindName;
+        }
+        if (!Utils::isUnset($request->remindType)) {
+            $body['RemindType'] = $request->remindType;
+        }
+        if (!Utils::isUnset($request->remindUnit)) {
+            $body['RemindUnit'] = $request->remindUnit;
+        }
+        if (!Utils::isUnset($request->robotUrls)) {
+            $body['RobotUrls'] = $request->robotUrls;
+        }
+        if (!Utils::isUnset($request->useFlag)) {
+            $body['UseFlag'] = $request->useFlag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRemind',
@@ -9949,25 +12024,68 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AppGuid']           = $request->appGuid;
-        $query['CategoryId']        = $request->categoryId;
-        $query['Comment']           = $request->comment;
-        $query['CreateIfNotExists'] = $request->createIfNotExists;
-        $query['ExternalTableType'] = $request->externalTableType;
-        $query['HasPart']           = $request->hasPart;
-        $query['IsView']            = $request->isView;
-        $query['LifeCycle']         = $request->lifeCycle;
-        $query['Location']          = $request->location;
-        $query['LogicalLevelId']    = $request->logicalLevelId;
-        $query['OwnerId']           = $request->ownerId;
-        $query['PhysicsLevelId']    = $request->physicsLevelId;
-        $query['ProjectId']         = $request->projectId;
-        $query['TableName']         = $request->tableName;
-        $query['Visibility']        = $request->visibility;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appGuid)) {
+            $query['AppGuid'] = $request->appGuid;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->createIfNotExists)) {
+            $query['CreateIfNotExists'] = $request->createIfNotExists;
+        }
+        if (!Utils::isUnset($request->externalTableType)) {
+            $query['ExternalTableType'] = $request->externalTableType;
+        }
+        if (!Utils::isUnset($request->hasPart)) {
+            $query['HasPart'] = $request->hasPart;
+        }
+        if (!Utils::isUnset($request->isView)) {
+            $query['IsView'] = $request->isView;
+        }
+        if (!Utils::isUnset($request->lifeCycle)) {
+            $query['LifeCycle'] = $request->lifeCycle;
+        }
+        if (!Utils::isUnset($request->location)) {
+            $query['Location'] = $request->location;
+        }
+        if (!Utils::isUnset($request->logicalLevelId)) {
+            $query['LogicalLevelId'] = $request->logicalLevelId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->physicsLevelId)) {
+            $query['PhysicsLevelId'] = $request->physicsLevelId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->columns)) {
+            $body['Columns'] = $request->columns;
+        }
+        if (!Utils::isUnset($request->endpoint)) {
+            $body['Endpoint'] = $request->endpoint;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $body['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->themes)) {
+            $body['Themes'] = $request->themes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTable',
@@ -10005,11 +12123,17 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableAddColumnWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['TableGuid'] = $request->tableGuid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->column)) {
+            $body['Column'] = $request->column;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTableAddColumn',
@@ -10047,15 +12171,24 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Description'] = $request->description;
-        $query['LevelId']     = $request->levelId;
-        $query['LevelType']   = $request->levelType;
-        $query['Name']        = $request->name;
-        $query['ProjectId']   = $request->projectId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->levelId)) {
+            $query['LevelId'] = $request->levelId;
+        }
+        if (!Utils::isUnset($request->levelType)) {
+            $query['LevelType'] = $request->levelType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTableLevel',
@@ -10065,7 +12198,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -10093,15 +12226,24 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableModelInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['FirstLevelThemeId']  = $request->firstLevelThemeId;
-        $query['LevelId']            = $request->levelId;
-        $query['LevelType']          = $request->levelType;
-        $query['SecondLevelThemeId'] = $request->secondLevelThemeId;
-        $query['TableGuid']          = $request->tableGuid;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->firstLevelThemeId)) {
+            $query['FirstLevelThemeId'] = $request->firstLevelThemeId;
+        }
+        if (!Utils::isUnset($request->levelId)) {
+            $query['LevelId'] = $request->levelId;
+        }
+        if (!Utils::isUnset($request->levelType)) {
+            $query['LevelType'] = $request->levelType;
+        }
+        if (!Utils::isUnset($request->secondLevelThemeId)) {
+            $query['SecondLevelThemeId'] = $request->secondLevelThemeId;
+        }
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTableModelInfo',
@@ -10111,7 +12253,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -10139,13 +12281,18 @@ class Dataworkspublic extends OpenApiClient
     public function updateTableThemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Name']      = $request->name;
-        $query['ProjectId'] = $request->projectId;
-        $query['ThemeId']   = $request->themeId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->themeId)) {
+            $query['ThemeId'] = $request->themeId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTableTheme',
@@ -10155,7 +12302,7 @@ class Dataworkspublic extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -10183,8 +12330,45 @@ class Dataworkspublic extends OpenApiClient
     public function updateUdfFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->className)) {
+            $body['ClassName'] = $request->className;
+        }
+        if (!Utils::isUnset($request->cmdDescription)) {
+            $body['CmdDescription'] = $request->cmdDescription;
+        }
+        if (!Utils::isUnset($request->example)) {
+            $body['Example'] = $request->example;
+        }
+        if (!Utils::isUnset($request->fileFolderPath)) {
+            $body['FileFolderPath'] = $request->fileFolderPath;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->functionType)) {
+            $body['FunctionType'] = $request->functionType;
+        }
+        if (!Utils::isUnset($request->parameterDescription)) {
+            $body['ParameterDescription'] = $request->parameterDescription;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $body['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->returnValue)) {
+            $body['ReturnValue'] = $request->returnValue;
+        }
+        if (!Utils::isUnset($request->udfDescription)) {
+            $body['UdfDescription'] = $request->udfDescription;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateUdfFile',

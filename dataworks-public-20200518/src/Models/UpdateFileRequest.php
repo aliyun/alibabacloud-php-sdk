@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $advancedSettings;
+
+    /**
      * @var bool
      */
     public $autoParsing;
@@ -131,8 +136,14 @@ class UpdateFileRequest extends Model
     /**
      * @var bool
      */
+    public $startImmediately;
+
+    /**
+     * @var bool
+     */
     public $stop;
     protected $_name = [
+        'advancedSettings'        => 'AdvancedSettings',
         'autoParsing'             => 'AutoParsing',
         'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
         'autoRerunTimes'          => 'AutoRerunTimes',
@@ -157,6 +168,7 @@ class UpdateFileRequest extends Model
         'resourceGroupIdentifier' => 'ResourceGroupIdentifier',
         'schedulerType'           => 'SchedulerType',
         'startEffectDate'         => 'StartEffectDate',
+        'startImmediately'        => 'StartImmediately',
         'stop'                    => 'Stop',
     ];
 
@@ -167,6 +179,9 @@ class UpdateFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advancedSettings) {
+            $res['AdvancedSettings'] = $this->advancedSettings;
+        }
         if (null !== $this->autoParsing) {
             $res['AutoParsing'] = $this->autoParsing;
         }
@@ -239,6 +254,9 @@ class UpdateFileRequest extends Model
         if (null !== $this->startEffectDate) {
             $res['StartEffectDate'] = $this->startEffectDate;
         }
+        if (null !== $this->startImmediately) {
+            $res['StartImmediately'] = $this->startImmediately;
+        }
         if (null !== $this->stop) {
             $res['Stop'] = $this->stop;
         }
@@ -254,6 +272,9 @@ class UpdateFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedSettings'])) {
+            $model->advancedSettings = $map['AdvancedSettings'];
+        }
         if (isset($map['AutoParsing'])) {
             $model->autoParsing = $map['AutoParsing'];
         }
@@ -325,6 +346,9 @@ class UpdateFileRequest extends Model
         }
         if (isset($map['StartEffectDate'])) {
             $model->startEffectDate = $map['StartEffectDate'];
+        }
+        if (isset($map['StartImmediately'])) {
+            $model->startImmediately = $map['StartImmediately'];
         }
         if (isset($map['Stop'])) {
             $model->stop = $map['Stop'];

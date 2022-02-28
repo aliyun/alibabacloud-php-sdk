@@ -83,6 +83,11 @@ class nodeConfiguration extends Model
     /**
      * @var bool
      */
+    public $startImmediately;
+
+    /**
+     * @var bool
+     */
     public $stop;
     protected $_name = [
         'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
@@ -99,6 +104,7 @@ class nodeConfiguration extends Model
         'resourceGroupId'         => 'ResourceGroupId',
         'schedulerType'           => 'SchedulerType',
         'startEffectDate'         => 'StartEffectDate',
+        'startImmediately'        => 'StartImmediately',
         'stop'                    => 'Stop',
     ];
 
@@ -162,6 +168,9 @@ class nodeConfiguration extends Model
         }
         if (null !== $this->startEffectDate) {
             $res['StartEffectDate'] = $this->startEffectDate;
+        }
+        if (null !== $this->startImmediately) {
+            $res['StartImmediately'] = $this->startImmediately;
         }
         if (null !== $this->stop) {
             $res['Stop'] = $this->stop;
@@ -231,6 +240,9 @@ class nodeConfiguration extends Model
         }
         if (isset($map['StartEffectDate'])) {
             $model->startEffectDate = $map['StartEffectDate'];
+        }
+        if (isset($map['StartImmediately'])) {
+            $model->startImmediately = $map['StartImmediately'];
         }
         if (isset($map['Stop'])) {
             $model->stop = $map['Stop'];
