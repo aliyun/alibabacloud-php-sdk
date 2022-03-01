@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $regionName;
+    public $bucket;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class data extends Model
     /**
      * @var string
      */
-    public $bucket;
+    public $regionName;
     protected $_name = [
-        'regionName' => 'RegionName',
-        'region'     => 'Region',
         'bucket'     => 'Bucket',
+        'region'     => 'Region',
+        'regionName' => 'RegionName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
+        if (null !== $this->bucket) {
+            $res['Bucket'] = $this->bucket;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
+        if (isset($map['Bucket'])) {
+            $model->bucket = $map['Bucket'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
         }
 
         return $model;

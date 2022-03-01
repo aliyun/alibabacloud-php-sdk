@@ -6,22 +6,12 @@ namespace AlibabaCloud\SDK\Ivpd\V20190625;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\AssessCompositionRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\AssessCompositionResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\AssessExposureRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\AssessExposureResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\AssessSharpnessRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\AssessSharpnessResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\ChangeImageSizeRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\ChangeImageSizeResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\CreateSegmentBodyJobRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\CreateSegmentBodyJobResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\DetectImageElementsRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\DetectImageElementsResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\DetectMainBodyRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\DetectMainBodyResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\EnhanceFaceRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\EnhanceFaceResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\EraseLogoInVideoRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\EraseLogoInVideoResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\ExtendImageStyleRequest;
@@ -34,60 +24,41 @@ use AlibabaCloud\SDK\Ivpd\V20190625\Models\GetJobResultRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\GetJobResultResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\GetJobStatusRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\GetJobStatusResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\GetRenderResultRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\GetRenderResultResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\GetUserBucketConfigResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\HighlightGameVideoAdvanceRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\HighlightGameVideoRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\HighlightGameVideoResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\IntelligentCompositionRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\IntelligentCompositionResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\ListPackageDesignModelTypesResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\ListUserBucketsRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\ListUserBucketsResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\MakeSuperResolutionImageRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\MakeSuperResolutionImageResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\ParseFaceRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\ParseFaceResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\PreviewModelForPackageDesignRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\PreviewModelForPackageDesignResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\RecognizeImageColorRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\RecognizeImageColorResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\RecognizeImageStyleRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\RecognizeImageStyleResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\RecolorImageRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\RecolorImageResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\RenderImageForPackageDesignRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\RenderImageForPackageDesignResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentAnimalRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentAnimalResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentBodyRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentBodyResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentClothRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentClothResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentCommodityRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentCommodityResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentHairRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentHairResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentHeadRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentHeadResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentImageRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentImageResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentSkyRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentSkyResponse;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentVehicleRequest;
-use AlibabaCloud\SDK\Ivpd\V20190625\Models\SegmentVehicleResponse;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\UpdateUserBucketConfigRequest;
 use AlibabaCloud\SDK\Ivpd\V20190625\Models\UpdateUserBucketConfigResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Ivpd extends OpenApiClient
@@ -124,90 +95,6 @@ class Ivpd extends OpenApiClient
     }
 
     /**
-     * @param AssessCompositionRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AssessCompositionResponse
-     */
-    public function assessCompositionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AssessCompositionResponse::fromMap($this->doRPCRequest('AssessComposition', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AssessCompositionRequest $request
-     *
-     * @return AssessCompositionResponse
-     */
-    public function assessComposition($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->assessCompositionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssessExposureRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AssessExposureResponse
-     */
-    public function assessExposureWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AssessExposureResponse::fromMap($this->doRPCRequest('AssessExposure', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AssessExposureRequest $request
-     *
-     * @return AssessExposureResponse
-     */
-    public function assessExposure($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->assessExposureWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssessSharpnessRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AssessSharpnessResponse
-     */
-    public function assessSharpnessWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AssessSharpnessResponse::fromMap($this->doRPCRequest('AssessSharpness', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AssessSharpnessRequest $request
-     *
-     * @return AssessSharpnessResponse
-     */
-    public function assessSharpness($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->assessSharpnessWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ChangeImageSizeRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -216,11 +103,32 @@ class Ivpd extends OpenApiClient
     public function changeImageSizeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->height)) {
+            $body['Height'] = $request->height;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->width)) {
+            $body['Width'] = $request->width;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeImageSize',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeImageSizeResponse::fromMap($this->doRPCRequest('ChangeImageSize', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangeImageSizeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -244,11 +152,32 @@ class Ivpd extends OpenApiClient
     public function createSegmentBodyJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataList)) {
+            $body['DataList'] = $request->dataList;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->timeToLive)) {
+            $body['TimeToLive'] = $request->timeToLive;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSegmentBodyJob',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSegmentBodyJobResponse::fromMap($this->doRPCRequest('CreateSegmentBodyJob', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSegmentBodyJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -272,11 +201,26 @@ class Ivpd extends OpenApiClient
     public function detectImageElementsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageElements',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectImageElementsResponse::fromMap($this->doRPCRequest('DetectImageElements', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectImageElementsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -292,62 +236,6 @@ class Ivpd extends OpenApiClient
     }
 
     /**
-     * @param DetectMainBodyRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DetectMainBodyResponse
-     */
-    public function detectMainBodyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectMainBodyResponse::fromMap($this->doRPCRequest('DetectMainBody', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectMainBodyRequest $request
-     *
-     * @return DetectMainBodyResponse
-     */
-    public function detectMainBody($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectMainBodyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EnhanceFaceRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return EnhanceFaceResponse
-     */
-    public function enhanceFaceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return EnhanceFaceResponse::fromMap($this->doRPCRequest('EnhanceFace', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EnhanceFaceRequest $request
-     *
-     * @return EnhanceFaceResponse
-     */
-    public function enhanceFace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enhanceFaceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param EraseLogoInVideoRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -356,11 +244,32 @@ class Ivpd extends OpenApiClient
     public function eraseLogoInVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->boxes)) {
+            $body['Boxes'] = $request->boxes;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->videoUrl)) {
+            $body['VideoUrl'] = $request->videoUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EraseLogoInVideo',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EraseLogoInVideoResponse::fromMap($this->doRPCRequest('EraseLogoInVideo', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EraseLogoInVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -384,11 +293,29 @@ class Ivpd extends OpenApiClient
     public function extendImageStyleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->majorUrl)) {
+            $body['MajorUrl'] = $request->majorUrl;
+        }
+        if (!Utils::isUnset($request->styleUrl)) {
+            $body['StyleUrl'] = $request->styleUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExtendImageStyle',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExtendImageStyleResponse::fromMap($this->doRPCRequest('ExtendImageStyle', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExtendImageStyleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -412,11 +339,26 @@ class Ivpd extends OpenApiClient
     public function getAsyncJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsyncJobResult',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAsyncJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -440,11 +382,26 @@ class Ivpd extends OpenApiClient
     public function getAsyncResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsyncResult',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAsyncResultResponse::fromMap($this->doRPCRequest('GetAsyncResult', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAsyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -468,11 +425,26 @@ class Ivpd extends OpenApiClient
     public function getJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobResult',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJobResultResponse::fromMap($this->doRPCRequest('GetJobResult', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -496,11 +468,26 @@ class Ivpd extends OpenApiClient
     public function getJobStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobStatus',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJobStatusResponse::fromMap($this->doRPCRequest('GetJobStatus', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -516,43 +503,26 @@ class Ivpd extends OpenApiClient
     }
 
     /**
-     * @param GetRenderResultRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetRenderResultResponse
-     */
-    public function getRenderResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetRenderResultResponse::fromMap($this->doRPCRequest('GetRenderResult', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetRenderResultRequest $request
-     *
-     * @return GetRenderResultResponse
-     */
-    public function getRenderResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRenderResultWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RuntimeOptions $runtime
      *
      * @return GetUserBucketConfigResponse
      */
     public function getUserBucketConfigWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetUserBucketConfig',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetUserBucketConfigResponse::fromMap($this->doRPCRequest('GetUserBucketConfig', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserBucketConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -574,11 +544,29 @@ class Ivpd extends OpenApiClient
     public function highlightGameVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->async)) {
+            $body['Async'] = $request->async;
+        }
+        if (!Utils::isUnset($request->videoUrl)) {
+            $body['VideoUrl'] = $request->videoUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'HighlightGameVideo',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return HighlightGameVideoResponse::fromMap($this->doRPCRequest('HighlightGameVideo', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return HighlightGameVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -602,13 +590,23 @@ class Ivpd extends OpenApiClient
     public function highlightGameVideoAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new \AlibabaCloud\Tea\Rpc\Rpc\Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -632,59 +630,33 @@ class Ivpd extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $highlightGameVideoReq = new HighlightGameVideoRequest([]);
         OpenApiUtilClient::convert($request, $highlightGameVideoReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $highlightGameVideoReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->videoUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->videoUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $highlightGameVideoReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->highlightGameVideoWithOptions($highlightGameVideoReq, $runtime);
-    }
-
-    /**
-     * @param IntelligentCompositionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return IntelligentCompositionResponse
-     */
-    public function intelligentCompositionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return IntelligentCompositionResponse::fromMap($this->doRPCRequest('IntelligentComposition', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param IntelligentCompositionRequest $request
-     *
-     * @return IntelligentCompositionResponse
-     */
-    public function intelligentComposition($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->intelligentCompositionWithOptions($request, $runtime);
     }
 
     /**
@@ -694,9 +666,20 @@ class Ivpd extends OpenApiClient
      */
     public function listPackageDesignModelTypesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListPackageDesignModelTypes',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListPackageDesignModelTypesResponse::fromMap($this->doRPCRequest('ListPackageDesignModelTypes', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPackageDesignModelTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -718,11 +701,26 @@ class Ivpd extends OpenApiClient
     public function listUserBucketsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserBuckets',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUserBucketsResponse::fromMap($this->doRPCRequest('ListUserBuckets', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUserBucketsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -746,11 +744,26 @@ class Ivpd extends OpenApiClient
     public function makeSuperResolutionImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'MakeSuperResolutionImage',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MakeSuperResolutionImageResponse::fromMap($this->doRPCRequest('MakeSuperResolutionImage', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MakeSuperResolutionImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -766,62 +779,6 @@ class Ivpd extends OpenApiClient
     }
 
     /**
-     * @param ParseFaceRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ParseFaceResponse
-     */
-    public function parseFaceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ParseFaceResponse::fromMap($this->doRPCRequest('ParseFace', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ParseFaceRequest $request
-     *
-     * @return ParseFaceResponse
-     */
-    public function parseFace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->parseFaceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PreviewModelForPackageDesignRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return PreviewModelForPackageDesignResponse
-     */
-    public function previewModelForPackageDesignWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PreviewModelForPackageDesignResponse::fromMap($this->doRPCRequest('PreviewModelForPackageDesign', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PreviewModelForPackageDesignRequest $request
-     *
-     * @return PreviewModelForPackageDesignResponse
-     */
-    public function previewModelForPackageDesign($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->previewModelForPackageDesignWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RecognizeImageColorRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -830,11 +787,29 @@ class Ivpd extends OpenApiClient
     public function recognizeImageColorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->colorCount)) {
+            $body['ColorCount'] = $request->colorCount;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeImageColor',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeImageColorResponse::fromMap($this->doRPCRequest('RecognizeImageColor', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeImageColorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -858,11 +833,26 @@ class Ivpd extends OpenApiClient
     public function recognizeImageStyleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeImageStyle',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeImageStyleResponse::fromMap($this->doRPCRequest('RecognizeImageStyle', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeImageStyleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -886,11 +876,38 @@ class Ivpd extends OpenApiClient
     public function recolorImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->colorCount)) {
+            $body['ColorCount'] = $request->colorCount;
+        }
+        if (!Utils::isUnset($request->colorTemplate)) {
+            $body['ColorTemplate'] = $request->colorTemplate;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $body['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->refUrl)) {
+            $body['RefUrl'] = $request->refUrl;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecolorImage',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecolorImageResponse::fromMap($this->doRPCRequest('RecolorImage', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecolorImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -906,62 +923,6 @@ class Ivpd extends OpenApiClient
     }
 
     /**
-     * @param RenderImageForPackageDesignRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RenderImageForPackageDesignResponse
-     */
-    public function renderImageForPackageDesignWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RenderImageForPackageDesignResponse::fromMap($this->doRPCRequest('RenderImageForPackageDesign', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RenderImageForPackageDesignRequest $request
-     *
-     * @return RenderImageForPackageDesignResponse
-     */
-    public function renderImageForPackageDesign($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->renderImageForPackageDesignWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SegmentAnimalRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SegmentAnimalResponse
-     */
-    public function segmentAnimalWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SegmentAnimalResponse::fromMap($this->doRPCRequest('SegmentAnimal', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SegmentAnimalRequest $request
-     *
-     * @return SegmentAnimalResponse
-     */
-    public function segmentAnimal($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentAnimalWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SegmentBodyRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -970,11 +931,26 @@ class Ivpd extends OpenApiClient
     public function segmentBodyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SegmentBody',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SegmentBodyResponse::fromMap($this->doRPCRequest('SegmentBody', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SegmentBodyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -990,34 +966,6 @@ class Ivpd extends OpenApiClient
     }
 
     /**
-     * @param SegmentClothRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return SegmentClothResponse
-     */
-    public function segmentClothWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SegmentClothResponse::fromMap($this->doRPCRequest('SegmentCloth', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SegmentClothRequest $request
-     *
-     * @return SegmentClothResponse
-     */
-    public function segmentCloth($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentClothWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SegmentCommodityRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1026,11 +974,26 @@ class Ivpd extends OpenApiClient
     public function segmentCommodityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $query['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SegmentCommodity',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SegmentCommodityResponse::fromMap($this->doRPCRequest('SegmentCommodity', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SegmentCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1046,62 +1009,6 @@ class Ivpd extends OpenApiClient
     }
 
     /**
-     * @param SegmentHairRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SegmentHairResponse
-     */
-    public function segmentHairWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SegmentHairResponse::fromMap($this->doRPCRequest('SegmentHair', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SegmentHairRequest $request
-     *
-     * @return SegmentHairResponse
-     */
-    public function segmentHair($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentHairWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SegmentHeadRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SegmentHeadResponse
-     */
-    public function segmentHeadWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SegmentHeadResponse::fromMap($this->doRPCRequest('SegmentHead', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SegmentHeadRequest $request
-     *
-     * @return SegmentHeadResponse
-     */
-    public function segmentHead($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentHeadWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SegmentImageRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1110,11 +1017,26 @@ class Ivpd extends OpenApiClient
     public function segmentImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SegmentImage',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SegmentImageResponse::fromMap($this->doRPCRequest('SegmentImage', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SegmentImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1130,62 +1052,6 @@ class Ivpd extends OpenApiClient
     }
 
     /**
-     * @param SegmentSkyRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return SegmentSkyResponse
-     */
-    public function segmentSkyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SegmentSkyResponse::fromMap($this->doRPCRequest('SegmentSky', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SegmentSkyRequest $request
-     *
-     * @return SegmentSkyResponse
-     */
-    public function segmentSky($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentSkyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SegmentVehicleRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return SegmentVehicleResponse
-     */
-    public function segmentVehicleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SegmentVehicleResponse::fromMap($this->doRPCRequest('SegmentVehicle', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SegmentVehicleRequest $request
-     *
-     * @return SegmentVehicleResponse
-     */
-    public function segmentVehicle($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentVehicleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateUserBucketConfigRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1194,11 +1060,26 @@ class Ivpd extends OpenApiClient
     public function updateUserBucketConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUserBucketConfig',
+            'version'     => '2019-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateUserBucketConfigResponse::fromMap($this->doRPCRequest('UpdateUserBucketConfig', '2019-06-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateUserBucketConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

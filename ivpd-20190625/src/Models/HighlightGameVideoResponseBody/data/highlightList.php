@@ -11,15 +11,15 @@ class highlightList extends Model
     /**
      * @var float
      */
-    public $start;
+    public $end;
 
     /**
      * @var float
      */
-    public $end;
+    public $start;
     protected $_name = [
-        'start' => 'Start',
         'end'   => 'End',
+        'start' => 'Start',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class highlightList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->start) {
-            $res['Start'] = $this->start;
-        }
         if (null !== $this->end) {
             $res['End'] = $this->end;
+        }
+        if (null !== $this->start) {
+            $res['Start'] = $this->start;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class highlightList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Start'])) {
-            $model->start = $map['Start'];
-        }
         if (isset($map['End'])) {
             $model->end = $map['End'];
+        }
+        if (isset($map['Start'])) {
+            $model->start = $map['Start'];
         }
 
         return $model;

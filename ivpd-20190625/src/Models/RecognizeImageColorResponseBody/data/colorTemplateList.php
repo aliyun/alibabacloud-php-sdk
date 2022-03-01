@@ -14,18 +14,18 @@ class colorTemplateList extends Model
     public $color;
 
     /**
-     * @var float
-     */
-    public $percentage;
-
-    /**
      * @var string
      */
     public $label;
+
+    /**
+     * @var float
+     */
+    public $percentage;
     protected $_name = [
         'color'      => 'Color',
-        'percentage' => 'Percentage',
         'label'      => 'Label',
+        'percentage' => 'Percentage',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class colorTemplateList extends Model
         if (null !== $this->color) {
             $res['Color'] = $this->color;
         }
-        if (null !== $this->percentage) {
-            $res['Percentage'] = $this->percentage;
-        }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->percentage) {
+            $res['Percentage'] = $this->percentage;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class colorTemplateList extends Model
         if (isset($map['Color'])) {
             $model->color = $map['Color'];
         }
-        if (isset($map['Percentage'])) {
-            $model->percentage = $map['Percentage'];
-        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['Percentage'])) {
+            $model->percentage = $map['Percentage'];
         }
 
         return $model;

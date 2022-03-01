@@ -11,15 +11,15 @@ class dataList extends Model
     /**
      * @var string
      */
-    public $imageUrl;
+    public $dataId;
 
     /**
      * @var string
      */
-    public $dataId;
+    public $imageUrl;
     protected $_name = [
-        'imageUrl' => 'ImageUrl',
         'dataId'   => 'DataId',
+        'imageUrl' => 'ImageUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class dataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
-        }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
+        }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
-        }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
 
         return $model;

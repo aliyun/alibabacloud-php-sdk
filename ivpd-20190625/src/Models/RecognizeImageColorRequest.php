@@ -11,15 +11,15 @@ class RecognizeImageColorRequest extends Model
     /**
      * @var string
      */
-    public $url;
+    public $colorCount;
 
     /**
      * @var string
      */
-    public $colorCount;
+    public $url;
     protected $_name = [
-        'url'        => 'Url',
         'colorCount' => 'ColorCount',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RecognizeImageColorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->colorCount) {
             $res['ColorCount'] = $this->colorCount;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RecognizeImageColorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['ColorCount'])) {
             $model->colorCount = $map['ColorCount'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -10,29 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var resultList[]
-     */
-    public $resultList;
-
-    /**
      * @var int
      */
     public $batchSize;
-
-    /**
-     * @var int
-     */
-    public $totalUsedTime;
-
-    /**
-     * @var int
-     */
-    public $progress;
 
     /**
      * @var bool
@@ -43,14 +23,34 @@ class data extends Model
      * @var string
      */
     public $jobId;
+
+    /**
+     * @var int
+     */
+    public $progress;
+
+    /**
+     * @var resultList[]
+     */
+    public $resultList;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $totalUsedTime;
     protected $_name = [
-        'status'        => 'Status',
-        'resultList'    => 'ResultList',
         'batchSize'     => 'BatchSize',
-        'totalUsedTime' => 'TotalUsedTime',
-        'progress'      => 'Progress',
         'completed'     => 'Completed',
         'jobId'         => 'JobId',
+        'progress'      => 'Progress',
+        'resultList'    => 'ResultList',
+        'status'        => 'Status',
+        'totalUsedTime' => 'TotalUsedTime',
     ];
 
     public function validate()
@@ -60,8 +60,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->batchSize) {
+            $res['BatchSize'] = $this->batchSize;
+        }
+        if (null !== $this->completed) {
+            $res['Completed'] = $this->completed;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
         }
         if (null !== $this->resultList) {
             $res['ResultList'] = [];
@@ -72,20 +81,11 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->batchSize) {
-            $res['BatchSize'] = $this->batchSize;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->totalUsedTime) {
             $res['TotalUsedTime'] = $this->totalUsedTime;
-        }
-        if (null !== $this->progress) {
-            $res['Progress'] = $this->progress;
-        }
-        if (null !== $this->completed) {
-            $res['Completed'] = $this->completed;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -99,8 +99,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['BatchSize'])) {
+            $model->batchSize = $map['BatchSize'];
+        }
+        if (isset($map['Completed'])) {
+            $model->completed = $map['Completed'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
         }
         if (isset($map['ResultList'])) {
             if (!empty($map['ResultList'])) {
@@ -111,20 +120,11 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['BatchSize'])) {
-            $model->batchSize = $map['BatchSize'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TotalUsedTime'])) {
             $model->totalUsedTime = $map['TotalUsedTime'];
-        }
-        if (isset($map['Progress'])) {
-            $model->progress = $map['Progress'];
-        }
-        if (isset($map['Completed'])) {
-            $model->completed = $map['Completed'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
         }
 
         return $model;

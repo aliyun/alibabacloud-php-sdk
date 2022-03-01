@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class EraseLogoInVideoRequest extends Model
 {
     /**
-     * @var string
+     * @var boxes[]
      */
-    public $videoUrl;
-
-    /**
-     * @var bool
-     */
-    public $async;
+    public $boxes;
 
     /**
      * @var string
@@ -25,14 +20,13 @@ class EraseLogoInVideoRequest extends Model
     public $jobId;
 
     /**
-     * @var boxes[]
+     * @var string
      */
-    public $boxes;
+    public $videoUrl;
     protected $_name = [
-        'videoUrl' => 'VideoUrl',
-        'async'    => 'Async',
-        'jobId'    => 'JobId',
         'boxes'    => 'Boxes',
+        'jobId'    => 'JobId',
+        'videoUrl' => 'VideoUrl',
     ];
 
     public function validate()
@@ -42,15 +36,6 @@ class EraseLogoInVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->boxes) {
             $res['Boxes'] = [];
             if (null !== $this->boxes && \is_array($this->boxes)) {
@@ -59,6 +44,12 @@ class EraseLogoInVideoRequest extends Model
                     $res['Boxes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -72,15 +63,6 @@ class EraseLogoInVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['Boxes'])) {
             if (!empty($map['Boxes'])) {
                 $model->boxes = [];
@@ -89,6 +71,12 @@ class EraseLogoInVideoRequest extends Model
                     $model->boxes[$n++] = null !== $item ? boxes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

@@ -11,27 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $totalUsedTime;
-
-    /**
-     * @var string
-     */
     public $batchSize;
-
-    /**
-     * @var float
-     */
-    public $progress;
-
-    /**
-     * @var int
-     */
-    public $timeToLive;
 
     /**
      * @var bool
@@ -47,15 +27,35 @@ class data extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var float
+     */
+    public $progress;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $timeToLive;
+
+    /**
+     * @var int
+     */
+    public $totalUsedTime;
     protected $_name = [
-        'status'        => 'Status',
-        'totalUsedTime' => 'TotalUsedTime',
         'batchSize'     => 'BatchSize',
-        'progress'      => 'Progress',
-        'timeToLive'    => 'TimeToLive',
         'completed'     => 'Completed',
         'finish'        => 'Finish',
         'message'       => 'Message',
+        'progress'      => 'Progress',
+        'status'        => 'Status',
+        'timeToLive'    => 'TimeToLive',
+        'totalUsedTime' => 'TotalUsedTime',
     ];
 
     public function validate()
@@ -65,20 +65,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->totalUsedTime) {
-            $res['TotalUsedTime'] = $this->totalUsedTime;
-        }
         if (null !== $this->batchSize) {
             $res['BatchSize'] = $this->batchSize;
-        }
-        if (null !== $this->progress) {
-            $res['Progress'] = $this->progress;
-        }
-        if (null !== $this->timeToLive) {
-            $res['TimeToLive'] = $this->timeToLive;
         }
         if (null !== $this->completed) {
             $res['Completed'] = $this->completed;
@@ -88,6 +76,18 @@ class data extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->timeToLive) {
+            $res['TimeToLive'] = $this->timeToLive;
+        }
+        if (null !== $this->totalUsedTime) {
+            $res['TotalUsedTime'] = $this->totalUsedTime;
         }
 
         return $res;
@@ -101,20 +101,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['TotalUsedTime'])) {
-            $model->totalUsedTime = $map['TotalUsedTime'];
-        }
         if (isset($map['BatchSize'])) {
             $model->batchSize = $map['BatchSize'];
-        }
-        if (isset($map['Progress'])) {
-            $model->progress = $map['Progress'];
-        }
-        if (isset($map['TimeToLive'])) {
-            $model->timeToLive = $map['TimeToLive'];
         }
         if (isset($map['Completed'])) {
             $model->completed = $map['Completed'];
@@ -124,6 +112,18 @@ class data extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TimeToLive'])) {
+            $model->timeToLive = $map['TimeToLive'];
+        }
+        if (isset($map['TotalUsedTime'])) {
+            $model->totalUsedTime = $map['TotalUsedTime'];
         }
 
         return $model;

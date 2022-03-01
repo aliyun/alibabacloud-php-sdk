@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSegmentBodyJobRequest extends Model
 {
     /**
-     * @var bool
+     * @var dataList[]
      */
-    public $async;
+    public $dataList;
 
     /**
      * @var string
@@ -23,16 +23,10 @@ class CreateSegmentBodyJobRequest extends Model
      * @var int
      */
     public $timeToLive;
-
-    /**
-     * @var dataList[]
-     */
-    public $dataList;
     protected $_name = [
-        'async'      => 'Async',
+        'dataList'   => 'DataList',
         'jobId'      => 'JobId',
         'timeToLive' => 'TimeToLive',
-        'dataList'   => 'DataList',
     ];
 
     public function validate()
@@ -42,15 +36,6 @@ class CreateSegmentBodyJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->timeToLive) {
-            $res['TimeToLive'] = $this->timeToLive;
-        }
         if (null !== $this->dataList) {
             $res['DataList'] = [];
             if (null !== $this->dataList && \is_array($this->dataList)) {
@@ -59,6 +44,12 @@ class CreateSegmentBodyJobRequest extends Model
                     $res['DataList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->timeToLive) {
+            $res['TimeToLive'] = $this->timeToLive;
         }
 
         return $res;
@@ -72,15 +63,6 @@ class CreateSegmentBodyJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['TimeToLive'])) {
-            $model->timeToLive = $map['TimeToLive'];
-        }
         if (isset($map['DataList'])) {
             if (!empty($map['DataList'])) {
                 $model->dataList = [];
@@ -89,6 +71,12 @@ class CreateSegmentBodyJobRequest extends Model
                     $model->dataList[$n++] = null !== $item ? dataList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['TimeToLive'])) {
+            $model->timeToLive = $map['TimeToLive'];
         }
 
         return $model;
