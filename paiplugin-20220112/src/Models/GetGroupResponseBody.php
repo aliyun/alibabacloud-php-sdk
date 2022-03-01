@@ -29,10 +29,18 @@ class GetGroupResponseBody extends Model
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @description 请求ID
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'data'         => 'Data',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -50,6 +58,9 @@ class GetGroupResponseBody extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -71,6 +82,9 @@ class GetGroupResponseBody extends Model
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

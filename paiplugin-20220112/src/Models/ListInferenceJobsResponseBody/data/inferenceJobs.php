@@ -9,77 +9,77 @@ use AlibabaCloud\Tea\Model;
 class inferenceJobs extends Model
 {
     /**
-     * @description 关联算法
+     * @description 关联算法。
      *
      * @var string
      */
     public $algorithm;
 
     /**
-     * @description 创建时间 (UTC+8)
+     * @description 创建时间 (UTC+8)。
      *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 关联人群Id，如果任务失败则人群无效
+     * @description 关联人群Id，如果任务失败则人群无效。
      *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 训练任务日志
+     * @description 预测任务日志。
      *
      * @var string
      */
     public $history;
 
     /**
-     * @description 训练任务Id
+     * @description 预测任务Id。
      *
      * @var string
      */
     public $id;
 
     /**
-     * @description 训练任务名称
+     * @description 预测任务名称。
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 备注
+     * @description 备注。
      *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 训练任务状态
+     * @description 预测任务状态。
      *
      * @var int
      */
     public $status;
 
     /**
-     * @description 关联训练任务
+     * @description 关联训练任务。
      *
      * @var string
      */
     public $trainingJobId;
 
     /**
-     * @description 更新时间 (UTC+8)
+     * @description 更新时间 (UTC+8)。
      *
      * @var string
      */
     public $updatedTime;
 
     /**
-     * @description 用户配置
+     * @description 用户配置。
      *
      * @var string
      */

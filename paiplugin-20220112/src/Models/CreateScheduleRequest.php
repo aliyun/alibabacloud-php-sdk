@@ -58,14 +58,28 @@ class CreateScheduleRequest extends Model
     public $repeatTimes;
 
     /**
-     * @description 签名Id。
+     * @description 签名。
+     *
+     * @var string
+     */
+    public $signName;
+
+    /**
+     * @description 签名Id，或指定签名。
      *
      * @var string
      */
     public $signatureId;
 
     /**
-     * @description 模板Id。
+     * @description 模板Code。
+     *
+     * @var string
+     */
+    public $templateCode;
+
+    /**
+     * @description 模板Id，或指定模板Code。
      *
      * @var string
      */
@@ -78,7 +92,9 @@ class CreateScheduleRequest extends Model
         'repeatCycle'     => 'RepeatCycle',
         'repeatCycleUnit' => 'RepeatCycleUnit',
         'repeatTimes'     => 'RepeatTimes',
+        'signName'        => 'SignName',
         'signatureId'     => 'SignatureId',
+        'templateCode'    => 'TemplateCode',
         'templateId'      => 'TemplateId',
     ];
 
@@ -110,8 +126,14 @@ class CreateScheduleRequest extends Model
         if (null !== $this->repeatTimes) {
             $res['RepeatTimes'] = $this->repeatTimes;
         }
+        if (null !== $this->signName) {
+            $res['SignName'] = $this->signName;
+        }
         if (null !== $this->signatureId) {
             $res['SignatureId'] = $this->signatureId;
+        }
+        if (null !== $this->templateCode) {
+            $res['TemplateCode'] = $this->templateCode;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -149,8 +171,14 @@ class CreateScheduleRequest extends Model
         if (isset($map['RepeatTimes'])) {
             $model->repeatTimes = $map['RepeatTimes'];
         }
+        if (isset($map['SignName'])) {
+            $model->signName = $map['SignName'];
+        }
         if (isset($map['SignatureId'])) {
             $model->signatureId = $map['SignatureId'];
+        }
+        if (isset($map['TemplateCode'])) {
+            $model->templateCode = $map['TemplateCode'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupRequest extends Model
 {
     /**
-     * @description 算法名称
+     * @description 算法
      *
      * @var string
      */
@@ -30,11 +30,11 @@ class CreateGroupRequest extends Model
     public $filter;
 
     /**
-     * @description 推理任务
+     * @description 预测任务Id
      *
      * @var string
      */
-    public $inferenceJob;
+    public $inferenceJobId;
 
     /**
      * @description 人群名称
@@ -85,17 +85,17 @@ class CreateGroupRequest extends Model
      */
     public $uri;
     protected $_name = [
-        'algorithm'    => 'Algorithm',
-        'column'       => 'Column',
-        'filter'       => 'Filter',
-        'inferenceJob' => 'InferenceJob',
-        'name'         => 'Name',
-        'project'      => 'Project',
-        'remark'       => 'Remark',
-        'source'       => 'Source',
-        'table'        => 'Table',
-        'text'         => 'Text',
-        'uri'          => 'Uri',
+        'algorithm'      => 'Algorithm',
+        'column'         => 'Column',
+        'filter'         => 'Filter',
+        'inferenceJobId' => 'InferenceJobId',
+        'name'           => 'Name',
+        'project'        => 'Project',
+        'remark'         => 'Remark',
+        'source'         => 'Source',
+        'table'          => 'Table',
+        'text'           => 'Text',
+        'uri'            => 'Uri',
     ];
 
     public function validate()
@@ -114,8 +114,8 @@ class CreateGroupRequest extends Model
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
-        if (null !== $this->inferenceJob) {
-            $res['InferenceJob'] = $this->inferenceJob;
+        if (null !== $this->inferenceJobId) {
+            $res['InferenceJobId'] = $this->inferenceJobId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -159,8 +159,8 @@ class CreateGroupRequest extends Model
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
-        if (isset($map['InferenceJob'])) {
-            $model->inferenceJob = $map['InferenceJob'];
+        if (isset($map['InferenceJobId'])) {
+            $model->inferenceJobId = $map['InferenceJobId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

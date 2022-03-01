@@ -2,13 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListTrainingJobsResponseBody;
+namespace AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListAlgorithmsResponseBody;
 
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListTrainingJobsResponseBody\data\trainingJobs;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListAlgorithmsResponseBody\data\algorithms;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @description 算法列表。
+     *
+     * @var algorithms[]
+     */
+    public $algorithms;
+
     /**
      * @description 分页数，从1开始，默认为1。
      *
@@ -24,23 +31,16 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description 总训练任务数量。
+     * @description 总算法数量。
      *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @description 训练任务列表。
-     *
-     * @var trainingJobs[]
-     */
-    public $trainingJobs;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'totalCount'   => 'TotalCount',
-        'trainingJobs' => 'TrainingJobs',
+        'algorithms' => 'Algorithms',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,6 +50,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->algorithms) {
+            $res['Algorithms'] = [];
+            if (null !== $this->algorithms && \is_array($this->algorithms)) {
+                $n = 0;
+                foreach ($this->algorithms as $item) {
+                    $res['Algorithms'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -58,15 +67,6 @@ class data extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->trainingJobs) {
-            $res['TrainingJobs'] = [];
-            if (null !== $this->trainingJobs && \is_array($this->trainingJobs)) {
-                $n = 0;
-                foreach ($this->trainingJobs as $item) {
-                    $res['TrainingJobs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -80,6 +80,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Algorithms'])) {
+            if (!empty($map['Algorithms'])) {
+                $model->algorithms = [];
+                $n                 = 0;
+                foreach ($map['Algorithms'] as $item) {
+                    $model->algorithms[$n++] = null !== $item ? algorithms::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -88,15 +97,6 @@ class data extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['TrainingJobs'])) {
-            if (!empty($map['TrainingJobs'])) {
-                $model->trainingJobs = [];
-                $n                   = 0;
-                foreach ($map['TrainingJobs'] as $item) {
-                    $model->trainingJobs[$n++] = null !== $item ? trainingJobs::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

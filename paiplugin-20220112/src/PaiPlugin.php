@@ -24,12 +24,15 @@ use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteScheduleResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteSignatureResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteTrainingJobResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetAlgorithmResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetGroupResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetInferenceJobResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetScheduleResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetSignatureResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetTrainingJobResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListAlgorithmsRequest;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListAlgorithmsResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListGroupsRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListGroupsResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListInferenceJobsRequest;
@@ -88,6 +91,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 注册人群.
+     *
      * @param CreateGroupRequest $request
      *
      * @return CreateGroupResponse
@@ -120,8 +125,8 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->filter)) {
             $body['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->inferenceJob)) {
-            $body['InferenceJob'] = $request->inferenceJob;
+        if (!Utils::isUnset($request->inferenceJobId)) {
+            $body['InferenceJobId'] = $request->inferenceJobId;
         }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
@@ -164,6 +169,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 注册推理任务
+     *
      * @param CreateInferenceJobRequest $request
      *
      * @return CreateInferenceJobResponse
@@ -222,6 +229,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 注册触达计划.
+     *
      * @param CreateScheduleRequest $request
      *
      * @return CreateScheduleResponse
@@ -266,8 +275,14 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->repeatTimes)) {
             $body['RepeatTimes'] = $request->repeatTimes;
         }
+        if (!Utils::isUnset($request->signName)) {
+            $body['SignName'] = $request->signName;
+        }
         if (!Utils::isUnset($request->signatureId)) {
             $body['SignatureId'] = $request->signatureId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $body['TemplateCode'] = $request->templateCode;
         }
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
@@ -292,6 +307,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 注册签名。
+     *
      * @param CreateSignatureRequest $request
      *
      * @return CreateSignatureResponse
@@ -341,6 +358,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 注册模板
+     *
      * @param CreateTemplateRequest $request
      *
      * @return CreateTemplateResponse
@@ -399,6 +418,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 注册训练任务
+     *
      * @param CreateTrainingJobRequest $request
      *
      * @return CreateTrainingJobResponse
@@ -454,6 +475,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 删除人群.
+     *
      * @param string $Id
      *
      * @return DeleteGroupResponse
@@ -495,6 +518,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 删除推理任务
+     *
      * @param string $Id
      *
      * @return DeleteInferenceJobResponse
@@ -536,6 +561,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 删除触达计划.
+     *
      * @param string $Id
      *
      * @return DeleteScheduleResponse
@@ -577,6 +604,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 删除签名。
+     *
      * @param string $Id
      *
      * @return DeleteSignatureResponse
@@ -618,6 +647,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 删除模板
+     *
      * @param string $Id
      *
      * @return DeleteTemplateResponse
@@ -659,6 +690,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 删除训练任务
+     *
      * @param string $Id
      *
      * @return DeleteTrainingJobResponse
@@ -700,6 +733,52 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取算法详情.
+     *
+     * @param string $Id
+     *
+     * @return GetAlgorithmResponse
+     */
+    public function getAlgorithm($Id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAlgorithmWithOptions($Id, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $Id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAlgorithmResponse
+     */
+    public function getAlgorithmWithOptions($Id, $headers, $runtime)
+    {
+        $Id  = OpenApiUtilClient::getEncodeParam($Id);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAlgorithm',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/algorithms/' . $Id . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取人群
+     * 默认返回所有人群信息.
+     *
      * @param string $Id
      *
      * @return GetGroupResponse
@@ -741,6 +820,9 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取推理任务
+     * 默认返回所有推理任务信息.
+     *
      * @param string $Id
      *
      * @return GetInferenceJobResponse
@@ -782,6 +864,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取触达计划详情。
+     *
      * @param string $Id
      *
      * @return GetScheduleResponse
@@ -823,6 +907,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取签名详情.
+     *
      * @param string $Id
      *
      * @return GetSignatureResponse
@@ -864,6 +950,10 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取模板
+     * 默认返回所有模板信息
+     * ![模板列表](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/302991/1615264998427-d2943cfb-106a-421d-b4a4-f06307b4d9be.png).
+     *
      * @param string $Id
      *
      * @return GetTemplateResponse
@@ -905,6 +995,9 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取训练任务
+     * 默认返回所有训练任务信息.
+     *
      * @param string $Id
      *
      * @return GetTrainingJobResponse
@@ -946,6 +1039,65 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取算法列表.
+     *
+     * @param ListAlgorithmsRequest $request
+     *
+     * @return ListAlgorithmsResponse
+     */
+    public function listAlgorithms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlgorithmsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListAlgorithmsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAlgorithmsResponse
+     */
+    public function listAlgorithmsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlgorithms',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/algorithms',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAlgorithmsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取人群列表.
+     *
      * @param ListGroupsRequest $request
      *
      * @return ListGroupsResponse
@@ -1007,6 +1159,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取推理任务列表.
+     *
      * @param ListInferenceJobsRequest $request
      *
      * @return ListInferenceJobsResponse
@@ -1065,6 +1219,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取用户短信发送统计
+     *
      * @param ListMessageMetricsRequest $request
      *
      * @return ListMessageMetricsResponse
@@ -1120,6 +1276,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 查询短信发送详情.
+     *
      * @param ListMessagesRequest $request
      *
      * @return ListMessagesResponse
@@ -1193,6 +1351,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取触达计划列表。
+     *
      * @param ListSchedulesRequest $request
      *
      * @return ListSchedulesResponse
@@ -1303,6 +1463,9 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取模板列表
+     * 默认返回所有模板信息.
+     *
      * @param ListTemplatesRequest $request
      *
      * @return ListTemplatesResponse
@@ -1364,6 +1527,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取训练任务列表.
+     *
      * @param ListTrainingJobsRequest $request
      *
      * @return ListTrainingJobsResponse
@@ -1422,6 +1587,8 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 发送短信
+     *
      * @param SendMessageRequest $request
      *
      * @return SendMessageResponse

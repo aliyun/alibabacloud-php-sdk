@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTrainingJobsRequest extends Model
 {
     /**
-     * @description 训练任务名称过滤，使用%name%模糊匹配
+     * @description 训练任务名称过滤。
      *
      * @var string
      */
@@ -30,7 +30,7 @@ class ListTrainingJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @description 训练任务备注过滤，使用%name%模糊匹配
+     * @description 训练任务备注过滤。
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class ListTrainingJobsRequest extends Model
 
     /**
      * @description 训练任务状态过滤
-     *
+     * - 4: 失败。
      * @var int
      */
     public $status;

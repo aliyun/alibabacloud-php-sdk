@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
-     * @description 算法名称
+     * @description 算法
      *
      * @var string
      */
@@ -51,11 +51,11 @@ class groups extends Model
     public $id;
 
     /**
-     * @description 推理任务
+     * @description 预测任务Id
      *
      * @var string
      */
-    public $inferenceJob;
+    public $inferenceJobId;
 
     /**
      * @description 人群名称
@@ -120,22 +120,22 @@ class groups extends Model
      */
     public $uri;
     protected $_name = [
-        'algorithm'    => 'Algorithm',
-        'amount'       => 'Amount',
-        'column'       => 'Column',
-        'createdTime'  => 'CreatedTime',
-        'filter'       => 'Filter',
-        'id'           => 'Id',
-        'inferenceJob' => 'InferenceJob',
-        'name'         => 'Name',
-        'project'      => 'Project',
-        'remark'       => 'Remark',
-        'source'       => 'Source',
-        'status'       => 'Status',
-        'table'        => 'Table',
-        'text'         => 'Text',
-        'updatedTime'  => 'UpdatedTime',
-        'uri'          => 'Uri',
+        'algorithm'      => 'Algorithm',
+        'amount'         => 'Amount',
+        'column'         => 'Column',
+        'createdTime'    => 'CreatedTime',
+        'filter'         => 'Filter',
+        'id'             => 'Id',
+        'inferenceJobId' => 'InferenceJobId',
+        'name'           => 'Name',
+        'project'        => 'Project',
+        'remark'         => 'Remark',
+        'source'         => 'Source',
+        'status'         => 'Status',
+        'table'          => 'Table',
+        'text'           => 'Text',
+        'updatedTime'    => 'UpdatedTime',
+        'uri'            => 'Uri',
     ];
 
     public function validate()
@@ -163,8 +163,8 @@ class groups extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->inferenceJob) {
-            $res['InferenceJob'] = $this->inferenceJob;
+        if (null !== $this->inferenceJobId) {
+            $res['InferenceJobId'] = $this->inferenceJobId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -223,8 +223,8 @@ class groups extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['InferenceJob'])) {
-            $model->inferenceJob = $map['InferenceJob'];
+        if (isset($map['InferenceJobId'])) {
+            $model->inferenceJobId = $map['InferenceJobId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

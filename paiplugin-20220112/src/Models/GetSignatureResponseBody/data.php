@@ -44,8 +44,8 @@ class data extends Model
     public $reason;
 
     /**
-     * @description 签名审核状态。取值：
-     * - 2：审核不通过
+     * @description 签名审核状态。
+     * - 2：审核不通过。
      * @var int
      */
     public $status;

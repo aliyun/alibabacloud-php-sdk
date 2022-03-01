@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 模板内容，长度:2-30
+     * @description 模板内容。
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 创建时间 (UTC+8)
+     * @description 创建时间 (UTC+8)。
      *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 申请说明
+     * @description 申请说明。
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description Id UUId
+     * @description Id。
      *
      * @var string
      */
     public $id;
 
     /**
-     * @description 签名名称
+     * @description 签名名称。
      *
      * @var string
      */
@@ -51,35 +51,35 @@ class data extends Model
     public $reason;
 
     /**
-     * @description 签名Id
+     * @description 签名Id。
      *
      * @var string
      */
     public $signatureId;
 
     /**
-     * @description 审核状态
-     * - 2 : 审核不通过
+     * @description 审核状态。
+     * - 2 : 审核不通过。
      * @var int
      */
     public $status;
 
     /**
-     * @description 模板Code
+     * @description 模板Code。
      *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description 模板类型：
+     * @description 模板类型。
      * 3：国际/港澳台消息。
      * @var int
      */
     public $type;
 
     /**
-     * @description 更新时间 (UTC+8)
+     * @description 更新时间 (UTC+8)。
      *
      * @var string
      */

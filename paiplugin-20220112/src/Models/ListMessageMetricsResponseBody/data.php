@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 统计数据列表
+     * @description 统计数据列表。
      *
      * @var metrics[]
      */
@@ -31,7 +31,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description 总统计数量
+     * @description 总统计数量。
      *
      * @var int
      */

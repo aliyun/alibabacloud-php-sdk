@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\PaiPlugin\V20220112\Models;
 
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateGroupResponseBody\data;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetAlgorithmResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateGroupResponseBody extends Model
+class GetAlgorithmResponseBody extends Model
 {
     /**
      * @description 返回数据
@@ -69,7 +69,7 @@ class CreateGroupResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateGroupResponseBody
+     * @return GetAlgorithmResponseBody
      */
     public static function fromMap($map = [])
     {

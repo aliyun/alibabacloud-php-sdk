@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateRequest extends Model
 {
     /**
-     * @description 模板内容，请注意控制总字数在70个字以内，超出部分按长短信收费，按67个字为单位记一条短信，必须在结尾添加”回T退订“
+     * @description 模板内容，请注意控制总字数在70个字以内，超出部分按长短信收费，按67个字为单位记一条短信，必须在结尾添加”回T退订“。
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 申请说明
+     * @description 申请说明。
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 模板名称
+     * @description 模板名称。
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 签名Id
+     * @description 签名Id。
      *
      * @var string
      */
     public $signatureId;
 
     /**
-     * @description 模板类型：
+     * @description 模板类型。
      * 3：国际/港澳台消息。
      * @var int
      */

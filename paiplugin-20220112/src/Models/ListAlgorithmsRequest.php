@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\PaiPlugin\V20220112\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListTemplatesRequest extends Model
+class ListAlgorithmsRequest extends Model
 {
     /**
-     * @description 内容类型过滤。
+     * @description 算法Id过滤。
      *
      * @var string
      */
-    public $content;
+    public $id;
 
     /**
-     * @description 模板名称过滤。
+     * @description 算法名称过滤。
      *
      * @var string
      */
@@ -35,27 +35,11 @@ class ListTemplatesRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @description 审核状态过滤。
-     *
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @description 模板类型过滤。
-     *
-     * @var int
-     */
-    public $type;
     protected $_name = [
-        'content'    => 'Content',
+        'id'         => 'Id',
         'name'       => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'status'     => 'Status',
-        'type'       => 'Type',
     ];
 
     public function validate()
@@ -65,8 +49,8 @@ class ListTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -77,12 +61,6 @@ class ListTemplatesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
 
         return $res;
     }
@@ -90,13 +68,13 @@ class ListTemplatesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListTemplatesRequest
+     * @return ListAlgorithmsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -106,12 +84,6 @@ class ListTemplatesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

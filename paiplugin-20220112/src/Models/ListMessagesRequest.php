@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListMessagesRequest extends Model
 {
     /**
-     * @description 发送日期，格式为20220101
+     * @description 发送日期，格式为20220101。
      *
      * @var string
      */

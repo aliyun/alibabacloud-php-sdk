@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 训练任务列表
+     * @description 预测任务列表。
      *
      * @var inferenceJobs[]
      */
@@ -31,7 +31,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description 总训练任务数量
+     * @description 总预测任务数量。
      *
      * @var int
      */
