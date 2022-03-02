@@ -11,6 +11,11 @@ class CreateUserRequest extends Model
     /**
      * @var string
      */
+    public $displayId;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -53,6 +58,7 @@ class CreateUserRequest extends Model
      */
     public $workMode;
     protected $_name = [
+        'displayId'      => 'DisplayId',
         'displayName'    => 'DisplayName',
         'email'          => 'Email',
         'instanceId'     => 'InstanceId',
@@ -71,6 +77,9 @@ class CreateUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->displayId) {
+            $res['DisplayId'] = $this->displayId;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -110,6 +119,9 @@ class CreateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisplayId'])) {
+            $model->displayId = $map['DisplayId'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }

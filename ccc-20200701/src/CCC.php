@@ -36,25 +36,41 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignShrinkRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCustomCallTaggingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateUserResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCallTagRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCallTagResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCustomCallTaggingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetDoNotCallFileUploadParametersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetDoNotCallFileUploadParametersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCampaignReportRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCampaignReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceRequest;
@@ -69,6 +85,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetMultiChannelRecordingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetMultiChannelRecordingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetNumberLocationRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetNumberLocationResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeCampaignStatsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeCampaignStatsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeInstanceStatesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeInstanceStatesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnCredentialsRequest;
@@ -79,6 +97,10 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportDoNotCallNumbersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportDoNotCallNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\InitiateAttendedTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\InitiateAttendedTransferResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\InterceptCallRequest;
@@ -89,12 +111,18 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\LaunchSurveyRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\LaunchSurveyResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentStateLogsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentStateLogsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentStatesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentStatesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentSummaryReportsSinceMidnightRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentSummaryReportsSinceMidnightResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAttemptsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAttemptsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallTagsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallTagsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignTrendingReportRequest;
@@ -105,8 +133,12 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListConfigItemsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListConfigItemsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListContactFlowsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListContactFlowsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCustomCallTaggingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDevicesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDevicesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportRequest;
@@ -149,6 +181,10 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipTracesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipTracesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupStatesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupStatesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupSummaryReportsSinceMidnightRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupSummaryReportsSinceMidnightResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillLevelsOfUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillLevelsOfUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUnassignedNumbersRequest;
@@ -159,6 +195,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCustomCallTaggingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyInstanceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyInstanceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyPhoneNumberRequest;
@@ -189,6 +227,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveDoNotCallNumbersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveDoNotCallNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemovePersonalNumbersFromUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemovePersonalNumbersFromUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemovePhoneNumberFromSkillGroupsRequest;
@@ -235,6 +275,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\TakeBreakRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\TakeBreakResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1087,6 +1129,52 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param CreateCallTagsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCallTagsResponse
+     */
+    public function createCallTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callTagNameList)) {
+            $query['CallTagNameList'] = $request->callTagNameList;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCallTags',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCallTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCallTagsRequest $request
+     *
+     * @return CreateCallTagsResponse
+     */
+    public function createCallTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCallTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateCampaignRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
@@ -1174,6 +1262,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomCallTaggingRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateCustomCallTaggingResponse
+     */
+    public function createCustomCallTaggingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customNumberList)) {
+            $query['CustomNumberList'] = $request->customNumberList;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomCallTagging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomCallTaggingRequest $request
+     *
+     * @return CreateCustomCallTaggingResponse
+     */
+    public function createCustomCallTagging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomCallTaggingWithOptions($request, $runtime);
     }
 
     /**
@@ -1293,6 +1427,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->displayId)) {
+            $query['DisplayId'] = $request->displayId;
+        }
         if (!Utils::isUnset($request->displayName)) {
             $query['DisplayName'] = $request->displayName;
         }
@@ -1351,6 +1488,98 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param DeleteCallTagRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteCallTagResponse
+     */
+    public function deleteCallTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCallTag',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCallTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCallTagRequest $request
+     *
+     * @return DeleteCallTagResponse
+     */
+    public function deleteCallTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCallTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomCallTaggingRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteCustomCallTaggingResponse
+     */
+    public function deleteCustomCallTaggingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->number)) {
+            $query['Number'] = $request->number;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomCallTagging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomCallTaggingRequest $request
+     *
+     * @return DeleteCustomCallTaggingResponse
+     */
+    public function deleteCustomCallTagging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomCallTaggingWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteSkillGroupRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1397,6 +1626,98 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExportCustomCallTaggingRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ExportCustomCallTaggingResponse
+     */
+    public function exportCustomCallTaggingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportCustomCallTagging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportCustomCallTaggingRequest $request
+     *
+     * @return ExportCustomCallTaggingResponse
+     */
+    public function exportCustomCallTagging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportCustomCallTaggingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExportDoNotCallNumbersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ExportDoNotCallNumbersResponse
+     */
+    public function exportDoNotCallNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->searchPattern)) {
+            $query['SearchPattern'] = $request->searchPattern;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportDoNotCallNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportDoNotCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportDoNotCallNumbersRequest $request
+     *
+     * @return ExportDoNotCallNumbersResponse
+     */
+    public function exportDoNotCallNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportDoNotCallNumbersWithOptions($request, $runtime);
     }
 
     /**
@@ -1538,6 +1859,52 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param GetDoNotCallFileUploadParametersRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetDoNotCallFileUploadParametersResponse
+     */
+    public function getDoNotCallFileUploadParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDoNotCallFileUploadParameters',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDoNotCallFileUploadParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDoNotCallFileUploadParametersRequest $request
+     *
+     * @return GetDoNotCallFileUploadParametersResponse
+     */
+    public function getDoNotCallFileUploadParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDoNotCallFileUploadParametersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetHistoricalCallerReportRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1587,6 +1954,46 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getHistoricalCallerReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetHistoricalCampaignReportRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetHistoricalCampaignReportResponse
+     */
+    public function getHistoricalCampaignReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHistoricalCampaignReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetHistoricalCampaignReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetHistoricalCampaignReportRequest $request
+     *
+     * @return GetHistoricalCampaignReportResponse
+     */
+    public function getHistoricalCampaignReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHistoricalCampaignReportWithOptions($request, $runtime);
     }
 
     /**
@@ -1915,6 +2322,46 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param GetRealtimeCampaignStatsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetRealtimeCampaignStatsResponse
+     */
+    public function getRealtimeCampaignStatsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRealtimeCampaignStats',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRealtimeCampaignStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRealtimeCampaignStatsRequest $request
+     *
+     * @return GetRealtimeCampaignStatsResponse
+     */
+    public function getRealtimeCampaignStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRealtimeCampaignStatsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRealtimeInstanceStatesRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2151,6 +2598,104 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->holdCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportCustomCallTaggingRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ImportCustomCallTaggingResponse
+     */
+    public function importCustomCallTaggingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filePath)) {
+            $query['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportCustomCallTagging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportCustomCallTaggingRequest $request
+     *
+     * @return ImportCustomCallTaggingResponse
+     */
+    public function importCustomCallTagging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importCustomCallTaggingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportDoNotCallNumbersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ImportDoNotCallNumbersResponse
+     */
+    public function importDoNotCallNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filePath)) {
+            $query['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->numberList)) {
+            $query['NumberList'] = $request->numberList;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportDoNotCallNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportDoNotCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportDoNotCallNumbersRequest $request
+     *
+     * @return ImportDoNotCallNumbersResponse
+     */
+    public function importDoNotCallNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importDoNotCallNumbersWithOptions($request, $runtime);
     }
 
     /**
@@ -2435,6 +2980,104 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListAgentStatesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAgentStatesResponse
+     */
+    public function listAgentStatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentIds)) {
+            $query['AgentIds'] = $request->agentIds;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->skillGroupId)) {
+            $query['SkillGroupId'] = $request->skillGroupId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAgentStates',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAgentStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAgentStatesRequest $request
+     *
+     * @return ListAgentStatesResponse
+     */
+    public function listAgentStates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentStatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAgentSummaryReportsSinceMidnightRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListAgentSummaryReportsSinceMidnightResponse
+     */
+    public function listAgentSummaryReportsSinceMidnightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAgentSummaryReportsSinceMidnight',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAgentSummaryReportsSinceMidnightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAgentSummaryReportsSinceMidnightRequest $request
+     *
+     * @return ListAgentSummaryReportsSinceMidnightResponse
+     */
+    public function listAgentSummaryReportsSinceMidnight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentSummaryReportsSinceMidnightWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAttemptsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2621,6 +3264,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCallDetailRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCallTagsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListCallTagsResponse
+     */
+    public function listCallTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCallTags',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCallTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCallTagsRequest $request
+     *
+     * @return ListCallTagsResponse
+     */
+    public function listCallTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallTagsWithOptions($request, $runtime);
     }
 
     /**
@@ -2890,6 +3582,61 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListCustomCallTaggingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListCustomCallTaggingResponse
+     */
+    public function listCustomCallTaggingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callTagNameList)) {
+            $query['CallTagNameList'] = $request->callTagNameList;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchPattern)) {
+            $query['SearchPattern'] = $request->searchPattern;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomCallTagging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomCallTaggingRequest $request
+     *
+     * @return ListCustomCallTaggingResponse
+     */
+    public function listCustomCallTagging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomCallTaggingWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDevicesRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -2933,6 +3680,61 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDevicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDoNotCallNumbersRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDoNotCallNumbersResponse
+     */
+    public function listDoNotCallNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->searchPattern)) {
+            $query['SearchPattern'] = $request->searchPattern;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDoNotCallNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDoNotCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDoNotCallNumbersRequest $request
+     *
+     * @return ListDoNotCallNumbersResponse
+     */
+    public function listDoNotCallNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDoNotCallNumbersWithOptions($request, $runtime);
     }
 
     /**
@@ -4001,6 +4803,86 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListSkillGroupStatesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSkillGroupStatesResponse
+     */
+    public function listSkillGroupStatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSkillGroupStates',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSkillGroupStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSkillGroupStatesRequest $request
+     *
+     * @return ListSkillGroupStatesResponse
+     */
+    public function listSkillGroupStates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSkillGroupStatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return ListSkillGroupSummaryReportsSinceMidnightResponse
+     */
+    public function listSkillGroupSummaryReportsSinceMidnightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSkillGroupSummaryReportsSinceMidnight',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSkillGroupSummaryReportsSinceMidnightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request
+     *
+     * @return ListSkillGroupSummaryReportsSinceMidnightResponse
+     */
+    public function listSkillGroupSummaryReportsSinceMidnight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSkillGroupSummaryReportsSinceMidnightWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListSkillGroupsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4337,6 +5219,58 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ModifyCustomCallTaggingRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyCustomCallTaggingResponse
+     */
+    public function modifyCustomCallTaggingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callTagNameList)) {
+            $query['CallTagNameList'] = $request->callTagNameList;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->number)) {
+            $query['Number'] = $request->number;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCustomCallTagging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCustomCallTaggingRequest $request
+     *
+     * @return ModifyCustomCallTaggingResponse
+     */
+    public function modifyCustomCallTagging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomCallTaggingWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -4545,6 +5479,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->displayId)) {
+            $query['DisplayId'] = $request->displayId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -5105,6 +6042,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveDoNotCallNumbersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RemoveDoNotCallNumbersResponse
+     */
+    public function removeDoNotCallNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->numberList)) {
+            $query['NumberList'] = $request->numberList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveDoNotCallNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveDoNotCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveDoNotCallNumbersRequest $request
+     *
+     * @return RemoveDoNotCallNumbersResponse
+     */
+    public function removeDoNotCallNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDoNotCallNumbersWithOptions($request, $runtime);
     }
 
     /**
@@ -6319,6 +7302,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unmuteCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnregisterDeviceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UnregisterDeviceResponse
+     */
+    public function unregisterDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnregisterDevice',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnregisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnregisterDeviceRequest $request
+     *
+     * @return UnregisterDeviceResponse
+     */
+    public function unregisterDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unregisterDeviceWithOptions($request, $runtime);
     }
 
     /**

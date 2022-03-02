@@ -26,6 +26,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $displayId;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -76,6 +81,7 @@ class data extends Model
         'deviceExt'   => 'DeviceExt',
         'deviceId'    => 'DeviceId',
         'deviceState' => 'DeviceState',
+        'displayId'   => 'DisplayId',
         'displayName' => 'DisplayName',
         'email'       => 'Email',
         'extension'   => 'Extension',
@@ -103,6 +109,9 @@ class data extends Model
         }
         if (null !== $this->deviceState) {
             $res['DeviceState'] = $this->deviceState;
+        }
+        if (null !== $this->displayId) {
+            $res['DisplayId'] = $this->displayId;
         }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
@@ -154,6 +163,9 @@ class data extends Model
         }
         if (isset($map['DeviceState'])) {
             $model->deviceState = $map['DeviceState'];
+        }
+        if (isset($map['DisplayId'])) {
+            $model->displayId = $map['DisplayId'];
         }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];

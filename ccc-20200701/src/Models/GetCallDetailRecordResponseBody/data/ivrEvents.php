@@ -18,9 +18,15 @@ class ivrEvents extends Model
      * @var string
      */
     public $flowId;
+
+    /**
+     * @var string
+     */
+    public $flowType;
     protected $_name = [
         'eventSequence' => 'EventSequence',
         'flowId'        => 'FlowId',
+        'flowType'      => 'FlowType',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class ivrEvents extends Model
         }
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
+        }
+        if (null !== $this->flowType) {
+            $res['FlowType'] = $this->flowType;
         }
 
         return $res;
@@ -65,6 +74,9 @@ class ivrEvents extends Model
         }
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
+        }
+        if (isset($map['FlowType'])) {
+            $model->flowType = $map['FlowType'];
         }
 
         return $model;

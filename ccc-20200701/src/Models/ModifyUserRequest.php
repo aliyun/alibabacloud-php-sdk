@@ -11,6 +11,11 @@ class ModifyUserRequest extends Model
     /**
      * @var string
      */
+    public $displayId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -33,6 +38,7 @@ class ModifyUserRequest extends Model
      */
     public $workMode;
     protected $_name = [
+        'displayId'  => 'DisplayId',
         'instanceId' => 'InstanceId',
         'mobile'     => 'Mobile',
         'roleId'     => 'RoleId',
@@ -47,6 +53,9 @@ class ModifyUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->displayId) {
+            $res['DisplayId'] = $this->displayId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -74,6 +83,9 @@ class ModifyUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisplayId'])) {
+            $model->displayId = $map['DisplayId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
