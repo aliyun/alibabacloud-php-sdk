@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SendMessageRequest extends Model
 {
     /**
-     * @description 人群ID，用于关联人群。
+     * @description 人群Id，用于关联人群。
      *
      * @var string
      */
@@ -30,7 +30,7 @@ class SendMessageRequest extends Model
     public $phoneNumbers;
 
     /**
-     * @description 发送计划ID，用于关联发送计划。
+     * @description 发送计划Id，用于关联发送计划。
      *
      * @var string
      */
@@ -44,7 +44,7 @@ class SendMessageRequest extends Model
     public $signName;
 
     /**
-     * @description 签名ID，同时只能指定签名名称或签名ID其中之一。
+     * @description 签名Id，同时只能指定签名名称或签名Id其中之一。
      *
      * @var string
      */
@@ -65,7 +65,7 @@ class SendMessageRequest extends Model
     public $templateCode;
 
     /**
-     * @description 模板ID，同时只能指定模板Code或模板ID其中之一。
+     * @description 模板Id，同时只能指定模板Code或模板Id其中之一。
      *
      * @var string
      */

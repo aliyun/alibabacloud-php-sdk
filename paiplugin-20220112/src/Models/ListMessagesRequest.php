@@ -72,11 +72,32 @@ class ListMessagesRequest extends Model
     public $signature;
 
     /**
+     * @description 签名Id，同时只能指定签名名称或签名Id其中之一。
+     *
+     * @var string
+     */
+    public $signatureId;
+
+    /**
+     * @description 短信发送状态。
+     * - 2 : 发送失败。
+     * @var int
+     */
+    public $status;
+
+    /**
      * @description 模板号。
      *
      * @var string
      */
     public $templateCode;
+
+    /**
+     * @description 模板Id，同时只能指定模板Code或模板Id其中之一。
+     *
+     * @var string
+     */
+    public $templateId;
     protected $_name = [
         'datetime'     => 'Datetime',
         'groupId'      => 'GroupId',
@@ -87,7 +108,10 @@ class ListMessagesRequest extends Model
         'requestId'    => 'RequestId',
         'scheduleId'   => 'ScheduleId',
         'signature'    => 'Signature',
+        'signatureId'  => 'SignatureId',
+        'status'       => 'Status',
         'templateCode' => 'TemplateCode',
+        'templateId'   => 'TemplateId',
     ];
 
     public function validate()
@@ -124,8 +148,17 @@ class ListMessagesRequest extends Model
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
         }
+        if (null !== $this->signatureId) {
+            $res['SignatureId'] = $this->signatureId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -166,8 +199,17 @@ class ListMessagesRequest extends Model
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
         }
+        if (isset($map['SignatureId'])) {
+            $model->signatureId = $map['SignatureId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

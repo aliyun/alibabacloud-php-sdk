@@ -17,21 +17,21 @@ class ListMessagesResponseBody extends Model
     public $data;
 
     /**
-     * @description 错误码
+     * @description 错误码。
      *
      * @var int
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
+     * @description 错误信息。
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 请求ID
+     * @description 请求ID。
      *
      * @var string
      */

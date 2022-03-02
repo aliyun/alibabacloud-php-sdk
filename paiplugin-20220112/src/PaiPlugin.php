@@ -93,6 +93,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 注册人群.
      *
+     * @tags 人群
+     *
      * @param CreateGroupRequest $request
      *
      * @return CreateGroupResponse
@@ -171,6 +173,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 注册推理任务
      *
+     * @tags 推理任务
+     *
      * @param CreateInferenceJobRequest $request
      *
      * @return CreateInferenceJobResponse
@@ -230,6 +234,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 注册触达计划.
+     *
+     * @tags 触达计划
      *
      * @param CreateScheduleRequest $request
      *
@@ -309,6 +315,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 注册签名。
      *
+     * @tags 签名
+     *
      * @param CreateSignatureRequest $request
      *
      * @return CreateSignatureResponse
@@ -359,6 +367,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 注册模板
+     *
+     * @tags 模板
      *
      * @param CreateTemplateRequest $request
      *
@@ -420,6 +430,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 注册训练任务
      *
+     * @tags 训练任务
+     *
      * @param CreateTrainingJobRequest $request
      *
      * @return CreateTrainingJobResponse
@@ -477,6 +489,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 删除人群.
      *
+     * @tags 人群
+     *
      * @param string $Id
      *
      * @return DeleteGroupResponse
@@ -519,6 +533,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 删除推理任务
+     *
+     * @tags 推理任务
      *
      * @param string $Id
      *
@@ -563,6 +579,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 删除触达计划.
      *
+     * @tags 触达计划
+     *
      * @param string $Id
      *
      * @return DeleteScheduleResponse
@@ -605,6 +623,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 删除签名。
+     *
+     * @tags 签名
      *
      * @param string $Id
      *
@@ -649,6 +669,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 删除模板
      *
+     * @tags 模板
+     *
      * @param string $Id
      *
      * @return DeleteTemplateResponse
@@ -692,6 +714,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 删除训练任务
      *
+     * @tags 训练任务
+     *
      * @param string $Id
      *
      * @return DeleteTrainingJobResponse
@@ -734,6 +758,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 获取算法详情.
+     *
+     * @tags 算法
      *
      * @param string $Id
      *
@@ -779,6 +805,8 @@ class PaiPlugin extends OpenApiClient
      * 获取人群
      * 默认返回所有人群信息.
      *
+     * @tags 人群
+     *
      * @param string $Id
      *
      * @return GetGroupResponse
@@ -823,6 +851,8 @@ class PaiPlugin extends OpenApiClient
      * 获取推理任务
      * 默认返回所有推理任务信息.
      *
+     * @tags 推理任务
+     *
      * @param string $Id
      *
      * @return GetInferenceJobResponse
@@ -866,6 +896,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 获取触达计划详情。
      *
+     * @tags 触达计划
+     *
      * @param string $Id
      *
      * @return GetScheduleResponse
@@ -908,6 +940,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 获取签名详情.
+     *
+     * @tags 签名
      *
      * @param string $Id
      *
@@ -954,6 +988,8 @@ class PaiPlugin extends OpenApiClient
      * 默认返回所有模板信息
      * ![模板列表](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/302991/1615264998427-d2943cfb-106a-421d-b4a4-f06307b4d9be.png).
      *
+     * @tags 模板
+     *
      * @param string $Id
      *
      * @return GetTemplateResponse
@@ -998,6 +1034,8 @@ class PaiPlugin extends OpenApiClient
      * 获取训练任务
      * 默认返回所有训练任务信息.
      *
+     * @tags 训练任务
+     *
      * @param string $Id
      *
      * @return GetTrainingJobResponse
@@ -1040,6 +1078,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 获取算法列表.
+     *
+     * @tags 算法
      *
      * @param ListAlgorithmsRequest $request
      *
@@ -1097,6 +1137,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 获取人群列表.
+     *
+     * @tags 人群
      *
      * @param ListGroupsRequest $request
      *
@@ -1161,6 +1203,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 获取推理任务列表.
      *
+     * @tags 推理任务
+     *
      * @param ListInferenceJobsRequest $request
      *
      * @return ListInferenceJobsResponse
@@ -1221,6 +1265,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 获取用户短信发送统计
      *
+     * @tags 短信
+     *
      * @param ListMessageMetricsRequest $request
      *
      * @return ListMessageMetricsResponse
@@ -1247,14 +1293,32 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->endDate)) {
             $query['EndDate'] = $request->endDate;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->scheduleId)) {
+            $query['ScheduleId'] = $request->scheduleId;
+        }
+        if (!Utils::isUnset($request->signature)) {
+            $query['Signature'] = $request->signature;
+        }
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
+        }
         if (!Utils::isUnset($request->startDate)) {
             $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1277,6 +1341,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 查询短信发送详情.
+     *
+     * @tags 短信
      *
      * @param ListMessagesRequest $request
      *
@@ -1328,8 +1394,17 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->signature)) {
             $query['Signature'] = $request->signature;
         }
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1352,6 +1427,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 获取触达计划列表。
+     *
+     * @tags 触达计划
      *
      * @param ListSchedulesRequest $request
      *
@@ -1408,6 +1485,10 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
+     * 获取签名列表.
+     *
+     * @tags 签名
+     *
      * @param ListSignaturesRequest $request
      *
      * @return ListSignaturesResponse
@@ -1465,6 +1546,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 获取模板列表
      * 默认返回所有模板信息.
+     *
+     * @tags 模板
      *
      * @param ListTemplatesRequest $request
      *
@@ -1529,6 +1612,8 @@ class PaiPlugin extends OpenApiClient
     /**
      * 获取训练任务列表.
      *
+     * @tags 训练任务
+     *
      * @param ListTrainingJobsRequest $request
      *
      * @return ListTrainingJobsResponse
@@ -1588,6 +1673,8 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 发送短信
+     *
+     * @tags 短信
      *
      * @param SendMessageRequest $request
      *

@@ -58,7 +58,7 @@ class messages extends Model
     public $signature;
 
     /**
-     * @description 短信发送状态
+     * @description 短信发送状态。
      * - 2 : 发送失败。
      * @var int
      */

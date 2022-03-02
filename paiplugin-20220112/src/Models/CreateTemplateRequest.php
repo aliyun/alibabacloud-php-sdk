@@ -38,7 +38,7 @@ class CreateTemplateRequest extends Model
 
     /**
      * @description 模板类型。
-     * 3：国际/港澳台消息。
+     * 2：推广短信。
      * @var int
      */
     public $type;
