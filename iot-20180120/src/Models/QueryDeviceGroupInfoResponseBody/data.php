@@ -26,6 +26,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $dynamicGroupExpression;
+
+    /**
+     * @var string
+     */
     public $groupDesc;
 
     /**
@@ -43,13 +48,14 @@ class data extends Model
      */
     public $utcCreate;
     protected $_name = [
-        'deviceActive' => 'DeviceActive',
-        'deviceCount'  => 'DeviceCount',
-        'deviceOnline' => 'DeviceOnline',
-        'groupDesc'    => 'GroupDesc',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
-        'utcCreate'    => 'UtcCreate',
+        'deviceActive'           => 'DeviceActive',
+        'deviceCount'            => 'DeviceCount',
+        'deviceOnline'           => 'DeviceOnline',
+        'dynamicGroupExpression' => 'DynamicGroupExpression',
+        'groupDesc'              => 'GroupDesc',
+        'groupId'                => 'GroupId',
+        'groupName'              => 'GroupName',
+        'utcCreate'              => 'UtcCreate',
     ];
 
     public function validate()
@@ -67,6 +73,9 @@ class data extends Model
         }
         if (null !== $this->deviceOnline) {
             $res['DeviceOnline'] = $this->deviceOnline;
+        }
+        if (null !== $this->dynamicGroupExpression) {
+            $res['DynamicGroupExpression'] = $this->dynamicGroupExpression;
         }
         if (null !== $this->groupDesc) {
             $res['GroupDesc'] = $this->groupDesc;
@@ -100,6 +109,9 @@ class data extends Model
         }
         if (isset($map['DeviceOnline'])) {
             $model->deviceOnline = $map['DeviceOnline'];
+        }
+        if (isset($map['DynamicGroupExpression'])) {
+            $model->dynamicGroupExpression = $map['DynamicGroupExpression'];
         }
         if (isset($map['GroupDesc'])) {
             $model->groupDesc = $map['GroupDesc'];

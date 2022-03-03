@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechResponseBody;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechResponseBody\data\soundCodeConfig;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -17,6 +18,16 @@ class data extends Model
      * @var string
      */
     public $bizCode;
+
+    /**
+     * @var bool
+     */
+    public $enableSoundCode;
+
+    /**
+     * @var soundCodeConfig
+     */
+    public $soundCodeConfig;
 
     /**
      * @var string
@@ -48,14 +59,16 @@ class data extends Model
      */
     public $volume;
     protected $_name = [
-        'audioFormat' => 'AudioFormat',
-        'bizCode'     => 'BizCode',
-        'speechCode'  => 'SpeechCode',
-        'speechRate'  => 'SpeechRate',
-        'speechType'  => 'SpeechType',
-        'text'        => 'Text',
-        'voice'       => 'Voice',
-        'volume'      => 'Volume',
+        'audioFormat'     => 'AudioFormat',
+        'bizCode'         => 'BizCode',
+        'enableSoundCode' => 'EnableSoundCode',
+        'soundCodeConfig' => 'SoundCodeConfig',
+        'speechCode'      => 'SpeechCode',
+        'speechRate'      => 'SpeechRate',
+        'speechType'      => 'SpeechType',
+        'text'            => 'Text',
+        'voice'           => 'Voice',
+        'volume'          => 'Volume',
     ];
 
     public function validate()
@@ -70,6 +83,12 @@ class data extends Model
         }
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
+        }
+        if (null !== $this->enableSoundCode) {
+            $res['EnableSoundCode'] = $this->enableSoundCode;
+        }
+        if (null !== $this->soundCodeConfig) {
+            $res['SoundCodeConfig'] = null !== $this->soundCodeConfig ? $this->soundCodeConfig->toMap() : null;
         }
         if (null !== $this->speechCode) {
             $res['SpeechCode'] = $this->speechCode;
@@ -106,6 +125,12 @@ class data extends Model
         }
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
+        }
+        if (isset($map['EnableSoundCode'])) {
+            $model->enableSoundCode = $map['EnableSoundCode'];
+        }
+        if (isset($map['SoundCodeConfig'])) {
+            $model->soundCodeConfig = soundCodeConfig::fromMap($map['SoundCodeConfig']);
         }
         if (isset($map['SpeechCode'])) {
             $model->speechCode = $map['SpeechCode'];

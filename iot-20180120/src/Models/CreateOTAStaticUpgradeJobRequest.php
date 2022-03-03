@@ -17,6 +17,11 @@ class CreateOTAStaticUpgradeJobRequest extends Model
     /**
      * @var string
      */
+    public $downloadProtocol;
+
+    /**
+     * @var string
+     */
     public $firmwareId;
 
     /**
@@ -27,12 +32,27 @@ class CreateOTAStaticUpgradeJobRequest extends Model
     /**
      * @var string
      */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupType;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
      * @var int
      */
     public $maximumPerMinute;
+
+    /**
+     * @var bool
+     */
+    public $multiModuleMode;
 
     /**
      * @var bool
@@ -100,10 +120,14 @@ class CreateOTAStaticUpgradeJobRequest extends Model
     public $timeoutInMinutes;
     protected $_name = [
         'dnListFileUrl'      => 'DnListFileUrl',
+        'downloadProtocol'   => 'DownloadProtocol',
         'firmwareId'         => 'FirmwareId',
         'grayPercent'        => 'GrayPercent',
+        'groupId'            => 'GroupId',
+        'groupType'          => 'GroupType',
         'iotInstanceId'      => 'IotInstanceId',
         'maximumPerMinute'   => 'MaximumPerMinute',
+        'multiModuleMode'    => 'MultiModuleMode',
         'needConfirm'        => 'NeedConfirm',
         'needPush'           => 'NeedPush',
         'overwriteMode'      => 'OverwriteMode',
@@ -129,17 +153,29 @@ class CreateOTAStaticUpgradeJobRequest extends Model
         if (null !== $this->dnListFileUrl) {
             $res['DnListFileUrl'] = $this->dnListFileUrl;
         }
+        if (null !== $this->downloadProtocol) {
+            $res['DownloadProtocol'] = $this->downloadProtocol;
+        }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
         }
         if (null !== $this->grayPercent) {
             $res['GrayPercent'] = $this->grayPercent;
         }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->maximumPerMinute) {
             $res['MaximumPerMinute'] = $this->maximumPerMinute;
+        }
+        if (null !== $this->multiModuleMode) {
+            $res['MultiModuleMode'] = $this->multiModuleMode;
         }
         if (null !== $this->needConfirm) {
             $res['NeedConfirm'] = $this->needConfirm;
@@ -201,17 +237,29 @@ class CreateOTAStaticUpgradeJobRequest extends Model
         if (isset($map['DnListFileUrl'])) {
             $model->dnListFileUrl = $map['DnListFileUrl'];
         }
+        if (isset($map['DownloadProtocol'])) {
+            $model->downloadProtocol = $map['DownloadProtocol'];
+        }
         if (isset($map['FirmwareId'])) {
             $model->firmwareId = $map['FirmwareId'];
         }
         if (isset($map['GrayPercent'])) {
             $model->grayPercent = $map['GrayPercent'];
         }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['MaximumPerMinute'])) {
             $model->maximumPerMinute = $map['MaximumPerMinute'];
+        }
+        if (isset($map['MultiModuleMode'])) {
+            $model->multiModuleMode = $map['MultiModuleMode'];
         }
         if (isset($map['NeedConfirm'])) {
             $model->needConfirm = $map['NeedConfirm'];

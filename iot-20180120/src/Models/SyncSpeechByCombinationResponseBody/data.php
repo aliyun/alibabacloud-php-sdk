@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $detail;
+
+    /**
+     * @var string
+     */
     public $deviceErrorCode;
 
     /**
@@ -38,6 +43,7 @@ class data extends Model
      */
     public $success;
     protected $_name = [
+        'detail'             => 'Detail',
         'deviceErrorCode'    => 'DeviceErrorCode',
         'deviceErrorMessage' => 'DeviceErrorMessage',
         'id'                 => 'Id',
@@ -53,6 +59,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
+        }
         if (null !== $this->deviceErrorCode) {
             $res['DeviceErrorCode'] = $this->deviceErrorCode;
         }
@@ -83,6 +92,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
+        }
         if (isset($map['DeviceErrorCode'])) {
             $model->deviceErrorCode = $map['DeviceErrorCode'];
         }

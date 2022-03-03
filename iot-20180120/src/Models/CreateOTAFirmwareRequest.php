@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAFirmwareRequest\multiFiles;
 use AlibabaCloud\Tea\Model;
 
 class CreateOTAFirmwareRequest extends Model
@@ -49,6 +50,11 @@ class CreateOTAFirmwareRequest extends Model
     public $moduleName;
 
     /**
+     * @var multiFiles[]
+     */
+    public $multiFiles;
+
+    /**
      * @var bool
      */
     public $needToVerify;
@@ -86,6 +92,7 @@ class CreateOTAFirmwareRequest extends Model
         'firmwareUrl'   => 'FirmwareUrl',
         'iotInstanceId' => 'IotInstanceId',
         'moduleName'    => 'ModuleName',
+        'multiFiles'    => 'MultiFiles',
         'needToVerify'  => 'NeedToVerify',
         'productKey'    => 'ProductKey',
         'signMethod'    => 'SignMethod',
@@ -124,6 +131,15 @@ class CreateOTAFirmwareRequest extends Model
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
+        }
+        if (null !== $this->multiFiles) {
+            $res['MultiFiles'] = [];
+            if (null !== $this->multiFiles && \is_array($this->multiFiles)) {
+                $n = 0;
+                foreach ($this->multiFiles as $item) {
+                    $res['MultiFiles'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->needToVerify) {
             $res['NeedToVerify'] = $this->needToVerify;
@@ -178,6 +194,15 @@ class CreateOTAFirmwareRequest extends Model
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
+        }
+        if (isset($map['MultiFiles'])) {
+            if (!empty($map['MultiFiles'])) {
+                $model->multiFiles = [];
+                $n                 = 0;
+                foreach ($map['MultiFiles'] as $item) {
+                    $model->multiFiles[$n++] = null !== $item ? multiFiles::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['NeedToVerify'])) {
             $model->needToVerify = $map['NeedToVerify'];

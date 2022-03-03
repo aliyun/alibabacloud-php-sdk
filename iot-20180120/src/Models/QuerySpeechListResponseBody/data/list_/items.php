@@ -12,6 +12,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $audioFormat;
+
+    /**
+     * @var string
+     */
     public $bizCode;
 
     /**
@@ -39,12 +44,13 @@ class items extends Model
      */
     public $voice;
     protected $_name = [
-        'bizCode'    => 'BizCode',
-        'speechCode' => 'SpeechCode',
-        'speechList' => 'SpeechList',
-        'speechType' => 'SpeechType',
-        'text'       => 'Text',
-        'voice'      => 'Voice',
+        'audioFormat' => 'AudioFormat',
+        'bizCode'     => 'BizCode',
+        'speechCode'  => 'SpeechCode',
+        'speechList'  => 'SpeechList',
+        'speechType'  => 'SpeechType',
+        'text'        => 'Text',
+        'voice'       => 'Voice',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->audioFormat) {
+            $res['AudioFormat'] = $this->audioFormat;
+        }
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
@@ -84,6 +93,9 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioFormat'])) {
+            $model->audioFormat = $map['AudioFormat'];
+        }
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }

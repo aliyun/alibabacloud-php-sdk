@@ -14,6 +14,11 @@ class PrintByTemplateRequest extends Model
     public $deviceName;
 
     /**
+     * @var bool
+     */
+    public $historyPrintTopic;
+
+    /**
      * @var string
      */
     public $iotId;
@@ -36,20 +41,15 @@ class PrintByTemplateRequest extends Model
     /**
      * @var string
      */
-    public $projectCode;
-
-    /**
-     * @var string
-     */
     public $templateBizCode;
     protected $_name = [
-        'deviceName'       => 'DeviceName',
-        'iotId'            => 'IotId',
-        'iotInstanceId'    => 'IotInstanceId',
-        'paramsJsonString' => 'ParamsJsonString',
-        'productKey'       => 'ProductKey',
-        'projectCode'      => 'ProjectCode',
-        'templateBizCode'  => 'TemplateBizCode',
+        'deviceName'        => 'DeviceName',
+        'historyPrintTopic' => 'HistoryPrintTopic',
+        'iotId'             => 'IotId',
+        'iotInstanceId'     => 'IotInstanceId',
+        'paramsJsonString'  => 'ParamsJsonString',
+        'productKey'        => 'ProductKey',
+        'templateBizCode'   => 'TemplateBizCode',
     ];
 
     public function validate()
@@ -62,6 +62,9 @@ class PrintByTemplateRequest extends Model
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+        if (null !== $this->historyPrintTopic) {
+            $res['HistoryPrintTopic'] = $this->historyPrintTopic;
+        }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
@@ -73,9 +76,6 @@ class PrintByTemplateRequest extends Model
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->projectCode) {
-            $res['ProjectCode'] = $this->projectCode;
         }
         if (null !== $this->templateBizCode) {
             $res['TemplateBizCode'] = $this->templateBizCode;
@@ -95,6 +95,9 @@ class PrintByTemplateRequest extends Model
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+        if (isset($map['HistoryPrintTopic'])) {
+            $model->historyPrintTopic = $map['HistoryPrintTopic'];
+        }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
@@ -106,9 +109,6 @@ class PrintByTemplateRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['ProjectCode'])) {
-            $model->projectCode = $map['ProjectCode'];
         }
         if (isset($map['TemplateBizCode'])) {
             $model->templateBizCode = $map['TemplateBizCode'];

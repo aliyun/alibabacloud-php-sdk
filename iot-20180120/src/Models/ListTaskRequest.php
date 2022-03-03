@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTaskRequest extends Model
 {
     /**
-     * @var string
+     * @var mixed[]
      */
     public $device;
 

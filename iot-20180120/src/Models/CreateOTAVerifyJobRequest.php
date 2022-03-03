@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAVerifyJobRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateOTAVerifyJobRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $downloadProtocol;
+
     /**
      * @var string
      */
@@ -34,6 +40,11 @@ class CreateOTAVerifyJobRequest extends Model
     public $productKey;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string[]
      */
     public $targetDeviceName;
@@ -43,11 +54,13 @@ class CreateOTAVerifyJobRequest extends Model
      */
     public $timeoutInMinutes;
     protected $_name = [
+        'downloadProtocol' => 'DownloadProtocol',
         'firmwareId'       => 'FirmwareId',
         'iotInstanceId'    => 'IotInstanceId',
         'needConfirm'      => 'NeedConfirm',
         'needPush'         => 'NeedPush',
         'productKey'       => 'ProductKey',
+        'tag'              => 'Tag',
         'targetDeviceName' => 'TargetDeviceName',
         'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
@@ -59,6 +72,9 @@ class CreateOTAVerifyJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->downloadProtocol) {
+            $res['DownloadProtocol'] = $this->downloadProtocol;
+        }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
         }
@@ -73,6 +89,15 @@ class CreateOTAVerifyJobRequest extends Model
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->targetDeviceName) {
             $res['TargetDeviceName'] = $this->targetDeviceName;
@@ -92,6 +117,9 @@ class CreateOTAVerifyJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DownloadProtocol'])) {
+            $model->downloadProtocol = $map['DownloadProtocol'];
+        }
         if (isset($map['FirmwareId'])) {
             $model->firmwareId = $map['FirmwareId'];
         }
@@ -106,6 +134,15 @@ class CreateOTAVerifyJobRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TargetDeviceName'])) {
             if (!empty($map['TargetDeviceName'])) {

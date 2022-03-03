@@ -19,6 +19,11 @@ class QueryDeviceGroupListRequest extends Model
     public $groupName;
 
     /**
+     * @var string[]
+     */
+    public $groupTypes;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -35,6 +40,7 @@ class QueryDeviceGroupListRequest extends Model
     protected $_name = [
         'currentPage'   => 'CurrentPage',
         'groupName'     => 'GroupName',
+        'groupTypes'    => 'GroupTypes',
         'iotInstanceId' => 'IotInstanceId',
         'pageSize'      => 'PageSize',
         'superGroupId'  => 'SuperGroupId',
@@ -52,6 +58,9 @@ class QueryDeviceGroupListRequest extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->groupTypes) {
+            $res['GroupTypes'] = $this->groupTypes;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
@@ -79,6 +88,11 @@ class QueryDeviceGroupListRequest extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['GroupTypes'])) {
+            if (!empty($map['GroupTypes'])) {
+                $model->groupTypes = $map['GroupTypes'];
+            }
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];

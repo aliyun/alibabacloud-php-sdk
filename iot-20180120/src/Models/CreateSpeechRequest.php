@@ -11,7 +11,17 @@ class CreateSpeechRequest extends Model
     /**
      * @var string
      */
+    public $audioFormat;
+
+    /**
+     * @var string
+     */
     public $bizCode;
+
+    /**
+     * @var bool
+     */
+    public $enableSoundCode;
 
     /**
      * @var string
@@ -22,6 +32,11 @@ class CreateSpeechRequest extends Model
      * @var string
      */
     public $projectCode;
+
+    /**
+     * @var mixed[]
+     */
+    public $soundCodeConfig;
 
     /**
      * @var int
@@ -48,14 +63,17 @@ class CreateSpeechRequest extends Model
      */
     public $volume;
     protected $_name = [
-        'bizCode'       => 'BizCode',
-        'iotInstanceId' => 'IotInstanceId',
-        'projectCode'   => 'ProjectCode',
-        'speechRate'    => 'SpeechRate',
-        'speechType'    => 'SpeechType',
-        'text'          => 'Text',
-        'voice'         => 'Voice',
-        'volume'        => 'Volume',
+        'audioFormat'     => 'AudioFormat',
+        'bizCode'         => 'BizCode',
+        'enableSoundCode' => 'EnableSoundCode',
+        'iotInstanceId'   => 'IotInstanceId',
+        'projectCode'     => 'ProjectCode',
+        'soundCodeConfig' => 'SoundCodeConfig',
+        'speechRate'      => 'SpeechRate',
+        'speechType'      => 'SpeechType',
+        'text'            => 'Text',
+        'voice'           => 'Voice',
+        'volume'          => 'Volume',
     ];
 
     public function validate()
@@ -65,14 +83,23 @@ class CreateSpeechRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->audioFormat) {
+            $res['AudioFormat'] = $this->audioFormat;
+        }
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
+        }
+        if (null !== $this->enableSoundCode) {
+            $res['EnableSoundCode'] = $this->enableSoundCode;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->projectCode) {
             $res['ProjectCode'] = $this->projectCode;
+        }
+        if (null !== $this->soundCodeConfig) {
+            $res['SoundCodeConfig'] = $this->soundCodeConfig;
         }
         if (null !== $this->speechRate) {
             $res['SpeechRate'] = $this->speechRate;
@@ -101,14 +128,23 @@ class CreateSpeechRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioFormat'])) {
+            $model->audioFormat = $map['AudioFormat'];
+        }
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
+        }
+        if (isset($map['EnableSoundCode'])) {
+            $model->enableSoundCode = $map['EnableSoundCode'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProjectCode'])) {
             $model->projectCode = $map['ProjectCode'];
+        }
+        if (isset($map['SoundCodeConfig'])) {
+            $model->soundCodeConfig = $map['SoundCodeConfig'];
         }
         if (isset($map['SpeechRate'])) {
             $model->speechRate = $map['SpeechRate'];

@@ -29,6 +29,11 @@ class ListDeviceDistributeJobRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $productKey;
+
+    /**
      * @var int
      */
     public $status;
@@ -42,6 +47,7 @@ class ListDeviceDistributeJobRequest extends Model
         'jobId'       => 'JobId',
         'nextToken'   => 'NextToken',
         'pageSize'    => 'PageSize',
+        'productKey'  => 'ProductKey',
         'status'      => 'Status',
         'targetUid'   => 'TargetUid',
     ];
@@ -64,6 +70,9 @@ class ListDeviceDistributeJobRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -94,6 +103,9 @@ class ListDeviceDistributeJobRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

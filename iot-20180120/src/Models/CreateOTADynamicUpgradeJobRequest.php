@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateOTADynamicUpgradeJobRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $downloadProtocol;
+
+    /**
      * @var int
      */
     public $dynamicMode;
@@ -22,12 +27,27 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     /**
      * @var string
      */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupType;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
      * @var int
      */
     public $maximumPerMinute;
+
+    /**
+     * @var bool
+     */
+    public $multiModuleMode;
 
     /**
      * @var bool
@@ -74,10 +94,14 @@ class CreateOTADynamicUpgradeJobRequest extends Model
      */
     public $timeoutInMinutes;
     protected $_name = [
+        'downloadProtocol' => 'DownloadProtocol',
         'dynamicMode'      => 'DynamicMode',
         'firmwareId'       => 'FirmwareId',
+        'groupId'          => 'GroupId',
+        'groupType'        => 'GroupType',
         'iotInstanceId'    => 'IotInstanceId',
         'maximumPerMinute' => 'MaximumPerMinute',
+        'multiModuleMode'  => 'MultiModuleMode',
         'needConfirm'      => 'NeedConfirm',
         'needPush'         => 'NeedPush',
         'overwriteMode'    => 'OverwriteMode',
@@ -96,17 +120,29 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->downloadProtocol) {
+            $res['DownloadProtocol'] = $this->downloadProtocol;
+        }
         if (null !== $this->dynamicMode) {
             $res['DynamicMode'] = $this->dynamicMode;
         }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
         }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->maximumPerMinute) {
             $res['MaximumPerMinute'] = $this->maximumPerMinute;
+        }
+        if (null !== $this->multiModuleMode) {
+            $res['MultiModuleMode'] = $this->multiModuleMode;
         }
         if (null !== $this->needConfirm) {
             $res['NeedConfirm'] = $this->needConfirm;
@@ -153,17 +189,29 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DownloadProtocol'])) {
+            $model->downloadProtocol = $map['DownloadProtocol'];
+        }
         if (isset($map['DynamicMode'])) {
             $model->dynamicMode = $map['DynamicMode'];
         }
         if (isset($map['FirmwareId'])) {
             $model->firmwareId = $map['FirmwareId'];
         }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['MaximumPerMinute'])) {
             $model->maximumPerMinute = $map['MaximumPerMinute'];
+        }
+        if (isset($map['MultiModuleMode'])) {
+            $model->multiModuleMode = $map['MultiModuleMode'];
         }
         if (isset($map['NeedConfirm'])) {
             $model->needConfirm = $map['NeedConfirm'];

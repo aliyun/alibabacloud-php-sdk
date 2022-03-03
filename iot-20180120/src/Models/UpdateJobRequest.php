@@ -24,12 +24,12 @@ class UpdateJobRequest extends Model
     public $jobId;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $rolloutConfig;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $timeoutConfig;
     protected $_name = [

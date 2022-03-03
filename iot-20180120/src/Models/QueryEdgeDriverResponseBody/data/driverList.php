@@ -41,6 +41,11 @@ class driverList extends Model
     /**
      * @var bool
      */
+    public $isApply;
+
+    /**
+     * @var bool
+     */
     public $isBuiltIn;
 
     /**
@@ -59,6 +64,7 @@ class driverList extends Model
         'driverProtocol'       => 'DriverProtocol',
         'gmtCreateTimestamp'   => 'GmtCreateTimestamp',
         'gmtModifiedTimestamp' => 'GmtModifiedTimestamp',
+        'isApply'              => 'IsApply',
         'isBuiltIn'            => 'IsBuiltIn',
         'runtime'              => 'Runtime',
         'type'                 => 'Type',
@@ -88,6 +94,9 @@ class driverList extends Model
         }
         if (null !== $this->gmtModifiedTimestamp) {
             $res['GmtModifiedTimestamp'] = $this->gmtModifiedTimestamp;
+        }
+        if (null !== $this->isApply) {
+            $res['IsApply'] = $this->isApply;
         }
         if (null !== $this->isBuiltIn) {
             $res['IsBuiltIn'] = $this->isBuiltIn;
@@ -127,6 +136,9 @@ class driverList extends Model
         }
         if (isset($map['GmtModifiedTimestamp'])) {
             $model->gmtModifiedTimestamp = $map['GmtModifiedTimestamp'];
+        }
+        if (isset($map['IsApply'])) {
+            $model->isApply = $map['IsApply'];
         }
         if (isset($map['IsBuiltIn'])) {
             $model->isBuiltIn = $map['IsBuiltIn'];

@@ -24,7 +24,7 @@ class CreateJobRequest extends Model
     public $jobDocument;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $jobFile;
 
@@ -34,7 +34,7 @@ class CreateJobRequest extends Model
     public $jobName;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $rolloutConfig;
 
@@ -44,12 +44,12 @@ class CreateJobRequest extends Model
     public $scheduledTime;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $targetConfig;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $timeoutConfig;
 

@@ -26,11 +26,17 @@ class groupInfo extends Model
     /**
      * @var string
      */
+    public $groupType;
+
+    /**
+     * @var string
+     */
     public $utcCreate;
     protected $_name = [
         'groupDesc' => 'GroupDesc',
         'groupId'   => 'GroupId',
         'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
         'utcCreate' => 'UtcCreate',
     ];
 
@@ -49,6 +55,9 @@ class groupInfo extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
         }
         if (null !== $this->utcCreate) {
             $res['UtcCreate'] = $this->utcCreate;
@@ -73,6 +82,9 @@ class groupInfo extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
         }
         if (isset($map['UtcCreate'])) {
             $model->utcCreate = $map['UtcCreate'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateSpeechRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableSoundCode;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -17,6 +22,11 @@ class UpdateSpeechRequest extends Model
      * @var string
      */
     public $projectCode;
+
+    /**
+     * @var mixed[]
+     */
+    public $soundCodeConfig;
 
     /**
      * @var string
@@ -38,12 +48,14 @@ class UpdateSpeechRequest extends Model
      */
     public $volume;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'projectCode'   => 'ProjectCode',
-        'speechCode'    => 'SpeechCode',
-        'speechRate'    => 'SpeechRate',
-        'voice'         => 'Voice',
-        'volume'        => 'Volume',
+        'enableSoundCode' => 'EnableSoundCode',
+        'iotInstanceId'   => 'IotInstanceId',
+        'projectCode'     => 'ProjectCode',
+        'soundCodeConfig' => 'SoundCodeConfig',
+        'speechCode'      => 'SpeechCode',
+        'speechRate'      => 'SpeechRate',
+        'voice'           => 'Voice',
+        'volume'          => 'Volume',
     ];
 
     public function validate()
@@ -53,11 +65,17 @@ class UpdateSpeechRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableSoundCode) {
+            $res['EnableSoundCode'] = $this->enableSoundCode;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->projectCode) {
             $res['ProjectCode'] = $this->projectCode;
+        }
+        if (null !== $this->soundCodeConfig) {
+            $res['SoundCodeConfig'] = $this->soundCodeConfig;
         }
         if (null !== $this->speechCode) {
             $res['SpeechCode'] = $this->speechCode;
@@ -83,11 +101,17 @@ class UpdateSpeechRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableSoundCode'])) {
+            $model->enableSoundCode = $map['EnableSoundCode'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProjectCode'])) {
             $model->projectCode = $map['ProjectCode'];
+        }
+        if (isset($map['SoundCodeConfig'])) {
+            $model->soundCodeConfig = $map['SoundCodeConfig'];
         }
         if (isset($map['SpeechCode'])) {
             $model->speechCode = $map['SpeechCode'];

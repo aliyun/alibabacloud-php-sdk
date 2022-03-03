@@ -11,6 +11,11 @@ class QuerySpeechListRequest extends Model
     /**
      * @var string
      */
+    public $audioFormat;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
@@ -28,6 +33,7 @@ class QuerySpeechListRequest extends Model
      */
     public $projectCode;
     protected $_name = [
+        'audioFormat'   => 'AudioFormat',
         'iotInstanceId' => 'IotInstanceId',
         'pageId'        => 'PageId',
         'pageSize'      => 'PageSize',
@@ -41,6 +47,9 @@ class QuerySpeechListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->audioFormat) {
+            $res['AudioFormat'] = $this->audioFormat;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -65,6 +74,9 @@ class QuerySpeechListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioFormat'])) {
+            $model->audioFormat = $map['AudioFormat'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

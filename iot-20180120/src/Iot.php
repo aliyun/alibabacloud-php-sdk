@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddThingTopoRequest;
@@ -84,6 +87,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CancelReleaseProductRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CancelReleaseProductResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ClearEdgeInstanceDriverConfigsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ClearEdgeInstanceDriverConfigsResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CloseDeviceTunnelRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CloseDeviceTunnelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CloseEdgeInstanceDeploymentRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CloseEdgeInstanceDeploymentResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ConfirmOTATaskRequest;
@@ -98,8 +103,12 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataAPIServiceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataAPIServiceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDistributeJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDistributeJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDynamicGroupRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDynamicGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceGroupResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceTunnelRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceTunnelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateEdgeDriverRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateEdgeDriverResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateEdgeDriverVersionRequest;
@@ -116,6 +125,7 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateEdgeOssPreSignedAddressRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateEdgeOssPreSignedAddressResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateJobShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateLoRaNodesTaskRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateLoRaNodesTaskResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTADynamicUpgradeJobRequest;
@@ -138,14 +148,15 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductTopicRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductTopicResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleActionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleActionResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRulengDistributeJobRequest;
-use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRulengDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSoundCodeRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSoundCodeResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSpeechRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSpeechResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSpeechShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateStudioAppDomainOpenRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateStudioAppDomainOpenResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSubscribeRelationRequest;
@@ -156,12 +167,16 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingScriptRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingScriptResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateTopicRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateTopicRouteTableResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteClientIdsRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteClientIdsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupSubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDistributeJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDistributeJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDynamicGroupRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDynamicGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceFileRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceFileResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceGroupRequest;
@@ -170,6 +185,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDevicePropRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDevicePropResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceSpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceSpeechResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceTunnelRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceTunnelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteEdgeDriverRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteEdgeDriverResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteEdgeDriverVersionRequest;
@@ -196,6 +215,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSoundCodeRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSoundCodeResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSpeechRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSpeechResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteStudioAppDomainOpenRequest;
@@ -250,14 +271,16 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GetGatewayBySubDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetGatewayBySubDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetLoraNodesTaskRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetLoraNodesTaskResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\GetNodesAddingTaskRequest;
-use AlibabaCloud\SDK\Iot\V20180120\Models\GetNodesAddingTaskResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleActionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleActionResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetSoundCodeAudioRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetSoundCodeAudioResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechDeviceDetailRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechDeviceDetailResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechVoiceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetStudioAppTokenOpenRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetStudioAppTokenOpenResponse;
@@ -271,6 +294,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingTemplateRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingTemplateResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingTopoRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingTopoResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GisQueryDeviceLocationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GisQueryDeviceLocationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GisSearchDeviceTraceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GisSearchDeviceTraceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ImportThingModelTslRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ImportThingModelTslResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\InvokeDataAPIServiceRequest;
@@ -311,10 +338,9 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ListRuleActionsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListRuleActionsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListRuleResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\ListTaskByPageRequest;
-use AlibabaCloud\SDK\Iot\V20180120\Models\ListTaskByPageResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListTaskRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListTaskResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListTaskShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingModelVersionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingModelVersionResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingTemplatesRequest;
@@ -335,12 +361,12 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\PubRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PushSpeechRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PushSpeechResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\QueryAppDeviceListRequest;
-use AlibabaCloud\SDK\Iot\V20180120\Models\QueryAppDeviceListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryBatchRegisterDeviceStatusRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryBatchRegisterDeviceStatusResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryCertUrlByApplyIdRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryCertUrlByApplyIdResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryClientIdsRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryClientIdsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupByGroupIdRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupByGroupIdResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupListRequest;
@@ -405,8 +431,14 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceServiceDataRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceServiceDataResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceSpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceSpeechResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceStatisticsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceStatisticsResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceTunnelRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceTunnelResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDynamicGroupDevicesRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDynamicGroupDevicesResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeDriverRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeDriverResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeDriverVersionRequest;
@@ -455,6 +487,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySolutionDeviceGroupPageRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySolutionDeviceGroupPageResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySoundCodeListRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySoundCodeListResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechDeviceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechPushJobDeviceRequest;
@@ -513,6 +549,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ResetConsumerGroupPositionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetConsumerGroupPositionResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetThingRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetThingResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ReupgradeOTATaskRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ReupgradeOTATaskResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RRpcRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RRpcResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SaveDevicePropRequest;
@@ -535,16 +573,23 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\SetupStudioAppAuthModeOpenRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetupStudioAppAuthModeOpenResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechByCombinationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechByCombinationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechBySynthesisRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechBySynthesisResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartCpuRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartCpuResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StopRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StopRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SubscribeTopicRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SubscribeTopicResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SyncSpeechByCombinationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SyncSpeechByCombinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TestSpeechRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TestSpeechResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\TestSpeechShrinkRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\TransformClientIdRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\TransformClientIdResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TriggerSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TriggerSceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindApplicationFromEdgeInstanceRequest;
@@ -571,6 +616,7 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateEdgeInstanceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateEdgeInstanceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateJobShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateOTAModuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateOTAModuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateProductFilterConfigRequest;
@@ -589,12 +635,11 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSpeechRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSpeechResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSpeechShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingModelResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingModelValidationConfigRequest;
-use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingModelValidationConfigResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingScriptRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingScriptResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -732,6 +777,60 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDataForApiSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchAddDataForApiSourceRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchAddDataForApiSourceResponse
+     */
+    public function batchAddDataForApiSourceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchAddDataForApiSourceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contentList)) {
+            $request->contentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contentList, 'ContentList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->contentListShrink)) {
+            $query['ContentList'] = $request->contentListShrink;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAddDataForApiSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchAddDataForApiSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchAddDataForApiSourceRequest $request
+     *
+     * @return BatchAddDataForApiSourceResponse
+     */
+    public function batchAddDataForApiSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchAddDataForApiSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -896,8 +995,18 @@ class Iot extends OpenApiClient
     public function batchBindDevicesIntoProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->devices)) {
+            $body['Devices'] = $request->devices;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->devices,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchBindDevicesIntoProject',
@@ -935,8 +1044,18 @@ class Iot extends OpenApiClient
     public function batchBindProductsIntoProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKeys)) {
+            $body['ProductKeys'] = $request->productKeys;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchBindProductsIntoProject',
@@ -1929,8 +2048,18 @@ class Iot extends OpenApiClient
     public function batchUnbindProjectDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->devices)) {
+            $body['Devices'] = $request->devices;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->devices,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchUnbindProjectDevices',
@@ -1968,8 +2097,18 @@ class Iot extends OpenApiClient
     public function batchUnbindProjectProductsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKeys)) {
+            $body['ProductKeys'] = $request->productKeys;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchUnbindProjectProducts',
@@ -2611,6 +2750,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param CloseDeviceTunnelRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CloseDeviceTunnelResponse
+     */
+    public function closeDeviceTunnelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->tunnelId)) {
+            $query['TunnelId'] = $request->tunnelId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloseDeviceTunnel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloseDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CloseDeviceTunnelRequest $request
+     *
+     * @return CloseDeviceTunnelResponse
+     */
+    public function closeDeviceTunnel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeDeviceTunnelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CloseEdgeInstanceDeploymentRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2861,8 +3046,33 @@ class Iot extends OpenApiClient
     public function createDataAPIServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiPath)) {
+            $body['ApiPath'] = $request->apiPath;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $body['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->originSql)) {
+            $body['OriginSql'] = $request->originSql;
+        }
+        if (!Utils::isUnset($request->requestParam)) {
+            $body['RequestParam'] = $request->requestParam;
+        }
+        if (!Utils::isUnset($request->responseParam)) {
+            $body['ResponseParam'] = $request->responseParam;
+        }
+        if (!Utils::isUnset($request->templateSql)) {
+            $body['TemplateSql'] = $request->templateSql;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->apiPath,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataAPIService',
@@ -2900,8 +3110,30 @@ class Iot extends OpenApiClient
     public function createDeviceDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $body['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        if (!Utils::isUnset($request->strategy)) {
+            $body['Strategy'] = $request->strategy;
+        }
+        if (!Utils::isUnset($request->targetAliyunId)) {
+            $body['TargetAliyunId'] = $request->targetAliyunId;
+        }
+        if (!Utils::isUnset($request->targetInstanceConfig)) {
+            $body['TargetInstanceConfig'] = $request->targetInstanceConfig;
+        }
+        if (!Utils::isUnset($request->targetUid)) {
+            $body['TargetUid'] = $request->targetUid;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->deviceName,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDeviceDistributeJob',
@@ -2928,6 +3160,58 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDeviceDistributeJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDeviceDynamicGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDeviceDynamicGroupResponse
+     */
+    public function createDeviceDynamicGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dynamicGroupExpression)) {
+            $query['DynamicGroupExpression'] = $request->dynamicGroupExpression;
+        }
+        if (!Utils::isUnset($request->groupDesc)) {
+            $query['GroupDesc'] = $request->groupDesc;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeviceDynamicGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDeviceDynamicGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDeviceDynamicGroupRequest $request
+     *
+     * @return CreateDeviceDynamicGroupResponse
+     */
+    public function createDeviceDynamicGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDeviceDynamicGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2980,6 +3264,64 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDeviceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDeviceTunnelRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDeviceTunnelResponse
+     */
+    public function createDeviceTunnelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->udi)) {
+            $query['Udi'] = $request->udi;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeviceTunnel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDeviceTunnelRequest $request
+     *
+     * @return CreateDeviceTunnelResponse
+     */
+    public function createDeviceTunnel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDeviceTunnelWithOptions($request, $runtime);
     }
 
     /**
@@ -3392,14 +3734,28 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $request
+     * @param CreateJobRequest $tmpReq
      * @param RuntimeOptions   $runtime
      *
      * @return CreateJobResponse
      */
-    public function createJobWithOptions($request, $runtime)
+    public function createJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobFile)) {
+            $request->jobFileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobFile, 'JobFile', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->rolloutConfig)) {
+            $request->rolloutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rolloutConfig, 'RolloutConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->targetConfig)) {
+            $request->targetConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targetConfig, 'TargetConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->timeoutConfig)) {
+            $request->timeoutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timeoutConfig, 'TimeoutConfig', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
@@ -3410,23 +3766,23 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->jobDocument)) {
             $query['JobDocument'] = $request->jobDocument;
         }
-        if (!Utils::isUnset($request->jobFile)) {
-            $query['JobFile'] = $request->jobFile;
+        if (!Utils::isUnset($request->jobFileShrink)) {
+            $query['JobFile'] = $request->jobFileShrink;
         }
         if (!Utils::isUnset($request->jobName)) {
             $query['JobName'] = $request->jobName;
         }
-        if (!Utils::isUnset($request->rolloutConfig)) {
-            $query['RolloutConfig'] = $request->rolloutConfig;
+        if (!Utils::isUnset($request->rolloutConfigShrink)) {
+            $query['RolloutConfig'] = $request->rolloutConfigShrink;
         }
         if (!Utils::isUnset($request->scheduledTime)) {
             $query['ScheduledTime'] = $request->scheduledTime;
         }
-        if (!Utils::isUnset($request->targetConfig)) {
-            $query['TargetConfig'] = $request->targetConfig;
+        if (!Utils::isUnset($request->targetConfigShrink)) {
+            $query['TargetConfig'] = $request->targetConfigShrink;
         }
-        if (!Utils::isUnset($request->timeoutConfig)) {
-            $query['TimeoutConfig'] = $request->timeoutConfig;
+        if (!Utils::isUnset($request->timeoutConfigShrink)) {
+            $query['TimeoutConfig'] = $request->timeoutConfigShrink;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -3520,17 +3876,29 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->downloadProtocol)) {
+            $query['DownloadProtocol'] = $request->downloadProtocol;
+        }
         if (!Utils::isUnset($request->dynamicMode)) {
             $query['DynamicMode'] = $request->dynamicMode;
         }
         if (!Utils::isUnset($request->firmwareId)) {
             $query['FirmwareId'] = $request->firmwareId;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
         if (!Utils::isUnset($request->maximumPerMinute)) {
             $query['MaximumPerMinute'] = $request->maximumPerMinute;
+        }
+        if (!Utils::isUnset($request->multiModuleMode)) {
+            $query['MultiModuleMode'] = $request->multiModuleMode;
         }
         if (!Utils::isUnset($request->needConfirm)) {
             $query['NeedConfirm'] = $request->needConfirm;
@@ -3622,6 +3990,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->moduleName)) {
             $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->multiFiles)) {
+            $query['MultiFiles'] = $request->multiFiles;
         }
         if (!Utils::isUnset($request->needToVerify)) {
             $query['NeedToVerify'] = $request->needToVerify;
@@ -3739,17 +4110,29 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->dnListFileUrl)) {
             $query['DnListFileUrl'] = $request->dnListFileUrl;
         }
+        if (!Utils::isUnset($request->downloadProtocol)) {
+            $query['DownloadProtocol'] = $request->downloadProtocol;
+        }
         if (!Utils::isUnset($request->firmwareId)) {
             $query['FirmwareId'] = $request->firmwareId;
         }
         if (!Utils::isUnset($request->grayPercent)) {
             $query['GrayPercent'] = $request->grayPercent;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
         if (!Utils::isUnset($request->maximumPerMinute)) {
             $query['MaximumPerMinute'] = $request->maximumPerMinute;
+        }
+        if (!Utils::isUnset($request->multiModuleMode)) {
+            $query['MultiModuleMode'] = $request->multiModuleMode;
         }
         if (!Utils::isUnset($request->needConfirm)) {
             $query['NeedConfirm'] = $request->needConfirm;
@@ -3830,6 +4213,9 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->downloadProtocol)) {
+            $query['DownloadProtocol'] = $request->downloadProtocol;
+        }
         if (!Utils::isUnset($request->firmwareId)) {
             $query['FirmwareId'] = $request->firmwareId;
         }
@@ -3844,6 +4230,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->targetDeviceName)) {
             $query['TargetDeviceName'] = $request->targetDeviceName;
@@ -4254,55 +4643,6 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateRulengDistributeJobRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateRulengDistributeJobResponse
-     */
-    public function createRulengDistributeJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->sourceInstanceId)) {
-            $query['SourceInstanceId'] = $request->sourceInstanceId;
-        }
-        if (!Utils::isUnset($request->targetInstanceId)) {
-            $query['TargetInstanceId'] = $request->targetInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateRulengDistributeJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateRulengDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateRulengDistributeJobRequest $request
-     *
-     * @return CreateRulengDistributeJobResponse
-     */
-    public function createRulengDistributeJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRulengDistributeJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateSceneRuleRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4355,16 +4695,104 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateSpeechRequest $request
+     * @param CreateSoundCodeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateSoundCodeResponse
+     */
+    public function createSoundCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->duration)) {
+            $body['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->soundCodeContent)) {
+            $body['SoundCodeContent'] = $request->soundCodeContent;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSoundCode',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSoundCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSoundCodeRequest $request
+     *
+     * @return CreateSoundCodeResponse
+     */
+    public function createSoundCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSoundCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSpeechRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
      * @return CreateSpeechResponse
      */
-    public function createSpeechWithOptions($request, $runtime)
+    public function createSpeechWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateSpeechShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->soundCodeConfig)) {
+            $request->soundCodeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->soundCodeConfig, 'SoundCodeConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->audioFormat)) {
+            $body['AudioFormat'] = $request->audioFormat;
+        }
+        if (!Utils::isUnset($request->bizCode)) {
+            $body['BizCode'] = $request->bizCode;
+        }
+        if (!Utils::isUnset($request->enableSoundCode)) {
+            $body['EnableSoundCode'] = $request->enableSoundCode;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $body['ProjectCode'] = $request->projectCode;
+        }
+        if (!Utils::isUnset($request->soundCodeConfigShrink)) {
+            $body['SoundCodeConfig'] = $request->soundCodeConfigShrink;
+        }
+        if (!Utils::isUnset($request->speechRate)) {
+            $body['SpeechRate'] = $request->speechRate;
+        }
+        if (!Utils::isUnset($request->speechType)) {
+            $body['SpeechType'] = $request->speechType;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $body['Text'] = $request->text;
+        }
+        if (!Utils::isUnset($request->voice)) {
+            $body['Voice'] = $request->voice;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $body['Volume'] = $request->volume;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->bizCode,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateSpeech',
@@ -4402,8 +4830,24 @@ class Iot extends OpenApiClient
     public function createStudioAppDomainOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $body['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $body['Protocol'] = $request->protocol;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->appId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateStudioAppDomainOpen',
@@ -4674,6 +5118,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param DeleteClientIdsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteClientIdsResponse
+     */
+    public function deleteClientIdsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteClientIds',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteClientIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteClientIdsRequest $request
+     *
+     * @return DeleteClientIdsResponse
+     */
+    public function deleteClientIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClientIdsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteConsumerGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -4864,6 +5354,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param DeleteDeviceDynamicGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDeviceDynamicGroupResponse
+     */
+    public function deleteDeviceDynamicGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeviceDynamicGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDeviceDynamicGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDeviceDynamicGroupRequest $request
+     *
+     * @return DeleteDeviceDynamicGroupResponse
+     */
+    public function deleteDeviceDynamicGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDeviceDynamicGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDeviceFileRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -5017,6 +5553,101 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDevicePropWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDeviceSpeechRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDeviceSpeechResponse
+     */
+    public function deleteDeviceSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceSpeechList)) {
+            $body['DeviceSpeechList'] = $request->deviceSpeechList;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $body['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeviceSpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDeviceSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDeviceSpeechRequest $request
+     *
+     * @return DeleteDeviceSpeechResponse
+     */
+    public function deleteDeviceSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDeviceSpeechWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDeviceTunnelRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDeviceTunnelResponse
+     */
+    public function deleteDeviceTunnelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->tunnelId)) {
+            $query['TunnelId'] = $request->tunnelId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeviceTunnel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDeviceTunnelRequest $request
+     *
+     * @return DeleteDeviceTunnelResponse
+     */
+    public function deleteDeviceTunnel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDeviceTunnelWithOptions($request, $runtime);
     }
 
     /**
@@ -5630,6 +6261,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param DeleteSoundCodeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteSoundCodeResponse
+     */
+    public function deleteSoundCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->soundCode)) {
+            $body['SoundCode'] = $request->soundCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSoundCode',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSoundCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSoundCodeRequest $request
+     *
+     * @return DeleteSoundCodeResponse
+     */
+    public function deleteSoundCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSoundCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteSpeechRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -5638,8 +6315,15 @@ class Iot extends OpenApiClient
     public function deleteSpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->speechCodeList)) {
+            $body['SpeechCodeList'] = $request->speechCodeList;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteSpeech',
@@ -5677,8 +6361,21 @@ class Iot extends OpenApiClient
     public function deleteStudioAppDomainOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->domainId)) {
+            $body['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->appId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteStudioAppDomainOpen',
@@ -6408,8 +7105,15 @@ class Iot extends OpenApiClient
     public function getDataAPIServiceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiSrn)) {
+            $body['ApiSrn'] = $request->apiSrn;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->apiSrn,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataAPIServiceDetail',
@@ -6929,52 +7633,6 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetNodesAddingTaskRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetNodesAddingTaskResponse
-     */
-    public function getNodesAddingTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetNodesAddingTask',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetNodesAddingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetNodesAddingTaskRequest $request
-     *
-     * @return GetNodesAddingTaskResponse
-     */
-    public function getNodesAddingTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getNodesAddingTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetRuleRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -7113,6 +7771,98 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param GetSoundCodeAudioRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSoundCodeAudioResponse
+     */
+    public function getSoundCodeAudioWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->soundCodeList)) {
+            $body['SoundCodeList'] = $request->soundCodeList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSoundCodeAudio',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSoundCodeAudioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSoundCodeAudioRequest $request
+     *
+     * @return GetSoundCodeAudioResponse
+     */
+    public function getSoundCodeAudio($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSoundCodeAudioWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSpeechDeviceDetailRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetSpeechDeviceDetailResponse
+     */
+    public function getSpeechDeviceDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotId)) {
+            $body['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSpeechDeviceDetail',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSpeechDeviceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSpeechDeviceDetailRequest $request
+     *
+     * @return GetSpeechDeviceDetailResponse
+     */
+    public function getSpeechDeviceDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSpeechDeviceDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return GetSpeechVoiceResponse
@@ -7154,8 +7904,18 @@ class Iot extends OpenApiClient
     public function getStudioAppTokenOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->appId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetStudioAppTokenOpen',
@@ -7451,6 +8211,110 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param GisQueryDeviceLocationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GisQueryDeviceLocationResponse
+     */
+    public function gisQueryDeviceLocationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->thingList)) {
+            $query['ThingList'] = $request->thingList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GisQueryDeviceLocation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GisQueryDeviceLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GisQueryDeviceLocationRequest $request
+     *
+     * @return GisQueryDeviceLocationResponse
+     */
+    public function gisQueryDeviceLocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->gisQueryDeviceLocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GisSearchDeviceTraceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GisSearchDeviceTraceResponse
+     */
+    public function gisSearchDeviceTraceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->mapMatch)) {
+            $query['MapMatch'] = $request->mapMatch;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GisSearchDeviceTrace',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GisSearchDeviceTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GisSearchDeviceTraceRequest $request
+     *
+     * @return GisSearchDeviceTraceResponse
+     */
+    public function gisSearchDeviceTrace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->gisSearchDeviceTraceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ImportThingModelTslRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -7520,8 +8384,18 @@ class Iot extends OpenApiClient
     public function invokeDataAPIServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiSrn)) {
+            $body['ApiSrn'] = $request->apiSrn;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->param)) {
+            $body['Param'] = $request->param;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toArray($request->apiSrn),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'InvokeDataAPIService',
@@ -7740,15 +8614,22 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
         if (!Utils::isUnset($request->targetUid)) {
             $query['TargetUid'] = $request->targetUid;
         }
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => $request->jobId,
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDeviceDistributeJob',
@@ -8521,17 +9402,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListTaskRequest $request
+     * @param ListTaskRequest $tmpReq
      * @param RuntimeOptions  $runtime
      *
      * @return ListTaskResponse
      */
-    public function listTaskWithOptions($request, $runtime)
+    public function listTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->device)) {
+            $request->deviceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->device, 'Device', 'json');
+        }
         $query = [];
-        if (!Utils::isUnset($request->device)) {
-            $query['Device'] = $request->device;
+        if (!Utils::isUnset($request->deviceShrink)) {
+            $query['Device'] = $request->deviceShrink;
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
@@ -8576,70 +9462,6 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListTaskByPageRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListTaskByPageResponse
-     */
-    public function listTaskByPageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->device)) {
-            $query['Device'] = $request->device;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->jobName)) {
-            $query['JobName'] = $request->jobName;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTaskByPage',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListTaskByPageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListTaskByPageRequest $request
-     *
-     * @return ListTaskByPageResponse
-     */
-    public function listTaskByPage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTaskByPageWithOptions($request, $runtime);
     }
 
     /**
@@ -8838,8 +9660,30 @@ class Iot extends OpenApiClient
     public function printByTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->historyPrintTopic)) {
+            $body['HistoryPrintTopic'] = $request->historyPrintTopic;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $body['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->paramsJsonString)) {
+            $body['ParamsJsonString'] = $request->paramsJsonString;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->templateBizCode)) {
+            $body['TemplateBizCode'] = $request->templateBizCode;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->deviceName,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PrintByTemplate',
@@ -8993,8 +9837,21 @@ class Iot extends OpenApiClient
     public function publishStudioAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->appId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PublishStudioApp',
@@ -9091,9 +9948,31 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $body['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $body['ProjectCode'] = $request->projectCode;
+        }
+        if (!Utils::isUnset($request->pushMode)) {
+            $body['PushMode'] = $request->pushMode;
+        }
+        if (!Utils::isUnset($request->speechCodeList)) {
+            $body['SpeechCodeList'] = $request->speechCodeList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => $request->deviceName,
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PushSpeech',
@@ -9120,67 +9999,6 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pushSpeechWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryAppDeviceListRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return QueryAppDeviceListResponse
-     */
-    public function queryAppDeviceListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->categoryKeyList)) {
-            $query['CategoryKeyList'] = $request->categoryKeyList;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKeyList)) {
-            $query['ProductKeyList'] = $request->productKeyList;
-        }
-        if (!Utils::isUnset($request->tagList)) {
-            $query['TagList'] = $request->tagList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryAppDeviceList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryAppDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryAppDeviceListRequest $request
-     *
-     * @return QueryAppDeviceListResponse
-     */
-    public function queryAppDeviceList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryAppDeviceListWithOptions($request, $runtime);
     }
 
     /**
@@ -9276,6 +10094,52 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryCertUrlByApplyIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryClientIdsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryClientIdsResponse
+     */
+    public function queryClientIdsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryClientIds',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryClientIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryClientIdsRequest $request
+     *
+     * @return QueryClientIdsResponse
+     */
+    public function queryClientIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryClientIdsWithOptions($request, $runtime);
     }
 
     /**
@@ -10239,6 +11103,9 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
@@ -10287,6 +11154,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupTypes)) {
+            $query['GroupTypes'] = $request->groupTypes;
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
@@ -10339,6 +11209,9 @@ class Iot extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
@@ -11057,6 +11930,58 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QueryDeviceSpeechRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryDeviceSpeechResponse
+     */
+    public function queryDeviceSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotId)) {
+            $body['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $body['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceSpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDeviceSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDeviceSpeechRequest $request
+     *
+     * @return QueryDeviceSpeechResponse
+     */
+    public function queryDeviceSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDeviceSpeechWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryDeviceStatisticsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -11103,6 +12028,119 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryDeviceStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDeviceTunnelRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryDeviceTunnelResponse
+     */
+    public function queryDeviceTunnelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->tunnelId)) {
+            $query['TunnelId'] = $request->tunnelId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceTunnel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDeviceTunnelRequest $request
+     *
+     * @return QueryDeviceTunnelResponse
+     */
+    public function queryDeviceTunnel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDeviceTunnelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDynamicGroupDevicesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryDynamicGroupDevicesResponse
+     */
+    public function queryDynamicGroupDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->fuzzyName)) {
+            $query['FuzzyName'] = $request->fuzzyName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDynamicGroupDevices',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDynamicGroupDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDynamicGroupDevicesRequest $request
+     *
+     * @return QueryDynamicGroupDevicesResponse
+     */
+    public function queryDynamicGroupDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDynamicGroupDevicesWithOptions($request, $runtime);
     }
 
     /**
@@ -12318,6 +13356,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QuerySoundCodeListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QuerySoundCodeListResponse
+     */
+    public function querySoundCodeListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $body['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySoundCodeList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySoundCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySoundCodeListRequest $request
+     *
+     * @return QuerySoundCodeListResponse
+     */
+    public function querySoundCodeList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySoundCodeListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySpeechRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -12326,8 +13413,15 @@ class Iot extends OpenApiClient
     public function querySpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->speechCode)) {
+            $body['SpeechCode'] = $request->speechCode;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QuerySpeech',
@@ -12357,6 +13451,67 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QuerySpeechDeviceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QuerySpeechDeviceResponse
+     */
+    public function querySpeechDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->availableSpace)) {
+            $body['AvailableSpace'] = $request->availableSpace;
+        }
+        if (!Utils::isUnset($request->availableSpaceScope)) {
+            $body['AvailableSpaceScope'] = $request->availableSpaceScope;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $body['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $body['ProjectCode'] = $request->projectCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpeechDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpeechDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpeechDeviceRequest $request
+     *
+     * @return QuerySpeechDeviceResponse
+     */
+    public function querySpeechDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpeechDeviceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySpeechListRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -12365,8 +13520,24 @@ class Iot extends OpenApiClient
     public function querySpeechListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->audioFormat)) {
+            $body['AudioFormat'] = $request->audioFormat;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $body['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $body['ProjectCode'] = $request->projectCode;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QuerySpeechList',
@@ -12408,9 +13579,28 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->jobCode)) {
             $query['JobCode'] = $request->jobCode;
         }
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $body['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $body['ProjectCode'] = $request->projectCode;
+        }
+        if (!Utils::isUnset($request->pushMode)) {
+            $body['PushMode'] = $request->pushMode;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $body['StatusList'] = $request->statusList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => $request->iotInstanceId,
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QuerySpeechPushJob',
@@ -12448,8 +13638,27 @@ class Iot extends OpenApiClient
     public function querySpeechPushJobDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobCode)) {
+            $body['JobCode'] = $request->jobCode;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $body['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->deviceName,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QuerySpeechPushJobDevice',
@@ -12487,8 +13696,21 @@ class Iot extends OpenApiClient
     public function querySpeechPushJobSpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobCode)) {
+            $body['JobCode'] = $request->jobCode;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $body['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QuerySpeechPushJobSpeech',
@@ -12526,8 +13748,18 @@ class Iot extends OpenApiClient
     public function queryStudioAppDomainListOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->appId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryStudioAppDomainListOpen',
@@ -12565,8 +13797,27 @@ class Iot extends OpenApiClient
     public function queryStudioAppListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fuzzyName)) {
+            $body['FuzzyName'] = $request->fuzzyName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $body['Types'] = $request->types;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->fuzzyName,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryStudioAppList',
@@ -12604,8 +13855,27 @@ class Iot extends OpenApiClient
     public function queryStudioAppPageListOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->isRelease)) {
+            $body['IsRelease'] = $request->isRelease;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->appId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryStudioAppPageListOpen',
@@ -12643,8 +13913,21 @@ class Iot extends OpenApiClient
     public function queryStudioProjectListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryStudioProjectList',
@@ -13303,8 +14586,18 @@ class Iot extends OpenApiClient
     public function refreshStudioAppTokenOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->appId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RefreshStudioAppTokenOpen',
@@ -13744,6 +15037,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param ReupgradeOTATaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ReupgradeOTATaskResponse
+     */
+    public function reupgradeOTATaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReupgradeOTATask',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReupgradeOTATaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReupgradeOTATaskRequest $request
+     *
+     * @return ReupgradeOTATaskResponse
+     */
+    public function reupgradeOTATask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reupgradeOTATaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveDevicePropRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -13868,6 +15210,9 @@ class Iot extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
@@ -14122,8 +15467,15 @@ class Iot extends OpenApiClient
     public function setStudioProjectCooperationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SetStudioProjectCooperation',
@@ -14161,8 +15513,21 @@ class Iot extends OpenApiClient
     public function setupStudioAppAuthModeOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->authMode)) {
+            $body['AuthMode'] = $request->authMode;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->appId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SetupStudioAppAuthModeOpen',
@@ -14200,8 +15565,30 @@ class Iot extends OpenApiClient
     public function speechByCombinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->audioFormat)) {
+            $body['AudioFormat'] = $request->audioFormat;
+        }
+        if (!Utils::isUnset($request->combinationList)) {
+            $body['CombinationList'] = $request->combinationList;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $body['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->speechId)) {
+            $body['SpeechId'] = $request->speechId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->combinationList,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SpeechByCombination',
@@ -14228,6 +15615,76 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->speechByCombinationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SpeechBySynthesisRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SpeechBySynthesisResponse
+     */
+    public function speechBySynthesisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->audioFormat)) {
+            $body['AudioFormat'] = $request->audioFormat;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $body['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->speechId)) {
+            $body['SpeechId'] = $request->speechId;
+        }
+        if (!Utils::isUnset($request->speechRate)) {
+            $body['SpeechRate'] = $request->speechRate;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $body['Text'] = $request->text;
+        }
+        if (!Utils::isUnset($request->voice)) {
+            $body['Voice'] = $request->voice;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $body['Volume'] = $request->volume;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SpeechBySynthesis',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SpeechBySynthesisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SpeechBySynthesisRequest $request
+     *
+     * @return SpeechBySynthesisResponse
+     */
+    public function speechBySynthesis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->speechBySynthesisWithOptions($request, $runtime);
     }
 
     /**
@@ -14372,6 +15829,58 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param SubscribeTopicRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubscribeTopicResponse
+     */
+    public function subscribeTopicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubscribeTopic',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubscribeTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubscribeTopicRequest $request
+     *
+     * @return SubscribeTopicResponse
+     */
+    public function subscribeTopic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->subscribeTopicWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SyncSpeechByCombinationRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -14380,8 +15889,30 @@ class Iot extends OpenApiClient
     public function syncSpeechByCombinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->audioFormat)) {
+            $body['AudioFormat'] = $request->audioFormat;
+        }
+        if (!Utils::isUnset($request->combinationList)) {
+            $body['CombinationList'] = $request->combinationList;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $body['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->speechId)) {
+            $body['SpeechId'] = $request->speechId;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->combinationList,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SyncSpeechByCombination',
@@ -14411,16 +15942,52 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param TestSpeechRequest $request
+     * @param TestSpeechRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return TestSpeechResponse
      */
-    public function testSpeechWithOptions($request, $runtime)
+    public function testSpeechWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new TestSpeechShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->soundCodeConfig)) {
+            $request->soundCodeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->soundCodeConfig, 'SoundCodeConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->audioFormat)) {
+            $body['AudioFormat'] = $request->audioFormat;
+        }
+        if (!Utils::isUnset($request->enableSoundCode)) {
+            $body['EnableSoundCode'] = $request->enableSoundCode;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $body['ProjectCode'] = $request->projectCode;
+        }
+        if (!Utils::isUnset($request->soundCodeConfigShrink)) {
+            $body['SoundCodeConfig'] = $request->soundCodeConfigShrink;
+        }
+        if (!Utils::isUnset($request->speechRate)) {
+            $body['SpeechRate'] = $request->speechRate;
+        }
+        if (!Utils::isUnset($request->speechType)) {
+            $body['SpeechType'] = $request->speechType;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $body['Text'] = $request->text;
+        }
+        if (!Utils::isUnset($request->voice)) {
+            $body['Voice'] = $request->voice;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $body['Volume'] = $request->volume;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TestSpeech',
@@ -14447,6 +16014,55 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->testSpeechWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TransformClientIdRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TransformClientIdResponse
+     */
+    public function transformClientIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransformClientId',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransformClientIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TransformClientIdRequest $request
+     *
+     * @return TransformClientIdResponse
+     */
+    public function transformClientId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transformClientIdWithOptions($request, $runtime);
     }
 
     /**
@@ -14755,6 +16371,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
@@ -15101,14 +16720,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateJobRequest $request
+     * @param UpdateJobRequest $tmpReq
      * @param RuntimeOptions   $runtime
      *
      * @return UpdateJobResponse
      */
-    public function updateJobWithOptions($request, $runtime)
+    public function updateJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rolloutConfig)) {
+            $request->rolloutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rolloutConfig, 'RolloutConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->timeoutConfig)) {
+            $request->timeoutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timeoutConfig, 'TimeoutConfig', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
@@ -15119,11 +16746,11 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->rolloutConfig)) {
-            $query['RolloutConfig'] = $request->rolloutConfig;
+        if (!Utils::isUnset($request->rolloutConfigShrink)) {
+            $query['RolloutConfig'] = $request->rolloutConfigShrink;
         }
-        if (!Utils::isUnset($request->timeoutConfig)) {
-            $query['TimeoutConfig'] = $request->timeoutConfig;
+        if (!Utils::isUnset($request->timeoutConfigShrink)) {
+            $query['TimeoutConfig'] = $request->timeoutConfigShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -15596,16 +17223,46 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateSpeechRequest $request
+     * @param UpdateSpeechRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
      * @return UpdateSpeechResponse
      */
-    public function updateSpeechWithOptions($request, $runtime)
+    public function updateSpeechWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSpeechShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->soundCodeConfig)) {
+            $request->soundCodeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->soundCodeConfig, 'SoundCodeConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->enableSoundCode)) {
+            $body['EnableSoundCode'] = $request->enableSoundCode;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $body['ProjectCode'] = $request->projectCode;
+        }
+        if (!Utils::isUnset($request->soundCodeConfigShrink)) {
+            $body['SoundCodeConfig'] = $request->soundCodeConfigShrink;
+        }
+        if (!Utils::isUnset($request->speechCode)) {
+            $body['SpeechCode'] = $request->speechCode;
+        }
+        if (!Utils::isUnset($request->speechRate)) {
+            $body['SpeechRate'] = $request->speechRate;
+        }
+        if (!Utils::isUnset($request->voice)) {
+            $body['Voice'] = $request->voice;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $body['Volume'] = $request->volume;
+        }
         $req = new OpenApiRequest([
-            'body' => $request->iotInstanceId,
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateSpeech',
@@ -15775,55 +17432,6 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateThingModelWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateThingModelValidationConfigRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return UpdateThingModelValidationConfigResponse
-     */
-    public function updateThingModelValidationConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->validateType)) {
-            $query['ValidateType'] = $request->validateType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateThingModelValidationConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateThingModelValidationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateThingModelValidationConfigRequest $request
-     *
-     * @return UpdateThingModelValidationConfigResponse
-     */
-    public function updateThingModelValidationConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateThingModelValidationConfigWithOptions($request, $runtime);
     }
 
     /**

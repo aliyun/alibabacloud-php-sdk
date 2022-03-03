@@ -16,6 +16,11 @@ class data extends Model
     public $destVersion;
 
     /**
+     * @var string
+     */
+    public $downloadProtocol;
+
+    /**
      * @var int
      */
     public $dynamicMode;
@@ -29,6 +34,16 @@ class data extends Model
      * @var string
      */
     public $grayPercent;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
 
     /**
      * @var string
@@ -54,6 +69,11 @@ class data extends Model
      * @var int
      */
     public $maximumPerMinute;
+
+    /**
+     * @var bool
+     */
+    public $multiModuleMode;
 
     /**
      * @var string
@@ -146,14 +166,18 @@ class data extends Model
     public $utcStartTime;
     protected $_name = [
         'destVersion'           => 'DestVersion',
+        'downloadProtocol'      => 'DownloadProtocol',
         'dynamicMode'           => 'DynamicMode',
         'firmwareId'            => 'FirmwareId',
         'grayPercent'           => 'GrayPercent',
+        'groupId'               => 'GroupId',
+        'groupName'             => 'GroupName',
         'jobDesc'               => 'JobDesc',
         'jobId'                 => 'JobId',
         'jobStatus'             => 'JobStatus',
         'jobType'               => 'JobType',
         'maximumPerMinute'      => 'MaximumPerMinute',
+        'multiModuleMode'       => 'MultiModuleMode',
         'name'                  => 'Name',
         'needConfirm'           => 'NeedConfirm',
         'needPush'              => 'NeedPush',
@@ -184,6 +208,9 @@ class data extends Model
         if (null !== $this->destVersion) {
             $res['DestVersion'] = $this->destVersion;
         }
+        if (null !== $this->downloadProtocol) {
+            $res['DownloadProtocol'] = $this->downloadProtocol;
+        }
         if (null !== $this->dynamicMode) {
             $res['DynamicMode'] = $this->dynamicMode;
         }
@@ -192,6 +219,12 @@ class data extends Model
         }
         if (null !== $this->grayPercent) {
             $res['GrayPercent'] = $this->grayPercent;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->jobDesc) {
             $res['JobDesc'] = $this->jobDesc;
@@ -207,6 +240,9 @@ class data extends Model
         }
         if (null !== $this->maximumPerMinute) {
             $res['MaximumPerMinute'] = $this->maximumPerMinute;
+        }
+        if (null !== $this->multiModuleMode) {
+            $res['MultiModuleMode'] = $this->multiModuleMode;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -277,6 +313,9 @@ class data extends Model
         if (isset($map['DestVersion'])) {
             $model->destVersion = $map['DestVersion'];
         }
+        if (isset($map['DownloadProtocol'])) {
+            $model->downloadProtocol = $map['DownloadProtocol'];
+        }
         if (isset($map['DynamicMode'])) {
             $model->dynamicMode = $map['DynamicMode'];
         }
@@ -285,6 +324,12 @@ class data extends Model
         }
         if (isset($map['GrayPercent'])) {
             $model->grayPercent = $map['GrayPercent'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['JobDesc'])) {
             $model->jobDesc = $map['JobDesc'];
@@ -300,6 +345,9 @@ class data extends Model
         }
         if (isset($map['MaximumPerMinute'])) {
             $model->maximumPerMinute = $map['MaximumPerMinute'];
+        }
+        if (isset($map['MultiModuleMode'])) {
+            $model->multiModuleMode = $map['MultiModuleMode'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

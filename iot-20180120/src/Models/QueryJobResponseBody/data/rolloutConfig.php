@@ -12,8 +12,14 @@ class rolloutConfig extends Model
      * @var int
      */
     public $maximumPerMinute;
+
+    /**
+     * @var string
+     */
+    public $messageQoS;
     protected $_name = [
         'maximumPerMinute' => 'MaximumPerMinute',
+        'messageQoS'       => 'MessageQoS',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class rolloutConfig extends Model
         $res = [];
         if (null !== $this->maximumPerMinute) {
             $res['MaximumPerMinute'] = $this->maximumPerMinute;
+        }
+        if (null !== $this->messageQoS) {
+            $res['MessageQoS'] = $this->messageQoS;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class rolloutConfig extends Model
         $model = new self();
         if (isset($map['MaximumPerMinute'])) {
             $model->maximumPerMinute = $map['MaximumPerMinute'];
+        }
+        if (isset($map['MessageQoS'])) {
+            $model->messageQoS = $map['MessageQoS'];
         }
 
         return $model;

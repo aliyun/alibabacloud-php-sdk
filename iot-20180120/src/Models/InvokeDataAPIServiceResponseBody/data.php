@@ -34,12 +34,18 @@ class data extends Model
      * @var resultList
      */
     public $resultList;
+
+    /**
+     * @var int
+     */
+    public $totalSize;
     protected $_name = [
         'apiSrn'        => 'ApiSrn',
         'fieldNameList' => 'FieldNameList',
         'pageNo'        => 'PageNo',
         'pageSize'      => 'PageSize',
         'resultList'    => 'ResultList',
+        'totalSize'     => 'TotalSize',
     ];
 
     public function validate()
@@ -63,6 +69,9 @@ class data extends Model
         }
         if (null !== $this->resultList) {
             $res['ResultList'] = null !== $this->resultList ? $this->resultList->toMap() : null;
+        }
+        if (null !== $this->totalSize) {
+            $res['TotalSize'] = $this->totalSize;
         }
 
         return $res;
@@ -90,6 +99,9 @@ class data extends Model
         }
         if (isset($map['ResultList'])) {
             $model->resultList = resultList::fromMap($map['ResultList']);
+        }
+        if (isset($map['TotalSize'])) {
+            $model->totalSize = $map['TotalSize'];
         }
 
         return $model;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryOTAFirmwareResponseBody;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryOTAFirmwareResponseBody\firmwareInfo\multiFiles;
 use AlibabaCloud\Tea\Model;
 
 class firmwareInfo extends Model
@@ -47,6 +48,11 @@ class firmwareInfo extends Model
      * @var string
      */
     public $moduleName;
+
+    /**
+     * @var multiFiles[]
+     */
+    public $multiFiles;
 
     /**
      * @var string
@@ -106,6 +112,7 @@ class firmwareInfo extends Model
         'firmwareSize'   => 'FirmwareSize',
         'firmwareUrl'    => 'FirmwareUrl',
         'moduleName'     => 'ModuleName',
+        'multiFiles'     => 'MultiFiles',
         'productKey'     => 'ProductKey',
         'productName'    => 'ProductName',
         'signMethod'     => 'SignMethod',
@@ -148,6 +155,15 @@ class firmwareInfo extends Model
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
+        }
+        if (null !== $this->multiFiles) {
+            $res['MultiFiles'] = [];
+            if (null !== $this->multiFiles && \is_array($this->multiFiles)) {
+                $n = 0;
+                foreach ($this->multiFiles as $item) {
+                    $res['MultiFiles'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -214,6 +230,15 @@ class firmwareInfo extends Model
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
+        }
+        if (isset($map['MultiFiles'])) {
+            if (!empty($map['MultiFiles'])) {
+                $model->multiFiles = [];
+                $n                 = 0;
+                foreach ($map['MultiFiles'] as $item) {
+                    $model->multiFiles[$n++] = null !== $item ? multiFiles::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SpeechByCombinationRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $audioFormat;
+
+    /**
      * @var string[]
      */
     public $combinationList;
@@ -32,12 +37,19 @@ class SpeechByCombinationRequest extends Model
      * @var string
      */
     public $productKey;
+
+    /**
+     * @var string
+     */
+    public $speechId;
     protected $_name = [
+        'audioFormat'     => 'AudioFormat',
         'combinationList' => 'CombinationList',
         'deviceName'      => 'DeviceName',
         'iotId'           => 'IotId',
         'iotInstanceId'   => 'IotInstanceId',
         'productKey'      => 'ProductKey',
+        'speechId'        => 'SpeechId',
     ];
 
     public function validate()
@@ -47,6 +59,9 @@ class SpeechByCombinationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->audioFormat) {
+            $res['AudioFormat'] = $this->audioFormat;
+        }
         if (null !== $this->combinationList) {
             $res['CombinationList'] = $this->combinationList;
         }
@@ -62,6 +77,9 @@ class SpeechByCombinationRequest extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
+        if (null !== $this->speechId) {
+            $res['SpeechId'] = $this->speechId;
+        }
 
         return $res;
     }
@@ -74,6 +92,9 @@ class SpeechByCombinationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioFormat'])) {
+            $model->audioFormat = $map['AudioFormat'];
+        }
         if (isset($map['CombinationList'])) {
             if (!empty($map['CombinationList'])) {
                 $model->combinationList = $map['CombinationList'];
@@ -90,6 +111,9 @@ class SpeechByCombinationRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['SpeechId'])) {
+            $model->speechId = $map['SpeechId'];
         }
 
         return $model;
