@@ -74,6 +74,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteLogConfigRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteLogConfigResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteModelRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteModelResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteMonitorGroupRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteMonitorGroupResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeletePluginRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeletePluginResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteSignatureRequest;
@@ -2191,6 +2193,55 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMonitorGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteMonitorGroupResponse
+     */
+    public function deleteMonitorGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->rawMonitorGroupId)) {
+            $query['RawMonitorGroupId'] = $request->rawMonitorGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMonitorGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMonitorGroupRequest $request
+     *
+     * @return DeleteMonitorGroupResponse
+     */
+    public function deleteMonitorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMonitorGroupWithOptions($request, $runtime);
     }
 
     /**
