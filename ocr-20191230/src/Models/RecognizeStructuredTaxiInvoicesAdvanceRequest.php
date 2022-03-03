@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecognizeBankCardAdvanceRequest extends Model
+class RecognizeStructuredTaxiInvoicesAdvanceRequest extends Model
 {
     /**
      * @var Stream
@@ -35,7 +35,7 @@ class RecognizeBankCardAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeBankCardAdvanceRequest
+     * @return RecognizeStructuredTaxiInvoicesAdvanceRequest
      */
     public static function fromMap($map = [])
     {
