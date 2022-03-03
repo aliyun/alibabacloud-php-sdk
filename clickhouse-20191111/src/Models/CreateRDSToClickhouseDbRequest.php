@@ -71,6 +71,11 @@ class CreateRDSToClickhouseDbRequest extends Model
     /**
      * @var string
      */
+    public $rdsVpcUrl;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -100,6 +105,7 @@ class CreateRDSToClickhouseDbRequest extends Model
         'rdsPort'              => 'RdsPort',
         'rdsUserName'          => 'RdsUserName',
         'rdsVpcId'             => 'RdsVpcId',
+        'rdsVpcUrl'            => 'RdsVpcUrl',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'skipUnsupported'      => 'SkipUnsupported',
@@ -148,6 +154,9 @@ class CreateRDSToClickhouseDbRequest extends Model
         }
         if (null !== $this->rdsVpcId) {
             $res['RdsVpcId'] = $this->rdsVpcId;
+        }
+        if (null !== $this->rdsVpcUrl) {
+            $res['RdsVpcUrl'] = $this->rdsVpcUrl;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -208,6 +217,9 @@ class CreateRDSToClickhouseDbRequest extends Model
         }
         if (isset($map['RdsVpcId'])) {
             $model->rdsVpcId = $map['RdsVpcId'];
+        }
+        if (isset($map['RdsVpcUrl'])) {
+            $model->rdsVpcUrl = $map['RdsVpcUrl'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

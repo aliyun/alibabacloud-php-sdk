@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRDSschemasRequest extends Model
+class CheckHealthRequest extends Model
 {
     /**
      * @var string
@@ -26,31 +26,6 @@ class DescribeRDSschemasRequest extends Model
     /**
      * @var string
      */
-    public $rdsId;
-
-    /**
-     * @var string
-     */
-    public $rdsPassword;
-
-    /**
-     * @var int
-     */
-    public $rdsPort;
-
-    /**
-     * @var string
-     */
-    public $rdsUserName;
-
-    /**
-     * @var string
-     */
-    public $rdsVpcUrl;
-
-    /**
-     * @var string
-     */
     public $resourceOwnerAccount;
 
     /**
@@ -61,11 +36,6 @@ class DescribeRDSschemasRequest extends Model
         'dbClusterId'          => 'DbClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'rdsId'                => 'RdsId',
-        'rdsPassword'          => 'RdsPassword',
-        'rdsPort'              => 'RdsPort',
-        'rdsUserName'          => 'RdsUserName',
-        'rdsVpcUrl'            => 'RdsVpcUrl',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -86,21 +56,6 @@ class DescribeRDSschemasRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->rdsId) {
-            $res['RdsId'] = $this->rdsId;
-        }
-        if (null !== $this->rdsPassword) {
-            $res['RdsPassword'] = $this->rdsPassword;
-        }
-        if (null !== $this->rdsPort) {
-            $res['RdsPort'] = $this->rdsPort;
-        }
-        if (null !== $this->rdsUserName) {
-            $res['RdsUserName'] = $this->rdsUserName;
-        }
-        if (null !== $this->rdsVpcUrl) {
-            $res['RdsVpcUrl'] = $this->rdsVpcUrl;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -114,7 +69,7 @@ class DescribeRDSschemasRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRDSschemasRequest
+     * @return CheckHealthRequest
      */
     public static function fromMap($map = [])
     {
@@ -127,21 +82,6 @@ class DescribeRDSschemasRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['RdsId'])) {
-            $model->rdsId = $map['RdsId'];
-        }
-        if (isset($map['RdsPassword'])) {
-            $model->rdsPassword = $map['RdsPassword'];
-        }
-        if (isset($map['RdsPort'])) {
-            $model->rdsPort = $map['RdsPort'];
-        }
-        if (isset($map['RdsUserName'])) {
-            $model->rdsUserName = $map['RdsUserName'];
-        }
-        if (isset($map['RdsVpcUrl'])) {
-            $model->rdsVpcUrl = $map['RdsVpcUrl'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

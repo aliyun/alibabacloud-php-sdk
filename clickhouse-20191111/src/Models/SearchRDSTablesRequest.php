@@ -46,6 +46,11 @@ class SearchRDSTablesRequest extends Model
     /**
      * @var string
      */
+    public $rdsVpcUrl;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -65,6 +70,7 @@ class SearchRDSTablesRequest extends Model
         'rdsPassword'          => 'RdsPassword',
         'rdsPort'              => 'RdsPort',
         'rdsUserName'          => 'RdsUserName',
+        'rdsVpcUrl'            => 'RdsVpcUrl',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'tableName'            => 'TableName',
@@ -97,6 +103,9 @@ class SearchRDSTablesRequest extends Model
         }
         if (null !== $this->rdsUserName) {
             $res['RdsUserName'] = $this->rdsUserName;
+        }
+        if (null !== $this->rdsVpcUrl) {
+            $res['RdsVpcUrl'] = $this->rdsVpcUrl;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -139,6 +148,9 @@ class SearchRDSTablesRequest extends Model
         }
         if (isset($map['RdsUserName'])) {
             $model->rdsUserName = $map['RdsUserName'];
+        }
+        if (isset($map['RdsVpcUrl'])) {
+            $model->rdsVpcUrl = $map['RdsVpcUrl'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

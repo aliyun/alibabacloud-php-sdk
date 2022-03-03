@@ -148,6 +148,11 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $publicIpAddr;
+
+    /**
+     * @var string
+     */
     public $publicPort;
 
     /**
@@ -203,6 +208,11 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $vpcIpAddr;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'aliUid'                 => 'AliUid',
@@ -232,6 +242,7 @@ class DBCluster extends Model
         'payType'                => 'PayType',
         'port'                   => 'Port',
         'publicConnectionString' => 'PublicConnectionString',
+        'publicIpAddr'           => 'PublicIpAddr',
         'publicPort'             => 'PublicPort',
         'regionId'               => 'RegionId',
         'scaleOutStatus'         => 'ScaleOutStatus',
@@ -243,6 +254,7 @@ class DBCluster extends Model
         'vSwitchId'              => 'VSwitchId',
         'vpcCloudInstanceId'     => 'VpcCloudInstanceId',
         'vpcId'                  => 'VpcId',
+        'vpcIpAddr'              => 'VpcIpAddr',
         'zoneId'                 => 'ZoneId',
     ];
 
@@ -334,6 +346,9 @@ class DBCluster extends Model
         if (null !== $this->publicConnectionString) {
             $res['PublicConnectionString'] = $this->publicConnectionString;
         }
+        if (null !== $this->publicIpAddr) {
+            $res['PublicIpAddr'] = $this->publicIpAddr;
+        }
         if (null !== $this->publicPort) {
             $res['PublicPort'] = $this->publicPort;
         }
@@ -366,6 +381,9 @@ class DBCluster extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vpcIpAddr) {
+            $res['VpcIpAddr'] = $this->vpcIpAddr;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -463,6 +481,9 @@ class DBCluster extends Model
         if (isset($map['PublicConnectionString'])) {
             $model->publicConnectionString = $map['PublicConnectionString'];
         }
+        if (isset($map['PublicIpAddr'])) {
+            $model->publicIpAddr = $map['PublicIpAddr'];
+        }
         if (isset($map['PublicPort'])) {
             $model->publicPort = $map['PublicPort'];
         }
@@ -495,6 +516,9 @@ class DBCluster extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VpcIpAddr'])) {
+            $model->vpcIpAddr = $map['VpcIpAddr'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

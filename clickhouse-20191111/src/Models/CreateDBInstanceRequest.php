@@ -64,6 +64,11 @@ class CreateDBInstanceRequest extends Model
     public $encryptionType;
 
     /**
+     * @var bool
+     */
+    public $openMonitor;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -129,6 +134,7 @@ class CreateDBInstanceRequest extends Model
         'dbNodeStorageType'    => 'DbNodeStorageType',
         'encryptionKey'        => 'EncryptionKey',
         'encryptionType'       => 'EncryptionType',
+        'openMonitor'          => 'OpenMonitor',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'payType'              => 'PayType',
@@ -181,6 +187,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->encryptionType) {
             $res['EncryptionType'] = $this->encryptionType;
+        }
+        if (null !== $this->openMonitor) {
+            $res['OpenMonitor'] = $this->openMonitor;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -259,6 +268,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['EncryptionType'])) {
             $model->encryptionType = $map['EncryptionType'];
+        }
+        if (isset($map['OpenMonitor'])) {
+            $model->openMonitor = $map['OpenMonitor'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

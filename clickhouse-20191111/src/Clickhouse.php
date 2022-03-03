@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnection
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckClickhouseToRDSRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckClickhouseToRDSResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckHealthRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckHealthResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckMonitorAlertRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckMonitorAlertResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckScaleOutBalancedRequest;
@@ -98,6 +100,10 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSTablesRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSTablesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSVpcRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSVpcResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRdsVpcsRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRdsVpcsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRdsVSwitchsRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRdsVSwitchsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSchemasRequest;
@@ -122,6 +128,8 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountDescriptionRequest
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyBackupPolicyResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyClickHouseClusterServerGRPCRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyClickHouseClusterServerGRPCResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterAccessWhiteListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterAccessWhiteListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterConfigRequest;
@@ -336,6 +344,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->rdsVpcId)) {
             $query['RdsVpcId'] = $request->rdsVpcId;
         }
+        if (!Utils::isUnset($request->rdsVpcUrl)) {
+            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -370,6 +381,61 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkClickhouseToRDSWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckHealthRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CheckHealthResponse
+     */
+    public function checkHealthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbClusterId)) {
+            $query['DbClusterId'] = $request->dbClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckHealth',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckHealthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckHealthRequest $request
+     *
+     * @return CheckHealthResponse
+     */
+    public function checkHealth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkHealthWithOptions($request, $runtime);
     }
 
     /**
@@ -884,6 +950,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->encryptionType)) {
             $query['EncryptionType'] = $request->encryptionType;
         }
+        if (!Utils::isUnset($request->openMonitor)) {
+            $query['OpenMonitor'] = $request->openMonitor;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -1169,6 +1238,9 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->rdsVpcId)) {
             $query['RdsVpcId'] = $request->rdsVpcId;
+        }
+        if (!Utils::isUnset($request->rdsVpcUrl)) {
+            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -3051,6 +3123,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->rdsUserName)) {
             $query['RdsUserName'] = $request->rdsUserName;
         }
+        if (!Utils::isUnset($request->rdsVpcUrl)) {
+            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -3182,6 +3257,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->rdsUserName)) {
             $query['RdsUserName'] = $request->rdsUserName;
         }
+        if (!Utils::isUnset($request->rdsVpcUrl)) {
+            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -3216,6 +3294,131 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRDSschemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRdsVSwitchsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRdsVSwitchsResponse
+     */
+    public function describeRdsVSwitchsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsVSwitchs',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRdsVSwitchsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsVSwitchsRequest $request
+     *
+     * @return DescribeRdsVSwitchsResponse
+     */
+    public function describeRdsVSwitchs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsVSwitchsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRdsVpcsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRdsVpcsResponse
+     */
+    public function describeRdsVpcsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsVpcs',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRdsVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsVpcsRequest $request
+     *
+     * @return DescribeRdsVpcsResponse
+     */
+    public function describeRdsVpcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsVpcsWithOptions($request, $runtime);
     }
 
     /**
@@ -3963,6 +4166,70 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyClickHouseClusterServerGRPCRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyClickHouseClusterServerGRPCResponse
+     */
+    public function modifyClickHouseClusterServerGRPCWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->dbClusterId)) {
+            $query['DbClusterId'] = $request->dbClusterId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClickHouseClusterServerGRPC',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyClickHouseClusterServerGRPCResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyClickHouseClusterServerGRPCRequest $request
+     *
+     * @return ModifyClickHouseClusterServerGRPCResponse
+     */
+    public function modifyClickHouseClusterServerGRPC($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyClickHouseClusterServerGRPCWithOptions($request, $runtime);
     }
 
     /**
@@ -4805,6 +5072,9 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->rdsUserName)) {
             $query['RdsUserName'] = $request->rdsUserName;
+        }
+        if (!Utils::isUnset($request->rdsVpcUrl)) {
+            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;

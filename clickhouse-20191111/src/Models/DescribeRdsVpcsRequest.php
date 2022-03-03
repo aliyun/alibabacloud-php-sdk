@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRDSschemasRequest extends Model
+class DescribeRdsVpcsRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $dbClusterId;
-
     /**
      * @var string
      */
@@ -26,27 +21,7 @@ class DescribeRDSschemasRequest extends Model
     /**
      * @var string
      */
-    public $rdsId;
-
-    /**
-     * @var string
-     */
-    public $rdsPassword;
-
-    /**
-     * @var int
-     */
-    public $rdsPort;
-
-    /**
-     * @var string
-     */
-    public $rdsUserName;
-
-    /**
-     * @var string
-     */
-    public $rdsVpcUrl;
+    public $regionId;
 
     /**
      * @var string
@@ -57,17 +32,24 @@ class DescribeRDSschemasRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'dbClusterId'          => 'DbClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'rdsId'                => 'RdsId',
-        'rdsPassword'          => 'RdsPassword',
-        'rdsPort'              => 'RdsPort',
-        'rdsUserName'          => 'RdsUserName',
-        'rdsVpcUrl'            => 'RdsVpcUrl',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityToken'        => 'SecurityToken',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -77,35 +59,26 @@ class DescribeRDSschemasRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dbClusterId) {
-            $res['DbClusterId'] = $this->dbClusterId;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->rdsId) {
-            $res['RdsId'] = $this->rdsId;
-        }
-        if (null !== $this->rdsPassword) {
-            $res['RdsPassword'] = $this->rdsPassword;
-        }
-        if (null !== $this->rdsPort) {
-            $res['RdsPort'] = $this->rdsPort;
-        }
-        if (null !== $this->rdsUserName) {
-            $res['RdsUserName'] = $this->rdsUserName;
-        }
-        if (null !== $this->rdsVpcUrl) {
-            $res['RdsVpcUrl'] = $this->rdsVpcUrl;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -114,40 +87,31 @@ class DescribeRDSschemasRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRDSschemasRequest
+     * @return DescribeRdsVpcsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbClusterId'])) {
-            $model->dbClusterId = $map['DbClusterId'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['RdsId'])) {
-            $model->rdsId = $map['RdsId'];
-        }
-        if (isset($map['RdsPassword'])) {
-            $model->rdsPassword = $map['RdsPassword'];
-        }
-        if (isset($map['RdsPort'])) {
-            $model->rdsPort = $map['RdsPort'];
-        }
-        if (isset($map['RdsUserName'])) {
-            $model->rdsUserName = $map['RdsUserName'];
-        }
-        if (isset($map['RdsVpcUrl'])) {
-            $model->rdsVpcUrl = $map['RdsVpcUrl'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

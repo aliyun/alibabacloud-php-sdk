@@ -31,6 +31,11 @@ class synDbs extends Model
     /**
      * @var string
      */
+    public $rdsVpcUrl;
+
+    /**
+     * @var string
+     */
     public $synDb;
 
     /**
@@ -42,6 +47,7 @@ class synDbs extends Model
         'rdsId'       => 'RdsId',
         'rdsPassword' => 'RdsPassword',
         'rdsUserName' => 'RdsUserName',
+        'rdsVpcUrl'   => 'RdsVpcUrl',
         'synDb'       => 'SynDb',
         'synStatus'   => 'SynStatus',
     ];
@@ -64,6 +70,9 @@ class synDbs extends Model
         }
         if (null !== $this->rdsUserName) {
             $res['RdsUserName'] = $this->rdsUserName;
+        }
+        if (null !== $this->rdsVpcUrl) {
+            $res['RdsVpcUrl'] = $this->rdsVpcUrl;
         }
         if (null !== $this->synDb) {
             $res['SynDb'] = $this->synDb;
@@ -94,6 +103,9 @@ class synDbs extends Model
         }
         if (isset($map['RdsUserName'])) {
             $model->rdsUserName = $map['RdsUserName'];
+        }
+        if (isset($map['RdsVpcUrl'])) {
+            $model->rdsVpcUrl = $map['RdsVpcUrl'];
         }
         if (isset($map['SynDb'])) {
             $model->synDb = $map['SynDb'];
