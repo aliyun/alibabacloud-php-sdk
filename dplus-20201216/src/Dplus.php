@@ -18,6 +18,9 @@ use AlibabaCloud\SDK\Dplus\V20201216\Models\AlivisionImgdupResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateImageAmazonTaskRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateImageAmazonTaskResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateImageAmazonTaskShrinkRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateRemoveWorkTaskAdvanceRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateRemoveWorkTaskRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateRemoveWorkTaskResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\FaceshifterTAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\FaceshifterTRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\FaceshifterTResponse;
@@ -520,6 +523,130 @@ class Dplus extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createImageAmazonTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRemoveWorkTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateRemoveWorkTaskResponse
+     */
+    public function createRemoveWorkTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->itemIdentity)) {
+            $query['ItemIdentity'] = $request->itemIdentity;
+        }
+        if (!Utils::isUnset($request->picUrl)) {
+            $query['PicUrl'] = $request->picUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRemoveWorkTask',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRemoveWorkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRemoveWorkTaskRequest $request
+     *
+     * @return CreateRemoveWorkTaskResponse
+     */
+    public function createRemoveWorkTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRemoveWorkTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRemoveWorkTaskAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateRemoveWorkTaskResponse
+     */
+    public function createRemoveWorkTaskAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'dplus',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $createRemoveWorkTaskReq = new CreateRemoveWorkTaskRequest([]);
+        OpenApiUtilClient::convert($request, $createRemoveWorkTaskReq);
+        if (!Utils::isUnset($request->picUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->picUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $createRemoveWorkTaskReq->picUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->createRemoveWorkTaskWithOptions($createRemoveWorkTaskReq, $runtime);
     }
 
     /**
