@@ -11,12 +11,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $base64QRCodePNG;
+    public $antChainId;
 
     /**
      * @var string
      */
-    public $transactionHash;
+    public $base64QRCodePNG;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $antChainId;
+    public $transactionHash;
     protected $_name = [
-        'base64QRCodePNG' => 'Base64QRCodePNG',
-        'transactionHash' => 'TransactionHash',
-        'QRCodeContent'   => 'QRCodeContent',
         'antChainId'      => 'AntChainId',
+        'base64QRCodePNG' => 'Base64QRCodePNG',
+        'QRCodeContent'   => 'QRCodeContent',
+        'transactionHash' => 'TransactionHash',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
+        }
         if (null !== $this->base64QRCodePNG) {
             $res['Base64QRCodePNG'] = $this->base64QRCodePNG;
-        }
-        if (null !== $this->transactionHash) {
-            $res['TransactionHash'] = $this->transactionHash;
         }
         if (null !== $this->QRCodeContent) {
             $res['QRCodeContent'] = $this->QRCodeContent;
         }
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
+        if (null !== $this->transactionHash) {
+            $res['TransactionHash'] = $this->transactionHash;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
+        }
         if (isset($map['Base64QRCodePNG'])) {
             $model->base64QRCodePNG = $map['Base64QRCodePNG'];
-        }
-        if (isset($map['TransactionHash'])) {
-            $model->transactionHash = $map['TransactionHash'];
         }
         if (isset($map['QRCodeContent'])) {
             $model->QRCodeContent = $map['QRCodeContent'];
         }
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
+        if (isset($map['TransactionHash'])) {
+            $model->transactionHash = $map['TransactionHash'];
         }
 
         return $model;

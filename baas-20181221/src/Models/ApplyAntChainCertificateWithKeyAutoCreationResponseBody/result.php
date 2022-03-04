@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
-     */
-    public $privateKey;
-
-    /**
      * @var downloadPath
      */
     public $downloadPath;
+
+    /**
+     * @var string
+     */
+    public $privateKey;
     protected $_name = [
-        'privateKey'   => 'PrivateKey',
         'downloadPath' => 'DownloadPath',
+        'privateKey'   => 'PrivateKey',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->privateKey) {
-            $res['PrivateKey'] = $this->privateKey;
-        }
         if (null !== $this->downloadPath) {
             $res['DownloadPath'] = null !== $this->downloadPath ? $this->downloadPath->toMap() : null;
+        }
+        if (null !== $this->privateKey) {
+            $res['PrivateKey'] = $this->privateKey;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrivateKey'])) {
-            $model->privateKey = $map['PrivateKey'];
-        }
         if (isset($map['DownloadPath'])) {
             $model->downloadPath = downloadPath::fromMap($map['DownloadPath']);
+        }
+        if (isset($map['PrivateKey'])) {
+            $model->privateKey = $map['PrivateKey'];
         }
 
         return $model;

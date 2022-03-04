@@ -12,11 +12,6 @@ class DescribeTasksResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $dynamicCode;
 
     /**
@@ -30,21 +25,26 @@ class DescribeTasksResponseBody extends Model
     public $errorCode;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $requestId;
 
     /**
      * @var result[]
      */
     public $result;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'dynamicCode'    => 'DynamicCode',
         'dynamicMessage' => 'DynamicMessage',
         'errorCode'      => 'ErrorCode',
-        'success'        => 'Success',
+        'requestId'      => 'RequestId',
         'result'         => 'Result',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -54,9 +54,6 @@ class DescribeTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
         }
@@ -66,8 +63,8 @@ class DescribeTasksResponseBody extends Model
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -77,6 +74,9 @@ class DescribeTasksResponseBody extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -90,9 +90,6 @@ class DescribeTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
         }
@@ -102,8 +99,8 @@ class DescribeTasksResponseBody extends Model
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
@@ -113,6 +110,9 @@ class DescribeTasksResponseBody extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

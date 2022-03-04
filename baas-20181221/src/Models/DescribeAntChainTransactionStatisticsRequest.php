@@ -16,16 +16,16 @@ class DescribeAntChainTransactionStatisticsRequest extends Model
     /**
      * @var int
      */
-    public $start;
+    public $end;
 
     /**
      * @var int
      */
-    public $end;
+    public $start;
     protected $_name = [
         'antChainId' => 'AntChainId',
-        'start'      => 'Start',
         'end'        => 'End',
+        'start'      => 'Start',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeAntChainTransactionStatisticsRequest extends Model
         if (null !== $this->antChainId) {
             $res['AntChainId'] = $this->antChainId;
         }
-        if (null !== $this->start) {
-            $res['Start'] = $this->start;
-        }
         if (null !== $this->end) {
             $res['End'] = $this->end;
+        }
+        if (null !== $this->start) {
+            $res['Start'] = $this->start;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeAntChainTransactionStatisticsRequest extends Model
         if (isset($map['AntChainId'])) {
             $model->antChainId = $map['AntChainId'];
         }
-        if (isset($map['Start'])) {
-            $model->start = $map['Start'];
-        }
         if (isset($map['End'])) {
             $model->end = $map['End'];
+        }
+        if (isset($map['Start'])) {
+            $model->start = $map['Start'];
         }
 
         return $model;

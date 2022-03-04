@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string
+     */
+    public $codeName;
+
+    /**
      * @var bool
      */
     public $deletable;
@@ -21,12 +26,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $state;
+    public $organizationDescription;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $organizationId;
 
     /**
      * @var string
@@ -36,32 +41,27 @@ class result extends Model
     /**
      * @var string
      */
-    public $codeName;
-
-    /**
-     * @var string
-     */
-    public $organizationDescription;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
      * @var string
      */
-    public $organizationId;
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
+        'codeName'                => 'CodeName',
         'deletable'               => 'Deletable',
         'domain'                  => 'Domain',
+        'organizationDescription' => 'OrganizationDescription',
+        'organizationId'          => 'OrganizationId',
+        'organizationName'        => 'OrganizationName',
+        'regionId'                => 'RegionId',
         'state'                   => 'State',
         'zoneId'                  => 'ZoneId',
-        'organizationName'        => 'OrganizationName',
-        'codeName'                => 'CodeName',
-        'organizationDescription' => 'OrganizationDescription',
-        'regionId'                => 'RegionId',
-        'organizationId'          => 'OrganizationId',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->codeName) {
+            $res['CodeName'] = $this->codeName;
+        }
         if (null !== $this->deletable) {
             $res['Deletable'] = $this->deletable;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+        if (null !== $this->organizationDescription) {
+            $res['OrganizationDescription'] = $this->organizationDescription;
+        }
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
+        }
+        if (null !== $this->organizationName) {
+            $res['OrganizationName'] = $this->organizationName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->organizationName) {
-            $res['OrganizationName'] = $this->organizationName;
-        }
-        if (null !== $this->codeName) {
-            $res['CodeName'] = $this->codeName;
-        }
-        if (null !== $this->organizationDescription) {
-            $res['OrganizationDescription'] = $this->organizationDescription;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CodeName'])) {
+            $model->codeName = $map['CodeName'];
+        }
         if (isset($map['Deletable'])) {
             $model->deletable = $map['Deletable'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+        if (isset($map['OrganizationDescription'])) {
+            $model->organizationDescription = $map['OrganizationDescription'];
+        }
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
+        }
+        if (isset($map['OrganizationName'])) {
+            $model->organizationName = $map['OrganizationName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['OrganizationName'])) {
-            $model->organizationName = $map['OrganizationName'];
-        }
-        if (isset($map['CodeName'])) {
-            $model->codeName = $map['CodeName'];
-        }
-        if (isset($map['OrganizationDescription'])) {
-            $model->organizationDescription = $map['OrganizationDescription'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
         }
 
         return $model;

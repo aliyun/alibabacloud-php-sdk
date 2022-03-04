@@ -11,12 +11,7 @@ class CreateAntChainContractContentRequest extends Model
     /**
      * @var string
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $parentContentId;
+    public $content;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class CreateAntChainContractContentRequest extends Model
     /**
      * @var string
      */
-    public $content;
+    public $parentContentId;
+
+    /**
+     * @var string
+     */
+    public $projectId;
     protected $_name = [
-        'projectId'       => 'ProjectId',
-        'parentContentId' => 'ParentContentId',
+        'content'         => 'Content',
         'contentName'     => 'ContentName',
         'isDirectory'     => 'IsDirectory',
-        'content'         => 'Content',
+        'parentContentId' => 'ParentContentId',
+        'projectId'       => 'ProjectId',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class CreateAntChainContractContentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->parentContentId) {
-            $res['ParentContentId'] = $this->parentContentId;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->contentName) {
             $res['ContentName'] = $this->contentName;
@@ -59,8 +56,11 @@ class CreateAntChainContractContentRequest extends Model
         if (null !== $this->isDirectory) {
             $res['IsDirectory'] = $this->isDirectory;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->parentContentId) {
+            $res['ParentContentId'] = $this->parentContentId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class CreateAntChainContractContentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ParentContentId'])) {
-            $model->parentContentId = $map['ParentContentId'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['ContentName'])) {
             $model->contentName = $map['ContentName'];
@@ -86,8 +83,11 @@ class CreateAntChainContractContentRequest extends Model
         if (isset($map['IsDirectory'])) {
             $model->isDirectory = $map['IsDirectory'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['ParentContentId'])) {
+            $model->parentContentId = $map['ParentContentId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

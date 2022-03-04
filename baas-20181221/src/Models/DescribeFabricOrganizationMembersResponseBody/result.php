@@ -11,32 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $domain;
-
-    /**
-     * @var string
-     */
     public $consortiumId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $organizationName;
-
-    /**
-     * @var string
-     */
-    public $joinedTime;
 
     /**
      * @var string
@@ -46,16 +21,41 @@ class result extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $joinedTime;
+
+    /**
+     * @var string
+     */
     public $organizationId;
+
+    /**
+     * @var string
+     */
+    public $organizationName;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
-        'domain'           => 'Domain',
         'consortiumId'     => 'ConsortiumId',
-        'description'      => 'Description',
-        'state'            => 'State',
-        'organizationName' => 'OrganizationName',
-        'joinedTime'       => 'JoinedTime',
         'consortiumName'   => 'ConsortiumName',
+        'description'      => 'Description',
+        'domain'           => 'Domain',
+        'joinedTime'       => 'JoinedTime',
         'organizationId'   => 'OrganizationId',
+        'organizationName' => 'OrganizationName',
+        'state'            => 'State',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->organizationName) {
-            $res['OrganizationName'] = $this->organizationName;
-        }
-        if (null !== $this->joinedTime) {
-            $res['JoinedTime'] = $this->joinedTime;
         }
         if (null !== $this->consortiumName) {
             $res['ConsortiumName'] = $this->consortiumName;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->joinedTime) {
+            $res['JoinedTime'] = $this->joinedTime;
+        }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
+        }
+        if (null !== $this->organizationName) {
+            $res['OrganizationName'] = $this->organizationName;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['OrganizationName'])) {
-            $model->organizationName = $map['OrganizationName'];
-        }
-        if (isset($map['JoinedTime'])) {
-            $model->joinedTime = $map['JoinedTime'];
         }
         if (isset($map['ConsortiumName'])) {
             $model->consortiumName = $map['ConsortiumName'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['JoinedTime'])) {
+            $model->joinedTime = $map['JoinedTime'];
+        }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
+        }
+        if (isset($map['OrganizationName'])) {
+            $model->organizationName = $map['OrganizationName'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

@@ -16,22 +16,22 @@ class CreateAntChainContractProjectRequest extends Model
     /**
      * @var string
      */
+    public $projectDescription;
+
+    /**
+     * @var string
+     */
     public $projectName;
 
     /**
      * @var string
      */
     public $projectVersion;
-
-    /**
-     * @var string
-     */
-    public $projectDescription;
     protected $_name = [
         'consortiumId'       => 'ConsortiumId',
+        'projectDescription' => 'ProjectDescription',
         'projectName'        => 'ProjectName',
         'projectVersion'     => 'ProjectVersion',
-        'projectDescription' => 'ProjectDescription',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class CreateAntChainContractProjectRequest extends Model
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
         }
+        if (null !== $this->projectDescription) {
+            $res['ProjectDescription'] = $this->projectDescription;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->projectVersion) {
             $res['ProjectVersion'] = $this->projectVersion;
-        }
-        if (null !== $this->projectDescription) {
-            $res['ProjectDescription'] = $this->projectDescription;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class CreateAntChainContractProjectRequest extends Model
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
         }
+        if (isset($map['ProjectDescription'])) {
+            $model->projectDescription = $map['ProjectDescription'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
         if (isset($map['ProjectVersion'])) {
             $model->projectVersion = $map['ProjectVersion'];
-        }
-        if (isset($map['ProjectDescription'])) {
-            $model->projectDescription = $map['ProjectDescription'];
         }
 
         return $model;

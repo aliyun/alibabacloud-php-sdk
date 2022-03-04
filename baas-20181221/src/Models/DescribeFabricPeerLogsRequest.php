@@ -11,21 +11,21 @@ class DescribeFabricPeerLogsRequest extends Model
     /**
      * @var string
      */
+    public $lines;
+
+    /**
+     * @var string
+     */
     public $organizationId;
 
     /**
      * @var string
      */
     public $peerName;
-
-    /**
-     * @var string
-     */
-    public $lines;
     protected $_name = [
+        'lines'          => 'Lines',
         'organizationId' => 'OrganizationId',
         'peerName'       => 'PeerName',
-        'lines'          => 'Lines',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeFabricPeerLogsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lines) {
+            $res['Lines'] = $this->lines;
+        }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->peerName) {
             $res['PeerName'] = $this->peerName;
-        }
-        if (null !== $this->lines) {
-            $res['Lines'] = $this->lines;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeFabricPeerLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Lines'])) {
+            $model->lines = $map['Lines'];
+        }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['PeerName'])) {
             $model->peerName = $map['PeerName'];
-        }
-        if (isset($map['Lines'])) {
-            $model->lines = $map['Lines'];
         }
 
         return $model;

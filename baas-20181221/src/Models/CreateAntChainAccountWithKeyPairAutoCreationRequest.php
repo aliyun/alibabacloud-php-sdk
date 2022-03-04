@@ -11,12 +11,12 @@ class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
     /**
      * @var string
      */
-    public $antChainId;
+    public $account;
 
     /**
      * @var string
      */
-    public $account;
+    public $antChainId;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
      */
     public $recoverPassword;
     protected $_name = [
-        'antChainId'      => 'AntChainId',
         'account'         => 'Account',
+        'antChainId'      => 'AntChainId',
         'password'        => 'Password',
         'recoverPassword' => 'RecoverPassword',
     ];
@@ -41,11 +41,11 @@ class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
-        }
         if (null !== $this->account) {
             $res['Account'] = $this->account;
+        }
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -65,11 +65,11 @@ class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
-        }
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
+        }
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];

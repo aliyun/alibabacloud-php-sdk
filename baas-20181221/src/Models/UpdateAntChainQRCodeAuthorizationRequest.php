@@ -16,16 +16,16 @@ class UpdateAntChainQRCodeAuthorizationRequest extends Model
     /**
      * @var string
      */
-    public $QRCodeType;
+    public $authorizationType;
 
     /**
      * @var string
      */
-    public $authorizationType;
+    public $QRCodeType;
     protected $_name = [
         'antChainId'        => 'AntChainId',
-        'QRCodeType'        => 'QRCodeType',
         'authorizationType' => 'AuthorizationType',
+        'QRCodeType'        => 'QRCodeType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class UpdateAntChainQRCodeAuthorizationRequest extends Model
         if (null !== $this->antChainId) {
             $res['AntChainId'] = $this->antChainId;
         }
-        if (null !== $this->QRCodeType) {
-            $res['QRCodeType'] = $this->QRCodeType;
-        }
         if (null !== $this->authorizationType) {
             $res['AuthorizationType'] = $this->authorizationType;
+        }
+        if (null !== $this->QRCodeType) {
+            $res['QRCodeType'] = $this->QRCodeType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class UpdateAntChainQRCodeAuthorizationRequest extends Model
         if (isset($map['AntChainId'])) {
             $model->antChainId = $map['AntChainId'];
         }
-        if (isset($map['QRCodeType'])) {
-            $model->QRCodeType = $map['QRCodeType'];
-        }
         if (isset($map['AuthorizationType'])) {
             $model->authorizationType = $map['AuthorizationType'];
+        }
+        if (isset($map['QRCodeType'])) {
+            $model->QRCodeType = $map['QRCodeType'];
         }
 
         return $model;

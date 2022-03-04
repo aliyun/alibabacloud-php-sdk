@@ -11,7 +11,17 @@ class result extends Model
     /**
      * @var string
      */
-    public $signature;
+    public $accessId;
+
+    /**
+     * @var string
+     */
+    public $dir;
+
+    /**
+     * @var int
+     */
+    public $expire;
 
     /**
      * @var string
@@ -26,24 +36,14 @@ class result extends Model
     /**
      * @var string
      */
-    public $dir;
-
-    /**
-     * @var string
-     */
-    public $accessId;
-
-    /**
-     * @var int
-     */
-    public $expire;
+    public $signature;
     protected $_name = [
-        'signature' => 'Signature',
+        'accessId'  => 'AccessId',
+        'dir'       => 'Dir',
+        'expire'    => 'Expire',
         'host'      => 'Host',
         'policy'    => 'Policy',
-        'dir'       => 'Dir',
-        'accessId'  => 'AccessId',
-        'expire'    => 'Expire',
+        'signature' => 'Signature',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
+        if (null !== $this->accessId) {
+            $res['AccessId'] = $this->accessId;
+        }
+        if (null !== $this->dir) {
+            $res['Dir'] = $this->dir;
+        }
+        if (null !== $this->expire) {
+            $res['Expire'] = $this->expire;
         }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
@@ -62,14 +68,8 @@ class result extends Model
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
-        if (null !== $this->dir) {
-            $res['Dir'] = $this->dir;
-        }
-        if (null !== $this->accessId) {
-            $res['AccessId'] = $this->accessId;
-        }
-        if (null !== $this->expire) {
-            $res['Expire'] = $this->expire;
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
+        if (isset($map['AccessId'])) {
+            $model->accessId = $map['AccessId'];
+        }
+        if (isset($map['Dir'])) {
+            $model->dir = $map['Dir'];
+        }
+        if (isset($map['Expire'])) {
+            $model->expire = $map['Expire'];
         }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
@@ -92,14 +98,8 @@ class result extends Model
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
-        if (isset($map['Dir'])) {
-            $model->dir = $map['Dir'];
-        }
-        if (isset($map['AccessId'])) {
-            $model->accessId = $map['AccessId'];
-        }
-        if (isset($map['Expire'])) {
-            $model->expire = $map['Expire'];
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
 
         return $model;

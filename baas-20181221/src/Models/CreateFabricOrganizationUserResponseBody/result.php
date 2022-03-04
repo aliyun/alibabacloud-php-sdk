@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $password;
+    public $createTime;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $fullname;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class result extends Model
     /**
      * @var string
      */
-    public $username;
+    public $password;
 
     /**
      * @var string
      */
-    public $fullname;
+    public $username;
     protected $_name = [
-        'password'       => 'Password',
-        'expireTime'     => 'ExpireTime',
         'createTime'     => 'CreateTime',
-        'organizationId' => 'OrganizationId',
-        'username'       => 'Username',
+        'expireTime'     => 'ExpireTime',
         'fullname'       => 'Fullname',
+        'organizationId' => 'OrganizationId',
+        'password'       => 'Password',
+        'username'       => 'Username',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->fullname) {
+            $res['Fullname'] = $this->fullname;
         }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
-        }
-        if (null !== $this->fullname) {
-            $res['Fullname'] = $this->fullname;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Fullname'])) {
+            $model->fullname = $map['Fullname'];
         }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
-        }
-        if (isset($map['Fullname'])) {
-            $model->fullname = $map['Fullname'];
         }
 
         return $model;

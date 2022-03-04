@@ -16,6 +16,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $projectDescription;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -27,17 +32,12 @@ class result extends Model
      * @var string
      */
     public $projectVersion;
-
-    /**
-     * @var string
-     */
-    public $projectDescription;
     protected $_name = [
         'children'           => 'Children',
+        'projectDescription' => 'ProjectDescription',
         'projectId'          => 'ProjectId',
         'projectName'        => 'ProjectName',
         'projectVersion'     => 'ProjectVersion',
-        'projectDescription' => 'ProjectDescription',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class result extends Model
         if (null !== $this->children) {
             $res['Children'] = $this->children;
         }
+        if (null !== $this->projectDescription) {
+            $res['ProjectDescription'] = $this->projectDescription;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -58,9 +61,6 @@ class result extends Model
         }
         if (null !== $this->projectVersion) {
             $res['ProjectVersion'] = $this->projectVersion;
-        }
-        if (null !== $this->projectDescription) {
-            $res['ProjectDescription'] = $this->projectDescription;
         }
 
         return $res;
@@ -79,6 +79,9 @@ class result extends Model
                 $model->children = $map['Children'];
             }
         }
+        if (isset($map['ProjectDescription'])) {
+            $model->projectDescription = $map['ProjectDescription'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
@@ -87,9 +90,6 @@ class result extends Model
         }
         if (isset($map['ProjectVersion'])) {
             $model->projectVersion = $map['ProjectVersion'];
-        }
-        if (isset($map['ProjectDescription'])) {
-            $model->projectDescription = $map['ProjectDescription'];
         }
 
         return $model;

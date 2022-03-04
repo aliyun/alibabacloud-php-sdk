@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $creatTime;
+    public $antChainId;
 
     /**
      * @var int
      */
-    public $transCount;
+    public $creatTime;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class result extends Model
     public $lastSumBlockHeight;
 
     /**
-     * @var string
+     * @var int
      */
-    public $antChainId;
+    public $transCount;
     protected $_name = [
+        'antChainId'         => 'AntChainId',
         'creatTime'          => 'CreatTime',
-        'transCount'         => 'TransCount',
         'dt'                 => 'Dt',
         'lastSumBlockHeight' => 'LastSumBlockHeight',
-        'antChainId'         => 'AntChainId',
+        'transCount'         => 'TransCount',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
+        }
         if (null !== $this->creatTime) {
             $res['CreatTime'] = $this->creatTime;
-        }
-        if (null !== $this->transCount) {
-            $res['TransCount'] = $this->transCount;
         }
         if (null !== $this->dt) {
             $res['Dt'] = $this->dt;
@@ -59,8 +59,8 @@ class result extends Model
         if (null !== $this->lastSumBlockHeight) {
             $res['LastSumBlockHeight'] = $this->lastSumBlockHeight;
         }
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
+        if (null !== $this->transCount) {
+            $res['TransCount'] = $this->transCount;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
+        }
         if (isset($map['CreatTime'])) {
             $model->creatTime = $map['CreatTime'];
-        }
-        if (isset($map['TransCount'])) {
-            $model->transCount = $map['TransCount'];
         }
         if (isset($map['Dt'])) {
             $model->dt = $map['Dt'];
@@ -86,8 +86,8 @@ class result extends Model
         if (isset($map['LastSumBlockHeight'])) {
             $model->lastSumBlockHeight = $map['LastSumBlockHeight'];
         }
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
+        if (isset($map['TransCount'])) {
+            $model->transCount = $map['TransCount'];
         }
 
         return $model;

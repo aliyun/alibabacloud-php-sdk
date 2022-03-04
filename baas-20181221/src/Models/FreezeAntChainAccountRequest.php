@@ -11,15 +11,15 @@ class FreezeAntChainAccountRequest extends Model
     /**
      * @var string
      */
-    public $antChainId;
+    public $account;
 
     /**
      * @var string
      */
-    public $account;
+    public $antChainId;
     protected $_name = [
-        'antChainId' => 'AntChainId',
         'account'    => 'Account',
+        'antChainId' => 'AntChainId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class FreezeAntChainAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
-        }
         if (null !== $this->account) {
             $res['Account'] = $this->account;
+        }
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class FreezeAntChainAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
-        }
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
+        }
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
         }
 
         return $model;

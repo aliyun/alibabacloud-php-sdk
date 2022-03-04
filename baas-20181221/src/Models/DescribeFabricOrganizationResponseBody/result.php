@@ -12,22 +12,17 @@ class result extends Model
     /**
      * @var string
      */
-    public $domain;
-
-    /**
-     * @var int
-     */
-    public $peerCount;
+    public $CANAME;
 
     /**
      * @var string
      */
-    public $state;
+    public $CAUrl;
 
     /**
      * @var string
      */
-    public $createTime;
+    public $codeName;
 
     /**
      * @var int
@@ -35,14 +30,39 @@ class result extends Model
     public $consortiumCount;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $specName;
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $MSP;
+
+    /**
+     * @var string
+     */
+    public $organizationDescription;
+
+    /**
+     * @var string
+     */
+    public $organizationId;
+
+    /**
+     * @var string
+     */
+    public $organizationName;
+
+    /**
+     * @var string
+     */
+    public $ownerBid;
 
     /**
      * @var string
@@ -55,19 +75,9 @@ class result extends Model
     public $ownerUid;
 
     /**
-     * @var string
+     * @var int
      */
-    public $codeName;
-
-    /**
-     * @var string
-     */
-    public $ownerBid;
-
-    /**
-     * @var string
-     */
-    public $organizationDescription;
+    public $peerCount;
 
     /**
      * @var string
@@ -77,32 +87,22 @@ class result extends Model
     /**
      * @var string
      */
-    public $organizationId;
-
-    /**
-     * @var string
-     */
-    public $MSP;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var string
      */
-    public $CAUrl;
+    public $specName;
 
     /**
      * @var string
      */
-    public $CANAME;
+    public $state;
 
     /**
-     * @var string
+     * @var tags[]
      */
-    public $zoneId;
+    public $tags;
 
     /**
      * @var int
@@ -112,29 +112,29 @@ class result extends Model
     /**
      * @var string
      */
-    public $organizationName;
+    public $zoneId;
     protected $_name = [
-        'domain'                  => 'Domain',
-        'peerCount'               => 'PeerCount',
-        'state'                   => 'State',
-        'createTime'              => 'CreateTime',
+        'CANAME'                  => 'CANAME',
+        'CAUrl'                   => 'CAUrl',
+        'codeName'                => 'CodeName',
         'consortiumCount'         => 'ConsortiumCount',
-        'tags'                    => 'Tags',
-        'specName'                => 'SpecName',
+        'createTime'              => 'CreateTime',
+        'domain'                  => 'Domain',
+        'MSP'                     => 'MSP',
+        'organizationDescription' => 'OrganizationDescription',
+        'organizationId'          => 'OrganizationId',
+        'organizationName'        => 'OrganizationName',
+        'ownerBid'                => 'OwnerBid',
         'ownerName'               => 'OwnerName',
         'ownerUid'                => 'OwnerUid',
-        'codeName'                => 'CodeName',
-        'ownerBid'                => 'OwnerBid',
-        'organizationDescription' => 'OrganizationDescription',
+        'peerCount'               => 'PeerCount',
         'regionId'                => 'RegionId',
-        'organizationId'          => 'OrganizationId',
-        'MSP'                     => 'MSP',
         'requestId'               => 'RequestId',
-        'CAUrl'                   => 'CAUrl',
-        'CANAME'                  => 'CANAME',
-        'zoneId'                  => 'ZoneId',
+        'specName'                => 'SpecName',
+        'state'                   => 'State',
+        'tags'                    => 'Tags',
         'userCount'               => 'UserCount',
-        'organizationName'        => 'OrganizationName',
+        'zoneId'                  => 'ZoneId',
     ];
 
     public function validate()
@@ -144,20 +144,59 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->CANAME) {
+            $res['CANAME'] = $this->CANAME;
         }
-        if (null !== $this->peerCount) {
-            $res['PeerCount'] = $this->peerCount;
+        if (null !== $this->CAUrl) {
+            $res['CAUrl'] = $this->CAUrl;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->codeName) {
+            $res['CodeName'] = $this->codeName;
+        }
+        if (null !== $this->consortiumCount) {
+            $res['ConsortiumCount'] = $this->consortiumCount;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->consortiumCount) {
-            $res['ConsortiumCount'] = $this->consortiumCount;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->MSP) {
+            $res['MSP'] = $this->MSP;
+        }
+        if (null !== $this->organizationDescription) {
+            $res['OrganizationDescription'] = $this->organizationDescription;
+        }
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
+        }
+        if (null !== $this->organizationName) {
+            $res['OrganizationName'] = $this->organizationName;
+        }
+        if (null !== $this->ownerBid) {
+            $res['OwnerBid'] = $this->ownerBid;
+        }
+        if (null !== $this->ownerName) {
+            $res['OwnerName'] = $this->ownerName;
+        }
+        if (null !== $this->ownerUid) {
+            $res['OwnerUid'] = $this->ownerUid;
+        }
+        if (null !== $this->peerCount) {
+            $res['PeerCount'] = $this->peerCount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->specName) {
+            $res['SpecName'] = $this->specName;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -168,50 +207,11 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->specName) {
-            $res['SpecName'] = $this->specName;
-        }
-        if (null !== $this->ownerName) {
-            $res['OwnerName'] = $this->ownerName;
-        }
-        if (null !== $this->ownerUid) {
-            $res['OwnerUid'] = $this->ownerUid;
-        }
-        if (null !== $this->codeName) {
-            $res['CodeName'] = $this->codeName;
-        }
-        if (null !== $this->ownerBid) {
-            $res['OwnerBid'] = $this->ownerBid;
-        }
-        if (null !== $this->organizationDescription) {
-            $res['OrganizationDescription'] = $this->organizationDescription;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
-        if (null !== $this->MSP) {
-            $res['MSP'] = $this->MSP;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->CAUrl) {
-            $res['CAUrl'] = $this->CAUrl;
-        }
-        if (null !== $this->CANAME) {
-            $res['CANAME'] = $this->CANAME;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
         }
-        if (null !== $this->organizationName) {
-            $res['OrganizationName'] = $this->organizationName;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -225,20 +225,59 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['CANAME'])) {
+            $model->CANAME = $map['CANAME'];
         }
-        if (isset($map['PeerCount'])) {
-            $model->peerCount = $map['PeerCount'];
+        if (isset($map['CAUrl'])) {
+            $model->CAUrl = $map['CAUrl'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['CodeName'])) {
+            $model->codeName = $map['CodeName'];
+        }
+        if (isset($map['ConsortiumCount'])) {
+            $model->consortiumCount = $map['ConsortiumCount'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ConsortiumCount'])) {
-            $model->consortiumCount = $map['ConsortiumCount'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['MSP'])) {
+            $model->MSP = $map['MSP'];
+        }
+        if (isset($map['OrganizationDescription'])) {
+            $model->organizationDescription = $map['OrganizationDescription'];
+        }
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
+        }
+        if (isset($map['OrganizationName'])) {
+            $model->organizationName = $map['OrganizationName'];
+        }
+        if (isset($map['OwnerBid'])) {
+            $model->ownerBid = $map['OwnerBid'];
+        }
+        if (isset($map['OwnerName'])) {
+            $model->ownerName = $map['OwnerName'];
+        }
+        if (isset($map['OwnerUid'])) {
+            $model->ownerUid = $map['OwnerUid'];
+        }
+        if (isset($map['PeerCount'])) {
+            $model->peerCount = $map['PeerCount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SpecName'])) {
+            $model->specName = $map['SpecName'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
@@ -249,50 +288,11 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['SpecName'])) {
-            $model->specName = $map['SpecName'];
-        }
-        if (isset($map['OwnerName'])) {
-            $model->ownerName = $map['OwnerName'];
-        }
-        if (isset($map['OwnerUid'])) {
-            $model->ownerUid = $map['OwnerUid'];
-        }
-        if (isset($map['CodeName'])) {
-            $model->codeName = $map['CodeName'];
-        }
-        if (isset($map['OwnerBid'])) {
-            $model->ownerBid = $map['OwnerBid'];
-        }
-        if (isset($map['OrganizationDescription'])) {
-            $model->organizationDescription = $map['OrganizationDescription'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
-        if (isset($map['MSP'])) {
-            $model->MSP = $map['MSP'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['CAUrl'])) {
-            $model->CAUrl = $map['CAUrl'];
-        }
-        if (isset($map['CANAME'])) {
-            $model->CANAME = $map['CANAME'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];
         }
-        if (isset($map['OrganizationName'])) {
-            $model->organizationName = $map['OrganizationName'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

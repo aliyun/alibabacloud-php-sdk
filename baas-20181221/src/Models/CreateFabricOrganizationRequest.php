@@ -11,12 +11,7 @@ class CreateFabricOrganizationRequest extends Model
     /**
      * @var string
      */
-    public $organizationName;
-
-    /**
-     * @var string
-     */
-    public $location;
+    public $description;
 
     /**
      * @var string
@@ -26,17 +21,12 @@ class CreateFabricOrganizationRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $location;
 
     /**
      * @var string
      */
-    public $specName;
-
-    /**
-     * @var int
-     */
-    public $peersCount;
+    public $organizationName;
 
     /**
      * @var int
@@ -47,15 +37,25 @@ class CreateFabricOrganizationRequest extends Model
      * @var string
      */
     public $paymentDurationUnit;
+
+    /**
+     * @var int
+     */
+    public $peersCount;
+
+    /**
+     * @var string
+     */
+    public $specName;
     protected $_name = [
-        'organizationName'    => 'OrganizationName',
-        'location'            => 'Location',
-        'domain'              => 'Domain',
         'description'         => 'Description',
-        'specName'            => 'SpecName',
-        'peersCount'          => 'PeersCount',
+        'domain'              => 'Domain',
+        'location'            => 'Location',
+        'organizationName'    => 'OrganizationName',
         'paymentDuration'     => 'PaymentDuration',
         'paymentDurationUnit' => 'PaymentDurationUnit',
+        'peersCount'          => 'PeersCount',
+        'specName'            => 'SpecName',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class CreateFabricOrganizationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->organizationName) {
-            $res['OrganizationName'] = $this->organizationName;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
         }
-        if (null !== $this->specName) {
-            $res['SpecName'] = $this->specName;
-        }
-        if (null !== $this->peersCount) {
-            $res['PeersCount'] = $this->peersCount;
+        if (null !== $this->organizationName) {
+            $res['OrganizationName'] = $this->organizationName;
         }
         if (null !== $this->paymentDuration) {
             $res['PaymentDuration'] = $this->paymentDuration;
         }
         if (null !== $this->paymentDurationUnit) {
             $res['PaymentDurationUnit'] = $this->paymentDurationUnit;
+        }
+        if (null !== $this->peersCount) {
+            $res['PeersCount'] = $this->peersCount;
+        }
+        if (null !== $this->specName) {
+            $res['SpecName'] = $this->specName;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class CreateFabricOrganizationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrganizationName'])) {
-            $model->organizationName = $map['OrganizationName'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
         }
-        if (isset($map['SpecName'])) {
-            $model->specName = $map['SpecName'];
-        }
-        if (isset($map['PeersCount'])) {
-            $model->peersCount = $map['PeersCount'];
+        if (isset($map['OrganizationName'])) {
+            $model->organizationName = $map['OrganizationName'];
         }
         if (isset($map['PaymentDuration'])) {
             $model->paymentDuration = $map['PaymentDuration'];
         }
         if (isset($map['PaymentDurationUnit'])) {
             $model->paymentDurationUnit = $map['PaymentDurationUnit'];
+        }
+        if (isset($map['PeersCount'])) {
+            $model->peersCount = $map['PeersCount'];
+        }
+        if (isset($map['SpecName'])) {
+            $model->specName = $map['SpecName'];
         }
 
         return $model;

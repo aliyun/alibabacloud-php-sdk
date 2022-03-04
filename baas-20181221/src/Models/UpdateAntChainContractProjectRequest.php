@@ -11,6 +11,11 @@ class UpdateAntChainContractProjectRequest extends Model
     /**
      * @var string
      */
+    public $projectDescription;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -22,16 +27,11 @@ class UpdateAntChainContractProjectRequest extends Model
      * @var string
      */
     public $projectVersion;
-
-    /**
-     * @var string
-     */
-    public $projectDescription;
     protected $_name = [
+        'projectDescription' => 'ProjectDescription',
         'projectId'          => 'ProjectId',
         'projectName'        => 'ProjectName',
         'projectVersion'     => 'ProjectVersion',
-        'projectDescription' => 'ProjectDescription',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class UpdateAntChainContractProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->projectDescription) {
+            $res['ProjectDescription'] = $this->projectDescription;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -49,9 +52,6 @@ class UpdateAntChainContractProjectRequest extends Model
         }
         if (null !== $this->projectVersion) {
             $res['ProjectVersion'] = $this->projectVersion;
-        }
-        if (null !== $this->projectDescription) {
-            $res['ProjectDescription'] = $this->projectDescription;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class UpdateAntChainContractProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProjectDescription'])) {
+            $model->projectDescription = $map['ProjectDescription'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
@@ -73,9 +76,6 @@ class UpdateAntChainContractProjectRequest extends Model
         }
         if (isset($map['ProjectVersion'])) {
             $model->projectVersion = $map['ProjectVersion'];
-        }
-        if (isset($map['ProjectDescription'])) {
-            $model->projectDescription = $map['ProjectDescription'];
         }
 
         return $model;

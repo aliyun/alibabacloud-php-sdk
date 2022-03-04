@@ -16,22 +16,17 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     /**
      * @var string
      */
+    public $commonName;
+
+    /**
+     * @var string
+     */
     public $consortiumId;
 
     /**
      * @var string
      */
-    public $password;
-
-    /**
-     * @var string
-     */
     public $countryName;
-
-    /**
-     * @var string
-     */
-    public $stateOrProvinceName;
 
     /**
      * @var string
@@ -51,17 +46,22 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     /**
      * @var string
      */
-    public $commonName;
+    public $password;
+
+    /**
+     * @var string
+     */
+    public $stateOrProvinceName;
     protected $_name = [
         'antChainId'           => 'AntChainId',
+        'commonName'           => 'CommonName',
         'consortiumId'         => 'ConsortiumId',
-        'password'             => 'Password',
         'countryName'          => 'CountryName',
-        'stateOrProvinceName'  => 'StateOrProvinceName',
         'localityName'         => 'LocalityName',
         'organizationName'     => 'OrganizationName',
         'organizationUnitName' => 'OrganizationUnitName',
-        'commonName'           => 'CommonName',
+        'password'             => 'Password',
+        'stateOrProvinceName'  => 'StateOrProvinceName',
     ];
 
     public function validate()
@@ -74,17 +74,14 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
         if (null !== $this->antChainId) {
             $res['AntChainId'] = $this->antChainId;
         }
+        if (null !== $this->commonName) {
+            $res['CommonName'] = $this->commonName;
+        }
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
         }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
-        }
         if (null !== $this->countryName) {
             $res['CountryName'] = $this->countryName;
-        }
-        if (null !== $this->stateOrProvinceName) {
-            $res['StateOrProvinceName'] = $this->stateOrProvinceName;
         }
         if (null !== $this->localityName) {
             $res['LocalityName'] = $this->localityName;
@@ -95,8 +92,11 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
         if (null !== $this->organizationUnitName) {
             $res['OrganizationUnitName'] = $this->organizationUnitName;
         }
-        if (null !== $this->commonName) {
-            $res['CommonName'] = $this->commonName;
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+        if (null !== $this->stateOrProvinceName) {
+            $res['StateOrProvinceName'] = $this->stateOrProvinceName;
         }
 
         return $res;
@@ -113,17 +113,14 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
         if (isset($map['AntChainId'])) {
             $model->antChainId = $map['AntChainId'];
         }
+        if (isset($map['CommonName'])) {
+            $model->commonName = $map['CommonName'];
+        }
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
         }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
-        }
         if (isset($map['CountryName'])) {
             $model->countryName = $map['CountryName'];
-        }
-        if (isset($map['StateOrProvinceName'])) {
-            $model->stateOrProvinceName = $map['StateOrProvinceName'];
         }
         if (isset($map['LocalityName'])) {
             $model->localityName = $map['LocalityName'];
@@ -134,8 +131,11 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
         if (isset($map['OrganizationUnitName'])) {
             $model->organizationUnitName = $map['OrganizationUnitName'];
         }
-        if (isset($map['CommonName'])) {
-            $model->commonName = $map['CommonName'];
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+        if (isset($map['StateOrProvinceName'])) {
+            $model->stateOrProvinceName = $map['StateOrProvinceName'];
         }
 
         return $model;

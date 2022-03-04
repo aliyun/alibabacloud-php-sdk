@@ -11,17 +11,12 @@ class accounts extends Model
     /**
      * @var string
      */
-    public $accountPublicKey;
-
-    /**
-     * @var string
-     */
     public $account;
 
     /**
      * @var string
      */
-    public $accountStatus;
+    public $accountPublicKey;
 
     /**
      * @var string
@@ -31,12 +26,17 @@ class accounts extends Model
     /**
      * @var string
      */
+    public $accountStatus;
+
+    /**
+     * @var string
+     */
     public $antChainId;
     protected $_name = [
-        'accountPublicKey'   => 'AccountPublicKey',
         'account'            => 'Account',
-        'accountStatus'      => 'AccountStatus',
+        'accountPublicKey'   => 'AccountPublicKey',
         'accountRecoveryKey' => 'AccountRecoveryKey',
+        'accountStatus'      => 'AccountStatus',
         'antChainId'         => 'AntChainId',
     ];
 
@@ -47,17 +47,17 @@ class accounts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountPublicKey) {
-            $res['AccountPublicKey'] = $this->accountPublicKey;
-        }
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
-        if (null !== $this->accountStatus) {
-            $res['AccountStatus'] = $this->accountStatus;
+        if (null !== $this->accountPublicKey) {
+            $res['AccountPublicKey'] = $this->accountPublicKey;
         }
         if (null !== $this->accountRecoveryKey) {
             $res['AccountRecoveryKey'] = $this->accountRecoveryKey;
+        }
+        if (null !== $this->accountStatus) {
+            $res['AccountStatus'] = $this->accountStatus;
         }
         if (null !== $this->antChainId) {
             $res['AntChainId'] = $this->antChainId;
@@ -74,17 +74,17 @@ class accounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountPublicKey'])) {
-            $model->accountPublicKey = $map['AccountPublicKey'];
-        }
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
-        if (isset($map['AccountStatus'])) {
-            $model->accountStatus = $map['AccountStatus'];
+        if (isset($map['AccountPublicKey'])) {
+            $model->accountPublicKey = $map['AccountPublicKey'];
         }
         if (isset($map['AccountRecoveryKey'])) {
             $model->accountRecoveryKey = $map['AccountRecoveryKey'];
+        }
+        if (isset($map['AccountStatus'])) {
+            $model->accountStatus = $map['AccountStatus'];
         }
         if (isset($map['AntChainId'])) {
             $model->antChainId = $map['AntChainId'];

@@ -16,12 +16,12 @@ class downloadPath extends Model
     /**
      * @var string
      */
-    public $sdkUrl;
+    public $clientCrtUrl;
 
     /**
      * @var string
      */
-    public $clientCrtUrl;
+    public $sdkUrl;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class downloadPath extends Model
     public $trustCaUrl;
     protected $_name = [
         'caCrtUrl'     => 'CaCrtUrl',
-        'sdkUrl'       => 'SdkUrl',
         'clientCrtUrl' => 'ClientCrtUrl',
+        'sdkUrl'       => 'SdkUrl',
         'trustCaUrl'   => 'TrustCaUrl',
     ];
 
@@ -44,11 +44,11 @@ class downloadPath extends Model
         if (null !== $this->caCrtUrl) {
             $res['CaCrtUrl'] = $this->caCrtUrl;
         }
-        if (null !== $this->sdkUrl) {
-            $res['SdkUrl'] = $this->sdkUrl;
-        }
         if (null !== $this->clientCrtUrl) {
             $res['ClientCrtUrl'] = $this->clientCrtUrl;
+        }
+        if (null !== $this->sdkUrl) {
+            $res['SdkUrl'] = $this->sdkUrl;
         }
         if (null !== $this->trustCaUrl) {
             $res['TrustCaUrl'] = $this->trustCaUrl;
@@ -68,11 +68,11 @@ class downloadPath extends Model
         if (isset($map['CaCrtUrl'])) {
             $model->caCrtUrl = $map['CaCrtUrl'];
         }
-        if (isset($map['SdkUrl'])) {
-            $model->sdkUrl = $map['SdkUrl'];
-        }
         if (isset($map['ClientCrtUrl'])) {
             $model->clientCrtUrl = $map['ClientCrtUrl'];
+        }
+        if (isset($map['SdkUrl'])) {
+            $model->sdkUrl = $map['SdkUrl'];
         }
         if (isset($map['TrustCaUrl'])) {
             $model->trustCaUrl = $map['TrustCaUrl'];

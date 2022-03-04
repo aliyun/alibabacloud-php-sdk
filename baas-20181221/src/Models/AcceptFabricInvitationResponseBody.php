@@ -9,22 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AcceptFabricInvitationResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId' => 'RequestId',
         'errorCode' => 'ErrorCode',
+        'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
 
@@ -35,11 +35,11 @@ class AcceptFabricInvitationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -56,11 +56,11 @@ class AcceptFabricInvitationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

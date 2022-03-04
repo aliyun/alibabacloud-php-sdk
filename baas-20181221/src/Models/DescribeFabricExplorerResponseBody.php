@@ -11,12 +11,12 @@ class DescribeFabricExplorerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $dynamicCode;
 
     /**
      * @var string
      */
-    public $dynamicCode;
+    public $dynamicMessage;
 
     /**
      * @var int
@@ -26,24 +26,24 @@ class DescribeFabricExplorerResponseBody extends Model
     /**
      * @var string
      */
-    public $dynamicMessage;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $requestId;
 
     /**
      * @var string
      */
     public $result;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'dynamicCode'    => 'DynamicCode',
-        'errorCode'      => 'ErrorCode',
         'dynamicMessage' => 'DynamicMessage',
-        'success'        => 'Success',
+        'errorCode'      => 'ErrorCode',
+        'requestId'      => 'RequestId',
         'result'         => 'Result',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeFabricExplorerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->dynamicMessage) {
             $res['DynamicMessage'] = $this->dynamicMessage;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeFabricExplorerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['DynamicMessage'])) {
             $model->dynamicMessage = $map['DynamicMessage'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

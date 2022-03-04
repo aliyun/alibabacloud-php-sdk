@@ -11,15 +11,15 @@ class CheckFabricOrganizationDomainRequest extends Model
     /**
      * @var string
      */
-    public $domainCode;
+    public $domain;
 
     /**
      * @var string
      */
-    public $domain;
+    public $domainCode;
     protected $_name = [
-        'domainCode' => 'DomainCode',
         'domain'     => 'Domain',
+        'domainCode' => 'DomainCode',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CheckFabricOrganizationDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainCode) {
-            $res['DomainCode'] = $this->domainCode;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->domainCode) {
+            $res['DomainCode'] = $this->domainCode;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CheckFabricOrganizationDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainCode'])) {
-            $model->domainCode = $map['DomainCode'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['DomainCode'])) {
+            $model->domainCode = $map['DomainCode'];
         }
 
         return $model;

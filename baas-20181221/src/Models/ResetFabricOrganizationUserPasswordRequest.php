@@ -11,12 +11,12 @@ class ResetFabricOrganizationUserPasswordRequest extends Model
     /**
      * @var string
      */
-    public $organizationId;
+    public $location;
 
     /**
      * @var string
      */
-    public $username;
+    public $organizationId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class ResetFabricOrganizationUserPasswordRequest extends Model
     /**
      * @var string
      */
-    public $location;
+    public $username;
     protected $_name = [
-        'organizationId' => 'OrganizationId',
-        'username'       => 'Username',
-        'password'       => 'Password',
         'location'       => 'Location',
+        'organizationId' => 'OrganizationId',
+        'password'       => 'Password',
+        'username'       => 'Username',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ResetFabricOrganizationUserPasswordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
-        }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ResetFabricOrganizationUserPasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
-        }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;

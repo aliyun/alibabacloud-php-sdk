@@ -11,11 +11,6 @@ class CreateAntChainAccountRequest extends Model
     /**
      * @var string
      */
-    public $antChainId;
-
-    /**
-     * @var string
-     */
     public $account;
 
     /**
@@ -27,11 +22,16 @@ class CreateAntChainAccountRequest extends Model
      * @var string
      */
     public $accountRecoverPubKey;
+
+    /**
+     * @var string
+     */
+    public $antChainId;
     protected $_name = [
-        'antChainId'           => 'AntChainId',
         'account'              => 'Account',
         'accountPubKey'        => 'AccountPubKey',
         'accountRecoverPubKey' => 'AccountRecoverPubKey',
+        'antChainId'           => 'AntChainId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CreateAntChainAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
-        }
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
@@ -52,6 +49,9 @@ class CreateAntChainAccountRequest extends Model
         }
         if (null !== $this->accountRecoverPubKey) {
             $res['AccountRecoverPubKey'] = $this->accountRecoverPubKey;
+        }
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CreateAntChainAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
-        }
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
@@ -76,6 +73,9 @@ class CreateAntChainAccountRequest extends Model
         }
         if (isset($map['AccountRecoverPubKey'])) {
             $model->accountRecoverPubKey = $map['AccountRecoverPubKey'];
+        }
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
         }
 
         return $model;

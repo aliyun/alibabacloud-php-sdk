@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainAccountsRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $antChainId;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class DescribeAntChainAccountsRequest extends Model
     public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $antChainId;
+    public $pageSize;
     protected $_name = [
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
         'antChainId' => 'AntChainId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeAntChainAccountsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeAntChainAccountsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

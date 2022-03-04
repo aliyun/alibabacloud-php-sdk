@@ -11,11 +11,6 @@ class CreateFabricChaincodeRequest extends Model
     /**
      * @var string
      */
-    public $organizationId;
-
-    /**
-     * @var string
-     */
     public $channelId;
 
     /**
@@ -26,30 +21,35 @@ class CreateFabricChaincodeRequest extends Model
     /**
      * @var string
      */
-    public $ossBucket;
-
-    /**
-     * @var string
-     */
-    public $ossUrl;
-
-    /**
-     * @var string
-     */
     public $endorsePolicy;
 
     /**
      * @var string
      */
     public $location;
+
+    /**
+     * @var string
+     */
+    public $organizationId;
+
+    /**
+     * @var string
+     */
+    public $ossBucket;
+
+    /**
+     * @var string
+     */
+    public $ossUrl;
     protected $_name = [
-        'organizationId' => 'OrganizationId',
         'channelId'      => 'ChannelId',
         'consortiumId'   => 'ConsortiumId',
-        'ossBucket'      => 'OssBucket',
-        'ossUrl'         => 'OssUrl',
         'endorsePolicy'  => 'EndorsePolicy',
         'location'       => 'Location',
+        'organizationId' => 'OrganizationId',
+        'ossBucket'      => 'OssBucket',
+        'ossUrl'         => 'OssUrl',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class CreateFabricChaincodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
         }
-        if (null !== $this->ossBucket) {
-            $res['OssBucket'] = $this->ossBucket;
-        }
-        if (null !== $this->ossUrl) {
-            $res['OssUrl'] = $this->ossUrl;
-        }
         if (null !== $this->endorsePolicy) {
             $res['EndorsePolicy'] = $this->endorsePolicy;
         }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
+        }
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
+        }
+        if (null !== $this->ossBucket) {
+            $res['OssBucket'] = $this->ossBucket;
+        }
+        if (null !== $this->ossUrl) {
+            $res['OssUrl'] = $this->ossUrl;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class CreateFabricChaincodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
         }
-        if (isset($map['OssBucket'])) {
-            $model->ossBucket = $map['OssBucket'];
-        }
-        if (isset($map['OssUrl'])) {
-            $model->ossUrl = $map['OssUrl'];
-        }
         if (isset($map['EndorsePolicy'])) {
             $model->endorsePolicy = $map['EndorsePolicy'];
         }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
+        }
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
+        }
+        if (isset($map['OssBucket'])) {
+            $model->ossBucket = $map['OssBucket'];
+        }
+        if (isset($map['OssUrl'])) {
+            $model->ossUrl = $map['OssUrl'];
         }
 
         return $model;

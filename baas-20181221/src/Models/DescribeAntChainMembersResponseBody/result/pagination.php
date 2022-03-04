@@ -11,20 +11,20 @@ class pagination extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNumber;
 
     /**
      * @var int
      */
-    public $pageNumber;
+    public $pageSize;
 
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -35,11 +35,11 @@ class pagination extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -56,11 +56,11 @@ class pagination extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

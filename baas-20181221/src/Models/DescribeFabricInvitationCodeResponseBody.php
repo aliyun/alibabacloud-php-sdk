@@ -12,11 +12,6 @@ class DescribeFabricInvitationCodeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $dynamicCode;
 
     /**
@@ -30,21 +25,26 @@ class DescribeFabricInvitationCodeResponseBody extends Model
     public $errorCode;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $requestId;
 
     /**
      * @var result
      */
     public $result;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'dynamicCode'    => 'DynamicCode',
         'dynamicMessage' => 'DynamicMessage',
         'errorCode'      => 'ErrorCode',
-        'success'        => 'Success',
+        'requestId'      => 'RequestId',
         'result'         => 'Result',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -54,9 +54,6 @@ class DescribeFabricInvitationCodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
         }
@@ -66,11 +63,14 @@ class DescribeFabricInvitationCodeResponseBody extends Model
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -84,9 +84,6 @@ class DescribeFabricInvitationCodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
         }
@@ -96,11 +93,14 @@ class DescribeFabricInvitationCodeResponseBody extends Model
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

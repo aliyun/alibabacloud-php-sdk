@@ -12,20 +12,20 @@ class DescribeFabricOrganizationRequest extends Model
     /**
      * @var string
      */
-    public $organizationId;
+    public $location;
 
     /**
      * @var string
      */
-    public $location;
+    public $organizationId;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'organizationId' => 'OrganizationId',
         'location'       => 'Location',
+        'organizationId' => 'OrganizationId',
         'tag'            => 'Tag',
     ];
 
@@ -36,11 +36,11 @@ class DescribeFabricOrganizationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
+        }
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -63,11 +63,11 @@ class DescribeFabricOrganizationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
+        }
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

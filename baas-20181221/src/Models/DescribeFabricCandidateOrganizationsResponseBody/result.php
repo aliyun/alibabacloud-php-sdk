@@ -11,7 +11,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $serviceState;
+    public $clusterState;
+
+    /**
+     * @var string
+     */
+    public $organizationId;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $clusterState;
-
-    /**
-     * @var string
-     */
-    public $organizationId;
+    public $serviceState;
     protected $_name = [
-        'serviceState'     => 'ServiceState',
-        'organizationName' => 'OrganizationName',
         'clusterState'     => 'ClusterState',
         'organizationId'   => 'OrganizationId',
+        'organizationName' => 'OrganizationName',
+        'serviceState'     => 'ServiceState',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceState) {
-            $res['ServiceState'] = $this->serviceState;
-        }
-        if (null !== $this->organizationName) {
-            $res['OrganizationName'] = $this->organizationName;
-        }
         if (null !== $this->clusterState) {
             $res['ClusterState'] = $this->clusterState;
         }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
+        }
+        if (null !== $this->organizationName) {
+            $res['OrganizationName'] = $this->organizationName;
+        }
+        if (null !== $this->serviceState) {
+            $res['ServiceState'] = $this->serviceState;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceState'])) {
-            $model->serviceState = $map['ServiceState'];
-        }
-        if (isset($map['OrganizationName'])) {
-            $model->organizationName = $map['OrganizationName'];
-        }
         if (isset($map['ClusterState'])) {
             $model->clusterState = $map['ClusterState'];
         }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
+        }
+        if (isset($map['OrganizationName'])) {
+            $model->organizationName = $map['OrganizationName'];
+        }
+        if (isset($map['ServiceState'])) {
+            $model->serviceState = $map['ServiceState'];
         }
 
         return $model;

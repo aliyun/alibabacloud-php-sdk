@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var bool
-     */
-    public $withPeer;
-
-    /**
      * @var string
      */
     public $acceptTime;
@@ -21,17 +16,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $destroyTime;
-
-    /**
-     * @var string
-     */
-    public $inviteTime;
+    public $approveTime;
 
     /**
      * @var string
@@ -46,22 +31,37 @@ class result extends Model
     /**
      * @var string
      */
-    public $approveTime;
+    public $destroyTime;
+
+    /**
+     * @var string
+     */
+    public $inviteTime;
 
     /**
      * @var string
      */
     public $organizationId;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var bool
+     */
+    public $withPeer;
     protected $_name = [
-        'withPeer'       => 'WithPeer',
         'acceptTime'     => 'AcceptTime',
-        'state'          => 'State',
-        'destroyTime'    => 'DestroyTime',
-        'inviteTime'     => 'InviteTime',
+        'approveTime'    => 'ApproveTime',
         'channelId'      => 'ChannelId',
         'confirmTime'    => 'ConfirmTime',
-        'approveTime'    => 'ApproveTime',
+        'destroyTime'    => 'DestroyTime',
+        'inviteTime'     => 'InviteTime',
         'organizationId' => 'OrganizationId',
+        'state'          => 'State',
+        'withPeer'       => 'WithPeer',
     ];
 
     public function validate()
@@ -71,20 +71,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->withPeer) {
-            $res['WithPeer'] = $this->withPeer;
-        }
         if (null !== $this->acceptTime) {
             $res['AcceptTime'] = $this->acceptTime;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->destroyTime) {
-            $res['DestroyTime'] = $this->destroyTime;
-        }
-        if (null !== $this->inviteTime) {
-            $res['InviteTime'] = $this->inviteTime;
+        if (null !== $this->approveTime) {
+            $res['ApproveTime'] = $this->approveTime;
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
@@ -92,11 +83,20 @@ class result extends Model
         if (null !== $this->confirmTime) {
             $res['ConfirmTime'] = $this->confirmTime;
         }
-        if (null !== $this->approveTime) {
-            $res['ApproveTime'] = $this->approveTime;
+        if (null !== $this->destroyTime) {
+            $res['DestroyTime'] = $this->destroyTime;
+        }
+        if (null !== $this->inviteTime) {
+            $res['InviteTime'] = $this->inviteTime;
         }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->withPeer) {
+            $res['WithPeer'] = $this->withPeer;
         }
 
         return $res;
@@ -110,20 +110,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WithPeer'])) {
-            $model->withPeer = $map['WithPeer'];
-        }
         if (isset($map['AcceptTime'])) {
             $model->acceptTime = $map['AcceptTime'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['DestroyTime'])) {
-            $model->destroyTime = $map['DestroyTime'];
-        }
-        if (isset($map['InviteTime'])) {
-            $model->inviteTime = $map['InviteTime'];
+        if (isset($map['ApproveTime'])) {
+            $model->approveTime = $map['ApproveTime'];
         }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
@@ -131,11 +122,20 @@ class result extends Model
         if (isset($map['ConfirmTime'])) {
             $model->confirmTime = $map['ConfirmTime'];
         }
-        if (isset($map['ApproveTime'])) {
-            $model->approveTime = $map['ApproveTime'];
+        if (isset($map['DestroyTime'])) {
+            $model->destroyTime = $map['DestroyTime'];
+        }
+        if (isset($map['InviteTime'])) {
+            $model->inviteTime = $map['InviteTime'];
         }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['WithPeer'])) {
+            $model->withPeer = $map['WithPeer'];
         }
 
         return $model;

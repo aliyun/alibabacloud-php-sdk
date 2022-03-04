@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $endorsePolicy;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
      * @var string
      */
     public $chaincodeId;
@@ -36,37 +16,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $providerName;
-
-    /**
-     * @var string
-     */
     public $chaincodeName;
-
-    /**
-     * @var bool
-     */
-    public $install;
-
-    /**
-     * @var string
-     */
-    public $input;
-
-    /**
-     * @var string
-     */
-    public $providerId;
-
-    /**
-     * @var string
-     */
-    public $deployTime;
 
     /**
      * @var string
@@ -76,34 +26,84 @@ class result extends Model
     /**
      * @var string
      */
-    public $consortiumId;
-
-    /**
-     * @var string
-     */
     public $channelName;
 
     /**
      * @var string
      */
+    public $consortiumId;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $deployTime;
+
+    /**
+     * @var string
+     */
+    public $endorsePolicy;
+
+    /**
+     * @var string
+     */
+    public $input;
+
+    /**
+     * @var bool
+     */
+    public $install;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $path;
+
+    /**
+     * @var string
+     */
+    public $providerId;
+
+    /**
+     * @var string
+     */
+    public $providerName;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'type'             => 'Type',
-        'endorsePolicy'    => 'EndorsePolicy',
-        'state'            => 'State',
-        'createTime'       => 'CreateTime',
         'chaincodeId'      => 'ChaincodeId',
-        'message'          => 'Message',
-        'providerName'     => 'ProviderName',
         'chaincodeName'    => 'ChaincodeName',
-        'install'          => 'Install',
-        'input'            => 'Input',
-        'providerId'       => 'ProviderId',
-        'deployTime'       => 'DeployTime',
         'chaincodeVersion' => 'ChaincodeVersion',
-        'consortiumId'     => 'ConsortiumId',
         'channelName'      => 'ChannelName',
+        'consortiumId'     => 'ConsortiumId',
+        'createTime'       => 'CreateTime',
+        'deployTime'       => 'DeployTime',
+        'endorsePolicy'    => 'EndorsePolicy',
+        'input'            => 'Input',
+        'install'          => 'Install',
+        'message'          => 'Message',
         'path'             => 'Path',
+        'providerId'       => 'ProviderId',
+        'providerName'     => 'ProviderName',
+        'state'            => 'State',
+        'type'             => 'Type',
     ];
 
     public function validate()
@@ -113,53 +113,53 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->endorsePolicy) {
-            $res['EndorsePolicy'] = $this->endorsePolicy;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->chaincodeId) {
             $res['ChaincodeId'] = $this->chaincodeId;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->providerName) {
-            $res['ProviderName'] = $this->providerName;
         }
         if (null !== $this->chaincodeName) {
             $res['ChaincodeName'] = $this->chaincodeName;
         }
-        if (null !== $this->install) {
-            $res['Install'] = $this->install;
-        }
-        if (null !== $this->input) {
-            $res['Input'] = $this->input;
-        }
-        if (null !== $this->providerId) {
-            $res['ProviderId'] = $this->providerId;
-        }
-        if (null !== $this->deployTime) {
-            $res['DeployTime'] = $this->deployTime;
-        }
         if (null !== $this->chaincodeVersion) {
             $res['ChaincodeVersion'] = $this->chaincodeVersion;
-        }
-        if (null !== $this->consortiumId) {
-            $res['ConsortiumId'] = $this->consortiumId;
         }
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
         }
+        if (null !== $this->consortiumId) {
+            $res['ConsortiumId'] = $this->consortiumId;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->deployTime) {
+            $res['DeployTime'] = $this->deployTime;
+        }
+        if (null !== $this->endorsePolicy) {
+            $res['EndorsePolicy'] = $this->endorsePolicy;
+        }
+        if (null !== $this->input) {
+            $res['Input'] = $this->input;
+        }
+        if (null !== $this->install) {
+            $res['Install'] = $this->install;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->providerId) {
+            $res['ProviderId'] = $this->providerId;
+        }
+        if (null !== $this->providerName) {
+            $res['ProviderName'] = $this->providerName;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -173,53 +173,53 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['EndorsePolicy'])) {
-            $model->endorsePolicy = $map['EndorsePolicy'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['ChaincodeId'])) {
             $model->chaincodeId = $map['ChaincodeId'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['ProviderName'])) {
-            $model->providerName = $map['ProviderName'];
         }
         if (isset($map['ChaincodeName'])) {
             $model->chaincodeName = $map['ChaincodeName'];
         }
-        if (isset($map['Install'])) {
-            $model->install = $map['Install'];
-        }
-        if (isset($map['Input'])) {
-            $model->input = $map['Input'];
-        }
-        if (isset($map['ProviderId'])) {
-            $model->providerId = $map['ProviderId'];
-        }
-        if (isset($map['DeployTime'])) {
-            $model->deployTime = $map['DeployTime'];
-        }
         if (isset($map['ChaincodeVersion'])) {
             $model->chaincodeVersion = $map['ChaincodeVersion'];
-        }
-        if (isset($map['ConsortiumId'])) {
-            $model->consortiumId = $map['ConsortiumId'];
         }
         if (isset($map['ChannelName'])) {
             $model->channelName = $map['ChannelName'];
         }
+        if (isset($map['ConsortiumId'])) {
+            $model->consortiumId = $map['ConsortiumId'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DeployTime'])) {
+            $model->deployTime = $map['DeployTime'];
+        }
+        if (isset($map['EndorsePolicy'])) {
+            $model->endorsePolicy = $map['EndorsePolicy'];
+        }
+        if (isset($map['Input'])) {
+            $model->input = $map['Input'];
+        }
+        if (isset($map['Install'])) {
+            $model->install = $map['Install'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['ProviderId'])) {
+            $model->providerId = $map['ProviderId'];
+        }
+        if (isset($map['ProviderName'])) {
+            $model->providerName = $map['ProviderName'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

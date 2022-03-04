@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var pagination
-     */
-    public $pagination;
-
-    /**
      * @var antChains[]
      */
     public $antChains;
@@ -24,10 +19,15 @@ class result extends Model
      * @var bool
      */
     public $isExist;
+
+    /**
+     * @var pagination
+     */
+    public $pagination;
     protected $_name = [
-        'pagination' => 'Pagination',
         'antChains'  => 'AntChains',
         'isExist'    => 'IsExist',
+        'pagination' => 'Pagination',
     ];
 
     public function validate()
@@ -37,9 +37,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pagination) {
-            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
-        }
         if (null !== $this->antChains) {
             $res['AntChains'] = [];
             if (null !== $this->antChains && \is_array($this->antChains)) {
@@ -51,6 +48,9 @@ class result extends Model
         }
         if (null !== $this->isExist) {
             $res['IsExist'] = $this->isExist;
+        }
+        if (null !== $this->pagination) {
+            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
         }
 
         return $res;
@@ -64,9 +64,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Pagination'])) {
-            $model->pagination = pagination::fromMap($map['Pagination']);
-        }
         if (isset($map['AntChains'])) {
             if (!empty($map['AntChains'])) {
                 $model->antChains = [];
@@ -78,6 +75,9 @@ class result extends Model
         }
         if (isset($map['IsExist'])) {
             $model->isExist = $map['IsExist'];
+        }
+        if (isset($map['Pagination'])) {
+            $model->pagination = pagination::fromMap($map['Pagination']);
         }
 
         return $model;

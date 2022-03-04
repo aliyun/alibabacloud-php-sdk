@@ -16,16 +16,16 @@ class DescribeFabricOrdererLogsRequest extends Model
     /**
      * @var string
      */
-    public $ordererName;
+    public $lines;
 
     /**
      * @var string
      */
-    public $lines;
+    public $ordererName;
     protected $_name = [
         'consortiumId' => 'ConsortiumId',
-        'ordererName'  => 'OrdererName',
         'lines'        => 'Lines',
+        'ordererName'  => 'OrdererName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeFabricOrdererLogsRequest extends Model
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
         }
-        if (null !== $this->ordererName) {
-            $res['OrdererName'] = $this->ordererName;
-        }
         if (null !== $this->lines) {
             $res['Lines'] = $this->lines;
+        }
+        if (null !== $this->ordererName) {
+            $res['OrdererName'] = $this->ordererName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeFabricOrdererLogsRequest extends Model
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
         }
-        if (isset($map['OrdererName'])) {
-            $model->ordererName = $map['OrdererName'];
-        }
         if (isset($map['Lines'])) {
             $model->lines = $map['Lines'];
+        }
+        if (isset($map['OrdererName'])) {
+            $model->ordererName = $map['OrdererName'];
         }
 
         return $model;

@@ -12,12 +12,12 @@ class result extends Model
     /**
      * @var int
      */
-    public $transactionSum;
+    public $abnormalNodes;
 
     /**
      * @var string
      */
-    public $version;
+    public $antChainId;
 
     /**
      * @var int
@@ -30,39 +30,39 @@ class result extends Model
     public $createTime;
 
     /**
-     * @var int
-     */
-    public $nodeNumber;
-
-    /**
-     * @var int
-     */
-    public $abnormalNodes;
-
-    /**
      * @var nodeInfos[]
      */
     public $nodeInfos;
 
     /**
-     * @var string
+     * @var int
      */
-    public $antChainId;
+    public $nodeNumber;
 
     /**
      * @var bool
      */
     public $normal;
+
+    /**
+     * @var int
+     */
+    public $transactionSum;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'transactionSum' => 'TransactionSum',
-        'version'        => 'Version',
+        'abnormalNodes'  => 'AbnormalNodes',
+        'antChainId'     => 'AntChainId',
         'blockHeight'    => 'BlockHeight',
         'createTime'     => 'CreateTime',
-        'nodeNumber'     => 'NodeNumber',
-        'abnormalNodes'  => 'AbnormalNodes',
         'nodeInfos'      => 'NodeInfos',
-        'antChainId'     => 'AntChainId',
+        'nodeNumber'     => 'NodeNumber',
         'normal'         => 'Normal',
+        'transactionSum' => 'TransactionSum',
+        'version'        => 'Version',
     ];
 
     public function validate()
@@ -72,23 +72,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->transactionSum) {
-            $res['TransactionSum'] = $this->transactionSum;
+        if (null !== $this->abnormalNodes) {
+            $res['AbnormalNodes'] = $this->abnormalNodes;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
         }
         if (null !== $this->blockHeight) {
             $res['BlockHeight'] = $this->blockHeight;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->nodeNumber) {
-            $res['NodeNumber'] = $this->nodeNumber;
-        }
-        if (null !== $this->abnormalNodes) {
-            $res['AbnormalNodes'] = $this->abnormalNodes;
         }
         if (null !== $this->nodeInfos) {
             $res['NodeInfos'] = [];
@@ -99,11 +93,17 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
+        if (null !== $this->nodeNumber) {
+            $res['NodeNumber'] = $this->nodeNumber;
         }
         if (null !== $this->normal) {
             $res['Normal'] = $this->normal;
+        }
+        if (null !== $this->transactionSum) {
+            $res['TransactionSum'] = $this->transactionSum;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -117,23 +117,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TransactionSum'])) {
-            $model->transactionSum = $map['TransactionSum'];
+        if (isset($map['AbnormalNodes'])) {
+            $model->abnormalNodes = $map['AbnormalNodes'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
         }
         if (isset($map['BlockHeight'])) {
             $model->blockHeight = $map['BlockHeight'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['NodeNumber'])) {
-            $model->nodeNumber = $map['NodeNumber'];
-        }
-        if (isset($map['AbnormalNodes'])) {
-            $model->abnormalNodes = $map['AbnormalNodes'];
         }
         if (isset($map['NodeInfos'])) {
             if (!empty($map['NodeInfos'])) {
@@ -144,11 +138,17 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
+        if (isset($map['NodeNumber'])) {
+            $model->nodeNumber = $map['NodeNumber'];
         }
         if (isset($map['Normal'])) {
             $model->normal = $map['Normal'];
+        }
+        if (isset($map['TransactionSum'])) {
+            $model->transactionSum = $map['TransactionSum'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

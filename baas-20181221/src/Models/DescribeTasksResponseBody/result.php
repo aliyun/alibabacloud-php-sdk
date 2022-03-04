@@ -14,6 +14,26 @@ class result extends Model
     public $action;
 
     /**
+     * @var bool
+     */
+    public $handled;
+
+    /**
+     * @var string
+     */
+    public $operationType;
+
+    /**
+     * @var int
+     */
+    public $requestTime;
+
+    /**
+     * @var string
+     */
+    public $responseTime;
+
+    /**
      * @var string
      */
     public $result;
@@ -26,42 +46,22 @@ class result extends Model
     /**
      * @var string
      */
-    public $operationType;
-
-    /**
-     * @var bool
-     */
-    public $handled;
-
-    /**
-     * @var string
-     */
-    public $responseTime;
-
-    /**
-     * @var string
-     */
     public $target;
 
     /**
      * @var int
      */
     public $taskId;
-
-    /**
-     * @var int
-     */
-    public $requestTime;
     protected $_name = [
         'action'        => 'Action',
+        'handled'       => 'Handled',
+        'operationType' => 'OperationType',
+        'requestTime'   => 'RequestTime',
+        'responseTime'  => 'ResponseTime',
         'result'        => 'Result',
         'sender'        => 'Sender',
-        'operationType' => 'OperationType',
-        'handled'       => 'Handled',
-        'responseTime'  => 'ResponseTime',
         'target'        => 'Target',
         'taskId'        => 'TaskId',
-        'requestTime'   => 'RequestTime',
     ];
 
     public function validate()
@@ -74,29 +74,29 @@ class result extends Model
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+        if (null !== $this->handled) {
+            $res['Handled'] = $this->handled;
+        }
+        if (null !== $this->operationType) {
+            $res['OperationType'] = $this->operationType;
+        }
+        if (null !== $this->requestTime) {
+            $res['RequestTime'] = $this->requestTime;
+        }
+        if (null !== $this->responseTime) {
+            $res['ResponseTime'] = $this->responseTime;
+        }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
         if (null !== $this->sender) {
             $res['Sender'] = $this->sender;
         }
-        if (null !== $this->operationType) {
-            $res['OperationType'] = $this->operationType;
-        }
-        if (null !== $this->handled) {
-            $res['Handled'] = $this->handled;
-        }
-        if (null !== $this->responseTime) {
-            $res['ResponseTime'] = $this->responseTime;
-        }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->requestTime) {
-            $res['RequestTime'] = $this->requestTime;
         }
 
         return $res;
@@ -113,29 +113,29 @@ class result extends Model
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+        if (isset($map['Handled'])) {
+            $model->handled = $map['Handled'];
+        }
+        if (isset($map['OperationType'])) {
+            $model->operationType = $map['OperationType'];
+        }
+        if (isset($map['RequestTime'])) {
+            $model->requestTime = $map['RequestTime'];
+        }
+        if (isset($map['ResponseTime'])) {
+            $model->responseTime = $map['ResponseTime'];
+        }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
         if (isset($map['Sender'])) {
             $model->sender = $map['Sender'];
         }
-        if (isset($map['OperationType'])) {
-            $model->operationType = $map['OperationType'];
-        }
-        if (isset($map['Handled'])) {
-            $model->handled = $map['Handled'];
-        }
-        if (isset($map['ResponseTime'])) {
-            $model->responseTime = $map['ResponseTime'];
-        }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['RequestTime'])) {
-            $model->requestTime = $map['RequestTime'];
         }
 
         return $model;

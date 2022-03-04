@@ -14,9 +14,9 @@ class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest extends Model
     public $antChainId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $QRCodeType;
+    public $pageNumber;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $QRCodeType;
     protected $_name = [
         'antChainId' => 'AntChainId',
-        'QRCodeType' => 'QRCodeType',
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'QRCodeType' => 'QRCodeType',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest extends Model
         if (null !== $this->antChainId) {
             $res['AntChainId'] = $this->antChainId;
         }
-        if (null !== $this->QRCodeType) {
-            $res['QRCodeType'] = $this->QRCodeType;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->QRCodeType) {
+            $res['QRCodeType'] = $this->QRCodeType;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest extends Model
         if (isset($map['AntChainId'])) {
             $model->antChainId = $map['AntChainId'];
         }
-        if (isset($map['QRCodeType'])) {
-            $model->QRCodeType = $map['QRCodeType'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['QRCodeType'])) {
+            $model->QRCodeType = $map['QRCodeType'];
         }
 
         return $model;

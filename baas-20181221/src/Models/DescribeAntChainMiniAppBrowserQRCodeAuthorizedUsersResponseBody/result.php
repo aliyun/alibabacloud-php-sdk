@@ -13,12 +13,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $QRCodeType;
-
-    /**
-     * @var pagination
-     */
-    public $pagination;
+    public $antChainId;
 
     /**
      * @var string
@@ -31,15 +26,20 @@ class result extends Model
     public $authorizedUserList;
 
     /**
+     * @var pagination
+     */
+    public $pagination;
+
+    /**
      * @var string
      */
-    public $antChainId;
+    public $QRCodeType;
     protected $_name = [
-        'QRCodeType'         => 'QRCodeType',
-        'pagination'         => 'Pagination',
+        'antChainId'         => 'AntChainId',
         'authorizationType'  => 'AuthorizationType',
         'authorizedUserList' => 'AuthorizedUserList',
-        'antChainId'         => 'AntChainId',
+        'pagination'         => 'Pagination',
+        'QRCodeType'         => 'QRCodeType',
     ];
 
     public function validate()
@@ -49,11 +49,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->QRCodeType) {
-            $res['QRCodeType'] = $this->QRCodeType;
-        }
-        if (null !== $this->pagination) {
-            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
         }
         if (null !== $this->authorizationType) {
             $res['AuthorizationType'] = $this->authorizationType;
@@ -67,8 +64,11 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
+        if (null !== $this->pagination) {
+            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
+        }
+        if (null !== $this->QRCodeType) {
+            $res['QRCodeType'] = $this->QRCodeType;
         }
 
         return $res;
@@ -82,11 +82,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QRCodeType'])) {
-            $model->QRCodeType = $map['QRCodeType'];
-        }
-        if (isset($map['Pagination'])) {
-            $model->pagination = pagination::fromMap($map['Pagination']);
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
         }
         if (isset($map['AuthorizationType'])) {
             $model->authorizationType = $map['AuthorizationType'];
@@ -100,8 +97,11 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
+        if (isset($map['Pagination'])) {
+            $model->pagination = pagination::fromMap($map['Pagination']);
+        }
+        if (isset($map['QRCodeType'])) {
+            $model->QRCodeType = $map['QRCodeType'];
         }
 
         return $model;

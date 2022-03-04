@@ -14,18 +14,18 @@ class result extends Model
     public $domain;
 
     /**
-     * @var bool
-     */
-    public $valid;
-
-    /**
      * @var string
      */
     public $prompt;
+
+    /**
+     * @var bool
+     */
+    public $valid;
     protected $_name = [
         'domain' => 'Domain',
-        'valid'  => 'Valid',
         'prompt' => 'Prompt',
+        'valid'  => 'Valid',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class result extends Model
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->valid) {
-            $res['Valid'] = $this->valid;
-        }
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
+        }
+        if (null !== $this->valid) {
+            $res['Valid'] = $this->valid;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class result extends Model
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['Valid'])) {
-            $model->valid = $map['Valid'];
-        }
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
+        }
+        if (isset($map['Valid'])) {
+            $model->valid = $map['Valid'];
         }
 
         return $model;

@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $deletable;
+    public $codeName;
 
     /**
      * @var string
      */
-    public $domain;
+    public $consortiumId;
+
+    /**
+     * @var string
+     */
+    public $consortiumName;
+
+    /**
+     * @var bool
+     */
+    public $deletable;
 
     /**
      * @var string
@@ -26,7 +36,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $consortiumId;
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -37,31 +52,16 @@ class result extends Model
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $codeName;
-
-    /**
-     * @var string
-     */
-    public $consortiumName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
-        'deletable'      => 'Deletable',
-        'domain'         => 'Domain',
-        'description'    => 'Description',
+        'codeName'       => 'CodeName',
         'consortiumId'   => 'ConsortiumId',
+        'consortiumName' => 'ConsortiumName',
+        'deletable'      => 'Deletable',
+        'description'    => 'Description',
+        'domain'         => 'Domain',
+        'regionId'       => 'RegionId',
         'state'          => 'State',
         'zoneId'         => 'ZoneId',
-        'codeName'       => 'CodeName',
-        'consortiumName' => 'ConsortiumName',
-        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->codeName) {
+            $res['CodeName'] = $this->codeName;
+        }
+        if (null !== $this->consortiumId) {
+            $res['ConsortiumId'] = $this->consortiumId;
+        }
+        if (null !== $this->consortiumName) {
+            $res['ConsortiumName'] = $this->consortiumName;
+        }
         if (null !== $this->deletable) {
             $res['Deletable'] = $this->deletable;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->consortiumId) {
-            $res['ConsortiumId'] = $this->consortiumId;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->codeName) {
-            $res['CodeName'] = $this->codeName;
-        }
-        if (null !== $this->consortiumName) {
-            $res['ConsortiumName'] = $this->consortiumName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CodeName'])) {
+            $model->codeName = $map['CodeName'];
+        }
+        if (isset($map['ConsortiumId'])) {
+            $model->consortiumId = $map['ConsortiumId'];
+        }
+        if (isset($map['ConsortiumName'])) {
+            $model->consortiumName = $map['ConsortiumName'];
+        }
         if (isset($map['Deletable'])) {
             $model->deletable = $map['Deletable'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ConsortiumId'])) {
-            $model->consortiumId = $map['ConsortiumId'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['CodeName'])) {
-            $model->codeName = $map['CodeName'];
-        }
-        if (isset($map['ConsortiumName'])) {
-            $model->consortiumName = $map['ConsortiumName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

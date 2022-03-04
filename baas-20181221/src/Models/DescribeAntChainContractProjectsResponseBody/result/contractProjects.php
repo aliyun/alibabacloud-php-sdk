@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class contractProjects extends Model
 {
     /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
      * @var string
      */
     public $consortiumId;
@@ -22,6 +17,11 @@ class contractProjects extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $projectDescription;
 
     /**
      * @var string
@@ -39,17 +39,17 @@ class contractProjects extends Model
     public $projectVersion;
 
     /**
-     * @var string
+     * @var int
      */
-    public $projectDescription;
+    public $updateTime;
     protected $_name = [
-        'updateTime'         => 'UpdateTime',
         'consortiumId'       => 'ConsortiumId',
         'createTime'         => 'CreateTime',
+        'projectDescription' => 'ProjectDescription',
         'projectId'          => 'ProjectId',
         'projectName'        => 'ProjectName',
         'projectVersion'     => 'ProjectVersion',
-        'projectDescription' => 'ProjectDescription',
+        'updateTime'         => 'UpdateTime',
     ];
 
     public function validate()
@@ -59,14 +59,14 @@ class contractProjects extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->projectDescription) {
+            $res['ProjectDescription'] = $this->projectDescription;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -77,8 +77,8 @@ class contractProjects extends Model
         if (null !== $this->projectVersion) {
             $res['ProjectVersion'] = $this->projectVersion;
         }
-        if (null !== $this->projectDescription) {
-            $res['ProjectDescription'] = $this->projectDescription;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class contractProjects extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ProjectDescription'])) {
+            $model->projectDescription = $map['ProjectDescription'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
@@ -110,8 +110,8 @@ class contractProjects extends Model
         if (isset($map['ProjectVersion'])) {
             $model->projectVersion = $map['ProjectVersion'];
         }
-        if (isset($map['ProjectDescription'])) {
-            $model->projectDescription = $map['ProjectDescription'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

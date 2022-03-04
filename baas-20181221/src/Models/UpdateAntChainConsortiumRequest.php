@@ -11,21 +11,21 @@ class UpdateAntChainConsortiumRequest extends Model
     /**
      * @var string
      */
+    public $consortiumDescription;
+
+    /**
+     * @var string
+     */
     public $consortiumId;
 
     /**
      * @var string
      */
     public $consortiumName;
-
-    /**
-     * @var string
-     */
-    public $consortiumDescription;
     protected $_name = [
+        'consortiumDescription' => 'ConsortiumDescription',
         'consortiumId'          => 'ConsortiumId',
         'consortiumName'        => 'ConsortiumName',
-        'consortiumDescription' => 'ConsortiumDescription',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateAntChainConsortiumRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->consortiumDescription) {
+            $res['ConsortiumDescription'] = $this->consortiumDescription;
+        }
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
         }
         if (null !== $this->consortiumName) {
             $res['ConsortiumName'] = $this->consortiumName;
-        }
-        if (null !== $this->consortiumDescription) {
-            $res['ConsortiumDescription'] = $this->consortiumDescription;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateAntChainConsortiumRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConsortiumDescription'])) {
+            $model->consortiumDescription = $map['ConsortiumDescription'];
+        }
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
         }
         if (isset($map['ConsortiumName'])) {
             $model->consortiumName = $map['ConsortiumName'];
-        }
-        if (isset($map['ConsortiumDescription'])) {
-            $model->consortiumDescription = $map['ConsortiumDescription'];
         }
 
         return $model;

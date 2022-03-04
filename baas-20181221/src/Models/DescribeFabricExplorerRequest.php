@@ -11,7 +11,7 @@ class DescribeFabricExplorerRequest extends Model
     /**
      * @var string
      */
-    public $organizationId;
+    public $exBody;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DescribeFabricExplorerRequest extends Model
     /**
      * @var string
      */
-    public $exBody;
+    public $organizationId;
     protected $_name = [
-        'organizationId' => 'OrganizationId',
+        'exBody'         => 'ExBody',
         'exMethod'       => 'ExMethod',
         'exUrl'          => 'ExUrl',
-        'exBody'         => 'ExBody',
+        'organizationId' => 'OrganizationId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class DescribeFabricExplorerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
+        if (null !== $this->exBody) {
+            $res['ExBody'] = $this->exBody;
         }
         if (null !== $this->exMethod) {
             $res['ExMethod'] = $this->exMethod;
@@ -50,8 +50,8 @@ class DescribeFabricExplorerRequest extends Model
         if (null !== $this->exUrl) {
             $res['ExUrl'] = $this->exUrl;
         }
-        if (null !== $this->exBody) {
-            $res['ExBody'] = $this->exBody;
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class DescribeFabricExplorerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
+        if (isset($map['ExBody'])) {
+            $model->exBody = $map['ExBody'];
         }
         if (isset($map['ExMethod'])) {
             $model->exMethod = $map['ExMethod'];
@@ -74,8 +74,8 @@ class DescribeFabricExplorerRequest extends Model
         if (isset($map['ExUrl'])) {
             $model->exUrl = $map['ExUrl'];
         }
-        if (isset($map['ExBody'])) {
-            $model->exBody = $map['ExBody'];
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
 
         return $model;

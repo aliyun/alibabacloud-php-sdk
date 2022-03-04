@@ -11,21 +11,21 @@ class DownloadFabricOrganizationSDKRequest extends Model
     /**
      * @var string
      */
+    public $location;
+
+    /**
+     * @var string
+     */
     public $organizationId;
 
     /**
      * @var string
      */
     public $username;
-
-    /**
-     * @var string
-     */
-    public $location;
     protected $_name = [
+        'location'       => 'Location',
         'organizationId' => 'OrganizationId',
         'username'       => 'Username',
-        'location'       => 'Location',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DownloadFabricOrganizationSDKRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DownloadFabricOrganizationSDKRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceptLanguage;
 
     /**
      * @var string
      */
-    public $acceptLanguage;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'acceptLanguage' => 'AcceptLanguage',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeRegionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

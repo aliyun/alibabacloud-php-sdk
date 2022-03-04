@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var pagination
-     */
-    public $pagination;
-
-    /**
      * @var certificateApplications[]
      */
     public $certificateApplications;
+
+    /**
+     * @var pagination
+     */
+    public $pagination;
     protected $_name = [
-        'pagination'              => 'Pagination',
         'certificateApplications' => 'CertificateApplications',
+        'pagination'              => 'Pagination',
     ];
 
     public function validate()
@@ -31,9 +31,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pagination) {
-            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
-        }
         if (null !== $this->certificateApplications) {
             $res['CertificateApplications'] = [];
             if (null !== $this->certificateApplications && \is_array($this->certificateApplications)) {
@@ -42,6 +39,9 @@ class result extends Model
                     $res['CertificateApplications'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pagination) {
+            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
         }
 
         return $res;
@@ -55,9 +55,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Pagination'])) {
-            $model->pagination = pagination::fromMap($map['Pagination']);
-        }
         if (isset($map['CertificateApplications'])) {
             if (!empty($map['CertificateApplications'])) {
                 $model->certificateApplications = [];
@@ -66,6 +63,9 @@ class result extends Model
                     $model->certificateApplications[$n++] = null !== $item ? certificateApplications::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Pagination'])) {
+            $model->pagination = pagination::fromMap($map['Pagination']);
         }
 
         return $model;

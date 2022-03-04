@@ -11,12 +11,12 @@ class InstantiateFabricChaincodeRequest extends Model
     /**
      * @var string
      */
-    public $organizationId;
+    public $chaincodeId;
 
     /**
      * @var string
      */
-    public $chaincodeId;
+    public $collectionConfig;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class InstantiateFabricChaincodeRequest extends Model
     /**
      * @var string
      */
-    public $collectionConfig;
+    public $organizationId;
     protected $_name = [
-        'organizationId'   => 'OrganizationId',
         'chaincodeId'      => 'ChaincodeId',
+        'collectionConfig' => 'CollectionConfig',
         'endorsePolicy'    => 'EndorsePolicy',
         'location'         => 'Location',
-        'collectionConfig' => 'CollectionConfig',
+        'organizationId'   => 'OrganizationId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class InstantiateFabricChaincodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
         if (null !== $this->chaincodeId) {
             $res['ChaincodeId'] = $this->chaincodeId;
+        }
+        if (null !== $this->collectionConfig) {
+            $res['CollectionConfig'] = $this->collectionConfig;
         }
         if (null !== $this->endorsePolicy) {
             $res['EndorsePolicy'] = $this->endorsePolicy;
@@ -59,8 +59,8 @@ class InstantiateFabricChaincodeRequest extends Model
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
-        if (null !== $this->collectionConfig) {
-            $res['CollectionConfig'] = $this->collectionConfig;
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class InstantiateFabricChaincodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
         if (isset($map['ChaincodeId'])) {
             $model->chaincodeId = $map['ChaincodeId'];
+        }
+        if (isset($map['CollectionConfig'])) {
+            $model->collectionConfig = $map['CollectionConfig'];
         }
         if (isset($map['EndorsePolicy'])) {
             $model->endorsePolicy = $map['EndorsePolicy'];
@@ -86,8 +86,8 @@ class InstantiateFabricChaincodeRequest extends Model
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
-        if (isset($map['CollectionConfig'])) {
-            $model->collectionConfig = $map['CollectionConfig'];
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
 
         return $model;

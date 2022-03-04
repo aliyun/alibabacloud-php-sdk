@@ -14,9 +14,9 @@ class result extends Model
     public $data;
 
     /**
-     * @var int
+     * @var string
      */
-    public $result;
+    public $gasUsed;
 
     /**
      * @var string[]
@@ -24,14 +24,14 @@ class result extends Model
     public $logs;
 
     /**
-     * @var string
+     * @var int
      */
-    public $gasUsed;
+    public $result;
     protected $_name = [
         'data'    => 'Data',
-        'result'  => 'Result',
-        'logs'    => 'Logs',
         'gasUsed' => 'GasUsed',
+        'logs'    => 'Logs',
+        'result'  => 'Result',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class result extends Model
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
+        if (null !== $this->gasUsed) {
+            $res['GasUsed'] = $this->gasUsed;
         }
         if (null !== $this->logs) {
             $res['Logs'] = $this->logs;
         }
-        if (null !== $this->gasUsed) {
-            $res['GasUsed'] = $this->gasUsed;
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
 
         return $res;
@@ -68,16 +68,16 @@ class result extends Model
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+        if (isset($map['GasUsed'])) {
+            $model->gasUsed = $map['GasUsed'];
         }
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = $map['Logs'];
             }
         }
-        if (isset($map['GasUsed'])) {
-            $model->gasUsed = $map['GasUsed'];
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
 
         return $model;

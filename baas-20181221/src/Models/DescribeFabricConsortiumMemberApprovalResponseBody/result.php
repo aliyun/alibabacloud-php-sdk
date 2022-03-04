@@ -11,16 +11,6 @@ class result extends Model
     /**
      * @var string
      */
-    public $consortiumId;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
     public $channelCreatePolicy;
 
     /**
@@ -31,7 +21,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $organizationName;
+    public $consortiumId;
 
     /**
      * @var string
@@ -47,15 +37,25 @@ class result extends Model
      * @var string
      */
     public $organizationId;
+
+    /**
+     * @var string
+     */
+    public $organizationName;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
-        'consortiumId'        => 'ConsortiumId',
-        'state'               => 'State',
         'channelCreatePolicy' => 'ChannelCreatePolicy',
         'confirmTime'         => 'ConfirmTime',
-        'organizationName'    => 'OrganizationName',
+        'consortiumId'        => 'ConsortiumId',
         'consortiumName'      => 'ConsortiumName',
         'domainName'          => 'DomainName',
         'organizationId'      => 'OrganizationId',
+        'organizationName'    => 'OrganizationName',
+        'state'               => 'State',
     ];
 
     public function validate()
@@ -65,20 +65,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->consortiumId) {
-            $res['ConsortiumId'] = $this->consortiumId;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->channelCreatePolicy) {
             $res['ChannelCreatePolicy'] = $this->channelCreatePolicy;
         }
         if (null !== $this->confirmTime) {
             $res['ConfirmTime'] = $this->confirmTime;
         }
-        if (null !== $this->organizationName) {
-            $res['OrganizationName'] = $this->organizationName;
+        if (null !== $this->consortiumId) {
+            $res['ConsortiumId'] = $this->consortiumId;
         }
         if (null !== $this->consortiumName) {
             $res['ConsortiumName'] = $this->consortiumName;
@@ -88,6 +82,12 @@ class result extends Model
         }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
+        }
+        if (null !== $this->organizationName) {
+            $res['OrganizationName'] = $this->organizationName;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -101,20 +101,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConsortiumId'])) {
-            $model->consortiumId = $map['ConsortiumId'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['ChannelCreatePolicy'])) {
             $model->channelCreatePolicy = $map['ChannelCreatePolicy'];
         }
         if (isset($map['ConfirmTime'])) {
             $model->confirmTime = $map['ConfirmTime'];
         }
-        if (isset($map['OrganizationName'])) {
-            $model->organizationName = $map['OrganizationName'];
+        if (isset($map['ConsortiumId'])) {
+            $model->consortiumId = $map['ConsortiumId'];
         }
         if (isset($map['ConsortiumName'])) {
             $model->consortiumName = $map['ConsortiumName'];
@@ -124,6 +118,12 @@ class result extends Model
         }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
+        }
+        if (isset($map['OrganizationName'])) {
+            $model->organizationName = $map['OrganizationName'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

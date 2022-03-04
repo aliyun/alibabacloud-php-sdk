@@ -10,29 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricOrganizationUsersResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $errorCode;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $requestId;
 
     /**
      * @var result[]
      */
     public $result;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId' => 'RequestId',
         'errorCode' => 'ErrorCode',
-        'success'   => 'Success',
+        'requestId' => 'RequestId',
         'result'    => 'Result',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -42,14 +42,11 @@ class DescribeFabricOrganizationUsersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -59,6 +56,9 @@ class DescribeFabricOrganizationUsersResponseBody extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -72,14 +72,11 @@ class DescribeFabricOrganizationUsersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
@@ -89,6 +86,9 @@ class DescribeFabricOrganizationUsersResponseBody extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -14,9 +14,9 @@ class DescribeAntChainCertificateApplicationsRequest extends Model
     public $antChainId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $pageNumber;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class DescribeAntChainCertificateApplicationsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $status;
     protected $_name = [
         'antChainId' => 'AntChainId',
-        'status'     => 'Status',
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DescribeAntChainCertificateApplicationsRequest extends Model
         if (null !== $this->antChainId) {
             $res['AntChainId'] = $this->antChainId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DescribeAntChainCertificateApplicationsRequest extends Model
         if (isset($map['AntChainId'])) {
             $model->antChainId = $map['AntChainId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

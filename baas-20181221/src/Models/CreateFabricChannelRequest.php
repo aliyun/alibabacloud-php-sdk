@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateFabricChannelRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $consortiumId;
+    public $batchTimeout;
 
     /**
      * @var string
@@ -20,9 +20,9 @@ class CreateFabricChannelRequest extends Model
     public $channelName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $batchTimeout;
+    public $consortiumId;
 
     /**
      * @var int
@@ -30,21 +30,21 @@ class CreateFabricChannelRequest extends Model
     public $maxMessageCount;
 
     /**
-     * @var int
-     */
-    public $preferredMaxBytes;
-
-    /**
      * @var organization[]
      */
     public $organization;
+
+    /**
+     * @var int
+     */
+    public $preferredMaxBytes;
     protected $_name = [
-        'consortiumId'      => 'ConsortiumId',
-        'channelName'       => 'ChannelName',
         'batchTimeout'      => 'BatchTimeout',
+        'channelName'       => 'ChannelName',
+        'consortiumId'      => 'ConsortiumId',
         'maxMessageCount'   => 'MaxMessageCount',
-        'preferredMaxBytes' => 'PreferredMaxBytes',
         'organization'      => 'Organization',
+        'preferredMaxBytes' => 'PreferredMaxBytes',
     ];
 
     public function validate()
@@ -54,20 +54,17 @@ class CreateFabricChannelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->consortiumId) {
-            $res['ConsortiumId'] = $this->consortiumId;
+        if (null !== $this->batchTimeout) {
+            $res['BatchTimeout'] = $this->batchTimeout;
         }
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
         }
-        if (null !== $this->batchTimeout) {
-            $res['BatchTimeout'] = $this->batchTimeout;
+        if (null !== $this->consortiumId) {
+            $res['ConsortiumId'] = $this->consortiumId;
         }
         if (null !== $this->maxMessageCount) {
             $res['MaxMessageCount'] = $this->maxMessageCount;
-        }
-        if (null !== $this->preferredMaxBytes) {
-            $res['PreferredMaxBytes'] = $this->preferredMaxBytes;
         }
         if (null !== $this->organization) {
             $res['Organization'] = [];
@@ -77,6 +74,9 @@ class CreateFabricChannelRequest extends Model
                     $res['Organization'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->preferredMaxBytes) {
+            $res['PreferredMaxBytes'] = $this->preferredMaxBytes;
         }
 
         return $res;
@@ -90,20 +90,17 @@ class CreateFabricChannelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConsortiumId'])) {
-            $model->consortiumId = $map['ConsortiumId'];
+        if (isset($map['BatchTimeout'])) {
+            $model->batchTimeout = $map['BatchTimeout'];
         }
         if (isset($map['ChannelName'])) {
             $model->channelName = $map['ChannelName'];
         }
-        if (isset($map['BatchTimeout'])) {
-            $model->batchTimeout = $map['BatchTimeout'];
+        if (isset($map['ConsortiumId'])) {
+            $model->consortiumId = $map['ConsortiumId'];
         }
         if (isset($map['MaxMessageCount'])) {
             $model->maxMessageCount = $map['MaxMessageCount'];
-        }
-        if (isset($map['PreferredMaxBytes'])) {
-            $model->preferredMaxBytes = $map['PreferredMaxBytes'];
         }
         if (isset($map['Organization'])) {
             if (!empty($map['Organization'])) {
@@ -113,6 +110,9 @@ class CreateFabricChannelRequest extends Model
                     $model->organization[$n++] = null !== $item ? organization::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PreferredMaxBytes'])) {
+            $model->preferredMaxBytes = $map['PreferredMaxBytes'];
         }
 
         return $model;

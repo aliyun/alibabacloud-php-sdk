@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var bool
+     */
+    public $enable;
+
+    /**
      * @var string
      */
     public $specName;
@@ -17,15 +22,10 @@ class result extends Model
      * @var string
      */
     public $specTitle;
-
-    /**
-     * @var bool
-     */
-    public $enable;
     protected $_name = [
+        'enable'    => 'Enable',
         'specName'  => 'SpecName',
         'specTitle' => 'SpecTitle',
-        'enable'    => 'Enable',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
         if (null !== $this->specTitle) {
             $res['SpecTitle'] = $this->specTitle;
-        }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
         if (isset($map['SpecName'])) {
             $model->specName = $map['SpecName'];
         }
         if (isset($map['SpecTitle'])) {
             $model->specTitle = $map['SpecTitle'];
-        }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
         }
 
         return $model;

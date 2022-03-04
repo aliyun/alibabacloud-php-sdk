@@ -11,21 +11,21 @@ class UpdateAntChainMemberRequest extends Model
     /**
      * @var string
      */
-    public $memberName;
-
-    /**
-     * @var string
-     */
     public $consortiumId;
 
     /**
      * @var string
      */
     public $memberId;
+
+    /**
+     * @var string
+     */
+    public $memberName;
     protected $_name = [
-        'memberName'   => 'MemberName',
         'consortiumId' => 'ConsortiumId',
         'memberId'     => 'MemberId',
+        'memberName'   => 'MemberName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateAntChainMemberRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->memberName) {
-            $res['MemberName'] = $this->memberName;
-        }
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
         }
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
+        }
+        if (null !== $this->memberName) {
+            $res['MemberName'] = $this->memberName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateAntChainMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MemberName'])) {
-            $model->memberName = $map['MemberName'];
-        }
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
         }
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
+        }
+        if (isset($map['MemberName'])) {
+            $model->memberName = $map['MemberName'];
         }
 
         return $model;

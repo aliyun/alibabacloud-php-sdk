@@ -11,22 +11,22 @@ class result extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
      * @var string
      */
-    public $updateTime;
+    public $instanceType;
 
     /**
      * @var string
      */
     public $ordererName;
-
-    /**
-     * @var string
-     */
-    public $createTime;
 
     /**
      * @var int
@@ -36,14 +36,14 @@ class result extends Model
     /**
      * @var string
      */
-    public $instanceType;
+    public $updateTime;
     protected $_name = [
-        'domain'       => 'Domain',
-        'updateTime'   => 'UpdateTime',
-        'ordererName'  => 'OrdererName',
         'createTime'   => 'CreateTime',
-        'port'         => 'Port',
+        'domain'       => 'Domain',
         'instanceType' => 'InstanceType',
+        'ordererName'  => 'OrdererName',
+        'port'         => 'Port',
+        'updateTime'   => 'UpdateTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->ordererName) {
             $res['OrdererName'] = $this->ordererName;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['OrdererName'])) {
             $model->ordererName = $map['OrdererName'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

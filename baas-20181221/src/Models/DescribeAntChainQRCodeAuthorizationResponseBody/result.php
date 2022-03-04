@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $QRCodeType;
+    public $antChainId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class result extends Model
     /**
      * @var string
      */
-    public $antChainId;
+    public $QRCodeType;
     protected $_name = [
-        'QRCodeType'        => 'QRCodeType',
-        'authorizationType' => 'AuthorizationType',
         'antChainId'        => 'AntChainId',
+        'authorizationType' => 'AuthorizationType',
+        'QRCodeType'        => 'QRCodeType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->QRCodeType) {
-            $res['QRCodeType'] = $this->QRCodeType;
+        if (null !== $this->antChainId) {
+            $res['AntChainId'] = $this->antChainId;
         }
         if (null !== $this->authorizationType) {
             $res['AuthorizationType'] = $this->authorizationType;
         }
-        if (null !== $this->antChainId) {
-            $res['AntChainId'] = $this->antChainId;
+        if (null !== $this->QRCodeType) {
+            $res['QRCodeType'] = $this->QRCodeType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QRCodeType'])) {
-            $model->QRCodeType = $map['QRCodeType'];
+        if (isset($map['AntChainId'])) {
+            $model->antChainId = $map['AntChainId'];
         }
         if (isset($map['AuthorizationType'])) {
             $model->authorizationType = $map['AuthorizationType'];
         }
-        if (isset($map['AntChainId'])) {
-            $model->antChainId = $map['AntChainId'];
+        if (isset($map['QRCodeType'])) {
+            $model->QRCodeType = $map['QRCodeType'];
         }
 
         return $model;

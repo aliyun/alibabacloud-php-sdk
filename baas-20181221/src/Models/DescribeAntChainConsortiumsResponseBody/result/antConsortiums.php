@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class antConsortiums extends Model
 {
     /**
+     * @var int
+     */
+    public $chainNum;
+
+    /**
      * @var string
      */
     public $consortiumDescription;
@@ -16,12 +21,12 @@ class antConsortiums extends Model
     /**
      * @var string
      */
-    public $status;
+    public $consortiumId;
 
     /**
      * @var string
      */
-    public $consortiumId;
+    public $consortiumName;
 
     /**
      * @var int
@@ -41,21 +46,16 @@ class antConsortiums extends Model
     /**
      * @var string
      */
-    public $consortiumName;
-
-    /**
-     * @var int
-     */
-    public $chainNum;
+    public $status;
     protected $_name = [
+        'chainNum'              => 'ChainNum',
         'consortiumDescription' => 'ConsortiumDescription',
-        'status'                => 'Status',
         'consortiumId'          => 'ConsortiumId',
+        'consortiumName'        => 'ConsortiumName',
         'createTime'            => 'CreateTime',
         'memberNum'             => 'MemberNum',
         'role'                  => 'Role',
-        'consortiumName'        => 'ConsortiumName',
-        'chainNum'              => 'ChainNum',
+        'status'                => 'Status',
     ];
 
     public function validate()
@@ -65,14 +65,17 @@ class antConsortiums extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chainNum) {
+            $res['ChainNum'] = $this->chainNum;
+        }
         if (null !== $this->consortiumDescription) {
             $res['ConsortiumDescription'] = $this->consortiumDescription;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->consortiumId) {
             $res['ConsortiumId'] = $this->consortiumId;
+        }
+        if (null !== $this->consortiumName) {
+            $res['ConsortiumName'] = $this->consortiumName;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -83,11 +86,8 @@ class antConsortiums extends Model
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
-        if (null !== $this->consortiumName) {
-            $res['ConsortiumName'] = $this->consortiumName;
-        }
-        if (null !== $this->chainNum) {
-            $res['ChainNum'] = $this->chainNum;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -101,14 +101,17 @@ class antConsortiums extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChainNum'])) {
+            $model->chainNum = $map['ChainNum'];
+        }
         if (isset($map['ConsortiumDescription'])) {
             $model->consortiumDescription = $map['ConsortiumDescription'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['ConsortiumId'])) {
             $model->consortiumId = $map['ConsortiumId'];
+        }
+        if (isset($map['ConsortiumName'])) {
+            $model->consortiumName = $map['ConsortiumName'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -119,11 +122,8 @@ class antConsortiums extends Model
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
-        if (isset($map['ConsortiumName'])) {
-            $model->consortiumName = $map['ConsortiumName'];
-        }
-        if (isset($map['ChainNum'])) {
-            $model->chainNum = $map['ChainNum'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

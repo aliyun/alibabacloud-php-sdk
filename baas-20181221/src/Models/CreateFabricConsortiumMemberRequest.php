@@ -12,20 +12,20 @@ class CreateFabricConsortiumMemberRequest extends Model
     /**
      * @var string
      */
-    public $consortiumId;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $consortiumId;
 
     /**
      * @var organization[]
      */
     public $organization;
     protected $_name = [
-        'consortiumId' => 'ConsortiumId',
         'code'         => 'Code',
+        'consortiumId' => 'ConsortiumId',
         'organization' => 'Organization',
     ];
 
@@ -36,11 +36,11 @@ class CreateFabricConsortiumMemberRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->consortiumId) {
-            $res['ConsortiumId'] = $this->consortiumId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->consortiumId) {
+            $res['ConsortiumId'] = $this->consortiumId;
         }
         if (null !== $this->organization) {
             $res['Organization'] = [];
@@ -63,11 +63,11 @@ class CreateFabricConsortiumMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConsortiumId'])) {
-            $model->consortiumId = $map['ConsortiumId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['ConsortiumId'])) {
+            $model->consortiumId = $map['ConsortiumId'];
         }
         if (isset($map['Organization'])) {
             if (!empty($map['Organization'])) {

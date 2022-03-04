@@ -11,15 +11,15 @@ class CreateAntChainConsortiumRequest extends Model
     /**
      * @var string
      */
-    public $consortiumName;
+    public $consortiumDescription;
 
     /**
      * @var string
      */
-    public $consortiumDescription;
+    public $consortiumName;
     protected $_name = [
-        'consortiumName'        => 'ConsortiumName',
         'consortiumDescription' => 'ConsortiumDescription',
+        'consortiumName'        => 'ConsortiumName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAntChainConsortiumRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->consortiumName) {
-            $res['ConsortiumName'] = $this->consortiumName;
-        }
         if (null !== $this->consortiumDescription) {
             $res['ConsortiumDescription'] = $this->consortiumDescription;
+        }
+        if (null !== $this->consortiumName) {
+            $res['ConsortiumName'] = $this->consortiumName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAntChainConsortiumRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConsortiumName'])) {
-            $model->consortiumName = $map['ConsortiumName'];
-        }
         if (isset($map['ConsortiumDescription'])) {
             $model->consortiumDescription = $map['ConsortiumDescription'];
+        }
+        if (isset($map['ConsortiumName'])) {
+            $model->consortiumName = $map['ConsortiumName'];
         }
 
         return $model;
