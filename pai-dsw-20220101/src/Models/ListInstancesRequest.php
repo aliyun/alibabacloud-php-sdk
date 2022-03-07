@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceleratorType;
+
+    /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @description 实例名称
      *
      * @var string
@@ -37,6 +47,11 @@ class ListInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $paymentType;
+
+    /**
      * @description 排序字段
      *
      * @var string
@@ -57,13 +72,16 @@ class ListInstancesRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'instanceName' => 'InstanceName',
-        'order'        => 'Order',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'sortBy'       => 'SortBy',
-        'status'       => 'Status',
-        'workspaceId'  => 'WorkspaceId',
+        'acceleratorType' => 'AcceleratorType',
+        'accessibility'   => 'Accessibility',
+        'instanceName'    => 'InstanceName',
+        'order'           => 'Order',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'paymentType'     => 'PaymentType',
+        'sortBy'          => 'SortBy',
+        'status'          => 'Status',
+        'workspaceId'     => 'WorkspaceId',
     ];
 
     public function validate()
@@ -73,6 +91,12 @@ class ListInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceleratorType) {
+            $res['AcceleratorType'] = $this->acceleratorType;
+        }
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -84,6 +108,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->paymentType) {
+            $res['PaymentType'] = $this->paymentType;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -106,6 +133,12 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceleratorType'])) {
+            $model->acceleratorType = $map['AcceleratorType'];
+        }
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
@@ -117,6 +150,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PaymentType'])) {
+            $model->paymentType = $map['PaymentType'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
