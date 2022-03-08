@@ -159,6 +159,9 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->signature)) {
+            $body['Signature'] = $request->signature;
+        }
         if (!Utils::isUnset($request->signatureId)) {
             $body['SignatureId'] = $request->signatureId;
         }
