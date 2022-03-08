@@ -4,14 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiPlugin\V20220112\Models;
 
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetMessageConfigResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DeleteTemplateResponseBody extends Model
+class GetMessageConfigResponseBody extends Model
 {
     /**
      * @description 返回数据。
      *
-     * @var string
+     * @var data
      */
     public $data;
 
@@ -50,7 +51,7 @@ class DeleteTemplateResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -68,13 +69,13 @@ class DeleteTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteTemplateResponseBody
+     * @return GetMessageConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

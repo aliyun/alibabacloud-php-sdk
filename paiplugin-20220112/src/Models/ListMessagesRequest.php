@@ -16,14 +16,21 @@ class ListMessagesRequest extends Model
     public $datetime;
 
     /**
-     * @description 关联人群Id。
+     * @description 短信错误码过滤。
+     *
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @description 关联人群Id过滤。
      *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 短信序列号。
+     * @description 短信Id过滤，短信Id为SendMessage成功返回的Id。
      *
      * @var string
      */
@@ -44,62 +51,70 @@ class ListMessagesRequest extends Model
     public $pageSize;
 
     /**
-     * @description 手机号码。
+     * @description 手机号码过滤。
      *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description 请求序列号。
+     * @description 短信批处理Id过滤，短信批处理Id为SendMessage成功返回的RequestId。
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 关联发送计划Id。
+     * @description 关联触达计划Id过滤。
      *
      * @var string
      */
     public $scheduleId;
 
     /**
-     * @description 签名名称。
+     * @description 签名名称过滤。
      *
      * @var string
      */
     public $signature;
 
     /**
-     * @description 签名Id，同时只能指定签名名称或签名Id其中之一。
+     * @description 签名Id过滤，同时只能指定签名名称或签名Id其中之一。
      *
      * @var string
      */
     public $signatureId;
 
     /**
-     * @description 短信发送状态。
+     * @description 短信发送状态过滤。
      * - 2 : 发送失败。
      * @var int
      */
     public $status;
 
     /**
-     * @description 模板号。
+     * @description 模板号过滤。
      *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description 模板Id，同时只能指定模板Code或模板Id其中之一。
+     * @description 模板Id过滤，同时只能指定模板Code或模板Id其中之一。
      *
      * @var string
      */
     public $templateId;
+
+    /**
+     * @description 模板类型过滤。
+     * - 2 : 推广短信。
+     * @var int
+     */
+    public $templateType;
     protected $_name = [
         'datetime'     => 'Datetime',
+        'errorCode'    => 'ErrorCode',
         'groupId'      => 'GroupId',
         'messageId'    => 'MessageId',
         'pageNumber'   => 'PageNumber',
@@ -112,6 +127,7 @@ class ListMessagesRequest extends Model
         'status'       => 'Status',
         'templateCode' => 'TemplateCode',
         'templateId'   => 'TemplateId',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -123,6 +139,9 @@ class ListMessagesRequest extends Model
         $res = [];
         if (null !== $this->datetime) {
             $res['Datetime'] = $this->datetime;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -160,6 +179,9 @@ class ListMessagesRequest extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
+        }
 
         return $res;
     }
@@ -174,6 +196,9 @@ class ListMessagesRequest extends Model
         $model = new self();
         if (isset($map['Datetime'])) {
             $model->datetime = $map['Datetime'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -210,6 +235,9 @@ class ListMessagesRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

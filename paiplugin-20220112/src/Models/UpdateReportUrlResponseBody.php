@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PaiPlugin\V20220112\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteTemplateResponseBody extends Model
+class UpdateReportUrlResponseBody extends Model
 {
     /**
      * @description 返回数据。
@@ -68,7 +68,7 @@ class DeleteTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteTemplateResponseBody
+     * @return UpdateReportUrlResponseBody
      */
     public static function fromMap($map = [])
     {

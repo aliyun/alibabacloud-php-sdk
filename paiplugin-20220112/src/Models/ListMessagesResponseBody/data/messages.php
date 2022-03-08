@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
-     * @description 错误码。
+     * @description 短信错误码。
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 关联人群Id。
+     * @description 关联人群Id，未关联则为空。
      *
      * @var string
      */
@@ -44,7 +44,7 @@ class messages extends Model
     public $phoneNumber;
 
     /**
-     * @description 关联发送计划Id。
+     * @description 关联触达计划Id，未关联则为空。
      *
      * @var string
      */
@@ -77,6 +77,13 @@ class messages extends Model
      * @var string
      */
     public $templateParams;
+
+    /**
+     * @description 模板类型。
+     * - 2 : 推广短信。
+     * @var int
+     */
+    public $templateType;
     protected $_name = [
         'errorCode'      => 'ErrorCode',
         'groupId'        => 'GroupId',
@@ -88,6 +95,7 @@ class messages extends Model
         'status'         => 'Status',
         'templateCode'   => 'TemplateCode',
         'templateParams' => 'TemplateParams',
+        'templateType'   => 'TemplateType',
     ];
 
     public function validate()
@@ -126,6 +134,9 @@ class messages extends Model
         }
         if (null !== $this->templateParams) {
             $res['TemplateParams'] = $this->templateParams;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -168,6 +179,9 @@ class messages extends Model
         }
         if (isset($map['TemplateParams'])) {
             $model->templateParams = $map['TemplateParams'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

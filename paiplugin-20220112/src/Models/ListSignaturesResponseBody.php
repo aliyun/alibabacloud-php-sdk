@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSignaturesResponseBody extends Model
 {
     /**
-     * @description 返回数据
+     * @description 返回数据。
      *
      * @var data
      */

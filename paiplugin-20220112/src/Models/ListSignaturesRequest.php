@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSignaturesRequest extends Model
 {
     /**
-     * @description 签名名称，使用%name%模糊匹配。
+     * @description 签名名称。
      *
      * @var string
      */

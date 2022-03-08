@@ -1,3 +1,6 @@
+2022-03-08 Version: 1.0.8
+- ListMessages add ErrorCode filter.
+
 2022-03-02 Version: 1.0.6
 - ListMessages add filters.
 - ListMessageMetrics add filters.

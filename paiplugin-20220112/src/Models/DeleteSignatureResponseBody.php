@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSignatureResponseBody extends Model
 {
     /**
-     * @description 返回数据
+     * @description 返回数据。
      *
      * @var string
      */

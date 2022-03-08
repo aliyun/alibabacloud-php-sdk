@@ -30,7 +30,7 @@ class templates extends Model
     public $description;
 
     /**
-     * @description Id。
+     * @description 模板Id。
      *
      * @var string
      */
@@ -73,7 +73,7 @@ class templates extends Model
 
     /**
      * @description 模板类型。
-     * 2：推广短信。
+     * - 2 : 推广短信。
      * @var int
      */
     public $type;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
+     * @description 短信Id。
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 手机号码。
+     *
      * @var string
      */
     public $phoneNumber;

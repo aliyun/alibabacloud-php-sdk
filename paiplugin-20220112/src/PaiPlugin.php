@@ -6,51 +6,34 @@ namespace AlibabaCloud\SDK\PaiPlugin\V20220112;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateGroupRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateGroupResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateInferenceJobRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateInferenceJobResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateScheduleRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateScheduleResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateSignatureRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateSignatureResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateTemplateResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateTrainingJobRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\CreateTrainingJobResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteGroupResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteInferenceJobResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteScheduleResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteSignatureResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteTemplateResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\DeleteTrainingJobResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetAlgorithmResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetGroupResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetInferenceJobResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetScheduleResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetMessageConfigResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetSignatureResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetTemplateResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetTrainingJobResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListAlgorithmsRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListAlgorithmsResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListGroupsRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListGroupsResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListInferenceJobsRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListInferenceJobsResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\GetUserResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListMessageMetricsRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListMessageMetricsResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListMessagesRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListMessagesResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListSchedulesRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListSchedulesResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListSignaturesRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListSignaturesResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListTemplatesResponse;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListTrainingJobsRequest;
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListTrainingJobsResponse;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\SendMessageRequest;
 use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\SendMessageResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\SmsReportRequest;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\SmsReportResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\SmsUpRequest;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\SmsUpResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\UpdateReportUrlRequest;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\UpdateReportUrlResponse;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\UpdateUploadUrlRequest;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\UpdateUploadUrlResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -91,231 +74,7 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册人群.
-     *
-     * @tags 人群
-     *
-     * @param CreateGroupRequest $request
-     *
-     * @return CreateGroupResponse
-     */
-    public function createGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createGroupWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateGroupRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateGroupResponse
-     */
-    public function createGroupWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $body['Algorithm'] = $request->algorithm;
-        }
-        if (!Utils::isUnset($request->column)) {
-            $body['Column'] = $request->column;
-        }
-        if (!Utils::isUnset($request->filter)) {
-            $body['Filter'] = $request->filter;
-        }
-        if (!Utils::isUnset($request->inferenceJobId)) {
-            $body['InferenceJobId'] = $request->inferenceJobId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->project)) {
-            $body['Project'] = $request->project;
-        }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->table)) {
-            $body['Table'] = $request->table;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        if (!Utils::isUnset($request->uri)) {
-            $body['Uri'] = $request->uri;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateGroup',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 注册推理任务
-     *
-     * @tags 推理任务
-     *
-     * @param CreateInferenceJobRequest $request
-     *
-     * @return CreateInferenceJobResponse
-     */
-    public function createInferenceJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createInferenceJobWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateInferenceJobRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateInferenceJobResponse
-     */
-    public function createInferenceJobWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $body['Algorithm'] = $request->algorithm;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->trainingJobId)) {
-            $body['TrainingJobId'] = $request->trainingJobId;
-        }
-        if (!Utils::isUnset($request->userConfig)) {
-            $body['UserConfig'] = $request->userConfig;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateInferenceJob',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/inference/jobs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 注册触达计划.
-     *
-     * @tags 触达计划
-     *
-     * @param CreateScheduleRequest $request
-     *
-     * @return CreateScheduleResponse
-     */
-    public function createSchedule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createScheduleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateScheduleRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateScheduleResponse
-     */
-    public function createScheduleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->executeTime)) {
-            $body['ExecuteTime'] = $request->executeTime;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $body['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->repeatCycle)) {
-            $body['RepeatCycle'] = $request->repeatCycle;
-        }
-        if (!Utils::isUnset($request->repeatCycleUnit)) {
-            $body['RepeatCycleUnit'] = $request->repeatCycleUnit;
-        }
-        if (!Utils::isUnset($request->repeatTimes)) {
-            $body['RepeatTimes'] = $request->repeatTimes;
-        }
-        if (!Utils::isUnset($request->signName)) {
-            $body['SignName'] = $request->signName;
-        }
-        if (!Utils::isUnset($request->signatureId)) {
-            $body['SignatureId'] = $request->signatureId;
-        }
-        if (!Utils::isUnset($request->templateCode)) {
-            $body['TemplateCode'] = $request->templateCode;
-        }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSchedule',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/schedules',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
      * 注册签名。
-     *
-     * @tags 签名
      *
      * @param CreateSignatureRequest $request
      *
@@ -366,9 +125,7 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册模板
-     *
-     * @tags 模板
+     * 注册模板。
      *
      * @param CreateTemplateRequest $request
      *
@@ -428,203 +185,7 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册训练任务
-     *
-     * @tags 训练任务
-     *
-     * @param CreateTrainingJobRequest $request
-     *
-     * @return CreateTrainingJobResponse
-     */
-    public function createTrainingJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createTrainingJobWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateTrainingJobRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateTrainingJobResponse
-     */
-    public function createTrainingJobWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $body['Algorithm'] = $request->algorithm;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->userConfig)) {
-            $body['UserConfig'] = $request->userConfig;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateTrainingJob',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/training/jobs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 删除人群.
-     *
-     * @tags 人群
-     *
-     * @param string $Id
-     *
-     * @return DeleteGroupResponse
-     */
-    public function deleteGroup($Id)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteGroupWithOptions($Id, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DeleteGroupResponse
-     */
-    public function deleteGroupWithOptions($Id, $headers, $runtime)
-    {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteGroup',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups/' . $Id . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 删除推理任务
-     *
-     * @tags 推理任务
-     *
-     * @param string $Id
-     *
-     * @return DeleteInferenceJobResponse
-     */
-    public function deleteInferenceJob($Id)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteInferenceJobWithOptions($Id, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DeleteInferenceJobResponse
-     */
-    public function deleteInferenceJobWithOptions($Id, $headers, $runtime)
-    {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteInferenceJob',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/inference/jobs/' . $Id . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 删除触达计划.
-     *
-     * @tags 触达计划
-     *
-     * @param string $Id
-     *
-     * @return DeleteScheduleResponse
-     */
-    public function deleteSchedule($Id)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteScheduleWithOptions($Id, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DeleteScheduleResponse
-     */
-    public function deleteScheduleWithOptions($Id, $headers, $runtime)
-    {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSchedule',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/schedules/' . $Id . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
      * 删除签名。
-     *
-     * @tags 签名
      *
      * @param string $Id
      *
@@ -669,8 +230,6 @@ class PaiPlugin extends OpenApiClient
     /**
      * 删除模板
      *
-     * @tags 模板
-     *
      * @param string $Id
      *
      * @return DeleteTemplateResponse
@@ -712,85 +271,34 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 删除训练任务
+     * 获取短信配置。
      *
-     * @tags 训练任务
-     *
-     * @param string $Id
-     *
-     * @return DeleteTrainingJobResponse
+     * @return GetMessageConfigResponse
      */
-    public function deleteTrainingJob($Id)
+    public function getMessageConfig()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTrainingJobWithOptions($Id, $headers, $runtime);
+        return $this->getMessageConfigWithOptions($headers, $runtime);
     }
 
     /**
-     * @param string         $Id
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
-     * @return DeleteTrainingJobResponse
+     * @return GetMessageConfigResponse
      */
-    public function deleteTrainingJobWithOptions($Id, $headers, $runtime)
+    public function getMessageConfigWithOptions($headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteTrainingJob',
+            'action'      => 'GetMessageConfig',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/training/jobs/' . $Id . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 获取算法详情.
-     *
-     * @tags 算法
-     *
-     * @param string $Id
-     *
-     * @return GetAlgorithmResponse
-     */
-    public function getAlgorithm($Id)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getAlgorithmWithOptions($Id, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetAlgorithmResponse
-     */
-    public function getAlgorithmWithOptions($Id, $headers, $runtime)
-    {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetAlgorithm',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/algorithms/' . $Id . '',
+            'pathname'    => '/api/v2/users/messageConfig',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -798,150 +306,11 @@ class PaiPlugin extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMessageConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取人群
-     * 默认返回所有人群信息.
-     *
-     * @tags 人群
-     *
-     * @param string $Id
-     *
-     * @return GetGroupResponse
-     */
-    public function getGroup($Id)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getGroupWithOptions($Id, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetGroupResponse
-     */
-    public function getGroupWithOptions($Id, $headers, $runtime)
-    {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetGroup',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups/' . $Id . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 获取推理任务
-     * 默认返回所有推理任务信息.
-     *
-     * @tags 推理任务
-     *
-     * @param string $Id
-     *
-     * @return GetInferenceJobResponse
-     */
-    public function getInferenceJob($Id)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getInferenceJobWithOptions($Id, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetInferenceJobResponse
-     */
-    public function getInferenceJobWithOptions($Id, $headers, $runtime)
-    {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetInferenceJob',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/inference/jobs/' . $Id . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 获取触达计划详情。
-     *
-     * @tags 触达计划
-     *
-     * @param string $Id
-     *
-     * @return GetScheduleResponse
-     */
-    public function getSchedule($Id)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getScheduleWithOptions($Id, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetScheduleResponse
-     */
-    public function getScheduleWithOptions($Id, $headers, $runtime)
-    {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetSchedule',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/schedules/' . $Id . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 获取签名详情.
-     *
-     * @tags 签名
+     * 获取签名详情。
      *
      * @param string $Id
      *
@@ -984,11 +353,7 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取模板
-     * 默认返回所有模板信息
-     * ![模板列表](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/302991/1615264998427-d2943cfb-106a-421d-b4a4-f06307b4d9be.png).
-     *
-     * @tags 模板
+     * 获取模板详情。
      *
      * @param string $Id
      *
@@ -1031,41 +396,34 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取训练任务
-     * 默认返回所有训练任务信息.
+     * 获取账号状态。
      *
-     * @tags 训练任务
-     *
-     * @param string $Id
-     *
-     * @return GetTrainingJobResponse
+     * @return GetUserResponse
      */
-    public function getTrainingJob($Id)
+    public function getUser()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTrainingJobWithOptions($Id, $headers, $runtime);
+        return $this->getUserWithOptions($headers, $runtime);
     }
 
     /**
-     * @param string         $Id
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
-     * @return GetTrainingJobResponse
+     * @return GetUserResponse
      */
-    public function getTrainingJobWithOptions($Id, $headers, $runtime)
+    public function getUserWithOptions($headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTrainingJob',
+            'action'      => 'GetUser',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/training/jobs/' . $Id . '',
+            'pathname'    => '/api/v2/users',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1073,199 +431,11 @@ class PaiPlugin extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取算法列表.
-     *
-     * @tags 算法
-     *
-     * @param ListAlgorithmsRequest $request
-     *
-     * @return ListAlgorithmsResponse
-     */
-    public function listAlgorithms($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listAlgorithmsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListAlgorithmsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListAlgorithmsResponse
-     */
-    public function listAlgorithmsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAlgorithms',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/algorithms',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListAlgorithmsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 获取人群列表.
-     *
-     * @tags 人群
-     *
-     * @param ListGroupsRequest $request
-     *
-     * @return ListGroupsResponse
-     */
-    public function listGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listGroupsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListGroupsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListGroupsResponse
-     */
-    public function listGroupsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListGroups',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 获取推理任务列表.
-     *
-     * @tags 推理任务
-     *
-     * @param ListInferenceJobsRequest $request
-     *
-     * @return ListInferenceJobsResponse
-     */
-    public function listInferenceJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listInferenceJobsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListInferenceJobsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListInferenceJobsResponse
-     */
-    public function listInferenceJobsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListInferenceJobs',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/inference/jobs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListInferenceJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 获取用户短信发送统计
-     *
-     * @tags 短信
+     * 获取短信发送统计列表。
      *
      * @param ListMessageMetricsRequest $request
      *
@@ -1320,6 +490,9 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1340,9 +513,7 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 查询短信发送详情.
-     *
-     * @tags 短信
+     * 查询短信发送详情列表。
      *
      * @param ListMessagesRequest $request
      *
@@ -1369,6 +540,9 @@ class PaiPlugin extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->datetime)) {
             $query['Datetime'] = $request->datetime;
+        }
+        if (!Utils::isUnset($request->errorCode)) {
+            $query['ErrorCode'] = $request->errorCode;
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
@@ -1406,6 +580,9 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1426,68 +603,7 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取触达计划列表。
-     *
-     * @tags 触达计划
-     *
-     * @param ListSchedulesRequest $request
-     *
-     * @return ListSchedulesResponse
-     */
-    public function listSchedules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listSchedulesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListSchedulesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListSchedulesResponse
-     */
-    public function listSchedulesWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListSchedules',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/schedules',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 获取签名列表.
-     *
-     * @tags 签名
+     * 获取签名列表。
      *
      * @param ListSignaturesRequest $request
      *
@@ -1544,10 +660,7 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取模板列表
-     * 默认返回所有模板信息.
-     *
-     * @tags 模板
+     * 获取模板列表。
      *
      * @param ListTemplatesRequest $request
      *
@@ -1610,71 +723,7 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取训练任务列表.
-     *
-     * @tags 训练任务
-     *
-     * @param ListTrainingJobsRequest $request
-     *
-     * @return ListTrainingJobsResponse
-     */
-    public function listTrainingJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listTrainingJobsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListTrainingJobsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTrainingJobsResponse
-     */
-    public function listTrainingJobsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTrainingJobs',
-            'version'     => '2022-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/training/jobs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListTrainingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 发送短信
-     *
-     * @tags 短信
+     * 发送短信。
      *
      * @param SendMessageRequest $request
      *
@@ -1746,5 +795,189 @@ class PaiPlugin extends OpenApiClient
         ]);
 
         return SendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 短信回执。
+     *
+     * @param SmsReportRequest $request
+     *
+     * @return SmsReportResponse
+     */
+    public function smsReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->smsReportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SmsReportRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SmsReportResponse
+     */
+    public function smsReportWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::toArray($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'SmsReport',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/recall/report',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SmsReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 短信上行。
+     *
+     * @param SmsUpRequest $request
+     *
+     * @return SmsUpResponse
+     */
+    public function smsUp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->smsUpWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SmsUpRequest   $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return SmsUpResponse
+     */
+    public function smsUpWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::toArray($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'SmsUp',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/recall/up',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SmsUpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新回执Url。
+     *
+     * @param UpdateReportUrlRequest $request
+     *
+     * @return UpdateReportUrlResponse
+     */
+    public function updateReportUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateReportUrlWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateReportUrlRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateReportUrlResponse
+     */
+    public function updateReportUrlWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateReportUrl',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/users/reportUrl',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateReportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新上行Url。
+     *
+     * @param UpdateUploadUrlRequest $request
+     *
+     * @return UpdateUploadUrlResponse
+     */
+    public function updateUploadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateUploadUrlWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateUploadUrlRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateUploadUrlResponse
+     */
+    public function updateUploadUrlWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUploadUrl',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/users/uploadUrl',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

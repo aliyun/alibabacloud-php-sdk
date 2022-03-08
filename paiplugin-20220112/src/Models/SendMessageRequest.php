@@ -16,21 +16,21 @@ class SendMessageRequest extends Model
     public $groupId;
 
     /**
-     * @description 外部拓展字段。
+     * @description 外部拓展字段，示例：["1234567890"]。
      *
      * @var string[]
      */
     public $outIds;
 
     /**
-     * @description 手机号，每个手机号对应一个模板变量、上行拓展码和外部拓展字段。
+     * @description 手机号，每个手机号对应一个模板变量、上行拓展码和外部拓展字段，示例：["1234567890"]。
      *
      * @var string[]
      */
     public $phoneNumbers;
 
     /**
-     * @description 发送计划Id，用于关联发送计划。
+     * @description 触达计划Id，用于关联触达计划。
      *
      * @var string
      */
@@ -51,7 +51,7 @@ class SendMessageRequest extends Model
     public $signatureId;
 
     /**
-     * @description 短信上行拓展码。
+     * @description 短信上行拓展码，示例：["1234567890"]。
      *
      * @var string[]
      */
@@ -72,7 +72,7 @@ class SendMessageRequest extends Model
     public $templateId;
 
     /**
-     * @description 短信模板变量对应的实际值，JSON格式。支持传入多个参数，示例：{"name":"张三","number":"15038****76"}。
+     * @description 短信模板变量对应的实际值，JSON格式。支持传入多个参数，示例：[{"name":"张三","number":"15038****76"}]。
      *
      * @var string[]
      */

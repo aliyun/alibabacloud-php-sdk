@@ -30,7 +30,7 @@ class CreateTemplateRequest extends Model
     public $name;
 
     /**
-     * @description 签名Id。
+     * @description 签名Id，可通过ListSignatures获取审核状态为已通过的签名列表，获取签名Id。
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class CreateTemplateRequest extends Model
 
     /**
      * @description 模板类型。
-     * 2：推广短信。
+     * - 2 : 推广短信。
      * @var int
      */
     public $type;

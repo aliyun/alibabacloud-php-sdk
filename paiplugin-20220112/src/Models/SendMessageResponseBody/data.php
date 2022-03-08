@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 短信列表。
+     *
      * @var messages[]
      */
     public $messages;
 
     /**
+     * @description 请求Id。
+     *
      * @var string
      */
     public $requestId;

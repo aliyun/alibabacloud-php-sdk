@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListMessageMetricsRequest extends Model
 {
     /**
-     * @description 结束日期，格式20220102。
+     * @description 结束日期，必填，格式20220102。
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class ListMessageMetricsRequest extends Model
     public $pageSize;
 
     /**
-     * @description 关联发送计划Id。
+     * @description 关联触达计划Id。
      *
      * @var string
      */
@@ -58,7 +58,7 @@ class ListMessageMetricsRequest extends Model
     public $signatureId;
 
     /**
-     * @description 开始日期，格式20220102。
+     * @description 开始日期，必填，格式20220102。
      *
      * @var string
      */
@@ -77,6 +77,13 @@ class ListMessageMetricsRequest extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @description 模板类型。
+     * 2 : 推广短信。
+     * @var int
+     */
+    public $templateType;
     protected $_name = [
         'endDate'      => 'EndDate',
         'groupId'      => 'GroupId',
@@ -88,6 +95,7 @@ class ListMessageMetricsRequest extends Model
         'startDate'    => 'StartDate',
         'templateCode' => 'TemplateCode',
         'templateId'   => 'TemplateId',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -126,6 +134,9 @@ class ListMessageMetricsRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -168,6 +179,9 @@ class ListMessageMetricsRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;
