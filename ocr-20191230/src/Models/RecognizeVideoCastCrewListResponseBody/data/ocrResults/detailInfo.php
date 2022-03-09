@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCastCrewListResponseBody\data\ocrResults;
 
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCastCrewListResponseBody\data\ocrResults\detailInfoes\position;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCastCrewListResponseBody\data\ocrResults\detailInfo\position;
 use AlibabaCloud\Tea\Model;
 
-class detailInfoes extends Model
+class detailInfo extends Model
 {
     /**
      * @var int[]
@@ -112,7 +112,7 @@ class detailInfoes extends Model
     /**
      * @param array $map
      *
-     * @return detailInfoes
+     * @return detailInfo
      */
     public static function fromMap($map = [])
     {

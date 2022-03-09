@@ -11,7 +11,7 @@ class castResults extends Model
     /**
      * @var string[]
      */
-    public $detailInfoes;
+    public $detailInfo;
 
     /**
      * @var float
@@ -23,9 +23,9 @@ class castResults extends Model
      */
     public $startTime;
     protected $_name = [
-        'detailInfoes' => 'DetailInfoes',
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
+        'detailInfo' => 'DetailInfo',
+        'endTime'    => 'EndTime',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -35,8 +35,8 @@ class castResults extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->detailInfoes) {
-            $res['DetailInfoes'] = $this->detailInfoes;
+        if (null !== $this->detailInfo) {
+            $res['DetailInfo'] = $this->detailInfo;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -56,8 +56,8 @@ class castResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DetailInfoes'])) {
-            $model->detailInfoes = $map['DetailInfoes'];
+        if (isset($map['DetailInfo'])) {
+            $model->detailInfo = $map['DetailInfo'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
