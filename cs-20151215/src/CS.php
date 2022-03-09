@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesResponse;
@@ -145,6 +147,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateContactGroupForAlertResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateResponse;
@@ -1100,6 +1104,80 @@ class CS extends OpenApiClient
         ]);
 
         return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DeleteAlertContactResponse
+     */
+    public function deleteAlertContact()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertContactWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAlertContactResponse
+     */
+    public function deleteAlertContactWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlertContact',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/contacts',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DeleteAlertContactGroupResponse
+     */
+    public function deleteAlertContactGroup()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertContactGroupWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAlertContactGroupResponse
+     */
+    public function deleteAlertContactGroupWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlertContactGroup',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/contact_groups',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4869,14 +4947,14 @@ class CS extends OpenApiClient
     /**
      * @param string $ClusterId
      *
-     * @return UpdateK8sClusterUserConfigExpireResponse
+     * @return UpdateContactGroupForAlertResponse
      */
-    public function updateK8sClusterUserConfigExpire($ClusterId)
+    public function updateContactGroupForAlert($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sClusterUserConfigExpireWithOptions($ClusterId, $headers, $runtime);
+        return $this->updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -4884,13 +4962,65 @@ class CS extends OpenApiClient
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
-     * @return UpdateK8sClusterUserConfigExpireResponse
+     * @return UpdateContactGroupForAlertResponse
      */
-    public function updateK8sClusterUserConfigExpireWithOptions($ClusterId, $headers, $runtime)
+    public function updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime)
     {
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $req       = new OpenApiRequest([
             'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateContactGroupForAlert',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/' . $ClusterId . '/alert_rule/contact_groups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateContactGroupForAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                  $ClusterId
+     * @param UpdateK8sClusterUserConfigExpireRequest $request
+     *
+     * @return UpdateK8sClusterUserConfigExpireResponse
+     */
+    public function updateK8sClusterUserConfigExpire($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                  $ClusterId
+     * @param UpdateK8sClusterUserConfigExpireRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateK8sClusterUserConfigExpireResponse
+     */
+    public function updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $body      = [];
+        if (!Utils::isUnset($request->expireHour)) {
+            $body['expire_hour'] = $request->expireHour;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $body['user'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateK8sClusterUserConfigExpire',
