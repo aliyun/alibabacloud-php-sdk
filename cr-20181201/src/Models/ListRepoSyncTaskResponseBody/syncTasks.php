@@ -21,6 +21,11 @@ class syncTasks extends Model
     public $crossUser;
 
     /**
+     * @var bool
+     */
+    public $customLink;
+
+    /**
      * @var imageFrom
      */
     public $imageFrom;
@@ -67,6 +72,7 @@ class syncTasks extends Model
     protected $_name = [
         'createTime'          => 'CreateTime',
         'crossUser'           => 'CrossUser',
+        'customLink'          => 'CustomLink',
         'imageFrom'           => 'ImageFrom',
         'imageTo'             => 'ImageTo',
         'modifedTime'         => 'ModifedTime',
@@ -90,6 +96,9 @@ class syncTasks extends Model
         }
         if (null !== $this->crossUser) {
             $res['CrossUser'] = $this->crossUser;
+        }
+        if (null !== $this->customLink) {
+            $res['CustomLink'] = $this->customLink;
         }
         if (null !== $this->imageFrom) {
             $res['ImageFrom'] = null !== $this->imageFrom ? $this->imageFrom->toMap() : null;
@@ -135,6 +144,9 @@ class syncTasks extends Model
         }
         if (isset($map['CrossUser'])) {
             $model->crossUser = $map['CrossUser'];
+        }
+        if (isset($map['CustomLink'])) {
+            $model->customLink = $map['CustomLink'];
         }
         if (isset($map['ImageFrom'])) {
             $model->imageFrom = imageFrom::fromMap($map['ImageFrom']);

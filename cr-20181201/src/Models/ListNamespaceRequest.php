@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListNamespaceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListNamespaceRequest extends Model
@@ -32,12 +33,24 @@ class ListNamespaceRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'instanceId'      => 'InstanceId',
         'namespaceName'   => 'NamespaceName',
         'namespaceStatus' => 'NamespaceStatus',
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -61,6 +74,18 @@ class ListNamespaceRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -88,6 +113,18 @@ class ListNamespaceRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

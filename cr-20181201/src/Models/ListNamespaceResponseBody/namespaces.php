@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListNamespaceResponseBody;
 
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListNamespaceResponseBody\namespaces\tags;
 use AlibabaCloud\Tea\Model;
 
 class namespaces extends Model
@@ -37,6 +38,16 @@ class namespaces extends Model
      * @var string
      */
     public $namespaceStatus;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'autoCreateRepo'  => 'AutoCreateRepo',
         'defaultRepoType' => 'DefaultRepoType',
@@ -44,6 +55,8 @@ class namespaces extends Model
         'namespaceId'     => 'NamespaceId',
         'namespaceName'   => 'NamespaceName',
         'namespaceStatus' => 'NamespaceStatus',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -70,6 +83,18 @@ class namespaces extends Model
         }
         if (null !== $this->namespaceStatus) {
             $res['NamespaceStatus'] = $this->namespaceStatus;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -100,6 +125,18 @@ class namespaces extends Model
         }
         if (isset($map['NamespaceStatus'])) {
             $model->namespaceStatus = $map['NamespaceStatus'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

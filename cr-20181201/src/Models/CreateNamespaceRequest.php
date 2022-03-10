@@ -27,11 +27,17 @@ class CreateNamespaceRequest extends Model
      * @var string
      */
     public $namespaceName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'autoCreateRepo'  => 'AutoCreateRepo',
         'defaultRepoType' => 'DefaultRepoType',
         'instanceId'      => 'InstanceId',
         'namespaceName'   => 'NamespaceName',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class CreateNamespaceRequest extends Model
         }
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class CreateNamespaceRequest extends Model
         }
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

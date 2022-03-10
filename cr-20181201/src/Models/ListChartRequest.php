@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListRepositoryRequest extends Model
+class ListChartRequest extends Model
 {
     /**
      * @var string
@@ -32,24 +32,12 @@ class ListRepositoryRequest extends Model
      * @var string
      */
     public $repoNamespaceName;
-
-    /**
-     * @var string
-     */
-    public $repoStatus;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
         'instanceId'        => 'InstanceId',
         'pageNo'            => 'PageNo',
         'pageSize'          => 'PageSize',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
-        'repoStatus'        => 'RepoStatus',
-        'resourceGroupId'   => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -74,12 +62,6 @@ class ListRepositoryRequest extends Model
         if (null !== $this->repoNamespaceName) {
             $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
-        if (null !== $this->repoStatus) {
-            $res['RepoStatus'] = $this->repoStatus;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
 
         return $res;
     }
@@ -87,7 +69,7 @@ class ListRepositoryRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListRepositoryRequest
+     * @return ListChartRequest
      */
     public static function fromMap($map = [])
     {
@@ -106,12 +88,6 @@ class ListRepositoryRequest extends Model
         }
         if (isset($map['RepoNamespaceName'])) {
             $model->repoNamespaceName = $map['RepoNamespaceName'];
-        }
-        if (isset($map['RepoStatus'])) {
-            $model->repoStatus = $map['RepoStatus'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

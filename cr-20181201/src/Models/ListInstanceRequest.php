@@ -27,11 +27,17 @@ class ListInstanceRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'instanceName'   => 'InstanceName',
-        'instanceStatus' => 'InstanceStatus',
-        'pageNo'         => 'PageNo',
-        'pageSize'       => 'PageSize',
+        'instanceName'    => 'InstanceName',
+        'instanceStatus'  => 'InstanceStatus',
+        'pageNo'          => 'PageNo',
+        'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class ListInstanceRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ListInstanceRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

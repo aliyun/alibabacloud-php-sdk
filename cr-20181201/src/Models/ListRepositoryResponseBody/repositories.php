@@ -56,6 +56,11 @@ class repositories extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $summary;
 
     /**
@@ -72,6 +77,7 @@ class repositories extends Model
         'repoNamespaceName' => 'RepoNamespaceName',
         'repoStatus'        => 'RepoStatus',
         'repoType'          => 'RepoType',
+        'resourceGroupId'   => 'ResourceGroupId',
         'summary'           => 'Summary',
         'tagImmutability'   => 'TagImmutability',
     ];
@@ -109,6 +115,9 @@ class repositories extends Model
         }
         if (null !== $this->repoType) {
             $res['RepoType'] = $this->repoType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
@@ -154,6 +163,9 @@ class repositories extends Model
         }
         if (isset($map['RepoType'])) {
             $model->repoType = $map['RepoType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];

@@ -76,6 +76,11 @@ class GetRepositoryResponseBody extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $summary;
 
     /**
@@ -96,6 +101,7 @@ class GetRepositoryResponseBody extends Model
         'repoStatus'        => 'RepoStatus',
         'repoType'          => 'RepoType',
         'requestId'         => 'RequestId',
+        'resourceGroupId'   => 'ResourceGroupId',
         'summary'           => 'Summary',
         'tagImmutability'   => 'TagImmutability',
     ];
@@ -145,6 +151,9 @@ class GetRepositoryResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
@@ -202,6 +211,9 @@ class GetRepositoryResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];

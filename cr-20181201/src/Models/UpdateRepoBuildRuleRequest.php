@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepoBuildRuleRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $buildArgs;
+
+    /**
      * @var string
      */
     public $buildRuleId;
@@ -53,6 +58,7 @@ class UpdateRepoBuildRuleRequest extends Model
      */
     public $repoId;
     protected $_name = [
+        'buildArgs'          => 'BuildArgs',
         'buildRuleId'        => 'BuildRuleId',
         'dockerfileLocation' => 'DockerfileLocation',
         'dockerfileName'     => 'DockerfileName',
@@ -71,6 +77,9 @@ class UpdateRepoBuildRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildArgs) {
+            $res['BuildArgs'] = $this->buildArgs;
+        }
         if (null !== $this->buildRuleId) {
             $res['BuildRuleId'] = $this->buildRuleId;
         }
@@ -110,6 +119,11 @@ class UpdateRepoBuildRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildArgs'])) {
+            if (!empty($map['BuildArgs'])) {
+                $model->buildArgs = $map['BuildArgs'];
+            }
+        }
         if (isset($map['BuildRuleId'])) {
             $model->buildRuleId = $map['BuildRuleId'];
         }
