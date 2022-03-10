@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSparkJobLogRequest extends Model
+class ListStandardGroupsRequest extends Model
 {
-    /**
-     * @var int
-     */
-    public $jobId;
-
     /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'jobId' => 'JobId',
-        'tid'   => 'Tid',
+        'tid' => 'Tid',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class GetSparkJobLogRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -42,14 +33,11 @@ class GetSparkJobLogRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSparkJobLogRequest
+     * @return ListStandardGroupsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

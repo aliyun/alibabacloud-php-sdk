@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobExecutorLogsResponseBody\executorLogs;
 use AlibabaCloud\Tea\Model;
 
-class GetSparkJobExecutorLogsResponseBody extends Model
+class CreateDataExportOrderResponseBody extends Model
 {
+    /**
+     * @var int[]
+     */
+    public $createOrderResult;
+
     /**
      * @var string
      */
@@ -18,13 +22,6 @@ class GetSparkJobExecutorLogsResponseBody extends Model
      * @var string
      */
     public $errorMessage;
-
-    /**
-     * @description log of the spark job
-     *
-     * @var executorLogs
-     */
-    public $executorLogs;
 
     /**
      * @description Id of the request
@@ -38,11 +35,11 @@ class GetSparkJobExecutorLogsResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'executorLogs' => 'ExecutorLogs',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'createOrderResult' => 'CreateOrderResult',
+        'errorCode'         => 'ErrorCode',
+        'errorMessage'      => 'ErrorMessage',
+        'requestId'         => 'RequestId',
+        'success'           => 'Success',
     ];
 
     public function validate()
@@ -52,14 +49,14 @@ class GetSparkJobExecutorLogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createOrderResult) {
+            $res['CreateOrderResult'] = $this->createOrderResult;
+        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->executorLogs) {
-            $res['ExecutorLogs'] = null !== $this->executorLogs ? $this->executorLogs->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -74,19 +71,21 @@ class GetSparkJobExecutorLogsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetSparkJobExecutorLogsResponseBody
+     * @return CreateDataExportOrderResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateOrderResult'])) {
+            if (!empty($map['CreateOrderResult'])) {
+                $model->createOrderResult = $map['CreateOrderResult'];
+            }
+        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ExecutorLogs'])) {
-            $model->executorLogs = executorLogs::fromMap($map['ExecutorLogs']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

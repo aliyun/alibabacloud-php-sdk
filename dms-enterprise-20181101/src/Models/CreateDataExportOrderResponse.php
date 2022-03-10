@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSparkJobLogResponse extends Model
+class CreateDataExportOrderResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetSparkJobLogResponse extends Model
     public $headers;
 
     /**
-     * @var GetSparkJobLogResponseBody
+     * @var CreateDataExportOrderResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetSparkJobLogResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetSparkJobLogResponse
+     * @return CreateDataExportOrderResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetSparkJobLogResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetSparkJobLogResponseBody::fromMap($map['body']);
+            $model->body = CreateDataExportOrderResponseBody::fromMap($map['body']);
         }
 
         return $model;

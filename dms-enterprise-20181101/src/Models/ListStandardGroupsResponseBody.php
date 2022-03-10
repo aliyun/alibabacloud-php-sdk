@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsResponseBody\standardGroupList;
 use AlibabaCloud\Tea\Model;
 
-class SubmitSparkJobResponseBody extends Model
+class ListStandardGroupsResponseBody extends Model
 {
     /**
      * @var string
@@ -19,13 +20,6 @@ class SubmitSparkJobResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description Id of the spark job
-     *
-     * @var int
-     */
-    public $jobId;
-
-    /**
      * @description Id of the request
      *
      * @var string
@@ -33,15 +27,20 @@ class SubmitSparkJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @var standardGroupList[]
+     */
+    public $standardGroupList;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'jobId'        => 'JobId',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'errorCode'         => 'ErrorCode',
+        'errorMessage'      => 'ErrorMessage',
+        'requestId'         => 'RequestId',
+        'standardGroupList' => 'StandardGroupList',
+        'success'           => 'Success',
     ];
 
     public function validate()
@@ -57,11 +56,17 @@ class SubmitSparkJobResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->standardGroupList) {
+            $res['StandardGroupList'] = [];
+            if (null !== $this->standardGroupList && \is_array($this->standardGroupList)) {
+                $n = 0;
+                foreach ($this->standardGroupList as $item) {
+                    $res['StandardGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -73,7 +78,7 @@ class SubmitSparkJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SubmitSparkJobResponseBody
+     * @return ListStandardGroupsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -84,11 +89,17 @@ class SubmitSparkJobResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StandardGroupList'])) {
+            if (!empty($map['StandardGroupList'])) {
+                $model->standardGroupList = [];
+                $n                        = 0;
+                foreach ($map['StandardGroupList'] as $item) {
+                    $model->standardGroupList[$n++] = null !== $item ? standardGroupList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

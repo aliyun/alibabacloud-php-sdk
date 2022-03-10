@@ -20,6 +20,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderShrink
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderShrinkRequest;
@@ -121,14 +124,6 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetProxyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetProxyResponse;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobDetailRequest;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobDetailResponse;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobDriverLogRequest;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobDriverLogResponse;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobExecutorLogsRequest;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobExecutorLogsResponse;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobLogRequest;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailRequest;
@@ -155,8 +150,6 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretResponse;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\KillSparkJobRequest;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\KillSparkJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabasesRequest;
@@ -204,6 +197,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLExecAuditLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsRequest;
@@ -238,9 +233,6 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalResponse;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitSparkJobRequest;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitSparkJobResponse;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitSparkJobShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitStructSyncOrderApprovalRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitStructSyncOrderApprovalResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaRequest;
@@ -629,6 +621,69 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataCronClearOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataExportOrderRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDataExportOrderResponse
+     */
+    public function createDataExportOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataExportOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataExportOrder',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataExportOrderRequest $request
+     *
+     * @return CreateDataExportOrderResponse
+     */
+    public function createDataExportOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataExportOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -3018,190 +3073,6 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetSparkJobDetailRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetSparkJobDetailResponse
-     */
-    public function getSparkJobDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSparkJobDetail',
-            'version'     => '2018-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetSparkJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetSparkJobDetailRequest $request
-     *
-     * @return GetSparkJobDetailResponse
-     */
-    public function getSparkJobDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSparkJobDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSparkJobDriverLogRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetSparkJobDriverLogResponse
-     */
-    public function getSparkJobDriverLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSparkJobDriverLog',
-            'version'     => '2018-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetSparkJobDriverLogResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetSparkJobDriverLogRequest $request
-     *
-     * @return GetSparkJobDriverLogResponse
-     */
-    public function getSparkJobDriverLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSparkJobDriverLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSparkJobExecutorLogsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetSparkJobExecutorLogsResponse
-     */
-    public function getSparkJobExecutorLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSparkJobExecutorLogs',
-            'version'     => '2018-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetSparkJobExecutorLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetSparkJobExecutorLogsRequest $request
-     *
-     * @return GetSparkJobExecutorLogsResponse
-     */
-    public function getSparkJobExecutorLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSparkJobExecutorLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSparkJobLogRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetSparkJobLogResponse
-     */
-    public function getSparkJobLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSparkJobLog',
-            'version'     => '2018-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetSparkJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetSparkJobLogRequest $request
-     *
-     * @return GetSparkJobLogResponse
-     */
-    public function getSparkJobLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSparkJobLogWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetStructSyncExecSqlDetailRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3744,52 +3615,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->inspectProxyAccessSecretWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param KillSparkJobRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return KillSparkJobResponse
-     */
-    public function killSparkJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'KillSparkJob',
-            'version'     => '2018-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return KillSparkJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param KillSparkJobRequest $request
-     *
-     * @return KillSparkJobResponse
-     */
-    public function killSparkJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->killSparkJobWithOptions($request, $runtime);
     }
 
     /**
@@ -5069,6 +4894,49 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListStandardGroupsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListStandardGroupsResponse
+     */
+    public function listStandardGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStandardGroups',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStandardGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListStandardGroupsRequest $request
+     *
+     * @return ListStandardGroupsResponse
+     */
+    public function listStandardGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStandardGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTablesRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -6046,89 +5914,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitOrderApprovalWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitSparkJobRequest $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return SubmitSparkJobResponse
-     */
-    public function submitSparkJobWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SubmitSparkJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->arguments)) {
-            $request->argumentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arguments, 'Arguments', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->configuration)) {
-            $request->configurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->ossInfo)) {
-            $request->ossInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ossInfo), 'OssInfo', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->appCode)) {
-            $body['AppCode'] = $request->appCode;
-        }
-        if (!Utils::isUnset($request->argumentsShrink)) {
-            $body['Arguments'] = $request->argumentsShrink;
-        }
-        if (!Utils::isUnset($request->configurationShrink)) {
-            $body['Configuration'] = $request->configurationShrink;
-        }
-        if (!Utils::isUnset($request->filesShrink)) {
-            $body['Files'] = $request->filesShrink;
-        }
-        if (!Utils::isUnset($request->mainClass)) {
-            $body['MainClass'] = $request->mainClass;
-        }
-        if (!Utils::isUnset($request->mainFile)) {
-            $body['MainFile'] = $request->mainFile;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->ossInfoShrink)) {
-            $body['OssInfo'] = $request->ossInfoShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitSparkJob',
-            'version'     => '2018-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitSparkJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SubmitSparkJobRequest $request
-     *
-     * @return SubmitSparkJobResponse
-     */
-    public function submitSparkJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitSparkJobWithOptions($request, $runtime);
     }
 
     /**
