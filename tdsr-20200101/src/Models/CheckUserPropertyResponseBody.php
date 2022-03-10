@@ -6,38 +6,48 @@ namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPolicyResponseBody extends Model
+class CheckUserPropertyResponseBody extends Model
 {
     /**
-     * @var mixed[]
+     * @description 返回码
+     *
+     * @var int
      */
-    public $data;
+    public $code;
 
     /**
+     * @description 用户属性是否匹配
+     *
+     * @var bool
+     */
+    public $match;
+
+    /**
+     * @description 错误消息
+     *
      * @var string
      */
-    public $errMessage;
+    public $message;
 
     /**
-     * @var string
-     */
-    public $objectString;
-
-    /**
+     * @description 请求ID，与入参requestId对应
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 是否请求成功
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'         => 'Data',
-        'errMessage'   => 'ErrMessage',
-        'objectString' => 'ObjectString',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'code'      => 'Code',
+        'match'     => 'Match',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -47,14 +57,14 @@ class GetPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->match) {
+            $res['Match'] = $this->match;
         }
-        if (null !== $this->objectString) {
-            $res['ObjectString'] = $this->objectString;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -69,19 +79,19 @@ class GetPolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetPolicyResponseBody
+     * @return CheckUserPropertyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['Match'])) {
+            $model->match = $map['Match'];
         }
-        if (isset($map['ObjectString'])) {
-            $model->objectString = $map['ObjectString'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

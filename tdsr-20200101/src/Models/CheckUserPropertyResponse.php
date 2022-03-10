@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateSceneResponse extends Model
+class CheckUserPropertyResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CreateSceneResponse extends Model
     public $headers;
 
     /**
-     * @var CreateSceneResponseBody
+     * @var CheckUserPropertyResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CreateSceneResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateSceneResponse
+     * @return CheckUserPropertyResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CreateSceneResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateSceneResponseBody::fromMap($map['body']);
+            $model->body = CheckUserPropertyResponseBody::fromMap($map['body']);
         }
 
         return $model;

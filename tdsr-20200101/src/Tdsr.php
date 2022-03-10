@@ -18,16 +18,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSubSceneResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckResourceRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckResourceResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateProjectRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateProjectResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateSceneRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateSceneResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\DeleteFileRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\DeleteFileResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\DeleteProjectRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckUserPropertyRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckUserPropertyResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneRequest;
@@ -54,8 +46,6 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOriginLayoutDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOriginLayoutDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOssPolicyRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOssPolicyResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetPolicyRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetRectifyImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetRectifyImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneBuildTaskStatusRequest;
@@ -80,8 +70,6 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListSceneResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListScenesRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListScenesResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListSubSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\OptimizeRightAngleRequest;
@@ -446,62 +434,23 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param CheckResourceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CheckUserPropertyRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CheckResourceResponse
+     * @return CheckUserPropertyResponse
      */
-    public function checkResourceWithOptions($request, $runtime)
+    public function checkUserPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->bid)) {
-            $query['Bid'] = $request->bid;
-        }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
-        }
-        if (!Utils::isUnset($request->gmtWakeup)) {
-            $query['GmtWakeup'] = $request->gmtWakeup;
-        }
-        if (!Utils::isUnset($request->hid)) {
-            $query['Hid'] = $request->hid;
-        }
-        if (!Utils::isUnset($request->interrupt)) {
-            $query['Interrupt'] = $request->interrupt;
-        }
-        if (!Utils::isUnset($request->invoker)) {
-            $query['Invoker'] = $request->invoker;
-        }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
-        }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
-        }
-        if (!Utils::isUnset($request->pk)) {
-            $query['Pk'] = $request->pk;
-        }
-        if (!Utils::isUnset($request->prompt)) {
-            $query['Prompt'] = $request->prompt;
-        }
-        if (!Utils::isUnset($request->success)) {
-            $query['Success'] = $request->success;
-        }
-        if (!Utils::isUnset($request->taskExtraData)) {
-            $query['TaskExtraData'] = $request->taskExtraData;
-        }
-        if (!Utils::isUnset($request->taskIdentifier)) {
-            $query['TaskIdentifier'] = $request->taskIdentifier;
-        }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckResource',
+            'action'      => 'CheckUserProperty',
             'version'     => '2020-01-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -512,209 +461,19 @@ class Tdsr extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CheckResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckUserPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckResourceRequest $request
+     * @param CheckUserPropertyRequest $request
      *
-     * @return CheckResourceResponse
+     * @return CheckUserPropertyResponse
      */
-    public function checkResource($request)
+    public function checkUserProperty($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->checkResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateProjectRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateProjectResponse
-     */
-    public function createProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->builderUserIdList)) {
-            $query['BuilderUserIdList'] = $request->builderUserIdList;
-        }
-        if (!Utils::isUnset($request->businessId)) {
-            $query['BusinessId'] = $request->businessId;
-        }
-        if (!Utils::isUnset($request->businessUserIdList)) {
-            $query['BusinessUserIdList'] = $request->businessUserIdList;
-        }
-        if (!Utils::isUnset($request->gatherUserIdList)) {
-            $query['GatherUserIdList'] = $request->gatherUserIdList;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateProject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateProjectRequest $request
-     *
-     * @return CreateProjectResponse
-     */
-    public function createProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSceneRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateSceneResponse
-     */
-    public function createSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateSceneResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateSceneRequest $request
-     *
-     * @return CreateSceneResponse
-     */
-    public function createScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteFileRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteFileResponse
-     */
-    public function deleteFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->paramFile)) {
-            $query['ParamFile'] = $request->paramFile;
-        }
-        if (!Utils::isUnset($request->subSceneUuid)) {
-            $query['SubSceneUuid'] = $request->subSceneUuid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteFile',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteFileRequest $request
-     *
-     * @return DeleteFileResponse
-     */
-    public function deleteFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteProjectRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteProjectResponse
-     */
-    public function deleteProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteProject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteProjectRequest $request
-     *
-     * @return DeleteProjectResponse
-     */
-    public function deleteProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteProjectWithOptions($request, $runtime);
+        return $this->checkUserPropertyWithOptions($request, $runtime);
     }
 
     /**
@@ -1307,52 +1066,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return GetPolicyResponse
-     */
-    public function getPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->subSceneUuid)) {
-            $query['SubSceneUuid'] = $request->subSceneUuid;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetPolicyRequest $request
-     *
-     * @return GetPolicyResponse
-     */
-    public function getPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPolicyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetRectifyImageRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1908,52 +1621,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListScenesRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListScenesResponse
-     */
-    public function listScenesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->isPublishQuery)) {
-            $query['IsPublishQuery'] = $request->isPublishQuery;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListScenes',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListScenesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListScenesRequest $request
-     *
-     * @return ListScenesResponse
-     */
-    public function listScenes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listScenesWithOptions($request, $runtime);
     }
 
     /**

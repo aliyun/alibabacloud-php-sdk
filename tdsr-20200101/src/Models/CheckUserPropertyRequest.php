@@ -6,14 +6,16 @@ namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteProjectRequest extends Model
+class CheckUserPropertyRequest extends Model
 {
     /**
+     * @description 用户uid
+     *
      * @var string
      */
-    public $projectId;
+    public $uid;
     protected $_name = [
-        'projectId' => 'ProjectId',
+        'uid' => 'Uid',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class DeleteProjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->uid) {
+            $res['Uid'] = $this->uid;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class DeleteProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteProjectRequest
+     * @return CheckUserPropertyRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['Uid'])) {
+            $model->uid = $map['Uid'];
         }
 
         return $model;
