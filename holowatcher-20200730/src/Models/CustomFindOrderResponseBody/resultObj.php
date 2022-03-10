@@ -5,8 +5,6 @@
 namespace AlibabaCloud\SDK\Holowatcher\V20200730\Models\CustomFindOrderResponseBody;
 
 use AlibabaCloud\SDK\Holowatcher\V20200730\Models\CustomFindOrderResponseBody\resultObj\content;
-use AlibabaCloud\SDK\Holowatcher\V20200730\Models\CustomFindOrderResponseBody\resultObj\pageable;
-use AlibabaCloud\SDK\Holowatcher\V20200730\Models\CustomFindOrderResponseBody\resultObj\sort;
 use AlibabaCloud\Tea\Model;
 
 class resultObj extends Model
@@ -17,44 +15,9 @@ class resultObj extends Model
     public $content;
 
     /**
-     * @var bool
-     */
-    public $empty;
-
-    /**
-     * @var bool
-     */
-    public $first;
-
-    /**
-     * @var bool
-     */
-    public $last;
-
-    /**
-     * @var int
-     */
-    public $number;
-
-    /**
-     * @var int
-     */
-    public $numberOfElements;
-
-    /**
-     * @var pageable
-     */
-    public $pageable;
-
-    /**
      * @var int
      */
     public $size;
-
-    /**
-     * @var sort
-     */
-    public $sort;
 
     /**
      * @var int
@@ -66,17 +29,10 @@ class resultObj extends Model
      */
     public $totalPages;
     protected $_name = [
-        'content'          => 'Content',
-        'empty'            => 'Empty',
-        'first'            => 'First',
-        'last'             => 'Last',
-        'number'           => 'Number',
-        'numberOfElements' => 'NumberOfElements',
-        'pageable'         => 'Pageable',
-        'size'             => 'Size',
-        'sort'             => 'Sort',
-        'totalElements'    => 'TotalElements',
-        'totalPages'       => 'TotalPages',
+        'content'       => 'Content',
+        'size'          => 'Size',
+        'totalElements' => 'TotalElements',
+        'totalPages'    => 'TotalPages',
     ];
 
     public function validate()
@@ -95,29 +51,8 @@ class resultObj extends Model
                 }
             }
         }
-        if (null !== $this->empty) {
-            $res['Empty'] = $this->empty;
-        }
-        if (null !== $this->first) {
-            $res['First'] = $this->first;
-        }
-        if (null !== $this->last) {
-            $res['Last'] = $this->last;
-        }
-        if (null !== $this->number) {
-            $res['Number'] = $this->number;
-        }
-        if (null !== $this->numberOfElements) {
-            $res['NumberOfElements'] = $this->numberOfElements;
-        }
-        if (null !== $this->pageable) {
-            $res['Pageable'] = null !== $this->pageable ? $this->pageable->toMap() : null;
-        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
-        }
-        if (null !== $this->sort) {
-            $res['Sort'] = null !== $this->sort ? $this->sort->toMap() : null;
         }
         if (null !== $this->totalElements) {
             $res['TotalElements'] = $this->totalElements;
@@ -146,29 +81,8 @@ class resultObj extends Model
                 }
             }
         }
-        if (isset($map['Empty'])) {
-            $model->empty = $map['Empty'];
-        }
-        if (isset($map['First'])) {
-            $model->first = $map['First'];
-        }
-        if (isset($map['Last'])) {
-            $model->last = $map['Last'];
-        }
-        if (isset($map['Number'])) {
-            $model->number = $map['Number'];
-        }
-        if (isset($map['NumberOfElements'])) {
-            $model->numberOfElements = $map['NumberOfElements'];
-        }
-        if (isset($map['Pageable'])) {
-            $model->pageable = pageable::fromMap($map['Pageable']);
-        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
-        }
-        if (isset($map['Sort'])) {
-            $model->sort = sort::fromMap($map['Sort']);
         }
         if (isset($map['TotalElements'])) {
             $model->totalElements = $map['TotalElements'];
