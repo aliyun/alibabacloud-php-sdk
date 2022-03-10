@@ -8,20 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Market\V20151101\Models\ActivateLicenseRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\ActivateLicenseResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\BindImagePackageRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\BindImagePackageResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\CreateCommodityRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\CreateCommodityResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\CreateOrderResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\CreateRateRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\CreateRateResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\DeleteCommodityRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\DeleteCommodityResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\DescribeCommoditiesRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\DescribeCommoditiesResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\DescribeCommodityRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\DescribeCommodityResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeCurrentNodeInfoRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeCurrentNodeInfoResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceRequest;
@@ -48,27 +36,16 @@ use AlibabaCloud\SDK\Market\V20151101\Models\DescribeProjectNodesRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeProjectNodesResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeProjectOperateLogsRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeProjectOperateLogsResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\DescribeRateRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\DescribeRateResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\FinishCurrentProjectNodeRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\FinishCurrentProjectNodeResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\NotifyContractEventRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\NotifyContractEventResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\PauseProjectRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\PauseProjectResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\PushMeteringDataRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\PushMeteringDataResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\QueryMarketCategoriesResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\QueryMarketImagesRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\QueryMarketImagesResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\ResumeProjectRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\ResumeProjectResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\RollbackCurrentProjectNodeRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\RollbackCurrentProjectNodeResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\UpdateCommodityRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\UpdateCommodityResponse;
-use AlibabaCloud\SDK\Market\V20151101\Models\UploadCommodityFileRequest;
-use AlibabaCloud\SDK\Market\V20151101\Models\UploadCommodityFileResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -180,100 +157,6 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param BindImagePackageRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return BindImagePackageResponse
-     */
-    public function bindImagePackageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ecsInstanceId)) {
-            $query['EcsInstanceId'] = $request->ecsInstanceId;
-        }
-        if (!Utils::isUnset($request->imagePackageInstanceId)) {
-            $query['ImagePackageInstanceId'] = $request->imagePackageInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BindImagePackage',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BindImagePackageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param BindImagePackageRequest $request
-     *
-     * @return BindImagePackageResponse
-     */
-    public function bindImagePackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bindImagePackageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateCommodityRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateCommodityResponse
-     */
-    public function createCommodityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateCommodity',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateCommodityRequest $request
-     *
-     * @return CreateCommodityResponse
-     */
-    public function createCommodity($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCommodityWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateOrderRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -329,187 +212,6 @@ class Market extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateRateRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateRateResponse
-     */
-    public function createRateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
-        }
-        if (!Utils::isUnset($request->customerLabels)) {
-            $query['CustomerLabels'] = $request->customerLabels;
-        }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
-        }
-        if (!Utils::isUnset($request->packageVersion)) {
-            $query['PackageVersion'] = $request->packageVersion;
-        }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
-        if (!Utils::isUnset($request->score)) {
-            $query['Score'] = $request->score;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateRate',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateRateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateRateRequest $request
-     *
-     * @return CreateRateResponse
-     */
-    public function createRate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteCommodityRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteCommodityResponse
-     */
-    public function deleteCommodityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->commodityId)) {
-            $query['CommodityId'] = $request->commodityId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteCommodity',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteCommodityRequest $request
-     *
-     * @return DeleteCommodityResponse
-     */
-    public function deleteCommodity($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteCommodityWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCommoditiesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeCommoditiesResponse
-     */
-    public function describeCommoditiesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCommodities',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeCommoditiesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCommoditiesRequest $request
-     *
-     * @return DescribeCommoditiesResponse
-     */
-    public function describeCommodities($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCommoditiesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCommodityRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeCommodityResponse
-     */
-    public function describeCommodityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCommodity',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCommodityRequest $request
-     *
-     * @return DescribeCommodityResponse
-     */
-    public function describeCommodity($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCommodityWithOptions($request, $runtime);
     }
 
     /**
@@ -1111,49 +813,6 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeRateRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeRateResponse
-     */
-    public function describeRateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRate',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeRateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRateRequest $request
-     *
-     * @return DescribeRateResponse
-     */
-    public function describeRate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param FinishCurrentProjectNodeRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1203,52 +862,6 @@ class Market extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->finishCurrentProjectNodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param NotifyContractEventRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return NotifyContractEventResponse
-     */
-    public function notifyContractEventWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->eventMessage)) {
-            $query['EventMessage'] = $request->eventMessage;
-        }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'NotifyContractEvent',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return NotifyContractEventResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param NotifyContractEventRequest $request
-     *
-     * @return NotifyContractEventResponse
-     */
-    public function notifyContractEvent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->notifyContractEventWithOptions($request, $runtime);
     }
 
     /**
@@ -1341,82 +954,6 @@ class Market extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pushMeteringDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return QueryMarketCategoriesResponse
-     */
-    public function queryMarketCategoriesWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'QueryMarketCategories',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryMarketCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return QueryMarketCategoriesResponse
-     */
-    public function queryMarketCategories()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryMarketCategoriesWithOptions($runtime);
-    }
-
-    /**
-     * @param QueryMarketImagesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return QueryMarketImagesResponse
-     */
-    public function queryMarketImagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryMarketImages',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryMarketImagesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryMarketImagesRequest $request
-     *
-     * @return QueryMarketImagesResponse
-     */
-    public function queryMarketImages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryMarketImagesWithOptions($request, $runtime);
     }
 
     /**
@@ -1515,100 +1052,5 @@ class Market extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rollbackCurrentProjectNodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateCommodityRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateCommodityResponse
-     */
-    public function updateCommodityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->commodityId)) {
-            $query['CommodityId'] = $request->commodityId;
-        }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateCommodity',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateCommodityRequest $request
-     *
-     * @return UpdateCommodityResponse
-     */
-    public function updateCommodity($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateCommodityWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UploadCommodityFileRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UploadCommodityFileResponse
-     */
-    public function uploadCommodityFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->fileContentType)) {
-            $query['FileContentType'] = $request->fileContentType;
-        }
-        if (!Utils::isUnset($request->fileResource)) {
-            $query['FileResource'] = $request->fileResource;
-        }
-        if (!Utils::isUnset($request->fileResourceType)) {
-            $query['FileResourceType'] = $request->fileResourceType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UploadCommodityFile',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UploadCommodityFileResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UploadCommodityFileRequest $request
-     *
-     * @return UploadCommodityFileResponse
-     */
-    public function uploadCommodityFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->uploadCommodityFileWithOptions($request, $runtime);
     }
 }
