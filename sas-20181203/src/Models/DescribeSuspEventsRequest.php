@@ -106,6 +106,11 @@ class DescribeSuspEventsRequest extends Model
     /**
      * @var string
      */
+    public $tacticId;
+
+    /**
+     * @var string
+     */
     public $targetType;
 
     /**
@@ -137,6 +142,7 @@ class DescribeSuspEventsRequest extends Model
         'source'               => 'Source',
         'sourceIp'             => 'SourceIp',
         'status'               => 'Status',
+        'tacticId'             => 'TacticId',
         'targetType'           => 'TargetType',
         'uniqueInfo'           => 'UniqueInfo',
         'uuids'                => 'Uuids',
@@ -205,6 +211,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tacticId) {
+            $res['TacticId'] = $this->tacticId;
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
@@ -285,6 +294,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TacticId'])) {
+            $model->tacticId = $map['TacticId'];
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];

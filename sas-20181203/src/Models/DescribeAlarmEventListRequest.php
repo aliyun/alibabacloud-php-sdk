@@ -67,6 +67,11 @@ class DescribeAlarmEventListRequest extends Model
      * @var string
      */
     public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $tacticId;
     protected $_name = [
         'alarmEventName'       => 'AlarmEventName',
         'alarmEventType'       => 'AlarmEventType',
@@ -80,6 +85,7 @@ class DescribeAlarmEventListRequest extends Model
         'pageSize'             => 'PageSize',
         'remark'               => 'Remark',
         'sourceIp'             => 'SourceIp',
+        'tacticId'             => 'TacticId',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->tacticId) {
+            $res['TacticId'] = $this->tacticId;
         }
 
         return $res;
@@ -174,6 +183,9 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['TacticId'])) {
+            $model->tacticId = $map['TacticId'];
         }
 
         return $model;

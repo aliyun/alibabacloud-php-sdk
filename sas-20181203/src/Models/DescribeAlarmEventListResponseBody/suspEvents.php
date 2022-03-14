@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventListResponseBody;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventListResponseBody\suspEvents\tacticItems;
 use AlibabaCloud\Tea\Model;
 
 class suspEvents extends Model
@@ -134,6 +135,13 @@ class suspEvents extends Model
     public $suspiciousEventCount;
 
     /**
+     * @description 攻击阶段展示名
+     *
+     * @var tacticItems[]
+     */
+    public $tacticItems;
+
+    /**
      * @var string
      */
     public $uuid;
@@ -163,6 +171,7 @@ class suspEvents extends Model
         'stages'                 => 'Stages',
         'startTime'              => 'StartTime',
         'suspiciousEventCount'   => 'SuspiciousEventCount',
+        'tacticItems'            => 'TacticItems',
         'uuid'                   => 'Uuid',
     ];
 
@@ -247,6 +256,15 @@ class suspEvents extends Model
         }
         if (null !== $this->suspiciousEventCount) {
             $res['SuspiciousEventCount'] = $this->suspiciousEventCount;
+        }
+        if (null !== $this->tacticItems) {
+            $res['TacticItems'] = [];
+            if (null !== $this->tacticItems && \is_array($this->tacticItems)) {
+                $n = 0;
+                foreach ($this->tacticItems as $item) {
+                    $res['TacticItems'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -337,6 +355,15 @@ class suspEvents extends Model
         }
         if (isset($map['SuspiciousEventCount'])) {
             $model->suspiciousEventCount = $map['SuspiciousEventCount'];
+        }
+        if (isset($map['TacticItems'])) {
+            if (!empty($map['TacticItems'])) {
+                $model->tacticItems = [];
+                $n                  = 0;
+                foreach ($map['TacticItems'] as $item) {
+                    $model->tacticItems[$n++] = null !== $item ? tacticItems::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

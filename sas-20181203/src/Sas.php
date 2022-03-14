@@ -288,6 +288,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOpenLogShipperRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOpenLogShipperResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOperateVulRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOperateVulResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPropertyScheduleConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPropertyScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRiskCheckStatusRequest;
@@ -1353,6 +1355,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->tacticId)) {
+            $query['TacticId'] = $request->tacticId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6204,8 +6209,13 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->uuids)) {
             $query['Uuids'] = $request->uuids;
         }
+        $body = [];
+        if (!Utils::isUnset($request->tacticId)) {
+            $body['TacticId'] = $request->tacticId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeSuspEvents',
@@ -8146,6 +8156,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyOperateVulWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyPropertyScheduleConfigRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyPropertyScheduleConfigResponse
+     */
+    public function modifyPropertyScheduleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->scheduleTime)) {
+            $query['ScheduleTime'] = $request->scheduleTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPropertyScheduleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPropertyScheduleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPropertyScheduleConfigRequest $request
+     *
+     * @return ModifyPropertyScheduleConfigResponse
+     */
+    public function modifyPropertyScheduleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPropertyScheduleConfigWithOptions($request, $runtime);
     }
 
     /**
