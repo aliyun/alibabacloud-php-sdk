@@ -130,6 +130,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceUserListReques
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceUserListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ResultCallbackRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ResultCallbackResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SaveFavoritesRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SaveFavoritesResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionExtraConfigRequest;
@@ -169,7 +171,7 @@ class Quickbipublic extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('quickbi-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -3139,6 +3141,55 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryWorkspaceUserListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResultCallbackRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResultCallbackResponse
+     */
+    public function resultCallbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->handleReason)) {
+            $query['HandleReason'] = $request->handleReason;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResultCallback',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResultCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResultCallbackRequest $request
+     *
+     * @return ResultCallbackResponse
+     */
+    public function resultCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resultCallbackWithOptions($request, $runtime);
     }
 
     /**
