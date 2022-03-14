@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GenerateVideoCoverRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $videoUrl;
-
-    /**
      * @var bool
      */
     public $isGif;
+
+    /**
+     * @var string
+     */
+    public $videoUrl;
     protected $_name = [
-        'videoUrl' => 'VideoUrl',
         'isGif'    => 'IsGif',
+        'videoUrl' => 'VideoUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GenerateVideoCoverRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
-        }
         if (null !== $this->isGif) {
             $res['IsGif'] = $this->isGif;
+        }
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GenerateVideoCoverRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
-        }
         if (isset($map['IsGif'])) {
             $model->isGif = $map['IsGif'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

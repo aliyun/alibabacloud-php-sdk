@@ -1,3 +1,6 @@
+2022-03-14 Version: 1.0.3
+- AMP version.
+
 2021-03-25 Version: 1.0.2
 - Generated php 2020-03-20 for videorecog.
 

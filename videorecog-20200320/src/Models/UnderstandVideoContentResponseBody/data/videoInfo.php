@@ -11,7 +11,12 @@ class videoInfo extends Model
     /**
      * @var int
      */
-    public $width;
+    public $duration;
+
+    /**
+     * @var float
+     */
+    public $fps;
 
     /**
      * @var int
@@ -21,17 +26,12 @@ class videoInfo extends Model
     /**
      * @var int
      */
-    public $duration;
-
-    /**
-     * @var float
-     */
-    public $fps;
+    public $width;
     protected $_name = [
-        'width'    => 'Width',
-        'height'   => 'Height',
         'duration' => 'Duration',
         'fps'      => 'Fps',
+        'height'   => 'Height',
+        'width'    => 'Width',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class videoInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class videoInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;
