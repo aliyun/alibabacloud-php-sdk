@@ -11,15 +11,15 @@ class RefineMaskRequest extends Model
     /**
      * @var string
      */
-    public $maskImageURL;
+    public $imageURL;
 
     /**
      * @var string
      */
-    public $imageURL;
+    public $maskImageURL;
     protected $_name = [
-        'maskImageURL' => 'MaskImageURL',
         'imageURL'     => 'ImageURL',
+        'maskImageURL' => 'MaskImageURL',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RefineMaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maskImageURL) {
-            $res['MaskImageURL'] = $this->maskImageURL;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->maskImageURL) {
+            $res['MaskImageURL'] = $this->maskImageURL;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RefineMaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaskImageURL'])) {
-            $model->maskImageURL = $map['MaskImageURL'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['MaskImageURL'])) {
+            $model->maskImageURL = $map['MaskImageURL'];
         }
 
         return $model;

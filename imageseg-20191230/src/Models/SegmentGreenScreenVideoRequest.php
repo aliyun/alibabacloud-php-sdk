@@ -6,14 +6,16 @@ namespace AlibabaCloud\SDK\Imageseg\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAsyncJobResultRequest extends Model
+class SegmentGreenScreenVideoRequest extends Model
 {
     /**
+     * @description A short description of struct
+     *
      * @var string
      */
-    public $jobId;
+    public $videoURL;
     protected $_name = [
-        'jobId' => 'JobId',
+        'videoURL' => 'VideoURL',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class GetAsyncJobResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->videoURL) {
+            $res['VideoURL'] = $this->videoURL;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class GetAsyncJobResultRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAsyncJobResultRequest
+     * @return SegmentGreenScreenVideoRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['VideoURL'])) {
+            $model->videoURL = $map['VideoURL'];
         }
 
         return $model;

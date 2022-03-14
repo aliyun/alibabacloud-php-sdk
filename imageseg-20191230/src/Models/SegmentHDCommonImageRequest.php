@@ -12,14 +12,8 @@ class SegmentHDCommonImageRequest extends Model
      * @var string
      */
     public $imageUrl;
-
-    /**
-     * @var bool
-     */
-    public $async;
     protected $_name = [
         'imageUrl' => 'ImageUrl',
-        'async'    => 'Async',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class SegmentHDCommonImageRequest extends Model
         $res = [];
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class SegmentHDCommonImageRequest extends Model
         $model = new self();
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
 
         return $model;

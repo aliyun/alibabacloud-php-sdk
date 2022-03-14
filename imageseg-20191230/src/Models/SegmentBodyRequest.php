@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SegmentBodyRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $imageURL;
-
-    /**
      * @var bool
      */
     public $async;
@@ -21,10 +16,15 @@ class SegmentBodyRequest extends Model
     /**
      * @var string
      */
+    public $imageURL;
+
+    /**
+     * @var string
+     */
     public $returnForm;
     protected $_name = [
-        'imageURL'   => 'ImageURL',
         'async'      => 'Async',
+        'imageURL'   => 'ImageURL',
         'returnForm' => 'ReturnForm',
     ];
 
@@ -35,11 +35,11 @@ class SegmentBodyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->async) {
             $res['Async'] = $this->async;
+        }
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
         if (null !== $this->returnForm) {
             $res['ReturnForm'] = $this->returnForm;
@@ -56,11 +56,11 @@ class SegmentBodyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
         if (isset($map['ReturnForm'])) {
             $model->returnForm = $map['ReturnForm'];

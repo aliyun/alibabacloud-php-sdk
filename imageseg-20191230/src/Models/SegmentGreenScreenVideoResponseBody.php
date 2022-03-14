@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imageseg\V20191230\Models;
 
-use AlibabaCloud\SDK\Imageseg\V20191230\Models\ChangeSkyResponseBody\data;
+use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentGreenScreenVideoResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ChangeSkyResponseBody extends Model
+class SegmentGreenScreenVideoResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $code;
+
     /**
      * @var data
      */
@@ -17,9 +22,18 @@ class ChangeSkyResponseBody extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
     public $requestId;
     protected $_name = [
+        'code'      => 'Code',
         'data'      => 'Data',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -30,8 +44,14 @@ class ChangeSkyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -43,13 +63,19 @@ class ChangeSkyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ChangeSkyResponseBody
+     * @return SegmentGreenScreenVideoResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

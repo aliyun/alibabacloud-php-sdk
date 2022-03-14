@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @var int
+     */
+    public $height;
+
+    /**
      * @var string
      */
     public $imageURL;
@@ -21,23 +26,18 @@ class elements extends Model
     /**
      * @var int
      */
-    public $height;
+    public $x;
 
     /**
      * @var int
      */
     public $y;
-
-    /**
-     * @var int
-     */
-    public $x;
     protected $_name = [
+        'height'   => 'Height',
         'imageURL' => 'ImageURL',
         'width'    => 'Width',
-        'height'   => 'Height',
-        'y'        => 'Y',
         'x'        => 'X',
+        'y'        => 'Y',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
+        if (null !== $this->x) {
+            $res['X'] = $this->x;
         }
         if (null !== $this->y) {
             $res['Y'] = $this->y;
-        }
-        if (null !== $this->x) {
-            $res['X'] = $this->x;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
+        if (isset($map['X'])) {
+            $model->x = $map['X'];
         }
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
-        }
-        if (isset($map['X'])) {
-            $model->x = $map['X'];
         }
 
         return $model;

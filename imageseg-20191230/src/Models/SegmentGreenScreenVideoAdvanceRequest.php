@@ -7,26 +7,26 @@ namespace AlibabaCloud\SDK\Imageseg\V20191230\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class SegmentHDCommonImageAdvanceRequest extends Model
+class SegmentGreenScreenVideoAdvanceRequest extends Model
 {
     /**
      * @var Stream
      */
-    public $imageUrlObject;
+    public $videoURLObject;
     protected $_name = [
-        'imageUrlObject' => 'ImageUrlObject',
+        'videoURLObject' => 'VideoURLObject',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
+        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrlObject) {
-            $res['ImageUrlObject'] = $this->imageUrlObject;
+        if (null !== $this->videoURLObject) {
+            $res['VideoURLObject'] = $this->videoURLObject;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class SegmentHDCommonImageAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return SegmentHDCommonImageAdvanceRequest
+     * @return SegmentGreenScreenVideoAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrlObject'])) {
-            $model->imageUrlObject = $map['ImageUrlObject'];
+        if (isset($map['VideoURLObject'])) {
+            $model->videoURLObject = $map['VideoURLObject'];
         }
 
         return $model;
