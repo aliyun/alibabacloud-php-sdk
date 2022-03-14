@@ -27,24 +27,24 @@ class ImageBlindPicWatermarkAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $watermarkImageURL;
-
-    /**
-     * @var string
-     */
     public $outputFileType;
 
     /**
      * @var int
      */
     public $qualityFactor;
+
+    /**
+     * @var string
+     */
+    public $watermarkImageURL;
     protected $_name = [
         'originImageURLObject' => 'OriginImageURLObject',
         'functionType'         => 'FunctionType',
         'logoURL'              => 'LogoURL',
-        'watermarkImageURL'    => 'WatermarkImageURL',
         'outputFileType'       => 'OutputFileType',
         'qualityFactor'        => 'QualityFactor',
+        'watermarkImageURL'    => 'WatermarkImageURL',
     ];
 
     public function validate()
@@ -64,14 +64,14 @@ class ImageBlindPicWatermarkAdvanceRequest extends Model
         if (null !== $this->logoURL) {
             $res['LogoURL'] = $this->logoURL;
         }
-        if (null !== $this->watermarkImageURL) {
-            $res['WatermarkImageURL'] = $this->watermarkImageURL;
-        }
         if (null !== $this->outputFileType) {
             $res['OutputFileType'] = $this->outputFileType;
         }
         if (null !== $this->qualityFactor) {
             $res['QualityFactor'] = $this->qualityFactor;
+        }
+        if (null !== $this->watermarkImageURL) {
+            $res['WatermarkImageURL'] = $this->watermarkImageURL;
         }
 
         return $res;
@@ -94,14 +94,14 @@ class ImageBlindPicWatermarkAdvanceRequest extends Model
         if (isset($map['LogoURL'])) {
             $model->logoURL = $map['LogoURL'];
         }
-        if (isset($map['WatermarkImageURL'])) {
-            $model->watermarkImageURL = $map['WatermarkImageURL'];
-        }
         if (isset($map['OutputFileType'])) {
             $model->outputFileType = $map['OutputFileType'];
         }
         if (isset($map['QualityFactor'])) {
             $model->qualityFactor = $map['QualityFactor'];
+        }
+        if (isset($map['WatermarkImageURL'])) {
+            $model->watermarkImageURL = $map['WatermarkImageURL'];
         }
 
         return $model;

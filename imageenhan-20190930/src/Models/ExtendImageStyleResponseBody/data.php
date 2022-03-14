@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $url;
+    public $majorUrl;
 
     /**
      * @var string
      */
-    public $majorUrl;
+    public $url;
     protected $_name = [
-        'url'      => 'Url',
         'majorUrl' => 'MajorUrl',
+        'url'      => 'Url',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->majorUrl) {
             $res['MajorUrl'] = $this->majorUrl;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['MajorUrl'])) {
             $model->majorUrl = $map['MajorUrl'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RemoveImageSubtitlesRequest extends Model
 {
     /**
-     * @var string
+     * @var float
      */
-    public $imageURL;
+    public $BH;
+
+    /**
+     * @var float
+     */
+    public $BW;
 
     /**
      * @var float
@@ -24,20 +29,15 @@ class RemoveImageSubtitlesRequest extends Model
     public $BY;
 
     /**
-     * @var float
+     * @var string
      */
-    public $BW;
-
-    /**
-     * @var float
-     */
-    public $BH;
+    public $imageURL;
     protected $_name = [
-        'imageURL' => 'ImageURL',
+        'BH'       => 'BH',
+        'BW'       => 'BW',
         'BX'       => 'BX',
         'BY'       => 'BY',
-        'BW'       => 'BW',
-        'BH'       => 'BH',
+        'imageURL' => 'ImageURL',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class RemoveImageSubtitlesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
+        if (null !== $this->BH) {
+            $res['BH'] = $this->BH;
+        }
+        if (null !== $this->BW) {
+            $res['BW'] = $this->BW;
         }
         if (null !== $this->BX) {
             $res['BX'] = $this->BX;
@@ -56,11 +59,8 @@ class RemoveImageSubtitlesRequest extends Model
         if (null !== $this->BY) {
             $res['BY'] = $this->BY;
         }
-        if (null !== $this->BW) {
-            $res['BW'] = $this->BW;
-        }
-        if (null !== $this->BH) {
-            $res['BH'] = $this->BH;
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class RemoveImageSubtitlesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
+        if (isset($map['BH'])) {
+            $model->BH = $map['BH'];
+        }
+        if (isset($map['BW'])) {
+            $model->BW = $map['BW'];
         }
         if (isset($map['BX'])) {
             $model->BX = $map['BX'];
@@ -83,11 +86,8 @@ class RemoveImageSubtitlesRequest extends Model
         if (isset($map['BY'])) {
             $model->BY = $map['BY'];
         }
-        if (isset($map['BW'])) {
-            $model->BW = $map['BW'];
-        }
-        if (isset($map['BH'])) {
-            $model->BH = $map['BH'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
 
         return $model;

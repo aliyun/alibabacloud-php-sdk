@@ -17,16 +17,16 @@ class EnhanceImageColorAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $outputFormat;
+    public $mode;
 
     /**
      * @var string
      */
-    public $mode;
+    public $outputFormat;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
-        'outputFormat'   => 'OutputFormat',
         'mode'           => 'Mode',
+        'outputFormat'   => 'OutputFormat',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class EnhanceImageColorAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
-        if (null !== $this->outputFormat) {
-            $res['OutputFormat'] = $this->outputFormat;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->outputFormat) {
+            $res['OutputFormat'] = $this->outputFormat;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class EnhanceImageColorAdvanceRequest extends Model
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
         }
-        if (isset($map['OutputFormat'])) {
-            $model->outputFormat = $map['OutputFormat'];
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['OutputFormat'])) {
+            $model->outputFormat = $map['OutputFormat'];
         }
 
         return $model;

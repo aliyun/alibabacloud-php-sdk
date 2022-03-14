@@ -11,15 +11,15 @@ class ExtendImageStyleRequest extends Model
     /**
      * @var string
      */
-    public $styleUrl;
+    public $majorUrl;
 
     /**
      * @var string
      */
-    public $majorUrl;
+    public $styleUrl;
     protected $_name = [
-        'styleUrl' => 'StyleUrl',
         'majorUrl' => 'MajorUrl',
+        'styleUrl' => 'StyleUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ExtendImageStyleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->styleUrl) {
-            $res['StyleUrl'] = $this->styleUrl;
-        }
         if (null !== $this->majorUrl) {
             $res['MajorUrl'] = $this->majorUrl;
+        }
+        if (null !== $this->styleUrl) {
+            $res['StyleUrl'] = $this->styleUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ExtendImageStyleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StyleUrl'])) {
-            $model->styleUrl = $map['StyleUrl'];
-        }
         if (isset($map['MajorUrl'])) {
             $model->majorUrl = $map['MajorUrl'];
+        }
+        if (isset($map['StyleUrl'])) {
+            $model->styleUrl = $map['StyleUrl'];
         }
 
         return $model;

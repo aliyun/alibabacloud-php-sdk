@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $url;
-
-    /**
      * @var retainLocation
      */
     public $retainLocation;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'url'            => 'Url',
         'retainLocation' => 'RetainLocation',
+        'url'            => 'Url',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->retainLocation) {
             $res['RetainLocation'] = null !== $this->retainLocation ? $this->retainLocation->toMap() : null;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['RetainLocation'])) {
             $model->retainLocation = retainLocation::fromMap($map['RetainLocation']);
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -22,29 +22,29 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $text;
-
-    /**
-     * @var string
-     */
-    public $watermarkImageURL;
-
-    /**
-     * @var string
-     */
     public $outputFileType;
 
     /**
      * @var int
      */
     public $qualityFactor;
+
+    /**
+     * @var string
+     */
+    public $text;
+
+    /**
+     * @var string
+     */
+    public $watermarkImageURL;
     protected $_name = [
         'originImageURLObject' => 'OriginImageURLObject',
         'functionType'         => 'FunctionType',
-        'text'                 => 'Text',
-        'watermarkImageURL'    => 'WatermarkImageURL',
         'outputFileType'       => 'OutputFileType',
         'qualityFactor'        => 'QualityFactor',
+        'text'                 => 'Text',
+        'watermarkImageURL'    => 'WatermarkImageURL',
     ];
 
     public function validate()
@@ -61,17 +61,17 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
         if (null !== $this->functionType) {
             $res['FunctionType'] = $this->functionType;
         }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
-        }
-        if (null !== $this->watermarkImageURL) {
-            $res['WatermarkImageURL'] = $this->watermarkImageURL;
-        }
         if (null !== $this->outputFileType) {
             $res['OutputFileType'] = $this->outputFileType;
         }
         if (null !== $this->qualityFactor) {
             $res['QualityFactor'] = $this->qualityFactor;
+        }
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
+        }
+        if (null !== $this->watermarkImageURL) {
+            $res['WatermarkImageURL'] = $this->watermarkImageURL;
         }
 
         return $res;
@@ -91,17 +91,17 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
         if (isset($map['FunctionType'])) {
             $model->functionType = $map['FunctionType'];
         }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
-        }
-        if (isset($map['WatermarkImageURL'])) {
-            $model->watermarkImageURL = $map['WatermarkImageURL'];
-        }
         if (isset($map['OutputFileType'])) {
             $model->outputFileType = $map['OutputFileType'];
         }
         if (isset($map['QualityFactor'])) {
             $model->qualityFactor = $map['QualityFactor'];
+        }
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
+        }
+        if (isset($map['WatermarkImageURL'])) {
+            $model->watermarkImageURL = $map['WatermarkImageURL'];
         }
 
         return $model;

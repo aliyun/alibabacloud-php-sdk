@@ -11,15 +11,15 @@ class ImitatePhotoStyleRequest extends Model
     /**
      * @var string
      */
-    public $styleUrl;
+    public $imageURL;
 
     /**
      * @var string
      */
-    public $imageURL;
+    public $styleUrl;
     protected $_name = [
-        'styleUrl' => 'StyleUrl',
         'imageURL' => 'ImageURL',
+        'styleUrl' => 'StyleUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ImitatePhotoStyleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->styleUrl) {
-            $res['StyleUrl'] = $this->styleUrl;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->styleUrl) {
+            $res['StyleUrl'] = $this->styleUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ImitatePhotoStyleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StyleUrl'])) {
-            $model->styleUrl = $map['StyleUrl'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['StyleUrl'])) {
+            $model->styleUrl = $map['StyleUrl'];
         }
 
         return $model;

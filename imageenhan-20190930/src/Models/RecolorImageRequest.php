@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class RecolorImageRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $url;
+    public $colorCount;
+
+    /**
+     * @var colorTemplate[]
+     */
+    public $colorTemplate;
 
     /**
      * @var string
@@ -25,20 +30,15 @@ class RecolorImageRequest extends Model
     public $refUrl;
 
     /**
-     * @var int
+     * @var string
      */
-    public $colorCount;
-
-    /**
-     * @var colorTemplate[]
-     */
-    public $colorTemplate;
+    public $url;
     protected $_name = [
-        'url'           => 'Url',
-        'mode'          => 'Mode',
-        'refUrl'        => 'RefUrl',
         'colorCount'    => 'ColorCount',
         'colorTemplate' => 'ColorTemplate',
+        'mode'          => 'Mode',
+        'refUrl'        => 'RefUrl',
+        'url'           => 'Url',
     ];
 
     public function validate()
@@ -48,15 +48,6 @@ class RecolorImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->refUrl) {
-            $res['RefUrl'] = $this->refUrl;
-        }
         if (null !== $this->colorCount) {
             $res['ColorCount'] = $this->colorCount;
         }
@@ -68,6 +59,15 @@ class RecolorImageRequest extends Model
                     $res['ColorTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->refUrl) {
+            $res['RefUrl'] = $this->refUrl;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -81,15 +81,6 @@ class RecolorImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['RefUrl'])) {
-            $model->refUrl = $map['RefUrl'];
-        }
         if (isset($map['ColorCount'])) {
             $model->colorCount = $map['ColorCount'];
         }
@@ -101,6 +92,15 @@ class RecolorImageRequest extends Model
                     $model->colorTemplate[$n++] = null !== $item ? colorTemplate::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['RefUrl'])) {
+            $model->refUrl = $map['RefUrl'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

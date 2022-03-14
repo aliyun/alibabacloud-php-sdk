@@ -11,12 +11,7 @@ class elements extends Model
     /**
      * @var int
      */
-    public $minX;
-
-    /**
-     * @var float
-     */
-    public $score;
+    public $maxX;
 
     /**
      * @var int
@@ -26,18 +21,23 @@ class elements extends Model
     /**
      * @var int
      */
-    public $maxX;
+    public $minX;
 
     /**
      * @var int
      */
     public $minY;
+
+    /**
+     * @var float
+     */
+    public $score;
     protected $_name = [
-        'minX'  => 'MinX',
-        'score' => 'Score',
-        'maxY'  => 'MaxY',
         'maxX'  => 'MaxX',
+        'maxY'  => 'MaxY',
+        'minX'  => 'MinX',
         'minY'  => 'MinY',
+        'score' => 'Score',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->minX) {
-            $res['MinX'] = $this->minX;
-        }
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
+        if (null !== $this->maxX) {
+            $res['MaxX'] = $this->maxX;
         }
         if (null !== $this->maxY) {
             $res['MaxY'] = $this->maxY;
         }
-        if (null !== $this->maxX) {
-            $res['MaxX'] = $this->maxX;
+        if (null !== $this->minX) {
+            $res['MinX'] = $this->minX;
         }
         if (null !== $this->minY) {
             $res['MinY'] = $this->minY;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MinX'])) {
-            $model->minX = $map['MinX'];
-        }
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
+        if (isset($map['MaxX'])) {
+            $model->maxX = $map['MaxX'];
         }
         if (isset($map['MaxY'])) {
             $model->maxY = $map['MaxY'];
         }
-        if (isset($map['MaxX'])) {
-            $model->maxX = $map['MaxX'];
+        if (isset($map['MinX'])) {
+            $model->minX = $map['MinX'];
         }
         if (isset($map['MinY'])) {
             $model->minY = $map['MinY'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         return $model;

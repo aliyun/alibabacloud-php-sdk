@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class IntelligentCompositionRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $numBoxes;
-
-    /**
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var int
+     */
+    public $numBoxes;
     protected $_name = [
-        'numBoxes' => 'NumBoxes',
         'imageURL' => 'ImageURL',
+        'numBoxes' => 'NumBoxes',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class IntelligentCompositionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->numBoxes) {
-            $res['NumBoxes'] = $this->numBoxes;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->numBoxes) {
+            $res['NumBoxes'] = $this->numBoxes;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class IntelligentCompositionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NumBoxes'])) {
-            $model->numBoxes = $map['NumBoxes'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['NumBoxes'])) {
+            $model->numBoxes = $map['NumBoxes'];
         }
 
         return $model;

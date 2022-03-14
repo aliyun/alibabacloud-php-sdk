@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class RecolorHDImageRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $colorCount;
+
+    /**
+     * @var colorTemplate[]
+     */
+    public $colorTemplate;
+
+    /**
      * @var string
      */
-    public $url;
+    public $degree;
 
     /**
      * @var string
@@ -25,26 +35,16 @@ class RecolorHDImageRequest extends Model
     public $refUrl;
 
     /**
-     * @var int
-     */
-    public $colorCount;
-
-    /**
      * @var string
      */
-    public $degree;
-
-    /**
-     * @var colorTemplate[]
-     */
-    public $colorTemplate;
+    public $url;
     protected $_name = [
-        'url'           => 'Url',
+        'colorCount'    => 'ColorCount',
+        'colorTemplate' => 'ColorTemplate',
+        'degree'        => 'Degree',
         'mode'          => 'Mode',
         'refUrl'        => 'RefUrl',
-        'colorCount'    => 'ColorCount',
-        'degree'        => 'Degree',
-        'colorTemplate' => 'ColorTemplate',
+        'url'           => 'Url',
     ];
 
     public function validate()
@@ -54,20 +54,8 @@ class RecolorHDImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->refUrl) {
-            $res['RefUrl'] = $this->refUrl;
-        }
         if (null !== $this->colorCount) {
             $res['ColorCount'] = $this->colorCount;
-        }
-        if (null !== $this->degree) {
-            $res['Degree'] = $this->degree;
         }
         if (null !== $this->colorTemplate) {
             $res['ColorTemplate'] = [];
@@ -77,6 +65,18 @@ class RecolorHDImageRequest extends Model
                     $res['ColorTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->degree) {
+            $res['Degree'] = $this->degree;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->refUrl) {
+            $res['RefUrl'] = $this->refUrl;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -90,20 +90,8 @@ class RecolorHDImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['RefUrl'])) {
-            $model->refUrl = $map['RefUrl'];
-        }
         if (isset($map['ColorCount'])) {
             $model->colorCount = $map['ColorCount'];
-        }
-        if (isset($map['Degree'])) {
-            $model->degree = $map['Degree'];
         }
         if (isset($map['ColorTemplate'])) {
             if (!empty($map['ColorTemplate'])) {
@@ -113,6 +101,18 @@ class RecolorHDImageRequest extends Model
                     $model->colorTemplate[$n++] = null !== $item ? colorTemplate::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Degree'])) {
+            $model->degree = $map['Degree'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['RefUrl'])) {
+            $model->refUrl = $map['RefUrl'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

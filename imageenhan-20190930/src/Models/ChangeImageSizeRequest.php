@@ -11,21 +11,21 @@ class ChangeImageSizeRequest extends Model
     /**
      * @var int
      */
-    public $width;
-
-    /**
-     * @var int
-     */
     public $height;
 
     /**
      * @var string
      */
     public $url;
+
+    /**
+     * @var int
+     */
+    public $width;
     protected $_name = [
-        'width'  => 'Width',
         'height' => 'Height',
         'url'    => 'Url',
+        'width'  => 'Width',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ChangeImageSizeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ChangeImageSizeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

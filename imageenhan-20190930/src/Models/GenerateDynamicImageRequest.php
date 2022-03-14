@@ -11,15 +11,15 @@ class GenerateDynamicImageRequest extends Model
     /**
      * @var string
      */
-    public $url;
+    public $operation;
 
     /**
      * @var string
      */
-    public $operation;
+    public $url;
     protected $_name = [
-        'url'       => 'Url',
         'operation' => 'Operation',
+        'url'       => 'Url',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GenerateDynamicImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GenerateDynamicImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

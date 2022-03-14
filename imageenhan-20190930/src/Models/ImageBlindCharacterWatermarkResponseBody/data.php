@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $watermarkImageURL;
+    public $textImageURL;
 
     /**
      * @var string
      */
-    public $textImageURL;
+    public $watermarkImageURL;
     protected $_name = [
-        'watermarkImageURL' => 'WatermarkImageURL',
         'textImageURL'      => 'TextImageURL',
+        'watermarkImageURL' => 'WatermarkImageURL',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->watermarkImageURL) {
-            $res['WatermarkImageURL'] = $this->watermarkImageURL;
-        }
         if (null !== $this->textImageURL) {
             $res['TextImageURL'] = $this->textImageURL;
+        }
+        if (null !== $this->watermarkImageURL) {
+            $res['WatermarkImageURL'] = $this->watermarkImageURL;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WatermarkImageURL'])) {
-            $model->watermarkImageURL = $map['WatermarkImageURL'];
-        }
         if (isset($map['TextImageURL'])) {
             $model->textImageURL = $map['TextImageURL'];
+        }
+        if (isset($map['WatermarkImageURL'])) {
+            $model->watermarkImageURL = $map['WatermarkImageURL'];
         }
 
         return $model;

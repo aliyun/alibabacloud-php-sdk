@@ -17,16 +17,16 @@ class ChangeImageSizeAdvanceRequest extends Model
     /**
      * @var int
      */
-    public $width;
+    public $height;
 
     /**
      * @var int
      */
-    public $height;
+    public $width;
     protected $_name = [
         'urlObject' => 'UrlObject',
-        'width'     => 'Width',
         'height'    => 'Height',
+        'width'     => 'Width',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class ChangeImageSizeAdvanceRequest extends Model
         if (null !== $this->urlObject) {
             $res['UrlObject'] = $this->urlObject;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class ChangeImageSizeAdvanceRequest extends Model
         if (isset($map['UrlObject'])) {
             $model->urlObject = $map['UrlObject'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

@@ -16,6 +16,21 @@ class RecolorHDImageAdvanceRequest extends Model
     public $urlObject;
 
     /**
+     * @var int
+     */
+    public $colorCount;
+
+    /**
+     * @var colorTemplate[]
+     */
+    public $colorTemplate;
+
+    /**
+     * @var string
+     */
+    public $degree;
+
+    /**
      * @var string
      */
     public $mode;
@@ -24,28 +39,13 @@ class RecolorHDImageAdvanceRequest extends Model
      * @var string
      */
     public $refUrl;
-
-    /**
-     * @var int
-     */
-    public $colorCount;
-
-    /**
-     * @var string
-     */
-    public $degree;
-
-    /**
-     * @var colorTemplate[]
-     */
-    public $colorTemplate;
     protected $_name = [
         'urlObject'     => 'UrlObject',
+        'colorCount'    => 'ColorCount',
+        'colorTemplate' => 'ColorTemplate',
+        'degree'        => 'Degree',
         'mode'          => 'Mode',
         'refUrl'        => 'RefUrl',
-        'colorCount'    => 'ColorCount',
-        'degree'        => 'Degree',
-        'colorTemplate' => 'ColorTemplate',
     ];
 
     public function validate()
@@ -59,17 +59,8 @@ class RecolorHDImageAdvanceRequest extends Model
         if (null !== $this->urlObject) {
             $res['UrlObject'] = $this->urlObject;
         }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->refUrl) {
-            $res['RefUrl'] = $this->refUrl;
-        }
         if (null !== $this->colorCount) {
             $res['ColorCount'] = $this->colorCount;
-        }
-        if (null !== $this->degree) {
-            $res['Degree'] = $this->degree;
         }
         if (null !== $this->colorTemplate) {
             $res['ColorTemplate'] = [];
@@ -79,6 +70,15 @@ class RecolorHDImageAdvanceRequest extends Model
                     $res['ColorTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->degree) {
+            $res['Degree'] = $this->degree;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->refUrl) {
+            $res['RefUrl'] = $this->refUrl;
         }
 
         return $res;
@@ -95,17 +95,8 @@ class RecolorHDImageAdvanceRequest extends Model
         if (isset($map['UrlObject'])) {
             $model->urlObject = $map['UrlObject'];
         }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['RefUrl'])) {
-            $model->refUrl = $map['RefUrl'];
-        }
         if (isset($map['ColorCount'])) {
             $model->colorCount = $map['ColorCount'];
-        }
-        if (isset($map['Degree'])) {
-            $model->degree = $map['Degree'];
         }
         if (isset($map['ColorTemplate'])) {
             if (!empty($map['ColorTemplate'])) {
@@ -115,6 +106,15 @@ class RecolorHDImageAdvanceRequest extends Model
                     $model->colorTemplate[$n++] = null !== $item ? colorTemplate::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Degree'])) {
+            $model->degree = $map['Degree'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['RefUrl'])) {
+            $model->refUrl = $map['RefUrl'];
         }
 
         return $model;

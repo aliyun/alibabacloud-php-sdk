@@ -16,12 +16,7 @@ class ImageBlindCharacterWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $text;
-
-    /**
-     * @var string
-     */
-    public $watermarkImageURL;
+    public $originImageURL;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class ImageBlindCharacterWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $originImageURL;
+    public $text;
+
+    /**
+     * @var string
+     */
+    public $watermarkImageURL;
     protected $_name = [
         'functionType'      => 'FunctionType',
-        'text'              => 'Text',
-        'watermarkImageURL' => 'WatermarkImageURL',
+        'originImageURL'    => 'OriginImageURL',
         'outputFileType'    => 'OutputFileType',
         'qualityFactor'     => 'QualityFactor',
-        'originImageURL'    => 'OriginImageURL',
+        'text'              => 'Text',
+        'watermarkImageURL' => 'WatermarkImageURL',
     ];
 
     public function validate()
@@ -56,11 +56,8 @@ class ImageBlindCharacterWatermarkRequest extends Model
         if (null !== $this->functionType) {
             $res['FunctionType'] = $this->functionType;
         }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
-        }
-        if (null !== $this->watermarkImageURL) {
-            $res['WatermarkImageURL'] = $this->watermarkImageURL;
+        if (null !== $this->originImageURL) {
+            $res['OriginImageURL'] = $this->originImageURL;
         }
         if (null !== $this->outputFileType) {
             $res['OutputFileType'] = $this->outputFileType;
@@ -68,8 +65,11 @@ class ImageBlindCharacterWatermarkRequest extends Model
         if (null !== $this->qualityFactor) {
             $res['QualityFactor'] = $this->qualityFactor;
         }
-        if (null !== $this->originImageURL) {
-            $res['OriginImageURL'] = $this->originImageURL;
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
+        }
+        if (null !== $this->watermarkImageURL) {
+            $res['WatermarkImageURL'] = $this->watermarkImageURL;
         }
 
         return $res;
@@ -86,11 +86,8 @@ class ImageBlindCharacterWatermarkRequest extends Model
         if (isset($map['FunctionType'])) {
             $model->functionType = $map['FunctionType'];
         }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
-        }
-        if (isset($map['WatermarkImageURL'])) {
-            $model->watermarkImageURL = $map['WatermarkImageURL'];
+        if (isset($map['OriginImageURL'])) {
+            $model->originImageURL = $map['OriginImageURL'];
         }
         if (isset($map['OutputFileType'])) {
             $model->outputFileType = $map['OutputFileType'];
@@ -98,8 +95,11 @@ class ImageBlindCharacterWatermarkRequest extends Model
         if (isset($map['QualityFactor'])) {
             $model->qualityFactor = $map['QualityFactor'];
         }
-        if (isset($map['OriginImageURL'])) {
-            $model->originImageURL = $map['OriginImageURL'];
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
+        }
+        if (isset($map['WatermarkImageURL'])) {
+            $model->watermarkImageURL = $map['WatermarkImageURL'];
         }
 
         return $model;

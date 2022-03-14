@@ -1,3 +1,6 @@
+2022-03-14 Version: 1.0.2
+- AMP version.
+
 2021-09-26 Version: 1.0.1
 - Update imageenhan.
 

@@ -21,7 +21,7 @@ class ImageBlindPicWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $watermarkImageURL;
+    public $originImageURL;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class ImageBlindPicWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $originImageURL;
+    public $watermarkImageURL;
     protected $_name = [
         'functionType'      => 'FunctionType',
         'logoURL'           => 'LogoURL',
-        'watermarkImageURL' => 'WatermarkImageURL',
+        'originImageURL'    => 'OriginImageURL',
         'outputFileType'    => 'OutputFileType',
         'qualityFactor'     => 'QualityFactor',
-        'originImageURL'    => 'OriginImageURL',
+        'watermarkImageURL' => 'WatermarkImageURL',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class ImageBlindPicWatermarkRequest extends Model
         if (null !== $this->logoURL) {
             $res['LogoURL'] = $this->logoURL;
         }
-        if (null !== $this->watermarkImageURL) {
-            $res['WatermarkImageURL'] = $this->watermarkImageURL;
+        if (null !== $this->originImageURL) {
+            $res['OriginImageURL'] = $this->originImageURL;
         }
         if (null !== $this->outputFileType) {
             $res['OutputFileType'] = $this->outputFileType;
@@ -68,8 +68,8 @@ class ImageBlindPicWatermarkRequest extends Model
         if (null !== $this->qualityFactor) {
             $res['QualityFactor'] = $this->qualityFactor;
         }
-        if (null !== $this->originImageURL) {
-            $res['OriginImageURL'] = $this->originImageURL;
+        if (null !== $this->watermarkImageURL) {
+            $res['WatermarkImageURL'] = $this->watermarkImageURL;
         }
 
         return $res;
@@ -89,8 +89,8 @@ class ImageBlindPicWatermarkRequest extends Model
         if (isset($map['LogoURL'])) {
             $model->logoURL = $map['LogoURL'];
         }
-        if (isset($map['WatermarkImageURL'])) {
-            $model->watermarkImageURL = $map['WatermarkImageURL'];
+        if (isset($map['OriginImageURL'])) {
+            $model->originImageURL = $map['OriginImageURL'];
         }
         if (isset($map['OutputFileType'])) {
             $model->outputFileType = $map['OutputFileType'];
@@ -98,8 +98,8 @@ class ImageBlindPicWatermarkRequest extends Model
         if (isset($map['QualityFactor'])) {
             $model->qualityFactor = $map['QualityFactor'];
         }
-        if (isset($map['OriginImageURL'])) {
-            $model->originImageURL = $map['OriginImageURL'];
+        if (isset($map['WatermarkImageURL'])) {
+            $model->watermarkImageURL = $map['WatermarkImageURL'];
         }
 
         return $model;
