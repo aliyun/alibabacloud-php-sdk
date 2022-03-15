@@ -4033,8 +4033,8 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->instanceName)) {
             $body['instance_name'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['namespace'] = $request->namespace_;
+        if (!Utils::isUnset($request->namespaces)) {
+            $body['namespaces'] = $request->namespaces;
         }
         if (!Utils::isUnset($request->parameters)) {
             $body['parameters'] = $request->parameters;

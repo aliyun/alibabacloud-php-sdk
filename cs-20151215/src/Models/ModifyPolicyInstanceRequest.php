@@ -23,11 +23,11 @@ class ModifyPolicyInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @description 策略实例实施范围
+     * @description 限制策略实施的命名空间，为空时表示所有命名空间
      *
-     * @var string
+     * @var string[]
      */
-    public $namespace;
+    public $namespaces;
 
     /**
      * @description 当前规则实例的配置参数
@@ -38,7 +38,7 @@ class ModifyPolicyInstanceRequest extends Model
     protected $_name = [
         'action'       => 'action',
         'instanceName' => 'instance_name',
-        'namespace'    => 'namespace',
+        'namespaces'   => 'namespaces',
         'parameters'   => 'parameters',
     ];
 
@@ -55,8 +55,8 @@ class ModifyPolicyInstanceRequest extends Model
         if (null !== $this->instanceName) {
             $res['instance_name'] = $this->instanceName;
         }
-        if (null !== $this->namespace) {
-            $res['namespace'] = $this->namespace;
+        if (null !== $this->namespaces) {
+            $res['namespaces'] = $this->namespaces;
         }
         if (null !== $this->parameters) {
             $res['parameters'] = $this->parameters;
@@ -79,8 +79,10 @@ class ModifyPolicyInstanceRequest extends Model
         if (isset($map['instance_name'])) {
             $model->instanceName = $map['instance_name'];
         }
-        if (isset($map['namespace'])) {
-            $model->namespace = $map['namespace'];
+        if (isset($map['namespaces'])) {
+            if (!empty($map['namespaces'])) {
+                $model->namespaces = $map['namespaces'];
+            }
         }
         if (isset($map['parameters'])) {
             $model->parameters = $map['parameters'];

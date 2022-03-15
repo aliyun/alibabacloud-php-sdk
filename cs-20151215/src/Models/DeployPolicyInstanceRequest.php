@@ -16,7 +16,7 @@ class DeployPolicyInstanceRequest extends Model
     public $action;
 
     /**
-     * @description 策略实例实施范围（限定命名空间）。默认 [] 代表集群所有命名空间。
+     * @description 限制策略实施的命名空间，为空时表示所有命名空间
      *
      * @var string[]
      */
