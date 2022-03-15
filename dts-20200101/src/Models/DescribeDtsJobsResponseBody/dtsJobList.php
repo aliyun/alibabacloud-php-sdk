@@ -48,11 +48,6 @@ class dtsJobList extends Model
     /**
      * @var string
      */
-    public $cpuUsage;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
@@ -74,11 +69,6 @@ class dtsJobList extends Model
      * @var string
      */
     public $dbObject;
-
-    /**
-     * @var string
-     */
-    public $dedicatedClusterId;
 
     /**
      * @var int
@@ -116,11 +106,6 @@ class dtsJobList extends Model
     public $dtsJobName;
 
     /**
-     * @var int
-     */
-    public $duUsage;
-
-    /**
      * @var string
      */
     public $endTimestamp;
@@ -141,11 +126,6 @@ class dtsJobList extends Model
      * @var string
      */
     public $jobType;
-
-    /**
-     * @var string
-     */
-    public $memUsage;
 
     /**
      * @var migrationMode
@@ -212,13 +192,11 @@ class dtsJobList extends Model
         'checkpoint'                    => 'Checkpoint',
         'consumptionCheckpoint'         => 'ConsumptionCheckpoint',
         'consumptionClient'             => 'ConsumptionClient',
-        'cpuUsage'                      => 'CpuUsage',
         'createTime'                    => 'CreateTime',
         'dataEtlStatus'                 => 'DataEtlStatus',
         'dataInitializationStatus'      => 'DataInitializationStatus',
         'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
         'dbObject'                      => 'DbObject',
-        'dedicatedClusterId'            => 'DedicatedClusterId',
         'delay'                         => 'Delay',
         'destinationEndpoint'           => 'DestinationEndpoint',
         'dtsInstanceID'                 => 'DtsInstanceID',
@@ -226,12 +204,10 @@ class dtsJobList extends Model
         'dtsJobDirection'               => 'DtsJobDirection',
         'dtsJobId'                      => 'DtsJobId',
         'dtsJobName'                    => 'DtsJobName',
-        'duUsage'                       => 'DuUsage',
         'endTimestamp'                  => 'EndTimestamp',
         'errorMessage'                  => 'ErrorMessage',
         'expireTime'                    => 'ExpireTime',
         'jobType'                       => 'JobType',
-        'memUsage'                      => 'MemUsage',
         'migrationMode'                 => 'MigrationMode',
         'originType'                    => 'OriginType',
         'payType'                       => 'PayType',
@@ -268,9 +244,6 @@ class dtsJobList extends Model
         if (null !== $this->consumptionClient) {
             $res['ConsumptionClient'] = $this->consumptionClient;
         }
-        if (null !== $this->cpuUsage) {
-            $res['CpuUsage'] = $this->cpuUsage;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -285,9 +258,6 @@ class dtsJobList extends Model
         }
         if (null !== $this->dbObject) {
             $res['DbObject'] = $this->dbObject;
-        }
-        if (null !== $this->dedicatedClusterId) {
-            $res['DedicatedClusterId'] = $this->dedicatedClusterId;
         }
         if (null !== $this->delay) {
             $res['Delay'] = $this->delay;
@@ -310,9 +280,6 @@ class dtsJobList extends Model
         if (null !== $this->dtsJobName) {
             $res['DtsJobName'] = $this->dtsJobName;
         }
-        if (null !== $this->duUsage) {
-            $res['DuUsage'] = $this->duUsage;
-        }
         if (null !== $this->endTimestamp) {
             $res['EndTimestamp'] = $this->endTimestamp;
         }
@@ -324,9 +291,6 @@ class dtsJobList extends Model
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
-        }
-        if (null !== $this->memUsage) {
-            $res['MemUsage'] = $this->memUsage;
         }
         if (null !== $this->migrationMode) {
             $res['MigrationMode'] = null !== $this->migrationMode ? $this->migrationMode->toMap() : null;
@@ -397,9 +361,6 @@ class dtsJobList extends Model
         if (isset($map['ConsumptionClient'])) {
             $model->consumptionClient = $map['ConsumptionClient'];
         }
-        if (isset($map['CpuUsage'])) {
-            $model->cpuUsage = $map['CpuUsage'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -414,9 +375,6 @@ class dtsJobList extends Model
         }
         if (isset($map['DbObject'])) {
             $model->dbObject = $map['DbObject'];
-        }
-        if (isset($map['DedicatedClusterId'])) {
-            $model->dedicatedClusterId = $map['DedicatedClusterId'];
         }
         if (isset($map['Delay'])) {
             $model->delay = $map['Delay'];
@@ -439,9 +397,6 @@ class dtsJobList extends Model
         if (isset($map['DtsJobName'])) {
             $model->dtsJobName = $map['DtsJobName'];
         }
-        if (isset($map['DuUsage'])) {
-            $model->duUsage = $map['DuUsage'];
-        }
         if (isset($map['EndTimestamp'])) {
             $model->endTimestamp = $map['EndTimestamp'];
         }
@@ -453,9 +408,6 @@ class dtsJobList extends Model
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
-        }
-        if (isset($map['MemUsage'])) {
-            $model->memUsage = $map['MemUsage'];
         }
         if (isset($map['MigrationMode'])) {
             $model->migrationMode = migrationMode::fromMap($map['MigrationMode']);

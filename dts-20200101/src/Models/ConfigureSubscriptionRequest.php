@@ -19,11 +19,6 @@ class ConfigureSubscriptionRequest extends Model
     public $dbList;
 
     /**
-     * @var string
-     */
-    public $dedicatedClusterId;
-
-    /**
      * @var bool
      */
     public $delayNotice;
@@ -160,7 +155,6 @@ class ConfigureSubscriptionRequest extends Model
     protected $_name = [
         'checkpoint'                      => 'Checkpoint',
         'dbList'                          => 'DbList',
-        'dedicatedClusterId'              => 'DedicatedClusterId',
         'delayNotice'                     => 'DelayNotice',
         'delayPhone'                      => 'DelayPhone',
         'delayRuleTime'                   => 'DelayRuleTime',
@@ -202,9 +196,6 @@ class ConfigureSubscriptionRequest extends Model
         }
         if (null !== $this->dbList) {
             $res['DbList'] = $this->dbList;
-        }
-        if (null !== $this->dedicatedClusterId) {
-            $res['DedicatedClusterId'] = $this->dedicatedClusterId;
         }
         if (null !== $this->delayNotice) {
             $res['DelayNotice'] = $this->delayNotice;
@@ -304,9 +295,6 @@ class ConfigureSubscriptionRequest extends Model
         }
         if (isset($map['DbList'])) {
             $model->dbList = $map['DbList'];
-        }
-        if (isset($map['DedicatedClusterId'])) {
-            $model->dedicatedClusterId = $map['DedicatedClusterId'];
         }
         if (isset($map['DelayNotice'])) {
             $model->delayNotice = $map['DelayNotice'];

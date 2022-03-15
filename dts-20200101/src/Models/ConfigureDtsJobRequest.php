@@ -29,11 +29,6 @@ class ConfigureDtsJobRequest extends Model
     public $dbList;
 
     /**
-     * @var string
-     */
-    public $dedicatedClusterId;
-
-    /**
      * @var bool
      */
     public $delayNotice;
@@ -217,7 +212,6 @@ class ConfigureDtsJobRequest extends Model
         'dataInitialization'              => 'DataInitialization',
         'dataSynchronization'             => 'DataSynchronization',
         'dbList'                          => 'DbList',
-        'dedicatedClusterId'              => 'DedicatedClusterId',
         'delayNotice'                     => 'DelayNotice',
         'delayPhone'                      => 'DelayPhone',
         'delayRuleTime'                   => 'DelayRuleTime',
@@ -274,9 +268,6 @@ class ConfigureDtsJobRequest extends Model
         }
         if (null !== $this->dbList) {
             $res['DbList'] = $this->dbList;
-        }
-        if (null !== $this->dedicatedClusterId) {
-            $res['DedicatedClusterId'] = $this->dedicatedClusterId;
         }
         if (null !== $this->delayNotice) {
             $res['DelayNotice'] = $this->delayNotice;
@@ -409,9 +400,6 @@ class ConfigureDtsJobRequest extends Model
         }
         if (isset($map['DbList'])) {
             $model->dbList = $map['DbList'];
-        }
-        if (isset($map['DedicatedClusterId'])) {
-            $model->dedicatedClusterId = $map['DedicatedClusterId'];
         }
         if (isset($map['DelayNotice'])) {
             $model->delayNotice = $map['DelayNotice'];

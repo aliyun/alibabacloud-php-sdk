@@ -24,11 +24,6 @@ class reverseJob extends Model
     /**
      * @var string
      */
-    public $cpuUsage;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
@@ -45,11 +40,6 @@ class reverseJob extends Model
      * @var string
      */
     public $dbObject;
-
-    /**
-     * @var string
-     */
-    public $dedicatedClusterId;
 
     /**
      * @var int
@@ -87,11 +77,6 @@ class reverseJob extends Model
     public $dtsJobName;
 
     /**
-     * @var int
-     */
-    public $duUsage;
-
-    /**
      * @var string
      */
     public $errorMessage;
@@ -100,11 +85,6 @@ class reverseJob extends Model
      * @var string
      */
     public $expireTime;
-
-    /**
-     * @var string
-     */
-    public $memUsage;
 
     /**
      * @var migrationMode
@@ -147,12 +127,10 @@ class reverseJob extends Model
     public $structureInitializationStatus;
     protected $_name = [
         'checkpoint'                    => 'Checkpoint',
-        'cpuUsage'                      => 'CpuUsage',
         'createTime'                    => 'CreateTime',
         'dataInitializationStatus'      => 'DataInitializationStatus',
         'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
         'dbObject'                      => 'DbObject',
-        'dedicatedClusterId'            => 'DedicatedClusterId',
         'delay'                         => 'Delay',
         'destinationEndpoint'           => 'DestinationEndpoint',
         'dtsInstanceID'                 => 'DtsInstanceID',
@@ -160,10 +138,8 @@ class reverseJob extends Model
         'dtsJobDirection'               => 'DtsJobDirection',
         'dtsJobId'                      => 'DtsJobId',
         'dtsJobName'                    => 'DtsJobName',
-        'duUsage'                       => 'DuUsage',
         'errorMessage'                  => 'ErrorMessage',
         'expireTime'                    => 'ExpireTime',
-        'memUsage'                      => 'MemUsage',
         'migrationMode'                 => 'MigrationMode',
         'payType'                       => 'PayType',
         'performance'                   => 'Performance',
@@ -184,9 +160,6 @@ class reverseJob extends Model
         if (null !== $this->checkpoint) {
             $res['Checkpoint'] = $this->checkpoint;
         }
-        if (null !== $this->cpuUsage) {
-            $res['CpuUsage'] = $this->cpuUsage;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -198,9 +171,6 @@ class reverseJob extends Model
         }
         if (null !== $this->dbObject) {
             $res['DbObject'] = $this->dbObject;
-        }
-        if (null !== $this->dedicatedClusterId) {
-            $res['DedicatedClusterId'] = $this->dedicatedClusterId;
         }
         if (null !== $this->delay) {
             $res['Delay'] = $this->delay;
@@ -223,17 +193,11 @@ class reverseJob extends Model
         if (null !== $this->dtsJobName) {
             $res['DtsJobName'] = $this->dtsJobName;
         }
-        if (null !== $this->duUsage) {
-            $res['DuUsage'] = $this->duUsage;
-        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->memUsage) {
-            $res['MemUsage'] = $this->memUsage;
         }
         if (null !== $this->migrationMode) {
             $res['MigrationMode'] = null !== $this->migrationMode ? $this->migrationMode->toMap() : null;
@@ -274,9 +238,6 @@ class reverseJob extends Model
         if (isset($map['Checkpoint'])) {
             $model->checkpoint = $map['Checkpoint'];
         }
-        if (isset($map['CpuUsage'])) {
-            $model->cpuUsage = $map['CpuUsage'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -288,9 +249,6 @@ class reverseJob extends Model
         }
         if (isset($map['DbObject'])) {
             $model->dbObject = $map['DbObject'];
-        }
-        if (isset($map['DedicatedClusterId'])) {
-            $model->dedicatedClusterId = $map['DedicatedClusterId'];
         }
         if (isset($map['Delay'])) {
             $model->delay = $map['Delay'];
@@ -313,17 +271,11 @@ class reverseJob extends Model
         if (isset($map['DtsJobName'])) {
             $model->dtsJobName = $map['DtsJobName'];
         }
-        if (isset($map['DuUsage'])) {
-            $model->duUsage = $map['DuUsage'];
-        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['MemUsage'])) {
-            $model->memUsage = $map['MemUsage'];
         }
         if (isset($map['MigrationMode'])) {
             $model->migrationMode = migrationMode::fromMap($map['MigrationMode']);

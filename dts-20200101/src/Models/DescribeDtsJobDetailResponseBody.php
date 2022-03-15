@@ -61,11 +61,6 @@ class DescribeDtsJobDetailResponseBody extends Model
     public $dbObject;
 
     /**
-     * @var string
-     */
-    public $dedicatedClusterId;
-
-    /**
      * @var int
      */
     public $delay;
@@ -244,7 +239,6 @@ class DescribeDtsJobDetailResponseBody extends Model
         'createTime'               => 'CreateTime',
         'databaseCount'            => 'DatabaseCount',
         'dbObject'                 => 'DbObject',
-        'dedicatedClusterId'       => 'DedicatedClusterId',
         'delay'                    => 'Delay',
         'demoJob'                  => 'DemoJob',
         'destNetType'              => 'DestNetType',
@@ -314,9 +308,6 @@ class DescribeDtsJobDetailResponseBody extends Model
         }
         if (null !== $this->dbObject) {
             $res['DbObject'] = $this->dbObject;
-        }
-        if (null !== $this->dedicatedClusterId) {
-            $res['DedicatedClusterId'] = $this->dedicatedClusterId;
         }
         if (null !== $this->delay) {
             $res['Delay'] = $this->delay;
@@ -470,9 +461,6 @@ class DescribeDtsJobDetailResponseBody extends Model
         }
         if (isset($map['DbObject'])) {
             $model->dbObject = $map['DbObject'];
-        }
-        if (isset($map['DedicatedClusterId'])) {
-            $model->dedicatedClusterId = $map['DedicatedClusterId'];
         }
         if (isset($map['Delay'])) {
             $model->delay = $map['Delay'];

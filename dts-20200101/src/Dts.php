@@ -301,9 +301,6 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->dataSynchronization)) {
             $query['DataSynchronization'] = $request->dataSynchronization;
         }
-        if (!Utils::isUnset($request->dedicatedClusterId)) {
-            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
-        }
         if (!Utils::isUnset($request->delayNotice)) {
             $query['DelayNotice'] = $request->delayNotice;
         }
@@ -604,9 +601,6 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->dbList)) {
             $query['DbList'] = $request->dbList;
-        }
-        if (!Utils::isUnset($request->dedicatedClusterId)) {
-            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
         if (!Utils::isUnset($request->delayNotice)) {
             $query['DelayNotice'] = $request->delayNotice;
@@ -1286,9 +1280,6 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->destinationRegion)) {
             $query['DestinationRegion'] = $request->destinationRegion;
-        }
-        if (!Utils::isUnset($request->du)) {
-            $query['Du'] = $request->du;
         }
         if (!Utils::isUnset($request->feeType)) {
             $query['FeeType'] = $request->feeType;
@@ -2379,12 +2370,6 @@ class Dts extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->dedicatedClusterId)) {
-            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
-        }
-        if (!Utils::isUnset($request->dedicatedClusterNodeId)) {
-            $query['DedicatedClusterNodeId'] = $request->dedicatedClusterNodeId;
-        }
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
         }
@@ -2399,9 +2384,6 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->orderDirection)) {
             $query['OrderDirection'] = $request->orderDirection;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;

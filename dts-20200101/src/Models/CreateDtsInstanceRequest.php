@@ -39,11 +39,6 @@ class CreateDtsInstanceRequest extends Model
     public $destinationRegion;
 
     /**
-     * @var int
-     */
-    public $du;
-
-    /**
      * @var string
      */
     public $feeType;
@@ -109,7 +104,6 @@ class CreateDtsInstanceRequest extends Model
         'databaseCount'                 => 'DatabaseCount',
         'destinationEndpointEngineName' => 'DestinationEndpointEngineName',
         'destinationRegion'             => 'DestinationRegion',
-        'du'                            => 'Du',
         'feeType'                       => 'FeeType',
         'instanceClass'                 => 'InstanceClass',
         'jobId'                         => 'JobId',
@@ -148,9 +142,6 @@ class CreateDtsInstanceRequest extends Model
         }
         if (null !== $this->destinationRegion) {
             $res['DestinationRegion'] = $this->destinationRegion;
-        }
-        if (null !== $this->du) {
-            $res['Du'] = $this->du;
         }
         if (null !== $this->feeType) {
             $res['FeeType'] = $this->feeType;
@@ -217,9 +208,6 @@ class CreateDtsInstanceRequest extends Model
         }
         if (isset($map['DestinationRegion'])) {
             $model->destinationRegion = $map['DestinationRegion'];
-        }
-        if (isset($map['Du'])) {
-            $model->du = $map['Du'];
         }
         if (isset($map['FeeType'])) {
             $model->feeType = $map['FeeType'];

@@ -11,16 +11,6 @@ class DescribeDtsJobsRequest extends Model
     /**
      * @var string
      */
-    public $dedicatedClusterId;
-
-    /**
-     * @var int
-     */
-    public $dedicatedClusterNodeId;
-
-    /**
-     * @var string
-     */
     public $dtsJobId;
 
     /**
@@ -42,11 +32,6 @@ class DescribeDtsJobsRequest extends Model
      * @var string
      */
     public $orderDirection;
-
-    /**
-     * @var string
-     */
-    public $ownerId;
 
     /**
      * @var int
@@ -88,22 +73,19 @@ class DescribeDtsJobsRequest extends Model
      */
     public $type;
     protected $_name = [
-        'dedicatedClusterId'     => 'DedicatedClusterId',
-        'dedicatedClusterNodeId' => 'DedicatedClusterNodeId',
-        'dtsJobId'               => 'DtsJobId',
-        'groupId'                => 'GroupId',
-        'jobType'                => 'JobType',
-        'orderColumn'            => 'OrderColumn',
-        'orderDirection'         => 'OrderDirection',
-        'ownerId'                => 'OwnerId',
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'params'                 => 'Params',
-        'region'                 => 'Region',
-        'regionId'               => 'RegionId',
-        'status'                 => 'Status',
-        'tags'                   => 'Tags',
-        'type'                   => 'Type',
+        'dtsJobId'       => 'DtsJobId',
+        'groupId'        => 'GroupId',
+        'jobType'        => 'JobType',
+        'orderColumn'    => 'OrderColumn',
+        'orderDirection' => 'OrderDirection',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'params'         => 'Params',
+        'region'         => 'Region',
+        'regionId'       => 'RegionId',
+        'status'         => 'Status',
+        'tags'           => 'Tags',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -113,12 +95,6 @@ class DescribeDtsJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dedicatedClusterId) {
-            $res['DedicatedClusterId'] = $this->dedicatedClusterId;
-        }
-        if (null !== $this->dedicatedClusterNodeId) {
-            $res['DedicatedClusterNodeId'] = $this->dedicatedClusterNodeId;
-        }
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
         }
@@ -133,9 +109,6 @@ class DescribeDtsJobsRequest extends Model
         }
         if (null !== $this->orderDirection) {
             $res['OrderDirection'] = $this->orderDirection;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -173,12 +146,6 @@ class DescribeDtsJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DedicatedClusterId'])) {
-            $model->dedicatedClusterId = $map['DedicatedClusterId'];
-        }
-        if (isset($map['DedicatedClusterNodeId'])) {
-            $model->dedicatedClusterNodeId = $map['DedicatedClusterNodeId'];
-        }
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
         }
@@ -193,9 +160,6 @@ class DescribeDtsJobsRequest extends Model
         }
         if (isset($map['OrderDirection'])) {
             $model->orderDirection = $map['OrderDirection'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
