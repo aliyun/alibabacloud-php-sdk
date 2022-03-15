@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var int
      */
     public $createTime;
@@ -45,6 +50,7 @@ class data extends Model
      */
     public $updateTime;
     protected $_name = [
+        'appId'          => 'AppId',
         'createTime'     => 'CreateTime',
         'description'    => 'Description',
         'dubboRules'     => 'DubboRules',
@@ -61,6 +67,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -106,6 +115,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

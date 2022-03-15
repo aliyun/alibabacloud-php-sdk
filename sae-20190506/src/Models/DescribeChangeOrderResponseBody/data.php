@@ -12,6 +12,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -94,6 +99,7 @@ class data extends Model
      */
     public $supportRollback;
     protected $_name = [
+        'appId'             => 'AppId',
         'appName'           => 'AppName',
         'approvalId'        => 'ApprovalId',
         'auto'              => 'Auto',
@@ -120,6 +126,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -189,6 +198,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

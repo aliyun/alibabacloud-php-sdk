@@ -114,6 +114,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $kafkaConfigs;
+
+    /**
+     * @var string
+     */
     public $liveness;
 
     /**
@@ -308,6 +313,7 @@ class data extends Model
         'jarStartArgs'                  => 'JarStartArgs',
         'jarStartOptions'               => 'JarStartOptions',
         'jdk'                           => 'Jdk',
+        'kafkaConfigs'                  => 'KafkaConfigs',
         'liveness'                      => 'Liveness',
         'memory'                        => 'Memory',
         'minReadyInstanceRatio'         => 'MinReadyInstanceRatio',
@@ -413,6 +419,9 @@ class data extends Model
         }
         if (null !== $this->jdk) {
             $res['Jdk'] = $this->jdk;
+        }
+        if (null !== $this->kafkaConfigs) {
+            $res['KafkaConfigs'] = $this->kafkaConfigs;
         }
         if (null !== $this->liveness) {
             $res['Liveness'] = $this->liveness;
@@ -608,6 +617,9 @@ class data extends Model
         }
         if (isset($map['Jdk'])) {
             $model->jdk = $map['Jdk'];
+        }
+        if (isset($map['KafkaConfigs'])) {
+            $model->kafkaConfigs = $map['KafkaConfigs'];
         }
         if (isset($map['Liveness'])) {
             $model->liveness = $map['Liveness'];

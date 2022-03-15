@@ -11,22 +11,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $clusterName;
-
-    /**
-     * @var string
-     */
     public $edasAppId;
 
     /**
      * @var string
      */
     public $edasAppName;
-
-    /**
-     * @var string
-     */
-    public $gmtModifyTime;
 
     /**
      * @var string
@@ -48,14 +38,12 @@ class result extends Model
      */
     public $version;
     protected $_name = [
-        'clusterName'   => 'ClusterName',
-        'edasAppId'     => 'EdasAppId',
-        'edasAppName'   => 'EdasAppName',
-        'gmtModifyTime' => 'GmtModifyTime',
-        'group'         => 'Group',
-        'instanceNum'   => 'InstanceNum',
-        'serviceName'   => 'ServiceName',
-        'version'       => 'Version',
+        'edasAppId'   => 'EdasAppId',
+        'edasAppName' => 'EdasAppName',
+        'group'       => 'Group',
+        'instanceNum' => 'InstanceNum',
+        'serviceName' => 'ServiceName',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -65,17 +53,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
-        }
         if (null !== $this->edasAppId) {
             $res['EdasAppId'] = $this->edasAppId;
         }
         if (null !== $this->edasAppName) {
             $res['EdasAppName'] = $this->edasAppName;
-        }
-        if (null !== $this->gmtModifyTime) {
-            $res['GmtModifyTime'] = $this->gmtModifyTime;
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
@@ -101,17 +83,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
-        }
         if (isset($map['EdasAppId'])) {
             $model->edasAppId = $map['EdasAppId'];
         }
         if (isset($map['EdasAppName'])) {
             $model->edasAppName = $map['EdasAppName'];
-        }
-        if (isset($map['GmtModifyTime'])) {
-            $model->gmtModifyTime = $map['GmtModifyTime'];
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];

@@ -567,6 +567,15 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->jdk)) {
             $query['Jdk'] = $request->jdk;
         }
+        if (!Utils::isUnset($request->kafkaEndpoint)) {
+            $query['KafkaEndpoint'] = $request->kafkaEndpoint;
+        }
+        if (!Utils::isUnset($request->kafkaInstanceId)) {
+            $query['KafkaInstanceId'] = $request->kafkaInstanceId;
+        }
+        if (!Utils::isUnset($request->kafkaLogfileConfig)) {
+            $query['KafkaLogfileConfig'] = $request->kafkaLogfileConfig;
+        }
         if (!Utils::isUnset($request->liveness)) {
             $query['Liveness'] = $request->liveness;
         }
@@ -584,6 +593,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->nasId)) {
             $query['NasId'] = $request->nasId;
+        }
+        if (!Utils::isUnset($request->openCollectToKafka)) {
+            $query['OpenCollectToKafka'] = $request->openCollectToKafka;
         }
         if (!Utils::isUnset($request->packageType)) {
             $query['PackageType'] = $request->packageType;
@@ -1332,6 +1344,15 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->jdk)) {
             $query['Jdk'] = $request->jdk;
         }
+        if (!Utils::isUnset($request->kafkaEndpoint)) {
+            $query['KafkaEndpoint'] = $request->kafkaEndpoint;
+        }
+        if (!Utils::isUnset($request->kafkaInstanceId)) {
+            $query['KafkaInstanceId'] = $request->kafkaInstanceId;
+        }
+        if (!Utils::isUnset($request->kafkaLogfileConfig)) {
+            $query['KafkaLogfileConfig'] = $request->kafkaLogfileConfig;
+        }
         if (!Utils::isUnset($request->liveness)) {
             $query['Liveness'] = $request->liveness;
         }
@@ -1349,6 +1370,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->nasId)) {
             $query['NasId'] = $request->nasId;
+        }
+        if (!Utils::isUnset($request->openCollectToKafka)) {
+            $query['OpenCollectToKafka'] = $request->openCollectToKafka;
         }
         if (!Utils::isUnset($request->packageUrl)) {
             $query['PackageUrl'] = $request->packageUrl;

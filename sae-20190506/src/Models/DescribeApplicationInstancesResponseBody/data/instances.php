@@ -19,6 +19,11 @@ class instances extends Model
     public $eip;
 
     /**
+     * @var int
+     */
+    public $finishTimeStamp;
+
+    /**
      * @var string
      */
     public $groupId;
@@ -65,6 +70,7 @@ class instances extends Model
     protected $_name = [
         'createTimeStamp'           => 'CreateTimeStamp',
         'eip'                       => 'Eip',
+        'finishTimeStamp'           => 'FinishTimeStamp',
         'groupId'                   => 'GroupId',
         'imageUrl'                  => 'ImageUrl',
         'instanceContainerIp'       => 'InstanceContainerIp',
@@ -88,6 +94,9 @@ class instances extends Model
         }
         if (null !== $this->eip) {
             $res['Eip'] = $this->eip;
+        }
+        if (null !== $this->finishTimeStamp) {
+            $res['FinishTimeStamp'] = $this->finishTimeStamp;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -133,6 +142,9 @@ class instances extends Model
         }
         if (isset($map['Eip'])) {
             $model->eip = $map['Eip'];
+        }
+        if (isset($map['FinishTimeStamp'])) {
+            $model->finishTimeStamp = $map['FinishTimeStamp'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
