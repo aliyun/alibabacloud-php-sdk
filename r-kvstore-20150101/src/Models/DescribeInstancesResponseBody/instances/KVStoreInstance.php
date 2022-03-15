@@ -32,6 +32,11 @@ class KVStoreInstance extends Model
     /**
      * @var string
      */
+    public $cloudType;
+
+    /**
+     * @var string
+     */
     public $config;
 
     /**
@@ -198,6 +203,7 @@ class KVStoreInstance extends Model
         'bandwidth'           => 'Bandwidth',
         'capacity'            => 'Capacity',
         'chargeType'          => 'ChargeType',
+        'cloudType'           => 'CloudType',
         'config'              => 'Config',
         'connectionDomain'    => 'ConnectionDomain',
         'connectionMode'      => 'ConnectionMode',
@@ -251,6 +257,9 @@ class KVStoreInstance extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->cloudType) {
+            $res['CloudType'] = $this->cloudType;
         }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
@@ -374,6 +383,9 @@ class KVStoreInstance extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['CloudType'])) {
+            $model->cloudType = $map['CloudType'];
         }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];

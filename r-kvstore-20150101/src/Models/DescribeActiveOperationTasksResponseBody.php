@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskResponseBody\items;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTasksResponseBody\items;
 use AlibabaCloud\Tea\Model;
 
-class DescribeActiveOperationTaskResponseBody extends Model
+class DescribeActiveOperationTasksResponseBody extends Model
 {
     /**
      * @var items[]
@@ -76,7 +76,7 @@ class DescribeActiveOperationTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeActiveOperationTaskResponseBody
+     * @return DescribeActiveOperationTasksResponseBody
      */
     public static function fromMap($map = [])
     {

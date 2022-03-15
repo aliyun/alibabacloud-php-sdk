@@ -16,7 +16,17 @@ class TransformInstanceChargeTypeRequest extends Model
     /**
      * @var string
      */
+    public $businessInfo;
+
+    /**
+     * @var string
+     */
     public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $couponNo;
 
     /**
      * @var string
@@ -54,7 +64,9 @@ class TransformInstanceChargeTypeRequest extends Model
     public $securityToken;
     protected $_name = [
         'autoPay'              => 'AutoPay',
+        'businessInfo'         => 'BusinessInfo',
         'chargeType'           => 'ChargeType',
+        'couponNo'             => 'CouponNo',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -74,8 +86,14 @@ class TransformInstanceChargeTypeRequest extends Model
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+        if (null !== $this->businessInfo) {
+            $res['BusinessInfo'] = $this->businessInfo;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -113,8 +131,14 @@ class TransformInstanceChargeTypeRequest extends Model
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+        if (isset($map['BusinessInfo'])) {
+            $model->businessInfo = $map['BusinessInfo'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

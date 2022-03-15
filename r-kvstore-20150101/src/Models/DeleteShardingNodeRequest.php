@@ -42,6 +42,11 @@ class DeleteShardingNodeRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $shardCount;
     protected $_name = [
         'instanceId'           => 'InstanceId',
         'nodeId'               => 'NodeId',
@@ -50,6 +55,7 @@ class DeleteShardingNodeRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'shardCount'           => 'ShardCount',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class DeleteShardingNodeRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->shardCount) {
+            $res['ShardCount'] = $this->shardCount;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class DeleteShardingNodeRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['ShardCount'])) {
+            $model->shardCount = $map['ShardCount'];
         }
 
         return $model;

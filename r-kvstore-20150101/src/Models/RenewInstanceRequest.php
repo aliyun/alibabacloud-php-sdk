@@ -26,6 +26,11 @@ class RenewInstanceRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $couponNo;
 
     /**
@@ -76,6 +81,7 @@ class RenewInstanceRequest extends Model
         'autoPay'              => 'AutoPay',
         'businessInfo'         => 'BusinessInfo',
         'capacity'             => 'Capacity',
+        'clientToken'          => 'ClientToken',
         'couponNo'             => 'CouponNo',
         'fromApp'              => 'FromApp',
         'instanceClass'        => 'InstanceClass',
@@ -103,6 +109,9 @@ class RenewInstanceRequest extends Model
         }
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
@@ -154,6 +163,9 @@ class RenewInstanceRequest extends Model
         }
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];

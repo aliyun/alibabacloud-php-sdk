@@ -36,8 +36,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditLogConfigRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditLogConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditRecordsRequest;
@@ -130,8 +130,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTaskRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTaskResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyRequest;
@@ -1322,6 +1322,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1414,17 +1417,29 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTaskRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeActiveOperationTasksRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeActiveOperationTaskResponse
+     * @return DescribeActiveOperationTasksResponse
      */
-    public function describeActiveOperationTaskWithOptions($request, $runtime)
+    public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->isHistory)) {
-            $query['IsHistory'] = $request->isHistory;
+        if (!Utils::isUnset($request->allowCancel)) {
+            $query['AllowCancel'] = $request->allowCancel;
+        }
+        if (!Utils::isUnset($request->allowChange)) {
+            $query['AllowChange'] = $request->allowChange;
+        }
+        if (!Utils::isUnset($request->changeLevel)) {
+            $query['ChangeLevel'] = $request->changeLevel;
+        }
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->insName)) {
+            $query['InsName'] = $request->insName;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -1438,8 +1453,8 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -1450,6 +1465,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         if (!Utils::isUnset($request->taskType)) {
             $query['TaskType'] = $request->taskType;
         }
@@ -1457,7 +1475,7 @@ class Rkvstore extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTask',
+            'action'      => 'DescribeActiveOperationTasks',
             'version'     => '2015-01-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -1468,19 +1486,19 @@ class Rkvstore extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeActiveOperationTaskRequest $request
+     * @param DescribeActiveOperationTasksRequest $request
      *
-     * @return DescribeActiveOperationTaskResponse
+     * @return DescribeActiveOperationTasksResponse
      */
-    public function describeActiveOperationTask($request)
+    public function describeActiveOperationTasks($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeActiveOperationTaskWithOptions($request, $runtime);
+        return $this->describeActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -2073,6 +2091,12 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -4650,17 +4674,20 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTaskRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ModifyActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return ModifyActiveOperationTaskResponse
+     * @return ModifyActiveOperationTasksResponse
      */
-    public function modifyActiveOperationTaskWithOptions($request, $runtime)
+    public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->ids)) {
             $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->immediateStart)) {
+            $query['ImmediateStart'] = $request->immediateStart;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -4684,7 +4711,7 @@ class Rkvstore extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyActiveOperationTask',
+            'action'      => 'ModifyActiveOperationTasks',
             'version'     => '2015-01-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -4695,19 +4722,19 @@ class Rkvstore extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ModifyActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyActiveOperationTaskRequest $request
+     * @param ModifyActiveOperationTasksRequest $request
      *
-     * @return ModifyActiveOperationTaskResponse
+     * @return ModifyActiveOperationTasksResponse
      */
-    public function modifyActiveOperationTask($request)
+    public function modifyActiveOperationTasks($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyActiveOperationTaskWithOptions($request, $runtime);
+        return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -6246,6 +6273,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->capacity)) {
             $query['Capacity'] = $request->capacity;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->couponNo)) {
             $query['CouponNo'] = $request->couponNo;
         }
@@ -6846,8 +6876,14 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
         }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
