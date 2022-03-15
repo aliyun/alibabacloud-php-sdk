@@ -37,16 +37,32 @@ class messages extends Model
     public $text;
 
     /**
+     * @description 在线场景，反问标题
+     *
+     * @var string
+     */
+    public $title;
+
+    /**
      * @var string
      */
     public $type;
+
+    /**
+     * @description 语音场景，澄清内容
+     *
+     * @var string
+     */
+    public $voiceTitle;
     protected $_name = [
         'answerSource' => 'AnswerSource',
         'answerType'   => 'AnswerType',
         'knowledge'    => 'Knowledge',
         'recommends'   => 'Recommends',
         'text'         => 'Text',
+        'title'        => 'Title',
         'type'         => 'Type',
+        'voiceTitle'   => 'VoiceTitle',
     ];
 
     public function validate()
@@ -77,8 +93,14 @@ class messages extends Model
         if (null !== $this->text) {
             $res['Text'] = null !== $this->text ? $this->text->toMap() : null;
         }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->voiceTitle) {
+            $res['VoiceTitle'] = $this->voiceTitle;
         }
 
         return $res;
@@ -113,8 +135,14 @@ class messages extends Model
         if (isset($map['Text'])) {
             $model->text = text::fromMap($map['Text']);
         }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['VoiceTitle'])) {
+            $model->voiceTitle = $map['VoiceTitle'];
         }
 
         return $model;

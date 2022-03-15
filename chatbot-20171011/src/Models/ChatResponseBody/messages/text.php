@@ -20,6 +20,11 @@ class text extends Model
     public $articleTitle;
 
     /**
+     * @var mixed[]
+     */
+    public $commands;
+
+    /**
      * @var string
      */
     public $content;
@@ -86,6 +91,7 @@ class text extends Model
     protected $_name = [
         'answerSource'         => 'AnswerSource',
         'articleTitle'         => 'ArticleTitle',
+        'commands'             => 'Commands',
         'content'              => 'Content',
         'contentType'          => 'ContentType',
         'dialogName'           => 'DialogName',
@@ -113,6 +119,9 @@ class text extends Model
         }
         if (null !== $this->articleTitle) {
             $res['ArticleTitle'] = $this->articleTitle;
+        }
+        if (null !== $this->commands) {
+            $res['Commands'] = $this->commands;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
@@ -176,6 +185,9 @@ class text extends Model
         }
         if (isset($map['ArticleTitle'])) {
             $model->articleTitle = $map['ArticleTitle'];
+        }
+        if (isset($map['Commands'])) {
+            $model->commands = $map['Commands'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];

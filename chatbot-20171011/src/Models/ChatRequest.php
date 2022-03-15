@@ -29,11 +29,6 @@ class ChatRequest extends Model
     public $perspective;
 
     /**
-     * @var bool
-     */
-    public $recommend;
-
-    /**
      * @var string
      */
     public $senderId;
@@ -67,7 +62,6 @@ class ChatRequest extends Model
         'intentName'  => 'IntentName',
         'knowledgeId' => 'KnowledgeId',
         'perspective' => 'Perspective',
-        'recommend'   => 'Recommend',
         'senderId'    => 'SenderId',
         'senderNick'  => 'SenderNick',
         'sessionId'   => 'SessionId',
@@ -94,9 +88,6 @@ class ChatRequest extends Model
         }
         if (null !== $this->perspective) {
             $res['Perspective'] = $this->perspective;
-        }
-        if (null !== $this->recommend) {
-            $res['Recommend'] = $this->recommend;
         }
         if (null !== $this->senderId) {
             $res['SenderId'] = $this->senderId;
@@ -141,9 +132,6 @@ class ChatRequest extends Model
             if (!empty($map['Perspective'])) {
                 $model->perspective = $map['Perspective'];
             }
-        }
-        if (isset($map['Recommend'])) {
-            $model->recommend = $map['Recommend'];
         }
         if (isset($map['SenderId'])) {
             $model->senderId = $map['SenderId'];

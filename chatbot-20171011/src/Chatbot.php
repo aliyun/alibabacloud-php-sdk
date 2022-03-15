@@ -424,9 +424,6 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($request->perspective)) {
             $query['Perspective'] = $request->perspective;
         }
-        if (!Utils::isUnset($request->recommend)) {
-            $query['Recommend'] = $request->recommend;
-        }
         if (!Utils::isUnset($request->senderId)) {
             $query['SenderId'] = $request->senderId;
         }
