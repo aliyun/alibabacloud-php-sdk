@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ToneSdrVideoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $videoURL;
-
-    /**
      * @var int
      */
     public $bitrate;
@@ -22,10 +17,15 @@ class ToneSdrVideoRequest extends Model
      * @var string
      */
     public $recolorModel;
+
+    /**
+     * @var string
+     */
+    public $videoURL;
     protected $_name = [
-        'videoURL'     => 'VideoURL',
         'bitrate'      => 'Bitrate',
         'recolorModel' => 'RecolorModel',
+        'videoURL'     => 'VideoURL',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ToneSdrVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURL) {
-            $res['VideoURL'] = $this->videoURL;
-        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
         if (null !== $this->recolorModel) {
             $res['RecolorModel'] = $this->recolorModel;
+        }
+        if (null !== $this->videoURL) {
+            $res['VideoURL'] = $this->videoURL;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ToneSdrVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURL'])) {
-            $model->videoURL = $map['VideoURL'];
-        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
         if (isset($map['RecolorModel'])) {
             $model->recolorModel = $map['RecolorModel'];
+        }
+        if (isset($map['VideoURL'])) {
+            $model->videoURL = $map['VideoURL'];
         }
 
         return $model;

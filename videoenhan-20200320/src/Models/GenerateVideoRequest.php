@@ -10,26 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GenerateVideoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $scene;
-
-    /**
-     * @var int
-     */
-    public $width;
-
-    /**
-     * @var int
-     */
-    public $height;
-
-    /**
-     * @var string
-     */
-    public $style;
-
-    /**
      * @var float
      */
     public $duration;
@@ -40,19 +20,14 @@ class GenerateVideoRequest extends Model
     public $durationAdaption;
 
     /**
-     * @var string
+     * @var fileList[]
      */
-    public $transitionStyle;
+    public $fileList;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $smartEffect;
-
-    /**
-     * @var bool
-     */
-    public $puzzleEffect;
+    public $height;
 
     /**
      * @var bool
@@ -60,21 +35,46 @@ class GenerateVideoRequest extends Model
     public $mute;
 
     /**
-     * @var fileList[]
+     * @var bool
      */
-    public $fileList;
+    public $puzzleEffect;
+
+    /**
+     * @var string
+     */
+    public $scene;
+
+    /**
+     * @var bool
+     */
+    public $smartEffect;
+
+    /**
+     * @var string
+     */
+    public $style;
+
+    /**
+     * @var string
+     */
+    public $transitionStyle;
+
+    /**
+     * @var int
+     */
+    public $width;
     protected $_name = [
-        'scene'            => 'Scene',
-        'width'            => 'Width',
-        'height'           => 'Height',
-        'style'            => 'Style',
         'duration'         => 'Duration',
         'durationAdaption' => 'DurationAdaption',
-        'transitionStyle'  => 'TransitionStyle',
-        'smartEffect'      => 'SmartEffect',
-        'puzzleEffect'     => 'PuzzleEffect',
-        'mute'             => 'Mute',
         'fileList'         => 'FileList',
+        'height'           => 'Height',
+        'mute'             => 'Mute',
+        'puzzleEffect'     => 'PuzzleEffect',
+        'scene'            => 'Scene',
+        'smartEffect'      => 'SmartEffect',
+        'style'            => 'Style',
+        'transitionStyle'  => 'TransitionStyle',
+        'width'            => 'Width',
     ];
 
     public function validate()
@@ -84,35 +84,11 @@ class GenerateVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
-        if (null !== $this->style) {
-            $res['Style'] = $this->style;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
         if (null !== $this->durationAdaption) {
             $res['DurationAdaption'] = $this->durationAdaption;
-        }
-        if (null !== $this->transitionStyle) {
-            $res['TransitionStyle'] = $this->transitionStyle;
-        }
-        if (null !== $this->smartEffect) {
-            $res['SmartEffect'] = $this->smartEffect;
-        }
-        if (null !== $this->puzzleEffect) {
-            $res['PuzzleEffect'] = $this->puzzleEffect;
-        }
-        if (null !== $this->mute) {
-            $res['Mute'] = $this->mute;
         }
         if (null !== $this->fileList) {
             $res['FileList'] = [];
@@ -122,6 +98,30 @@ class GenerateVideoRequest extends Model
                     $res['FileList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->mute) {
+            $res['Mute'] = $this->mute;
+        }
+        if (null !== $this->puzzleEffect) {
+            $res['PuzzleEffect'] = $this->puzzleEffect;
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
+        }
+        if (null !== $this->smartEffect) {
+            $res['SmartEffect'] = $this->smartEffect;
+        }
+        if (null !== $this->style) {
+            $res['Style'] = $this->style;
+        }
+        if (null !== $this->transitionStyle) {
+            $res['TransitionStyle'] = $this->transitionStyle;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -135,35 +135,11 @@ class GenerateVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Scene'])) {
-            $model->scene = $map['Scene'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
-        if (isset($map['Style'])) {
-            $model->style = $map['Style'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
         if (isset($map['DurationAdaption'])) {
             $model->durationAdaption = $map['DurationAdaption'];
-        }
-        if (isset($map['TransitionStyle'])) {
-            $model->transitionStyle = $map['TransitionStyle'];
-        }
-        if (isset($map['SmartEffect'])) {
-            $model->smartEffect = $map['SmartEffect'];
-        }
-        if (isset($map['PuzzleEffect'])) {
-            $model->puzzleEffect = $map['PuzzleEffect'];
-        }
-        if (isset($map['Mute'])) {
-            $model->mute = $map['Mute'];
         }
         if (isset($map['FileList'])) {
             if (!empty($map['FileList'])) {
@@ -173,6 +149,30 @@ class GenerateVideoRequest extends Model
                     $model->fileList[$n++] = null !== $item ? fileList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['Mute'])) {
+            $model->mute = $map['Mute'];
+        }
+        if (isset($map['PuzzleEffect'])) {
+            $model->puzzleEffect = $map['PuzzleEffect'];
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
+        }
+        if (isset($map['SmartEffect'])) {
+            $model->smartEffect = $map['SmartEffect'];
+        }
+        if (isset($map['Style'])) {
+            $model->style = $map['Style'];
+        }
+        if (isset($map['TransitionStyle'])) {
+            $model->transitionStyle = $map['TransitionStyle'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

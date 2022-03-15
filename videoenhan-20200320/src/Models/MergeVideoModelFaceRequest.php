@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MergeVideoModelFaceRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
-    public $userId;
+    public $faceImageURL;
 
     /**
      * @var string
@@ -21,13 +19,15 @@ class MergeVideoModelFaceRequest extends Model
     public $templateId;
 
     /**
+     * @description A short description of struct
+     *
      * @var string
      */
-    public $faceImageURL;
+    public $userId;
     protected $_name = [
-        'userId'       => 'UserId',
-        'templateId'   => 'TemplateId',
         'faceImageURL' => 'FaceImageURL',
+        'templateId'   => 'TemplateId',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class MergeVideoModelFaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->faceImageURL) {
+            $res['FaceImageURL'] = $this->faceImageURL;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->faceImageURL) {
-            $res['FaceImageURL'] = $this->faceImageURL;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class MergeVideoModelFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['FaceImageURL'])) {
+            $model->faceImageURL = $map['FaceImageURL'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['FaceImageURL'])) {
-            $model->faceImageURL = $map['FaceImageURL'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

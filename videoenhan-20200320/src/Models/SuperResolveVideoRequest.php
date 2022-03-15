@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SuperResolveVideoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $videoUrl;
-
-    /**
      * @var int
      */
     public $bitRate;
+
+    /**
+     * @var string
+     */
+    public $videoUrl;
     protected $_name = [
-        'videoUrl' => 'VideoUrl',
         'bitRate'  => 'BitRate',
+        'videoUrl' => 'VideoUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SuperResolveVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
-        }
         if (null !== $this->bitRate) {
             $res['BitRate'] = $this->bitRate;
+        }
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SuperResolveVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
-        }
         if (isset($map['BitRate'])) {
             $model->bitRate = $map['BitRate'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

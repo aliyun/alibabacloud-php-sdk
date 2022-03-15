@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConvertHdrVideoRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $videoURL;
+    public $bitrate;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class ConvertHdrVideoRequest extends Model
     public $maxIlluminance;
 
     /**
-     * @var int
+     * @var string
      */
-    public $bitrate;
+    public $videoURL;
     protected $_name = [
-        'videoURL'       => 'VideoURL',
+        'bitrate'        => 'Bitrate',
         'HDRFormat'      => 'HDRFormat',
         'maxIlluminance' => 'MaxIlluminance',
-        'bitrate'        => 'Bitrate',
+        'videoURL'       => 'VideoURL',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ConvertHdrVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURL) {
-            $res['VideoURL'] = $this->videoURL;
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
         }
         if (null !== $this->HDRFormat) {
             $res['HDRFormat'] = $this->HDRFormat;
@@ -50,8 +50,8 @@ class ConvertHdrVideoRequest extends Model
         if (null !== $this->maxIlluminance) {
             $res['MaxIlluminance'] = $this->maxIlluminance;
         }
-        if (null !== $this->bitrate) {
-            $res['Bitrate'] = $this->bitrate;
+        if (null !== $this->videoURL) {
+            $res['VideoURL'] = $this->videoURL;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ConvertHdrVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURL'])) {
-            $model->videoURL = $map['VideoURL'];
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
         }
         if (isset($map['HDRFormat'])) {
             $model->HDRFormat = $map['HDRFormat'];
@@ -74,8 +74,8 @@ class ConvertHdrVideoRequest extends Model
         if (isset($map['MaxIlluminance'])) {
             $model->maxIlluminance = $map['MaxIlluminance'];
         }
-        if (isset($map['Bitrate'])) {
-            $model->bitrate = $map['Bitrate'];
+        if (isset($map['VideoURL'])) {
+            $model->videoURL = $map['VideoURL'];
         }
 
         return $model;

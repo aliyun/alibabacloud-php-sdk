@@ -15,20 +15,20 @@ class MergeVideoModelFaceAdvanceRequest extends Model
     public $faceImageURLObject;
 
     /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
      * @description A short description of struct
      *
      * @var string
      */
     public $userId;
-
-    /**
-     * @var string
-     */
-    public $templateId;
     protected $_name = [
         'faceImageURLObject' => 'FaceImageURLObject',
-        'userId'             => 'UserId',
         'templateId'         => 'TemplateId',
+        'userId'             => 'UserId',
     ];
 
     public function validate()
@@ -42,11 +42,11 @@ class MergeVideoModelFaceAdvanceRequest extends Model
         if (null !== $this->faceImageURLObject) {
             $res['FaceImageURLObject'] = $this->faceImageURLObject;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -63,11 +63,11 @@ class MergeVideoModelFaceAdvanceRequest extends Model
         if (isset($map['FaceImageURLObject'])) {
             $model->faceImageURLObject = $map['FaceImageURLObject'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class EraseVideoSubtitlesRequest extends Model
 {
     /**
-     * @var string
+     * @var float
      */
-    public $videoUrl;
+    public $BH;
+
+    /**
+     * @var float
+     */
+    public $BW;
 
     /**
      * @var float
@@ -24,20 +29,15 @@ class EraseVideoSubtitlesRequest extends Model
     public $BY;
 
     /**
-     * @var float
+     * @var string
      */
-    public $BW;
-
-    /**
-     * @var float
-     */
-    public $BH;
+    public $videoUrl;
     protected $_name = [
-        'videoUrl' => 'VideoUrl',
+        'BH'       => 'BH',
+        'BW'       => 'BW',
         'BX'       => 'BX',
         'BY'       => 'BY',
-        'BW'       => 'BW',
-        'BH'       => 'BH',
+        'videoUrl' => 'VideoUrl',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class EraseVideoSubtitlesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
+        if (null !== $this->BH) {
+            $res['BH'] = $this->BH;
+        }
+        if (null !== $this->BW) {
+            $res['BW'] = $this->BW;
         }
         if (null !== $this->BX) {
             $res['BX'] = $this->BX;
@@ -56,11 +59,8 @@ class EraseVideoSubtitlesRequest extends Model
         if (null !== $this->BY) {
             $res['BY'] = $this->BY;
         }
-        if (null !== $this->BW) {
-            $res['BW'] = $this->BW;
-        }
-        if (null !== $this->BH) {
-            $res['BH'] = $this->BH;
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class EraseVideoSubtitlesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
+        if (isset($map['BH'])) {
+            $model->BH = $map['BH'];
+        }
+        if (isset($map['BW'])) {
+            $model->BW = $map['BW'];
         }
         if (isset($map['BX'])) {
             $model->BX = $map['BX'];
@@ -83,11 +86,8 @@ class EraseVideoSubtitlesRequest extends Model
         if (isset($map['BY'])) {
             $model->BY = $map['BY'];
         }
-        if (isset($map['BW'])) {
-            $model->BW = $map['BW'];
-        }
-        if (isset($map['BH'])) {
-            $model->BH = $map['BH'];
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

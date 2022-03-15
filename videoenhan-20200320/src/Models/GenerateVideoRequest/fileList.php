@@ -11,7 +11,7 @@ class fileList extends Model
     /**
      * @var string
      */
-    public $type;
+    public $fileName;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class fileList extends Model
     /**
      * @var string
      */
-    public $fileName;
+    public $type;
     protected $_name = [
-        'type'     => 'Type',
-        'fileUrl'  => 'FileUrl',
         'fileName' => 'FileName',
+        'fileUrl'  => 'FileUrl',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class fileList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-        if (null !== $this->fileName) {
-            $res['FileName'] = $this->fileName;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class fileList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-        if (isset($map['FileName'])) {
-            $model->fileName = $map['FileName'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

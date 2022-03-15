@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AbstractEcommerceVideoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $videoUrl;
-
-    /**
      * @var float
      */
     public $duration;
@@ -21,17 +16,22 @@ class AbstractEcommerceVideoRequest extends Model
     /**
      * @var int
      */
-    public $width;
+    public $height;
+
+    /**
+     * @var string
+     */
+    public $videoUrl;
 
     /**
      * @var int
      */
-    public $height;
+    public $width;
     protected $_name = [
-        'videoUrl' => 'VideoUrl',
         'duration' => 'Duration',
-        'width'    => 'Width',
         'height'   => 'Height',
+        'videoUrl' => 'VideoUrl',
+        'width'    => 'Width',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AbstractEcommerceVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AbstractEcommerceVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

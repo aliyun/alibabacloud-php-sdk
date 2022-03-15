@@ -22,17 +22,17 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
     /**
      * @var int
      */
-    public $width;
+    public $height;
 
     /**
      * @var int
      */
-    public $height;
+    public $width;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
         'duration'       => 'Duration',
-        'width'          => 'Width',
         'height'         => 'Height',
+        'width'          => 'Width',
     ];
 
     public function validate()
@@ -49,11 +49,11 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -73,11 +73,11 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class AbstractFilmVideoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $videoUrl;
-
-    /**
      * @var int
      */
     public $length;
+
+    /**
+     * @var string
+     */
+    public $videoUrl;
     protected $_name = [
-        'videoUrl' => 'VideoUrl',
         'length'   => 'Length',
+        'videoUrl' => 'VideoUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AbstractFilmVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
-        }
         if (null !== $this->length) {
             $res['Length'] = $this->length;
+        }
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AbstractFilmVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
-        }
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

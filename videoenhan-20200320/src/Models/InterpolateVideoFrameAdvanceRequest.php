@@ -17,16 +17,16 @@ class InterpolateVideoFrameAdvanceRequest extends Model
     /**
      * @var int
      */
-    public $frameRate;
+    public $bitrate;
 
     /**
      * @var int
      */
-    public $bitrate;
+    public $frameRate;
     protected $_name = [
         'videoURLObject' => 'VideoURLObject',
-        'frameRate'      => 'FrameRate',
         'bitrate'        => 'Bitrate',
+        'frameRate'      => 'FrameRate',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class InterpolateVideoFrameAdvanceRequest extends Model
         if (null !== $this->videoURLObject) {
             $res['VideoURLObject'] = $this->videoURLObject;
         }
-        if (null !== $this->frameRate) {
-            $res['FrameRate'] = $this->frameRate;
-        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
+        }
+        if (null !== $this->frameRate) {
+            $res['FrameRate'] = $this->frameRate;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class InterpolateVideoFrameAdvanceRequest extends Model
         if (isset($map['VideoURLObject'])) {
             $model->videoURLObject = $map['VideoURLObject'];
         }
-        if (isset($map['FrameRate'])) {
-            $model->frameRate = $map['FrameRate'];
-        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
+        }
+        if (isset($map['FrameRate'])) {
+            $model->frameRate = $map['FrameRate'];
         }
 
         return $model;

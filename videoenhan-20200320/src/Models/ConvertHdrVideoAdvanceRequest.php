@@ -15,6 +15,11 @@ class ConvertHdrVideoAdvanceRequest extends Model
     public $videoURLObject;
 
     /**
+     * @var int
+     */
+    public $bitrate;
+
+    /**
      * @var string
      */
     public $HDRFormat;
@@ -23,16 +28,11 @@ class ConvertHdrVideoAdvanceRequest extends Model
      * @var int
      */
     public $maxIlluminance;
-
-    /**
-     * @var int
-     */
-    public $bitrate;
     protected $_name = [
         'videoURLObject' => 'VideoURLObject',
+        'bitrate'        => 'Bitrate',
         'HDRFormat'      => 'HDRFormat',
         'maxIlluminance' => 'MaxIlluminance',
-        'bitrate'        => 'Bitrate',
     ];
 
     public function validate()
@@ -46,14 +46,14 @@ class ConvertHdrVideoAdvanceRequest extends Model
         if (null !== $this->videoURLObject) {
             $res['VideoURLObject'] = $this->videoURLObject;
         }
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
+        }
         if (null !== $this->HDRFormat) {
             $res['HDRFormat'] = $this->HDRFormat;
         }
         if (null !== $this->maxIlluminance) {
             $res['MaxIlluminance'] = $this->maxIlluminance;
-        }
-        if (null !== $this->bitrate) {
-            $res['Bitrate'] = $this->bitrate;
         }
 
         return $res;
@@ -70,14 +70,14 @@ class ConvertHdrVideoAdvanceRequest extends Model
         if (isset($map['VideoURLObject'])) {
             $model->videoURLObject = $map['VideoURLObject'];
         }
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
+        }
         if (isset($map['HDRFormat'])) {
             $model->HDRFormat = $map['HDRFormat'];
         }
         if (isset($map['MaxIlluminance'])) {
             $model->maxIlluminance = $map['MaxIlluminance'];
-        }
-        if (isset($map['Bitrate'])) {
-            $model->bitrate = $map['Bitrate'];
         }
 
         return $model;

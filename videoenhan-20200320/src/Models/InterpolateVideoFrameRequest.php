@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InterpolateVideoFrameRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $videoURL;
+    public $bitrate;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class InterpolateVideoFrameRequest extends Model
     public $frameRate;
 
     /**
-     * @var int
+     * @var string
      */
-    public $bitrate;
+    public $videoURL;
     protected $_name = [
-        'videoURL'  => 'VideoURL',
-        'frameRate' => 'FrameRate',
         'bitrate'   => 'Bitrate',
+        'frameRate' => 'FrameRate',
+        'videoURL'  => 'VideoURL',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class InterpolateVideoFrameRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURL) {
-            $res['VideoURL'] = $this->videoURL;
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
         }
         if (null !== $this->frameRate) {
             $res['FrameRate'] = $this->frameRate;
         }
-        if (null !== $this->bitrate) {
-            $res['Bitrate'] = $this->bitrate;
+        if (null !== $this->videoURL) {
+            $res['VideoURL'] = $this->videoURL;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class InterpolateVideoFrameRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURL'])) {
-            $model->videoURL = $map['VideoURL'];
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
         }
         if (isset($map['FrameRate'])) {
             $model->frameRate = $map['FrameRate'];
         }
-        if (isset($map['Bitrate'])) {
-            $model->bitrate = $map['Bitrate'];
+        if (isset($map['VideoURL'])) {
+            $model->videoURL = $map['VideoURL'];
         }
 
         return $model;

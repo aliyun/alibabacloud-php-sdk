@@ -17,12 +17,7 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     /**
      * @var int
      */
-    public $outPutWidth;
-
-    /**
-     * @var int
-     */
-    public $outPutHeight;
+    public $bitrate;
 
     /**
      * @var int
@@ -42,15 +37,20 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     /**
      * @var int
      */
-    public $bitrate;
+    public $outPutHeight;
+
+    /**
+     * @var int
+     */
+    public $outPutWidth;
     protected $_name = [
         'videoURLObject' => 'VideoURLObject',
-        'outPutWidth'    => 'OutPutWidth',
-        'outPutHeight'   => 'OutPutHeight',
+        'bitrate'        => 'Bitrate',
         'frameRate'      => 'FrameRate',
         'HDRFormat'      => 'HDRFormat',
         'maxIlluminance' => 'MaxIlluminance',
-        'bitrate'        => 'Bitrate',
+        'outPutHeight'   => 'OutPutHeight',
+        'outPutWidth'    => 'OutPutWidth',
     ];
 
     public function validate()
@@ -64,11 +64,8 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         if (null !== $this->videoURLObject) {
             $res['VideoURLObject'] = $this->videoURLObject;
         }
-        if (null !== $this->outPutWidth) {
-            $res['OutPutWidth'] = $this->outPutWidth;
-        }
-        if (null !== $this->outPutHeight) {
-            $res['OutPutHeight'] = $this->outPutHeight;
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
         }
         if (null !== $this->frameRate) {
             $res['FrameRate'] = $this->frameRate;
@@ -79,8 +76,11 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         if (null !== $this->maxIlluminance) {
             $res['MaxIlluminance'] = $this->maxIlluminance;
         }
-        if (null !== $this->bitrate) {
-            $res['Bitrate'] = $this->bitrate;
+        if (null !== $this->outPutHeight) {
+            $res['OutPutHeight'] = $this->outPutHeight;
+        }
+        if (null !== $this->outPutWidth) {
+            $res['OutPutWidth'] = $this->outPutWidth;
         }
 
         return $res;
@@ -97,11 +97,8 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         if (isset($map['VideoURLObject'])) {
             $model->videoURLObject = $map['VideoURLObject'];
         }
-        if (isset($map['OutPutWidth'])) {
-            $model->outPutWidth = $map['OutPutWidth'];
-        }
-        if (isset($map['OutPutHeight'])) {
-            $model->outPutHeight = $map['OutPutHeight'];
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
         }
         if (isset($map['FrameRate'])) {
             $model->frameRate = $map['FrameRate'];
@@ -112,8 +109,11 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         if (isset($map['MaxIlluminance'])) {
             $model->maxIlluminance = $map['MaxIlluminance'];
         }
-        if (isset($map['Bitrate'])) {
-            $model->bitrate = $map['Bitrate'];
+        if (isset($map['OutPutHeight'])) {
+            $model->outPutHeight = $map['OutPutHeight'];
+        }
+        if (isset($map['OutPutWidth'])) {
+            $model->outPutWidth = $map['OutPutWidth'];
         }
 
         return $model;

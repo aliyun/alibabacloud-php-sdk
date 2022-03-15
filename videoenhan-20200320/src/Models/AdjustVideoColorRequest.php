@@ -11,7 +11,7 @@ class AdjustVideoColorRequest extends Model
     /**
      * @var string
      */
-    public $videoUrl;
+    public $mode;
 
     /**
      * @var int
@@ -31,13 +31,13 @@ class AdjustVideoColorRequest extends Model
     /**
      * @var string
      */
-    public $mode;
+    public $videoUrl;
     protected $_name = [
-        'videoUrl'     => 'VideoUrl',
+        'mode'         => 'Mode',
         'videoBitrate' => 'VideoBitrate',
         'videoCodec'   => 'VideoCodec',
         'videoFormat'  => 'VideoFormat',
-        'mode'         => 'Mode',
+        'videoUrl'     => 'VideoUrl',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class AdjustVideoColorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->videoBitrate) {
             $res['VideoBitrate'] = $this->videoBitrate;
@@ -59,8 +59,8 @@ class AdjustVideoColorRequest extends Model
         if (null !== $this->videoFormat) {
             $res['VideoFormat'] = $this->videoFormat;
         }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class AdjustVideoColorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['VideoBitrate'])) {
             $model->videoBitrate = $map['VideoBitrate'];
@@ -86,8 +86,8 @@ class AdjustVideoColorRequest extends Model
         if (isset($map['VideoFormat'])) {
             $model->videoFormat = $map['VideoFormat'];
         }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

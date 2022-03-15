@@ -17,12 +17,7 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
     /**
      * @var float
      */
-    public $BX;
-
-    /**
-     * @var float
-     */
-    public $BY;
+    public $BH;
 
     /**
      * @var float
@@ -32,13 +27,18 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
     /**
      * @var float
      */
-    public $BH;
+    public $BX;
+
+    /**
+     * @var float
+     */
+    public $BY;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
+        'BH'             => 'BH',
+        'BW'             => 'BW',
         'BX'             => 'BX',
         'BY'             => 'BY',
-        'BW'             => 'BW',
-        'BH'             => 'BH',
     ];
 
     public function validate()
@@ -52,17 +52,17 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
         if (null !== $this->videoUrlObject) {
             $res['VideoUrlObject'] = $this->videoUrlObject;
         }
+        if (null !== $this->BH) {
+            $res['BH'] = $this->BH;
+        }
+        if (null !== $this->BW) {
+            $res['BW'] = $this->BW;
+        }
         if (null !== $this->BX) {
             $res['BX'] = $this->BX;
         }
         if (null !== $this->BY) {
             $res['BY'] = $this->BY;
-        }
-        if (null !== $this->BW) {
-            $res['BW'] = $this->BW;
-        }
-        if (null !== $this->BH) {
-            $res['BH'] = $this->BH;
         }
 
         return $res;
@@ -79,17 +79,17 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
         if (isset($map['VideoUrlObject'])) {
             $model->videoUrlObject = $map['VideoUrlObject'];
         }
+        if (isset($map['BH'])) {
+            $model->BH = $map['BH'];
+        }
+        if (isset($map['BW'])) {
+            $model->BW = $map['BW'];
+        }
         if (isset($map['BX'])) {
             $model->BX = $map['BX'];
         }
         if (isset($map['BY'])) {
             $model->BY = $map['BY'];
-        }
-        if (isset($map['BW'])) {
-            $model->BW = $map['BW'];
-        }
-        if (isset($map['BH'])) {
-            $model->BH = $map['BH'];
         }
 
         return $model;

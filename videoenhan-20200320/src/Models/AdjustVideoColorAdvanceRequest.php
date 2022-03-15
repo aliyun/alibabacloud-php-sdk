@@ -15,6 +15,11 @@ class AdjustVideoColorAdvanceRequest extends Model
     public $videoUrlObject;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var int
      */
     public $videoBitrate;
@@ -28,17 +33,12 @@ class AdjustVideoColorAdvanceRequest extends Model
      * @var string
      */
     public $videoFormat;
-
-    /**
-     * @var string
-     */
-    public $mode;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
+        'mode'           => 'Mode',
         'videoBitrate'   => 'VideoBitrate',
         'videoCodec'     => 'VideoCodec',
         'videoFormat'    => 'VideoFormat',
-        'mode'           => 'Mode',
     ];
 
     public function validate()
@@ -52,6 +52,9 @@ class AdjustVideoColorAdvanceRequest extends Model
         if (null !== $this->videoUrlObject) {
             $res['VideoUrlObject'] = $this->videoUrlObject;
         }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->videoBitrate) {
             $res['VideoBitrate'] = $this->videoBitrate;
         }
@@ -60,9 +63,6 @@ class AdjustVideoColorAdvanceRequest extends Model
         }
         if (null !== $this->videoFormat) {
             $res['VideoFormat'] = $this->videoFormat;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -79,6 +79,9 @@ class AdjustVideoColorAdvanceRequest extends Model
         if (isset($map['VideoUrlObject'])) {
             $model->videoUrlObject = $map['VideoUrlObject'];
         }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['VideoBitrate'])) {
             $model->videoBitrate = $map['VideoBitrate'];
         }
@@ -87,9 +90,6 @@ class AdjustVideoColorAdvanceRequest extends Model
         }
         if (isset($map['VideoFormat'])) {
             $model->videoFormat = $map['VideoFormat'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
         }
 
         return $model;
