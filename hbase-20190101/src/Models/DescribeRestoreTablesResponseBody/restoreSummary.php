@@ -16,16 +16,6 @@ class restoreSummary extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
     public $recordId;
 
     /**
@@ -36,13 +26,23 @@ class restoreSummary extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
     public $targetCluster;
     protected $_name = [
         'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
-        'state'         => 'State',
         'recordId'      => 'RecordId',
         'restoreToDate' => 'RestoreToDate',
+        'startTime'     => 'StartTime',
+        'state'         => 'State',
         'targetCluster' => 'TargetCluster',
     ];
 
@@ -56,17 +56,17 @@ class restoreSummary extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
         if (null !== $this->restoreToDate) {
             $res['RestoreToDate'] = $this->restoreToDate;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->targetCluster) {
             $res['TargetCluster'] = $this->targetCluster;
@@ -86,17 +86,17 @@ class restoreSummary extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
         if (isset($map['RestoreToDate'])) {
             $model->restoreToDate = $map['RestoreToDate'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['TargetCluster'])) {
             $model->targetCluster = $map['TargetCluster'];

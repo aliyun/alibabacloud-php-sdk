@@ -14,11 +14,6 @@ class ModifyInstanceServiceConfigRequest extends Model
     public $clusterId;
 
     /**
-     * @var bool
-     */
-    public $restart;
-
-    /**
      * @var string
      */
     public $configureName;
@@ -32,12 +27,17 @@ class ModifyInstanceServiceConfigRequest extends Model
      * @var string
      */
     public $parameters;
+
+    /**
+     * @var bool
+     */
+    public $restart;
     protected $_name = [
         'clusterId'      => 'ClusterId',
-        'restart'        => 'Restart',
         'configureName'  => 'ConfigureName',
         'configureValue' => 'ConfigureValue',
         'parameters'     => 'Parameters',
+        'restart'        => 'Restart',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class ModifyInstanceServiceConfigRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->restart) {
-            $res['Restart'] = $this->restart;
-        }
         if (null !== $this->configureName) {
             $res['ConfigureName'] = $this->configureName;
         }
@@ -61,6 +58,9 @@ class ModifyInstanceServiceConfigRequest extends Model
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->restart) {
+            $res['Restart'] = $this->restart;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class ModifyInstanceServiceConfigRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Restart'])) {
-            $model->restart = $map['Restart'];
-        }
         if (isset($map['ConfigureName'])) {
             $model->configureName = $map['ConfigureName'];
         }
@@ -88,6 +85,9 @@ class ModifyInstanceServiceConfigRequest extends Model
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['Restart'])) {
+            $model->restart = $map['Restart'];
         }
 
         return $model;

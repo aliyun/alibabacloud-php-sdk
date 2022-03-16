@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $isDefault;
+    public $instanceId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class instance extends Model
     public $instanceName;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $instanceId;
+    public $isDefault;
     protected $_name = [
-        'isDefault'    => 'IsDefault',
-        'instanceName' => 'InstanceName',
         'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'isDefault'    => 'IsDefault',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
 
         return $model;

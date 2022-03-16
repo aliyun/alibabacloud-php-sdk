@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class masterResource extends Model
 {
     /**
-     * @var instanceTypeDetail
-     */
-    public $instanceTypeDetail;
-
-    /**
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var instanceTypeDetail
+     */
+    public $instanceTypeDetail;
     protected $_name = [
-        'instanceTypeDetail' => 'InstanceTypeDetail',
         'instanceType'       => 'InstanceType',
+        'instanceTypeDetail' => 'InstanceTypeDetail',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class masterResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceTypeDetail) {
-            $res['InstanceTypeDetail'] = null !== $this->instanceTypeDetail ? $this->instanceTypeDetail->toMap() : null;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->instanceTypeDetail) {
+            $res['InstanceTypeDetail'] = null !== $this->instanceTypeDetail ? $this->instanceTypeDetail->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class masterResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceTypeDetail'])) {
-            $model->instanceTypeDetail = instanceTypeDetail::fromMap($map['InstanceTypeDetail']);
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['InstanceTypeDetail'])) {
+            $model->instanceTypeDetail = instanceTypeDetail::fromMap($map['InstanceTypeDetail']);
         }
 
         return $model;

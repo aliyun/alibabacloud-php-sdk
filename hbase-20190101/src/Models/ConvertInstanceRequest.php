@@ -14,18 +14,24 @@ class ConvertInstanceRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $pricingCycle;
-
-    /**
      * @var int
      */
     public $duration;
+
+    /**
+     * @var string
+     */
+    public $payType;
+
+    /**
+     * @var string
+     */
+    public $pricingCycle;
     protected $_name = [
         'clusterId'    => 'ClusterId',
-        'pricingCycle' => 'PricingCycle',
         'duration'     => 'Duration',
+        'payType'      => 'PayType',
+        'pricingCycle' => 'PricingCycle',
     ];
 
     public function validate()
@@ -38,11 +44,14 @@ class ConvertInstanceRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->pricingCycle) {
-            $res['PricingCycle'] = $this->pricingCycle;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->pricingCycle) {
+            $res['PricingCycle'] = $this->pricingCycle;
         }
 
         return $res;
@@ -59,11 +68,14 @@ class ConvertInstanceRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['PricingCycle'])) {
-            $model->pricingCycle = $map['PricingCycle'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+        if (isset($map['PricingCycle'])) {
+            $model->pricingCycle = $map['PricingCycle'];
         }
 
         return $model;

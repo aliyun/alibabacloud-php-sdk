@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @var availableCombines
+     */
+    public $availableCombines;
+
+    /**
      * @var string
      */
     public $localName;
@@ -20,18 +25,13 @@ class region extends Model
     public $regionEndpoint;
 
     /**
-     * @var availableCombines
-     */
-    public $availableCombines;
-
-    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
+        'availableCombines' => 'AvailableCombines',
         'localName'         => 'LocalName',
         'regionEndpoint'    => 'RegionEndpoint',
-        'availableCombines' => 'AvailableCombines',
         'regionId'          => 'RegionId',
     ];
 
@@ -42,14 +42,14 @@ class region extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->availableCombines) {
+            $res['AvailableCombines'] = null !== $this->availableCombines ? $this->availableCombines->toMap() : null;
+        }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
-        }
-        if (null !== $this->availableCombines) {
-            $res['AvailableCombines'] = null !== $this->availableCombines ? $this->availableCombines->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -66,14 +66,14 @@ class region extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableCombines'])) {
+            $model->availableCombines = availableCombines::fromMap($map['AvailableCombines']);
+        }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
-        }
-        if (isset($map['AvailableCombines'])) {
-            $model->availableCombines = availableCombines::fromMap($map['AvailableCombines']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -16,16 +16,16 @@ class ModifyInstanceTypeRequest extends Model
     /**
      * @var string
      */
-    public $masterInstanceType;
+    public $coreInstanceType;
 
     /**
      * @var string
      */
-    public $coreInstanceType;
+    public $masterInstanceType;
     protected $_name = [
         'clusterId'          => 'ClusterId',
-        'masterInstanceType' => 'MasterInstanceType',
         'coreInstanceType'   => 'CoreInstanceType',
+        'masterInstanceType' => 'MasterInstanceType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyInstanceTypeRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->masterInstanceType) {
-            $res['MasterInstanceType'] = $this->masterInstanceType;
-        }
         if (null !== $this->coreInstanceType) {
             $res['CoreInstanceType'] = $this->coreInstanceType;
+        }
+        if (null !== $this->masterInstanceType) {
+            $res['MasterInstanceType'] = $this->masterInstanceType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ModifyInstanceTypeRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['MasterInstanceType'])) {
-            $model->masterInstanceType = $map['MasterInstanceType'];
-        }
         if (isset($map['CoreInstanceType'])) {
             $model->coreInstanceType = $map['CoreInstanceType'];
+        }
+        if (isset($map['MasterInstanceType'])) {
+            $model->masterInstanceType = $map['MasterInstanceType'];
         }
 
         return $model;

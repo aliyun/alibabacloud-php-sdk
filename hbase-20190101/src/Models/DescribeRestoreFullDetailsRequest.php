@@ -14,11 +14,6 @@ class DescribeRestoreFullDetailsRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $restoreRecordId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -27,11 +22,16 @@ class DescribeRestoreFullDetailsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $restoreRecordId;
     protected $_name = [
         'clusterId'       => 'ClusterId',
-        'restoreRecordId' => 'RestoreRecordId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'restoreRecordId' => 'RestoreRecordId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DescribeRestoreFullDetailsRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->restoreRecordId) {
-            $res['RestoreRecordId'] = $this->restoreRecordId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->restoreRecordId) {
+            $res['RestoreRecordId'] = $this->restoreRecordId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DescribeRestoreFullDetailsRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['RestoreRecordId'])) {
-            $model->restoreRecordId = $map['RestoreRecordId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RestoreRecordId'])) {
+            $model->restoreRecordId = $map['RestoreRecordId'];
         }
 
         return $model;

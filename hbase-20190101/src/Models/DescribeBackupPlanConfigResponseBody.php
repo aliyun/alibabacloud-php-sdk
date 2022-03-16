@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPlanConfigResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $fullBackupCycle;
 
     /**
      * @var int
      */
-    public $fullBackupCycle;
+    public $minHFileBackupCount;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class DescribeBackupPlanConfigResponseBody extends Model
     public $nextFullBackupDate;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var tables
      */
     public $tables;
-
-    /**
-     * @var int
-     */
-    public $minHFileBackupCount;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'fullBackupCycle'     => 'FullBackupCycle',
-        'nextFullBackupDate'  => 'NextFullBackupDate',
-        'tables'              => 'Tables',
         'minHFileBackupCount' => 'MinHFileBackupCount',
+        'nextFullBackupDate'  => 'NextFullBackupDate',
+        'requestId'           => 'RequestId',
+        'tables'              => 'Tables',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeBackupPlanConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->fullBackupCycle) {
             $res['FullBackupCycle'] = $this->fullBackupCycle;
+        }
+        if (null !== $this->minHFileBackupCount) {
+            $res['MinHFileBackupCount'] = $this->minHFileBackupCount;
         }
         if (null !== $this->nextFullBackupDate) {
             $res['NextFullBackupDate'] = $this->nextFullBackupDate;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->tables) {
             $res['Tables'] = null !== $this->tables ? $this->tables->toMap() : null;
-        }
-        if (null !== $this->minHFileBackupCount) {
-            $res['MinHFileBackupCount'] = $this->minHFileBackupCount;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeBackupPlanConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FullBackupCycle'])) {
             $model->fullBackupCycle = $map['FullBackupCycle'];
+        }
+        if (isset($map['MinHFileBackupCount'])) {
+            $model->minHFileBackupCount = $map['MinHFileBackupCount'];
         }
         if (isset($map['NextFullBackupDate'])) {
             $model->nextFullBackupDate = $map['NextFullBackupDate'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Tables'])) {
             $model->tables = tables::fromMap($map['Tables']);
-        }
-        if (isset($map['MinHFileBackupCount'])) {
-            $model->minHFileBackupCount = $map['MinHFileBackupCount'];
         }
 
         return $model;

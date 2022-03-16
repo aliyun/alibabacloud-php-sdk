@@ -14,18 +14,18 @@ class QueryXpackRelateDBRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $relateDbType;
-
-    /**
      * @var bool
      */
     public $hasSingleNode;
+
+    /**
+     * @var string
+     */
+    public $relateDbType;
     protected $_name = [
         'clusterId'     => 'ClusterId',
-        'relateDbType'  => 'RelateDbType',
         'hasSingleNode' => 'HasSingleNode',
+        'relateDbType'  => 'RelateDbType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class QueryXpackRelateDBRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->relateDbType) {
-            $res['RelateDbType'] = $this->relateDbType;
-        }
         if (null !== $this->hasSingleNode) {
             $res['HasSingleNode'] = $this->hasSingleNode;
+        }
+        if (null !== $this->relateDbType) {
+            $res['RelateDbType'] = $this->relateDbType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class QueryXpackRelateDBRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['RelateDbType'])) {
-            $model->relateDbType = $map['RelateDbType'];
-        }
         if (isset($map['HasSingleNode'])) {
             $model->hasSingleNode = $map['HasSingleNode'];
+        }
+        if (isset($map['RelateDbType'])) {
+            $model->relateDbType = $map['RelateDbType'];
         }
 
         return $model;

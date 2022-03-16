@@ -11,15 +11,15 @@ class DescribeSubDomainResponseBody extends Model
     /**
      * @var string
      */
-    public $subDomain;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $subDomain;
     protected $_name = [
-        'subDomain' => 'SubDomain',
         'requestId' => 'RequestId',
+        'subDomain' => 'SubDomain',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeSubDomainResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subDomain) {
-            $res['SubDomain'] = $this->subDomain;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->subDomain) {
+            $res['SubDomain'] = $this->subDomain;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeSubDomainResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubDomain'])) {
-            $model->subDomain = $map['SubDomain'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SubDomain'])) {
+            $model->subDomain = $map['SubDomain'];
         }
 
         return $model;

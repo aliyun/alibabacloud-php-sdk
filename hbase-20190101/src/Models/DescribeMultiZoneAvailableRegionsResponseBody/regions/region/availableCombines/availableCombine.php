@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class availableCombine extends Model
 {
     /**
-     * @var zones
-     */
-    public $zones;
-
-    /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var zones
+     */
+    public $zones;
     protected $_name = [
-        'zones' => 'Zones',
         'id'    => 'Id',
+        'zones' => 'Zones',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class availableCombine extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->zones) {
+            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class availableCombine extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Zones'])) {
-            $model->zones = zones::fromMap($map['Zones']);
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Zones'])) {
+            $model->zones = zones::fromMap($map['Zones']);
         }
 
         return $model;

@@ -11,12 +11,12 @@ class DescribeBackupTablesRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $backupRecordId;
 
     /**
      * @var string
      */
-    public $backupRecordId;
+    public $clusterId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class DescribeBackupTablesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
         'backupRecordId' => 'BackupRecordId',
+        'clusterId'      => 'ClusterId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class DescribeBackupTablesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->backupRecordId) {
             $res['BackupRecordId'] = $this->backupRecordId;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class DescribeBackupTablesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['BackupRecordId'])) {
             $model->backupRecordId = $map['BackupRecordId'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

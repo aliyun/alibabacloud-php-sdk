@@ -14,11 +14,6 @@ class CreateRestorePlanRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $targetClusterId;
-
-    /**
      * @var bool
      */
     public $restoreAllTable;
@@ -37,13 +32,18 @@ class CreateRestorePlanRequest extends Model
      * @var string
      */
     public $tables;
+
+    /**
+     * @var string
+     */
+    public $targetClusterId;
     protected $_name = [
         'clusterId'       => 'ClusterId',
-        'targetClusterId' => 'TargetClusterId',
         'restoreAllTable' => 'RestoreAllTable',
         'restoreByCopy'   => 'RestoreByCopy',
         'restoreToDate'   => 'RestoreToDate',
         'tables'          => 'Tables',
+        'targetClusterId' => 'TargetClusterId',
     ];
 
     public function validate()
@@ -56,9 +56,6 @@ class CreateRestorePlanRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->targetClusterId) {
-            $res['TargetClusterId'] = $this->targetClusterId;
-        }
         if (null !== $this->restoreAllTable) {
             $res['RestoreAllTable'] = $this->restoreAllTable;
         }
@@ -70,6 +67,9 @@ class CreateRestorePlanRequest extends Model
         }
         if (null !== $this->tables) {
             $res['Tables'] = $this->tables;
+        }
+        if (null !== $this->targetClusterId) {
+            $res['TargetClusterId'] = $this->targetClusterId;
         }
 
         return $res;
@@ -86,9 +86,6 @@ class CreateRestorePlanRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['TargetClusterId'])) {
-            $model->targetClusterId = $map['TargetClusterId'];
-        }
         if (isset($map['RestoreAllTable'])) {
             $model->restoreAllTable = $map['RestoreAllTable'];
         }
@@ -100,6 +97,9 @@ class CreateRestorePlanRequest extends Model
         }
         if (isset($map['Tables'])) {
             $model->tables = $map['Tables'];
+        }
+        if (isset($map['TargetClusterId'])) {
+            $model->targetClusterId = $map['TargetClusterId'];
         }
 
         return $model;

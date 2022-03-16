@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeEndpointsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var connAddrs
      */
     public $connAddrs;
@@ -27,7 +17,7 @@ class DescribeEndpointsResponseBody extends Model
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $engine;
 
     /**
      * @var string
@@ -37,14 +27,24 @@ class DescribeEndpointsResponseBody extends Model
     /**
      * @var string
      */
-    public $engine;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'vpcId'     => 'VpcId',
-        'requestId' => 'RequestId',
         'connAddrs' => 'ConnAddrs',
-        'vSwitchId' => 'VSwitchId',
-        'netType'   => 'NetType',
         'engine'    => 'Engine',
+        'netType'   => 'NetType',
+        'requestId' => 'RequestId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId'     => 'VpcId',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeEndpointsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->connAddrs) {
             $res['ConnAddrs'] = null !== $this->connAddrs ? $this->connAddrs->toMap() : null;
         }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeEndpointsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConnAddrs'])) {
             $model->connAddrs = connAddrs::fromMap($map['ConnAddrs']);
         }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

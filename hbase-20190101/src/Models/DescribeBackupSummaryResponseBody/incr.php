@@ -11,12 +11,7 @@ class incr extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $speed;
+    public $backupLogSize;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class incr extends Model
     /**
      * @var string
      */
-    public $backupLogSize;
+    public $runningLogNum;
 
     /**
      * @var string
      */
-    public $runningLogNum;
+    public $speed;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'        => 'Status',
-        'speed'         => 'Speed',
+        'backupLogSize' => 'BackupLogSize',
         'pos'           => 'Pos',
         'queueLogNum'   => 'QueueLogNum',
-        'backupLogSize' => 'BackupLogSize',
         'runningLogNum' => 'RunningLogNum',
+        'speed'         => 'Speed',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class incr extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->speed) {
-            $res['Speed'] = $this->speed;
+        if (null !== $this->backupLogSize) {
+            $res['BackupLogSize'] = $this->backupLogSize;
         }
         if (null !== $this->pos) {
             $res['Pos'] = $this->pos;
@@ -65,11 +62,14 @@ class incr extends Model
         if (null !== $this->queueLogNum) {
             $res['QueueLogNum'] = $this->queueLogNum;
         }
-        if (null !== $this->backupLogSize) {
-            $res['BackupLogSize'] = $this->backupLogSize;
-        }
         if (null !== $this->runningLogNum) {
             $res['RunningLogNum'] = $this->runningLogNum;
+        }
+        if (null !== $this->speed) {
+            $res['Speed'] = $this->speed;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,11 +83,8 @@ class incr extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Speed'])) {
-            $model->speed = $map['Speed'];
+        if (isset($map['BackupLogSize'])) {
+            $model->backupLogSize = $map['BackupLogSize'];
         }
         if (isset($map['Pos'])) {
             $model->pos = $map['Pos'];
@@ -95,11 +92,14 @@ class incr extends Model
         if (isset($map['QueueLogNum'])) {
             $model->queueLogNum = $map['QueueLogNum'];
         }
-        if (isset($map['BackupLogSize'])) {
-            $model->backupLogSize = $map['BackupLogSize'];
-        }
         if (isset($map['RunningLogNum'])) {
             $model->runningLogNum = $map['RunningLogNum'];
+        }
+        if (isset($map['Speed'])) {
+            $model->speed = $map['Speed'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

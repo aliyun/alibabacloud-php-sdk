@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion;
 
-use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories;
 use AlibabaCloud\Tea\Model;
 
 class supportedCategories extends Model
 {
     /**
-     * @var supportedCategories[]
+     * @var \AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories[]
      */
     public $supportedCategories;
     protected $_name = [
@@ -50,7 +49,7 @@ class supportedCategories extends Model
                 $model->supportedCategories = [];
                 $n                          = 0;
                 foreach ($map['SupportedCategories'] as $item) {
-                    $model->supportedCategories[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->supportedCategories[$n++] = null !== $item ? \AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories::fromMap($item) : $item;
                 }
             }
         }

@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceServiceConfigurationsResponseBody extends Model
 {
     /**
+     * @var configureList
+     */
+    public $configureList;
+
+    /**
      * @var int
      */
-    public $totalRecordCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,18 +32,13 @@ class ListInstanceServiceConfigurationsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var configureList
-     */
-    public $configureList;
+    public $totalRecordCount;
     protected $_name = [
-        'totalRecordCount' => 'TotalRecordCount',
+        'configureList'    => 'ConfigureList',
+        'pageNumber'       => 'PageNumber',
         'pageRecordCount'  => 'PageRecordCount',
         'requestId'        => 'RequestId',
-        'pageNumber'       => 'PageNumber',
-        'configureList'    => 'ConfigureList',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -48,8 +48,11 @@ class ListInstanceServiceConfigurationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
+        if (null !== $this->configureList) {
+            $res['ConfigureList'] = null !== $this->configureList ? $this->configureList->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
@@ -57,11 +60,8 @@ class ListInstanceServiceConfigurationsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->configureList) {
-            $res['ConfigureList'] = null !== $this->configureList ? $this->configureList->toMap() : null;
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -75,8 +75,11 @@ class ListInstanceServiceConfigurationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
+        if (isset($map['ConfigureList'])) {
+            $model->configureList = configureList::fromMap($map['ConfigureList']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
@@ -84,11 +87,8 @@ class ListInstanceServiceConfigurationsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['ConfigureList'])) {
-            $model->configureList = configureList::fromMap($map['ConfigureList']);
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

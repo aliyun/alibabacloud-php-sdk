@@ -16,6 +16,16 @@ class UpgradeMultiZoneClusterRequest extends Model
     /**
      * @var string
      */
+    public $components;
+
+    /**
+     * @var string
+     */
+    public $restartComponents;
+
+    /**
+     * @var string
+     */
     public $runMode;
 
     /**
@@ -26,24 +36,14 @@ class UpgradeMultiZoneClusterRequest extends Model
     /**
      * @var string
      */
-    public $components;
-
-    /**
-     * @var string
-     */
     public $versions;
-
-    /**
-     * @var string
-     */
-    public $restartComponents;
     protected $_name = [
         'clusterId'         => 'ClusterId',
+        'components'        => 'Components',
+        'restartComponents' => 'RestartComponents',
         'runMode'           => 'RunMode',
         'upgradeInsName'    => 'UpgradeInsName',
-        'components'        => 'Components',
         'versions'          => 'Versions',
-        'restartComponents' => 'RestartComponents',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class UpgradeMultiZoneClusterRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->components) {
+            $res['Components'] = $this->components;
+        }
+        if (null !== $this->restartComponents) {
+            $res['RestartComponents'] = $this->restartComponents;
+        }
         if (null !== $this->runMode) {
             $res['RunMode'] = $this->runMode;
         }
         if (null !== $this->upgradeInsName) {
             $res['UpgradeInsName'] = $this->upgradeInsName;
         }
-        if (null !== $this->components) {
-            $res['Components'] = $this->components;
-        }
         if (null !== $this->versions) {
             $res['Versions'] = $this->versions;
-        }
-        if (null !== $this->restartComponents) {
-            $res['RestartComponents'] = $this->restartComponents;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class UpgradeMultiZoneClusterRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['Components'])) {
+            $model->components = $map['Components'];
+        }
+        if (isset($map['RestartComponents'])) {
+            $model->restartComponents = $map['RestartComponents'];
+        }
         if (isset($map['RunMode'])) {
             $model->runMode = $map['RunMode'];
         }
         if (isset($map['UpgradeInsName'])) {
             $model->upgradeInsName = $map['UpgradeInsName'];
         }
-        if (isset($map['Components'])) {
-            $model->components = $map['Components'];
-        }
         if (isset($map['Versions'])) {
             $model->versions = $map['Versions'];
-        }
-        if (isset($map['RestartComponents'])) {
-            $model->restartComponents = $map['RestartComponents'];
         }
 
         return $model;

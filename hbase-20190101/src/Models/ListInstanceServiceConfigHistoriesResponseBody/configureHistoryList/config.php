@@ -11,12 +11,7 @@ class config extends Model
     /**
      * @var string
      */
-    public $effective;
-
-    /**
-     * @var string
-     */
-    public $oldValue;
+    public $configureName;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class config extends Model
     /**
      * @var string
      */
-    public $configureName;
+    public $effective;
 
     /**
      * @var string
      */
     public $newValue;
+
+    /**
+     * @var string
+     */
+    public $oldValue;
     protected $_name = [
-        'effective'     => 'Effective',
-        'oldValue'      => 'OldValue',
-        'createTime'    => 'CreateTime',
         'configureName' => 'ConfigureName',
+        'createTime'    => 'CreateTime',
+        'effective'     => 'Effective',
         'newValue'      => 'NewValue',
+        'oldValue'      => 'OldValue',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class config extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->effective) {
-            $res['Effective'] = $this->effective;
-        }
-        if (null !== $this->oldValue) {
-            $res['OldValue'] = $this->oldValue;
+        if (null !== $this->configureName) {
+            $res['ConfigureName'] = $this->configureName;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->configureName) {
-            $res['ConfigureName'] = $this->configureName;
+        if (null !== $this->effective) {
+            $res['Effective'] = $this->effective;
         }
         if (null !== $this->newValue) {
             $res['NewValue'] = $this->newValue;
+        }
+        if (null !== $this->oldValue) {
+            $res['OldValue'] = $this->oldValue;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Effective'])) {
-            $model->effective = $map['Effective'];
-        }
-        if (isset($map['OldValue'])) {
-            $model->oldValue = $map['OldValue'];
+        if (isset($map['ConfigureName'])) {
+            $model->configureName = $map['ConfigureName'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ConfigureName'])) {
-            $model->configureName = $map['ConfigureName'];
+        if (isset($map['Effective'])) {
+            $model->effective = $map['Effective'];
         }
         if (isset($map['NewValue'])) {
             $model->newValue = $map['NewValue'];
+        }
+        if (isset($map['OldValue'])) {
+            $model->oldValue = $map['OldValue'];
         }
 
         return $model;

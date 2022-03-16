@@ -16,17 +16,37 @@ class DescribeClusterConnectionResponseBody extends Model
     /**
      * @var string
      */
+    public $dbType;
+
+    /**
+     * @var string
+     */
     public $isMultimod;
 
     /**
      * @var string
      */
-    public $vpcId;
+    public $netType;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var serviceConnAddrs
+     */
+    public $serviceConnAddrs;
+
+    /**
+     * @var slbConnAddrs
+     */
+    public $slbConnAddrs;
+
+    /**
+     * @var thriftConn
+     */
+    public $thriftConn;
 
     /**
      * @var uiProxyConnAddrInfo
@@ -39,46 +59,26 @@ class DescribeClusterConnectionResponseBody extends Model
     public $vSwitchId;
 
     /**
-     * @var serviceConnAddrs
-     */
-    public $serviceConnAddrs;
-
-    /**
      * @var string
      */
-    public $netType;
-
-    /**
-     * @var string
-     */
-    public $dbType;
-
-    /**
-     * @var thriftConn
-     */
-    public $thriftConn;
+    public $vpcId;
 
     /**
      * @var zkConnAddrs
      */
     public $zkConnAddrs;
-
-    /**
-     * @var slbConnAddrs
-     */
-    public $slbConnAddrs;
     protected $_name = [
+        'dbType'              => 'DbType',
         'isMultimod'          => 'IsMultimod',
-        'vpcId'               => 'VpcId',
+        'netType'             => 'NetType',
         'requestId'           => 'RequestId',
+        'serviceConnAddrs'    => 'ServiceConnAddrs',
+        'slbConnAddrs'        => 'SlbConnAddrs',
+        'thriftConn'          => 'ThriftConn',
         'uiProxyConnAddrInfo' => 'UiProxyConnAddrInfo',
         'vSwitchId'           => 'VSwitchId',
-        'serviceConnAddrs'    => 'ServiceConnAddrs',
-        'netType'             => 'NetType',
-        'dbType'              => 'DbType',
-        'thriftConn'          => 'ThriftConn',
+        'vpcId'               => 'VpcId',
         'zkConnAddrs'         => 'ZkConnAddrs',
-        'slbConnAddrs'        => 'SlbConnAddrs',
     ];
 
     public function validate()
@@ -88,14 +88,26 @@ class DescribeClusterConnectionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
+        }
         if (null !== $this->isMultimod) {
             $res['IsMultimod'] = $this->isMultimod;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceConnAddrs) {
+            $res['ServiceConnAddrs'] = null !== $this->serviceConnAddrs ? $this->serviceConnAddrs->toMap() : null;
+        }
+        if (null !== $this->slbConnAddrs) {
+            $res['SlbConnAddrs'] = null !== $this->slbConnAddrs ? $this->slbConnAddrs->toMap() : null;
+        }
+        if (null !== $this->thriftConn) {
+            $res['ThriftConn'] = null !== $this->thriftConn ? $this->thriftConn->toMap() : null;
         }
         if (null !== $this->uiProxyConnAddrInfo) {
             $res['UiProxyConnAddrInfo'] = null !== $this->uiProxyConnAddrInfo ? $this->uiProxyConnAddrInfo->toMap() : null;
@@ -103,23 +115,11 @@ class DescribeClusterConnectionResponseBody extends Model
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->serviceConnAddrs) {
-            $res['ServiceConnAddrs'] = null !== $this->serviceConnAddrs ? $this->serviceConnAddrs->toMap() : null;
-        }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
-        }
-        if (null !== $this->dbType) {
-            $res['DbType'] = $this->dbType;
-        }
-        if (null !== $this->thriftConn) {
-            $res['ThriftConn'] = null !== $this->thriftConn ? $this->thriftConn->toMap() : null;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->zkConnAddrs) {
             $res['ZkConnAddrs'] = null !== $this->zkConnAddrs ? $this->zkConnAddrs->toMap() : null;
-        }
-        if (null !== $this->slbConnAddrs) {
-            $res['SlbConnAddrs'] = null !== $this->slbConnAddrs ? $this->slbConnAddrs->toMap() : null;
         }
 
         return $res;
@@ -133,14 +133,26 @@ class DescribeClusterConnectionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
+        }
         if (isset($map['IsMultimod'])) {
             $model->isMultimod = $map['IsMultimod'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceConnAddrs'])) {
+            $model->serviceConnAddrs = serviceConnAddrs::fromMap($map['ServiceConnAddrs']);
+        }
+        if (isset($map['SlbConnAddrs'])) {
+            $model->slbConnAddrs = slbConnAddrs::fromMap($map['SlbConnAddrs']);
+        }
+        if (isset($map['ThriftConn'])) {
+            $model->thriftConn = thriftConn::fromMap($map['ThriftConn']);
         }
         if (isset($map['UiProxyConnAddrInfo'])) {
             $model->uiProxyConnAddrInfo = uiProxyConnAddrInfo::fromMap($map['UiProxyConnAddrInfo']);
@@ -148,23 +160,11 @@ class DescribeClusterConnectionResponseBody extends Model
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['ServiceConnAddrs'])) {
-            $model->serviceConnAddrs = serviceConnAddrs::fromMap($map['ServiceConnAddrs']);
-        }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
-        }
-        if (isset($map['DbType'])) {
-            $model->dbType = $map['DbType'];
-        }
-        if (isset($map['ThriftConn'])) {
-            $model->thriftConn = thriftConn::fromMap($map['ThriftConn']);
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
         if (isset($map['ZkConnAddrs'])) {
             $model->zkConnAddrs = zkConnAddrs::fromMap($map['ZkConnAddrs']);
-        }
-        if (isset($map['SlbConnAddrs'])) {
-            $model->slbConnAddrs = slbConnAddrs::fromMap($map['SlbConnAddrs']);
         }
 
         return $model;

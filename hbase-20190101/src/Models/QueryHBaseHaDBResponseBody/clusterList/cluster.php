@@ -12,12 +12,17 @@ class cluster extends Model
     /**
      * @var string
      */
-    public $haName;
+    public $activeName;
 
     /**
      * @var string
      */
     public $bdsName;
+
+    /**
+     * @var string
+     */
+    public $haName;
 
     /**
      * @var haSlbConnList
@@ -27,17 +32,12 @@ class cluster extends Model
     /**
      * @var string
      */
-    public $activeName;
-
-    /**
-     * @var string
-     */
     public $standbyName;
     protected $_name = [
-        'haName'        => 'HaName',
-        'bdsName'       => 'BdsName',
-        'haSlbConnList' => 'HaSlbConnList',
         'activeName'    => 'ActiveName',
+        'bdsName'       => 'BdsName',
+        'haName'        => 'HaName',
+        'haSlbConnList' => 'HaSlbConnList',
         'standbyName'   => 'StandbyName',
     ];
 
@@ -48,17 +48,17 @@ class cluster extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->haName) {
-            $res['HaName'] = $this->haName;
+        if (null !== $this->activeName) {
+            $res['ActiveName'] = $this->activeName;
         }
         if (null !== $this->bdsName) {
             $res['BdsName'] = $this->bdsName;
         }
+        if (null !== $this->haName) {
+            $res['HaName'] = $this->haName;
+        }
         if (null !== $this->haSlbConnList) {
             $res['HaSlbConnList'] = null !== $this->haSlbConnList ? $this->haSlbConnList->toMap() : null;
-        }
-        if (null !== $this->activeName) {
-            $res['ActiveName'] = $this->activeName;
         }
         if (null !== $this->standbyName) {
             $res['StandbyName'] = $this->standbyName;
@@ -75,17 +75,17 @@ class cluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HaName'])) {
-            $model->haName = $map['HaName'];
+        if (isset($map['ActiveName'])) {
+            $model->activeName = $map['ActiveName'];
         }
         if (isset($map['BdsName'])) {
             $model->bdsName = $map['BdsName'];
         }
+        if (isset($map['HaName'])) {
+            $model->haName = $map['HaName'];
+        }
         if (isset($map['HaSlbConnList'])) {
             $model->haSlbConnList = haSlbConnList::fromMap($map['HaSlbConnList']);
-        }
-        if (isset($map['ActiveName'])) {
-            $model->activeName = $map['ActiveName'];
         }
         if (isset($map['StandbyName'])) {
             $model->standbyName = $map['StandbyName'];

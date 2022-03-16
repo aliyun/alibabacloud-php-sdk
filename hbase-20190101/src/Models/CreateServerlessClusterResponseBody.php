@@ -11,11 +11,6 @@ class CreateServerlessClusterResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
@@ -27,11 +22,16 @@ class CreateServerlessClusterResponseBody extends Model
      * @var string
      */
     public $passWord;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'clusterId' => 'ClusterId',
         'orderId'   => 'OrderId',
         'passWord'  => 'PassWord',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CreateServerlessClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -52,6 +49,9 @@ class CreateServerlessClusterResponseBody extends Model
         }
         if (null !== $this->passWord) {
             $res['PassWord'] = $this->passWord;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CreateServerlessClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -76,6 +73,9 @@ class CreateServerlessClusterResponseBody extends Model
         }
         if (isset($map['PassWord'])) {
             $model->passWord = $map['PassWord'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

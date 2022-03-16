@@ -16,22 +16,22 @@ class ModifyMultiZoneClusterNodeTypeRequest extends Model
     /**
      * @var string
      */
-    public $masterInstanceType;
-
-    /**
-     * @var string
-     */
     public $coreInstanceType;
 
     /**
      * @var string
      */
     public $logInstanceType;
+
+    /**
+     * @var string
+     */
+    public $masterInstanceType;
     protected $_name = [
         'clusterId'          => 'ClusterId',
-        'masterInstanceType' => 'MasterInstanceType',
         'coreInstanceType'   => 'CoreInstanceType',
         'logInstanceType'    => 'LogInstanceType',
+        'masterInstanceType' => 'MasterInstanceType',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ModifyMultiZoneClusterNodeTypeRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->masterInstanceType) {
-            $res['MasterInstanceType'] = $this->masterInstanceType;
-        }
         if (null !== $this->coreInstanceType) {
             $res['CoreInstanceType'] = $this->coreInstanceType;
         }
         if (null !== $this->logInstanceType) {
             $res['LogInstanceType'] = $this->logInstanceType;
+        }
+        if (null !== $this->masterInstanceType) {
+            $res['MasterInstanceType'] = $this->masterInstanceType;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ModifyMultiZoneClusterNodeTypeRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['MasterInstanceType'])) {
-            $model->masterInstanceType = $map['MasterInstanceType'];
-        }
         if (isset($map['CoreInstanceType'])) {
             $model->coreInstanceType = $map['CoreInstanceType'];
         }
         if (isset($map['LogInstanceType'])) {
             $model->logInstanceType = $map['LogInstanceType'];
+        }
+        if (isset($map['MasterInstanceType'])) {
+            $model->masterInstanceType = $map['MasterInstanceType'];
         }
 
         return $model;

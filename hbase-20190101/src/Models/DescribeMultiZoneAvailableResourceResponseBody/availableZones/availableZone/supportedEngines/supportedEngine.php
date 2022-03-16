@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedEngine extends Model
 {
     /**
-     * @var supportedEngineVersions
-     */
-    public $supportedEngineVersions;
-
-    /**
      * @var string
      */
     public $engine;
+
+    /**
+     * @var supportedEngineVersions
+     */
+    public $supportedEngineVersions;
     protected $_name = [
-        'supportedEngineVersions' => 'SupportedEngineVersions',
         'engine'                  => 'Engine',
+        'supportedEngineVersions' => 'SupportedEngineVersions',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class supportedEngine extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportedEngineVersions) {
-            $res['SupportedEngineVersions'] = null !== $this->supportedEngineVersions ? $this->supportedEngineVersions->toMap() : null;
-        }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->supportedEngineVersions) {
+            $res['SupportedEngineVersions'] = null !== $this->supportedEngineVersions ? $this->supportedEngineVersions->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class supportedEngine extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportedEngineVersions'])) {
-            $model->supportedEngineVersions = supportedEngineVersions::fromMap($map['SupportedEngineVersions']);
-        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['SupportedEngineVersions'])) {
+            $model->supportedEngineVersions = supportedEngineVersions::fromMap($map['SupportedEngineVersions']);
         }
 
         return $model;

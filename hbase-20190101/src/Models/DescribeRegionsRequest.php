@@ -12,8 +12,14 @@ class DescribeRegionsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
+    /**
+     * @var string
+     */
+    public $engine;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'engine'         => 'Engine',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeRegionsRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DescribeRegionsRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
 
         return $model;

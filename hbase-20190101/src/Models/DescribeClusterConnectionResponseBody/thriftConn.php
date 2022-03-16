@@ -11,21 +11,21 @@ class thriftConn extends Model
     /**
      * @var string
      */
+    public $connAddr;
+
+    /**
+     * @var string
+     */
     public $connAddrPort;
 
     /**
      * @var string
      */
     public $netType;
-
-    /**
-     * @var string
-     */
-    public $connAddr;
     protected $_name = [
+        'connAddr'     => 'ConnAddr',
         'connAddrPort' => 'ConnAddrPort',
         'netType'      => 'NetType',
-        'connAddr'     => 'ConnAddr',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class thriftConn extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connAddr) {
+            $res['ConnAddr'] = $this->connAddr;
+        }
         if (null !== $this->connAddrPort) {
             $res['ConnAddrPort'] = $this->connAddrPort;
         }
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
-        }
-        if (null !== $this->connAddr) {
-            $res['ConnAddr'] = $this->connAddr;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class thriftConn extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnAddr'])) {
+            $model->connAddr = $map['ConnAddr'];
+        }
         if (isset($map['ConnAddrPort'])) {
             $model->connAddrPort = $map['ConnAddrPort'];
         }
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
-        }
-        if (isset($map['ConnAddr'])) {
-            $model->connAddr = $map['ConnAddr'];
         }
 
         return $model;

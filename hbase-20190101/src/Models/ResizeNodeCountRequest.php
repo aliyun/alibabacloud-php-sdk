@@ -21,17 +21,17 @@ class ResizeNodeCountRequest extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $vSwitchId;
 
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $zoneId;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'nodeCount' => 'NodeCount',
-        'zoneId'    => 'ZoneId',
         'vSwitchId' => 'VSwitchId',
+        'zoneId'    => 'ZoneId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class ResizeNodeCountRequest extends Model
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class ResizeNodeCountRequest extends Model
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class haSlbConn extends Model
     /**
      * @var string
      */
-    public $slbConnAddr;
+    public $hbaseType;
 
     /**
      * @var string
      */
-    public $hbaseType;
+    public $slbConnAddr;
 
     /**
      * @var string
      */
     public $slbType;
     protected $_name = [
-        'slbConnAddr' => 'SlbConnAddr',
         'hbaseType'   => 'HbaseType',
+        'slbConnAddr' => 'SlbConnAddr',
         'slbType'     => 'SlbType',
     ];
 
@@ -35,11 +35,11 @@ class haSlbConn extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->slbConnAddr) {
-            $res['SlbConnAddr'] = $this->slbConnAddr;
-        }
         if (null !== $this->hbaseType) {
             $res['HbaseType'] = $this->hbaseType;
+        }
+        if (null !== $this->slbConnAddr) {
+            $res['SlbConnAddr'] = $this->slbConnAddr;
         }
         if (null !== $this->slbType) {
             $res['SlbType'] = $this->slbType;
@@ -56,11 +56,11 @@ class haSlbConn extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SlbConnAddr'])) {
-            $model->slbConnAddr = $map['SlbConnAddr'];
-        }
         if (isset($map['HbaseType'])) {
             $model->hbaseType = $map['HbaseType'];
+        }
+        if (isset($map['SlbConnAddr'])) {
+            $model->slbConnAddr = $map['SlbConnAddr'];
         }
         if (isset($map['SlbType'])) {
             $model->slbType = $map['SlbType'];

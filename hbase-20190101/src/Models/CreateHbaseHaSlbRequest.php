@@ -16,6 +16,11 @@ class CreateHbaseHaSlbRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $haId;
 
     /**
@@ -27,17 +32,12 @@ class CreateHbaseHaSlbRequest extends Model
      * @var string
      */
     public $hbaseType;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'bdsId'       => 'BdsId',
+        'clientToken' => 'ClientToken',
         'haId'        => 'HaId',
         'haTypes'     => 'HaTypes',
         'hbaseType'   => 'HbaseType',
-        'clientToken' => 'ClientToken',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class CreateHbaseHaSlbRequest extends Model
         if (null !== $this->bdsId) {
             $res['BdsId'] = $this->bdsId;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->haId) {
             $res['HaId'] = $this->haId;
         }
@@ -58,9 +61,6 @@ class CreateHbaseHaSlbRequest extends Model
         }
         if (null !== $this->hbaseType) {
             $res['HbaseType'] = $this->hbaseType;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class CreateHbaseHaSlbRequest extends Model
         if (isset($map['BdsId'])) {
             $model->bdsId = $map['BdsId'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['HaId'])) {
             $model->haId = $map['HaId'];
         }
@@ -85,9 +88,6 @@ class CreateHbaseHaSlbRequest extends Model
         }
         if (isset($map['HbaseType'])) {
             $model->hbaseType = $map['HbaseType'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

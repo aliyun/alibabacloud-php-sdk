@@ -11,16 +11,6 @@ use AlibabaCloud\Tea\Model;
 class availableZone extends Model
 {
     /**
-     * @var supportedEngines
-     */
-    public $supportedEngines;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
      * @var masterResources
      */
     public $masterResources;
@@ -29,11 +19,21 @@ class availableZone extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var supportedEngines
+     */
+    public $supportedEngines;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'supportedEngines' => 'SupportedEngines',
-        'zoneId'           => 'ZoneId',
         'masterResources'  => 'MasterResources',
         'regionId'         => 'RegionId',
+        'supportedEngines' => 'SupportedEngines',
+        'zoneId'           => 'ZoneId',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class availableZone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportedEngines) {
-            $res['SupportedEngines'] = null !== $this->supportedEngines ? $this->supportedEngines->toMap() : null;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->masterResources) {
             $res['MasterResources'] = null !== $this->masterResources ? $this->masterResources->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->supportedEngines) {
+            $res['SupportedEngines'] = null !== $this->supportedEngines ? $this->supportedEngines->toMap() : null;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class availableZone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportedEngines'])) {
-            $model->supportedEngines = supportedEngines::fromMap($map['SupportedEngines']);
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['MasterResources'])) {
             $model->masterResources = masterResources::fromMap($map['MasterResources']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SupportedEngines'])) {
+            $model->supportedEngines = supportedEngines::fromMap($map['SupportedEngines']);
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

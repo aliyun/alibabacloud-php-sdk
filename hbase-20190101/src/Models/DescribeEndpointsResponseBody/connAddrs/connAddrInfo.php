@@ -11,27 +11,27 @@ class connAddrInfo extends Model
     /**
      * @var string
      */
-    public $connAddrPort;
-
-    /**
-     * @var string
-     */
-    public $netType;
-
-    /**
-     * @var string
-     */
     public $connAddr;
 
     /**
      * @var string
      */
+    public $connAddrPort;
+
+    /**
+     * @var string
+     */
     public $connType;
+
+    /**
+     * @var string
+     */
+    public $netType;
     protected $_name = [
-        'connAddrPort' => 'ConnAddrPort',
-        'netType'      => 'NetType',
         'connAddr'     => 'ConnAddr',
+        'connAddrPort' => 'ConnAddrPort',
         'connType'     => 'ConnType',
+        'netType'      => 'NetType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class connAddrInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->connAddrPort) {
-            $res['ConnAddrPort'] = $this->connAddrPort;
-        }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
-        }
         if (null !== $this->connAddr) {
             $res['ConnAddr'] = $this->connAddr;
         }
+        if (null !== $this->connAddrPort) {
+            $res['ConnAddrPort'] = $this->connAddrPort;
+        }
         if (null !== $this->connType) {
             $res['ConnType'] = $this->connType;
+        }
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class connAddrInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConnAddrPort'])) {
-            $model->connAddrPort = $map['ConnAddrPort'];
-        }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
-        }
         if (isset($map['ConnAddr'])) {
             $model->connAddr = $map['ConnAddr'];
         }
+        if (isset($map['ConnAddrPort'])) {
+            $model->connAddrPort = $map['ConnAddrPort'];
+        }
         if (isset($map['ConnType'])) {
             $model->connType = $map['ConnType'];
+        }
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
         }
 
         return $model;

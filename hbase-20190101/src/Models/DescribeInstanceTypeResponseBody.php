@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypeResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var instanceTypeSpecList
      */
     public $instanceTypeSpecList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'instanceTypeSpecList' => 'InstanceTypeSpecList',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeInstanceTypeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceTypeSpecList) {
             $res['InstanceTypeSpecList'] = null !== $this->instanceTypeSpecList ? $this->instanceTypeSpecList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeInstanceTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceTypeSpecList'])) {
             $model->instanceTypeSpecList = instanceTypeSpecList::fromMap($map['InstanceTypeSpecList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

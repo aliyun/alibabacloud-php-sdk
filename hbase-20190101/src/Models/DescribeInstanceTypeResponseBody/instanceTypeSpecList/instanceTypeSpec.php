@@ -14,18 +14,18 @@ class instanceTypeSpec extends Model
     public $cpuSize;
 
     /**
-     * @var int
-     */
-    public $memSize;
-
-    /**
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var int
+     */
+    public $memSize;
     protected $_name = [
         'cpuSize'      => 'CpuSize',
-        'memSize'      => 'MemSize',
         'instanceType' => 'InstanceType',
+        'memSize'      => 'MemSize',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class instanceTypeSpec extends Model
         if (null !== $this->cpuSize) {
             $res['CpuSize'] = $this->cpuSize;
         }
-        if (null !== $this->memSize) {
-            $res['MemSize'] = $this->memSize;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->memSize) {
+            $res['MemSize'] = $this->memSize;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class instanceTypeSpec extends Model
         if (isset($map['CpuSize'])) {
             $model->cpuSize = $map['CpuSize'];
         }
-        if (isset($map['MemSize'])) {
-            $model->memSize = $map['MemSize'];
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['MemSize'])) {
+            $model->memSize = $map['MemSize'];
         }
 
         return $model;

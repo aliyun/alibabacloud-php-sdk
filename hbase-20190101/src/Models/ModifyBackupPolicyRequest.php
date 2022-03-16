@@ -16,7 +16,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $preferredBackupTime;
+    public $preferredBackupEndTimeUTC;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $preferredBackupEndTimeUTC;
+    public $preferredBackupTime;
     protected $_name = [
         'clusterId'                   => 'ClusterId',
-        'preferredBackupTime'         => 'PreferredBackupTime',
+        'preferredBackupEndTimeUTC'   => 'PreferredBackupEndTimeUTC',
         'preferredBackupPeriod'       => 'PreferredBackupPeriod',
         'preferredBackupStartTimeUTC' => 'PreferredBackupStartTimeUTC',
-        'preferredBackupEndTimeUTC'   => 'PreferredBackupEndTimeUTC',
+        'preferredBackupTime'         => 'PreferredBackupTime',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class ModifyBackupPolicyRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->preferredBackupTime) {
-            $res['PreferredBackupTime'] = $this->preferredBackupTime;
+        if (null !== $this->preferredBackupEndTimeUTC) {
+            $res['PreferredBackupEndTimeUTC'] = $this->preferredBackupEndTimeUTC;
         }
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
@@ -59,8 +59,8 @@ class ModifyBackupPolicyRequest extends Model
         if (null !== $this->preferredBackupStartTimeUTC) {
             $res['PreferredBackupStartTimeUTC'] = $this->preferredBackupStartTimeUTC;
         }
-        if (null !== $this->preferredBackupEndTimeUTC) {
-            $res['PreferredBackupEndTimeUTC'] = $this->preferredBackupEndTimeUTC;
+        if (null !== $this->preferredBackupTime) {
+            $res['PreferredBackupTime'] = $this->preferredBackupTime;
         }
 
         return $res;
@@ -77,8 +77,8 @@ class ModifyBackupPolicyRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['PreferredBackupTime'])) {
-            $model->preferredBackupTime = $map['PreferredBackupTime'];
+        if (isset($map['PreferredBackupEndTimeUTC'])) {
+            $model->preferredBackupEndTimeUTC = $map['PreferredBackupEndTimeUTC'];
         }
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
@@ -86,8 +86,8 @@ class ModifyBackupPolicyRequest extends Model
         if (isset($map['PreferredBackupStartTimeUTC'])) {
             $model->preferredBackupStartTimeUTC = $map['PreferredBackupStartTimeUTC'];
         }
-        if (isset($map['PreferredBackupEndTimeUTC'])) {
-            $model->preferredBackupEndTimeUTC = $map['PreferredBackupEndTimeUTC'];
+        if (isset($map['PreferredBackupTime'])) {
+            $model->preferredBackupTime = $map['PreferredBackupTime'];
         }
 
         return $model;

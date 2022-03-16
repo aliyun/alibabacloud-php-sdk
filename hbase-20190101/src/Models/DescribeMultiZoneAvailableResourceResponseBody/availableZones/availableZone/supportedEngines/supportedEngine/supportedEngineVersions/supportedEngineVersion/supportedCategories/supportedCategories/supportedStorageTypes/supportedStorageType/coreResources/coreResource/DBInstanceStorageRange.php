@@ -16,16 +16,16 @@ class DBInstanceStorageRange extends Model
     /**
      * @var int
      */
-    public $stepSize;
+    public $minSize;
 
     /**
      * @var int
      */
-    public $minSize;
+    public $stepSize;
     protected $_name = [
         'maxSize'  => 'MaxSize',
-        'stepSize' => 'StepSize',
         'minSize'  => 'MinSize',
+        'stepSize' => 'StepSize',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DBInstanceStorageRange extends Model
         if (null !== $this->maxSize) {
             $res['MaxSize'] = $this->maxSize;
         }
-        if (null !== $this->stepSize) {
-            $res['StepSize'] = $this->stepSize;
-        }
         if (null !== $this->minSize) {
             $res['MinSize'] = $this->minSize;
+        }
+        if (null !== $this->stepSize) {
+            $res['StepSize'] = $this->stepSize;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DBInstanceStorageRange extends Model
         if (isset($map['MaxSize'])) {
             $model->maxSize = $map['MaxSize'];
         }
-        if (isset($map['StepSize'])) {
-            $model->stepSize = $map['StepSize'];
-        }
         if (isset($map['MinSize'])) {
             $model->minSize = $map['MinSize'];
+        }
+        if (isset($map['StepSize'])) {
+            $model->stepSize = $map['StepSize'];
         }
 
         return $model;

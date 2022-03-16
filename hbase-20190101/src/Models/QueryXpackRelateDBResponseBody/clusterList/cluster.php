@@ -11,17 +11,7 @@ class cluster extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $DBVersion;
-
-    /**
-     * @var bool
-     */
-    public $isRelated;
+    public $clusterId;
 
     /**
      * @var string
@@ -36,20 +26,30 @@ class cluster extends Model
     /**
      * @var string
      */
+    public $DBVersion;
+
+    /**
+     * @var bool
+     */
+    public $isRelated;
+
+    /**
+     * @var string
+     */
     public $lockMode;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
-        'DBVersion'   => 'DBVersion',
-        'isRelated'   => 'IsRelated',
+        'clusterId'   => 'ClusterId',
         'clusterName' => 'ClusterName',
         'DBType'      => 'DBType',
+        'DBVersion'   => 'DBVersion',
+        'isRelated'   => 'IsRelated',
         'lockMode'    => 'LockMode',
-        'clusterId'   => 'ClusterId',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -59,14 +59,8 @@ class cluster extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->DBVersion) {
-            $res['DBVersion'] = $this->DBVersion;
-        }
-        if (null !== $this->isRelated) {
-            $res['IsRelated'] = $this->isRelated;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
@@ -74,11 +68,17 @@ class cluster extends Model
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
         }
+        if (null !== $this->DBVersion) {
+            $res['DBVersion'] = $this->DBVersion;
+        }
+        if (null !== $this->isRelated) {
+            $res['IsRelated'] = $this->isRelated;
+        }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,14 +92,8 @@ class cluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['DBVersion'])) {
-            $model->DBVersion = $map['DBVersion'];
-        }
-        if (isset($map['IsRelated'])) {
-            $model->isRelated = $map['IsRelated'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
@@ -107,11 +101,17 @@ class cluster extends Model
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
         }
+        if (isset($map['DBVersion'])) {
+            $model->DBVersion = $map['DBVersion'];
+        }
+        if (isset($map['IsRelated'])) {
+            $model->isRelated = $map['IsRelated'];
+        }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

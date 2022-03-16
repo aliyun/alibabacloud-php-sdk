@@ -16,16 +16,16 @@ class DescribeRecoverableTimeRangeResponseBody extends Model
     /**
      * @var string
      */
-    public $timeEnd;
+    public $timeBegin;
 
     /**
      * @var string
      */
-    public $timeBegin;
+    public $timeEnd;
     protected $_name = [
         'requestId' => 'RequestId',
-        'timeEnd'   => 'TimeEnd',
         'timeBegin' => 'TimeBegin',
+        'timeEnd'   => 'TimeEnd',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeRecoverableTimeRangeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->timeEnd) {
-            $res['TimeEnd'] = $this->timeEnd;
-        }
         if (null !== $this->timeBegin) {
             $res['TimeBegin'] = $this->timeBegin;
+        }
+        if (null !== $this->timeEnd) {
+            $res['TimeEnd'] = $this->timeEnd;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeRecoverableTimeRangeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TimeEnd'])) {
-            $model->timeEnd = $map['TimeEnd'];
-        }
         if (isset($map['TimeBegin'])) {
             $model->timeBegin = $map['TimeBegin'];
+        }
+        if (isset($map['TimeEnd'])) {
+            $model->timeEnd = $map['TimeEnd'];
         }
 
         return $model;

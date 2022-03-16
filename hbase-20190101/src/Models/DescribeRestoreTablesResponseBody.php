@@ -14,9 +14,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreTablesResponseBody extends Model
 {
     /**
-     * @var restoreSchema
+     * @var string
      */
-    public $restoreSchema;
+    public $requestId;
 
     /**
      * @var restoreFull
@@ -24,14 +24,14 @@ class DescribeRestoreTablesResponseBody extends Model
     public $restoreFull;
 
     /**
-     * @var string
+     * @var restoreIncrDetail
      */
-    public $requestId;
+    public $restoreIncrDetail;
 
     /**
-     * @var tables
+     * @var restoreSchema
      */
-    public $tables;
+    public $restoreSchema;
 
     /**
      * @var restoreSummary
@@ -39,16 +39,16 @@ class DescribeRestoreTablesResponseBody extends Model
     public $restoreSummary;
 
     /**
-     * @var restoreIncrDetail
+     * @var tables
      */
-    public $restoreIncrDetail;
+    public $tables;
     protected $_name = [
-        'restoreSchema'     => 'RestoreSchema',
-        'restoreFull'       => 'RestoreFull',
         'requestId'         => 'RequestId',
-        'tables'            => 'Tables',
-        'restoreSummary'    => 'RestoreSummary',
+        'restoreFull'       => 'RestoreFull',
         'restoreIncrDetail' => 'RestoreIncrDetail',
+        'restoreSchema'     => 'RestoreSchema',
+        'restoreSummary'    => 'RestoreSummary',
+        'tables'            => 'Tables',
     ];
 
     public function validate()
@@ -58,23 +58,23 @@ class DescribeRestoreTablesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->restoreSchema) {
-            $res['RestoreSchema'] = null !== $this->restoreSchema ? $this->restoreSchema->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->restoreFull) {
             $res['RestoreFull'] = null !== $this->restoreFull ? $this->restoreFull->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->restoreIncrDetail) {
+            $res['RestoreIncrDetail'] = null !== $this->restoreIncrDetail ? $this->restoreIncrDetail->toMap() : null;
         }
-        if (null !== $this->tables) {
-            $res['Tables'] = null !== $this->tables ? $this->tables->toMap() : null;
+        if (null !== $this->restoreSchema) {
+            $res['RestoreSchema'] = null !== $this->restoreSchema ? $this->restoreSchema->toMap() : null;
         }
         if (null !== $this->restoreSummary) {
             $res['RestoreSummary'] = null !== $this->restoreSummary ? $this->restoreSummary->toMap() : null;
         }
-        if (null !== $this->restoreIncrDetail) {
-            $res['RestoreIncrDetail'] = null !== $this->restoreIncrDetail ? $this->restoreIncrDetail->toMap() : null;
+        if (null !== $this->tables) {
+            $res['Tables'] = null !== $this->tables ? $this->tables->toMap() : null;
         }
 
         return $res;
@@ -88,23 +88,23 @@ class DescribeRestoreTablesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RestoreSchema'])) {
-            $model->restoreSchema = restoreSchema::fromMap($map['RestoreSchema']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RestoreFull'])) {
             $model->restoreFull = restoreFull::fromMap($map['RestoreFull']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RestoreIncrDetail'])) {
+            $model->restoreIncrDetail = restoreIncrDetail::fromMap($map['RestoreIncrDetail']);
         }
-        if (isset($map['Tables'])) {
-            $model->tables = tables::fromMap($map['Tables']);
+        if (isset($map['RestoreSchema'])) {
+            $model->restoreSchema = restoreSchema::fromMap($map['RestoreSchema']);
         }
         if (isset($map['RestoreSummary'])) {
             $model->restoreSummary = restoreSummary::fromMap($map['RestoreSummary']);
         }
-        if (isset($map['RestoreIncrDetail'])) {
-            $model->restoreIncrDetail = restoreIncrDetail::fromMap($map['RestoreIncrDetail']);
+        if (isset($map['Tables'])) {
+            $model->tables = tables::fromMap($map['Tables']);
         }
 
         return $model;

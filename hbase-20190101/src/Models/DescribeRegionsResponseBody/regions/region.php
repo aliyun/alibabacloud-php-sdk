@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
-     * @var zones
-     */
-    public $zones;
-
-    /**
      * @var string
      */
     public $localName;
@@ -28,11 +23,16 @@ class region extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var zones
+     */
+    public $zones;
     protected $_name = [
-        'zones'          => 'Zones',
         'localName'      => 'LocalName',
         'regionEndpoint' => 'RegionEndpoint',
         'regionId'       => 'RegionId',
+        'zones'          => 'Zones',
     ];
 
     public function validate()
@@ -42,9 +42,6 @@ class region extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
-        }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
@@ -53,6 +50,9 @@ class region extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->zones) {
+            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class region extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Zones'])) {
-            $model->zones = zones::fromMap($map['Zones']);
-        }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
@@ -77,6 +74,9 @@ class region extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Zones'])) {
+            $model->zones = zones::fromMap($map['Zones']);
         }
 
         return $model;

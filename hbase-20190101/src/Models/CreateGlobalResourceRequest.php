@@ -11,6 +11,11 @@ class CreateGlobalResourceRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -22,16 +27,11 @@ class CreateGlobalResourceRequest extends Model
      * @var string
      */
     public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'  => 'ClientToken',
         'clusterId'    => 'ClusterId',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
-        'clientToken'  => 'ClientToken',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CreateGlobalResourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -49,9 +52,6 @@ class CreateGlobalResourceRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CreateGlobalResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -73,9 +76,6 @@ class CreateGlobalResourceRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

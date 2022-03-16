@@ -11,12 +11,7 @@ class EnableHBaseueBackupRequest extends Model
     /**
      * @var string
      */
-    public $hbaseueClusterId;
-
-    /**
-     * @var int
-     */
-    public $nodeCount;
+    public $clientToken;
 
     /**
      * @var int
@@ -26,12 +21,17 @@ class EnableHBaseueBackupRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $hbaseueClusterId;
+
+    /**
+     * @var int
+     */
+    public $nodeCount;
     protected $_name = [
+        'clientToken'      => 'ClientToken',
+        'coldStorageSize'  => 'ColdStorageSize',
         'hbaseueClusterId' => 'HbaseueClusterId',
         'nodeCount'        => 'NodeCount',
-        'coldStorageSize'  => 'ColdStorageSize',
-        'clientToken'      => 'ClientToken',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class EnableHBaseueBackupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->coldStorageSize) {
+            $res['ColdStorageSize'] = $this->coldStorageSize;
+        }
         if (null !== $this->hbaseueClusterId) {
             $res['HbaseueClusterId'] = $this->hbaseueClusterId;
         }
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
-        }
-        if (null !== $this->coldStorageSize) {
-            $res['ColdStorageSize'] = $this->coldStorageSize;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class EnableHBaseueBackupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ColdStorageSize'])) {
+            $model->coldStorageSize = $map['ColdStorageSize'];
+        }
         if (isset($map['HbaseueClusterId'])) {
             $model->hbaseueClusterId = $map['HbaseueClusterId'];
         }
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];
-        }
-        if (isset($map['ColdStorageSize'])) {
-            $model->coldStorageSize = $map['ColdStorageSize'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

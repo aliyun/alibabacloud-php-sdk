@@ -16,16 +16,16 @@ class ModifyInstanceMaintainTimeRequest extends Model
     /**
      * @var string
      */
-    public $maintainStartTime;
+    public $maintainEndTime;
 
     /**
      * @var string
      */
-    public $maintainEndTime;
+    public $maintainStartTime;
     protected $_name = [
         'clusterId'         => 'ClusterId',
-        'maintainStartTime' => 'MaintainStartTime',
         'maintainEndTime'   => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyInstanceMaintainTimeRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->maintainStartTime) {
-            $res['MaintainStartTime'] = $this->maintainStartTime;
-        }
         if (null !== $this->maintainEndTime) {
             $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ModifyInstanceMaintainTimeRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['MaintainStartTime'])) {
-            $model->maintainStartTime = $map['MaintainStartTime'];
-        }
         if (isset($map['MaintainEndTime'])) {
             $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
         return $model;

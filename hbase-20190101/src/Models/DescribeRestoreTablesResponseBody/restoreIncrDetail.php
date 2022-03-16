@@ -16,12 +16,12 @@ class restoreIncrDetail extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $process;
 
     /**
      * @var string
      */
-    public $process;
+    public $restoreDelay;
 
     /**
      * @var string
@@ -31,25 +31,25 @@ class restoreIncrDetail extends Model
     /**
      * @var string
      */
-    public $state;
-
-    /**
-     * @var string
-     */
     public $restoredTs;
 
     /**
      * @var string
      */
-    public $restoreDelay;
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'endTime'        => 'EndTime',
-        'startTime'      => 'StartTime',
         'process'        => 'Process',
-        'restoreStartTs' => 'RestoreStartTs',
-        'state'          => 'State',
-        'restoredTs'     => 'RestoredTs',
         'restoreDelay'   => 'RestoreDelay',
+        'restoreStartTs' => 'RestoreStartTs',
+        'restoredTs'     => 'RestoredTs',
+        'startTime'      => 'StartTime',
+        'state'          => 'State',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class restoreIncrDetail extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->process) {
             $res['Process'] = $this->process;
+        }
+        if (null !== $this->restoreDelay) {
+            $res['RestoreDelay'] = $this->restoreDelay;
         }
         if (null !== $this->restoreStartTs) {
             $res['RestoreStartTs'] = $this->restoreStartTs;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->restoredTs) {
             $res['RestoredTs'] = $this->restoredTs;
         }
-        if (null !== $this->restoreDelay) {
-            $res['RestoreDelay'] = $this->restoreDelay;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class restoreIncrDetail extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Process'])) {
             $model->process = $map['Process'];
+        }
+        if (isset($map['RestoreDelay'])) {
+            $model->restoreDelay = $map['RestoreDelay'];
         }
         if (isset($map['RestoreStartTs'])) {
             $model->restoreStartTs = $map['RestoreStartTs'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['RestoredTs'])) {
             $model->restoredTs = $map['RestoredTs'];
         }
-        if (isset($map['RestoreDelay'])) {
-            $model->restoreDelay = $map['RestoreDelay'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

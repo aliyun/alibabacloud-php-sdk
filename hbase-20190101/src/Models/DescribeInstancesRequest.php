@@ -12,7 +12,17 @@ class DescribeInstancesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $dbType;
 
     /**
      * @var int
@@ -27,12 +37,7 @@ class DescribeInstancesRequest extends Model
     /**
      * @var string
      */
-    public $dbType;
-
-    /**
-     * @var string
-     */
-    public $clusterName;
+    public $regionId;
 
     /**
      * @var string
@@ -44,11 +49,12 @@ class DescribeInstancesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'regionId'        => 'RegionId',
+        'clusterId'       => 'ClusterId',
+        'clusterName'     => 'ClusterName',
+        'dbType'          => 'DbType',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'dbType'          => 'DbType',
-        'clusterName'     => 'ClusterName',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tag'             => 'Tag',
     ];
@@ -60,8 +66,14 @@ class DescribeInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -69,11 +81,8 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->dbType) {
-            $res['DbType'] = $this->dbType;
-        }
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -99,8 +108,14 @@ class DescribeInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -108,11 +123,8 @@ class DescribeInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['DbType'])) {
-            $model->dbType = $map['DbType'];
-        }
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

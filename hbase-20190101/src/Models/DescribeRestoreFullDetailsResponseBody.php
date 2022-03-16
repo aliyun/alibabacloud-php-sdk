@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreFullDetailsResponseBody extends Model
 {
     /**
-     * @var restoreFull
-     */
-    public $restoreFull;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var restoreFull
+     */
+    public $restoreFull;
     protected $_name = [
-        'restoreFull' => 'RestoreFull',
         'requestId'   => 'RequestId',
+        'restoreFull' => 'RestoreFull',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeRestoreFullDetailsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->restoreFull) {
-            $res['RestoreFull'] = null !== $this->restoreFull ? $this->restoreFull->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->restoreFull) {
+            $res['RestoreFull'] = null !== $this->restoreFull ? $this->restoreFull->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeRestoreFullDetailsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RestoreFull'])) {
-            $model->restoreFull = restoreFull::fromMap($map['RestoreFull']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RestoreFull'])) {
+            $model->restoreFull = restoreFull::fromMap($map['RestoreFull']);
         }
 
         return $model;

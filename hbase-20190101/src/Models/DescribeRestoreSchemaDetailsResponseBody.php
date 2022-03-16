@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreSchemaDetailsResponseBody extends Model
 {
     /**
-     * @var restoreSchema
-     */
-    public $restoreSchema;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var restoreSchema
+     */
+    public $restoreSchema;
     protected $_name = [
-        'restoreSchema' => 'RestoreSchema',
         'requestId'     => 'RequestId',
+        'restoreSchema' => 'RestoreSchema',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeRestoreSchemaDetailsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->restoreSchema) {
-            $res['RestoreSchema'] = null !== $this->restoreSchema ? $this->restoreSchema->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->restoreSchema) {
+            $res['RestoreSchema'] = null !== $this->restoreSchema ? $this->restoreSchema->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeRestoreSchemaDetailsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RestoreSchema'])) {
-            $model->restoreSchema = restoreSchema::fromMap($map['RestoreSchema']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RestoreSchema'])) {
+            $model->restoreSchema = restoreSchema::fromMap($map['RestoreSchema']);
         }
 
         return $model;

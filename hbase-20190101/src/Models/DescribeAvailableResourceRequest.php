@@ -16,6 +16,26 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @var string
      */
+    public $coreInstanceType;
+
+    /**
+     * @var string
+     */
+    public $diskType;
+
+    /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var string
+     */
+    public $engineVersion;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -23,9 +43,13 @@ class DescribeAvailableResourceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'chargeType' => 'ChargeType',
-        'regionId'   => 'RegionId',
-        'zoneId'     => 'ZoneId',
+        'chargeType'       => 'ChargeType',
+        'coreInstanceType' => 'CoreInstanceType',
+        'diskType'         => 'DiskType',
+        'engine'           => 'Engine',
+        'engineVersion'    => 'EngineVersion',
+        'regionId'         => 'RegionId',
+        'zoneId'           => 'ZoneId',
     ];
 
     public function validate()
@@ -37,6 +61,18 @@ class DescribeAvailableResourceRequest extends Model
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->coreInstanceType) {
+            $res['CoreInstanceType'] = $this->coreInstanceType;
+        }
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -58,6 +94,18 @@ class DescribeAvailableResourceRequest extends Model
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['CoreInstanceType'])) {
+            $model->coreInstanceType = $map['CoreInstanceType'];
+        }
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

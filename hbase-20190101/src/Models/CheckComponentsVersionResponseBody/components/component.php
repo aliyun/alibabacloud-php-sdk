@@ -11,15 +11,15 @@ class component extends Model
     /**
      * @var string
      */
-    public $isLatestVersion;
+    public $component;
 
     /**
      * @var string
      */
-    public $component;
+    public $isLatestVersion;
     protected $_name = [
-        'isLatestVersion' => 'IsLatestVersion',
         'component'       => 'Component',
+        'isLatestVersion' => 'IsLatestVersion',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class component extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isLatestVersion) {
-            $res['IsLatestVersion'] = $this->isLatestVersion;
-        }
         if (null !== $this->component) {
             $res['Component'] = $this->component;
+        }
+        if (null !== $this->isLatestVersion) {
+            $res['IsLatestVersion'] = $this->isLatestVersion;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class component extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsLatestVersion'])) {
-            $model->isLatestVersion = $map['IsLatestVersion'];
-        }
         if (isset($map['Component'])) {
             $model->component = $map['Component'];
+        }
+        if (isset($map['IsLatestVersion'])) {
+            $model->isLatestVersion = $map['IsLatestVersion'];
         }
 
         return $model;

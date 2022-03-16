@@ -16,6 +16,11 @@ class restoreSchemaDetail extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -26,17 +31,12 @@ class restoreSchemaDetail extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
     public $table;
     protected $_name = [
         'endTime'   => 'EndTime',
+        'message'   => 'Message',
         'startTime' => 'StartTime',
         'state'     => 'State',
-        'message'   => 'Message',
         'table'     => 'Table',
     ];
 
@@ -50,14 +50,14 @@ class restoreSchemaDetail extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
         }
         if (null !== $this->table) {
             $res['Table'] = $this->table;
@@ -77,14 +77,14 @@ class restoreSchemaDetail extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
         }
         if (isset($map['Table'])) {
             $model->table = $map['Table'];

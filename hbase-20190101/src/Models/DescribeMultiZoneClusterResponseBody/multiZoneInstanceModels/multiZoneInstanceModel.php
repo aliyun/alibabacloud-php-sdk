@@ -11,7 +11,7 @@ class multiZoneInstanceModel extends Model
     /**
      * @var string
      */
-    public $status;
+    public $insName;
 
     /**
      * @var bool
@@ -21,7 +21,7 @@ class multiZoneInstanceModel extends Model
     /**
      * @var string
      */
-    public $insName;
+    public $minorVersion;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class multiZoneInstanceModel extends Model
     /**
      * @var string
      */
-    public $minorVersion;
+    public $status;
     protected $_name = [
-        'status'          => 'Status',
-        'isLatestVersion' => 'IsLatestVersion',
         'insName'         => 'InsName',
-        'role'            => 'Role',
+        'isLatestVersion' => 'IsLatestVersion',
         'minorVersion'    => 'MinorVersion',
+        'role'            => 'Role',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class multiZoneInstanceModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->insName) {
+            $res['InsName'] = $this->insName;
         }
         if (null !== $this->isLatestVersion) {
             $res['IsLatestVersion'] = $this->isLatestVersion;
         }
-        if (null !== $this->insName) {
-            $res['InsName'] = $this->insName;
+        if (null !== $this->minorVersion) {
+            $res['MinorVersion'] = $this->minorVersion;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
-        if (null !== $this->minorVersion) {
-            $res['MinorVersion'] = $this->minorVersion;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class multiZoneInstanceModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['InsName'])) {
+            $model->insName = $map['InsName'];
         }
         if (isset($map['IsLatestVersion'])) {
             $model->isLatestVersion = $map['IsLatestVersion'];
         }
-        if (isset($map['InsName'])) {
-            $model->insName = $map['InsName'];
+        if (isset($map['MinorVersion'])) {
+            $model->minorVersion = $map['MinorVersion'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
-        if (isset($map['MinorVersion'])) {
-            $model->minorVersion = $map['MinorVersion'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

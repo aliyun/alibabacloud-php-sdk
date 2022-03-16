@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ResizeColdStorageSizeResponseBody extends Model
+class DescribeServerlessClusterRequest extends Model
 {
     /**
      * @var string
      */
-    public $orderId;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $zoneId;
     protected $_name = [
-        'orderId'   => 'OrderId',
-        'requestId' => 'RequestId',
+        'clusterId' => 'ClusterId',
+        'zoneId'    => 'ZoneId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ResizeColdStorageSizeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class ResizeColdStorageSizeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ResizeColdStorageSizeResponseBody
+     * @return DescribeServerlessClusterRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

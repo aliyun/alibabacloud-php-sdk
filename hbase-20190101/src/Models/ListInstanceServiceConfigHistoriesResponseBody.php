@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceServiceConfigHistoriesResponseBody extends Model
 {
     /**
+     * @var configureHistoryList
+     */
+    public $configureHistoryList;
+
+    /**
      * @var int
      */
-    public $totalRecordCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,18 +32,13 @@ class ListInstanceServiceConfigHistoriesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var configureHistoryList
-     */
-    public $configureHistoryList;
+    public $totalRecordCount;
     protected $_name = [
-        'totalRecordCount'     => 'TotalRecordCount',
+        'configureHistoryList' => 'ConfigureHistoryList',
+        'pageNumber'           => 'PageNumber',
         'pageRecordCount'      => 'PageRecordCount',
         'requestId'            => 'RequestId',
-        'pageNumber'           => 'PageNumber',
-        'configureHistoryList' => 'ConfigureHistoryList',
+        'totalRecordCount'     => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -48,8 +48,11 @@ class ListInstanceServiceConfigHistoriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
+        if (null !== $this->configureHistoryList) {
+            $res['ConfigureHistoryList'] = null !== $this->configureHistoryList ? $this->configureHistoryList->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
@@ -57,11 +60,8 @@ class ListInstanceServiceConfigHistoriesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->configureHistoryList) {
-            $res['ConfigureHistoryList'] = null !== $this->configureHistoryList ? $this->configureHistoryList->toMap() : null;
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -75,8 +75,11 @@ class ListInstanceServiceConfigHistoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
+        if (isset($map['ConfigureHistoryList'])) {
+            $model->configureHistoryList = configureHistoryList::fromMap($map['ConfigureHistoryList']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
@@ -84,11 +87,8 @@ class ListInstanceServiceConfigHistoriesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['ConfigureHistoryList'])) {
-            $model->configureHistoryList = configureHistoryList::fromMap($map['ConfigureHistoryList']);
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

@@ -11,32 +11,12 @@ class backupRecord extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $process;
-
-    /**
-     * @var string
-     */
     public $dataSize;
 
     /**
      * @var string
      */
-    public $speed;
-
-    /**
-     * @var string
-     */
-    public $state;
+    public $endTime;
 
     /**
      * @var string
@@ -46,15 +26,35 @@ class backupRecord extends Model
     /**
      * @var string
      */
+    public $process;
+
+    /**
+     * @var string
+     */
+    public $speed;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
     public $table;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
-        'process'   => 'Process',
         'dataSize'  => 'DataSize',
-        'speed'     => 'Speed',
-        'state'     => 'State',
+        'endTime'   => 'EndTime',
         'message'   => 'Message',
+        'process'   => 'Process',
+        'speed'     => 'Speed',
+        'startTime' => 'StartTime',
+        'state'     => 'State',
         'table'     => 'Table',
     ];
 
@@ -65,26 +65,26 @@ class backupRecord extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataSize) {
+            $res['DataSize'] = $this->dataSize;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->process) {
             $res['Process'] = $this->process;
         }
-        if (null !== $this->dataSize) {
-            $res['DataSize'] = $this->dataSize;
-        }
         if (null !== $this->speed) {
             $res['Speed'] = $this->speed;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
         }
         if (null !== $this->table) {
             $res['Table'] = $this->table;
@@ -101,26 +101,26 @@ class backupRecord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataSize'])) {
+            $model->dataSize = $map['DataSize'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['Process'])) {
             $model->process = $map['Process'];
         }
-        if (isset($map['DataSize'])) {
-            $model->dataSize = $map['DataSize'];
-        }
         if (isset($map['Speed'])) {
             $model->speed = $map['Speed'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
         }
         if (isset($map['Table'])) {
             $model->table = $map['Table'];

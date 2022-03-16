@@ -11,21 +11,21 @@ class AddUserHdfsInfoRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
      * @var string
      */
     public $extInfo;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'clusterId'   => 'ClusterId',
         'extInfo'     => 'ExtInfo',
-        'clientToken' => 'ClientToken',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AddUserHdfsInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AddUserHdfsInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;
