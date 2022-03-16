@@ -17,17 +17,9 @@ class DeleteDBInstanceRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @description 资源组ID
-     *
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -42,9 +34,6 @@ class DeleteDBInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -63,9 +52,6 @@ class DeleteDBInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

@@ -17,9 +17,17 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description 切换模式： 0:立刻执行，1：运维时间执行
+     *
+     * @var string
+     */
+    public $switchMode;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
         'regionId'       => 'RegionId',
+        'switchMode'     => 'SwitchMode',
     ];
 
     public function validate()
@@ -34,6 +42,9 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->switchMode) {
+            $res['SwitchMode'] = $this->switchMode;
         }
 
         return $res;
@@ -52,6 +63,9 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SwitchMode'])) {
+            $model->switchMode = $map['SwitchMode'];
         }
 
         return $model;
