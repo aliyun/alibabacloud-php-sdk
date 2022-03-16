@@ -96,8 +96,6 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVMFromServiceMeshRequest
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVMFromServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RevokeKubeconfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RevokeKubeconfigResponse;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisRequest;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayImportedServicesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayImportedServicesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayRequest;
@@ -2392,49 +2390,6 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeKubeconfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RunDiagnosisRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RunDiagnosisResponse
-     */
-    public function runDiagnosisWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->serviceMeshId)) {
-            $body['ServiceMeshId'] = $request->serviceMeshId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RunDiagnosis',
-            'version'     => '2020-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RunDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RunDiagnosisRequest $request
-     *
-     * @return RunDiagnosisResponse
-     */
-    public function runDiagnosis($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->runDiagnosisWithOptions($request, $runtime);
     }
 
     /**
