@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RemovePhoneNumbersRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -18,6 +23,7 @@ class RemovePhoneNumbersRequest extends Model
      */
     public $numberList;
     protected $_name = [
+        'force'      => 'Force',
         'instanceId' => 'InstanceId',
         'numberList' => 'NumberList',
     ];
@@ -29,6 +35,9 @@ class RemovePhoneNumbersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,6 +56,9 @@ class RemovePhoneNumbersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

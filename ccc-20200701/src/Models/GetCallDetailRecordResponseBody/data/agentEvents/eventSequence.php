@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class eventSequence extends Model
 {
     /**
+     * @var int
+     */
+    public $duration;
+
+    /**
      * @var string
      */
     public $event;
@@ -18,6 +23,7 @@ class eventSequence extends Model
      */
     public $eventTime;
     protected $_name = [
+        'duration'  => 'Duration',
         'event'     => 'Event',
         'eventTime' => 'EventTime',
     ];
@@ -29,6 +35,9 @@ class eventSequence extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
@@ -47,6 +56,9 @@ class eventSequence extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }

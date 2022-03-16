@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class callContext extends Model
 {
     /**
+     * @var string
+     */
+    public $callType;
+
+    /**
      * @var channelContexts[]
      */
     public $channelContexts;
@@ -24,6 +29,7 @@ class callContext extends Model
      */
     public $jobId;
     protected $_name = [
+        'callType'        => 'CallType',
         'channelContexts' => 'ChannelContexts',
         'instanceId'      => 'InstanceId',
         'jobId'           => 'JobId',
@@ -36,6 +42,9 @@ class callContext extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callType) {
+            $res['CallType'] = $this->callType;
+        }
         if (null !== $this->channelContexts) {
             $res['ChannelContexts'] = [];
             if (null !== $this->channelContexts && \is_array($this->channelContexts)) {
@@ -63,6 +72,9 @@ class callContext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallType'])) {
+            $model->callType = $map['CallType'];
+        }
         if (isset($map['ChannelContexts'])) {
             if (!empty($map['ChannelContexts'])) {
                 $model->channelContexts = [];

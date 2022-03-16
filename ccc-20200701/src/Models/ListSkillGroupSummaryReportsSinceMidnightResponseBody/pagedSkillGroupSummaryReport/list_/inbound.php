@@ -56,6 +56,16 @@ class inbound extends Model
     /**
      * @var int
      */
+    public $callsServiceLevel20;
+
+    /**
+     * @var int
+     */
+    public $callsServiceLevel30;
+
+    /**
+     * @var int
+     */
     public $giveUpByAgentOfQueueCount;
 
     /**
@@ -142,6 +152,8 @@ class inbound extends Model
         'averageWorkTime'                           => 'AverageWorkTime',
         'callsHandled'                              => 'CallsHandled',
         'callsOffered'                              => 'CallsOffered',
+        'callsServiceLevel20'                       => 'CallsServiceLevel20',
+        'callsServiceLevel30'                       => 'CallsServiceLevel30',
         'giveUpByAgentOfQueueCount'                 => 'GiveUpByAgentOfQueueCount',
         'handleRate'                                => 'HandleRate',
         'inComingQueueOfQueueCount'                 => 'InComingQueueOfQueueCount',
@@ -193,6 +205,12 @@ class inbound extends Model
         }
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
+        }
+        if (null !== $this->callsServiceLevel20) {
+            $res['CallsServiceLevel20'] = $this->callsServiceLevel20;
+        }
+        if (null !== $this->callsServiceLevel30) {
+            $res['CallsServiceLevel30'] = $this->callsServiceLevel30;
         }
         if (null !== $this->giveUpByAgentOfQueueCount) {
             $res['GiveUpByAgentOfQueueCount'] = $this->giveUpByAgentOfQueueCount;
@@ -280,6 +298,12 @@ class inbound extends Model
         }
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
+        }
+        if (isset($map['CallsServiceLevel20'])) {
+            $model->callsServiceLevel20 = $map['CallsServiceLevel20'];
+        }
+        if (isset($map['CallsServiceLevel30'])) {
+            $model->callsServiceLevel30 = $map['CallsServiceLevel30'];
         }
         if (isset($map['GiveUpByAgentOfQueueCount'])) {
             $model->giveUpByAgentOfQueueCount = $map['GiveUpByAgentOfQueueCount'];
