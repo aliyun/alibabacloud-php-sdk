@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class serviceMesh extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterSpec;
+
+    /**
      * @var string[]
      */
     public $clusters;
@@ -31,6 +36,7 @@ class serviceMesh extends Model
      */
     public $spec;
     protected $_name = [
+        'clusterSpec'     => 'ClusterSpec',
         'clusters'        => 'Clusters',
         'endpoints'       => 'Endpoints',
         'serviceMeshInfo' => 'ServiceMeshInfo',
@@ -44,6 +50,9 @@ class serviceMesh extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterSpec) {
+            $res['ClusterSpec'] = $this->clusterSpec;
+        }
         if (null !== $this->clusters) {
             $res['Clusters'] = $this->clusters;
         }
@@ -68,6 +77,9 @@ class serviceMesh extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterSpec'])) {
+            $model->clusterSpec = $map['ClusterSpec'];
+        }
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = $map['Clusters'];

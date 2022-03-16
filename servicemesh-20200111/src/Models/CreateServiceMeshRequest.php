@@ -44,6 +44,11 @@ class CreateServiceMeshRequest extends Model
     public $accessLogServicePort;
 
     /**
+     * @var string
+     */
+    public $apiServerLoadBalancerSpec;
+
+    /**
      * @var bool
      */
     public $apiServerPublicEip;
@@ -56,7 +61,27 @@ class CreateServiceMeshRequest extends Model
     /**
      * @var bool
      */
+    public $autoRenew;
+
+    /**
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
+     * @var bool
+     */
     public $CRAggregationEnabled;
+
+    /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $clusterSpec;
 
     /**
      * @var bool
@@ -144,6 +169,11 @@ class CreateServiceMeshRequest extends Model
     public $gatewayAPIEnabled;
 
     /**
+     * @var bool
+     */
+    public $globalRateLimitEnabled;
+
+    /**
      * @var string
      */
     public $includeIPRanges;
@@ -172,6 +202,16 @@ class CreateServiceMeshRequest extends Model
      * @var bool
      */
     public $MSEEnabled;
+
+    /**
+     * @var bool
+     */
+    public $multiBufferEnabled;
+
+    /**
+     * @var string
+     */
+    public $multiBufferPollDelay;
 
     /**
      * @var bool
@@ -217,6 +257,16 @@ class CreateServiceMeshRequest extends Model
      * @var bool
      */
     public $openAgentPolicy;
+
+    /**
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $pilotLoadBalancerSpec;
 
     /**
      * @var string
@@ -295,9 +345,14 @@ class CreateServiceMeshRequest extends Model
         'accessLogServiceEnabled'    => 'AccessLogServiceEnabled',
         'accessLogServiceHost'       => 'AccessLogServiceHost',
         'accessLogServicePort'       => 'AccessLogServicePort',
+        'apiServerLoadBalancerSpec'  => 'ApiServerLoadBalancerSpec',
         'apiServerPublicEip'         => 'ApiServerPublicEip',
         'auditProject'               => 'AuditProject',
+        'autoRenew'                  => 'AutoRenew',
+        'autoRenewPeriod'            => 'AutoRenewPeriod',
         'CRAggregationEnabled'       => 'CRAggregationEnabled',
+        'chargeType'                 => 'ChargeType',
+        'clusterSpec'                => 'ClusterSpec',
         'configSourceEnabled'        => 'ConfigSourceEnabled',
         'configSourceNacosID'        => 'ConfigSourceNacosID',
         'controlPlaneLogEnabled'     => 'ControlPlaneLogEnabled',
@@ -315,12 +370,15 @@ class CreateServiceMeshRequest extends Model
         'excludeOutboundPorts'       => 'ExcludeOutboundPorts',
         'filterGatewayClusterConfig' => 'FilterGatewayClusterConfig',
         'gatewayAPIEnabled'          => 'GatewayAPIEnabled',
+        'globalRateLimitEnabled'     => 'GlobalRateLimitEnabled',
         'includeIPRanges'            => 'IncludeIPRanges',
         'istioVersion'               => 'IstioVersion',
         'kialiEnabled'               => 'KialiEnabled',
         'localityLBConf'             => 'LocalityLBConf',
         'localityLoadBalancing'      => 'LocalityLoadBalancing',
         'MSEEnabled'                 => 'MSEEnabled',
+        'multiBufferEnabled'         => 'MultiBufferEnabled',
+        'multiBufferPollDelay'       => 'MultiBufferPollDelay',
         'mysqlFilterEnabled'         => 'MysqlFilterEnabled',
         'name'                       => 'Name',
         'OPALimitCPU'                => 'OPALimitCPU',
@@ -330,6 +388,8 @@ class CreateServiceMeshRequest extends Model
         'OPARequestMemory'           => 'OPARequestMemory',
         'opaEnabled'                 => 'OpaEnabled',
         'openAgentPolicy'            => 'OpenAgentPolicy',
+        'period'                     => 'Period',
+        'pilotLoadBalancerSpec'      => 'PilotLoadBalancerSpec',
         'prometheusUrl'              => 'PrometheusUrl',
         'proxyLimitCPU'              => 'ProxyLimitCPU',
         'proxyLimitMemory'           => 'ProxyLimitMemory',
@@ -374,14 +434,29 @@ class CreateServiceMeshRequest extends Model
         if (null !== $this->accessLogServicePort) {
             $res['AccessLogServicePort'] = $this->accessLogServicePort;
         }
+        if (null !== $this->apiServerLoadBalancerSpec) {
+            $res['ApiServerLoadBalancerSpec'] = $this->apiServerLoadBalancerSpec;
+        }
         if (null !== $this->apiServerPublicEip) {
             $res['ApiServerPublicEip'] = $this->apiServerPublicEip;
         }
         if (null !== $this->auditProject) {
             $res['AuditProject'] = $this->auditProject;
         }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
+        }
         if (null !== $this->CRAggregationEnabled) {
             $res['CRAggregationEnabled'] = $this->CRAggregationEnabled;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->clusterSpec) {
+            $res['ClusterSpec'] = $this->clusterSpec;
         }
         if (null !== $this->configSourceEnabled) {
             $res['ConfigSourceEnabled'] = $this->configSourceEnabled;
@@ -434,6 +509,9 @@ class CreateServiceMeshRequest extends Model
         if (null !== $this->gatewayAPIEnabled) {
             $res['GatewayAPIEnabled'] = $this->gatewayAPIEnabled;
         }
+        if (null !== $this->globalRateLimitEnabled) {
+            $res['GlobalRateLimitEnabled'] = $this->globalRateLimitEnabled;
+        }
         if (null !== $this->includeIPRanges) {
             $res['IncludeIPRanges'] = $this->includeIPRanges;
         }
@@ -451,6 +529,12 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->MSEEnabled) {
             $res['MSEEnabled'] = $this->MSEEnabled;
+        }
+        if (null !== $this->multiBufferEnabled) {
+            $res['MultiBufferEnabled'] = $this->multiBufferEnabled;
+        }
+        if (null !== $this->multiBufferPollDelay) {
+            $res['MultiBufferPollDelay'] = $this->multiBufferPollDelay;
         }
         if (null !== $this->mysqlFilterEnabled) {
             $res['MysqlFilterEnabled'] = $this->mysqlFilterEnabled;
@@ -478,6 +562,12 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->openAgentPolicy) {
             $res['OpenAgentPolicy'] = $this->openAgentPolicy;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->pilotLoadBalancerSpec) {
+            $res['PilotLoadBalancerSpec'] = $this->pilotLoadBalancerSpec;
         }
         if (null !== $this->prometheusUrl) {
             $res['PrometheusUrl'] = $this->prometheusUrl;
@@ -554,14 +644,29 @@ class CreateServiceMeshRequest extends Model
         if (isset($map['AccessLogServicePort'])) {
             $model->accessLogServicePort = $map['AccessLogServicePort'];
         }
+        if (isset($map['ApiServerLoadBalancerSpec'])) {
+            $model->apiServerLoadBalancerSpec = $map['ApiServerLoadBalancerSpec'];
+        }
         if (isset($map['ApiServerPublicEip'])) {
             $model->apiServerPublicEip = $map['ApiServerPublicEip'];
         }
         if (isset($map['AuditProject'])) {
             $model->auditProject = $map['AuditProject'];
         }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
+        }
         if (isset($map['CRAggregationEnabled'])) {
             $model->CRAggregationEnabled = $map['CRAggregationEnabled'];
+        }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['ClusterSpec'])) {
+            $model->clusterSpec = $map['ClusterSpec'];
         }
         if (isset($map['ConfigSourceEnabled'])) {
             $model->configSourceEnabled = $map['ConfigSourceEnabled'];
@@ -614,6 +719,9 @@ class CreateServiceMeshRequest extends Model
         if (isset($map['GatewayAPIEnabled'])) {
             $model->gatewayAPIEnabled = $map['GatewayAPIEnabled'];
         }
+        if (isset($map['GlobalRateLimitEnabled'])) {
+            $model->globalRateLimitEnabled = $map['GlobalRateLimitEnabled'];
+        }
         if (isset($map['IncludeIPRanges'])) {
             $model->includeIPRanges = $map['IncludeIPRanges'];
         }
@@ -631,6 +739,12 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['MSEEnabled'])) {
             $model->MSEEnabled = $map['MSEEnabled'];
+        }
+        if (isset($map['MultiBufferEnabled'])) {
+            $model->multiBufferEnabled = $map['MultiBufferEnabled'];
+        }
+        if (isset($map['MultiBufferPollDelay'])) {
+            $model->multiBufferPollDelay = $map['MultiBufferPollDelay'];
         }
         if (isset($map['MysqlFilterEnabled'])) {
             $model->mysqlFilterEnabled = $map['MysqlFilterEnabled'];
@@ -658,6 +772,12 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['OpenAgentPolicy'])) {
             $model->openAgentPolicy = $map['OpenAgentPolicy'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['PilotLoadBalancerSpec'])) {
+            $model->pilotLoadBalancerSpec = $map['PilotLoadBalancerSpec'];
         }
         if (isset($map['PrometheusUrl'])) {
             $model->prometheusUrl = $map['PrometheusUrl'];

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetai
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\istioCRHistory;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\multiBuffer;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\rateLimit;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\sidecarProxyInitResourceLimit;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\sidecarProxyInitResourceRequest;
 use AlibabaCloud\Tea\Model;
@@ -39,6 +40,11 @@ class extraConfiguration extends Model
     public $multiBuffer;
 
     /**
+     * @var rateLimit
+     */
+    public $rateLimit;
+
+    /**
      * @var sidecarProxyInitResourceLimit
      */
     public $sidecarProxyInitResourceLimit;
@@ -58,6 +64,7 @@ class extraConfiguration extends Model
         'istioCRHistory'                  => 'IstioCRHistory',
         'lifecycle'                       => 'Lifecycle',
         'multiBuffer'                     => 'MultiBuffer',
+        'rateLimit'                       => 'RateLimit',
         'sidecarProxyInitResourceLimit'   => 'SidecarProxyInitResourceLimit',
         'sidecarProxyInitResourceRequest' => 'SidecarProxyInitResourceRequest',
         'terminationDrainDuration'        => 'TerminationDrainDuration',
@@ -84,6 +91,9 @@ class extraConfiguration extends Model
         }
         if (null !== $this->multiBuffer) {
             $res['MultiBuffer'] = null !== $this->multiBuffer ? $this->multiBuffer->toMap() : null;
+        }
+        if (null !== $this->rateLimit) {
+            $res['RateLimit'] = null !== $this->rateLimit ? $this->rateLimit->toMap() : null;
         }
         if (null !== $this->sidecarProxyInitResourceLimit) {
             $res['SidecarProxyInitResourceLimit'] = null !== $this->sidecarProxyInitResourceLimit ? $this->sidecarProxyInitResourceLimit->toMap() : null;
@@ -122,6 +132,9 @@ class extraConfiguration extends Model
         }
         if (isset($map['MultiBuffer'])) {
             $model->multiBuffer = multiBuffer::fromMap($map['MultiBuffer']);
+        }
+        if (isset($map['RateLimit'])) {
+            $model->rateLimit = rateLimit::fromMap($map['RateLimit']);
         }
         if (isset($map['SidecarProxyInitResourceLimit'])) {
             $model->sidecarProxyInitResourceLimit = sidecarProxyInitResourceLimit::fromMap($map['SidecarProxyInitResourceLimit']);

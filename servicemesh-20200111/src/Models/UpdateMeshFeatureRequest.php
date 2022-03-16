@@ -59,6 +59,11 @@ class UpdateMeshFeatureRequest extends Model
     public $CRAggregationEnabled;
 
     /**
+     * @var string
+     */
+    public $clusterSpec;
+
+    /**
      * @var bool
      */
     public $cniEnabled;
@@ -147,6 +152,11 @@ class UpdateMeshFeatureRequest extends Model
      * @var bool
      */
     public $gatewayAPIEnabled;
+
+    /**
+     * @var bool
+     */
+    public $globalRateLimitEnabled;
 
     /**
      * @var bool
@@ -363,6 +373,7 @@ class UpdateMeshFeatureRequest extends Model
         'auditProject'                   => 'AuditProject',
         'autoInjectionPolicyEnabled'     => 'AutoInjectionPolicyEnabled',
         'CRAggregationEnabled'           => 'CRAggregationEnabled',
+        'clusterSpec'                    => 'ClusterSpec',
         'cniEnabled'                     => 'CniEnabled',
         'cniExcludeNamespaces'           => 'CniExcludeNamespaces',
         'configSourceEnabled'            => 'ConfigSourceEnabled',
@@ -381,6 +392,7 @@ class UpdateMeshFeatureRequest extends Model
         'excludeOutboundPorts'           => 'ExcludeOutboundPorts',
         'filterGatewayClusterConfig'     => 'FilterGatewayClusterConfig',
         'gatewayAPIEnabled'              => 'GatewayAPIEnabled',
+        'globalRateLimitEnabled'         => 'GlobalRateLimitEnabled',
         'http10Enabled'                  => 'Http10Enabled',
         'includeIPRanges'                => 'IncludeIPRanges',
         'includeInboundPorts'            => 'IncludeInboundPorts',
@@ -461,6 +473,9 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->CRAggregationEnabled) {
             $res['CRAggregationEnabled'] = $this->CRAggregationEnabled;
         }
+        if (null !== $this->clusterSpec) {
+            $res['ClusterSpec'] = $this->clusterSpec;
+        }
         if (null !== $this->cniEnabled) {
             $res['CniEnabled'] = $this->cniEnabled;
         }
@@ -514,6 +529,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->gatewayAPIEnabled) {
             $res['GatewayAPIEnabled'] = $this->gatewayAPIEnabled;
+        }
+        if (null !== $this->globalRateLimitEnabled) {
+            $res['GlobalRateLimitEnabled'] = $this->globalRateLimitEnabled;
         }
         if (null !== $this->http10Enabled) {
             $res['Http10Enabled'] = $this->http10Enabled;
@@ -680,6 +698,9 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['CRAggregationEnabled'])) {
             $model->CRAggregationEnabled = $map['CRAggregationEnabled'];
         }
+        if (isset($map['ClusterSpec'])) {
+            $model->clusterSpec = $map['ClusterSpec'];
+        }
         if (isset($map['CniEnabled'])) {
             $model->cniEnabled = $map['CniEnabled'];
         }
@@ -733,6 +754,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['GatewayAPIEnabled'])) {
             $model->gatewayAPIEnabled = $map['GatewayAPIEnabled'];
+        }
+        if (isset($map['GlobalRateLimitEnabled'])) {
+            $model->globalRateLimitEnabled = $map['GlobalRateLimitEnabled'];
         }
         if (isset($map['Http10Enabled'])) {
             $model->http10Enabled = $map['Http10Enabled'];
