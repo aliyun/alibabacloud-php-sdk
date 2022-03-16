@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderResponseBody\certificateOrderList;
 use AlibabaCloud\Tea\Model;
 
 class ListUserCertificateOrderResponseBody extends Model
 {
     /**
-     * @var string
+     * @var certificateOrderList[]
      */
     public $certificateOrderList;
 
@@ -48,7 +49,13 @@ class ListUserCertificateOrderResponseBody extends Model
     {
         $res = [];
         if (null !== $this->certificateOrderList) {
-            $res['CertificateOrderList'] = $this->certificateOrderList;
+            $res['CertificateOrderList'] = [];
+            if (null !== $this->certificateOrderList && \is_array($this->certificateOrderList)) {
+                $n = 0;
+                foreach ($this->certificateOrderList as $item) {
+                    $res['CertificateOrderList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -75,7 +82,13 @@ class ListUserCertificateOrderResponseBody extends Model
     {
         $model = new self();
         if (isset($map['CertificateOrderList'])) {
-            $model->certificateOrderList = $map['CertificateOrderList'];
+            if (!empty($map['CertificateOrderList'])) {
+                $model->certificateOrderList = [];
+                $n                           = 0;
+                foreach ($map['CertificateOrderList'] as $item) {
+                    $model->certificateOrderList[$n++] = null !== $item ? certificateOrderList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
