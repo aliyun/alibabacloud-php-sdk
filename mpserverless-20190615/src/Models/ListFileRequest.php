@@ -11,6 +11,11 @@ class ListFileRequest extends Model
     /**
      * @var string
      */
+    public $fileId;
+
+    /**
+     * @var string
+     */
     public $keyword;
 
     /**
@@ -28,6 +33,7 @@ class ListFileRequest extends Model
      */
     public $spaceId;
     protected $_name = [
+        'fileId'   => 'FileId',
         'keyword'  => 'Keyword',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
@@ -41,6 +47,9 @@ class ListFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
+        }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
@@ -65,6 +74,9 @@ class ListFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
+        }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }

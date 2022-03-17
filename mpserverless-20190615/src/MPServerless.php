@@ -450,9 +450,11 @@ class MPServerless extends OpenApiClient
     public function checkMpServerlessRoleExistsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RoleName'] = $request->roleName;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2162,6 +2164,9 @@ class MPServerless extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
         if (!Utils::isUnset($request->keyword)) {
             $body['Keyword'] = $request->keyword;
         }
