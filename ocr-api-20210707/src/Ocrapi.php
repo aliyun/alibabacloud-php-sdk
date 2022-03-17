@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeChinesePassportRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeChinesePassportResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCommonPrintedInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCommonPrintedInvoiceResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCosmeticProduceLicenseRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCosmeticProduceLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDeleteExcelRecordRequest;
@@ -72,6 +74,8 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHandwritingRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHandwritingResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHotelConsumeRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHotelConsumeResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeIdcardRequest;
@@ -93,8 +97,14 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMixedInvoicesResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMultiLanguageRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMultiLanguageResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeMultiLanguageShrinkRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeNonTaxInvoiceRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeNonTaxInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizePassportRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizePassportResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizePaymentRecordRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizePaymentRecordResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizePurchaseRecordRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizePurchaseRecordResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeQuotaInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeQuotaInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRideHailingItineraryRequest;
@@ -584,6 +594,9 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
         }
+        if (!Utils::isUnset($request->workflowOp)) {
+            $query['WorkflowOp'] = $request->workflowOp;
+        }
         $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
             'body'   => $request->body,
@@ -673,6 +686,9 @@ class Ocrapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->workflowOp)) {
+            $query['WorkflowOp'] = $request->workflowOp;
         }
         $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
@@ -842,6 +858,51 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeCommonPrintedInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeCosmeticProduceLicenseRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return RecognizeCosmeticProduceLicenseResponse
+     */
+    public function recognizeCosmeticProduceLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeCosmeticProduceLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeCosmeticProduceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeCosmeticProduceLicenseRequest $request
+     *
+     * @return RecognizeCosmeticProduceLicenseResponse
+     */
+    public function recognizeCosmeticProduceLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeCosmeticProduceLicenseWithOptions($request, $runtime);
     }
 
     /**
@@ -1760,6 +1821,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeHotelConsumeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeHotelConsumeResponse
+     */
+    public function recognizeHotelConsumeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeHotelConsume',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeHotelConsumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeHotelConsumeRequest $request
+     *
+     * @return RecognizeHotelConsumeResponse
+     */
+    public function recognizeHotelConsume($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeHotelConsumeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeHouseholdRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1819,6 +1925,9 @@ class Ocrapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->workflowOp)) {
+            $query['WorkflowOp'] = $request->workflowOp;
         }
         $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
@@ -2260,6 +2369,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeNonTaxInvoiceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeNonTaxInvoiceResponse
+     */
+    public function recognizeNonTaxInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeNonTaxInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeNonTaxInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeNonTaxInvoiceRequest $request
+     *
+     * @return RecognizeNonTaxInvoiceResponse
+     */
+    public function recognizeNonTaxInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeNonTaxInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizePassportRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2302,6 +2456,96 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizePassportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizePaymentRecordRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizePaymentRecordResponse
+     */
+    public function recognizePaymentRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizePaymentRecord',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizePaymentRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizePaymentRecordRequest $request
+     *
+     * @return RecognizePaymentRecordResponse
+     */
+    public function recognizePaymentRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizePaymentRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizePurchaseRecordRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizePurchaseRecordResponse
+     */
+    public function recognizePurchaseRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizePurchaseRecord',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizePurchaseRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizePurchaseRecordRequest $request
+     *
+     * @return RecognizePurchaseRecordResponse
+     */
+    public function recognizePurchaseRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizePurchaseRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -2973,6 +3217,9 @@ class Ocrapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->workflowOp)) {
+            $query['WorkflowOp'] = $request->workflowOp;
         }
         $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),

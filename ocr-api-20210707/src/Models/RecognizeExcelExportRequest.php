@@ -30,7 +30,7 @@ class RecognizeExcelExportRequest extends Model
     public $ocrImageCount;
 
     /**
-     * @description 图片识别结果集
+     * @description 存储图片识别结果集的oss地址
      *
      * @var string
      */

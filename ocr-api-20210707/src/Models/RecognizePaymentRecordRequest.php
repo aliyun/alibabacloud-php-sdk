@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecognizeCarNumberRequest extends Model
+class RecognizePaymentRecordRequest extends Model
 {
     /**
      * @description 图片链接（长度不超 2048，不支持 base64）
@@ -17,20 +17,14 @@ class RecognizeCarNumberRequest extends Model
     public $url;
 
     /**
-     * @var string
-     */
-    public $workflowOp;
-
-    /**
      * @description 图片二进制字节流，最大10MB
      *
      * @var Stream
      */
     public $body;
     protected $_name = [
-        'url'        => 'Url',
-        'workflowOp' => 'WorkflowOp',
-        'body'       => 'body',
+        'url'  => 'Url',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -43,9 +37,6 @@ class RecognizeCarNumberRequest extends Model
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
-        if (null !== $this->workflowOp) {
-            $res['WorkflowOp'] = $this->workflowOp;
-        }
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -56,16 +47,13 @@ class RecognizeCarNumberRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeCarNumberRequest
+     * @return RecognizePaymentRecordRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
-        }
-        if (isset($map['WorkflowOp'])) {
-            $model->workflowOp = $map['WorkflowOp'];
         }
         if (isset($map['body'])) {
             $model->body = $map['body'];

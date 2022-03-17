@@ -17,14 +17,20 @@ class RecognizeVehicleLicenseRequest extends Model
     public $url;
 
     /**
+     * @var string
+     */
+    public $workflowOp;
+
+    /**
      * @description 图片二进制字节流，最大10MB
      *
      * @var Stream
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
-        'body' => 'body',
+        'url'        => 'Url',
+        'workflowOp' => 'WorkflowOp',
+        'body'       => 'body',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class RecognizeVehicleLicenseRequest extends Model
         $res = [];
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->workflowOp) {
+            $res['WorkflowOp'] = $this->workflowOp;
         }
         if (null !== $this->body) {
             $res['body'] = $this->body;
@@ -54,6 +63,9 @@ class RecognizeVehicleLicenseRequest extends Model
         $model = new self();
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['WorkflowOp'])) {
+            $model->workflowOp = $map['WorkflowOp'];
         }
         if (isset($map['body'])) {
             $model->body = $map['body'];
