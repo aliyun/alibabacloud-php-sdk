@@ -24,6 +24,11 @@ class ListUserGameProcessRequest extends Model
     public $bizId;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $gameId;
@@ -39,9 +44,19 @@ class ListUserGameProcessRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $statuses;
 
     /**
      * @var string
@@ -56,10 +71,13 @@ class ListUserGameProcessRequest extends Model
         'accountType'      => 'AccountType',
         'activityId'       => 'ActivityId',
         'bizId'            => 'BizId',
+        'endTime'          => 'EndTime',
         'gameId'           => 'GameId',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
+        'startTime'        => 'StartTime',
         'status'           => 'Status',
+        'statuses'         => 'Statuses',
         'thirdPartyUserId' => 'ThirdPartyUserId',
         'type'             => 'Type',
     ];
@@ -80,6 +98,9 @@ class ListUserGameProcessRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
         }
@@ -89,8 +110,14 @@ class ListUserGameProcessRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->statuses) {
+            $res['Statuses'] = $this->statuses;
         }
         if (null !== $this->thirdPartyUserId) {
             $res['ThirdPartyUserId'] = $this->thirdPartyUserId;
@@ -119,6 +146,9 @@ class ListUserGameProcessRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
         }
@@ -128,8 +158,14 @@ class ListUserGameProcessRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Statuses'])) {
+            $model->statuses = $map['Statuses'];
         }
         if (isset($map['ThirdPartyUserId'])) {
             $model->thirdPartyUserId = $map['ThirdPartyUserId'];

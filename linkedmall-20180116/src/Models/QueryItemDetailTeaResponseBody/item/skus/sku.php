@@ -24,6 +24,11 @@ class sku extends Model
     public $extJson;
 
     /**
+     * @var bool
+     */
+    public $hasQuantity;
+
+    /**
      * @var int
      */
     public $itemId;
@@ -64,6 +69,11 @@ class sku extends Model
     public $reservePrice;
 
     /**
+     * @var string
+     */
+    public $simpleQuantity;
+
+    /**
      * @var int
      */
     public $skuId;
@@ -86,6 +96,7 @@ class sku extends Model
         'canSell'                => 'CanSell',
         'customizedAttributeMap' => 'CustomizedAttributeMap',
         'extJson'                => 'ExtJson',
+        'hasQuantity'            => 'HasQuantity',
         'itemId'                 => 'ItemId',
         'lmItemId'               => 'LmItemId',
         'pointPrice'             => 'PointPrice',
@@ -94,6 +105,7 @@ class sku extends Model
         'priceCent'              => 'PriceCent',
         'quantity'               => 'Quantity',
         'reservePrice'           => 'ReservePrice',
+        'simpleQuantity'         => 'SimpleQuantity',
         'skuId'                  => 'SkuId',
         'skuPicUrl'              => 'SkuPicUrl',
         'skuProperties'          => 'SkuProperties',
@@ -115,6 +127,9 @@ class sku extends Model
         }
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
+        }
+        if (null !== $this->hasQuantity) {
+            $res['HasQuantity'] = $this->hasQuantity;
         }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
@@ -139,6 +154,9 @@ class sku extends Model
         }
         if (null !== $this->reservePrice) {
             $res['ReservePrice'] = $this->reservePrice;
+        }
+        if (null !== $this->simpleQuantity) {
+            $res['SimpleQuantity'] = $this->simpleQuantity;
         }
         if (null !== $this->skuId) {
             $res['SkuId'] = $this->skuId;
@@ -173,6 +191,9 @@ class sku extends Model
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
         }
+        if (isset($map['HasQuantity'])) {
+            $model->hasQuantity = $map['HasQuantity'];
+        }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
@@ -196,6 +217,9 @@ class sku extends Model
         }
         if (isset($map['ReservePrice'])) {
             $model->reservePrice = $map['ReservePrice'];
+        }
+        if (isset($map['SimpleQuantity'])) {
+            $model->simpleQuantity = $map['SimpleQuantity'];
         }
         if (isset($map['SkuId'])) {
             $model->skuId = $map['SkuId'];

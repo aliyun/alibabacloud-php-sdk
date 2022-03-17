@@ -39,6 +39,9 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateVirtualProductOrderReques
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateVirtualProductOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateWithholdTradeRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\CreateWithholdTradeResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeductUserPointRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeductUserPointResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeductUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteBizItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteBizItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\DeleteItemLimitRuleRequest;
@@ -47,8 +50,12 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\EnableOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ExecuteNodeResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\FreezeUserPointRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\FreezeUserPointResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\FreezeUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetActivityGameInfoRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetActivityGameInfoResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetActivityGameInfoShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryChainRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryChainResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetCategoryListRequest;
@@ -69,15 +76,28 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetUserTokenPageRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetUserTokenPageResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetWithholdSignPageUrlRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GetWithholdSignPageUrlResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GiveUserPointRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GiveUserPointResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GiveUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantPromotionToUserRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantPromotionToUserResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantPromotionToUserShrinkRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantUserPointRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantUserPointResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\GrantUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\InitApplyRefundResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListActivityAtmosphereRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListActivityAtmosphereResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListActivityGameInfoRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListActivityGameInfoResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListItemActivitiesRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListItemActivitiesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListItemActivitiesShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListUserGameProcessRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListUserGameProcessResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListUserPointRecordsRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ListUserPointRecordsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBasicAndBizItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBasicAndBizItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyBizItemsRequest;
@@ -86,12 +106,15 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyItemLimitRuleRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyItemLimitRuleResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyOrderDeliveryAddressRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifyOrderDeliveryAddressResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifySettleAccountRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ModifySettleAccountResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyPayOrderStatusRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyPayOrderStatusResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyWithholdFundRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\NotifyWithholdFundResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\PushUserGameProcessRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\PushUserGameProcessResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\PushUserGameProcessShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryActivityItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryActivityItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryAddressDetailRequest;
@@ -117,11 +140,16 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBestSession4ItemsShrinkReq
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListShrinkRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListWithCacheRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListWithCacheResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemListWithCacheShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityShrinkRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBudgetTicketItemListByBizIdRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBudgetTicketItemListByBizIdResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupWithOutInventoryRequest;
@@ -188,16 +216,25 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUpcomingMoviesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUpcomingMoviesShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserGameProcessRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserGameProcessResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserGameProcessShrinkRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserPointRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserPointResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryWithholdTradeRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryWithholdTradeResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundPointRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundPointResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundUserPointRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundUserPointResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefundUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefuseMerchantSyncTaskRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RefuseMerchantSyncTaskResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegistAnonymousTbAccountRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegistAnonymousTbAccountResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegisterSettleAccountRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RegisterSettleAccountResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ReleaseMovieSeatRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ReleaseMovieSeatResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\RemoveAddressRequest;
@@ -218,10 +255,14 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SettleOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SettleOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\StartUserGameRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\StartUserGameResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\StartUserGameShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SubmitReturnGoodLogisticsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SubmitReturnGoodLogisticsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SyncMerchantInfoRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\SyncMerchantInfoResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\UnFreezeUserPointRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\UnFreezeUserPointResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\UnFreezeUserPointShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\UnsignWithholdAgreementRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\UnsignWithholdAgreementResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\UpdateAddressRequest;
@@ -231,6 +272,7 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\ValidateTaobaoAccountResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Linkedmall extends OpenApiClient
@@ -331,11 +373,37 @@ class Linkedmall extends OpenApiClient
     public function addAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->addressInfo)) {
+            $body['AddressInfo'] = $request->addressInfo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAddress',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddAddressResponse::fromMap($this->doRPCRequest('AddAddress', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -359,11 +427,50 @@ class Linkedmall extends OpenApiClient
     public function addItemLimitRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmActivityId)) {
+            $query['LmActivityId'] = $request->lmActivityId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->subBizCode)) {
+            $query['SubBizCode'] = $request->subBizCode;
+        }
+        if (!Utils::isUnset($request->upperNum)) {
+            $query['UpperNum'] = $request->upperNum;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddItemLimitRule',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddItemLimitRuleResponse::fromMap($this->doRPCRequest('AddItemLimitRule', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddItemLimitRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -392,11 +499,35 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($tmpReq->subBizIds)) {
             $request->subBizIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subBizIds, 'SubBizIds', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $body['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $body['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->subBizIdsShrink)) {
+            $body['SubBizIds'] = $request->subBizIdsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddItemToSubBizs',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddItemToSubBizsResponse::fromMap($this->doRPCRequest('AddItemToSubBizs', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddItemToSubBizsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -420,11 +551,29 @@ class Linkedmall extends OpenApiClient
     public function addSupplierNewItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemList)) {
+            $query['ItemList'] = $request->itemList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSupplierNewItems',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddSupplierNewItemsResponse::fromMap($this->doRPCRequest('AddSupplierNewItems', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddSupplierNewItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -448,11 +597,64 @@ class Linkedmall extends OpenApiClient
     public function applyRefundWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->applyReasonTextId)) {
+            $query['ApplyReasonTextId'] = $request->applyReasonTextId;
+        }
+        if (!Utils::isUnset($request->applyRefundCount)) {
+            $query['ApplyRefundCount'] = $request->applyRefundCount;
+        }
+        if (!Utils::isUnset($request->applyRefundFee)) {
+            $query['ApplyRefundFee'] = $request->applyRefundFee;
+        }
+        if (!Utils::isUnset($request->bizClaimType)) {
+            $query['BizClaimType'] = $request->bizClaimType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->goodsStatus)) {
+            $query['GoodsStatus'] = $request->goodsStatus;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $query['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->leaveMessage)) {
+            $body['LeaveMessage'] = $request->leaveMessage;
+        }
+        if (!Utils::isUnset($request->leavePictureList)) {
+            $body['LeavePictureList'] = $request->leavePictureList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyRefund',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ApplyRefundResponse::fromMap($this->doRPCRequest('ApplyRefund', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ApplyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -476,11 +678,29 @@ class Linkedmall extends OpenApiClient
     public function batchRegistAnonymousTbAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->idJsonList)) {
+            $query['IdJsonList'] = $request->idJsonList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchRegistAnonymousTbAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchRegistAnonymousTbAccountResponse::fromMap($this->doRPCRequest('BatchRegistAnonymousTbAccount', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchRegistAnonymousTbAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -504,11 +724,41 @@ class Linkedmall extends OpenApiClient
     public function cancelOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelOrderResponse::fromMap($this->doRPCRequest('CancelOrder', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -532,11 +782,44 @@ class Linkedmall extends OpenApiClient
     public function cancelRefundWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $query['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $query['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelRefund',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelRefundResponse::fromMap($this->doRPCRequest('CancelRefund', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelRefundResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -560,11 +843,41 @@ class Linkedmall extends OpenApiClient
     public function confirmDisburseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfirmDisburse',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfirmDisburseResponse::fromMap($this->doRPCRequest('ConfirmDisburse', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfirmDisburseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -590,10 +903,21 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMovieTicketOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMovieTicketOrderResponse::fromMap($this->doRPCRequest('CreateMovieTicketOrder', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateMovieTicketOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -617,11 +941,68 @@ class Linkedmall extends OpenApiClient
     public function createOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->buyerMessageMap)) {
+            $query['BuyerMessageMap'] = $request->buyerMessageMap;
+        }
+        if (!Utils::isUnset($request->deliveryAddress)) {
+            $query['DeliveryAddress'] = $request->deliveryAddress;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->itemList)) {
+            $query['ItemList'] = $request->itemList;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->orderExpireTime)) {
+            $query['OrderExpireTime'] = $request->orderExpireTime;
+        }
+        if (!Utils::isUnset($request->outTradeId)) {
+            $query['OutTradeId'] = $request->outTradeId;
+        }
+        if (!Utils::isUnset($request->quantity)) {
+            $query['Quantity'] = $request->quantity;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->totalAmount)) {
+            $query['TotalAmount'] = $request->totalAmount;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOrderResponse::fromMap($this->doRPCRequest('CreateOrder', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -645,11 +1026,68 @@ class Linkedmall extends OpenApiClient
     public function createOrderV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->buyerMessageMap)) {
+            $query['BuyerMessageMap'] = $request->buyerMessageMap;
+        }
+        if (!Utils::isUnset($request->deliveryAddress)) {
+            $query['DeliveryAddress'] = $request->deliveryAddress;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->itemList)) {
+            $query['ItemList'] = $request->itemList;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->orderExpireTime)) {
+            $query['OrderExpireTime'] = $request->orderExpireTime;
+        }
+        if (!Utils::isUnset($request->outTradeId)) {
+            $query['OutTradeId'] = $request->outTradeId;
+        }
+        if (!Utils::isUnset($request->quantity)) {
+            $query['Quantity'] = $request->quantity;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->totalAmount)) {
+            $query['TotalAmount'] = $request->totalAmount;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrderV2',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOrderV2Response::fromMap($this->doRPCRequest('CreateOrderV2', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOrderV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -673,11 +1111,40 @@ class Linkedmall extends OpenApiClient
     public function createPayUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->buyInfo)) {
+            $body['BuyInfo'] = $request->buyInfo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePayUrl',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePayUrlResponse::fromMap($this->doRPCRequest('CreatePayUrl', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePayUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -701,11 +1168,44 @@ class Linkedmall extends OpenApiClient
     public function createSettleConfirmWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->merchantId)) {
+            $body['MerchantId'] = $request->merchantId;
+        }
+        if (!Utils::isUnset($request->outRequestNo)) {
+            $body['OutRequestNo'] = $request->outRequestNo;
+        }
+        if (!Utils::isUnset($request->outTradeNo)) {
+            $body['OutTradeNo'] = $request->outTradeNo;
+        }
+        if (!Utils::isUnset($request->settleInfo)) {
+            $body['SettleInfo'] = $request->settleInfo;
+        }
+        if (!Utils::isUnset($request->tradeNo)) {
+            $body['TradeNo'] = $request->tradeNo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSettleConfirm',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSettleConfirmResponse::fromMap($this->doRPCRequest('CreateSettleConfirm', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSettleConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -729,11 +1229,65 @@ class Linkedmall extends OpenApiClient
     public function createVirtualProductOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->deliveryAddress)) {
+            $query['DeliveryAddress'] = $request->deliveryAddress;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->itemList)) {
+            $query['ItemList'] = $request->itemList;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->orderExpireTime)) {
+            $query['OrderExpireTime'] = $request->orderExpireTime;
+        }
+        if (!Utils::isUnset($request->outTradeId)) {
+            $query['OutTradeId'] = $request->outTradeId;
+        }
+        if (!Utils::isUnset($request->quantity)) {
+            $query['Quantity'] = $request->quantity;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->totalAmount)) {
+            $query['TotalAmount'] = $request->totalAmount;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVirtualProductOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVirtualProductOrderResponse::fromMap($this->doRPCRequest('CreateVirtualProductOrder', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateVirtualProductOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -757,11 +1311,56 @@ class Linkedmall extends OpenApiClient
     public function createWithholdTradeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->agreementNo)) {
+            $body['AgreementNo'] = $request->agreementNo;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->buyerId)) {
+            $body['BuyerId'] = $request->buyerId;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->goodsDetail)) {
+            $body['GoodsDetail'] = $request->goodsDetail;
+        }
+        if (!Utils::isUnset($request->merchantId)) {
+            $body['MerchantId'] = $request->merchantId;
+        }
+        if (!Utils::isUnset($request->outRequestNo)) {
+            $body['OutRequestNo'] = $request->outRequestNo;
+        }
+        if (!Utils::isUnset($request->outTradeNo)) {
+            $body['OutTradeNo'] = $request->outTradeNo;
+        }
+        if (!Utils::isUnset($request->settleMode)) {
+            $body['SettleMode'] = $request->settleMode;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $body['Subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->totalAmount)) {
+            $body['TotalAmount'] = $request->totalAmount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWithholdTrade',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateWithholdTradeResponse::fromMap($this->doRPCRequest('CreateWithholdTrade', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateWithholdTradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -777,6 +1376,80 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param DeductUserPointRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeductUserPointResponse
+     */
+    public function deductUserPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeductUserPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $query['IdempotentId'] = $request->idempotentId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeductUserPoint',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeductUserPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeductUserPointRequest $request
+     *
+     * @return DeductUserPointResponse
+     */
+    public function deductUserPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deductUserPointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBizItemsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -785,11 +1458,32 @@ class Linkedmall extends OpenApiClient
     public function deleteBizItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemIdList)) {
+            $query['ItemIdList'] = $request->itemIdList;
+        }
+        if (!Utils::isUnset($request->subBizId)) {
+            $query['SubBizId'] = $request->subBizId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBizItems',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteBizItemsResponse::fromMap($this->doRPCRequest('DeleteBizItems', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBizItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -813,11 +1507,41 @@ class Linkedmall extends OpenApiClient
     public function deleteItemLimitRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmActivityId)) {
+            $query['LmActivityId'] = $request->lmActivityId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->subBizCode)) {
+            $query['SubBizCode'] = $request->subBizCode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteItemLimitRule',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteItemLimitRuleResponse::fromMap($this->doRPCRequest('DeleteItemLimitRule', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteItemLimitRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -841,11 +1565,47 @@ class Linkedmall extends OpenApiClient
     public function enableOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->outTradeId)) {
+            $query['OutTradeId'] = $request->outTradeId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableOrderResponse::fromMap($this->doRPCRequest('EnableOrder', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -869,11 +1629,41 @@ class Linkedmall extends OpenApiClient
     public function executeNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeInstanceId)) {
+            $query['NodeInstanceId'] = $request->nodeInstanceId;
+        }
+        if (!Utils::isUnset($request->processId)) {
+            $query['ProcessId'] = $request->processId;
+        }
+        if (!Utils::isUnset($request->processInstanceId)) {
+            $query['ProcessInstanceId'] = $request->processInstanceId;
+        }
+        if (!Utils::isUnset($request->requestData)) {
+            $query['RequestData'] = $request->requestData;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteNode',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteNodeResponse::fromMap($this->doRPCRequest('ExecuteNode', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -889,20 +1679,130 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param GetActivityGameInfoRequest $request
+     * @param FreezeUserPointRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FreezeUserPointResponse
+     */
+    public function freezeUserPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FreezeUserPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $query['IdempotentId'] = $request->idempotentId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FreezeUserPoint',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FreezeUserPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FreezeUserPointRequest $request
+     *
+     * @return FreezeUserPointResponse
+     */
+    public function freezeUserPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->freezeUserPointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetActivityGameInfoRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return GetActivityGameInfoResponse
      */
-    public function getActivityGameInfoWithOptions($request, $runtime)
+    public function getActivityGameInfoWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        Utils::validateModel($tmpReq);
+        $request = new GetActivityGameInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->activityId)) {
+            $query['ActivityId'] = $request->activityId;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetActivityGameInfo',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetActivityGameInfoResponse::fromMap($this->doRPCRequest('GetActivityGameInfo', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetActivityGameInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -926,11 +1826,35 @@ class Linkedmall extends OpenApiClient
     public function getCategoryChainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCategoryChain',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCategoryChainResponse::fromMap($this->doRPCRequest('GetCategoryChain', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCategoryChainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -954,11 +1878,29 @@ class Linkedmall extends OpenApiClient
     public function getCategoryListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCategoryList',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCategoryListResponse::fromMap($this->doRPCRequest('GetCategoryList', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCategoryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -982,11 +1924,47 @@ class Linkedmall extends OpenApiClient
     public function getCustomServiceUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->cuid)) {
+            $query['Cuid'] = $request->cuid;
+        }
+        if (!Utils::isUnset($request->nick)) {
+            $query['Nick'] = $request->nick;
+        }
+        if (!Utils::isUnset($request->sellerId)) {
+            $query['SellerId'] = $request->sellerId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomServiceUrl',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCustomServiceUrlResponse::fromMap($this->doRPCRequest('GetCustomServiceUrl', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCustomServiceUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1012,10 +1990,21 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGuidePage',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGuidePageResponse::fromMap($this->doRPCRequest('GetGuidePage', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetGuidePageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1039,11 +2028,32 @@ class Linkedmall extends OpenApiClient
     public function getItemPromotionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetItemPromotion',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetItemPromotionResponse::fromMap($this->doRPCRequest('GetItemPromotion', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetItemPromotionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1067,11 +2077,40 @@ class Linkedmall extends OpenApiClient
     public function getLoginPageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->failUrl)) {
+            $body['FailUrl'] = $request->failUrl;
+        }
+        if (!Utils::isUnset($request->targetUrl)) {
+            $body['TargetUrl'] = $request->targetUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLoginPage',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLoginPageResponse::fromMap($this->doRPCRequest('GetLoginPage', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLoginPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1095,11 +2134,40 @@ class Linkedmall extends OpenApiClient
     public function getSwitchUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSwitchUrl',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSwitchUrlResponse::fromMap($this->doRPCRequest('GetSwitchUrl', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSwitchUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1123,11 +2191,37 @@ class Linkedmall extends OpenApiClient
     public function getUserInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->userFlag)) {
+            $query['UserFlag'] = $request->userFlag;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->queryJson)) {
+            $body['QueryJson'] = $request->queryJson;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserInfo',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUserInfoResponse::fromMap($this->doRPCRequest('GetUserInfo', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1153,10 +2247,21 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserTokenPage',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUserTokenPageResponse::fromMap($this->doRPCRequest('GetUserTokenPage', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetUserTokenPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1180,11 +2285,53 @@ class Linkedmall extends OpenApiClient
     public function getWithholdSignPageUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceType)) {
+            $body['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->externalAgreementNo)) {
+            $body['ExternalAgreementNo'] = $request->externalAgreementNo;
+        }
+        if (!Utils::isUnset($request->identityParameters)) {
+            $body['IdentityParameters'] = $request->identityParameters;
+        }
+        if (!Utils::isUnset($request->merchantId)) {
+            $body['MerchantId'] = $request->merchantId;
+        }
+        if (!Utils::isUnset($request->merchantServiceDescription)) {
+            $body['MerchantServiceDescription'] = $request->merchantServiceDescription;
+        }
+        if (!Utils::isUnset($request->merchantServiceName)) {
+            $body['MerchantServiceName'] = $request->merchantServiceName;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $body['NotifyUrl'] = $request->notifyUrl;
+        }
+        if (!Utils::isUnset($request->outRequestNo)) {
+            $body['OutRequestNo'] = $request->outRequestNo;
+        }
+        if (!Utils::isUnset($request->returnUrl)) {
+            $body['ReturnUrl'] = $request->returnUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWithholdSignPageUrl',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetWithholdSignPageUrlResponse::fromMap($this->doRPCRequest('GetWithholdSignPageUrl', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetWithholdSignPageUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1200,19 +2347,142 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param GrantPromotionToUserRequest $request
+     * @param GiveUserPointRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GiveUserPointResponse
+     */
+    public function giveUserPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GiveUserPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $query['IdempotentId'] = $request->idempotentId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->targetBizUid)) {
+            $query['TargetBizUid'] = $request->targetBizUid;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GiveUserPoint',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GiveUserPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GiveUserPointRequest $request
+     *
+     * @return GiveUserPointResponse
+     */
+    public function giveUserPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->giveUserPointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GrantPromotionToUserRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
      * @return GrantPromotionToUserResponse
      */
-    public function grantPromotionToUserWithOptions($request, $runtime)
+    public function grantPromotionToUserWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GrantPromotionToUserShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->body)) {
+            $request->bodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->expireSeconds)) {
+            $query['ExpireSeconds'] = $request->expireSeconds;
+        }
+        if (!Utils::isUnset($request->grantMode)) {
+            $query['GrantMode'] = $request->grantMode;
+        }
+        if (!Utils::isUnset($request->grantWay)) {
+            $query['GrantWay'] = $request->grantWay;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $query['IdempotentId'] = $request->idempotentId;
+        }
+        if (!Utils::isUnset($request->promotionId)) {
+            $query['PromotionId'] = $request->promotionId;
+        }
+        if (!Utils::isUnset($request->securityCode)) {
+            $query['SecurityCode'] = $request->securityCode;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bodyShrink)) {
+            $body['body'] = $request->bodyShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantPromotionToUser',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GrantPromotionToUserResponse::fromMap($this->doRPCRequest('GrantPromotionToUser', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GrantPromotionToUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1228,6 +2498,80 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param GrantUserPointRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GrantUserPointResponse
+     */
+    public function grantUserPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GrantUserPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $query['IdempotentId'] = $request->idempotentId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantUserPoint',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantUserPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GrantUserPointRequest $request
+     *
+     * @return GrantUserPointResponse
+     */
+    public function grantUserPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantUserPointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InitApplyRefundRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1236,11 +2580,47 @@ class Linkedmall extends OpenApiClient
     public function initApplyRefundWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizClaimType)) {
+            $query['BizClaimType'] = $request->bizClaimType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->goodsStatus)) {
+            $query['GoodsStatus'] = $request->goodsStatus;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $query['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitApplyRefund',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InitApplyRefundResponse::fromMap($this->doRPCRequest('InitApplyRefund', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InitApplyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1253,6 +2633,86 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->initApplyRefundWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListActivityAtmosphereRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListActivityAtmosphereResponse
+     */
+    public function listActivityAtmosphereWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListActivityAtmosphere',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListActivityAtmosphereResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListActivityAtmosphereRequest $request
+     *
+     * @return ListActivityAtmosphereResponse
+     */
+    public function listActivityAtmosphere($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listActivityAtmosphereWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListActivityGameInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListActivityGameInfoResponse
+     */
+    public function listActivityGameInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListActivityGameInfo',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListActivityGameInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListActivityGameInfoRequest $request
+     *
+     * @return ListActivityGameInfoResponse
+     */
+    public function listActivityGameInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listActivityGameInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1272,11 +2732,32 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($tmpReq->lmItemIds)) {
             $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemIdsShrink)) {
+            $query['ItemIds'] = $request->itemIdsShrink;
+        }
+        if (!Utils::isUnset($request->lmItemIdsShrink)) {
+            $query['LmItemIds'] = $request->lmItemIdsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListItemActivities',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListItemActivitiesResponse::fromMap($this->doRPCRequest('ListItemActivities', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListItemActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1302,10 +2783,21 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserGameProcess',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUserGameProcessResponse::fromMap($this->doRPCRequest('ListUserGameProcess', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListUserGameProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1321,6 +2813,46 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param ListUserPointRecordsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListUserPointRecordsResponse
+     */
+    public function listUserPointRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserPointRecords',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserPointRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserPointRecordsRequest $request
+     *
+     * @return ListUserPointRecordsResponse
+     */
+    public function listUserPointRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserPointRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyBasicAndBizItemsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1329,11 +2861,34 @@ class Linkedmall extends OpenApiClient
     public function modifyBasicAndBizItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->subBizId)) {
+            $query['SubBizId'] = $request->subBizId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->itemList)) {
+            $body['ItemList'] = $request->itemList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBasicAndBizItems',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBasicAndBizItemsResponse::fromMap($this->doRPCRequest('ModifyBasicAndBizItems', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBasicAndBizItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1357,11 +2912,34 @@ class Linkedmall extends OpenApiClient
     public function modifyBizItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->subBizId)) {
+            $query['SubBizId'] = $request->subBizId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->itemList)) {
+            $body['ItemList'] = $request->itemList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBizItems',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBizItemsResponse::fromMap($this->doRPCRequest('ModifyBizItems', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBizItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1385,11 +2963,53 @@ class Linkedmall extends OpenApiClient
     public function modifyItemLimitRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmActivityId)) {
+            $query['LmActivityId'] = $request->lmActivityId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->subBizCode)) {
+            $query['SubBizCode'] = $request->subBizCode;
+        }
+        if (!Utils::isUnset($request->upperNum)) {
+            $query['UpperNum'] = $request->upperNum;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyItemLimitRule',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyItemLimitRuleResponse::fromMap($this->doRPCRequest('ModifyItemLimitRule', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyItemLimitRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1413,11 +3033,35 @@ class Linkedmall extends OpenApiClient
     public function modifyOrderDeliveryAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->deliveryAddress)) {
+            $query['DeliveryAddress'] = $request->deliveryAddress;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyOrderDeliveryAddress',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyOrderDeliveryAddressResponse::fromMap($this->doRPCRequest('ModifyOrderDeliveryAddress', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyOrderDeliveryAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1433,6 +3077,70 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param ModifySettleAccountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifySettleAccountResponse
+     */
+    public function modifySettleAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountChannel)) {
+            $body['AccountChannel'] = $request->accountChannel;
+        }
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $body['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountNo)) {
+            $body['AccountNo'] = $request->accountNo;
+        }
+        if (!Utils::isUnset($request->accountPayType)) {
+            $body['AccountPayType'] = $request->accountPayType;
+        }
+        if (!Utils::isUnset($request->accountType)) {
+            $body['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySettleAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifySettleAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifySettleAccountRequest $request
+     *
+     * @return ModifySettleAccountResponse
+     */
+    public function modifySettleAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySettleAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param NotifyPayOrderStatusRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1441,11 +3149,38 @@ class Linkedmall extends OpenApiClient
     public function notifyPayOrderStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->operationDate)) {
+            $query['OperationDate'] = $request->operationDate;
+        }
+        if (!Utils::isUnset($request->payTypes)) {
+            $query['PayTypes'] = $request->payTypes;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'NotifyPayOrderStatus',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return NotifyPayOrderStatusResponse::fromMap($this->doRPCRequest('NotifyPayOrderStatus', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return NotifyPayOrderStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1469,11 +3204,41 @@ class Linkedmall extends OpenApiClient
     public function notifyWithholdFundWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->operationDate)) {
+            $query['OperationDate'] = $request->operationDate;
+        }
+        if (!Utils::isUnset($request->payTypes)) {
+            $query['PayTypes'] = $request->payTypes;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->tenantOrderId)) {
+            $query['TenantOrderId'] = $request->tenantOrderId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'NotifyWithholdFund',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return NotifyWithholdFundResponse::fromMap($this->doRPCRequest('NotifyWithholdFund', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return NotifyWithholdFundResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1489,19 +3254,62 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param PushUserGameProcessRequest $request
+     * @param PushUserGameProcessRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return PushUserGameProcessResponse
      */
-    public function pushUserGameProcessWithOptions($request, $runtime)
+    public function pushUserGameProcessWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new PushUserGameProcessShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->body)) {
+            $request->bodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->currentStepId)) {
+            $query['CurrentStepId'] = $request->currentStepId;
+        }
+        if (!Utils::isUnset($request->processId)) {
+            $query['ProcessId'] = $request->processId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        if (!Utils::isUnset($request->bodyShrink)) {
+            $body['body'] = $request->bodyShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PushUserGameProcess',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PushUserGameProcessResponse::fromMap($this->doRPCRequest('PushUserGameProcess', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PushUserGameProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1525,11 +3333,35 @@ class Linkedmall extends OpenApiClient
     public function queryActivityItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->lmActivityId)) {
+            $query['LmActivityId'] = $request->lmActivityId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryActivityItems',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryActivityItemsResponse::fromMap($this->doRPCRequest('QueryActivityItems', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryActivityItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1553,11 +3385,32 @@ class Linkedmall extends OpenApiClient
     public function queryAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->divisionCode)) {
+            $query['DivisionCode'] = $request->divisionCode;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAddress',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAddressResponse::fromMap($this->doRPCRequest('QueryAddress', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1581,11 +3434,35 @@ class Linkedmall extends OpenApiClient
     public function queryAddressDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressInfo)) {
+            $query['AddressInfo'] = $request->addressInfo;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAddressDetail',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAddressDetailResponse::fromMap($this->doRPCRequest('QueryAddressDetail', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAddressDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1609,11 +3486,32 @@ class Linkedmall extends OpenApiClient
     public function queryAddressListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAddressList',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAddressListResponse::fromMap($this->doRPCRequest('QueryAddressList', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAddressListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1637,11 +3535,50 @@ class Linkedmall extends OpenApiClient
     public function queryAdvertisementSettleInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $query['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->mediaSettleDetailId)) {
+            $query['MediaSettleDetailId'] = $request->mediaSettleDetailId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->settleNo)) {
+            $query['SettleNo'] = $request->settleNo;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAdvertisementSettleInfo',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAdvertisementSettleInfoResponse::fromMap($this->doRPCRequest('QueryAdvertisementSettleInfo', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAdvertisementSettleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1665,11 +3602,32 @@ class Linkedmall extends OpenApiClient
     public function queryAgreementWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->agreementNo)) {
+            $body['AgreementNo'] = $request->agreementNo;
+        }
+        if (!Utils::isUnset($request->externalAgreementNo)) {
+            $body['ExternalAgreementNo'] = $request->externalAgreementNo;
+        }
+        if (!Utils::isUnset($request->merchantId)) {
+            $body['MerchantId'] = $request->merchantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAgreement',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAgreementResponse::fromMap($this->doRPCRequest('QueryAgreement', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAgreementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1693,11 +3651,35 @@ class Linkedmall extends OpenApiClient
     public function queryAllCinemasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['CityCode'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAllCinemas',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAllCinemasResponse::fromMap($this->doRPCRequest('QueryAllCinemas', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAllCinemasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1726,11 +3708,29 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($tmpReq->extJson)) {
             $request->extJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extJson, 'ExtJson', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extJsonShrink)) {
+            $query['ExtJson'] = $request->extJsonShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAllCities',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAllCitiesResponse::fromMap($this->doRPCRequest('QueryAllCities', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAllCitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1754,11 +3754,29 @@ class Linkedmall extends OpenApiClient
     public function queryBatchRegistAnonymousTbAccountResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchId)) {
+            $query['BatchId'] = $request->batchId;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBatchRegistAnonymousTbAccountResult',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBatchRegistAnonymousTbAccountResultResponse::fromMap($this->doRPCRequest('QueryBatchRegistAnonymousTbAccountResult', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBatchRegistAnonymousTbAccountResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1790,11 +3808,32 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($tmpReq->lmItemIds)) {
             $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemIdsShrink)) {
+            $query['ItemIds'] = $request->itemIdsShrink;
+        }
+        if (!Utils::isUnset($request->lmItemIdsShrink)) {
+            $query['LmItemIds'] = $request->lmItemIdsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBestSession4Items',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBestSession4ItemsResponse::fromMap($this->doRPCRequest('QueryBestSession4Items', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBestSession4ItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1826,11 +3865,47 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($tmpReq->lmItemIds)) {
             $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->itemIdsShrink)) {
+            $query['ItemIds'] = $request->itemIdsShrink;
+        }
+        if (!Utils::isUnset($request->lmItemIdsShrink)) {
+            $query['LmItemIds'] = $request->lmItemIdsShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->subBizId)) {
+            $query['SubBizId'] = $request->subBizId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBizItemList',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBizItemListResponse::fromMap($this->doRPCRequest('QueryBizItemList', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBizItemListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1846,6 +3921,54 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryBizItemListWithCacheRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryBizItemListWithCacheResponse
+     */
+    public function queryBizItemListWithCacheWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryBizItemListWithCacheShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->itemIds)) {
+            $request->itemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'ItemIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBizItemListWithCache',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryBizItemListWithCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryBizItemListWithCacheRequest $request
+     *
+     * @return QueryBizItemListWithCacheResponse
+     */
+    public function queryBizItemListWithCache($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryBizItemListWithCacheWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryBizItemsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1854,11 +3977,38 @@ class Linkedmall extends OpenApiClient
     public function queryBizItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->subBizId)) {
+            $query['SubBizId'] = $request->subBizId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBizItems',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBizItemsResponse::fromMap($this->doRPCRequest('QueryBizItems', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBizItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1892,10 +4042,21 @@ class Linkedmall extends OpenApiClient
         }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBizItemsWithActivity',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBizItemsWithActivityResponse::fromMap($this->doRPCRequest('QueryBizItemsWithActivity', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryBizItemsWithActivityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1911,6 +4072,58 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryBudgetTicketItemListByBizIdRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QueryBudgetTicketItemListByBizIdResponse
+     */
+    public function queryBudgetTicketItemListByBizIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->budgetTicketNo)) {
+            $query['BudgetTicketNo'] = $request->budgetTicketNo;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBudgetTicketItemListByBizId',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryBudgetTicketItemListByBizIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryBudgetTicketItemListByBizIdRequest $request
+     *
+     * @return QueryBudgetTicketItemListByBizIdResponse
+     */
+    public function queryBudgetTicketItemListByBizId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryBudgetTicketItemListByBizIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryGuideItemGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1919,11 +4132,38 @@ class Linkedmall extends OpenApiClient
     public function queryGuideItemGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->itemState)) {
+            $query['ItemState'] = $request->itemState;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGuideItemGroup',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryGuideItemGroupResponse::fromMap($this->doRPCRequest('QueryGuideItemGroup', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryGuideItemGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1949,10 +4189,21 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGuideItemGroupWithOutInventory',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryGuideItemGroupWithOutInventoryResponse::fromMap($this->doRPCRequest('QueryGuideItemGroupWithOutInventory', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryGuideItemGroupWithOutInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1976,11 +4227,32 @@ class Linkedmall extends OpenApiClient
     public function queryHotMoviesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['CityCode'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryHotMovies',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryHotMoviesResponse::fromMap($this->doRPCRequest('QueryHotMovies', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryHotMoviesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2014,10 +4286,21 @@ class Linkedmall extends OpenApiClient
         }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInventoryOfItemsInBizItemGroup',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryInventoryOfItemsInBizItemGroupResponse::fromMap($this->doRPCRequest('QueryInventoryOfItemsInBizItemGroup', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryInventoryOfItemsInBizItemGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2041,11 +4324,32 @@ class Linkedmall extends OpenApiClient
     public function queryItemDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemDetail',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryItemDetailResponse::fromMap($this->doRPCRequest('QueryItemDetail', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryItemDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2069,11 +4373,47 @@ class Linkedmall extends OpenApiClient
     public function queryItemDetailInnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->divisionCode)) {
+            $query['DivisionCode'] = $request->divisionCode;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemDetailInner',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryItemDetailInnerResponse::fromMap($this->doRPCRequest('QueryItemDetailInner', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryItemDetailInnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2097,11 +4437,32 @@ class Linkedmall extends OpenApiClient
     public function queryItemDetailTeaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemDetailTea',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryItemDetailTeaResponse::fromMap($this->doRPCRequest('QueryItemDetailTea', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryItemDetailTeaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2132,10 +4493,21 @@ class Linkedmall extends OpenApiClient
         }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemInSubBizs',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryItemInSubBizsResponse::fromMap($this->doRPCRequest('QueryItemInSubBizs', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryItemInSubBizsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2159,11 +4531,35 @@ class Linkedmall extends OpenApiClient
     public function queryItemInventoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->divisionCode)) {
+            $query['DivisionCode'] = $request->divisionCode;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->itemList)) {
+            $query['ItemList'] = $request->itemList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemInventory',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryItemInventoryResponse::fromMap($this->doRPCRequest('QueryItemInventory', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryItemInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2187,11 +4583,41 @@ class Linkedmall extends OpenApiClient
     public function queryLogisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryLogistics',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryLogisticsResponse::fromMap($this->doRPCRequest('QueryLogistics', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryLogisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2215,11 +4641,50 @@ class Linkedmall extends OpenApiClient
     public function queryMediaSettleInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $query['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->mediaName)) {
+            $query['MediaName'] = $request->mediaName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->settleNo)) {
+            $query['SettleNo'] = $request->settleNo;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaSettleInfo',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaSettleInfoResponse::fromMap($this->doRPCRequest('QueryMediaSettleInfo', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaSettleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2243,11 +4708,32 @@ class Linkedmall extends OpenApiClient
     public function queryMessagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMessages',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMessagesResponse::fromMap($this->doRPCRequest('QueryMessages', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2271,11 +4757,35 @@ class Linkedmall extends OpenApiClient
     public function queryMovieCommentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->movieId)) {
+            $query['MovieId'] = $request->movieId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMovieComments',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMovieCommentsResponse::fromMap($this->doRPCRequest('QueryMovieComments', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMovieCommentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2299,11 +4809,32 @@ class Linkedmall extends OpenApiClient
     public function queryMovieSchedulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->cinemaId)) {
+            $query['CinemaId'] = $request->cinemaId;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMovieSchedules',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMovieSchedulesResponse::fromMap($this->doRPCRequest('QueryMovieSchedules', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMovieSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2327,11 +4858,32 @@ class Linkedmall extends OpenApiClient
     public function queryMovieSeatsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->scheduleId)) {
+            $query['ScheduleId'] = $request->scheduleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMovieSeats',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMovieSeatsResponse::fromMap($this->doRPCRequest('QueryMovieSeats', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMovieSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2357,10 +4909,21 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMovieTickets',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMovieTicketsResponse::fromMap($this->doRPCRequest('QueryMovieTickets', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryMovieTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2384,11 +4947,47 @@ class Linkedmall extends OpenApiClient
     public function queryOrderAndPaymentListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->filterOption)) {
+            $query['FilterOption'] = $request->filterOption;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderAndPaymentList',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderAndPaymentListResponse::fromMap($this->doRPCRequest('QueryOrderAndPaymentList', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrderAndPaymentListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2412,11 +5011,41 @@ class Linkedmall extends OpenApiClient
     public function queryOrderCommissionRateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderCommissionRate',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderCommissionRateResponse::fromMap($this->doRPCRequest('QueryOrderCommissionRate', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrderCommissionRateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2440,11 +5069,38 @@ class Linkedmall extends OpenApiClient
     public function queryOrderDetailInnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->filterOption)) {
+            $query['FilterOption'] = $request->filterOption;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderDetailInner',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderDetailInnerResponse::fromMap($this->doRPCRequest('QueryOrderDetailInner', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrderDetailInnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2468,11 +5124,41 @@ class Linkedmall extends OpenApiClient
     public function queryOrderIdByPayIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->paymentId)) {
+            $query['PaymentId'] = $request->paymentId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderIdByPayId',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderIdByPayIdResponse::fromMap($this->doRPCRequest('QueryOrderIdByPayId', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrderIdByPayIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2498,10 +5184,21 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderInfoAfterSale',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderInfoAfterSaleResponse::fromMap($this->doRPCRequest('QueryOrderInfoAfterSale', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryOrderInfoAfterSaleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2525,11 +5222,32 @@ class Linkedmall extends OpenApiClient
     public function queryOrderItemInfoByPaymentIdForAiZhanYouWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->paymentId)) {
+            $query['PaymentId'] = $request->paymentId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderItemInfoByPaymentIdForAiZhanYou',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderItemInfoByPaymentIdForAiZhanYouResponse::fromMap($this->doRPCRequest('QueryOrderItemInfoByPaymentIdForAiZhanYou', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrderItemInfoByPaymentIdForAiZhanYouResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2553,11 +5271,47 @@ class Linkedmall extends OpenApiClient
     public function queryOrderListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->filterOption)) {
+            $query['FilterOption'] = $request->filterOption;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderList',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderListResponse::fromMap($this->doRPCRequest('QueryOrderList', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2581,11 +5335,41 @@ class Linkedmall extends OpenApiClient
     public function queryOrderLogisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderLogistics',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderLogisticsResponse::fromMap($this->doRPCRequest('QueryOrderLogistics', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrderLogisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2609,11 +5393,41 @@ class Linkedmall extends OpenApiClient
     public function queryRefundApplicationDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $query['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRefundApplicationDetail',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRefundApplicationDetailResponse::fromMap($this->doRPCRequest('QueryRefundApplicationDetail', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryRefundApplicationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2637,11 +5451,56 @@ class Linkedmall extends OpenApiClient
     public function queryStatementsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $query['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->payeeIds)) {
+            $query['PayeeIds'] = $request->payeeIds;
+        }
+        if (!Utils::isUnset($request->settleNoes)) {
+            $query['SettleNoes'] = $request->settleNoes;
+        }
+        if (!Utils::isUnset($request->settleStatus)) {
+            $query['SettleStatus'] = $request->settleStatus;
+        }
+        if (!Utils::isUnset($request->settleType)) {
+            $query['SettleType'] = $request->settleType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStatements',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryStatementsResponse::fromMap($this->doRPCRequest('QueryStatements', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryStatementsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2665,11 +5524,32 @@ class Linkedmall extends OpenApiClient
     public function queryUnfinishedActivitiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUnfinishedActivities',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryUnfinishedActivitiesResponse::fromMap($this->doRPCRequest('QueryUnfinishedActivities', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryUnfinishedActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2693,11 +5573,35 @@ class Linkedmall extends OpenApiClient
     public function queryUnfinishedSessionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryTime)) {
+            $query['QueryTime'] = $request->queryTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUnfinishedSessions',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryUnfinishedSessionsResponse::fromMap($this->doRPCRequest('QueryUnfinishedSessions', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryUnfinishedSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2729,11 +5633,35 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($tmpReq->lmItemIds)) {
             $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->itemIdsShrink)) {
+            $query['ItemIds'] = $request->itemIdsShrink;
+        }
+        if (!Utils::isUnset($request->lmItemIdsShrink)) {
+            $query['LmItemIds'] = $request->lmItemIdsShrink;
+        }
+        if (!Utils::isUnset($request->queryTime)) {
+            $query['QueryTime'] = $request->queryTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUnfinishedSessions4Items',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryUnfinishedSessions4ItemsResponse::fromMap($this->doRPCRequest('QueryUnfinishedSessions4Items', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryUnfinishedSessions4ItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2762,11 +5690,32 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($tmpReq->extJson)) {
             $request->extJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extJson, 'ExtJson', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['CityCode'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->extJsonShrink)) {
+            $query['ExtJson'] = $request->extJsonShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUpcomingMovies',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryUpcomingMoviesResponse::fromMap($this->doRPCRequest('QueryUpcomingMovies', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryUpcomingMoviesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2782,20 +5731,53 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param QueryUserGameProcessRequest $request
+     * @param QueryUserGameProcessRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
      * @return QueryUserGameProcessResponse
      */
-    public function queryUserGameProcessWithOptions($request, $runtime)
+    public function queryUserGameProcessWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        Utils::validateModel($tmpReq);
+        $request = new QueryUserGameProcessShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->processId)) {
+            $query['ProcessId'] = $request->processId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUserGameProcess',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryUserGameProcessResponse::fromMap($this->doRPCRequest('QueryUserGameProcess', '2018-01-16', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryUserGameProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2811,6 +5793,51 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryUserPointRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryUserPointResponse
+     */
+    public function queryUserPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryUserPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUserPoint',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryUserPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryUserPointRequest $request
+     *
+     * @return QueryUserPointResponse
+     */
+    public function queryUserPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserPointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryWithholdTradeRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2819,11 +5846,32 @@ class Linkedmall extends OpenApiClient
     public function queryWithholdTradeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->merchantId)) {
+            $body['MerchantId'] = $request->merchantId;
+        }
+        if (!Utils::isUnset($request->outTradeNo)) {
+            $body['OutTradeNo'] = $request->outTradeNo;
+        }
+        if (!Utils::isUnset($request->tradeNo)) {
+            $body['TradeNo'] = $request->tradeNo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryWithholdTrade',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryWithholdTradeResponse::fromMap($this->doRPCRequest('QueryWithholdTrade', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryWithholdTradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2847,11 +5895,47 @@ class Linkedmall extends OpenApiClient
     public function refundOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->merchantId)) {
+            $body['MerchantId'] = $request->merchantId;
+        }
+        if (!Utils::isUnset($request->outRequestNo)) {
+            $body['OutRequestNo'] = $request->outRequestNo;
+        }
+        if (!Utils::isUnset($request->outTradeNo)) {
+            $body['OutTradeNo'] = $request->outTradeNo;
+        }
+        if (!Utils::isUnset($request->refundAmount)) {
+            $body['RefundAmount'] = $request->refundAmount;
+        }
+        if (!Utils::isUnset($request->refundReason)) {
+            $body['RefundReason'] = $request->refundReason;
+        }
+        if (!Utils::isUnset($request->refundRoyaltyParameters)) {
+            $body['RefundRoyaltyParameters'] = $request->refundRoyaltyParameters;
+        }
+        if (!Utils::isUnset($request->tradeNo)) {
+            $body['TradeNo'] = $request->tradeNo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RefundOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefundOrderResponse::fromMap($this->doRPCRequest('RefundOrder', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2875,11 +5959,41 @@ class Linkedmall extends OpenApiClient
     public function refundPointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->sellerId)) {
+            $query['SellerId'] = $request->sellerId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefundPoint',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefundPointResponse::fromMap($this->doRPCRequest('RefundPoint', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefundPointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2895,6 +6009,83 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param RefundUserPointRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RefundUserPointResponse
+     */
+    public function refundUserPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RefundUserPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $query['IdempotentId'] = $request->idempotentId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->originRecordId)) {
+            $query['OriginRecordId'] = $request->originRecordId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RefundUserPoint',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefundUserPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefundUserPointRequest $request
+     *
+     * @return RefundUserPointResponse
+     */
+    public function refundUserPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refundUserPointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RefuseMerchantSyncTaskRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2903,11 +6094,35 @@ class Linkedmall extends OpenApiClient
     public function refuseMerchantSyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->sellerNick)) {
+            $query['SellerNick'] = $request->sellerNick;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->timeStamp)) {
+            $query['TimeStamp'] = $request->timeStamp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefuseMerchantSyncTask',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefuseMerchantSyncTaskResponse::fromMap($this->doRPCRequest('RefuseMerchantSyncTask', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefuseMerchantSyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2931,11 +6146,29 @@ class Linkedmall extends OpenApiClient
     public function registAnonymousTbAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegistAnonymousTbAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RegistAnonymousTbAccountResponse::fromMap($this->doRPCRequest('RegistAnonymousTbAccount', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegistAnonymousTbAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2951,6 +6184,67 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param RegisterSettleAccountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RegisterSettleAccountResponse
+     */
+    public function registerSettleAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountChannel)) {
+            $body['AccountChannel'] = $request->accountChannel;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $body['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountNo)) {
+            $body['AccountNo'] = $request->accountNo;
+        }
+        if (!Utils::isUnset($request->accountPayType)) {
+            $body['AccountPayType'] = $request->accountPayType;
+        }
+        if (!Utils::isUnset($request->accountType)) {
+            $body['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterSettleAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterSettleAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterSettleAccountRequest $request
+     *
+     * @return RegisterSettleAccountResponse
+     */
+    public function registerSettleAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerSettleAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReleaseMovieSeatRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2959,11 +6253,35 @@ class Linkedmall extends OpenApiClient
     public function releaseMovieSeatWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->lockSeatApplyKey)) {
+            $query['LockSeatApplyKey'] = $request->lockSeatApplyKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseMovieSeat',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseMovieSeatResponse::fromMap($this->doRPCRequest('ReleaseMovieSeat', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseMovieSeatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2987,11 +6305,37 @@ class Linkedmall extends OpenApiClient
     public function removeAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->addressInfo)) {
+            $body['AddressInfo'] = $request->addressInfo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveAddress',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveAddressResponse::fromMap($this->doRPCRequest('RemoveAddress', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3015,11 +6359,32 @@ class Linkedmall extends OpenApiClient
     public function removeMessagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->messageIds)) {
+            $query['MessageIds'] = $request->messageIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveMessages',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveMessagesResponse::fromMap($this->doRPCRequest('RemoveMessages', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3043,11 +6408,41 @@ class Linkedmall extends OpenApiClient
     public function renderH5OrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->buyOrderRequestModel)) {
+            $query['BuyOrderRequestModel'] = $request->buyOrderRequestModel;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenderH5Order',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RenderH5OrderResponse::fromMap($this->doRPCRequest('RenderH5Order', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenderH5OrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3071,11 +6466,50 @@ class Linkedmall extends OpenApiClient
     public function renderOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->deliveryAddress)) {
+            $query['DeliveryAddress'] = $request->deliveryAddress;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->itemList)) {
+            $query['ItemList'] = $request->itemList;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $query['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenderOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RenderOrderResponse::fromMap($this->doRPCRequest('RenderOrder', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenderOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3099,11 +6533,38 @@ class Linkedmall extends OpenApiClient
     public function repayForPayUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RepayForPayUrl',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RepayForPayUrlResponse::fromMap($this->doRPCRequest('RepayForPayUrl', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RepayForPayUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3127,11 +6588,41 @@ class Linkedmall extends OpenApiClient
     public function repayOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->lmOrderId)) {
+            $query['LmOrderId'] = $request->lmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RepayOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RepayOrderResponse::fromMap($this->doRPCRequest('RepayOrder', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RepayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3155,11 +6646,44 @@ class Linkedmall extends OpenApiClient
     public function reserveMovieSeatWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->scheduleId)) {
+            $query['ScheduleId'] = $request->scheduleId;
+        }
+        if (!Utils::isUnset($request->seatIds)) {
+            $query['SeatIds'] = $request->seatIds;
+        }
+        if (!Utils::isUnset($request->seatNames)) {
+            $query['SeatNames'] = $request->seatNames;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReserveMovieSeat',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReserveMovieSeatResponse::fromMap($this->doRPCRequest('ReserveMovieSeat', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReserveMovieSeatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3183,11 +6707,41 @@ class Linkedmall extends OpenApiClient
     public function settleOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->extInfo)) {
+            $body['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->merchantId)) {
+            $body['MerchantId'] = $request->merchantId;
+        }
+        if (!Utils::isUnset($request->outRequestNo)) {
+            $body['OutRequestNo'] = $request->outRequestNo;
+        }
+        if (!Utils::isUnset($request->outTradeNo)) {
+            $body['OutTradeNo'] = $request->outTradeNo;
+        }
+        if (!Utils::isUnset($request->royaltyParameters)) {
+            $body['RoyaltyParameters'] = $request->royaltyParameters;
+        }
+        if (!Utils::isUnset($request->tradeNo)) {
+            $body['TradeNo'] = $request->tradeNo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SettleOrder',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SettleOrderResponse::fromMap($this->doRPCRequest('SettleOrder', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SettleOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3203,19 +6757,62 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param StartUserGameRequest $request
+     * @param StartUserGameRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return StartUserGameResponse
      */
-    public function startUserGameWithOptions($request, $runtime)
+    public function startUserGameWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new StartUserGameShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->activityId)) {
+            $query['ActivityId'] = $request->activityId;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->userApp)) {
+            $query['UserApp'] = $request->userApp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartUserGame',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartUserGameResponse::fromMap($this->doRPCRequest('StartUserGame', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartUserGameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3239,11 +6836,50 @@ class Linkedmall extends OpenApiClient
     public function submitReturnGoodLogisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->cpCode)) {
+            $query['CpCode'] = $request->cpCode;
+        }
+        if (!Utils::isUnset($request->disputeId)) {
+            $query['DisputeId'] = $request->disputeId;
+        }
+        if (!Utils::isUnset($request->logisticsNo)) {
+            $query['LogisticsNo'] = $request->logisticsNo;
+        }
+        if (!Utils::isUnset($request->subLmOrderId)) {
+            $query['SubLmOrderId'] = $request->subLmOrderId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitReturnGoodLogistics',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitReturnGoodLogisticsResponse::fromMap($this->doRPCRequest('SubmitReturnGoodLogistics', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitReturnGoodLogisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3267,11 +6903,40 @@ class Linkedmall extends OpenApiClient
     public function syncMerchantInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->sellerNick)) {
+            $query['SellerNick'] = $request->sellerNick;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->timeStamp)) {
+            $query['TimeStamp'] = $request->timeStamp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->itemList)) {
+            $body['ItemList'] = $request->itemList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncMerchantInfo',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SyncMerchantInfoResponse::fromMap($this->doRPCRequest('SyncMerchantInfo', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SyncMerchantInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3287,6 +6952,80 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param UnFreezeUserPointRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UnFreezeUserPointResponse
+     */
+    public function unFreezeUserPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UnFreezeUserPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->idempotentId)) {
+            $query['IdempotentId'] = $request->idempotentId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnFreezeUserPoint',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnFreezeUserPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnFreezeUserPointRequest $request
+     *
+     * @return UnFreezeUserPointResponse
+     */
+    public function unFreezeUserPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unFreezeUserPointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UnsignWithholdAgreementRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3295,11 +7034,35 @@ class Linkedmall extends OpenApiClient
     public function unsignWithholdAgreementWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->agreementNo)) {
+            $body['AgreementNo'] = $request->agreementNo;
+        }
+        if (!Utils::isUnset($request->externalAgreementNo)) {
+            $body['ExternalAgreementNo'] = $request->externalAgreementNo;
+        }
+        if (!Utils::isUnset($request->merchantId)) {
+            $body['MerchantId'] = $request->merchantId;
+        }
+        if (!Utils::isUnset($request->outRequestNo)) {
+            $body['OutRequestNo'] = $request->outRequestNo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnsignWithholdAgreement',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnsignWithholdAgreementResponse::fromMap($this->doRPCRequest('UnsignWithholdAgreement', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnsignWithholdAgreementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3323,11 +7086,37 @@ class Linkedmall extends OpenApiClient
     public function updateAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->thirdPartyUserId)) {
+            $query['ThirdPartyUserId'] = $request->thirdPartyUserId;
+        }
+        if (!Utils::isUnset($request->useAnonymousTbAccount)) {
+            $query['UseAnonymousTbAccount'] = $request->useAnonymousTbAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->addressInfo)) {
+            $body['AddressInfo'] = $request->addressInfo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAddress',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAddressResponse::fromMap($this->doRPCRequest('UpdateAddress', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3351,11 +7140,38 @@ class Linkedmall extends OpenApiClient
     public function validateTaobaoAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizUid)) {
+            $query['BizUid'] = $request->bizUid;
+        }
+        if (!Utils::isUnset($request->extJson)) {
+            $query['ExtJson'] = $request->extJson;
+        }
+        if (!Utils::isUnset($request->mobileNo)) {
+            $query['MobileNo'] = $request->mobileNo;
+        }
+        if (!Utils::isUnset($request->tbUserNick)) {
+            $query['TbUserNick'] = $request->tbUserNick;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateTaobaoAccount',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ValidateTaobaoAccountResponse::fromMap($this->doRPCRequest('ValidateTaobaoAccount', '2018-01-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ValidateTaobaoAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

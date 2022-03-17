@@ -20,6 +20,8 @@ class itemList extends Model
     public $lmItemId;
 
     /**
+     * @description 剩余可售库存
+     *
      * @var int
      */
     public $quantity;
@@ -28,11 +30,27 @@ class itemList extends Model
      * @var skuList[]
      */
     public $skuList;
+
+    /**
+     * @description 总量库存
+     *
+     * @var int
+     */
+    public $totalQuantity;
+
+    /**
+     * @description 已售库存
+     *
+     * @var int
+     */
+    public $totalSoldQuantity;
     protected $_name = [
-        'itemId'   => 'ItemId',
-        'lmItemId' => 'LmItemId',
-        'quantity' => 'Quantity',
-        'skuList'  => 'SkuList',
+        'itemId'            => 'ItemId',
+        'lmItemId'          => 'LmItemId',
+        'quantity'          => 'Quantity',
+        'skuList'           => 'SkuList',
+        'totalQuantity'     => 'TotalQuantity',
+        'totalSoldQuantity' => 'TotalSoldQuantity',
     ];
 
     public function validate()
@@ -59,6 +77,12 @@ class itemList extends Model
                     $res['SkuList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalQuantity) {
+            $res['TotalQuantity'] = $this->totalQuantity;
+        }
+        if (null !== $this->totalSoldQuantity) {
+            $res['TotalSoldQuantity'] = $this->totalSoldQuantity;
         }
 
         return $res;
@@ -89,6 +113,12 @@ class itemList extends Model
                     $model->skuList[$n++] = null !== $item ? skuList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalQuantity'])) {
+            $model->totalQuantity = $map['TotalQuantity'];
+        }
+        if (isset($map['TotalSoldQuantity'])) {
+            $model->totalSoldQuantity = $map['TotalSoldQuantity'];
         }
 
         return $model;

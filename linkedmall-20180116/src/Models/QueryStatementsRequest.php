@@ -11,6 +11,11 @@ class QueryStatementsRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -58,6 +63,7 @@ class QueryStatementsRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'bizId'        => 'BizId',
         'endTime'      => 'EndTime',
         'extInfo'      => 'ExtInfo',
         'pageNumber'   => 'PageNumber',
@@ -77,6 +83,9 @@ class QueryStatementsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -119,6 +128,9 @@ class QueryStatementsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

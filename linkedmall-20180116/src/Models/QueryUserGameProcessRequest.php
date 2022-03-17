@@ -19,6 +19,11 @@ class QueryUserGameProcessRequest extends Model
     public $bizId;
 
     /**
+     * @var mixed[]
+     */
+    public $extInfo;
+
+    /**
      * @var string
      */
     public $processId;
@@ -30,6 +35,7 @@ class QueryUserGameProcessRequest extends Model
     protected $_name = [
         'accountType'      => 'AccountType',
         'bizId'            => 'BizId',
+        'extInfo'          => 'ExtInfo',
         'processId'        => 'ProcessId',
         'thirdPartyUserId' => 'ThirdPartyUserId',
     ];
@@ -46,6 +52,9 @@ class QueryUserGameProcessRequest extends Model
         }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
@@ -70,6 +79,9 @@ class QueryUserGameProcessRequest extends Model
         }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];

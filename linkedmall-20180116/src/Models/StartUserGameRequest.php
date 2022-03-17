@@ -28,6 +28,13 @@ class StartUserGameRequest extends Model
     public $bizId;
 
     /**
+     * @description 扩展信息
+     *
+     * @var mixed[]
+     */
+    public $extInfo;
+
+    /**
      * @description 玩法ID
      *
      * @var string
@@ -58,6 +65,7 @@ class StartUserGameRequest extends Model
         'accountType'      => 'AccountType',
         'activityId'       => 'ActivityId',
         'bizId'            => 'BizId',
+        'extInfo'          => 'ExtInfo',
         'gameId'           => 'GameId',
         'routeId'          => 'RouteId',
         'thirdPartyUserId' => 'ThirdPartyUserId',
@@ -79,6 +87,9 @@ class StartUserGameRequest extends Model
         }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
@@ -112,6 +123,9 @@ class StartUserGameRequest extends Model
         }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];

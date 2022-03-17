@@ -24,6 +24,11 @@ class PushUserGameProcessRequest extends Model
     public $currentStepId;
 
     /**
+     * @var mixed[]
+     */
+    public $extInfo;
+
+    /**
      * @var string
      */
     public $processId;
@@ -41,6 +46,7 @@ class PushUserGameProcessRequest extends Model
         'accountType'      => 'AccountType',
         'bizId'            => 'BizId',
         'currentStepId'    => 'CurrentStepId',
+        'extInfo'          => 'ExtInfo',
         'processId'        => 'ProcessId',
         'thirdPartyUserId' => 'ThirdPartyUserId',
         'body'             => 'body',
@@ -61,6 +67,9 @@ class PushUserGameProcessRequest extends Model
         }
         if (null !== $this->currentStepId) {
             $res['CurrentStepId'] = $this->currentStepId;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
@@ -91,6 +100,9 @@ class PushUserGameProcessRequest extends Model
         }
         if (isset($map['CurrentStepId'])) {
             $model->currentStepId = $map['CurrentStepId'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];

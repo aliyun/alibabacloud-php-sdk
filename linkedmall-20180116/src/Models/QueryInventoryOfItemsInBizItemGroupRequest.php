@@ -19,12 +19,12 @@ class QueryInventoryOfItemsInBizItemGroupRequest extends Model
     public $divisionCode;
 
     /**
-     * @var mixed[]
+     * @var int[]
      */
     public $itemIds;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $lmItemIds;
 
@@ -81,10 +81,14 @@ class QueryInventoryOfItemsInBizItemGroupRequest extends Model
             $model->divisionCode = $map['DivisionCode'];
         }
         if (isset($map['ItemIds'])) {
-            $model->itemIds = $map['ItemIds'];
+            if (!empty($map['ItemIds'])) {
+                $model->itemIds = $map['ItemIds'];
+            }
         }
         if (isset($map['LmItemIds'])) {
-            $model->lmItemIds = $map['LmItemIds'];
+            if (!empty($map['LmItemIds'])) {
+                $model->lmItemIds = $map['LmItemIds'];
+            }
         }
         if (isset($map['SubBizId'])) {
             $model->subBizId = $map['SubBizId'];

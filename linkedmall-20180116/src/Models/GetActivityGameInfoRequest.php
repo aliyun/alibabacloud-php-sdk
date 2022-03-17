@@ -24,6 +24,11 @@ class GetActivityGameInfoRequest extends Model
     public $bizId;
 
     /**
+     * @var mixed[]
+     */
+    public $extInfo;
+
+    /**
      * @var string
      */
     public $gameId;
@@ -36,6 +41,7 @@ class GetActivityGameInfoRequest extends Model
         'accountType'      => 'AccountType',
         'activityId'       => 'ActivityId',
         'bizId'            => 'BizId',
+        'extInfo'          => 'ExtInfo',
         'gameId'           => 'GameId',
         'thirdPartyUserId' => 'ThirdPartyUserId',
     ];
@@ -55,6 +61,9 @@ class GetActivityGameInfoRequest extends Model
         }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
@@ -82,6 +91,9 @@ class GetActivityGameInfoRequest extends Model
         }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];

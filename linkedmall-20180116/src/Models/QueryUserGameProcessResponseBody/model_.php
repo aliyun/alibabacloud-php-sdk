@@ -14,9 +14,14 @@ class model_ extends Model
     public $activityId;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
-    public $content;
+    public $currentShowContent;
 
     /**
      * @var string
@@ -41,17 +46,12 @@ class model_ extends Model
     /**
      * @var string
      */
-    public $gameAwardRecords;
-
-    /**
-     * @var string
-     */
-    public $gameCoinRecords;
-
-    /**
-     * @var string
-     */
     public $gameId;
+
+    /**
+     * @var int
+     */
+    public $modifyTime;
 
     /**
      * @var string
@@ -78,20 +78,20 @@ class model_ extends Model
      */
     public $type;
     protected $_name = [
-        'activityId'        => 'ActivityId',
-        'content'           => 'Content',
-        'currentStepId'     => 'CurrentStepId',
-        'currentStepStatus' => 'CurrentStepStatus',
-        'desc'              => 'Desc',
-        'extInfo'           => 'ExtInfo',
-        'gameAwardRecords'  => 'GameAwardRecords',
-        'gameCoinRecords'   => 'GameCoinRecords',
-        'gameId'            => 'GameId',
-        'name'              => 'Name',
-        'processId'         => 'ProcessId',
-        'routeId'           => 'RouteId',
-        'status'            => 'Status',
-        'type'              => 'Type',
+        'activityId'         => 'ActivityId',
+        'createTime'         => 'CreateTime',
+        'currentShowContent' => 'CurrentShowContent',
+        'currentStepId'      => 'CurrentStepId',
+        'currentStepStatus'  => 'CurrentStepStatus',
+        'desc'               => 'Desc',
+        'extInfo'            => 'ExtInfo',
+        'gameId'             => 'GameId',
+        'modifyTime'         => 'ModifyTime',
+        'name'               => 'Name',
+        'processId'          => 'ProcessId',
+        'routeId'            => 'RouteId',
+        'status'             => 'Status',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -104,8 +104,11 @@ class model_ extends Model
         if (null !== $this->activityId) {
             $res['ActivityId'] = $this->activityId;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->currentShowContent) {
+            $res['CurrentShowContent'] = $this->currentShowContent;
         }
         if (null !== $this->currentStepId) {
             $res['CurrentStepId'] = $this->currentStepId;
@@ -119,14 +122,11 @@ class model_ extends Model
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
-        if (null !== $this->gameAwardRecords) {
-            $res['GameAwardRecords'] = $this->gameAwardRecords;
-        }
-        if (null !== $this->gameCoinRecords) {
-            $res['GameCoinRecords'] = $this->gameCoinRecords;
-        }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -158,8 +158,11 @@ class model_ extends Model
         if (isset($map['ActivityId'])) {
             $model->activityId = $map['ActivityId'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CurrentShowContent'])) {
+            $model->currentShowContent = $map['CurrentShowContent'];
         }
         if (isset($map['CurrentStepId'])) {
             $model->currentStepId = $map['CurrentStepId'];
@@ -173,14 +176,11 @@ class model_ extends Model
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }
-        if (isset($map['GameAwardRecords'])) {
-            $model->gameAwardRecords = $map['GameAwardRecords'];
-        }
-        if (isset($map['GameCoinRecords'])) {
-            $model->gameCoinRecords = $map['GameCoinRecords'];
-        }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

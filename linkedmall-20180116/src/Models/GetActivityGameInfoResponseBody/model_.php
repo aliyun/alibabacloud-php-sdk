@@ -23,6 +23,13 @@ class model_ extends Model
     public $gameDTO;
 
     /**
+     * @description 玩法展示信息
+     *
+     * @var string
+     */
+    public $gameShowInfo;
+
+    /**
      * @description 玩法币信息
      *
      * @var string
@@ -38,6 +45,7 @@ class model_ extends Model
     protected $_name = [
         'extInfo'           => 'ExtInfo',
         'gameDTO'           => 'GameDTO',
+        'gameShowInfo'      => 'GameShowInfo',
         'userGameCoinInfos' => 'UserGameCoinInfos',
         'userProcessDTO'    => 'UserProcessDTO',
     ];
@@ -54,6 +62,9 @@ class model_ extends Model
         }
         if (null !== $this->gameDTO) {
             $res['GameDTO'] = $this->gameDTO;
+        }
+        if (null !== $this->gameShowInfo) {
+            $res['GameShowInfo'] = $this->gameShowInfo;
         }
         if (null !== $this->userGameCoinInfos) {
             $res['UserGameCoinInfos'] = $this->userGameCoinInfos;
@@ -78,6 +89,9 @@ class model_ extends Model
         }
         if (isset($map['GameDTO'])) {
             $model->gameDTO = $map['GameDTO'];
+        }
+        if (isset($map['GameShowInfo'])) {
+            $model->gameShowInfo = $map['GameShowInfo'];
         }
         if (isset($map['UserGameCoinInfos'])) {
             $model->userGameCoinInfos = $map['UserGameCoinInfos'];

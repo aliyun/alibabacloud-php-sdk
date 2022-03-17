@@ -47,6 +47,16 @@ class item extends Model
     public $extJson;
 
     /**
+     * @var string
+     */
+    public $firstPicUrl;
+
+    /**
+     * @var bool
+     */
+    public $hasQuantity;
+
+    /**
      * @var iforestProps
      */
     public $iforestProps;
@@ -75,6 +85,11 @@ class item extends Model
      * @var string
      */
     public $itemTitle;
+
+    /**
+     * @var string
+     */
+    public $itemTotalSimpleValue;
 
     /**
      * @var string
@@ -132,6 +147,11 @@ class item extends Model
     public $sellerType;
 
     /**
+     * @var string
+     */
+    public $simpleQuantity;
+
+    /**
      * @var skus
      */
     public $skus;
@@ -149,6 +169,11 @@ class item extends Model
     /**
      * @var string
      */
+    public $totalSoldSimpleQuantity;
+
+    /**
+     * @var string
+     */
     public $videoPicUrl;
 
     /**
@@ -156,35 +181,40 @@ class item extends Model
      */
     public $videoUrl;
     protected $_name = [
-        'canSell'                => 'CanSell',
-        'categoryId'             => 'CategoryId',
-        'centerInventory'        => 'CenterInventory',
-        'customizedAttributeMap' => 'CustomizedAttributeMap',
-        'descOption'             => 'DescOption',
-        'descPath'               => 'DescPath',
-        'extJson'                => 'ExtJson',
-        'iforestProps'           => 'IforestProps',
-        'isCanSell'              => 'IsCanSell',
-        'isSellerPayPostfee'     => 'IsSellerPayPostfee',
-        'itemId'                 => 'ItemId',
-        'itemImages'             => 'ItemImages',
-        'itemTitle'              => 'ItemTitle',
-        'lmItemCategory'         => 'LmItemCategory',
-        'lmItemId'               => 'LmItemId',
-        'mainPicUrl'             => 'MainPicUrl',
-        'minPoints'              => 'MinPoints',
-        'minPrice'               => 'MinPrice',
-        'properties'             => 'Properties',
-        'quantity'               => 'Quantity',
-        'reservePrice'           => 'ReservePrice',
-        'sellerId'               => 'SellerId',
-        'sellerPayPostfee'       => 'SellerPayPostfee',
-        'sellerType'             => 'SellerType',
-        'skus'                   => 'Skus',
-        'tbShopName'             => 'TbShopName',
-        'totalSoldQuantity'      => 'TotalSoldQuantity',
-        'videoPicUrl'            => 'VideoPicUrl',
-        'videoUrl'               => 'VideoUrl',
+        'canSell'                 => 'CanSell',
+        'categoryId'              => 'CategoryId',
+        'centerInventory'         => 'CenterInventory',
+        'customizedAttributeMap'  => 'CustomizedAttributeMap',
+        'descOption'              => 'DescOption',
+        'descPath'                => 'DescPath',
+        'extJson'                 => 'ExtJson',
+        'firstPicUrl'             => 'FirstPicUrl',
+        'hasQuantity'             => 'HasQuantity',
+        'iforestProps'            => 'IforestProps',
+        'isCanSell'               => 'IsCanSell',
+        'isSellerPayPostfee'      => 'IsSellerPayPostfee',
+        'itemId'                  => 'ItemId',
+        'itemImages'              => 'ItemImages',
+        'itemTitle'               => 'ItemTitle',
+        'itemTotalSimpleValue'    => 'ItemTotalSimpleValue',
+        'lmItemCategory'          => 'LmItemCategory',
+        'lmItemId'                => 'LmItemId',
+        'mainPicUrl'              => 'MainPicUrl',
+        'minPoints'               => 'MinPoints',
+        'minPrice'                => 'MinPrice',
+        'properties'              => 'Properties',
+        'quantity'                => 'Quantity',
+        'reservePrice'            => 'ReservePrice',
+        'sellerId'                => 'SellerId',
+        'sellerPayPostfee'        => 'SellerPayPostfee',
+        'sellerType'              => 'SellerType',
+        'simpleQuantity'          => 'SimpleQuantity',
+        'skus'                    => 'Skus',
+        'tbShopName'              => 'TbShopName',
+        'totalSoldQuantity'       => 'TotalSoldQuantity',
+        'totalSoldSimpleQuantity' => 'TotalSoldSimpleQuantity',
+        'videoPicUrl'             => 'VideoPicUrl',
+        'videoUrl'                => 'VideoUrl',
     ];
 
     public function validate()
@@ -215,6 +245,12 @@ class item extends Model
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
         }
+        if (null !== $this->firstPicUrl) {
+            $res['FirstPicUrl'] = $this->firstPicUrl;
+        }
+        if (null !== $this->hasQuantity) {
+            $res['HasQuantity'] = $this->hasQuantity;
+        }
         if (null !== $this->iforestProps) {
             $res['IforestProps'] = null !== $this->iforestProps ? $this->iforestProps->toMap() : null;
         }
@@ -232,6 +268,9 @@ class item extends Model
         }
         if (null !== $this->itemTitle) {
             $res['ItemTitle'] = $this->itemTitle;
+        }
+        if (null !== $this->itemTotalSimpleValue) {
+            $res['ItemTotalSimpleValue'] = $this->itemTotalSimpleValue;
         }
         if (null !== $this->lmItemCategory) {
             $res['LmItemCategory'] = $this->lmItemCategory;
@@ -266,6 +305,9 @@ class item extends Model
         if (null !== $this->sellerType) {
             $res['SellerType'] = $this->sellerType;
         }
+        if (null !== $this->simpleQuantity) {
+            $res['SimpleQuantity'] = $this->simpleQuantity;
+        }
         if (null !== $this->skus) {
             $res['Skus'] = null !== $this->skus ? $this->skus->toMap() : null;
         }
@@ -274,6 +316,9 @@ class item extends Model
         }
         if (null !== $this->totalSoldQuantity) {
             $res['TotalSoldQuantity'] = $this->totalSoldQuantity;
+        }
+        if (null !== $this->totalSoldSimpleQuantity) {
+            $res['TotalSoldSimpleQuantity'] = $this->totalSoldSimpleQuantity;
         }
         if (null !== $this->videoPicUrl) {
             $res['VideoPicUrl'] = $this->videoPicUrl;
@@ -314,6 +359,12 @@ class item extends Model
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
         }
+        if (isset($map['FirstPicUrl'])) {
+            $model->firstPicUrl = $map['FirstPicUrl'];
+        }
+        if (isset($map['HasQuantity'])) {
+            $model->hasQuantity = $map['HasQuantity'];
+        }
         if (isset($map['IforestProps'])) {
             $model->iforestProps = iforestProps::fromMap($map['IforestProps']);
         }
@@ -331,6 +382,9 @@ class item extends Model
         }
         if (isset($map['ItemTitle'])) {
             $model->itemTitle = $map['ItemTitle'];
+        }
+        if (isset($map['ItemTotalSimpleValue'])) {
+            $model->itemTotalSimpleValue = $map['ItemTotalSimpleValue'];
         }
         if (isset($map['LmItemCategory'])) {
             $model->lmItemCategory = $map['LmItemCategory'];
@@ -365,6 +419,9 @@ class item extends Model
         if (isset($map['SellerType'])) {
             $model->sellerType = $map['SellerType'];
         }
+        if (isset($map['SimpleQuantity'])) {
+            $model->simpleQuantity = $map['SimpleQuantity'];
+        }
         if (isset($map['Skus'])) {
             $model->skus = skus::fromMap($map['Skus']);
         }
@@ -373,6 +430,9 @@ class item extends Model
         }
         if (isset($map['TotalSoldQuantity'])) {
             $model->totalSoldQuantity = $map['TotalSoldQuantity'];
+        }
+        if (isset($map['TotalSoldSimpleQuantity'])) {
+            $model->totalSoldSimpleQuantity = $map['TotalSoldSimpleQuantity'];
         }
         if (isset($map['VideoPicUrl'])) {
             $model->videoPicUrl = $map['VideoPicUrl'];

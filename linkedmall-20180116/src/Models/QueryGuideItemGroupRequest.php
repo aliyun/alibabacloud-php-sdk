@@ -19,6 +19,11 @@ class QueryGuideItemGroupRequest extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $itemState;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -30,6 +35,7 @@ class QueryGuideItemGroupRequest extends Model
     protected $_name = [
         'bizId'      => 'BizId',
         'groupId'    => 'GroupId',
+        'itemState'  => 'ItemState',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -46,6 +52,9 @@ class QueryGuideItemGroupRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->itemState) {
+            $res['ItemState'] = $this->itemState;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -70,6 +79,9 @@ class QueryGuideItemGroupRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['ItemState'])) {
+            $model->itemState = $map['ItemState'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

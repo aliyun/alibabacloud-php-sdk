@@ -11,6 +11,11 @@ class QueryMediaSettleInfoRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $channelId;
 
     /**
@@ -48,6 +53,7 @@ class QueryMediaSettleInfoRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'bizId'      => 'BizId',
         'channelId'  => 'ChannelId',
         'endTime'    => 'EndTime',
         'extInfo'    => 'ExtInfo',
@@ -65,6 +71,9 @@ class QueryMediaSettleInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
@@ -101,6 +110,9 @@ class QueryMediaSettleInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }

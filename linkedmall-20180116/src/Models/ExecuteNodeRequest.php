@@ -11,6 +11,11 @@ class ExecuteNodeRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $nodeId;
 
     /**
@@ -33,6 +38,7 @@ class ExecuteNodeRequest extends Model
      */
     public $requestData;
     protected $_name = [
+        'bizId'             => 'BizId',
         'nodeId'            => 'NodeId',
         'nodeInstanceId'    => 'NodeInstanceId',
         'processId'         => 'ProcessId',
@@ -47,6 +53,9 @@ class ExecuteNodeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -74,6 +83,9 @@ class ExecuteNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

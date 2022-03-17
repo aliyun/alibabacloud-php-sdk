@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateSettleConfirmRequest extends Model
 {
     /**
+     * @description 业务ID
+     *
+     * @var string
+     */
+    public $bizId;
+
+    /**
      * @var string
      */
     public $extInfo;
@@ -38,6 +45,7 @@ class CreateSettleConfirmRequest extends Model
      */
     public $tradeNo;
     protected $_name = [
+        'bizId'        => 'BizId',
         'extInfo'      => 'ExtInfo',
         'merchantId'   => 'MerchantId',
         'outRequestNo' => 'OutRequestNo',
@@ -53,6 +61,9 @@ class CreateSettleConfirmRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
@@ -83,6 +94,9 @@ class CreateSettleConfirmRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }
