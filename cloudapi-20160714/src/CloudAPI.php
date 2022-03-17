@@ -198,6 +198,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachPluginRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachPluginResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerShrinkRequest;
@@ -5513,6 +5515,61 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeZonesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachPluginRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DetachPluginResponse
+     */
+    public function detachPluginWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachPlugin',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachPluginRequest $request
+     *
+     * @return DetachPluginResponse
+     */
+    public function detachPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachPluginWithOptions($request, $runtime);
     }
 
     /**
