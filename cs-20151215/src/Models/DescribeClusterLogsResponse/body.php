@@ -30,13 +30,6 @@ class body extends Model
     public $clusterLog;
 
     /**
-     * @description 日志等级。
-     *
-     * @var string
-     */
-    public $logLevel;
-
-    /**
      * @description 日志创建时间。
      *
      * @var string
@@ -53,7 +46,6 @@ class body extends Model
         'ID'         => 'ID',
         'clusterId'  => 'cluster_id',
         'clusterLog' => 'cluster_log',
-        'logLevel'   => 'log_level',
         'created'    => 'created',
         'updated'    => 'updated',
     ];
@@ -73,9 +65,6 @@ class body extends Model
         }
         if (null !== $this->clusterLog) {
             $res['cluster_log'] = $this->clusterLog;
-        }
-        if (null !== $this->logLevel) {
-            $res['log_level'] = $this->logLevel;
         }
         if (null !== $this->created) {
             $res['created'] = $this->created;
@@ -103,9 +92,6 @@ class body extends Model
         }
         if (isset($map['cluster_log'])) {
             $model->clusterLog = $map['cluster_log'];
-        }
-        if (isset($map['log_level'])) {
-            $model->logLevel = $map['log_level'];
         }
         if (isset($map['created'])) {
             $model->created = $map['created'];

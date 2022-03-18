@@ -49,6 +49,13 @@ class DescribeClustersV1Request extends Model
      * @var string
      */
     public $profile;
+
+    /**
+     * @description 地域。
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'clusterSpec' => 'cluster_spec',
         'clusterType' => 'cluster_type',
@@ -56,6 +63,7 @@ class DescribeClustersV1Request extends Model
         'pageNumber'  => 'page_number',
         'pageSize'    => 'page_size',
         'profile'     => 'profile',
+        'regionId'    => 'region_id',
     ];
 
     public function validate()
@@ -82,6 +90,9 @@ class DescribeClustersV1Request extends Model
         }
         if (null !== $this->profile) {
             $res['profile'] = $this->profile;
+        }
+        if (null !== $this->regionId) {
+            $res['region_id'] = $this->regionId;
         }
 
         return $res;
@@ -112,6 +123,9 @@ class DescribeClustersV1Request extends Model
         }
         if (isset($map['profile'])) {
             $model->profile = $map['profile'];
+        }
+        if (isset($map['region_id'])) {
+            $model->regionId = $map['region_id'];
         }
 
         return $model;

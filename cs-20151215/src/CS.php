@@ -2466,6 +2466,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->profile)) {
             $query['profile'] = $request->profile;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['region_id'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
