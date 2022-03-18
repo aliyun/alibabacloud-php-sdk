@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLogicTableRouteConfigRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLogicTableRouteConfigResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderRequest;
@@ -29,6 +32,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderShrinkR
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLakeHouseSpaceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLakeHouseSpaceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseShrinkRequest;
@@ -44,6 +49,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreatePublishGroupTaskRespon
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStandardGroupRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStandardGroupResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderShrinkRequest;
@@ -54,6 +61,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobRespon
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLhMembersRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLhMembersResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLhMembersShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLogicDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLogicDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLogicTableRouteConfigRequest;
@@ -174,6 +184,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceUserPermissionsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceUserPermissionsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicTableRouteConfigRequest;
@@ -281,6 +293,63 @@ class Dmsenterprise extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddLhMembersRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddLhMembersResponse
+     */
+    public function addLhMembersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddLhMembersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->members)) {
+            $request->membersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->membersShrink)) {
+            $query['Members'] = $request->membersShrink;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddLhMembers',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddLhMembersRequest $request
+     *
+     * @return AddLhMembersResponse
+     */
+    public function addLhMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addLhMembersWithOptions($request, $runtime);
     }
 
     /**
@@ -813,6 +882,73 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param CreateLakeHouseSpaceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateLakeHouseSpaceResponse
+     */
+    public function createLakeHouseSpaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->devDbId)) {
+            $query['DevDbId'] = $request->devDbId;
+        }
+        if (!Utils::isUnset($request->dwDbType)) {
+            $query['DwDbType'] = $request->dwDbType;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->prodDbId)) {
+            $query['ProdDbId'] = $request->prodDbId;
+        }
+        if (!Utils::isUnset($request->spaceConfig)) {
+            $query['SpaceConfig'] = $request->spaceConfig;
+        }
+        if (!Utils::isUnset($request->spaceName)) {
+            $query['SpaceName'] = $request->spaceName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLakeHouseSpace',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateLakeHouseSpaceRequest $request
+     *
+     * @return CreateLakeHouseSpaceResponse
+     */
+    public function createLakeHouseSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLakeHouseSpaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateLogicDatabaseRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -1157,6 +1293,58 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param CreateStandardGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateStandardGroupResponse
+     */
+    public function createStandardGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStandardGroup',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateStandardGroupRequest $request
+     *
+     * @return CreateStandardGroupResponse
+     */
+    public function createStandardGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStandardGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateStructSyncOrderRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
@@ -1378,6 +1566,63 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteLhMembersRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteLhMembersResponse
+     */
+    public function deleteLhMembersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteLhMembersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->memberIds)) {
+            $request->memberIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->memberIds, 'MemberIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->memberIdsShrink)) {
+            $query['MemberIds'] = $request->memberIdsShrink;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLhMembers',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLhMembersRequest $request
+     *
+     * @return DeleteLhMembersResponse
+     */
+    public function deleteLhMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLhMembersWithOptions($request, $runtime);
     }
 
     /**
@@ -4266,6 +4511,55 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLhTaskFlowAndScenarioRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLhTaskFlowAndScenarioResponse
+     */
+    public function listLhTaskFlowAndScenarioWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $query['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLhTaskFlowAndScenario',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLhTaskFlowAndScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLhTaskFlowAndScenarioRequest $request
+     *
+     * @return ListLhTaskFlowAndScenarioResponse
+     */
+    public function listLhTaskFlowAndScenario($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLhTaskFlowAndScenarioWithOptions($request, $runtime);
     }
 
     /**
