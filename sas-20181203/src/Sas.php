@@ -138,8 +138,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesReq
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIpInfoRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIpInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
@@ -224,8 +222,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationRequest
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVolDingdingMessageRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVolDingdingMessageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotListResponse;
@@ -4076,52 +4072,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpInfoRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeIpInfoResponse
-     */
-    public function describeIpInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->field)) {
-            $query['Field'] = $request->field;
-        }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeIpInfo',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeIpInfoRequest $request
-     *
-     * @return DescribeIpInfoResponse
-     */
-    public function describeIpInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeIpInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeLogstoreStorageRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -6462,52 +6412,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVersionConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVolDingdingMessageRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeVolDingdingMessageResponse
-     */
-    public function describeVolDingdingMessageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVolDingdingMessage',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVolDingdingMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVolDingdingMessageRequest $request
-     *
-     * @return DescribeVolDingdingMessageResponse
-     */
-    public function describeVolDingdingMessage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVolDingdingMessageWithOptions($request, $runtime);
     }
 
     /**

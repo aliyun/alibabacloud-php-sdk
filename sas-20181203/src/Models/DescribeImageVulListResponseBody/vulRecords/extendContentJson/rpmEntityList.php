@@ -24,7 +24,7 @@ class rpmEntityList extends Model
     public $matchDetail;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $matchList;
 
@@ -111,7 +111,9 @@ class rpmEntityList extends Model
             $model->matchDetail = $map['MatchDetail'];
         }
         if (isset($map['MatchList'])) {
-            $model->matchList = $map['MatchList'];
+            if (!empty($map['MatchList'])) {
+                $model->matchList = $map['MatchList'];
+            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

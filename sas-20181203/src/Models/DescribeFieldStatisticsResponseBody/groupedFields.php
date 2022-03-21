@@ -16,6 +16,11 @@ class groupedFields extends Model
     /**
      * @var int
      */
+    public $awsInstanceCount;
+
+    /**
+     * @var int
+     */
     public $exposedInstanceCount;
 
     /**
@@ -104,6 +109,7 @@ class groupedFields extends Model
     public $vpcCount;
     protected $_name = [
         'aliYunInstanceCount'      => 'AliYunInstanceCount',
+        'awsInstanceCount'         => 'AwsInstanceCount',
         'exposedInstanceCount'     => 'ExposedInstanceCount',
         'generalAssetCount'        => 'GeneralAssetCount',
         'groupCount'               => 'GroupCount',
@@ -133,6 +139,9 @@ class groupedFields extends Model
         $res = [];
         if (null !== $this->aliYunInstanceCount) {
             $res['AliYunInstanceCount'] = $this->aliYunInstanceCount;
+        }
+        if (null !== $this->awsInstanceCount) {
+            $res['AwsInstanceCount'] = $this->awsInstanceCount;
         }
         if (null !== $this->exposedInstanceCount) {
             $res['ExposedInstanceCount'] = $this->exposedInstanceCount;
@@ -202,6 +211,9 @@ class groupedFields extends Model
         $model = new self();
         if (isset($map['AliYunInstanceCount'])) {
             $model->aliYunInstanceCount = $map['AliYunInstanceCount'];
+        }
+        if (isset($map['AwsInstanceCount'])) {
+            $model->awsInstanceCount = $map['AwsInstanceCount'];
         }
         if (isset($map['ExposedInstanceCount'])) {
             $model->exposedInstanceCount = $map['ExposedInstanceCount'];
