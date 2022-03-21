@@ -11861,6 +11861,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->methodName)) {
             $body['MethodName'] = $request->methodName;
         }
+        if (!Utils::isUnset($request->openSwitch)) {
+            $body['OpenSwitch'] = $request->openSwitch;
+        }
         if (!Utils::isUnset($request->operator)) {
             $body['Operator'] = $request->operator;
         }

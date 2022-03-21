@@ -49,6 +49,11 @@ class UpdateQualityRuleRequest extends Model
     public $methodName;
 
     /**
+     * @var bool
+     */
+    public $openSwitch;
+
+    /**
      * @var string
      */
     public $operator;
@@ -111,6 +116,7 @@ class UpdateQualityRuleRequest extends Model
         'expectValue'       => 'ExpectValue',
         'id'                => 'Id',
         'methodName'        => 'MethodName',
+        'openSwitch'        => 'OpenSwitch',
         'operator'          => 'Operator',
         'predictType'       => 'PredictType',
         'projectName'       => 'ProjectName',
@@ -154,6 +160,9 @@ class UpdateQualityRuleRequest extends Model
         }
         if (null !== $this->methodName) {
             $res['MethodName'] = $this->methodName;
+        }
+        if (null !== $this->openSwitch) {
+            $res['OpenSwitch'] = $this->openSwitch;
         }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
@@ -223,6 +232,9 @@ class UpdateQualityRuleRequest extends Model
         }
         if (isset($map['MethodName'])) {
             $model->methodName = $map['MethodName'];
+        }
+        if (isset($map['OpenSwitch'])) {
+            $model->openSwitch = $map['OpenSwitch'];
         }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];

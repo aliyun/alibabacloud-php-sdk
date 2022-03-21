@@ -11,6 +11,11 @@ class ListMetaDBRequest extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $dataSourceType;
 
     /**
@@ -28,6 +33,7 @@ class ListMetaDBRequest extends Model
      */
     public $projectId;
     protected $_name = [
+        'clusterId'      => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
@@ -41,6 +47,9 @@ class ListMetaDBRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
         }
@@ -65,6 +74,9 @@ class ListMetaDBRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
         }
