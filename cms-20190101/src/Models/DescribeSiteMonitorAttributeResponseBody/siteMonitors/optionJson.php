@@ -59,6 +59,11 @@ class optionJson extends Model
     public $httpMethod;
 
     /**
+     * @var string
+     */
+    public $isBase64Encode;
+
+    /**
      * @var int
      */
     public $matchRule;
@@ -123,6 +128,7 @@ class optionJson extends Model
         'failureRate'     => 'failure_rate',
         'header'          => 'header',
         'httpMethod'      => 'http_method',
+        'isBase64Encode'  => 'isBase64Encode',
         'matchRule'       => 'match_rule',
         'password'        => 'password',
         'pingNum'         => 'ping_num',
@@ -172,6 +178,9 @@ class optionJson extends Model
         }
         if (null !== $this->httpMethod) {
             $res['http_method'] = $this->httpMethod;
+        }
+        if (null !== $this->isBase64Encode) {
+            $res['isBase64Encode'] = $this->isBase64Encode;
         }
         if (null !== $this->matchRule) {
             $res['match_rule'] = $this->matchRule;
@@ -247,6 +256,9 @@ class optionJson extends Model
         }
         if (isset($map['http_method'])) {
             $model->httpMethod = $map['http_method'];
+        }
+        if (isset($map['isBase64Encode'])) {
+            $model->isBase64Encode = $map['isBase64Encode'];
         }
         if (isset($map['match_rule'])) {
             $model->matchRule = $map['match_rule'];

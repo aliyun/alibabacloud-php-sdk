@@ -26,6 +26,11 @@ class openApiParameters extends Model
     /**
      * @var string
      */
+    public $jsonParams;
+
+    /**
+     * @var string
+     */
     public $product;
 
     /**
@@ -43,13 +48,14 @@ class openApiParameters extends Model
      */
     public $version;
     protected $_name = [
-        'action'  => 'Action',
-        'arn'     => 'Arn',
-        'id'      => 'Id',
-        'product' => 'Product',
-        'region'  => 'Region',
-        'role'    => 'Role',
-        'version' => 'Version',
+        'action'     => 'Action',
+        'arn'        => 'Arn',
+        'id'         => 'Id',
+        'jsonParams' => 'JsonParams',
+        'product'    => 'Product',
+        'region'     => 'Region',
+        'role'       => 'Role',
+        'version'    => 'Version',
     ];
 
     public function validate()
@@ -67,6 +73,9 @@ class openApiParameters extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->jsonParams) {
+            $res['JsonParams'] = $this->jsonParams;
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
@@ -100,6 +109,9 @@ class openApiParameters extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['JsonParams'])) {
+            $model->jsonParams = $map['JsonParams'];
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];

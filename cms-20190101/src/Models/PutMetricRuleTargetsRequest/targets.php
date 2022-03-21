@@ -21,11 +21,17 @@ class targets extends Model
     /**
      * @var string
      */
+    public $jsonParams;
+
+    /**
+     * @var string
+     */
     public $level;
     protected $_name = [
-        'arn'   => 'Arn',
-        'id'    => 'Id',
-        'level' => 'Level',
+        'arn'        => 'Arn',
+        'id'         => 'Id',
+        'jsonParams' => 'JsonParams',
+        'level'      => 'Level',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class targets extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->jsonParams) {
+            $res['JsonParams'] = $this->jsonParams;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
@@ -61,6 +70,9 @@ class targets extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['JsonParams'])) {
+            $model->jsonParams = $map['JsonParams'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];

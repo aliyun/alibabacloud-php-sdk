@@ -3936,9 +3936,6 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->enableState)) {
             $query['EnableState'] = $request->enableState;
         }
-        if (!Utils::isUnset($request->groupBy)) {
-            $query['GroupBy'] = $request->groupBy;
-        }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
