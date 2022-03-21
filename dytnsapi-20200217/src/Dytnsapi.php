@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisReques
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOnlineTimeRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOnlineTimeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusRequest;
@@ -65,13 +67,23 @@ class Dytnsapi extends OpenApiClient
     public function describeEmptyNumberDetectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['EncryptType']          = $request->encryptType;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Phone']                = $request->phone;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->encryptType)) {
+            $query['EncryptType'] = $request->encryptType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $query['Phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -110,16 +122,32 @@ class Dytnsapi extends OpenApiClient
     public function describePhoneNumberAnalysisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AuthCode']             = $request->authCode;
-        $query['InputNumber']          = $request->inputNumber;
-        $query['Mask']                 = $request->mask;
-        $query['NumberType']           = $request->numberType;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Rate']                 = $request->rate;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->numberType)) {
+            $query['NumberType'] = $request->numberType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->rate)) {
+            $query['Rate'] = $request->rate;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -158,12 +186,20 @@ class Dytnsapi extends OpenApiClient
     public function describePhoneNumberAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoneNumber']          = $request->phoneNumber;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -194,6 +230,67 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
+     * @param DescribePhoneNumberOnlineTimeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePhoneNumberOnlineTimeResponse
+     */
+    public function describePhoneNumberOnlineTimeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->carrier)) {
+            $query['Carrier'] = $request->carrier;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePhoneNumberOnlineTime',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePhoneNumberOnlineTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePhoneNumberOnlineTimeRequest $request
+     *
+     * @return DescribePhoneNumberOnlineTimeResponse
+     */
+    public function describePhoneNumberOnlineTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePhoneNumberOnlineTimeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePhoneNumberResaleRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -202,13 +299,23 @@ class Dytnsapi extends OpenApiClient
     public function describePhoneNumberResaleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoneNumber']          = $request->phoneNumber;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Since']                = $request->since;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->since)) {
+            $query['Since'] = $request->since;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -247,12 +354,20 @@ class Dytnsapi extends OpenApiClient
     public function describePhoneNumberStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoneNumber']          = $request->phoneNumber;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
