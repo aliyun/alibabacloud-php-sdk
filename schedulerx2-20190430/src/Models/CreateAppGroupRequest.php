@@ -16,6 +16,11 @@ class CreateAppGroupRequest extends Model
     /**
      * @var string
      */
+    public $appKey;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -32,6 +37,16 @@ class CreateAppGroupRequest extends Model
      * @var int
      */
     public $maxJobs;
+
+    /**
+     * @var string
+     */
+    public $monitorConfigJson;
+
+    /**
+     * @var string
+     */
+    public $monitorContactsJson;
 
     /**
      * @var string
@@ -53,15 +68,18 @@ class CreateAppGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'alarmJson'       => 'AlarmJson',
-        'appName'         => 'AppName',
-        'description'     => 'Description',
-        'groupId'         => 'GroupId',
-        'maxJobs'         => 'MaxJobs',
-        'namespace'       => 'Namespace',
-        'namespaceName'   => 'NamespaceName',
-        'namespaceSource' => 'NamespaceSource',
-        'regionId'        => 'RegionId',
+        'alarmJson'           => 'AlarmJson',
+        'appKey'              => 'AppKey',
+        'appName'             => 'AppName',
+        'description'         => 'Description',
+        'groupId'             => 'GroupId',
+        'maxJobs'             => 'MaxJobs',
+        'monitorConfigJson'   => 'MonitorConfigJson',
+        'monitorContactsJson' => 'MonitorContactsJson',
+        'namespace'           => 'Namespace',
+        'namespaceName'       => 'NamespaceName',
+        'namespaceSource'     => 'NamespaceSource',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -74,6 +92,9 @@ class CreateAppGroupRequest extends Model
         if (null !== $this->alarmJson) {
             $res['AlarmJson'] = $this->alarmJson;
         }
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -85,6 +106,12 @@ class CreateAppGroupRequest extends Model
         }
         if (null !== $this->maxJobs) {
             $res['MaxJobs'] = $this->maxJobs;
+        }
+        if (null !== $this->monitorConfigJson) {
+            $res['MonitorConfigJson'] = $this->monitorConfigJson;
+        }
+        if (null !== $this->monitorContactsJson) {
+            $res['MonitorContactsJson'] = $this->monitorContactsJson;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -113,6 +140,9 @@ class CreateAppGroupRequest extends Model
         if (isset($map['AlarmJson'])) {
             $model->alarmJson = $map['AlarmJson'];
         }
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
@@ -124,6 +154,12 @@ class CreateAppGroupRequest extends Model
         }
         if (isset($map['MaxJobs'])) {
             $model->maxJobs = $map['MaxJobs'];
+        }
+        if (isset($map['MonitorConfigJson'])) {
+            $model->monitorConfigJson = $map['MonitorConfigJson'];
+        }
+        if (isset($map['MonitorContactsJson'])) {
+            $model->monitorContactsJson = $map['MonitorContactsJson'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

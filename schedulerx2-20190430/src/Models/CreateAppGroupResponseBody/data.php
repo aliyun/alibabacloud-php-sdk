@@ -12,8 +12,14 @@ class data extends Model
      * @var int
      */
     public $appGroupId;
+
+    /**
+     * @var string
+     */
+    public $appKey;
     protected $_name = [
         'appGroupId' => 'AppGroupId',
+        'appKey'     => 'AppKey',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class data extends Model
         $res = [];
         if (null !== $this->appGroupId) {
             $res['AppGroupId'] = $this->appGroupId;
+        }
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class data extends Model
         $model = new self();
         if (isset($map['AppGroupId'])) {
             $model->appGroupId = $map['AppGroupId'];
+        }
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
         }
 
         return $model;

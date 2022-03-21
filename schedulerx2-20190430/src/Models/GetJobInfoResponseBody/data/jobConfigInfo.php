@@ -42,6 +42,11 @@ class jobConfigInfo extends Model
     public $jarUrl;
 
     /**
+     * @var int
+     */
+    public $jobId;
+
+    /**
      * @var jobMonitorInfo
      */
     public $jobMonitorInfo;
@@ -87,6 +92,7 @@ class jobConfigInfo extends Model
         'description'     => 'Description',
         'executeMode'     => 'ExecuteMode',
         'jarUrl'          => 'JarUrl',
+        'jobId'           => 'JobId',
         'jobMonitorInfo'  => 'JobMonitorInfo',
         'mapTaskXAttrs'   => 'MapTaskXAttrs',
         'maxAttempt'      => 'MaxAttempt',
@@ -121,6 +127,9 @@ class jobConfigInfo extends Model
         }
         if (null !== $this->jarUrl) {
             $res['JarUrl'] = $this->jarUrl;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->jobMonitorInfo) {
             $res['JobMonitorInfo'] = null !== $this->jobMonitorInfo ? $this->jobMonitorInfo->toMap() : null;
@@ -175,6 +184,9 @@ class jobConfigInfo extends Model
         }
         if (isset($map['JarUrl'])) {
             $model->jarUrl = $map['JarUrl'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['JobMonitorInfo'])) {
             $model->jobMonitorInfo = jobMonitorInfo::fromMap($map['JobMonitorInfo']);

@@ -21,6 +21,11 @@ class GetJobInfoRequest extends Model
     /**
      * @var string
      */
+    public $jobName;
+
+    /**
+     * @var string
+     */
     public $namespace;
 
     /**
@@ -35,6 +40,7 @@ class GetJobInfoRequest extends Model
     protected $_name = [
         'groupId'         => 'GroupId',
         'jobId'           => 'JobId',
+        'jobName'         => 'JobName',
         'namespace'       => 'Namespace',
         'namespaceSource' => 'NamespaceSource',
         'regionId'        => 'RegionId',
@@ -52,6 +58,9 @@ class GetJobInfoRequest extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->jobName) {
+            $res['JobName'] = $this->jobName;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -79,6 +88,9 @@ class GetJobInfoRequest extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['JobName'])) {
+            $model->jobName = $map['JobName'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

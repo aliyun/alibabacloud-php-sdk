@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateAppGroupRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateAppGroupResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateJobResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateNamespaceRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteJobRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteWorkflowRequest;
@@ -451,6 +453,58 @@ class Schedulerx2 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateNamespaceResponse
+     */
+    public function createNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNamespace',
+            'version'     => '2019-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateNamespaceRequest $request
+     *
+     * @return CreateNamespaceResponse
+     */
+    public function createNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNamespaceWithOptions($request, $runtime);
     }
 
     /**
