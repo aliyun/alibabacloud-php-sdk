@@ -14,6 +14,11 @@ class PushObjectCacheRequest extends Model
     public $area;
 
     /**
+     * @var bool
+     */
+    public $l2Preload;
+
+    /**
      * @var string
      */
     public $objectPath;
@@ -29,6 +34,7 @@ class PushObjectCacheRequest extends Model
     public $securityToken;
     protected $_name = [
         'area'          => 'Area',
+        'l2Preload'     => 'L2Preload',
         'objectPath'    => 'ObjectPath',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
@@ -43,6 +49,9 @@ class PushObjectCacheRequest extends Model
         $res = [];
         if (null !== $this->area) {
             $res['Area'] = $this->area;
+        }
+        if (null !== $this->l2Preload) {
+            $res['L2Preload'] = $this->l2Preload;
         }
         if (null !== $this->objectPath) {
             $res['ObjectPath'] = $this->objectPath;
@@ -67,6 +76,9 @@ class PushObjectCacheRequest extends Model
         $model = new self();
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
+        }
+        if (isset($map['L2Preload'])) {
+            $model->l2Preload = $map['L2Preload'];
         }
         if (isset($map['ObjectPath'])) {
             $model->objectPath = $map['ObjectPath'];

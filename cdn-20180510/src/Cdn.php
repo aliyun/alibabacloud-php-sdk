@@ -7549,6 +7549,9 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->area)) {
             $query['Area'] = $request->area;
         }
+        if (!Utils::isUnset($request->l2Preload)) {
+            $query['L2Preload'] = $request->l2Preload;
+        }
         if (!Utils::isUnset($request->objectPath)) {
             $query['ObjectPath'] = $request->objectPath;
         }
