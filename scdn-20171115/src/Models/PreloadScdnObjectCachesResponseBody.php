@@ -11,15 +11,15 @@ class PreloadScdnObjectCachesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $preloadTaskId;
 
     /**
      * @var string
      */
-    public $preloadTaskId;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'preloadTaskId' => 'PreloadTaskId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class PreloadScdnObjectCachesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->preloadTaskId) {
             $res['PreloadTaskId'] = $this->preloadTaskId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class PreloadScdnObjectCachesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PreloadTaskId'])) {
             $model->preloadTaskId = $map['PreloadTaskId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

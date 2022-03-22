@@ -11,7 +11,12 @@ class referList extends Model
     /**
      * @var string
      */
-    public $visitData;
+    public $flow;
+
+    /**
+     * @var float
+     */
+    public $flowProportion;
 
     /**
      * @var string
@@ -19,25 +24,20 @@ class referList extends Model
     public $referDetail;
 
     /**
+     * @var string
+     */
+    public $visitData;
+
+    /**
      * @var float
      */
     public $visitProportion;
-
-    /**
-     * @var string
-     */
-    public $flow;
-
-    /**
-     * @var float
-     */
-    public $flowProportion;
     protected $_name = [
-        'visitData'       => 'VisitData',
-        'referDetail'     => 'ReferDetail',
-        'visitProportion' => 'VisitProportion',
         'flow'            => 'Flow',
         'flowProportion'  => 'FlowProportion',
+        'referDetail'     => 'ReferDetail',
+        'visitData'       => 'VisitData',
+        'visitProportion' => 'VisitProportion',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class referList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->visitData) {
-            $res['VisitData'] = $this->visitData;
-        }
-        if (null !== $this->referDetail) {
-            $res['ReferDetail'] = $this->referDetail;
-        }
-        if (null !== $this->visitProportion) {
-            $res['VisitProportion'] = $this->visitProportion;
-        }
         if (null !== $this->flow) {
             $res['Flow'] = $this->flow;
         }
         if (null !== $this->flowProportion) {
             $res['FlowProportion'] = $this->flowProportion;
+        }
+        if (null !== $this->referDetail) {
+            $res['ReferDetail'] = $this->referDetail;
+        }
+        if (null !== $this->visitData) {
+            $res['VisitData'] = $this->visitData;
+        }
+        if (null !== $this->visitProportion) {
+            $res['VisitProportion'] = $this->visitProportion;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class referList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VisitData'])) {
-            $model->visitData = $map['VisitData'];
-        }
-        if (isset($map['ReferDetail'])) {
-            $model->referDetail = $map['ReferDetail'];
-        }
-        if (isset($map['VisitProportion'])) {
-            $model->visitProportion = $map['VisitProportion'];
-        }
         if (isset($map['Flow'])) {
             $model->flow = $map['Flow'];
         }
         if (isset($map['FlowProportion'])) {
             $model->flowProportion = $map['FlowProportion'];
+        }
+        if (isset($map['ReferDetail'])) {
+            $model->referDetail = $map['ReferDetail'];
+        }
+        if (isset($map['VisitData'])) {
+            $model->visitData = $map['VisitData'];
+        }
+        if (isset($map['VisitProportion'])) {
+            $model->visitProportion = $map['VisitProportion'];
         }
 
         return $model;

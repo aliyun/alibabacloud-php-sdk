@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddScdnDomainRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
+    public $checkUrl;
 
     /**
      * @var string
@@ -31,31 +21,41 @@ class AddScdnDomainRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
      * @var string
      */
-    public $sources;
-
-    /**
-     * @var string
-     */
-    public $checkUrl;
-
-    /**
-     * @var string
-     */
     public $scope;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $sources;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
-        'ownerAccount'    => 'OwnerAccount',
-        'securityToken'   => 'SecurityToken',
-        'domainName'      => 'DomainName',
-        'resourceGroupId' => 'ResourceGroupId',
-        'sources'         => 'Sources',
         'checkUrl'        => 'CheckUrl',
+        'domainName'      => 'DomainName',
+        'ownerAccount'    => 'OwnerAccount',
+        'ownerId'         => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'scope'           => 'Scope',
+        'securityToken'   => 'SecurityToken',
+        'sources'         => 'Sources',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class AddScdnDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->checkUrl) {
+            $res['CheckUrl'] = $this->checkUrl;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->sources) {
-            $res['Sources'] = $this->sources;
-        }
-        if (null !== $this->checkUrl) {
-            $res['CheckUrl'] = $this->checkUrl;
-        }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->sources) {
+            $res['Sources'] = $this->sources;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class AddScdnDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['CheckUrl'])) {
+            $model->checkUrl = $map['CheckUrl'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Sources'])) {
-            $model->sources = $map['Sources'];
-        }
-        if (isset($map['CheckUrl'])) {
-            $model->checkUrl = $map['CheckUrl'];
-        }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['Sources'])) {
+            $model->sources = $map['Sources'];
         }
 
         return $model;

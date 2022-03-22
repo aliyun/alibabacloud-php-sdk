@@ -11,7 +11,7 @@ class DescribeScdnDDoSInfoResponseBody extends Model
     /**
      * @var int
      */
-    public $secBandwidth;
+    public $elasticBandwidth;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeScdnDDoSInfoResponseBody extends Model
     /**
      * @var int
      */
-    public $elasticBandwidth;
+    public $secBandwidth;
     protected $_name = [
-        'secBandwidth'     => 'SecBandwidth',
-        'requestId'        => 'RequestId',
         'elasticBandwidth' => 'ElasticBandwidth',
+        'requestId'        => 'RequestId',
+        'secBandwidth'     => 'SecBandwidth',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeScdnDDoSInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secBandwidth) {
-            $res['SecBandwidth'] = $this->secBandwidth;
+        if (null !== $this->elasticBandwidth) {
+            $res['ElasticBandwidth'] = $this->elasticBandwidth;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->elasticBandwidth) {
-            $res['ElasticBandwidth'] = $this->elasticBandwidth;
+        if (null !== $this->secBandwidth) {
+            $res['SecBandwidth'] = $this->secBandwidth;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeScdnDDoSInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecBandwidth'])) {
-            $model->secBandwidth = $map['SecBandwidth'];
+        if (isset($map['ElasticBandwidth'])) {
+            $model->elasticBandwidth = $map['ElasticBandwidth'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ElasticBandwidth'])) {
-            $model->elasticBandwidth = $map['ElasticBandwidth'];
+        if (isset($map['SecBandwidth'])) {
+            $model->secBandwidth = $map['SecBandwidth'];
         }
 
         return $model;

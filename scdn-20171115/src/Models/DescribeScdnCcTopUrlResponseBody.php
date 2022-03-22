@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnCcTopUrlResponseBody extends Model
 {
     /**
-     * @var string
+     * @var attackUrlDataList
      */
-    public $requestId;
+    public $attackUrlDataList;
 
     /**
      * @var string
@@ -22,17 +22,17 @@ class DescribeScdnCcTopUrlResponseBody extends Model
     /**
      * @var string
      */
-    public $total;
+    public $requestId;
 
     /**
-     * @var attackUrlDataList
+     * @var string
      */
-    public $attackUrlDataList;
+    public $total;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'domainName'        => 'DomainName',
-        'total'             => 'Total',
         'attackUrlDataList' => 'AttackUrlDataList',
+        'domainName'        => 'DomainName',
+        'requestId'         => 'RequestId',
+        'total'             => 'Total',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class DescribeScdnCcTopUrlResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->attackUrlDataList) {
+            $res['AttackUrlDataList'] = null !== $this->attackUrlDataList ? $this->attackUrlDataList->toMap() : null;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->attackUrlDataList) {
-            $res['AttackUrlDataList'] = null !== $this->attackUrlDataList ? $this->attackUrlDataList->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class DescribeScdnCcTopUrlResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AttackUrlDataList'])) {
+            $model->attackUrlDataList = attackUrlDataList::fromMap($map['AttackUrlDataList']);
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['AttackUrlDataList'])) {
-            $model->attackUrlDataList = attackUrlDataList::fromMap($map['AttackUrlDataList']);
         }
 
         return $model;

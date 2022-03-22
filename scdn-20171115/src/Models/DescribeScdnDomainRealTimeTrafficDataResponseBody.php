@@ -12,17 +12,17 @@ class DescribeScdnDomainRealTimeTrafficDataResponseBody extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $dataInterval;
 
     /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var realTimeTrafficDataPerInterval
@@ -32,19 +32,19 @@ class DescribeScdnDomainRealTimeTrafficDataResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $dataInterval;
+    public $startTime;
     protected $_name = [
-        'endTime'                        => 'EndTime',
-        'requestId'                      => 'RequestId',
-        'domainName'                     => 'DomainName',
-        'realTimeTrafficDataPerInterval' => 'RealTimeTrafficDataPerInterval',
-        'startTime'                      => 'StartTime',
         'dataInterval'                   => 'DataInterval',
+        'domainName'                     => 'DomainName',
+        'endTime'                        => 'EndTime',
+        'realTimeTrafficDataPerInterval' => 'RealTimeTrafficDataPerInterval',
+        'requestId'                      => 'RequestId',
+        'startTime'                      => 'StartTime',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeScdnDomainRealTimeTrafficDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->dataInterval) {
+            $res['DataInterval'] = $this->dataInterval;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->realTimeTrafficDataPerInterval) {
             $res['RealTimeTrafficDataPerInterval'] = null !== $this->realTimeTrafficDataPerInterval ? $this->realTimeTrafficDataPerInterval->toMap() : null;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->dataInterval) {
-            $res['DataInterval'] = $this->dataInterval;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeScdnDomainRealTimeTrafficDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DataInterval'])) {
+            $model->dataInterval = $map['DataInterval'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['RealTimeTrafficDataPerInterval'])) {
             $model->realTimeTrafficDataPerInterval = realTimeTrafficDataPerInterval::fromMap($map['RealTimeTrafficDataPerInterval']);
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['DataInterval'])) {
-            $model->dataInterval = $map['DataInterval'];
         }
 
         return $model;

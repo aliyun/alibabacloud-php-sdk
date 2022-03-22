@@ -12,12 +12,12 @@ class DescribeScdnDomainTopReferVisitResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $requestId;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class DescribeScdnDomainTopReferVisitResponseBody extends Model
      */
     public $topReferList;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'domainName'   => 'DomainName',
+        'requestId'    => 'RequestId',
         'startTime'    => 'StartTime',
         'topReferList' => 'TopReferList',
     ];
@@ -42,11 +42,11 @@ class DescribeScdnDomainTopReferVisitResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -66,11 +66,11 @@ class DescribeScdnDomainTopReferVisitResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

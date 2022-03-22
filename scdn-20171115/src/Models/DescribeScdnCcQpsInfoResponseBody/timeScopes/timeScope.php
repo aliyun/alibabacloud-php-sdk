@@ -11,15 +11,15 @@ class timeScope extends Model
     /**
      * @var string
      */
-    public $start;
+    public $interval;
 
     /**
      * @var string
      */
-    public $interval;
+    public $start;
     protected $_name = [
-        'start'    => 'Start',
         'interval' => 'Interval',
+        'start'    => 'Start',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class timeScope extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->start) {
-            $res['Start'] = $this->start;
-        }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->start) {
+            $res['Start'] = $this->start;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class timeScope extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Start'])) {
-            $model->start = $map['Start'];
-        }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['Start'])) {
+            $model->start = $map['Start'];
         }
 
         return $model;

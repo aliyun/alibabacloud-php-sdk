@@ -12,6 +12,10 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchDeleteScdnDomainConfigsRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchDeleteScdnDomainConfigsResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchSetScdnDomainConfigsRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchSetScdnDomainConfigsResponse;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchStartScdnDomainRequest;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchStartScdnDomainResponse;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchStopScdnDomainRequest;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchStopScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchUpdateScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\BatchUpdateScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\CheckScdnServiceRequest;
@@ -20,6 +24,8 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\DeleteScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DeleteScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DeleteScdnSpecificConfigRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DeleteScdnSpecificConfigResponse;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcInfoRequest;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcInfoResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcQpsInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcQpsInfoResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcTopIpRequest;
@@ -125,6 +131,7 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\UpdateScdnDomainResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Scdn extends OpenApiClient
@@ -225,11 +232,47 @@ class Scdn extends OpenApiClient
     public function addScdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkUrl)) {
+            $query['CheckUrl'] = $request->checkUrl;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddScdnDomain',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddScdnDomainResponse::fromMap($this->doRPCRequest('AddScdnDomain', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddScdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -253,11 +296,38 @@ class Scdn extends OpenApiClient
     public function batchDeleteScdnDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $query['FunctionNames'] = $request->functionNames;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteScdnDomainConfigs',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchDeleteScdnDomainConfigsResponse::fromMap($this->doRPCRequest('BatchDeleteScdnDomainConfigs', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDeleteScdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -281,11 +351,38 @@ class Scdn extends OpenApiClient
     public function batchSetScdnDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->functions)) {
+            $query['Functions'] = $request->functions;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetScdnDomainConfigs',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetScdnDomainConfigsResponse::fromMap($this->doRPCRequest('BatchSetScdnDomainConfigs', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetScdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -301,6 +398,104 @@ class Scdn extends OpenApiClient
     }
 
     /**
+     * @param BatchStartScdnDomainRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return BatchStartScdnDomainResponse
+     */
+    public function batchStartScdnDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStartScdnDomain',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchStartScdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchStartScdnDomainRequest $request
+     *
+     * @return BatchStartScdnDomainResponse
+     */
+    public function batchStartScdnDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchStartScdnDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchStopScdnDomainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchStopScdnDomainResponse
+     */
+    public function batchStopScdnDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStopScdnDomain',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchStopScdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchStopScdnDomainRequest $request
+     *
+     * @return BatchStopScdnDomainResponse
+     */
+    public function batchStopScdnDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchStopScdnDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchUpdateScdnDomainRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -309,11 +504,41 @@ class Scdn extends OpenApiClient
     public function batchUpdateScdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        if (!Utils::isUnset($request->topLevelDomain)) {
+            $query['TopLevelDomain'] = $request->topLevelDomain;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUpdateScdnDomain',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUpdateScdnDomainResponse::fromMap($this->doRPCRequest('BatchUpdateScdnDomain', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUpdateScdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -337,11 +562,29 @@ class Scdn extends OpenApiClient
     public function checkScdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckScdnService',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckScdnServiceResponse::fromMap($this->doRPCRequest('CheckScdnService', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckScdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -365,11 +608,35 @@ class Scdn extends OpenApiClient
     public function deleteScdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScdnDomain',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteScdnDomainResponse::fromMap($this->doRPCRequest('DeleteScdnDomain', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteScdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -393,11 +660,35 @@ class Scdn extends OpenApiClient
     public function deleteScdnSpecificConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScdnSpecificConfig',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteScdnSpecificConfigResponse::fromMap($this->doRPCRequest('DeleteScdnSpecificConfig', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteScdnSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -413,6 +704,46 @@ class Scdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeScdnCcInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeScdnCcInfoResponse
+     */
+    public function describeScdnCcInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnCcInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeScdnCcInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeScdnCcInfoRequest $request
+     *
+     * @return DescribeScdnCcInfoResponse
+     */
+    public function describeScdnCcInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScdnCcInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeScdnCcQpsInfoRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -423,10 +754,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnCcQpsInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnCcQpsInfoResponse::fromMap($this->doRPCRequest('DescribeScdnCcQpsInfo', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnCcQpsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -452,10 +794,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnCcTopIp',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnCcTopIpResponse::fromMap($this->doRPCRequest('DescribeScdnCcTopIp', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnCcTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -481,10 +834,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnCcTopUrl',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnCcTopUrlResponse::fromMap($this->doRPCRequest('DescribeScdnCcTopUrl', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnCcTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -508,11 +872,32 @@ class Scdn extends OpenApiClient
     public function describeScdnCertificateDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnCertificateDetail',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnCertificateDetailResponse::fromMap($this->doRPCRequest('DescribeScdnCertificateDetail', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -536,11 +921,32 @@ class Scdn extends OpenApiClient
     public function describeScdnCertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnCertificateList',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnCertificateListResponse::fromMap($this->doRPCRequest('DescribeScdnCertificateList', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -566,10 +972,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDDoSInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDDoSInfoResponse::fromMap($this->doRPCRequest('DescribeScdnDDoSInfo', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDDoSInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -595,10 +1012,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDDoSTrafficInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDDoSTrafficInfoResponse::fromMap($this->doRPCRequest('DescribeScdnDDoSTrafficInfo', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDDoSTrafficInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -622,11 +1050,44 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainBpsData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainBpsDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainBpsData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -650,11 +1111,29 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainCertificateInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainCertificateInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainCertificateInfoResponse::fromMap($this->doRPCRequest('DescribeScdnDomainCertificateInfo', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -680,10 +1159,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainCname',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainCnameResponse::fromMap($this->doRPCRequest('DescribeScdnDomainCname', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -707,11 +1197,38 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $query['FunctionNames'] = $request->functionNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainConfigs',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainConfigsResponse::fromMap($this->doRPCRequest('DescribeScdnDomainConfigs', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -735,11 +1252,32 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainDetail',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainDetailResponse::fromMap($this->doRPCRequest('DescribeScdnDomainDetail', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -763,11 +1301,38 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainHitRateDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainHitRateData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainHitRateDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainHitRateData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -791,11 +1356,44 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainHttpCodeData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainHttpCodeData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -819,11 +1417,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainIspDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainIspData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainIspDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainIspData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainIspDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -847,11 +1469,41 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainLog',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainLogResponse::fromMap($this->doRPCRequest('DescribeScdnDomainLog', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -875,11 +1527,38 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainOriginBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainOriginBpsData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainOriginBpsDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainOriginBpsData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainOriginBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -903,11 +1582,38 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainOriginTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainOriginTrafficData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainOriginTrafficDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainOriginTrafficData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainOriginTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -931,11 +1637,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainPvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainPvData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainPvDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainPvData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainPvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -959,11 +1689,44 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainQpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainQpsData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainQpsDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainQpsData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -989,10 +1752,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRealTimeBpsData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRealTimeBpsDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRealTimeBpsData', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1018,10 +1792,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRealTimeByteHitRateData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRealTimeByteHitRateDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRealTimeByteHitRateData', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1045,11 +1830,41 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainRealTimeHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRealTimeHttpCodeData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRealTimeHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRealTimeHttpCodeData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1075,10 +1890,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRealTimeQpsData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRealTimeQpsDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRealTimeQpsData', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1104,10 +1930,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRealTimeReqHitRateData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRealTimeReqHitRateDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRealTimeReqHitRateData', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1131,11 +1968,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainRealTimeSrcBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRealTimeSrcBpsData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRealTimeSrcBpsDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRealTimeSrcBpsData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRealTimeSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1159,11 +2020,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainRealTimeSrcTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRealTimeSrcTrafficData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRealTimeSrcTrafficDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRealTimeSrcTrafficData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRealTimeSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1187,11 +2072,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainRealTimeTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRealTimeTrafficData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRealTimeTrafficDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRealTimeTrafficData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1215,11 +2124,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainRegionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainRegionData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainRegionDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainRegionData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainRegionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1243,11 +2176,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainTopReferVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainTopReferVisit',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainTopReferVisitResponse::fromMap($this->doRPCRequest('DescribeScdnDomainTopReferVisit', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainTopReferVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1271,11 +2228,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainTopUrlVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainTopUrlVisit',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainTopUrlVisitResponse::fromMap($this->doRPCRequest('DescribeScdnDomainTopUrlVisit', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1299,11 +2280,44 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainTrafficData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainTrafficDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainTrafficData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1327,11 +2341,35 @@ class Scdn extends OpenApiClient
     public function describeScdnDomainUvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnDomainUvData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnDomainUvDataResponse::fromMap($this->doRPCRequest('DescribeScdnDomainUvData', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnDomainUvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1355,11 +2393,29 @@ class Scdn extends OpenApiClient
     public function describeScdnRefreshQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnRefreshQuota',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnRefreshQuotaResponse::fromMap($this->doRPCRequest('DescribeScdnRefreshQuota', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1383,11 +2439,59 @@ class Scdn extends OpenApiClient
     public function describeScdnRefreshTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnRefreshTasks',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnRefreshTasksResponse::fromMap($this->doRPCRequest('DescribeScdnRefreshTasks', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1411,11 +2515,29 @@ class Scdn extends OpenApiClient
     public function describeScdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnService',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnServiceResponse::fromMap($this->doRPCRequest('DescribeScdnService', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1439,11 +2561,38 @@ class Scdn extends OpenApiClient
     public function describeScdnTopDomainsByFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnTopDomainsByFlow',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnTopDomainsByFlowResponse::fromMap($this->doRPCRequest('DescribeScdnTopDomainsByFlow', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnTopDomainsByFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1467,11 +2616,56 @@ class Scdn extends OpenApiClient
     public function describeScdnUserDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->changeEndTime)) {
+            $query['ChangeEndTime'] = $request->changeEndTime;
+        }
+        if (!Utils::isUnset($request->changeStartTime)) {
+            $query['ChangeStartTime'] = $request->changeStartTime;
+        }
+        if (!Utils::isUnset($request->checkDomainShow)) {
+            $query['CheckDomainShow'] = $request->checkDomainShow;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainSearchType)) {
+            $query['DomainSearchType'] = $request->domainSearchType;
+        }
+        if (!Utils::isUnset($request->domainStatus)) {
+            $query['DomainStatus'] = $request->domainStatus;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnUserDomains',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnUserDomainsResponse::fromMap($this->doRPCRequest('DescribeScdnUserDomains', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1497,10 +2691,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnUserProtectInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnUserProtectInfoResponse::fromMap($this->doRPCRequest('DescribeScdnUserProtectInfo', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScdnUserProtectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1524,11 +2729,29 @@ class Scdn extends OpenApiClient
     public function describeScdnUserQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnUserQuota',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScdnUserQuotaResponse::fromMap($this->doRPCRequest('DescribeScdnUserQuota', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScdnUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1552,11 +2775,53 @@ class Scdn extends OpenApiClient
     public function openScdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->ccProtection)) {
+            $query['CcProtection'] = $request->ccProtection;
+        }
+        if (!Utils::isUnset($request->DDoSBasic)) {
+            $query['DDoSBasic'] = $request->DDoSBasic;
+        }
+        if (!Utils::isUnset($request->domainCount)) {
+            $query['DomainCount'] = $request->domainCount;
+        }
+        if (!Utils::isUnset($request->elasticProtection)) {
+            $query['ElasticProtection'] = $request->elasticProtection;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->protectType)) {
+            $query['ProtectType'] = $request->protectType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenScdnService',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OpenScdnServiceResponse::fromMap($this->doRPCRequest('OpenScdnService', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenScdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1580,11 +2845,38 @@ class Scdn extends OpenApiClient
     public function preloadScdnObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->area)) {
+            $query['Area'] = $request->area;
+        }
+        if (!Utils::isUnset($request->l2Preload)) {
+            $query['L2Preload'] = $request->l2Preload;
+        }
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreloadScdnObjectCaches',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PreloadScdnObjectCachesResponse::fromMap($this->doRPCRequest('PreloadScdnObjectCaches', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PreloadScdnObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1608,11 +2900,35 @@ class Scdn extends OpenApiClient
     public function refreshScdnObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshScdnObjectCaches',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshScdnObjectCachesResponse::fromMap($this->doRPCRequest('RefreshScdnObjectCaches', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshScdnObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1638,10 +2954,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetScdnBotInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetScdnBotInfoResponse::fromMap($this->doRPCRequest('SetScdnBotInfo', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetScdnBotInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1667,10 +2994,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetScdnCcInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetScdnCcInfoResponse::fromMap($this->doRPCRequest('SetScdnCcInfo', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetScdnCcInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1696,10 +3034,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetScdnDDoSInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetScdnDDoSInfoResponse::fromMap($this->doRPCRequest('SetScdnDDoSInfo', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetScdnDDoSInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1725,10 +3074,21 @@ class Scdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetScdnDomainBizInfo',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetScdnDomainBizInfoResponse::fromMap($this->doRPCRequest('SetScdnDomainBizInfo', '2017-11-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetScdnDomainBizInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1752,11 +3112,53 @@ class Scdn extends OpenApiClient
     public function setScdnDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->forceSet)) {
+            $query['ForceSet'] = $request->forceSet;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->SSLPri)) {
+            $query['SSLPri'] = $request->SSLPri;
+        }
+        if (!Utils::isUnset($request->SSLProtocol)) {
+            $query['SSLProtocol'] = $request->SSLProtocol;
+        }
+        if (!Utils::isUnset($request->SSLPub)) {
+            $query['SSLPub'] = $request->SSLPub;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetScdnDomainCertificate',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetScdnDomainCertificateResponse::fromMap($this->doRPCRequest('SetScdnDomainCertificate', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetScdnDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1780,11 +3182,32 @@ class Scdn extends OpenApiClient
     public function startScdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartScdnDomain',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartScdnDomainResponse::fromMap($this->doRPCRequest('StartScdnDomain', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartScdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1808,11 +3231,32 @@ class Scdn extends OpenApiClient
     public function stopScdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopScdnDomain',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopScdnDomainResponse::fromMap($this->doRPCRequest('StopScdnDomain', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopScdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1836,11 +3280,38 @@ class Scdn extends OpenApiClient
     public function updateScdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateScdnDomain',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateScdnDomainResponse::fromMap($this->doRPCRequest('UpdateScdnDomain', '2017-11-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateScdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

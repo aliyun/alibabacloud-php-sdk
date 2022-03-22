@@ -16,7 +16,7 @@ class logInfoDetail extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $logName;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class logInfoDetail extends Model
     /**
      * @var string
      */
-    public $logName;
+    public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
+        'logName'   => 'LogName',
         'logPath'   => 'LogPath',
         'logSize'   => 'LogSize',
-        'logName'   => 'LogName',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class logInfoDetail extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->logName) {
+            $res['LogName'] = $this->logName;
         }
         if (null !== $this->logPath) {
             $res['LogPath'] = $this->logPath;
@@ -59,8 +59,8 @@ class logInfoDetail extends Model
         if (null !== $this->logSize) {
             $res['LogSize'] = $this->logSize;
         }
-        if (null !== $this->logName) {
-            $res['LogName'] = $this->logName;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -77,8 +77,8 @@ class logInfoDetail extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['LogName'])) {
+            $model->logName = $map['LogName'];
         }
         if (isset($map['LogPath'])) {
             $model->logPath = $map['LogPath'];
@@ -86,8 +86,8 @@ class logInfoDetail extends Model
         if (isset($map['LogSize'])) {
             $model->logSize = $map['LogSize'];
         }
-        if (isset($map['LogName'])) {
-            $model->logName = $map['LogName'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

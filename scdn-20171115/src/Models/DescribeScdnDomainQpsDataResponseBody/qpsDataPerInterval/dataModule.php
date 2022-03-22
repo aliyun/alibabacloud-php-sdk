@@ -11,17 +11,12 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $httpsAccValue;
-
-    /**
-     * @var string
-     */
-    public $qpsValue;
-
-    /**
-     * @var string
-     */
     public $accValue;
+
+    /**
+     * @var string
+     */
+    public $httpAccValue;
 
     /**
      * @var string
@@ -31,7 +26,7 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $timeStamp;
+    public $httpsAccValue;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $httpAccValue;
+    public $qpsValue;
+
+    /**
+     * @var string
+     */
+    public $timeStamp;
     protected $_name = [
-        'httpsAccValue' => 'HttpsAccValue',
-        'qpsValue'      => 'QpsValue',
         'accValue'      => 'AccValue',
-        'httpQpsValue'  => 'HttpQpsValue',
-        'timeStamp'     => 'TimeStamp',
-        'httpsQpsValue' => 'HttpsQpsValue',
         'httpAccValue'  => 'HttpAccValue',
+        'httpQpsValue'  => 'HttpQpsValue',
+        'httpsAccValue' => 'HttpsAccValue',
+        'httpsQpsValue' => 'HttpsQpsValue',
+        'qpsValue'      => 'QpsValue',
+        'timeStamp'     => 'TimeStamp',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpsAccValue) {
-            $res['HttpsAccValue'] = $this->httpsAccValue;
-        }
-        if (null !== $this->qpsValue) {
-            $res['QpsValue'] = $this->qpsValue;
-        }
         if (null !== $this->accValue) {
             $res['AccValue'] = $this->accValue;
+        }
+        if (null !== $this->httpAccValue) {
+            $res['HttpAccValue'] = $this->httpAccValue;
         }
         if (null !== $this->httpQpsValue) {
             $res['HttpQpsValue'] = $this->httpQpsValue;
         }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
+        if (null !== $this->httpsAccValue) {
+            $res['HttpsAccValue'] = $this->httpsAccValue;
         }
         if (null !== $this->httpsQpsValue) {
             $res['HttpsQpsValue'] = $this->httpsQpsValue;
         }
-        if (null !== $this->httpAccValue) {
-            $res['HttpAccValue'] = $this->httpAccValue;
+        if (null !== $this->qpsValue) {
+            $res['QpsValue'] = $this->qpsValue;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpsAccValue'])) {
-            $model->httpsAccValue = $map['HttpsAccValue'];
-        }
-        if (isset($map['QpsValue'])) {
-            $model->qpsValue = $map['QpsValue'];
-        }
         if (isset($map['AccValue'])) {
             $model->accValue = $map['AccValue'];
+        }
+        if (isset($map['HttpAccValue'])) {
+            $model->httpAccValue = $map['HttpAccValue'];
         }
         if (isset($map['HttpQpsValue'])) {
             $model->httpQpsValue = $map['HttpQpsValue'];
         }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
+        if (isset($map['HttpsAccValue'])) {
+            $model->httpsAccValue = $map['HttpsAccValue'];
         }
         if (isset($map['HttpsQpsValue'])) {
             $model->httpsQpsValue = $map['HttpsQpsValue'];
         }
-        if (isset($map['HttpAccValue'])) {
-            $model->httpAccValue = $map['HttpAccValue'];
+        if (isset($map['QpsValue'])) {
+            $model->qpsValue = $map['QpsValue'];
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

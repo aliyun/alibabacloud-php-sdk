@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnCertificateDetailRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $certName;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -17,15 +22,10 @@ class DescribeScdnCertificateDetailRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $certName;
     protected $_name = [
+        'certName'      => 'CertName',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'certName'      => 'CertName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeScdnCertificateDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certName) {
+            $res['CertName'] = $this->certName;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->certName) {
-            $res['CertName'] = $this->certName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeScdnCertificateDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertName'])) {
+            $model->certName = $map['CertName'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['CertName'])) {
-            $model->certName = $map['CertName'];
         }
 
         return $model;

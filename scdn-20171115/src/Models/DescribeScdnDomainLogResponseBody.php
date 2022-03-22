@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainLogResponseBody extends Model
 {
     /**
-     * @var string
+     * @var domainLogDetails
      */
-    public $requestId;
+    public $domainLogDetails;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeScdnDomainLogResponseBody extends Model
     public $domainName;
 
     /**
-     * @var domainLogDetails
+     * @var string
      */
-    public $domainLogDetails;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'domainName'       => 'DomainName',
         'domainLogDetails' => 'DomainLogDetails',
+        'domainName'       => 'DomainName',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeScdnDomainLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->domainLogDetails) {
+            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toMap() : null;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->domainLogDetails) {
-            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeScdnDomainLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DomainLogDetails'])) {
+            $model->domainLogDetails = domainLogDetails::fromMap($map['DomainLogDetails']);
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['DomainLogDetails'])) {
-            $model->domainLogDetails = domainLogDetails::fromMap($map['DomainLogDetails']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

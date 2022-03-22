@@ -11,15 +11,15 @@ class attackUrlDatas extends Model
     /**
      * @var string
      */
-    public $url;
+    public $attackCount;
 
     /**
      * @var string
      */
-    public $attackCount;
+    public $url;
     protected $_name = [
-        'url'         => 'Url',
         'attackCount' => 'AttackCount',
+        'url'         => 'Url',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class attackUrlDatas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->attackCount) {
             $res['AttackCount'] = $this->attackCount;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class attackUrlDatas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['AttackCount'])) {
             $model->attackCount = $map['AttackCount'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

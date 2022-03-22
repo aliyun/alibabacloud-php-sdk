@@ -16,22 +16,22 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $timeStamp;
-
-    /**
-     * @var string
-     */
     public $httpsOriginBpsValue;
 
     /**
      * @var string
      */
     public $originBpsValue;
+
+    /**
+     * @var string
+     */
+    public $timeStamp;
     protected $_name = [
         'httpOriginBpsValue'  => 'HttpOriginBpsValue',
-        'timeStamp'           => 'TimeStamp',
         'httpsOriginBpsValue' => 'HttpsOriginBpsValue',
         'originBpsValue'      => 'OriginBpsValue',
+        'timeStamp'           => 'TimeStamp',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class dataModule extends Model
         if (null !== $this->httpOriginBpsValue) {
             $res['HttpOriginBpsValue'] = $this->httpOriginBpsValue;
         }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
         if (null !== $this->httpsOriginBpsValue) {
             $res['HttpsOriginBpsValue'] = $this->httpsOriginBpsValue;
         }
         if (null !== $this->originBpsValue) {
             $res['OriginBpsValue'] = $this->originBpsValue;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class dataModule extends Model
         if (isset($map['HttpOriginBpsValue'])) {
             $model->httpOriginBpsValue = $map['HttpOriginBpsValue'];
         }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
         if (isset($map['HttpsOriginBpsValue'])) {
             $model->httpsOriginBpsValue = $map['HttpsOriginBpsValue'];
         }
         if (isset($map['OriginBpsValue'])) {
             $model->originBpsValue = $map['OriginBpsValue'];
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

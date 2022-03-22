@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnCcQpsInfoResponseBody extends Model
 {
     /**
+     * @var attacks
+     */
+    public $attacks;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -25,16 +30,11 @@ class DescribeScdnCcQpsInfoResponseBody extends Model
      * @var totals
      */
     public $totals;
-
-    /**
-     * @var attacks
-     */
-    public $attacks;
     protected $_name = [
+        'attacks'    => 'Attacks',
         'requestId'  => 'RequestId',
         'timeScopes' => 'TimeScopes',
         'totals'     => 'Totals',
-        'attacks'    => 'Attacks',
     ];
 
     public function validate()
@@ -44,6 +44,9 @@ class DescribeScdnCcQpsInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attacks) {
+            $res['Attacks'] = null !== $this->attacks ? $this->attacks->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,9 +55,6 @@ class DescribeScdnCcQpsInfoResponseBody extends Model
         }
         if (null !== $this->totals) {
             $res['Totals'] = null !== $this->totals ? $this->totals->toMap() : null;
-        }
-        if (null !== $this->attacks) {
-            $res['Attacks'] = null !== $this->attacks ? $this->attacks->toMap() : null;
         }
 
         return $res;
@@ -68,6 +68,9 @@ class DescribeScdnCcQpsInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Attacks'])) {
+            $model->attacks = attacks::fromMap($map['Attacks']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -76,9 +79,6 @@ class DescribeScdnCcQpsInfoResponseBody extends Model
         }
         if (isset($map['Totals'])) {
             $model->totals = totals::fromMap($map['Totals']);
-        }
-        if (isset($map['Attacks'])) {
-            $model->attacks = attacks::fromMap($map['Attacks']);
         }
 
         return $model;

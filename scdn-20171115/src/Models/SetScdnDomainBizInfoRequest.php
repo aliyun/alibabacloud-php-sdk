@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetScdnDomainBizInfoRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $bizName;
@@ -22,10 +17,15 @@ class SetScdnDomainBizInfoRequest extends Model
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'bizName'    => 'BizName',
         'domainName' => 'DomainName',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SetScdnDomainBizInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->bizName) {
             $res['BizName'] = $this->bizName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SetScdnDomainBizInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['BizName'])) {
             $model->bizName = $map['BizName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

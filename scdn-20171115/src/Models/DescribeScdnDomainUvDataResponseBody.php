@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnDomainUvDataResponseBody extends Model
 {
     /**
-     * @var uvDataInterval
+     * @var string
      */
-    public $uvDataInterval;
+    public $dataInterval;
+
+    /**
+     * @var string
+     */
+    public $domainName;
 
     /**
      * @var string
@@ -27,24 +32,19 @@ class DescribeScdnDomainUvDataResponseBody extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
     public $startTime;
 
     /**
-     * @var string
+     * @var uvDataInterval
      */
-    public $dataInterval;
+    public $uvDataInterval;
     protected $_name = [
-        'uvDataInterval' => 'UvDataInterval',
+        'dataInterval'   => 'DataInterval',
+        'domainName'     => 'DomainName',
         'endTime'        => 'EndTime',
         'requestId'      => 'RequestId',
-        'domainName'     => 'DomainName',
         'startTime'      => 'StartTime',
-        'dataInterval'   => 'DataInterval',
+        'uvDataInterval' => 'UvDataInterval',
     ];
 
     public function validate()
@@ -54,8 +54,11 @@ class DescribeScdnDomainUvDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uvDataInterval) {
-            $res['UvDataInterval'] = null !== $this->uvDataInterval ? $this->uvDataInterval->toMap() : null;
+        if (null !== $this->dataInterval) {
+            $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -63,14 +66,11 @@ class DescribeScdnDomainUvDataResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->dataInterval) {
-            $res['DataInterval'] = $this->dataInterval;
+        if (null !== $this->uvDataInterval) {
+            $res['UvDataInterval'] = null !== $this->uvDataInterval ? $this->uvDataInterval->toMap() : null;
         }
 
         return $res;
@@ -84,8 +84,11 @@ class DescribeScdnDomainUvDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UvDataInterval'])) {
-            $model->uvDataInterval = uvDataInterval::fromMap($map['UvDataInterval']);
+        if (isset($map['DataInterval'])) {
+            $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -93,14 +96,11 @@ class DescribeScdnDomainUvDataResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['DataInterval'])) {
-            $model->dataInterval = $map['DataInterval'];
+        if (isset($map['UvDataInterval'])) {
+            $model->uvDataInterval = uvDataInterval::fromMap($map['UvDataInterval']);
         }
 
         return $model;

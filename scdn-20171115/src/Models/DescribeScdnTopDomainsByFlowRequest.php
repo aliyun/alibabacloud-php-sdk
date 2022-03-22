@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeScdnTopDomainsByFlowRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,28 +26,18 @@ class DescribeScdnTopDomainsByFlowRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
     public $product;
 
     /**
-     * @var int
+     * @var string
      */
-    public $limit;
+    public $startTime;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
-        'product'   => 'Product',
         'limit'     => 'Limit',
+        'ownerId'   => 'OwnerId',
+        'product'   => 'Product',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeScdnTopDomainsByFlowRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeScdnTopDomainsByFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

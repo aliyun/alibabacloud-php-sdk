@@ -11,32 +11,7 @@ class OpenScdnServiceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
     public $bandwidth;
-
-    /**
-     * @var string
-     */
-    public $protectType;
-
-    /**
-     * @var int
-     */
-    public $DDoSBasic;
-
-    /**
-     * @var int
-     */
-    public $elasticProtection;
 
     /**
      * @var int
@@ -46,28 +21,53 @@ class OpenScdnServiceRequest extends Model
     /**
      * @var int
      */
+    public $DDoSBasic;
+
+    /**
+     * @var int
+     */
     public $domainCount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $startDate;
+    public $elasticProtection;
 
     /**
      * @var string
      */
     public $endDate;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $protectType;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $startDate;
     protected $_name = [
-        'ownerId'           => 'OwnerId',
-        'securityToken'     => 'SecurityToken',
         'bandwidth'         => 'Bandwidth',
-        'protectType'       => 'ProtectType',
-        'DDoSBasic'         => 'DDoSBasic',
-        'elasticProtection' => 'ElasticProtection',
         'ccProtection'      => 'CcProtection',
+        'DDoSBasic'         => 'DDoSBasic',
         'domainCount'       => 'DomainCount',
-        'startDate'         => 'StartDate',
+        'elasticProtection' => 'ElasticProtection',
         'endDate'           => 'EndDate',
+        'ownerId'           => 'OwnerId',
+        'protectType'       => 'ProtectType',
+        'securityToken'     => 'SecurityToken',
+        'startDate'         => 'StartDate',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class OpenScdnServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->protectType) {
-            $res['ProtectType'] = $this->protectType;
-        }
-        if (null !== $this->DDoSBasic) {
-            $res['DDoSBasic'] = $this->DDoSBasic;
-        }
-        if (null !== $this->elasticProtection) {
-            $res['ElasticProtection'] = $this->elasticProtection;
         }
         if (null !== $this->ccProtection) {
             $res['CcProtection'] = $this->ccProtection;
         }
+        if (null !== $this->DDoSBasic) {
+            $res['DDoSBasic'] = $this->DDoSBasic;
+        }
         if (null !== $this->domainCount) {
             $res['DomainCount'] = $this->domainCount;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
+        if (null !== $this->elasticProtection) {
+            $res['ElasticProtection'] = $this->elasticProtection;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->protectType) {
+            $res['ProtectType'] = $this->protectType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class OpenScdnServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['ProtectType'])) {
-            $model->protectType = $map['ProtectType'];
-        }
-        if (isset($map['DDoSBasic'])) {
-            $model->DDoSBasic = $map['DDoSBasic'];
-        }
-        if (isset($map['ElasticProtection'])) {
-            $model->elasticProtection = $map['ElasticProtection'];
         }
         if (isset($map['CcProtection'])) {
             $model->ccProtection = $map['CcProtection'];
         }
+        if (isset($map['DDoSBasic'])) {
+            $model->DDoSBasic = $map['DDoSBasic'];
+        }
         if (isset($map['DomainCount'])) {
             $model->domainCount = $map['DomainCount'];
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
+        if (isset($map['ElasticProtection'])) {
+            $model->elasticProtection = $map['ElasticProtection'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProtectType'])) {
+            $model->protectType = $map['ProtectType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;
