@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\serviceConfig\eventBridgeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\serviceConfig\functionComputeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\serviceConfig\mockHeaders;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\serviceConfig\ossConfig;
@@ -21,6 +22,11 @@ class serviceConfig extends Model
      * @var string
      */
     public $contentTypeValue;
+
+    /**
+     * @var eventBridgeConfig
+     */
+    public $eventBridgeConfig;
 
     /**
      * @var functionComputeConfig
@@ -94,6 +100,7 @@ class serviceConfig extends Model
     protected $_name = [
         'contentTypeCatagory'   => 'ContentTypeCatagory',
         'contentTypeValue'      => 'ContentTypeValue',
+        'eventBridgeConfig'     => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
         'mock'                  => 'Mock',
         'mockHeaders'           => 'MockHeaders',
@@ -122,6 +129,9 @@ class serviceConfig extends Model
         }
         if (null !== $this->contentTypeValue) {
             $res['ContentTypeValue'] = $this->contentTypeValue;
+        }
+        if (null !== $this->eventBridgeConfig) {
+            $res['EventBridgeConfig'] = null !== $this->eventBridgeConfig ? $this->eventBridgeConfig->toMap() : null;
         }
         if (null !== $this->functionComputeConfig) {
             $res['FunctionComputeConfig'] = null !== $this->functionComputeConfig ? $this->functionComputeConfig->toMap() : null;
@@ -182,6 +192,9 @@ class serviceConfig extends Model
         }
         if (isset($map['ContentTypeValue'])) {
             $model->contentTypeValue = $map['ContentTypeValue'];
+        }
+        if (isset($map['EventBridgeConfig'])) {
+            $model->eventBridgeConfig = eventBridgeConfig::fromMap($map['EventBridgeConfig']);
         }
         if (isset($map['FunctionComputeConfig'])) {
             $model->functionComputeConfig = functionComputeConfig::fromMap($map['FunctionComputeConfig']);

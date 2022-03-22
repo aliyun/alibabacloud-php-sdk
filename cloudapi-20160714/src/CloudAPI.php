@@ -980,6 +980,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->backendType)) {
             $query['BackendType'] = $request->backendType;
         }
+        if (!Utils::isUnset($request->createEventBridgeServiceLinkedRole)) {
+            $query['CreateEventBridgeServiceLinkedRole'] = $request->createEventBridgeServiceLinkedRole;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }

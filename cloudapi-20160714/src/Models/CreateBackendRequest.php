@@ -19,6 +19,11 @@ class CreateBackendRequest extends Model
     public $backendType;
 
     /**
+     * @var bool
+     */
+    public $createEventBridgeServiceLinkedRole;
+
+    /**
      * @var string
      */
     public $description;
@@ -28,10 +33,11 @@ class CreateBackendRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'backendName'   => 'BackendName',
-        'backendType'   => 'BackendType',
-        'description'   => 'Description',
-        'securityToken' => 'SecurityToken',
+        'backendName'                        => 'BackendName',
+        'backendType'                        => 'BackendType',
+        'createEventBridgeServiceLinkedRole' => 'CreateEventBridgeServiceLinkedRole',
+        'description'                        => 'Description',
+        'securityToken'                      => 'SecurityToken',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class CreateBackendRequest extends Model
         }
         if (null !== $this->backendType) {
             $res['BackendType'] = $this->backendType;
+        }
+        if (null !== $this->createEventBridgeServiceLinkedRole) {
+            $res['CreateEventBridgeServiceLinkedRole'] = $this->createEventBridgeServiceLinkedRole;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -70,6 +79,9 @@ class CreateBackendRequest extends Model
         }
         if (isset($map['BackendType'])) {
             $model->backendType = $map['BackendType'];
+        }
+        if (isset($map['CreateEventBridgeServiceLinkedRole'])) {
+            $model->createEventBridgeServiceLinkedRole = $map['CreateEventBridgeServiceLinkedRole'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

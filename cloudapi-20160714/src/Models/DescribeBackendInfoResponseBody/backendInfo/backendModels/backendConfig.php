@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\eventBridgeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\functionComputeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\ossConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\vpcConfig;
@@ -11,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 
 class backendConfig extends Model
 {
+    /**
+     * @var eventBridgeConfig
+     */
+    public $eventBridgeConfig;
+
     /**
      * @var functionComputeConfig
      */
@@ -36,6 +42,7 @@ class backendConfig extends Model
      */
     public $vpcConfig;
     protected $_name = [
+        'eventBridgeConfig'     => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
         'ossConfig'             => 'OssConfig',
         'serviceAddress'        => 'ServiceAddress',
@@ -50,6 +57,9 @@ class backendConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eventBridgeConfig) {
+            $res['EventBridgeConfig'] = null !== $this->eventBridgeConfig ? $this->eventBridgeConfig->toMap() : null;
+        }
         if (null !== $this->functionComputeConfig) {
             $res['FunctionComputeConfig'] = null !== $this->functionComputeConfig ? $this->functionComputeConfig->toMap() : null;
         }
@@ -77,6 +87,9 @@ class backendConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EventBridgeConfig'])) {
+            $model->eventBridgeConfig = eventBridgeConfig::fromMap($map['EventBridgeConfig']);
+        }
         if (isset($map['FunctionComputeConfig'])) {
             $model->functionComputeConfig = functionComputeConfig::fromMap($map['FunctionComputeConfig']);
         }
