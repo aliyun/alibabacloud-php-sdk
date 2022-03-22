@@ -84,6 +84,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainBpsDataByLayerRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainBpsDataByLayerResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainBpsDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainBpsDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainByCertificateRequest;
@@ -100,6 +102,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHitRateDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHitRateDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataByLayerRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataByLayerResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaBpsDataRequest;
@@ -120,6 +124,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainPropertyRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainPropertyResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainPvDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainPvDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainQpsDataByLayerRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainQpsDataByLayerResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainQpsDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainQpsDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainRealTimeBpsDataRequest;
@@ -2508,6 +2514,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnDomainBpsDataByLayerRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDcdnDomainBpsDataByLayerResponse
+     */
+    public function describeDcdnDomainBpsDataByLayerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->layer)) {
+            $query['Layer'] = $request->layer;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainBpsDataByLayer',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDomainBpsDataByLayerRequest $request
+     *
+     * @return DescribeDcdnDomainBpsDataByLayerResponse
+     */
+    public function describeDcdnDomainBpsDataByLayer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDomainBpsDataByLayerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnDomainByCertificateRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -2924,6 +2994,70 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnDomainHttpCodeDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnDomainHttpCodeDataByLayerRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDcdnDomainHttpCodeDataByLayerResponse
+     */
+    public function describeDcdnDomainHttpCodeDataByLayerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->layer)) {
+            $query['Layer'] = $request->layer;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainHttpCodeDataByLayer',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDomainHttpCodeDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDomainHttpCodeDataByLayerRequest $request
+     *
+     * @return DescribeDcdnDomainHttpCodeDataByLayerResponse
+     */
+    public function describeDcdnDomainHttpCodeDataByLayer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDomainHttpCodeDataByLayerWithOptions($request, $runtime);
     }
 
     /**
@@ -3489,6 +3623,70 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnDomainQpsDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnDomainQpsDataByLayerRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDcdnDomainQpsDataByLayerResponse
+     */
+    public function describeDcdnDomainQpsDataByLayerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->layer)) {
+            $query['Layer'] = $request->layer;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainQpsDataByLayer',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDomainQpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDomainQpsDataByLayerRequest $request
+     *
+     * @return DescribeDcdnDomainQpsDataByLayerResponse
+     */
+    public function describeDcdnDomainQpsDataByLayer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDomainQpsDataByLayerWithOptions($request, $runtime);
     }
 
     /**
@@ -7119,6 +7317,9 @@ class Dcdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->area)) {
             $query['Area'] = $request->area;
+        }
+        if (!Utils::isUnset($request->l2Preload)) {
+            $query['L2Preload'] = $request->l2Preload;
         }
         if (!Utils::isUnset($request->objectPath)) {
             $query['ObjectPath'] = $request->objectPath;
