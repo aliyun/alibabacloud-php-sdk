@@ -69,23 +69,29 @@ class snapshots extends Model
     public $sourceFsSize;
 
     /**
+     * @var int
+     */
+    public $sourceFsStripeWidth;
+
+    /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'category'         => 'Category',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'lastModifiedTime' => 'LastModifiedTime',
-        'progress'         => 'Progress',
-        'remainTime'       => 'RemainTime',
-        'retentionDays'    => 'RetentionDays',
-        'snapshotId'       => 'SnapshotId',
-        'snapshotName'     => 'SnapshotName',
-        'snapshotType'     => 'SnapshotType',
-        'sourceFsId'       => 'SourceFsId',
-        'sourceFsSize'     => 'SourceFsSize',
-        'status'           => 'Status',
+        'category'            => 'Category',
+        'creationTime'        => 'CreationTime',
+        'description'         => 'Description',
+        'lastModifiedTime'    => 'LastModifiedTime',
+        'progress'            => 'Progress',
+        'remainTime'          => 'RemainTime',
+        'retentionDays'       => 'RetentionDays',
+        'snapshotId'          => 'SnapshotId',
+        'snapshotName'        => 'SnapshotName',
+        'snapshotType'        => 'SnapshotType',
+        'sourceFsId'          => 'SourceFsId',
+        'sourceFsSize'        => 'SourceFsSize',
+        'sourceFsStripeWidth' => 'SourceFsStripeWidth',
+        'status'              => 'Status',
     ];
 
     public function validate()
@@ -130,6 +136,9 @@ class snapshots extends Model
         }
         if (null !== $this->sourceFsSize) {
             $res['SourceFsSize'] = $this->sourceFsSize;
+        }
+        if (null !== $this->sourceFsStripeWidth) {
+            $res['SourceFsStripeWidth'] = $this->sourceFsStripeWidth;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -181,6 +190,9 @@ class snapshots extends Model
         }
         if (isset($map['SourceFsSize'])) {
             $model->sourceFsSize = $map['SourceFsSize'];
+        }
+        if (isset($map['SourceFsStripeWidth'])) {
+            $model->sourceFsStripeWidth = $map['SourceFsStripeWidth'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
