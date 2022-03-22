@@ -10,8 +10,6 @@ use AlibabaCloud\SDK\Mts\V20210728\Models\QueryCopyrightExtractRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryCopyrightExtractResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryCopyrightRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryCopyrightResponse;
-use AlibabaCloud\SDK\Mts\V20210728\Models\QueryImageCopyrightRequest;
-use AlibabaCloud\SDK\Mts\V20210728\Models\QueryImageCopyrightResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceAbRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceAbResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceExtractRequest;
@@ -218,64 +216,6 @@ class Mts extends OpenApiClient
         ]);
 
         return QueryCopyrightExtractResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryImageCopyrightRequest $request
-     *
-     * @return QueryImageCopyrightResponse
-     */
-    public function queryImageCopyright($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->queryImageCopyrightWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param QueryImageCopyrightRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return QueryImageCopyrightResponse
-     */
-    public function queryImageCopyrightWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $body['CreateTimeEnd'] = $request->createTimeEnd;
-        }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $body['CreateTimeStart'] = $request->createTimeStart;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryImageCopyright',
-            'version'     => '2021-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/queryImageCopyright',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryImageCopyrightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -649,6 +589,9 @@ class Mts extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->callBack)) {
             $body['CallBack'] = $request->callBack;
+        }
+        if (!Utils::isUnset($request->cipherBase64ed)) {
+            $body['CipherBase64ed'] = $request->cipherBase64ed;
         }
         if (!Utils::isUnset($request->input)) {
             $body['Input'] = $request->input;

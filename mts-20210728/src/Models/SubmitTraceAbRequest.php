@@ -16,6 +16,13 @@ class SubmitTraceAbRequest extends Model
     public $callBack;
 
     /**
+     * @description 密钥base64串
+     *
+     * @var string
+     */
+    public $cipherBase64ed;
+
+    /**
      * @description 溯源水印ab流处理视频输入
      *
      * @var string
@@ -64,14 +71,15 @@ class SubmitTraceAbRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'callBack'  => 'CallBack',
-        'input'     => 'Input',
-        'level'     => 'Level',
-        'output'    => 'Output',
-        'startTime' => 'StartTime',
-        'totalTime' => 'TotalTime',
-        'url'       => 'Url',
-        'userData'  => 'UserData',
+        'callBack'       => 'CallBack',
+        'cipherBase64ed' => 'CipherBase64ed',
+        'input'          => 'Input',
+        'level'          => 'Level',
+        'output'         => 'Output',
+        'startTime'      => 'StartTime',
+        'totalTime'      => 'TotalTime',
+        'url'            => 'Url',
+        'userData'       => 'UserData',
     ];
 
     public function validate()
@@ -83,6 +91,9 @@ class SubmitTraceAbRequest extends Model
         $res = [];
         if (null !== $this->callBack) {
             $res['CallBack'] = $this->callBack;
+        }
+        if (null !== $this->cipherBase64ed) {
+            $res['CipherBase64ed'] = $this->cipherBase64ed;
         }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
@@ -119,6 +130,9 @@ class SubmitTraceAbRequest extends Model
         $model = new self();
         if (isset($map['CallBack'])) {
             $model->callBack = $map['CallBack'];
+        }
+        if (isset($map['CipherBase64ed'])) {
+            $model->cipherBase64ed = $map['CipherBase64ed'];
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
