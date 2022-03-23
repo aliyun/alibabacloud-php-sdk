@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 用于长链接建连的token
+     * @description 用于长连接建连的token
      *
      * @var string
      */

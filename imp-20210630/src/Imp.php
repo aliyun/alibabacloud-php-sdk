@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpWatchTimeRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpWatchTimeResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateRequest;
@@ -67,6 +69,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassDetailRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassDetailResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassRecordRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassRecordResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetCnameDetailRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetCnameDetailResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentRequest;
@@ -75,6 +79,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetImpProductStatusResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusShrinkRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRecordRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRecordResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomRequest;
@@ -83,12 +89,18 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomStatisticsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomStatisticsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetPageConfigRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetPageConfigResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomHttpsCertificateRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomHttpsCertificateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetUserInfoRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetUserInfoResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\KickRoomUserRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\KickRoomUserResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppsRequest;
@@ -1431,6 +1443,58 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param DescribeMeterImpWatchTimeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeMeterImpWatchTimeResponse
+     */
+    public function describeMeterImpWatchTimeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMeterImpWatchTime',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMeterImpWatchTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMeterImpWatchTimeRequest $request
+     *
+     * @return DescribeMeterImpWatchTimeResponse
+     */
+    public function describeMeterImpWatchTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMeterImpWatchTimeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAppRequest  $request
      * @param RuntimeOptions $runtime
      *
@@ -1667,6 +1731,46 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param GetCnameDetailRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetCnameDetailResponse
+     */
+    public function getCnameDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCnameDetail',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCnameDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCnameDetailRequest $request
+     *
+     * @return GetCnameDetailResponse
+     */
+    public function getCnameDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCnameDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetConferenceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1883,6 +1987,55 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param GetLiveRecordRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetLiveRecordResponse
+     */
+    public function getLiveRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLiveRecord',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLiveRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLiveRecordRequest $request
+     *
+     * @return GetLiveRecordResponse
+     */
+    public function getLiveRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLiveRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetLiveRoomRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -2024,6 +2177,46 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLiveRoomUserStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPageConfigRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPageConfigResponse
+     */
+    public function getPageConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPageConfig',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPageConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPageConfigRequest $request
+     *
+     * @return GetPageConfigResponse
+     */
+    public function getPageConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPageConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -2174,6 +2367,101 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getStandardRoomJumpUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserInfoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetUserInfoResponse
+     */
+    public function getUserInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserInfo',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserInfoRequest $request
+     *
+     * @return GetUserInfoResponse
+     */
+    public function getUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param KickRoomUserRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return KickRoomUserResponse
+     */
+    public function kickRoomUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->blockTime)) {
+            $body['BlockTime'] = $request->blockTime;
+        }
+        if (!Utils::isUnset($request->kickUser)) {
+            $body['KickUser'] = $request->kickUser;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'KickRoomUser',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return KickRoomUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param KickRoomUserRequest $request
+     *
+     * @return KickRoomUserResponse
+     */
+    public function kickRoomUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->kickRoomUserWithOptions($request, $runtime);
     }
 
     /**

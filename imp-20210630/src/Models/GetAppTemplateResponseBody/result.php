@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateResponseBody;
 
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateResponseBody\result\apps;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateResponseBody\result\configList;
 use AlibabaCloud\Tea\Model;
 
@@ -22,6 +23,13 @@ class result extends Model
      * @var string
      */
     public $appTemplateName;
+
+    /**
+     * @description 应用列表信息
+     *
+     * @var apps[]
+     */
+    public $apps;
 
     /**
      * @description 组件列表
@@ -79,6 +87,7 @@ class result extends Model
     protected $_name = [
         'appTemplateCreator' => 'AppTemplateCreator',
         'appTemplateName'    => 'AppTemplateName',
+        'apps'               => 'Apps',
         'componentList'      => 'ComponentList',
         'configList'         => 'ConfigList',
         'createTime'         => 'CreateTime',
@@ -101,6 +110,15 @@ class result extends Model
         }
         if (null !== $this->appTemplateName) {
             $res['AppTemplateName'] = $this->appTemplateName;
+        }
+        if (null !== $this->apps) {
+            $res['Apps'] = [];
+            if (null !== $this->apps && \is_array($this->apps)) {
+                $n = 0;
+                foreach ($this->apps as $item) {
+                    $res['Apps'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->componentList) {
             $res['ComponentList'] = $this->componentList;
@@ -149,6 +167,15 @@ class result extends Model
         }
         if (isset($map['AppTemplateName'])) {
             $model->appTemplateName = $map['AppTemplateName'];
+        }
+        if (isset($map['Apps'])) {
+            if (!empty($map['Apps'])) {
+                $model->apps = [];
+                $n           = 0;
+                foreach ($map['Apps'] as $item) {
+                    $model->apps[$n++] = null !== $item ? apps::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ComponentList'])) {
             if (!empty($map['ComponentList'])) {
