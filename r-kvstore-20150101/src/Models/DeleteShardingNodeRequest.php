@@ -44,7 +44,7 @@ class DeleteShardingNodeRequest extends Model
     public $securityToken;
 
     /**
-     * @var string
+     * @var int
      */
     public $shardCount;
     protected $_name = [
