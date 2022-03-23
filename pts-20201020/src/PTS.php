@@ -82,6 +82,7 @@ use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class PTS extends OpenApiClient
@@ -126,11 +127,26 @@ class PTS extends OpenApiClient
     public function createPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->scene)) {
+            $query['Scene'] = $request->scene;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePtsSceneResponse::fromMap($this->doRPCRequest('CreatePtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -154,11 +170,29 @@ class PTS extends OpenApiClient
     public function createPtsSceneBaseLineFromReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePtsSceneBaseLineFromReport',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePtsSceneBaseLineFromReportResponse::fromMap($this->doRPCRequest('CreatePtsSceneBaseLineFromReport', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePtsSceneBaseLineFromReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -182,11 +216,26 @@ class PTS extends OpenApiClient
     public function deletePtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePtsSceneResponse::fromMap($this->doRPCRequest('DeletePtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -210,11 +259,26 @@ class PTS extends OpenApiClient
     public function deletePtsSceneBaseLineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePtsSceneBaseLine',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePtsSceneBaseLineResponse::fromMap($this->doRPCRequest('DeletePtsSceneBaseLine', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePtsSceneBaseLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -243,11 +307,26 @@ class PTS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->sceneIds)) {
             $request->sceneIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneIds, 'SceneIds', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->sceneIdsShrink)) {
+            $query['SceneIds'] = $request->sceneIdsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePtsScenes',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePtsScenesResponse::fromMap($this->doRPCRequest('DeletePtsScenes', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePtsScenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -271,11 +350,50 @@ class PTS extends OpenApiClient
     public function getJMeterLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentIndex)) {
+            $query['AgentIndex'] = $request->agentIndex;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->thread)) {
+            $query['Thread'] = $request->thread;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJMeterLogs',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJMeterLogsResponse::fromMap($this->doRPCRequest('GetJMeterLogs', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJMeterLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -299,11 +417,35 @@ class PTS extends OpenApiClient
     public function getJMeterSampleMetricsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->samplerId)) {
+            $query['SamplerId'] = $request->samplerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJMeterSampleMetrics',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJMeterSampleMetricsResponse::fromMap($this->doRPCRequest('GetJMeterSampleMetrics', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJMeterSampleMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -327,11 +469,62 @@ class PTS extends OpenApiClient
     public function getJMeterSamplingLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentId)) {
+            $query['AgentId'] = $request->agentId;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->maxRT)) {
+            $query['MaxRT'] = $request->maxRT;
+        }
+        if (!Utils::isUnset($request->minRT)) {
+            $query['MinRT'] = $request->minRT;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->responseCode)) {
+            $query['ResponseCode'] = $request->responseCode;
+        }
+        if (!Utils::isUnset($request->samplerId)) {
+            $query['SamplerId'] = $request->samplerId;
+        }
+        if (!Utils::isUnset($request->success)) {
+            $query['Success'] = $request->success;
+        }
+        if (!Utils::isUnset($request->thread)) {
+            $query['Thread'] = $request->thread;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJMeterSamplingLogs',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJMeterSamplingLogsResponse::fromMap($this->doRPCRequest('GetJMeterSamplingLogs', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJMeterSamplingLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -355,11 +548,26 @@ class PTS extends OpenApiClient
     public function getJMeterSceneRunningDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJMeterSceneRunningData',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJMeterSceneRunningDataResponse::fromMap($this->doRPCRequest('GetJMeterSceneRunningData', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJMeterSceneRunningDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -383,11 +591,26 @@ class PTS extends OpenApiClient
     public function getOpenJMeterSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOpenJMeterScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOpenJMeterSceneResponse::fromMap($this->doRPCRequest('GetOpenJMeterScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOpenJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -411,11 +634,29 @@ class PTS extends OpenApiClient
     public function getPtsReportDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPtsReportDetails',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPtsReportDetailsResponse::fromMap($this->doRPCRequest('GetPtsReportDetails', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPtsReportDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -439,11 +680,32 @@ class PTS extends OpenApiClient
     public function getPtsReportsBySceneIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPtsReportsBySceneId',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPtsReportsBySceneIdResponse::fromMap($this->doRPCRequest('GetPtsReportsBySceneId', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPtsReportsBySceneIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -467,11 +729,26 @@ class PTS extends OpenApiClient
     public function getPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPtsSceneResponse::fromMap($this->doRPCRequest('GetPtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -495,11 +772,26 @@ class PTS extends OpenApiClient
     public function getPtsSceneBaseLineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPtsSceneBaseLine',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPtsSceneBaseLineResponse::fromMap($this->doRPCRequest('GetPtsSceneBaseLine', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPtsSceneBaseLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -523,11 +815,29 @@ class PTS extends OpenApiClient
     public function getPtsSceneRunningDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPtsSceneRunningData',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPtsSceneRunningDataResponse::fromMap($this->doRPCRequest('GetPtsSceneRunningData', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPtsSceneRunningDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -551,11 +861,26 @@ class PTS extends OpenApiClient
     public function getPtsSceneRunningStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPtsSceneRunningStatus',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPtsSceneRunningStatusResponse::fromMap($this->doRPCRequest('GetPtsSceneRunningStatus', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPtsSceneRunningStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -579,11 +904,35 @@ class PTS extends OpenApiClient
     public function listEnvsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->envId)) {
+            $query['EnvId'] = $request->envId;
+        }
+        if (!Utils::isUnset($request->envName)) {
+            $query['EnvName'] = $request->envName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvs',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListEnvsResponse::fromMap($this->doRPCRequest('ListEnvs', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListEnvsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -607,11 +956,44 @@ class PTS extends OpenApiClient
     public function listJMeterReportsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJMeterReports',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListJMeterReportsResponse::fromMap($this->doRPCRequest('ListJMeterReports', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListJMeterReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -635,11 +1017,35 @@ class PTS extends OpenApiClient
     public function listOpenJMeterScenesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->sceneName)) {
+            $query['SceneName'] = $request->sceneName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOpenJMeterScenes',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOpenJMeterScenesResponse::fromMap($this->doRPCRequest('ListOpenJMeterScenes', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOpenJMeterScenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -663,11 +1069,32 @@ class PTS extends OpenApiClient
     public function listPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPtsSceneResponse::fromMap($this->doRPCRequest('ListPtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -691,11 +1118,26 @@ class PTS extends OpenApiClient
     public function modifyPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->scene)) {
+            $query['Scene'] = $request->scene;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyPtsSceneResponse::fromMap($this->doRPCRequest('ModifyPtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -719,11 +1161,26 @@ class PTS extends OpenApiClient
     public function removeEnvWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->envId)) {
+            $query['EnvId'] = $request->envId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveEnv',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveEnvResponse::fromMap($this->doRPCRequest('RemoveEnv', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveEnvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -747,11 +1204,26 @@ class PTS extends OpenApiClient
     public function removeOpenJMeterSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveOpenJMeterScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveOpenJMeterSceneResponse::fromMap($this->doRPCRequest('RemoveOpenJMeterScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveOpenJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -780,11 +1252,26 @@ class PTS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->env)) {
             $request->envShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->env), 'Env', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->envShrink)) {
+            $query['Env'] = $request->envShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveEnv',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveEnvResponse::fromMap($this->doRPCRequest('SaveEnv', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SaveEnvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -813,11 +1300,26 @@ class PTS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->openJMeterScene)) {
             $request->openJMeterSceneShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openJMeterScene), 'OpenJMeterScene', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->openJMeterSceneShrink)) {
+            $query['OpenJMeterScene'] = $request->openJMeterSceneShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveOpenJMeterScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveOpenJMeterSceneResponse::fromMap($this->doRPCRequest('SaveOpenJMeterScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SaveOpenJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -841,11 +1343,26 @@ class PTS extends OpenApiClient
     public function startDebugPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDebugPtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartDebugPtsSceneResponse::fromMap($this->doRPCRequest('StartDebugPtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartDebugPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -869,11 +1386,26 @@ class PTS extends OpenApiClient
     public function startDebuggingJMeterSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDebuggingJMeterScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartDebuggingJMeterSceneResponse::fromMap($this->doRPCRequest('StartDebuggingJMeterScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartDebuggingJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -897,11 +1429,26 @@ class PTS extends OpenApiClient
     public function startPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartPtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartPtsSceneResponse::fromMap($this->doRPCRequest('StartPtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -925,11 +1472,26 @@ class PTS extends OpenApiClient
     public function startTestingJMeterSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTestingJMeterScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartTestingJMeterSceneResponse::fromMap($this->doRPCRequest('StartTestingJMeterScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartTestingJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -953,11 +1515,29 @@ class PTS extends OpenApiClient
     public function stopDebugPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDebugPtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopDebugPtsSceneResponse::fromMap($this->doRPCRequest('StopDebugPtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopDebugPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -981,11 +1561,26 @@ class PTS extends OpenApiClient
     public function stopDebuggingJMeterSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDebuggingJMeterScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopDebuggingJMeterSceneResponse::fromMap($this->doRPCRequest('StopDebuggingJMeterScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopDebuggingJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1009,11 +1604,26 @@ class PTS extends OpenApiClient
     public function stopPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopPtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopPtsSceneResponse::fromMap($this->doRPCRequest('StopPtsScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1037,11 +1647,26 @@ class PTS extends OpenApiClient
     public function stopTestingJMeterSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopTestingJMeterScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopTestingJMeterSceneResponse::fromMap($this->doRPCRequest('StopTestingJMeterScene', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopTestingJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1073,11 +1698,32 @@ class PTS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->sceneBaseline)) {
             $request->sceneBaselineShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneBaseline, 'SceneBaseline', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->apiBaselinesShrink)) {
+            $query['ApiBaselines'] = $request->apiBaselinesShrink;
+        }
+        if (!Utils::isUnset($request->sceneBaselineShrink)) {
+            $query['SceneBaseline'] = $request->sceneBaselineShrink;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePtsSceneBaseLine',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdatePtsSceneBaseLineResponse::fromMap($this->doRPCRequest('UpdatePtsSceneBaseLine', '2020-10-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePtsSceneBaseLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

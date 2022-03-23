@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeletePtsScenesRequest extends Model
 {
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $sceneIds;
     protected $_name = [
@@ -39,7 +39,9 @@ class DeletePtsScenesRequest extends Model
     {
         $model = new self();
         if (isset($map['SceneIds'])) {
-            $model->sceneIds = $map['SceneIds'];
+            if (!empty($map['SceneIds'])) {
+                $model->sceneIds = $map['SceneIds'];
+            }
         }
 
         return $model;
