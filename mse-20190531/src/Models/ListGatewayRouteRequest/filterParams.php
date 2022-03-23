@@ -19,6 +19,11 @@ class filterParams extends Model
     public $domainId;
 
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $gatewayId;
@@ -45,6 +50,7 @@ class filterParams extends Model
     protected $_name = [
         'defaultServiceId' => 'DefaultServiceId',
         'domainId'         => 'DomainId',
+        'domainName'       => 'DomainName',
         'gatewayId'        => 'GatewayId',
         'gatewayUniqueId'  => 'GatewayUniqueId',
         'name'             => 'Name',
@@ -64,6 +70,9 @@ class filterParams extends Model
         }
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -97,6 +106,9 @@ class filterParams extends Model
         }
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];

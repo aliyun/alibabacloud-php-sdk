@@ -23,8 +23,11 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddSecurityGroupRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSSLCertResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteRequest;
@@ -33,9 +36,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateAlarmRuleRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateAlarmRuleResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateAlarmRuleShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateClusterRequest;
@@ -54,8 +54,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAlarmRuleRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAlarmRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteClusterRequest;
@@ -68,6 +66,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayRouteResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayServiceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayServiceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayServiceVersionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewaySlbRequest;
@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteServiceSourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneGroupRequest;
@@ -133,14 +135,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ImportNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesShrinkRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListAlarmContactGroupsRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListAlarmContactGroupsResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListAlarmHistoriesRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListAlarmHistoriesResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListAlarmItemsRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListAlarmItemsResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListAlarmRulesRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListAlarmRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsInstancesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsInstancesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersRequest;
@@ -186,6 +180,10 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosConfigsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSSLCertRequest;
@@ -267,6 +265,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteTimeoutRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteTimeoutResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteTimeoutShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceVersionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageRequest;
@@ -851,8 +852,20 @@ class Mse extends OpenApiClient
     public function addSSLCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -860,7 +873,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -883,14 +896,74 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddServiceSourceRequest $request
+     * @param AddSecurityGroupRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddSecurityGroupRuleResponse
+     */
+    public function addSecurityGroupRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->portRange)) {
+            $query['PortRange'] = $request->portRange;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSecurityGroupRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddSecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddSecurityGroupRuleRequest $request
+     *
+     * @return AddSecurityGroupRuleResponse
+     */
+    public function addSecurityGroupRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addSecurityGroupRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddServiceSourceRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return AddServiceSourceResponse
      */
-    public function addServiceSourceWithOptions($request, $runtime)
+    public function addServiceSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new AddServiceSourceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ingressOptionsRequest)) {
+            $request->ingressOptionsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ingressOptionsRequest), 'IngressOptionsRequest', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -900,6 +973,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->ingressOptionsRequestShrink)) {
+            $query['IngressOptionsRequest'] = $request->ingressOptionsRequestShrink;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -949,8 +1025,17 @@ class Mse extends OpenApiClient
     public function applyGatewayRouteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -958,7 +1043,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -1100,84 +1185,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateAlarmRuleRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateAlarmRuleResponse
-     */
-    public function createAlarmRuleWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateAlarmRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->alertWay)) {
-            $request->alertWayShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertWay, 'AlertWay', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->contactGroupIds)) {
-            $request->contactGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactGroupIds, 'ContactGroupIds', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->aggregates)) {
-            $query['Aggregates'] = $request->aggregates;
-        }
-        if (!Utils::isUnset($request->alarmAliasName)) {
-            $query['AlarmAliasName'] = $request->alarmAliasName;
-        }
-        if (!Utils::isUnset($request->alarmItem)) {
-            $query['AlarmItem'] = $request->alarmItem;
-        }
-        if (!Utils::isUnset($request->alertWayShrink)) {
-            $query['AlertWay'] = $request->alertWayShrink;
-        }
-        if (!Utils::isUnset($request->contactGroupIdsShrink)) {
-            $query['ContactGroupIds'] = $request->contactGroupIdsShrink;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->NValue)) {
-            $query['NValue'] = $request->NValue;
-        }
-        if (!Utils::isUnset($request->operator)) {
-            $query['Operator'] = $request->operator;
-        }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateAlarmRule',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateAlarmRuleRequest $request
-     *
-     * @return CreateAlarmRuleResponse
-     */
-    public function createAlarmRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAlarmRuleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateApplicationRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1202,8 +1209,14 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
+        if (!Utils::isUnset($request->sentinelEnable)) {
+            $query['SentinelEnable'] = $request->sentinelEnable;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->switchEnable)) {
+            $query['SwitchEnable'] = $request->switchEnable;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1816,55 +1829,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlarmRuleRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteAlarmRuleResponse
-     */
-    public function deleteAlarmRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->alarmRuleId)) {
-            $query['AlarmRuleId'] = $request->alarmRuleId;
-        }
-        if (!Utils::isUnset($request->requestPars)) {
-            $query['RequestPars'] = $request->requestPars;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteAlarmRule',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAlarmRuleRequest $request
-     *
-     * @return DeleteAlarmRuleResponse
-     */
-    public function deleteAlarmRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAlarmRuleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteAuthResourceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1873,8 +1837,17 @@ class Mse extends OpenApiClient
     public function deleteAuthResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1882,7 +1855,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2011,8 +1984,17 @@ class Mse extends OpenApiClient
     public function deleteGatewayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->deleteSlb)) {
+            $query['DeleteSlb'] = $request->deleteSlb;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2020,7 +2002,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2051,8 +2033,17 @@ class Mse extends OpenApiClient
     public function deleteGatewayDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2060,7 +2051,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2091,8 +2082,17 @@ class Mse extends OpenApiClient
     public function deleteGatewayRouteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2100,7 +2100,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2120,6 +2120,58 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGatewayRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGatewayServiceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteGatewayServiceResponse
+     */
+    public function deleteGatewayServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGatewayService',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGatewayServiceRequest $request
+     *
+     * @return DeleteGatewayServiceResponse
+     */
+    public function deleteGatewayService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -2183,8 +2235,20 @@ class Mse extends OpenApiClient
     public function deleteGatewaySlbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->deleteSlb)) {
+            $query['DeleteSlb'] = $request->deleteSlb;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2192,7 +2256,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2447,6 +2511,55 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param DeleteSecurityGroupRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteSecurityGroupRuleResponse
+     */
+    public function deleteSecurityGroupRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecurityGroupRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSecurityGroupRuleRequest $request
+     *
+     * @return DeleteSecurityGroupRuleResponse
+     */
+    public function deleteSecurityGroupRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityGroupRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteServiceSourceRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2455,8 +2568,17 @@ class Mse extends OpenApiClient
     public function deleteServiceSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2464,7 +2586,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2700,8 +2822,23 @@ class Mse extends OpenApiClient
     public function getBlackWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->isWhite)) {
+            $query['IsWhite'] = $request->isWhite;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2709,7 +2846,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2792,8 +2929,14 @@ class Mse extends OpenApiClient
     public function getGatewayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2801,7 +2944,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2832,8 +2975,17 @@ class Mse extends OpenApiClient
     public function getGatewayDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2841,7 +2993,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2961,8 +3113,17 @@ class Mse extends OpenApiClient
     public function getGatewayServiceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2970,7 +3131,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -3203,8 +3364,14 @@ class Mse extends OpenApiClient
     public function getKubernetesSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3212,7 +3379,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -3699,166 +3866,6 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importServicesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAlarmContactGroupsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListAlarmContactGroupsResponse
-     */
-    public function listAlarmContactGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAlarmContactGroups',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListAlarmContactGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListAlarmContactGroupsRequest $request
-     *
-     * @return ListAlarmContactGroupsResponse
-     */
-    public function listAlarmContactGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAlarmContactGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAlarmHistoriesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListAlarmHistoriesResponse
-     */
-    public function listAlarmHistoriesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAlarmHistories',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListAlarmHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListAlarmHistoriesRequest $request
-     *
-     * @return ListAlarmHistoriesResponse
-     */
-    public function listAlarmHistories($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAlarmHistoriesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAlarmItemsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListAlarmItemsResponse
-     */
-    public function listAlarmItemsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAlarmItems',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListAlarmItemsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListAlarmItemsRequest $request
-     *
-     * @return ListAlarmItemsResponse
-     */
-    public function listAlarmItems($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAlarmItemsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAlarmRulesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListAlarmRulesResponse
-     */
-    public function listAlarmRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAlarmRules',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListAlarmRulesRequest $request
-     *
-     * @return ListAlarmRulesResponse
-     */
-    public function listAlarmRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAlarmRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -4440,8 +4447,17 @@ class Mse extends OpenApiClient
     public function listGatewayDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4449,7 +4465,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -4606,8 +4622,14 @@ class Mse extends OpenApiClient
     public function listGatewaySlbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4615,7 +4637,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -4899,8 +4921,14 @@ class Mse extends OpenApiClient
     public function listSSLCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4908,7 +4936,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -4931,6 +4959,92 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ListSecurityGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSecurityGroupResponse
+     */
+    public function listSecurityGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecurityGroup',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSecurityGroupRequest $request
+     *
+     * @return ListSecurityGroupResponse
+     */
+    public function listSecurityGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecurityGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSecurityGroupRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListSecurityGroupRuleResponse
+     */
+    public function listSecurityGroupRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecurityGroupRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSecurityGroupRuleRequest $request
+     *
+     * @return ListSecurityGroupRuleResponse
+     */
+    public function listSecurityGroupRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecurityGroupRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListServiceSourceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4939,8 +5053,14 @@ class Mse extends OpenApiClient
     public function listServiceSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4948,7 +5068,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5071,8 +5191,17 @@ class Mse extends OpenApiClient
     public function offlineGatewayRouteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5080,7 +5209,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5111,8 +5240,17 @@ class Mse extends OpenApiClient
     public function pullServicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5120,7 +5258,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5461,8 +5599,11 @@ class Mse extends OpenApiClient
     public function queryGatewayRegionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5470,7 +5611,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5501,8 +5642,11 @@ class Mse extends OpenApiClient
     public function queryGatewayTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5510,7 +5654,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -6335,8 +6479,17 @@ class Mse extends OpenApiClient
     public function updateGatewayNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6344,7 +6497,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -6804,6 +6957,66 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param UpdateGatewayServiceTrafficPolicyRequest $tmpReq
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateGatewayServiceTrafficPolicyResponse
+     */
+    public function updateGatewayServiceTrafficPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGatewayServiceTrafficPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->gatewayTrafficPolicy)) {
+            $request->gatewayTrafficPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->gatewayTrafficPolicy), 'GatewayTrafficPolicy', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayTrafficPolicyShrink)) {
+            $query['GatewayTrafficPolicy'] = $request->gatewayTrafficPolicyShrink;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayServiceTrafficPolicy',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayServiceTrafficPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayServiceTrafficPolicyRequest $request
+     *
+     * @return UpdateGatewayServiceTrafficPolicyResponse
+     */
+    public function updateGatewayServiceTrafficPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayServiceTrafficPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateGatewayServiceVersionRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -7198,8 +7411,20 @@ class Mse extends OpenApiClient
     public function updateSSLCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7207,7 +7432,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',

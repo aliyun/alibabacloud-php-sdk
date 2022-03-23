@@ -6,17 +6,22 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteAlarmRuleResponseBody extends Model
+class UpdateGatewayServiceTrafficPolicyResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $errorCode;
+    public $code;
 
     /**
-     * @var string
+     * @var GatewayService
      */
-    public $httpCode;
+    public $data;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @var string
@@ -24,6 +29,8 @@ class DeleteAlarmRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
@@ -33,11 +40,12 @@ class DeleteAlarmRuleResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorCode' => 'ErrorCode',
-        'httpCode'  => 'HttpCode',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'           => 'Code',
+        'data'           => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -47,11 +55,14 @@ class DeleteAlarmRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
-        if (null !== $this->httpCode) {
-            $res['HttpCode'] = $this->httpCode;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -69,16 +80,19 @@ class DeleteAlarmRuleResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteAlarmRuleResponseBody
+     * @return UpdateGatewayServiceTrafficPolicyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['HttpCode'])) {
-            $model->httpCode = $map['HttpCode'];
+        if (isset($map['Data'])) {
+            $model->data = GatewayService::fromMap($map['Data']);
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

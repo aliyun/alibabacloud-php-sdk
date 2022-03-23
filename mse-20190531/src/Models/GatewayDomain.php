@@ -2,59 +2,85 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayDomainResponseBody;
+namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class GatewayDomain extends Model
 {
     /**
+     * @description 使用的证书Id
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @description 网关ID
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @description 网关名称
+     *
+     * @var string
+     */
+    public $gatewayName;
+
+    /**
+     * @description 网关唯一标识
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description 创建时间
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description 修改时间
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description Domain Id
+     *
      * @var int
      */
     public $id;
 
     /**
-     * @var bool
+     * @description 是否强制跳转
+     *
+     * @var string
      */
     public $mustHttps;
 
     /**
+     * @description Domain Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description domainn的协议
+     *
      * @var string
      */
     public $protocol;
     protected $_name = [
         'certIdentifier'  => 'CertIdentifier',
         'gatewayId'       => 'GatewayId',
+        'gatewayName'     => 'GatewayName',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
@@ -76,6 +102,9 @@ class data extends Model
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
+        }
+        if (null !== $this->gatewayName) {
+            $res['GatewayName'] = $this->gatewayName;
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
@@ -105,7 +134,7 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return GatewayDomain
      */
     public static function fromMap($map = [])
     {
@@ -115,6 +144,9 @@ class data extends Model
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
+        }
+        if (isset($map['GatewayName'])) {
+            $model->gatewayName = $map['GatewayName'];
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];

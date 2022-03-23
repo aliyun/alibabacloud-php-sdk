@@ -36,14 +36,26 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $sentinelEnable;
+
+    /**
+     * @var string
+     */
     public $source;
+
+    /**
+     * @var string
+     */
+    public $switchEnable;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appName'        => 'AppName',
         'extraInfo'      => 'ExtraInfo',
         'language'       => 'Language',
         'region'         => 'Region',
+        'sentinelEnable' => 'SentinelEnable',
         'source'         => 'Source',
+        'switchEnable'   => 'SwitchEnable',
     ];
 
     public function validate()
@@ -68,8 +80,14 @@ class CreateApplicationRequest extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+        if (null !== $this->sentinelEnable) {
+            $res['SentinelEnable'] = $this->sentinelEnable;
+        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->switchEnable) {
+            $res['SwitchEnable'] = $this->switchEnable;
         }
 
         return $res;
@@ -98,8 +116,14 @@ class CreateApplicationRequest extends Model
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+        if (isset($map['SentinelEnable'])) {
+            $model->sentinelEnable = $map['SentinelEnable'];
+        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['SwitchEnable'])) {
+            $model->switchEnable = $map['SwitchEnable'];
         }
 
         return $model;

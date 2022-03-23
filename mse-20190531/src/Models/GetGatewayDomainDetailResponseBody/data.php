@@ -24,7 +24,7 @@ class data extends Model
     public $beforeDate;
 
     /**
-     * @var int
+     * @var string
      */
     public $certIdentifier;
 

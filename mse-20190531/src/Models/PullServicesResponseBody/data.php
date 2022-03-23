@@ -20,13 +20,19 @@ class data extends Model
     public $namespace;
 
     /**
+     * @var string
+     */
+    public $namespaceShowName;
+
+    /**
      * @var services[]
      */
     public $services;
     protected $_name = [
-        'groupName' => 'GroupName',
-        'namespace' => 'Namespace',
-        'services'  => 'Services',
+        'groupName'         => 'GroupName',
+        'namespace'         => 'Namespace',
+        'namespaceShowName' => 'NamespaceShowName',
+        'services'          => 'Services',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class data extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->namespaceShowName) {
+            $res['NamespaceShowName'] = $this->namespaceShowName;
         }
         if (null !== $this->services) {
             $res['Services'] = [];
@@ -68,6 +77,9 @@ class data extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['NamespaceShowName'])) {
+            $model->namespaceShowName = $map['NamespaceShowName'];
         }
         if (isset($map['Services'])) {
             if (!empty($map['Services'])) {

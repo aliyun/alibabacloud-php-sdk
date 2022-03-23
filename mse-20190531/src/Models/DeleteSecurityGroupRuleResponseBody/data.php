@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayDomainResponseBody;
+namespace AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $certIdentifier;
+    public $description;
 
     /**
      * @var int
@@ -39,29 +39,29 @@ class data extends Model
     public $id;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $mustHttps;
+    public $ipProtocol;
 
     /**
      * @var string
      */
-    public $name;
+    public $portRange;
 
     /**
      * @var string
      */
-    public $protocol;
+    public $securityGroupId;
     protected $_name = [
-        'certIdentifier'  => 'CertIdentifier',
+        'description'     => 'Description',
         'gatewayId'       => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
         'id'              => 'Id',
-        'mustHttps'       => 'MustHttps',
-        'name'            => 'Name',
-        'protocol'        => 'Protocol',
+        'ipProtocol'      => 'IpProtocol',
+        'portRange'       => 'PortRange',
+        'securityGroupId' => 'SecurityGroupId',
     ];
 
     public function validate()
@@ -71,8 +71,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certIdentifier) {
-            $res['CertIdentifier'] = $this->certIdentifier;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -89,14 +89,14 @@ class data extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->mustHttps) {
-            $res['MustHttps'] = $this->mustHttps;
+        if (null !== $this->ipProtocol) {
+            $res['IpProtocol'] = $this->ipProtocol;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->portRange) {
+            $res['PortRange'] = $this->portRange;
         }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         return $res;
@@ -110,8 +110,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertIdentifier'])) {
-            $model->certIdentifier = $map['CertIdentifier'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
@@ -128,14 +128,14 @@ class data extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['MustHttps'])) {
-            $model->mustHttps = $map['MustHttps'];
+        if (isset($map['IpProtocol'])) {
+            $model->ipProtocol = $map['IpProtocol'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['PortRange'])) {
+            $model->portRange = $map['PortRange'];
         }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         return $model;

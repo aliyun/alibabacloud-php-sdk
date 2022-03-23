@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceRequest\ingressOptionsRequest;
 use AlibabaCloud\Tea\Model;
 
-class AddServiceSourceRequest extends Model
+class AddServiceSourceShrinkRequest extends Model
 {
     /**
      * @var string
@@ -25,9 +24,9 @@ class AddServiceSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @var ingressOptionsRequest
+     * @var string
      */
-    public $ingressOptionsRequest;
+    public $ingressOptionsRequestShrink;
 
     /**
      * @var string
@@ -44,13 +43,13 @@ class AddServiceSourceRequest extends Model
      */
     public $type;
     protected $_name = [
-        'acceptLanguage'        => 'AcceptLanguage',
-        'address'               => 'Address',
-        'gatewayUniqueId'       => 'GatewayUniqueId',
-        'ingressOptionsRequest' => 'IngressOptionsRequest',
-        'name'                  => 'Name',
-        'source'                => 'Source',
-        'type'                  => 'Type',
+        'acceptLanguage'              => 'AcceptLanguage',
+        'address'                     => 'Address',
+        'gatewayUniqueId'             => 'GatewayUniqueId',
+        'ingressOptionsRequestShrink' => 'IngressOptionsRequest',
+        'name'                        => 'Name',
+        'source'                      => 'Source',
+        'type'                        => 'Type',
     ];
 
     public function validate()
@@ -69,8 +68,8 @@ class AddServiceSourceRequest extends Model
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-        if (null !== $this->ingressOptionsRequest) {
-            $res['IngressOptionsRequest'] = null !== $this->ingressOptionsRequest ? $this->ingressOptionsRequest->toMap() : null;
+        if (null !== $this->ingressOptionsRequestShrink) {
+            $res['IngressOptionsRequest'] = $this->ingressOptionsRequestShrink;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -88,7 +87,7 @@ class AddServiceSourceRequest extends Model
     /**
      * @param array $map
      *
-     * @return AddServiceSourceRequest
+     * @return AddServiceSourceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -103,7 +102,7 @@ class AddServiceSourceRequest extends Model
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
         if (isset($map['IngressOptionsRequest'])) {
-            $model->ingressOptionsRequest = ingressOptionsRequest::fromMap($map['IngressOptionsRequest']);
+            $model->ingressOptionsRequestShrink = $map['IngressOptionsRequest'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

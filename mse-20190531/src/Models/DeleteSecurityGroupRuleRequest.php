@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteAlarmRuleRequest extends Model
+class DeleteSecurityGroupRuleRequest extends Model
 {
     /**
      * @var string
@@ -16,16 +16,16 @@ class DeleteAlarmRuleRequest extends Model
     /**
      * @var string
      */
-    public $alarmRuleId;
+    public $gatewayUniqueId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestPars;
+    public $id;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'alarmRuleId'    => 'AlarmRuleId',
-        'requestPars'    => 'RequestPars',
+        'acceptLanguage'  => 'AcceptLanguage',
+        'gatewayUniqueId' => 'GatewayUniqueId',
+        'id'              => 'Id',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteAlarmRuleRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-        if (null !== $this->alarmRuleId) {
-            $res['AlarmRuleId'] = $this->alarmRuleId;
+        if (null !== $this->gatewayUniqueId) {
+            $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -51,7 +51,7 @@ class DeleteAlarmRuleRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteAlarmRuleRequest
+     * @return DeleteSecurityGroupRuleRequest
      */
     public static function fromMap($map = [])
     {
@@ -59,11 +59,11 @@ class DeleteAlarmRuleRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-        if (isset($map['AlarmRuleId'])) {
-            $model->alarmRuleId = $map['AlarmRuleId'];
+        if (isset($map['GatewayUniqueId'])) {
+            $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

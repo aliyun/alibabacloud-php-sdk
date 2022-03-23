@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainResponseBody;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainResponseBody\data\comment;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -17,6 +18,11 @@ class data extends Model
      * @var string
      */
     public $certIdentifier;
+
+    /**
+     * @var comment
+     */
+    public $comment;
 
     /**
      * @var int
@@ -52,9 +58,20 @@ class data extends Model
      * @var string
      */
     public $protocol;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'certBeforeDate' => 'CertBeforeDate',
         'certIdentifier' => 'CertIdentifier',
+        'comment'        => 'Comment',
         'gatewayId'      => 'GatewayId',
         'gmtCreate'      => 'GmtCreate',
         'gmtModified'    => 'GmtModified',
@@ -62,6 +79,8 @@ class data extends Model
         'mustHttps'      => 'MustHttps',
         'name'           => 'Name',
         'protocol'       => 'Protocol',
+        'status'         => 'Status',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -76,6 +95,9 @@ class data extends Model
         }
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
+        }
+        if (null !== $this->comment) {
+            $res['Comment'] = null !== $this->comment ? $this->comment->toMap() : null;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -98,6 +120,12 @@ class data extends Model
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
 
         return $res;
     }
@@ -115,6 +143,9 @@ class data extends Model
         }
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
+        }
+        if (isset($map['Comment'])) {
+            $model->comment = comment::fromMap($map['Comment']);
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
@@ -136,6 +167,12 @@ class data extends Model
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

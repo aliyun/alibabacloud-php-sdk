@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAlarmRulesResponse extends Model
+class ListSecurityGroupRuleResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ListAlarmRulesResponse extends Model
     public $headers;
 
     /**
-     * @var ListAlarmRulesResponseBody
+     * @var ListSecurityGroupRuleResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ListAlarmRulesResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListAlarmRulesResponse
+     * @return ListSecurityGroupRuleResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ListAlarmRulesResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ListAlarmRulesResponseBody::fromMap($map['body']);
+            $model->body = ListSecurityGroupRuleResponseBody::fromMap($map['body']);
         }
 
         return $model;

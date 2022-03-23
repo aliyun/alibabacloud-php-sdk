@@ -25,6 +25,13 @@ class GatewayOption extends Model
     public $enableHardwareAcceleration;
 
     /**
+     * @description 是否开启waf
+     *
+     * @var bool
+     */
+    public $enableWaf;
+
+    /**
      * @description 日志配置详情
      *
      * @var logConfigDetails
@@ -40,6 +47,7 @@ class GatewayOption extends Model
     protected $_name = [
         'disableHttp2Alpn'           => 'DisableHttp2Alpn',
         'enableHardwareAcceleration' => 'EnableHardwareAcceleration',
+        'enableWaf'                  => 'EnableWaf',
         'logConfigDetails'           => 'LogConfigDetails',
         'traceDetails'               => 'TraceDetails',
     ];
@@ -56,6 +64,9 @@ class GatewayOption extends Model
         }
         if (null !== $this->enableHardwareAcceleration) {
             $res['EnableHardwareAcceleration'] = $this->enableHardwareAcceleration;
+        }
+        if (null !== $this->enableWaf) {
+            $res['EnableWaf'] = $this->enableWaf;
         }
         if (null !== $this->logConfigDetails) {
             $res['LogConfigDetails'] = null !== $this->logConfigDetails ? $this->logConfigDetails->toMap() : null;
@@ -80,6 +91,9 @@ class GatewayOption extends Model
         }
         if (isset($map['EnableHardwareAcceleration'])) {
             $model->enableHardwareAcceleration = $map['EnableHardwareAcceleration'];
+        }
+        if (isset($map['EnableWaf'])) {
+            $model->enableWaf = $map['EnableWaf'];
         }
         if (isset($map['LogConfigDetails'])) {
             $model->logConfigDetails = logConfigDetails::fromMap($map['LogConfigDetails']);

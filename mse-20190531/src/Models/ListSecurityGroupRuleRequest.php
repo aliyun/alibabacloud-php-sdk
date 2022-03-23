@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PullServicesRequest extends Model
+class ListSecurityGroupRuleRequest extends Model
 {
     /**
      * @var string
@@ -14,18 +14,14 @@ class PullServicesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description 网关ID
+     *
      * @var string
      */
     public $gatewayUniqueId;
-
-    /**
-     * @var string
-     */
-    public $sourceType;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'sourceType'      => 'SourceType',
     ];
 
     public function validate()
@@ -41,9 +37,6 @@ class PullServicesRequest extends Model
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
-        }
 
         return $res;
     }
@@ -51,7 +44,7 @@ class PullServicesRequest extends Model
     /**
      * @param array $map
      *
-     * @return PullServicesRequest
+     * @return ListSecurityGroupRuleRequest
      */
     public static function fromMap($map = [])
     {
@@ -61,9 +54,6 @@ class PullServicesRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
         }
 
         return $model;

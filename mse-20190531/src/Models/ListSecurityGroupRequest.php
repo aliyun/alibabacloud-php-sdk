@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAlarmItemsRequest extends Model
+class ListSecurityGroupRequest extends Model
 {
     /**
      * @var string
@@ -14,12 +14,14 @@ class ListAlarmItemsRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description 网关ID
+     *
      * @var string
      */
-    public $requestPars;
+    public $gatewayUniqueId;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'requestPars'    => 'RequestPars',
+        'acceptLanguage'  => 'AcceptLanguage',
+        'gatewayUniqueId' => 'GatewayUniqueId',
     ];
 
     public function validate()
@@ -32,8 +34,8 @@ class ListAlarmItemsRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
+        if (null !== $this->gatewayUniqueId) {
+            $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
 
         return $res;
@@ -42,7 +44,7 @@ class ListAlarmItemsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListAlarmItemsRequest
+     * @return ListSecurityGroupRequest
      */
     public static function fromMap($map = [])
     {
@@ -50,8 +52,8 @@ class ListAlarmItemsRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
+        if (isset($map['GatewayUniqueId'])) {
+            $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
 
         return $model;

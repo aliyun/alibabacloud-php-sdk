@@ -17,9 +17,15 @@ class ListGatewayDomainRequest extends Model
      * @var string
      */
     public $gatewayUniqueId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ListGatewayDomainRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ListGatewayDomainRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

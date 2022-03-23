@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAlarmHistoriesResponse extends Model
+class DeleteGatewayServiceResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ListAlarmHistoriesResponse extends Model
     public $headers;
 
     /**
-     * @var ListAlarmHistoriesResponseBody
+     * @var DeleteGatewayServiceResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ListAlarmHistoriesResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListAlarmHistoriesResponse
+     * @return DeleteGatewayServiceResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ListAlarmHistoriesResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ListAlarmHistoriesResponseBody::fromMap($map['body']);
+            $model->body = DeleteGatewayServiceResponseBody::fromMap($map['body']);
         }
 
         return $model;

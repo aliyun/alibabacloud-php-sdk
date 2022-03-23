@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceResponseBody;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceResponseBody\data\ingressOptions;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -39,6 +40,11 @@ class data extends Model
     public $id;
 
     /**
+     * @var ingressOptions
+     */
+    public $ingressOptions;
+
+    /**
      * @var string
      */
     public $name;
@@ -64,6 +70,7 @@ class data extends Model
         'gmtCreate'          => 'GmtCreate',
         'gmtModified'        => 'GmtModified',
         'id'                 => 'Id',
+        'ingressOptions'     => 'IngressOptions',
         'name'               => 'Name',
         'source'             => 'Source',
         'sourceUniqueId'     => 'SourceUniqueId',
@@ -94,6 +101,9 @@ class data extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->ingressOptions) {
+            $res['IngressOptions'] = null !== $this->ingressOptions ? $this->ingressOptions->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -136,6 +146,9 @@ class data extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['IngressOptions'])) {
+            $model->ingressOptions = ingressOptions::fromMap($map['IngressOptions']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

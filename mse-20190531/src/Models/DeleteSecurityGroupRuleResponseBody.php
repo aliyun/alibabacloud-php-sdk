@@ -4,14 +4,25 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateAlarmRuleResponseBody extends Model
+class DeleteSecurityGroupRuleResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $errorCode;
+    public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @var string
@@ -19,6 +30,8 @@ class CreateAlarmRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
@@ -28,10 +41,12 @@ class CreateAlarmRuleResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorCode' => 'ErrorCode',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'           => 'Code',
+        'data'           => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -41,8 +56,14 @@ class CreateAlarmRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -60,13 +81,19 @@ class CreateAlarmRuleResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAlarmRuleResponseBody
+     * @return DeleteSecurityGroupRuleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\comment;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\directResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\redirect;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\routePredicates;
@@ -12,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
+    /**
+     * @var comment
+     */
+    public $comment;
+
     /**
      * @var int
      */
@@ -116,7 +122,13 @@ class result extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
+        'comment'            => 'Comment',
         'defaultServiceId'   => 'DefaultServiceId',
         'defaultServiceName' => 'DefaultServiceName',
         'destinationType'    => 'DestinationType',
@@ -138,6 +150,7 @@ class result extends Model
         'routeServices'      => 'RouteServices',
         'services'           => 'Services',
         'status'             => 'Status',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -147,6 +160,9 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = null !== $this->comment ? $this->comment->toMap() : null;
+        }
         if (null !== $this->defaultServiceId) {
             $res['DefaultServiceId'] = $this->defaultServiceId;
         }
@@ -216,6 +232,9 @@ class result extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
 
         return $res;
     }
@@ -228,6 +247,9 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = comment::fromMap($map['Comment']);
+        }
         if (isset($map['DefaultServiceId'])) {
             $model->defaultServiceId = $map['DefaultServiceId'];
         }
@@ -300,6 +322,9 @@ class result extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
