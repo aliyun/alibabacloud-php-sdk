@@ -1315,6 +1315,9 @@ class Ddi extends OpenApiClient
         if (!Utils::isUnset($request->adhoc)) {
             $query['Adhoc'] = $request->adhoc;
         }
+        if (!Utils::isUnset($request->exactName)) {
+            $query['ExactName'] = $request->exactName;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }

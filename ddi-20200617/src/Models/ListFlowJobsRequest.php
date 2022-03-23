@@ -16,6 +16,11 @@ class ListFlowJobsRequest extends Model
     public $adhoc;
 
     /**
+     * @var string
+     */
+    public $exactName;
+
+    /**
      * @description 作业ID。您可以调用ListFlowJob查看作业ID。
      *
      * @var string
@@ -65,6 +70,7 @@ class ListFlowJobsRequest extends Model
     public $type;
     protected $_name = [
         'adhoc'      => 'Adhoc',
+        'exactName'  => 'ExactName',
         'id'         => 'Id',
         'name'       => 'Name',
         'pageNumber' => 'PageNumber',
@@ -83,6 +89,9 @@ class ListFlowJobsRequest extends Model
         $res = [];
         if (null !== $this->adhoc) {
             $res['Adhoc'] = $this->adhoc;
+        }
+        if (null !== $this->exactName) {
+            $res['ExactName'] = $this->exactName;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -119,6 +128,9 @@ class ListFlowJobsRequest extends Model
         $model = new self();
         if (isset($map['Adhoc'])) {
             $model->adhoc = $map['Adhoc'];
+        }
+        if (isset($map['ExactName'])) {
+            $model->exactName = $map['ExactName'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
