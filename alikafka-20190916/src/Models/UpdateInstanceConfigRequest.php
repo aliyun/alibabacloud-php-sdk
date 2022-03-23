@@ -16,16 +16,16 @@ class UpdateInstanceConfigRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $regionId;
     protected $_name = [
         'config'     => 'Config',
-        'regionId'   => 'RegionId',
         'instanceId' => 'InstanceId',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class UpdateInstanceConfigRequest extends Model
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class UpdateInstanceConfigRequest extends Model
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

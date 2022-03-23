@@ -16,16 +16,16 @@ class GetTopicStatusRequest extends Model
     /**
      * @var string
      */
-    public $topic;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'topic'      => 'Topic',
         'regionId'   => 'RegionId',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class GetTopicStatusRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class GetTopicStatusRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

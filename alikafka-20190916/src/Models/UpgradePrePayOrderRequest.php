@@ -9,24 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UpgradePrePayOrderRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $topicQuota;
-
-    /**
      * @var int
      */
     public $diskSize;
 
     /**
+     * @var int
+     */
+    public $eipMax;
+
+    /**
+     * @var bool
+     */
+    public $eipModel;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $instanceId;
 
     /**
      * @var int
@@ -36,26 +36,32 @@ class UpgradePrePayOrderRequest extends Model
     /**
      * @var string
      */
+    public $ioMaxSpec;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $specType;
 
     /**
      * @var int
      */
-    public $eipMax;
-
-    /**
-     * @var string
-     */
-    public $ioMaxSpec;
+    public $topicQuota;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'topicQuota' => 'TopicQuota',
         'diskSize'   => 'DiskSize',
-        'regionId'   => 'RegionId',
-        'ioMax'      => 'IoMax',
-        'specType'   => 'SpecType',
         'eipMax'     => 'EipMax',
+        'eipModel'   => 'EipModel',
+        'instanceId' => 'InstanceId',
+        'ioMax'      => 'IoMax',
         'ioMaxSpec'  => 'IoMaxSpec',
+        'regionId'   => 'RegionId',
+        'specType'   => 'SpecType',
+        'topicQuota' => 'TopicQuota',
     ];
 
     public function validate()
@@ -65,29 +71,32 @@ class UpgradePrePayOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->topicQuota) {
-            $res['TopicQuota'] = $this->topicQuota;
-        }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ioMax) {
-            $res['IoMax'] = $this->ioMax;
-        }
-        if (null !== $this->specType) {
-            $res['SpecType'] = $this->specType;
         }
         if (null !== $this->eipMax) {
             $res['EipMax'] = $this->eipMax;
         }
+        if (null !== $this->eipModel) {
+            $res['EipModel'] = $this->eipModel;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ioMax) {
+            $res['IoMax'] = $this->ioMax;
+        }
         if (null !== $this->ioMaxSpec) {
             $res['IoMaxSpec'] = $this->ioMaxSpec;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->specType) {
+            $res['SpecType'] = $this->specType;
+        }
+        if (null !== $this->topicQuota) {
+            $res['TopicQuota'] = $this->topicQuota;
         }
 
         return $res;
@@ -101,29 +110,32 @@ class UpgradePrePayOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['TopicQuota'])) {
-            $model->topicQuota = $map['TopicQuota'];
-        }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IoMax'])) {
-            $model->ioMax = $map['IoMax'];
-        }
-        if (isset($map['SpecType'])) {
-            $model->specType = $map['SpecType'];
         }
         if (isset($map['EipMax'])) {
             $model->eipMax = $map['EipMax'];
         }
+        if (isset($map['EipModel'])) {
+            $model->eipModel = $map['EipModel'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IoMax'])) {
+            $model->ioMax = $map['IoMax'];
+        }
         if (isset($map['IoMaxSpec'])) {
             $model->ioMaxSpec = $map['IoMaxSpec'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SpecType'])) {
+            $model->specType = $map['SpecType'];
+        }
+        if (isset($map['TopicQuota'])) {
+            $model->topicQuota = $map['TopicQuota'];
         }
 
         return $model;

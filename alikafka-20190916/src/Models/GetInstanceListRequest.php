@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceListRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
+    public $instanceId;
 
     /**
      * @var string
@@ -20,18 +20,18 @@ class GetInstanceListRequest extends Model
     public $orderId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceId;
+    public $regionId;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'orderId'    => 'OrderId',
         'instanceId' => 'InstanceId',
+        'orderId'    => 'OrderId',
+        'regionId'   => 'RegionId',
         'tag'        => 'Tag',
     ];
 
@@ -42,14 +42,14 @@ class GetInstanceListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -72,16 +72,16 @@ class GetInstanceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = $map['InstanceId'];
             }
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

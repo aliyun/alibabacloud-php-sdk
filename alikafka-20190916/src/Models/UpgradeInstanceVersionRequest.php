@@ -16,16 +16,16 @@ class UpgradeInstanceVersionRequest extends Model
     /**
      * @var string
      */
-    public $targetVersion;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $targetVersion;
     protected $_name = [
         'instanceId'    => 'InstanceId',
-        'targetVersion' => 'TargetVersion',
         'regionId'      => 'RegionId',
+        'targetVersion' => 'TargetVersion',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class UpgradeInstanceVersionRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->targetVersion) {
-            $res['TargetVersion'] = $this->targetVersion;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->targetVersion) {
+            $res['TargetVersion'] = $this->targetVersion;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class UpgradeInstanceVersionRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['TargetVersion'])) {
-            $model->targetVersion = $map['TargetVersion'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TargetVersion'])) {
+            $model->targetVersion = $map['TargetVersion'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetMetaProductListResponse extends Model
+class GetAllInstanceIdListResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetMetaProductListResponse extends Model
     public $headers;
 
     /**
-     * @var GetMetaProductListResponseBody
+     * @var GetAllInstanceIdListResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetMetaProductListResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetMetaProductListResponse
+     * @return GetAllInstanceIdListResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetMetaProductListResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetMetaProductListResponseBody::fromMap($map['body']);
+            $model->body = GetAllInstanceIdListResponseBody::fromMap($map['body']);
         }
 
         return $model;

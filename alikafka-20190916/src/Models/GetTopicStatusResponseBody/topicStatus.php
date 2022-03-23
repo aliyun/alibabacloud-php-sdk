@@ -15,18 +15,18 @@ class topicStatus extends Model
     public $lastTimeStamp;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var offsetTable
      */
     public $offsetTable;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'lastTimeStamp' => 'LastTimeStamp',
-        'totalCount'    => 'TotalCount',
         'offsetTable'   => 'OffsetTable',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class topicStatus extends Model
         if (null !== $this->lastTimeStamp) {
             $res['LastTimeStamp'] = $this->lastTimeStamp;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->offsetTable) {
             $res['OffsetTable'] = null !== $this->offsetTable ? $this->offsetTable->toMap() : null;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class topicStatus extends Model
         if (isset($map['LastTimeStamp'])) {
             $model->lastTimeStamp = $map['LastTimeStamp'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['OffsetTable'])) {
             $model->offsetTable = offsetTable::fromMap($map['OffsetTable']);
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class topicVO extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $remark;
+    public $compactTopic;
 
     /**
      * @var int
@@ -27,7 +22,32 @@ class topicVO extends Model
     /**
      * @var string
      */
-    public $topic;
+    public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $localTopic;
+
+    /**
+     * @var int
+     */
+    public $partitionNum;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var int
+     */
+    public $status;
 
     /**
      * @var string
@@ -42,21 +62,19 @@ class topicVO extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $topic;
     protected $_name = [
-        'status'     => 'Status',
-        'remark'     => 'Remark',
-        'createTime' => 'CreateTime',
-        'topic'      => 'Topic',
-        'statusName' => 'StatusName',
-        'tags'       => 'Tags',
-        'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'compactTopic' => 'CompactTopic',
+        'createTime'   => 'CreateTime',
+        'instanceId'   => 'InstanceId',
+        'localTopic'   => 'LocalTopic',
+        'partitionNum' => 'PartitionNum',
+        'regionId'     => 'RegionId',
+        'remark'       => 'Remark',
+        'status'       => 'Status',
+        'statusName'   => 'StatusName',
+        'tags'         => 'Tags',
+        'topic'        => 'Topic',
     ];
 
     public function validate()
@@ -66,17 +84,29 @@ class topicVO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+        if (null !== $this->compactTopic) {
+            $res['CompactTopic'] = $this->compactTopic;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->localTopic) {
+            $res['LocalTopic'] = $this->localTopic;
+        }
+        if (null !== $this->partitionNum) {
+            $res['PartitionNum'] = $this->partitionNum;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->statusName) {
             $res['StatusName'] = $this->statusName;
@@ -84,11 +114,8 @@ class topicVO extends Model
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -102,17 +129,29 @@ class topicVO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
+        if (isset($map['CompactTopic'])) {
+            $model->compactTopic = $map['CompactTopic'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['LocalTopic'])) {
+            $model->localTopic = $map['LocalTopic'];
+        }
+        if (isset($map['PartitionNum'])) {
+            $model->partitionNum = $map['PartitionNum'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['StatusName'])) {
             $model->statusName = $map['StatusName'];
@@ -120,11 +159,8 @@ class topicVO extends Model
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

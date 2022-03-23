@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $forceDeleteInstance;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -17,15 +22,10 @@ class ReleaseInstanceRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $forceDeleteInstance;
     protected $_name = [
+        'forceDeleteInstance' => 'ForceDeleteInstance',
         'instanceId'          => 'InstanceId',
         'regionId'            => 'RegionId',
-        'forceDeleteInstance' => 'ForceDeleteInstance',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ReleaseInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forceDeleteInstance) {
+            $res['ForceDeleteInstance'] = $this->forceDeleteInstance;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->forceDeleteInstance) {
-            $res['ForceDeleteInstance'] = $this->forceDeleteInstance;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ReleaseInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForceDeleteInstance'])) {
+            $model->forceDeleteInstance = $map['ForceDeleteInstance'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ForceDeleteInstance'])) {
-            $model->forceDeleteInstance = $map['ForceDeleteInstance'];
         }
 
         return $model;

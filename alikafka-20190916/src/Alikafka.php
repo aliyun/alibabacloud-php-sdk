@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Alikafka\V20190916;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ConvertPostPayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ConvertPostPayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateAclRequest;
@@ -19,6 +20,7 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateSaslUserRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateSaslUserResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteAclRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteAclResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteConsumerGroupRequest;
@@ -35,6 +37,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeNodeStatusRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeNodeStatusResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListRequest;
@@ -43,8 +47,6 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponse;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetMetaProductListRequest;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetMetaProductListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusRequest;
@@ -78,6 +80,7 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Alikafka extends OpenApiClient
@@ -159,11 +162,32 @@ class Alikafka extends OpenApiClient
     public function convertPostPayOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConvertPostPayOrder',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConvertPostPayOrderResponse::fromMap($this->doRPCRequest('ConvertPostPayOrder', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConvertPostPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -187,11 +211,44 @@ class Alikafka extends OpenApiClient
     public function createAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclOperationType)) {
+            $query['AclOperationType'] = $request->aclOperationType;
+        }
+        if (!Utils::isUnset($request->aclResourceName)) {
+            $query['AclResourceName'] = $request->aclResourceName;
+        }
+        if (!Utils::isUnset($request->aclResourcePatternType)) {
+            $query['AclResourcePatternType'] = $request->aclResourcePatternType;
+        }
+        if (!Utils::isUnset($request->aclResourceType)) {
+            $query['AclResourceType'] = $request->aclResourceType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAcl',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAclResponse::fromMap($this->doRPCRequest('CreateAcl', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -215,11 +272,35 @@ class Alikafka extends OpenApiClient
     public function createConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConsumerGroup',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateConsumerGroupResponse::fromMap($this->doRPCRequest('CreateConsumerGroup', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -243,11 +324,50 @@ class Alikafka extends OpenApiClient
     public function createPostPayOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deployType)) {
+            $query['DeployType'] = $request->deployType;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->diskType)) {
+            $query['DiskType'] = $request->diskType;
+        }
+        if (!Utils::isUnset($request->eipMax)) {
+            $query['EipMax'] = $request->eipMax;
+        }
+        if (!Utils::isUnset($request->ioMax)) {
+            $query['IoMax'] = $request->ioMax;
+        }
+        if (!Utils::isUnset($request->ioMaxSpec)) {
+            $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->specType)) {
+            $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->topicQuota)) {
+            $query['TopicQuota'] = $request->topicQuota;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePostPayOrder',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePostPayOrderResponse::fromMap($this->doRPCRequest('CreatePostPayOrder', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePostPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -271,11 +391,50 @@ class Alikafka extends OpenApiClient
     public function createPrePayOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deployType)) {
+            $query['DeployType'] = $request->deployType;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->diskType)) {
+            $query['DiskType'] = $request->diskType;
+        }
+        if (!Utils::isUnset($request->eipMax)) {
+            $query['EipMax'] = $request->eipMax;
+        }
+        if (!Utils::isUnset($request->ioMax)) {
+            $query['IoMax'] = $request->ioMax;
+        }
+        if (!Utils::isUnset($request->ioMaxSpec)) {
+            $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->specType)) {
+            $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->topicQuota)) {
+            $query['TopicQuota'] = $request->topicQuota;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePrePayOrder',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePrePayOrderResponse::fromMap($this->doRPCRequest('CreatePrePayOrder', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePrePayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -299,11 +458,38 @@ class Alikafka extends OpenApiClient
     public function createSaslUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSaslUser',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSaslUserResponse::fromMap($this->doRPCRequest('CreateSaslUser', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSaslUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -319,19 +505,66 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateTopicRequest $request
+     * @param CreateTopicRequest $tmpReq
      * @param RuntimeOptions     $runtime
      *
      * @return CreateTopicResponse
      */
-    public function createTopicWithOptions($request, $runtime)
+    public function createTopicWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateTopicShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->config)) {
+            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->compactTopic)) {
+            $query['CompactTopic'] = $request->compactTopic;
+        }
+        if (!Utils::isUnset($request->configShrink)) {
+            $query['Config'] = $request->configShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->localTopic)) {
+            $query['LocalTopic'] = $request->localTopic;
+        }
+        if (!Utils::isUnset($request->minInsyncReplicas)) {
+            $query['MinInsyncReplicas'] = $request->minInsyncReplicas;
+        }
+        if (!Utils::isUnset($request->partitionNum)) {
+            $query['PartitionNum'] = $request->partitionNum;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->replicationFactor)) {
+            $query['ReplicationFactor'] = $request->replicationFactor;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTopic',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTopicResponse::fromMap($this->doRPCRequest('CreateTopic', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -355,11 +588,44 @@ class Alikafka extends OpenApiClient
     public function deleteAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclOperationType)) {
+            $query['AclOperationType'] = $request->aclOperationType;
+        }
+        if (!Utils::isUnset($request->aclResourceName)) {
+            $query['AclResourceName'] = $request->aclResourceName;
+        }
+        if (!Utils::isUnset($request->aclResourcePatternType)) {
+            $query['AclResourcePatternType'] = $request->aclResourcePatternType;
+        }
+        if (!Utils::isUnset($request->aclResourceType)) {
+            $query['AclResourceType'] = $request->aclResourceType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAcl',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAclResponse::fromMap($this->doRPCRequest('DeleteAcl', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -383,11 +649,32 @@ class Alikafka extends OpenApiClient
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConsumerGroup',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteConsumerGroupResponse::fromMap($this->doRPCRequest('DeleteConsumerGroup', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -411,11 +698,29 @@ class Alikafka extends OpenApiClient
     public function deleteInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstance',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteInstanceResponse::fromMap($this->doRPCRequest('DeleteInstance', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -439,11 +744,35 @@ class Alikafka extends OpenApiClient
     public function deleteSaslUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSaslUser',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSaslUserResponse::fromMap($this->doRPCRequest('DeleteSaslUser', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSaslUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -467,11 +796,32 @@ class Alikafka extends OpenApiClient
     public function deleteTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTopic',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTopicResponse::fromMap($this->doRPCRequest('DeleteTopic', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -495,11 +845,41 @@ class Alikafka extends OpenApiClient
     public function describeAclsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclResourceName)) {
+            $query['AclResourceName'] = $request->aclResourceName;
+        }
+        if (!Utils::isUnset($request->aclResourcePatternType)) {
+            $query['AclResourcePatternType'] = $request->aclResourcePatternType;
+        }
+        if (!Utils::isUnset($request->aclResourceType)) {
+            $query['AclResourceType'] = $request->aclResourceType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAcls',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAclsResponse::fromMap($this->doRPCRequest('DescribeAcls', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAclsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -523,11 +903,29 @@ class Alikafka extends OpenApiClient
     public function describeNodeStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNodeStatus',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNodeStatusResponse::fromMap($this->doRPCRequest('DescribeNodeStatus', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNodeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -551,11 +949,29 @@ class Alikafka extends OpenApiClient
     public function describeSaslUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSaslUsers',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSaslUsersResponse::fromMap($this->doRPCRequest('DescribeSaslUsers', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSaslUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -571,6 +987,49 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param GetAllInstanceIdListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAllInstanceIdListResponse
+     */
+    public function getAllInstanceIdListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAllInstanceIdList',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAllInstanceIdListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAllInstanceIdListRequest $request
+     *
+     * @return GetAllInstanceIdListResponse
+     */
+    public function getAllInstanceIdList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAllInstanceIdListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAllowedIpListRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -579,11 +1038,29 @@ class Alikafka extends OpenApiClient
     public function getAllowedIpListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAllowedIpList',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAllowedIpListResponse::fromMap($this->doRPCRequest('GetAllowedIpList', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAllowedIpListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -607,11 +1084,32 @@ class Alikafka extends OpenApiClient
     public function getConsumerListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConsumerList',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConsumerListResponse::fromMap($this->doRPCRequest('GetConsumerList', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConsumerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -635,11 +1133,32 @@ class Alikafka extends OpenApiClient
     public function getConsumerProgressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConsumerProgress',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConsumerProgressResponse::fromMap($this->doRPCRequest('GetConsumerProgress', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConsumerProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -663,11 +1182,35 @@ class Alikafka extends OpenApiClient
     public function getInstanceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceList',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetInstanceListResponse::fromMap($this->doRPCRequest('GetInstanceList', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -683,34 +1226,6 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetMetaProductListRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetMetaProductListResponse
-     */
-    public function getMetaProductListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMetaProductListResponse::fromMap($this->doRPCRequest('GetMetaProductList', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMetaProductListRequest $request
-     *
-     * @return GetMetaProductListResponse
-     */
-    public function getMetaProductList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaProductListWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetTopicListRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -719,11 +1234,38 @@ class Alikafka extends OpenApiClient
     public function getTopicListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTopicList',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTopicListResponse::fromMap($this->doRPCRequest('GetTopicList', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTopicListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -747,11 +1289,32 @@ class Alikafka extends OpenApiClient
     public function getTopicStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTopicStatus',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTopicStatusResponse::fromMap($this->doRPCRequest('GetTopicStatus', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTopicStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -775,11 +1338,38 @@ class Alikafka extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -803,11 +1393,32 @@ class Alikafka extends OpenApiClient
     public function modifyInstanceNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceName',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceNameResponse::fromMap($this->doRPCRequest('ModifyInstanceName', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -831,11 +1442,35 @@ class Alikafka extends OpenApiClient
     public function modifyPartitionNumWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addPartitionNum)) {
+            $query['AddPartitionNum'] = $request->addPartitionNum;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPartitionNum',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyPartitionNumResponse::fromMap($this->doRPCRequest('ModifyPartitionNum', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPartitionNumResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -859,11 +1494,35 @@ class Alikafka extends OpenApiClient
     public function modifyTopicRemarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTopicRemark',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyTopicRemarkResponse::fromMap($this->doRPCRequest('ModifyTopicRemark', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyTopicRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -887,11 +1546,32 @@ class Alikafka extends OpenApiClient
     public function releaseInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forceDeleteInstance)) {
+            $query['ForceDeleteInstance'] = $request->forceDeleteInstance;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseInstance',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseInstanceResponse::fromMap($this->doRPCRequest('ReleaseInstance', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -915,11 +1595,68 @@ class Alikafka extends OpenApiClient
     public function startInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->deployModule)) {
+            $query['DeployModule'] = $request->deployModule;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->isEipInner)) {
+            $query['IsEipInner'] = $request->isEipInner;
+        }
+        if (!Utils::isUnset($request->isSetUserAndPassword)) {
+            $query['IsSetUserAndPassword'] = $request->isSetUserAndPassword;
+        }
+        if (!Utils::isUnset($request->KMSKeyId)) {
+            $query['KMSKeyId'] = $request->KMSKeyId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityGroup)) {
+            $query['SecurityGroup'] = $request->securityGroup;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartInstance',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartInstanceResponse::fromMap($this->doRPCRequest('StartInstance', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -943,11 +1680,35 @@ class Alikafka extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -971,11 +1732,38 @@ class Alikafka extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -999,11 +1787,41 @@ class Alikafka extends OpenApiClient
     public function updateAllowedIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowedListIp)) {
+            $query['AllowedListIp'] = $request->allowedListIp;
+        }
+        if (!Utils::isUnset($request->allowedListType)) {
+            $query['AllowedListType'] = $request->allowedListType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->portRange)) {
+            $query['PortRange'] = $request->portRange;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->updateType)) {
+            $query['UpdateType'] = $request->updateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAllowedIp',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAllowedIpResponse::fromMap($this->doRPCRequest('UpdateAllowedIp', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAllowedIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1027,11 +1845,32 @@ class Alikafka extends OpenApiClient
     public function updateInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceConfig',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateInstanceConfigResponse::fromMap($this->doRPCRequest('UpdateInstanceConfig', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1055,11 +1894,32 @@ class Alikafka extends OpenApiClient
     public function upgradeInstanceVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->targetVersion)) {
+            $query['TargetVersion'] = $request->targetVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeInstanceVersion',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeInstanceVersionResponse::fromMap($this->doRPCRequest('UpgradeInstanceVersion', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1083,11 +1943,50 @@ class Alikafka extends OpenApiClient
     public function upgradePostPayOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->eipMax)) {
+            $query['EipMax'] = $request->eipMax;
+        }
+        if (!Utils::isUnset($request->eipModel)) {
+            $query['EipModel'] = $request->eipModel;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ioMax)) {
+            $query['IoMax'] = $request->ioMax;
+        }
+        if (!Utils::isUnset($request->ioMaxSpec)) {
+            $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->specType)) {
+            $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->topicQuota)) {
+            $query['TopicQuota'] = $request->topicQuota;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradePostPayOrder',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradePostPayOrderResponse::fromMap($this->doRPCRequest('UpgradePostPayOrder', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradePostPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1111,11 +2010,50 @@ class Alikafka extends OpenApiClient
     public function upgradePrePayOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->eipMax)) {
+            $query['EipMax'] = $request->eipMax;
+        }
+        if (!Utils::isUnset($request->eipModel)) {
+            $query['EipModel'] = $request->eipModel;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ioMax)) {
+            $query['IoMax'] = $request->ioMax;
+        }
+        if (!Utils::isUnset($request->ioMaxSpec)) {
+            $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->specType)) {
+            $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->topicQuota)) {
+            $query['TopicQuota'] = $request->topicQuota;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradePrePayOrder',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradePrePayOrderResponse::fromMap($this->doRPCRequest('UpgradePrePayOrder', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradePrePayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

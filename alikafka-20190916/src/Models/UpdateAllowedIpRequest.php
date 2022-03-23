@@ -11,17 +11,7 @@ class UpdateAllowedIpRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $updateType;
-
-    /**
-     * @var string
-     */
-    public $portRange;
+    public $allowedListIp;
 
     /**
      * @var string
@@ -31,19 +21,29 @@ class UpdateAllowedIpRequest extends Model
     /**
      * @var string
      */
-    public $allowedListIp;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $portRange;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $updateType;
     protected $_name = [
+        'allowedListIp'   => 'AllowedListIp',
+        'allowedListType' => 'AllowedListType',
+        'instanceId'      => 'InstanceId',
+        'portRange'       => 'PortRange',
         'regionId'        => 'RegionId',
         'updateType'      => 'UpdateType',
-        'portRange'       => 'PortRange',
-        'allowedListType' => 'AllowedListType',
-        'allowedListIp'   => 'AllowedListIp',
-        'instanceId'      => 'InstanceId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class UpdateAllowedIpRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowedListIp) {
+            $res['AllowedListIp'] = $this->allowedListIp;
+        }
+        if (null !== $this->allowedListType) {
+            $res['AllowedListType'] = $this->allowedListType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->portRange) {
+            $res['PortRange'] = $this->portRange;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->updateType) {
             $res['UpdateType'] = $this->updateType;
-        }
-        if (null !== $this->portRange) {
-            $res['PortRange'] = $this->portRange;
-        }
-        if (null !== $this->allowedListType) {
-            $res['AllowedListType'] = $this->allowedListType;
-        }
-        if (null !== $this->allowedListIp) {
-            $res['AllowedListIp'] = $this->allowedListIp;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class UpdateAllowedIpRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowedListIp'])) {
+            $model->allowedListIp = $map['AllowedListIp'];
+        }
+        if (isset($map['AllowedListType'])) {
+            $model->allowedListType = $map['AllowedListType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PortRange'])) {
+            $model->portRange = $map['PortRange'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['UpdateType'])) {
             $model->updateType = $map['UpdateType'];
-        }
-        if (isset($map['PortRange'])) {
-            $model->portRange = $map['PortRange'];
-        }
-        if (isset($map['AllowedListType'])) {
-            $model->allowedListType = $map['AllowedListType'];
-        }
-        if (isset($map['AllowedListIp'])) {
-            $model->allowedListIp = $map['AllowedListIp'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

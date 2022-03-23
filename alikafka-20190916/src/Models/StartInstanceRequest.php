@@ -11,22 +11,7 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
+    public $config;
 
     /**
      * @var string
@@ -36,7 +21,7 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $instanceId;
 
     /**
      * @var bool
@@ -51,7 +36,12 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
-    public $username;
+    public $KMSKeyId;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -61,7 +51,7 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $regionId;
 
     /**
      * @var string
@@ -76,28 +66,38 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
-    public $config;
+    public $username;
 
     /**
      * @var string
      */
-    public $KMSKeyId;
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
-        'regionId'             => 'RegionId',
-        'vpcId'                => 'VpcId',
-        'vSwitchId'            => 'VSwitchId',
+        'config'               => 'Config',
         'deployModule'         => 'DeployModule',
-        'zoneId'               => 'ZoneId',
+        'instanceId'           => 'InstanceId',
         'isEipInner'           => 'IsEipInner',
         'isSetUserAndPassword' => 'IsSetUserAndPassword',
-        'username'             => 'Username',
-        'password'             => 'Password',
+        'KMSKeyId'             => 'KMSKeyId',
         'name'                 => 'Name',
+        'password'             => 'Password',
+        'regionId'             => 'RegionId',
         'securityGroup'        => 'SecurityGroup',
         'serviceVersion'       => 'ServiceVersion',
-        'config'               => 'Config',
-        'KMSKeyId'             => 'KMSKeyId',
+        'username'             => 'Username',
+        'vSwitchId'            => 'VSwitchId',
+        'vpcId'                => 'VpcId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -107,23 +107,14 @@ class StartInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->deployModule) {
             $res['DeployModule'] = $this->deployModule;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->isEipInner) {
             $res['IsEipInner'] = $this->isEipInner;
@@ -131,14 +122,17 @@ class StartInstanceRequest extends Model
         if (null !== $this->isSetUserAndPassword) {
             $res['IsSetUserAndPassword'] = $this->isSetUserAndPassword;
         }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
@@ -146,11 +140,17 @@ class StartInstanceRequest extends Model
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
-        if (null !== $this->KMSKeyId) {
-            $res['KMSKeyId'] = $this->KMSKeyId;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -164,23 +164,14 @@ class StartInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
         if (isset($map['DeployModule'])) {
             $model->deployModule = $map['DeployModule'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IsEipInner'])) {
             $model->isEipInner = $map['IsEipInner'];
@@ -188,14 +179,17 @@ class StartInstanceRequest extends Model
         if (isset($map['IsSetUserAndPassword'])) {
             $model->isSetUserAndPassword = $map['IsSetUserAndPassword'];
         }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];
@@ -203,11 +197,17 @@ class StartInstanceRequest extends Model
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
         }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
-        if (isset($map['KMSKeyId'])) {
-            $model->KMSKeyId = $map['KMSKeyId'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

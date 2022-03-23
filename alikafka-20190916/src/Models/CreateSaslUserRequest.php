@@ -11,17 +11,7 @@ class CreateSaslUserRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $username;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class CreateSaslUserRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $username;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'instanceId' => 'InstanceId',
-        'username'   => 'Username',
         'password'   => 'Password',
+        'regionId'   => 'RegionId',
         'type'       => 'Type',
+        'username'   => 'Username',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateSaslUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateSaslUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;

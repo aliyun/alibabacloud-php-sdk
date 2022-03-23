@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class vpcList extends Model
 {
     /**
-     * @var string
-     */
-    public $portRange;
-
-    /**
      * @var string[]
      */
     public $allowedIpList;
+
+    /**
+     * @var string
+     */
+    public $portRange;
     protected $_name = [
-        'portRange'     => 'PortRange',
         'allowedIpList' => 'AllowedIpList',
+        'portRange'     => 'PortRange',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class vpcList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->portRange) {
-            $res['PortRange'] = $this->portRange;
-        }
         if (null !== $this->allowedIpList) {
             $res['AllowedIpList'] = $this->allowedIpList;
+        }
+        if (null !== $this->portRange) {
+            $res['PortRange'] = $this->portRange;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class vpcList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PortRange'])) {
-            $model->portRange = $map['PortRange'];
-        }
         if (isset($map['AllowedIpList'])) {
             if (!empty($map['AllowedIpList'])) {
                 $model->allowedIpList = $map['AllowedIpList'];
             }
+        }
+        if (isset($map['PortRange'])) {
+            $model->portRange = $map['PortRange'];
         }
 
         return $model;

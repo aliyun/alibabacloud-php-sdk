@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $code;
@@ -30,14 +20,24 @@ class GetConsumerListResponseBody extends Model
     public $consumerList;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
         'code'         => 'Code',
         'consumerList' => 'ConsumerList',
+        'message'      => 'Message',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
 
@@ -48,17 +48,17 @@ class GetConsumerListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->consumerList) {
             $res['ConsumerList'] = null !== $this->consumerList ? $this->consumerList->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -75,17 +75,17 @@ class GetConsumerListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['ConsumerList'])) {
             $model->consumerList = consumerList::fromMap($map['ConsumerList']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

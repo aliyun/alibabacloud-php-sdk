@@ -11,22 +11,7 @@ class DeleteAclRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $username;
-
-    /**
-     * @var string
-     */
-    public $aclResourceType;
+    public $aclOperationType;
 
     /**
      * @var string
@@ -41,15 +26,30 @@ class DeleteAclRequest extends Model
     /**
      * @var string
      */
-    public $aclOperationType;
+    public $aclResourceType;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $username;
     protected $_name = [
-        'regionId'               => 'RegionId',
-        'instanceId'             => 'InstanceId',
-        'username'               => 'Username',
-        'aclResourceType'        => 'AclResourceType',
+        'aclOperationType'       => 'AclOperationType',
         'aclResourceName'        => 'AclResourceName',
         'aclResourcePatternType' => 'AclResourcePatternType',
-        'aclOperationType'       => 'AclOperationType',
+        'aclResourceType'        => 'AclResourceType',
+        'instanceId'             => 'InstanceId',
+        'regionId'               => 'RegionId',
+        'username'               => 'Username',
     ];
 
     public function validate()
@@ -59,17 +59,8 @@ class DeleteAclRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
-        }
-        if (null !== $this->aclResourceType) {
-            $res['AclResourceType'] = $this->aclResourceType;
+        if (null !== $this->aclOperationType) {
+            $res['AclOperationType'] = $this->aclOperationType;
         }
         if (null !== $this->aclResourceName) {
             $res['AclResourceName'] = $this->aclResourceName;
@@ -77,8 +68,17 @@ class DeleteAclRequest extends Model
         if (null !== $this->aclResourcePatternType) {
             $res['AclResourcePatternType'] = $this->aclResourcePatternType;
         }
-        if (null !== $this->aclOperationType) {
-            $res['AclOperationType'] = $this->aclOperationType;
+        if (null !== $this->aclResourceType) {
+            $res['AclResourceType'] = $this->aclResourceType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -92,17 +92,8 @@ class DeleteAclRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
-        }
-        if (isset($map['AclResourceType'])) {
-            $model->aclResourceType = $map['AclResourceType'];
+        if (isset($map['AclOperationType'])) {
+            $model->aclOperationType = $map['AclOperationType'];
         }
         if (isset($map['AclResourceName'])) {
             $model->aclResourceName = $map['AclResourceName'];
@@ -110,8 +101,17 @@ class DeleteAclRequest extends Model
         if (isset($map['AclResourcePatternType'])) {
             $model->aclResourcePatternType = $map['AclResourcePatternType'];
         }
-        if (isset($map['AclOperationType'])) {
-            $model->aclOperationType = $map['AclOperationType'];
+        if (isset($map['AclResourceType'])) {
+            $model->aclResourceType = $map['AclResourceType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;

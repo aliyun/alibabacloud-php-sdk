@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConvertPostPayOrderRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $duration;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class ConvertPostPayOrderRequest extends Model
     public $instanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $duration;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'instanceId' => 'InstanceId',
         'duration'   => 'Duration',
+        'instanceId' => 'InstanceId',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ConvertPostPayOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ConvertPostPayOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

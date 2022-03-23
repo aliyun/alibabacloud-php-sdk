@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreatePostPayOrderRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $deployType;
 
     /**
      * @var int
      */
-    public $topicQuota;
+    public $diskSize;
 
     /**
      * @var string
@@ -26,12 +26,7 @@ class CreatePostPayOrderRequest extends Model
     /**
      * @var int
      */
-    public $diskSize;
-
-    /**
-     * @var int
-     */
-    public $deployType;
+    public $eipMax;
 
     /**
      * @var int
@@ -39,9 +34,14 @@ class CreatePostPayOrderRequest extends Model
     public $ioMax;
 
     /**
-     * @var int
+     * @var string
      */
-    public $eipMax;
+    public $ioMaxSpec;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -49,19 +49,19 @@ class CreatePostPayOrderRequest extends Model
     public $specType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $ioMaxSpec;
+    public $topicQuota;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'topicQuota' => 'TopicQuota',
-        'diskType'   => 'DiskType',
-        'diskSize'   => 'DiskSize',
         'deployType' => 'DeployType',
-        'ioMax'      => 'IoMax',
+        'diskSize'   => 'DiskSize',
+        'diskType'   => 'DiskType',
         'eipMax'     => 'EipMax',
-        'specType'   => 'SpecType',
+        'ioMax'      => 'IoMax',
         'ioMaxSpec'  => 'IoMaxSpec',
+        'regionId'   => 'RegionId',
+        'specType'   => 'SpecType',
+        'topicQuota' => 'TopicQuota',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class CreatePostPayOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->topicQuota) {
-            $res['TopicQuota'] = $this->topicQuota;
-        }
-        if (null !== $this->diskType) {
-            $res['DiskType'] = $this->diskType;
+        if (null !== $this->deployType) {
+            $res['DeployType'] = $this->deployType;
         }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
-        if (null !== $this->deployType) {
-            $res['DeployType'] = $this->deployType;
-        }
-        if (null !== $this->ioMax) {
-            $res['IoMax'] = $this->ioMax;
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
         }
         if (null !== $this->eipMax) {
             $res['EipMax'] = $this->eipMax;
         }
-        if (null !== $this->specType) {
-            $res['SpecType'] = $this->specType;
+        if (null !== $this->ioMax) {
+            $res['IoMax'] = $this->ioMax;
         }
         if (null !== $this->ioMaxSpec) {
             $res['IoMaxSpec'] = $this->ioMaxSpec;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->specType) {
+            $res['SpecType'] = $this->specType;
+        }
+        if (null !== $this->topicQuota) {
+            $res['TopicQuota'] = $this->topicQuota;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class CreatePostPayOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TopicQuota'])) {
-            $model->topicQuota = $map['TopicQuota'];
-        }
-        if (isset($map['DiskType'])) {
-            $model->diskType = $map['DiskType'];
+        if (isset($map['DeployType'])) {
+            $model->deployType = $map['DeployType'];
         }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
-        if (isset($map['DeployType'])) {
-            $model->deployType = $map['DeployType'];
-        }
-        if (isset($map['IoMax'])) {
-            $model->ioMax = $map['IoMax'];
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
         }
         if (isset($map['EipMax'])) {
             $model->eipMax = $map['EipMax'];
         }
-        if (isset($map['SpecType'])) {
-            $model->specType = $map['SpecType'];
+        if (isset($map['IoMax'])) {
+            $model->ioMax = $map['IoMax'];
         }
         if (isset($map['IoMaxSpec'])) {
             $model->ioMaxSpec = $map['IoMaxSpec'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SpecType'])) {
+            $model->specType = $map['SpecType'];
+        }
+        if (isset($map['TopicQuota'])) {
+            $model->topicQuota = $map['TopicQuota'];
         }
 
         return $model;

@@ -12,16 +12,6 @@ class consumerVO extends Model
     /**
      * @var string
      */
-    public $remark;
-
-    /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
     public $consumerId;
 
     /**
@@ -33,12 +23,22 @@ class consumerVO extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
-        'remark'     => 'Remark',
-        'tags'       => 'Tags',
         'consumerId' => 'ConsumerId',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
+        'remark'     => 'Remark',
+        'tags'       => 'Tags',
     ];
 
     public function validate()
@@ -48,12 +48,6 @@ class consumerVO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
         if (null !== $this->consumerId) {
             $res['ConsumerId'] = $this->consumerId;
         }
@@ -62,6 +56,12 @@ class consumerVO extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class consumerVO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
         if (isset($map['ConsumerId'])) {
             $model->consumerId = $map['ConsumerId'];
         }
@@ -89,6 +83,12 @@ class consumerVO extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

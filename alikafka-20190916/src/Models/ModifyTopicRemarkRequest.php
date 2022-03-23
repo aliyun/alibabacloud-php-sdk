@@ -16,22 +16,22 @@ class ModifyTopicRemarkRequest extends Model
     /**
      * @var string
      */
-    public $topic;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
      * @var string
      */
     public $remark;
+
+    /**
+     * @var string
+     */
+    public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'topic'      => 'Topic',
         'regionId'   => 'RegionId',
         'remark'     => 'Remark',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ModifyTopicRemarkRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ModifyTopicRemarkRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateTopicRequest extends Model
+class CreateTopicShrinkRequest extends Model
 {
     /**
      * @var bool
@@ -14,9 +14,9 @@ class CreateTopicRequest extends Model
     public $compactTopic;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $config;
+    public $configShrink;
 
     /**
      * @var string
@@ -59,7 +59,7 @@ class CreateTopicRequest extends Model
     public $topic;
     protected $_name = [
         'compactTopic'      => 'CompactTopic',
-        'config'            => 'Config',
+        'configShrink'      => 'Config',
         'instanceId'        => 'InstanceId',
         'localTopic'        => 'LocalTopic',
         'minInsyncReplicas' => 'MinInsyncReplicas',
@@ -80,8 +80,8 @@ class CreateTopicRequest extends Model
         if (null !== $this->compactTopic) {
             $res['CompactTopic'] = $this->compactTopic;
         }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
+        if (null !== $this->configShrink) {
+            $res['Config'] = $this->configShrink;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -114,7 +114,7 @@ class CreateTopicRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateTopicRequest
+     * @return CreateTopicShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -123,7 +123,7 @@ class CreateTopicRequest extends Model
             $model->compactTopic = $map['CompactTopic'];
         }
         if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+            $model->configShrink = $map['Config'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

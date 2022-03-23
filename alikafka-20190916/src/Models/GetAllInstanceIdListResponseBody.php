@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetMetaProductListResponseBody\metaData;
 use AlibabaCloud\Tea\Model;
 
-class GetMetaProductListResponseBody extends Model
+class GetAllInstanceIdListResponseBody extends Model
 {
+    /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var mixed[]
+     */
+    public $instanceIds;
+
     /**
      * @var string
      */
@@ -20,25 +29,15 @@ class GetMetaProductListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var metaData
-     */
-    public $metaData;
-
-    /**
-     * @var int
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'metaData'  => 'MetaData',
-        'code'      => 'Code',
-        'success'   => 'Success',
+        'code'        => 'Code',
+        'instanceIds' => 'InstanceIds',
+        'message'     => 'Message',
+        'requestId'   => 'RequestId',
+        'success'     => 'Success',
     ];
 
     public function validate()
@@ -48,17 +47,17 @@ class GetMetaProductListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->metaData) {
-            $res['MetaData'] = null !== $this->metaData ? $this->metaData->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -70,22 +69,22 @@ class GetMetaProductListResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetMetaProductListResponseBody
+     * @return GetAllInstanceIdListResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = $map['InstanceIds'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MetaData'])) {
-            $model->metaData = metaData::fromMap($map['MetaData']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -11,6 +11,11 @@ class GetConsumerListRequest extends Model
     /**
      * @var string
      */
+    public $consumerId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -18,6 +23,7 @@ class GetConsumerListRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'consumerId' => 'ConsumerId',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
     ];
@@ -29,6 +35,9 @@ class GetConsumerListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->consumerId) {
+            $res['ConsumerId'] = $this->consumerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,6 +56,9 @@ class GetConsumerListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConsumerId'])) {
+            $model->consumerId = $map['ConsumerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -11,16 +11,6 @@ class kafkaAclVO extends Model
     /**
      * @var string
      */
-    public $aclResourceType;
-
-    /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var string
-     */
     public $aclOperationType;
 
     /**
@@ -36,13 +26,23 @@ class kafkaAclVO extends Model
     /**
      * @var string
      */
+    public $aclResourceType;
+
+    /**
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @var string
+     */
     public $username;
     protected $_name = [
-        'aclResourceType'        => 'AclResourceType',
-        'host'                   => 'Host',
         'aclOperationType'       => 'AclOperationType',
         'aclResourceName'        => 'AclResourceName',
         'aclResourcePatternType' => 'AclResourcePatternType',
+        'aclResourceType'        => 'AclResourceType',
+        'host'                   => 'Host',
         'username'               => 'Username',
     ];
 
@@ -53,12 +53,6 @@ class kafkaAclVO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclResourceType) {
-            $res['AclResourceType'] = $this->aclResourceType;
-        }
-        if (null !== $this->host) {
-            $res['Host'] = $this->host;
-        }
         if (null !== $this->aclOperationType) {
             $res['AclOperationType'] = $this->aclOperationType;
         }
@@ -67,6 +61,12 @@ class kafkaAclVO extends Model
         }
         if (null !== $this->aclResourcePatternType) {
             $res['AclResourcePatternType'] = $this->aclResourcePatternType;
+        }
+        if (null !== $this->aclResourceType) {
+            $res['AclResourceType'] = $this->aclResourceType;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -83,12 +83,6 @@ class kafkaAclVO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclResourceType'])) {
-            $model->aclResourceType = $map['AclResourceType'];
-        }
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
-        }
         if (isset($map['AclOperationType'])) {
             $model->aclOperationType = $map['AclOperationType'];
         }
@@ -97,6 +91,12 @@ class kafkaAclVO extends Model
         }
         if (isset($map['AclResourcePatternType'])) {
             $model->aclResourcePatternType = $map['AclResourcePatternType'];
+        }
+        if (isset($map['AclResourceType'])) {
+            $model->aclResourceType = $map['AclResourceType'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

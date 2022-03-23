@@ -11,17 +11,12 @@ class DescribeAclsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $aclResourceName;
 
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $username;
+    public $aclResourcePatternType;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class DescribeAclsRequest extends Model
     /**
      * @var string
      */
-    public $aclResourceName;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $aclResourcePatternType;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $username;
     protected $_name = [
-        'regionId'               => 'RegionId',
-        'instanceId'             => 'InstanceId',
-        'username'               => 'Username',
-        'aclResourceType'        => 'AclResourceType',
         'aclResourceName'        => 'AclResourceName',
         'aclResourcePatternType' => 'AclResourcePatternType',
+        'aclResourceType'        => 'AclResourceType',
+        'instanceId'             => 'InstanceId',
+        'regionId'               => 'RegionId',
+        'username'               => 'Username',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeAclsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
-        }
-        if (null !== $this->aclResourceType) {
-            $res['AclResourceType'] = $this->aclResourceType;
-        }
         if (null !== $this->aclResourceName) {
             $res['AclResourceName'] = $this->aclResourceName;
         }
         if (null !== $this->aclResourcePatternType) {
             $res['AclResourcePatternType'] = $this->aclResourcePatternType;
+        }
+        if (null !== $this->aclResourceType) {
+            $res['AclResourceType'] = $this->aclResourceType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeAclsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
-        }
-        if (isset($map['AclResourceType'])) {
-            $model->aclResourceType = $map['AclResourceType'];
-        }
         if (isset($map['AclResourceName'])) {
             $model->aclResourceName = $map['AclResourceName'];
         }
         if (isset($map['AclResourcePatternType'])) {
             $model->aclResourcePatternType = $map['AclResourcePatternType'];
+        }
+        if (isset($map['AclResourceType'])) {
+            $model->aclResourceType = $map['AclResourceType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;

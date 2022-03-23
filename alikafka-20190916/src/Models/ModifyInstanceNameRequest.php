@@ -16,16 +16,16 @@ class ModifyInstanceNameRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceName;
 
     /**
      * @var string
      */
-    public $instanceName;
+    public $regionId;
     protected $_name = [
         'instanceId'   => 'InstanceId',
-        'regionId'     => 'RegionId',
         'instanceName' => 'InstanceName',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyInstanceNameRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ModifyInstanceNameRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
