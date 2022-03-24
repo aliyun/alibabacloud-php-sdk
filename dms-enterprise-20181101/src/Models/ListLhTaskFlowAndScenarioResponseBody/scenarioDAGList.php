@@ -4,24 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody;
 
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody\scenarioDAGList\dagList;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody\scenarioDAGList\scenario;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody\scenarioDAGList\scenarioDAG;
 use AlibabaCloud\Tea\Model;
 
 class scenarioDAGList extends Model
 {
     /**
-     * @var dagList
+     * @var scenarioDAG[]
      */
-    public $dagList;
-
-    /**
-     * @var scenario
-     */
-    public $scenario;
+    public $scenarioDAG;
     protected $_name = [
-        'dagList'  => 'DagList',
-        'scenario' => 'Scenario',
+        'scenarioDAG' => 'ScenarioDAG',
     ];
 
     public function validate()
@@ -31,11 +24,14 @@ class scenarioDAGList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dagList) {
-            $res['DagList'] = null !== $this->dagList ? $this->dagList->toMap() : null;
-        }
-        if (null !== $this->scenario) {
-            $res['Scenario'] = null !== $this->scenario ? $this->scenario->toMap() : null;
+        if (null !== $this->scenarioDAG) {
+            $res['ScenarioDAG'] = [];
+            if (null !== $this->scenarioDAG && \is_array($this->scenarioDAG)) {
+                $n = 0;
+                foreach ($this->scenarioDAG as $item) {
+                    $res['ScenarioDAG'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +45,14 @@ class scenarioDAGList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DagList'])) {
-            $model->dagList = dagList::fromMap($map['DagList']);
-        }
-        if (isset($map['Scenario'])) {
-            $model->scenario = scenario::fromMap($map['Scenario']);
+        if (isset($map['ScenarioDAG'])) {
+            if (!empty($map['ScenarioDAG'])) {
+                $model->scenarioDAG = [];
+                $n                  = 0;
+                foreach ($map['ScenarioDAG'] as $item) {
+                    $model->scenarioDAG[$n++] = null !== $item ? scenarioDAG::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

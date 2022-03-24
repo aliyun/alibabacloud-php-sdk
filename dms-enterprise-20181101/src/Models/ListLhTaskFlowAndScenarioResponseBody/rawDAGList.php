@@ -14,7 +14,7 @@ class rawDAGList extends Model
      */
     public $dag;
     protected $_name = [
-        'dag' => 'dag',
+        'dag' => 'Dag',
     ];
 
     public function validate()
@@ -25,11 +25,11 @@ class rawDAGList extends Model
     {
         $res = [];
         if (null !== $this->dag) {
-            $res['dag'] = [];
+            $res['Dag'] = [];
             if (null !== $this->dag && \is_array($this->dag)) {
                 $n = 0;
                 foreach ($this->dag as $item) {
-                    $res['dag'][$n++] = null !== $item ? $item->toMap() : $item;
+                    $res['Dag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -45,11 +45,11 @@ class rawDAGList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['dag'])) {
-            if (!empty($map['dag'])) {
+        if (isset($map['Dag'])) {
+            if (!empty($map['Dag'])) {
                 $model->dag = [];
                 $n          = 0;
-                foreach ($map['dag'] as $item) {
+                foreach ($map['Dag'] as $item) {
                     $model->dag[$n++] = null !== $item ? dag::fromMap($item) : $item;
                 }
             }

@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDataExportOrderResponseBody extends Model
+class ReDeployLhDagVersionResponseBody extends Model
 {
     /**
-     * @var int[]
+     * @var int
      */
-    public $createOrderResult;
+    public $deployId;
 
     /**
      * @var string
@@ -24,8 +24,6 @@ class CreateDataExportOrderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -35,11 +33,11 @@ class CreateDataExportOrderResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'createOrderResult' => 'CreateOrderResult',
-        'errorCode'         => 'ErrorCode',
-        'errorMessage'      => 'ErrorMessage',
-        'requestId'         => 'RequestId',
-        'success'           => 'Success',
+        'deployId'     => 'DeployId',
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -49,8 +47,8 @@ class CreateDataExportOrderResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createOrderResult) {
-            $res['CreateOrderResult'] = $this->createOrderResult;
+        if (null !== $this->deployId) {
+            $res['DeployId'] = $this->deployId;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -71,15 +69,13 @@ class CreateDataExportOrderResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateDataExportOrderResponseBody
+     * @return ReDeployLhDagVersionResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateOrderResult'])) {
-            if (!empty($map['CreateOrderResult'])) {
-                $model->createOrderResult = $map['CreateOrderResult'];
-            }
+        if (isset($map['DeployId'])) {
+            $model->deployId = $map['DeployId'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDataExportOrderResponse extends Model
+class ReDeployLhDagVersionResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CreateDataExportOrderResponse extends Model
     public $headers;
 
     /**
-     * @var CreateDataExportOrderResponseBody
+     * @var ReDeployLhDagVersionResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CreateDataExportOrderResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateDataExportOrderResponse
+     * @return ReDeployLhDagVersionResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CreateDataExportOrderResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateDataExportOrderResponseBody::fromMap($map['body']);
+            $model->body = ReDeployLhDagVersionResponseBody::fromMap($map['body']);
         }
 
         return $model;

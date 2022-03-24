@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderRequest;
@@ -23,9 +25,6 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderShrink
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderShrinkRequest;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderRequest;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderResponse;
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderShrinkRequest;
@@ -227,6 +226,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReDeployLhDagVersionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReDeployLhDagVersionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterUserRequest;
@@ -518,6 +519,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ChangeLhDagOwnerRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ChangeLhDagOwnerResponse
+     */
+    public function changeLhDagOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->ownerUserId)) {
+            $query['OwnerUserId'] = $request->ownerUserId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeLhDagOwner',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeLhDagOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeLhDagOwnerRequest $request
+     *
+     * @return ChangeLhDagOwnerResponse
+     */
+    public function changeLhDagOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeLhDagOwnerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CloseOrderRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -690,69 +740,6 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataCronClearOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDataExportOrderRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateDataExportOrderResponse
-     */
-    public function createDataExportOrderWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateDataExportOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
-        }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
-        }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
-        }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
-        }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDataExportOrder',
-            'version'     => '2018-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDataExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateDataExportOrderRequest $request
-     *
-     * @return CreateDataExportOrderResponse
-     */
-    public function createDataExportOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDataExportOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -5650,6 +5637,55 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pauseDataCorrectSQLJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReDeployLhDagVersionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ReDeployLhDagVersionResponse
+     */
+    public function reDeployLhDagVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagVersion)) {
+            $query['DagVersion'] = $request->dagVersion;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReDeployLhDagVersion',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReDeployLhDagVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReDeployLhDagVersionRequest $request
+     *
+     * @return ReDeployLhDagVersionResponse
+     */
+    public function reDeployLhDagVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reDeployLhDagVersionWithOptions($request, $runtime);
     }
 
     /**
