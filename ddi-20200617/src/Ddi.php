@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeClusterV2Request;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeClusterV2Response;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowCategoryTreeRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowCategoryTreeResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowJobRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowJobResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowProjectRequest;
@@ -40,6 +42,8 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\KillFlowJobRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\KillFlowJobResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListClustersRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListClustersResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowJobHistoryRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowJobHistoryResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowJobsRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowJobsResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowProjectsRequest;
@@ -1004,6 +1008,64 @@ class Ddi extends OpenApiClient
     }
 
     /**
+     * @param DescribeFlowCategoryTreeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeFlowCategoryTreeResponse
+     */
+    public function describeFlowCategoryTreeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowCategoryTree',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFlowCategoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFlowCategoryTreeRequest $request
+     *
+     * @return DescribeFlowCategoryTreeResponse
+     */
+    public function describeFlowCategoryTree($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFlowCategoryTreeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeFlowJobRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1300,6 +1362,73 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFlowJobHistoryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListFlowJobHistoryResponse
+     */
+    public function listFlowJobHistoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['TimeRange'] = $request->timeRange;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowJobHistory',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFlowJobHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListFlowJobHistoryRequest $request
+     *
+     * @return ListFlowJobHistoryResponse
+     */
+    public function listFlowJobHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowJobHistoryWithOptions($request, $runtime);
     }
 
     /**
