@@ -24,6 +24,16 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $name;
 
     /**
+     * @var bool
+     */
+    public $order;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -46,6 +56,8 @@ class DescribeMetricRuleTemplateListRequest extends Model
         'history'    => 'History',
         'keyword'    => 'Keyword',
         'name'       => 'Name',
+        'order'      => 'Order',
+        'orderBy'    => 'OrderBy',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'regionId'   => 'RegionId',
@@ -67,6 +79,12 @@ class DescribeMetricRuleTemplateListRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -100,6 +118,12 @@ class DescribeMetricRuleTemplateListRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

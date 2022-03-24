@@ -4,12 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRuleRequest\compositeExpression;
-use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRuleRequest\escalations;
-use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRuleRequest\labels;
+use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRuleShrinkRequest\escalations;
+use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRuleShrinkRequest\labels;
 use AlibabaCloud\Tea\Model;
 
-class PutResourceMetricRuleRequest extends Model
+class PutResourceMetricRuleShrinkRequest extends Model
 {
     /**
      * @var escalations
@@ -17,9 +16,9 @@ class PutResourceMetricRuleRequest extends Model
     public $escalations;
 
     /**
-     * @var compositeExpression
+     * @var string
      */
-    public $compositeExpression;
+    public $compositeExpressionShrink;
 
     /**
      * @var string
@@ -96,23 +95,23 @@ class PutResourceMetricRuleRequest extends Model
      */
     public $webhook;
     protected $_name = [
-        'escalations'         => 'Escalations',
-        'compositeExpression' => 'CompositeExpression',
-        'contactGroups'       => 'ContactGroups',
-        'effectiveInterval'   => 'EffectiveInterval',
-        'emailSubject'        => 'EmailSubject',
-        'interval'            => 'Interval',
-        'labels'              => 'Labels',
-        'metricName'          => 'MetricName',
-        'namespace'           => 'Namespace',
-        'noDataPolicy'        => 'NoDataPolicy',
-        'noEffectiveInterval' => 'NoEffectiveInterval',
-        'period'              => 'Period',
-        'resources'           => 'Resources',
-        'ruleId'              => 'RuleId',
-        'ruleName'            => 'RuleName',
-        'silenceTime'         => 'SilenceTime',
-        'webhook'             => 'Webhook',
+        'escalations'               => 'Escalations',
+        'compositeExpressionShrink' => 'CompositeExpression',
+        'contactGroups'             => 'ContactGroups',
+        'effectiveInterval'         => 'EffectiveInterval',
+        'emailSubject'              => 'EmailSubject',
+        'interval'                  => 'Interval',
+        'labels'                    => 'Labels',
+        'metricName'                => 'MetricName',
+        'namespace'                 => 'Namespace',
+        'noDataPolicy'              => 'NoDataPolicy',
+        'noEffectiveInterval'       => 'NoEffectiveInterval',
+        'period'                    => 'Period',
+        'resources'                 => 'Resources',
+        'ruleId'                    => 'RuleId',
+        'ruleName'                  => 'RuleName',
+        'silenceTime'               => 'SilenceTime',
+        'webhook'                   => 'Webhook',
     ];
 
     public function validate()
@@ -125,8 +124,8 @@ class PutResourceMetricRuleRequest extends Model
         if (null !== $this->escalations) {
             $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
         }
-        if (null !== $this->compositeExpression) {
-            $res['CompositeExpression'] = null !== $this->compositeExpression ? $this->compositeExpression->toMap() : null;
+        if (null !== $this->compositeExpressionShrink) {
+            $res['CompositeExpression'] = $this->compositeExpressionShrink;
         }
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
@@ -186,7 +185,7 @@ class PutResourceMetricRuleRequest extends Model
     /**
      * @param array $map
      *
-     * @return PutResourceMetricRuleRequest
+     * @return PutResourceMetricRuleShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -195,7 +194,7 @@ class PutResourceMetricRuleRequest extends Model
             $model->escalations = escalations::fromMap($map['Escalations']);
         }
         if (isset($map['CompositeExpression'])) {
-            $model->compositeExpression = compositeExpression::fromMap($map['CompositeExpression']);
+            $model->compositeExpressionShrink = $map['CompositeExpression'];
         }
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = $map['ContactGroups'];

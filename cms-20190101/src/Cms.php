@@ -283,6 +283,7 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\PutMonitoringConfigRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutMonitoringConfigResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRuleRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRuleResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRuleShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\RemoveTagsRequest;
@@ -291,6 +292,7 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\SendDryRunSystemEventRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\SendDryRunSystemEventResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\UninstallMonitoringAgentRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\UninstallMonitoringAgentResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -3205,6 +3207,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->ruleName)) {
             $query['RuleName'] = $request->ruleName;
         }
+        if (!Utils::isUnset($request->silenceTime)) {
+            $query['SilenceTime'] = $request->silenceTime;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4094,6 +4099,12 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -7560,15 +7571,23 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutResourceMetricRuleRequest $request
+     * @param PutResourceMetricRuleRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return PutResourceMetricRuleResponse
      */
-    public function putResourceMetricRuleWithOptions($request, $runtime)
+    public function putResourceMetricRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new PutResourceMetricRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->compositeExpression)) {
+            $request->compositeExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->compositeExpression), 'CompositeExpression', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->compositeExpressionShrink)) {
+            $query['CompositeExpression'] = $request->compositeExpressionShrink;
+        }
         if (!Utils::isUnset($request->contactGroups)) {
             $query['ContactGroups'] = $request->contactGroups;
         }

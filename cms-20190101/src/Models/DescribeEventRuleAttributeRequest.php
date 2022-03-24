@@ -17,9 +17,15 @@ class DescribeEventRuleAttributeRequest extends Model
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var string
+     */
+    public $silenceTime;
     protected $_name = [
-        'regionId' => 'RegionId',
-        'ruleName' => 'RuleName',
+        'regionId'    => 'RegionId',
+        'ruleName'    => 'RuleName',
+        'silenceTime' => 'SilenceTime',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeEventRuleAttributeRequest extends Model
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->silenceTime) {
+            $res['SilenceTime'] = $this->silenceTime;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeEventRuleAttributeRequest extends Model
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['SilenceTime'])) {
+            $model->silenceTime = $map['SilenceTime'];
         }
 
         return $model;

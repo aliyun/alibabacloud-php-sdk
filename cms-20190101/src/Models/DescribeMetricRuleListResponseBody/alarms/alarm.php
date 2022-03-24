@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBody\alarms;
 
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBody\alarms\alarm\compositeExpression;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBody\alarms\alarm\escalations;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBody\alarms\alarm\labels;
 use AlibabaCloud\Tea\Model;
@@ -14,6 +15,11 @@ class alarm extends Model
      * @var string
      */
     public $alertState;
+
+    /**
+     * @var compositeExpression
+     */
+    public $compositeExpression;
 
     /**
      * @var string
@@ -116,6 +122,7 @@ class alarm extends Model
     public $webhook;
     protected $_name = [
         'alertState'          => 'AlertState',
+        'compositeExpression' => 'CompositeExpression',
         'contactGroups'       => 'ContactGroups',
         'dimensions'          => 'Dimensions',
         'effectiveInterval'   => 'EffectiveInterval',
@@ -147,6 +154,9 @@ class alarm extends Model
         $res = [];
         if (null !== $this->alertState) {
             $res['AlertState'] = $this->alertState;
+        }
+        if (null !== $this->compositeExpression) {
+            $res['CompositeExpression'] = null !== $this->compositeExpression ? $this->compositeExpression->toMap() : null;
         }
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
@@ -222,6 +232,9 @@ class alarm extends Model
         $model = new self();
         if (isset($map['AlertState'])) {
             $model->alertState = $map['AlertState'];
+        }
+        if (isset($map['CompositeExpression'])) {
+            $model->compositeExpression = compositeExpression::fromMap($map['CompositeExpression']);
         }
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = $map['ContactGroups'];
