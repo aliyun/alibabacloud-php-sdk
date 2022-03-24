@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cams\V20200606;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckContactsRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckContactsResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest;
@@ -16,6 +18,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendMessageResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -55,6 +59,64 @@ class Cams extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CheckChatappContactsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckChatappContactsResponse
+     */
+    public function checkChatappContactsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
+        }
+        if (!Utils::isUnset($request->contacts)) {
+            $query['Contacts'] = $request->contacts;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckChatappContacts',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckChatappContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckChatappContactsRequest $request
+     *
+     * @return CheckChatappContactsResponse
+     */
+    public function checkChatappContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkChatappContactsWithOptions($request, $runtime);
     }
 
     /**
@@ -350,6 +412,85 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listChatappTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendChatappMessageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SendChatappMessageResponse
+     */
+    public function sendChatappMessageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payload)) {
+            $query['Payload'] = $request->payload;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateParams)) {
+            $query['TemplateParams'] = $request->templateParams;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['To'] = $request->to;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendChatappMessage',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendChatappMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendChatappMessageRequest $request
+     *
+     * @return SendChatappMessageResponse
+     */
+    public function sendChatappMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendChatappMessageWithOptions($request, $runtime);
     }
 
     /**
