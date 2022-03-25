@@ -59,6 +59,9 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\SaveEnvShrinkRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneShrinkRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneShrinkRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\StartDebuggingJMeterSceneRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\StartDebuggingJMeterSceneResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\StartDebugPtsSceneRequest;
@@ -1332,6 +1335,54 @@ class PTS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveOpenJMeterSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SavePtsSceneRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SavePtsSceneResponse
+     */
+    public function savePtsSceneWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SavePtsSceneShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->scene)) {
+            $request->sceneShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->scene), 'Scene', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->sceneShrink)) {
+            $query['Scene'] = $request->sceneShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SavePtsScene',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SavePtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SavePtsSceneRequest $request
+     *
+     * @return SavePtsSceneResponse
+     */
+    public function savePtsScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->savePtsSceneWithOptions($request, $runtime);
     }
 
     /**
