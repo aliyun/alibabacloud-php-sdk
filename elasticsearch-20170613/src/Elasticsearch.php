@@ -168,6 +168,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListILMPoliciesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListILMPoliciesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListIndexTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListIndexTemplatesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceIndicesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceIndicesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceRequest;
@@ -716,7 +718,7 @@ class Elasticsearch extends OpenApiClient
             'protocol'    => 'HTTPS',
             'pathname'    => '/openapi/assist/actions/capacity-plan',
             'method'      => 'POST',
-            'authType'    => 'AK',
+            'authType'    => 'Anonymous',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
@@ -5112,6 +5114,80 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return ListInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceHistoryEventsRequest $request
+     *
+     * @return ListInstanceHistoryEventsResponse
+     */
+    public function listInstanceHistoryEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceHistoryEventsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListInstanceHistoryEventsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListInstanceHistoryEventsResponse
+     */
+    public function listInstanceHistoryEventsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventCreateEndTime)) {
+            $query['eventCreateEndTime'] = $request->eventCreateEndTime;
+        }
+        if (!Utils::isUnset($request->eventCreateStartTime)) {
+            $query['eventCreateStartTime'] = $request->eventCreateStartTime;
+        }
+        if (!Utils::isUnset($request->eventExecuteEndTime)) {
+            $query['eventExecuteEndTime'] = $request->eventExecuteEndTime;
+        }
+        if (!Utils::isUnset($request->eventExecuteStartTime)) {
+            $query['eventExecuteStartTime'] = $request->eventExecuteStartTime;
+        }
+        if (!Utils::isUnset($request->eventFinashEndTime)) {
+            $query['eventFinashEndTime'] = $request->eventFinashEndTime;
+        }
+        if (!Utils::isUnset($request->eventFinashStartTime)) {
+            $query['eventFinashStartTime'] = $request->eventFinashStartTime;
+        }
+        if (!Utils::isUnset($request->eventLevel)) {
+            $query['eventLevel'] = $request->eventLevel;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['eventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeIP)) {
+            $query['nodeIP'] = $request->nodeIP;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => Utils::toArray($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceHistoryEvents',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/events',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceHistoryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

@@ -21,9 +21,17 @@ class whiteIpGroup extends Model
      * @var string[]
      */
     public $ips;
+
+    /**
+     * @description ip白名单的类型
+     *
+     * @var string
+     */
+    public $whiteIpType;
     protected $_name = [
-        'groupName' => 'groupName',
-        'ips'       => 'ips',
+        'groupName'   => 'groupName',
+        'ips'         => 'ips',
+        'whiteIpType' => 'whiteIpType',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class whiteIpGroup extends Model
         }
         if (null !== $this->ips) {
             $res['ips'] = $this->ips;
+        }
+        if (null !== $this->whiteIpType) {
+            $res['whiteIpType'] = $this->whiteIpType;
         }
 
         return $res;
@@ -58,6 +69,9 @@ class whiteIpGroup extends Model
             if (!empty($map['ips'])) {
                 $model->ips = $map['ips'];
             }
+        }
+        if (isset($map['whiteIpType'])) {
+            $model->whiteIpType = $map['whiteIpType'];
         }
 
         return $model;
