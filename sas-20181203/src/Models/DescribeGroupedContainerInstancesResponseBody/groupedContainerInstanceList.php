@@ -44,9 +44,44 @@ class groupedContainerInstanceList extends Model
     public $custerState;
 
     /**
+     * @var int
+     */
+    public $hcCount;
+
+    /**
      * @var string
      */
     public $hostIp;
+
+    /**
+     * @var string
+     */
+    public $image;
+
+    /**
+     * @var string
+     */
+    public $imageDigest;
+
+    /**
+     * @var string
+     */
+    public $imageRepoName;
+
+    /**
+     * @var string
+     */
+    public $imageRepoNamespace;
+
+    /**
+     * @var string
+     */
+    public $imageRepoTag;
+
+    /**
+     * @var string
+     */
+    public $imageUuid;
 
     /**
      * @var int
@@ -98,24 +133,31 @@ class groupedContainerInstanceList extends Model
      */
     public $vulCount;
     protected $_name = [
-        'alarmCount'        => 'AlarmCount',
-        'appName'           => 'AppName',
-        'clusterId'         => 'ClusterId',
-        'clusterName'       => 'ClusterName',
-        'clusterType'       => 'ClusterType',
-        'createTime'        => 'CreateTime',
-        'custerState'       => 'CusterState',
-        'hostIp'            => 'HostIp',
-        'instanceCount'     => 'InstanceCount',
-        'instanceId'        => 'InstanceId',
-        'namespace'         => 'Namespace',
-        'pod'               => 'Pod',
-        'podIp'             => 'PodIp',
-        'regionId'          => 'RegionId',
-        'riskInstanceCount' => 'RiskInstanceCount',
-        'riskLevel'         => 'RiskLevel',
-        'riskStatus'        => 'RiskStatus',
-        'vulCount'          => 'VulCount',
+        'alarmCount'         => 'AlarmCount',
+        'appName'            => 'AppName',
+        'clusterId'          => 'ClusterId',
+        'clusterName'        => 'ClusterName',
+        'clusterType'        => 'ClusterType',
+        'createTime'         => 'CreateTime',
+        'custerState'        => 'CusterState',
+        'hcCount'            => 'HcCount',
+        'hostIp'             => 'HostIp',
+        'image'              => 'Image',
+        'imageDigest'        => 'ImageDigest',
+        'imageRepoName'      => 'ImageRepoName',
+        'imageRepoNamespace' => 'ImageRepoNamespace',
+        'imageRepoTag'       => 'ImageRepoTag',
+        'imageUuid'          => 'ImageUuid',
+        'instanceCount'      => 'InstanceCount',
+        'instanceId'         => 'InstanceId',
+        'namespace'          => 'Namespace',
+        'pod'                => 'Pod',
+        'podIp'              => 'PodIp',
+        'regionId'           => 'RegionId',
+        'riskInstanceCount'  => 'RiskInstanceCount',
+        'riskLevel'          => 'RiskLevel',
+        'riskStatus'         => 'RiskStatus',
+        'vulCount'           => 'VulCount',
     ];
 
     public function validate()
@@ -146,8 +188,29 @@ class groupedContainerInstanceList extends Model
         if (null !== $this->custerState) {
             $res['CusterState'] = $this->custerState;
         }
+        if (null !== $this->hcCount) {
+            $res['HcCount'] = $this->hcCount;
+        }
         if (null !== $this->hostIp) {
             $res['HostIp'] = $this->hostIp;
+        }
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
+        }
+        if (null !== $this->imageDigest) {
+            $res['ImageDigest'] = $this->imageDigest;
+        }
+        if (null !== $this->imageRepoName) {
+            $res['ImageRepoName'] = $this->imageRepoName;
+        }
+        if (null !== $this->imageRepoNamespace) {
+            $res['ImageRepoNamespace'] = $this->imageRepoNamespace;
+        }
+        if (null !== $this->imageRepoTag) {
+            $res['ImageRepoTag'] = $this->imageRepoTag;
+        }
+        if (null !== $this->imageUuid) {
+            $res['ImageUuid'] = $this->imageUuid;
         }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
@@ -212,8 +275,29 @@ class groupedContainerInstanceList extends Model
         if (isset($map['CusterState'])) {
             $model->custerState = $map['CusterState'];
         }
+        if (isset($map['HcCount'])) {
+            $model->hcCount = $map['HcCount'];
+        }
         if (isset($map['HostIp'])) {
             $model->hostIp = $map['HostIp'];
+        }
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
+        }
+        if (isset($map['ImageDigest'])) {
+            $model->imageDigest = $map['ImageDigest'];
+        }
+        if (isset($map['ImageRepoName'])) {
+            $model->imageRepoName = $map['ImageRepoName'];
+        }
+        if (isset($map['ImageRepoNamespace'])) {
+            $model->imageRepoNamespace = $map['ImageRepoNamespace'];
+        }
+        if (isset($map['ImageRepoTag'])) {
+            $model->imageRepoTag = $map['ImageRepoTag'];
+        }
+        if (isset($map['ImageUuid'])) {
+            $model->imageUuid = $map['ImageUuid'];
         }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
