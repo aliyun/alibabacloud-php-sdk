@@ -15,6 +15,11 @@ class GetTaskResultResponseBody extends Model
     public $bizDuration;
 
     /**
+     * @var int
+     */
+    public $recDuration;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -45,6 +50,7 @@ class GetTaskResultResponseBody extends Model
     public $taskId;
     protected $_name = [
         'bizDuration' => 'BizDuration',
+        'recDuration' => 'RecDuration',
         'requestId'   => 'RequestId',
         'result'      => 'Result',
         'solveTime'   => 'SolveTime',
@@ -62,6 +68,9 @@ class GetTaskResultResponseBody extends Model
         $res = [];
         if (null !== $this->bizDuration) {
             $res['BizDuration'] = $this->bizDuration;
+        }
+        if (null !== $this->recDuration) {
+            $res['RecDuration'] = $this->recDuration;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -95,6 +104,9 @@ class GetTaskResultResponseBody extends Model
         $model = new self();
         if (isset($map['BizDuration'])) {
             $model->bizDuration = $map['BizDuration'];
+        }
+        if (isset($map['RecDuration'])) {
+            $model->recDuration = $map['RecDuration'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
