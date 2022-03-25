@@ -39,6 +39,13 @@ class CreateDBRequest extends Model
     public $dbName;
 
     /**
+     * @description drds/auto 用来区分所建库为自动拆分模式，还是手动拆分模式
+     *
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -59,6 +66,7 @@ class CreateDBRequest extends Model
         'DBInstanceName'          => 'DBInstanceName',
         'dbDescription'           => 'DbDescription',
         'dbName'                  => 'DbName',
+        'mode'                    => 'Mode',
         'regionId'                => 'RegionId',
         'securityAccountName'     => 'SecurityAccountName',
         'securityAccountPassword' => 'SecurityAccountPassword',
@@ -88,6 +96,9 @@ class CreateDBRequest extends Model
         }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -127,6 +138,9 @@ class CreateDBRequest extends Model
         }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

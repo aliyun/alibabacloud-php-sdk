@@ -560,6 +560,9 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->dbName)) {
             $query['DbName'] = $request->dbName;
         }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
