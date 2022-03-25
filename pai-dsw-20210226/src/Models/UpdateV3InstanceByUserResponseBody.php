@@ -49,6 +49,11 @@ class UpdateV3InstanceByUserResponseBody extends Model
     public $success;
 
     /**
+     * @var string[]
+     */
+    public $userSet;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -59,6 +64,7 @@ class UpdateV3InstanceByUserResponseBody extends Model
         'message'        => 'Message',
         'requestId'      => 'RequestId',
         'success'        => 'Success',
+        'userSet'        => 'UserSet',
         'workspaceId'    => 'WorkspaceId',
     ];
 
@@ -86,6 +92,9 @@ class UpdateV3InstanceByUserResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->userSet) {
+            $res['UserSet'] = $this->userSet;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -121,6 +130,11 @@ class UpdateV3InstanceByUserResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['UserSet'])) {
+            if (!empty($map['UserSet'])) {
+                $model->userSet = $map['UserSet'];
+            }
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
