@@ -11,12 +11,7 @@ class credentials extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $expiration;
+    public $accessKeyId;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class credentials extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
+    public $expiration;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken'   => 'SecurityToken',
-        'expiration'      => 'Expiration',
-        'accessKeySecret' => 'AccessKeySecret',
         'accessKeyId'     => 'AccessKeyId',
+        'accessKeySecret' => 'AccessKeySecret',
+        'expiration'      => 'Expiration',
+        'securityToken'   => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class credentials extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->expiration) {
-            $res['Expiration'] = $this->expiration;
+        if (null !== $this->accessKeyId) {
+            $res['AccessKeyId'] = $this->accessKeyId;
         }
         if (null !== $this->accessKeySecret) {
             $res['AccessKeySecret'] = $this->accessKeySecret;
         }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
+        if (null !== $this->expiration) {
+            $res['Expiration'] = $this->expiration;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class credentials extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['Expiration'])) {
-            $model->expiration = $map['Expiration'];
+        if (isset($map['AccessKeyId'])) {
+            $model->accessKeyId = $map['AccessKeyId'];
         }
         if (isset($map['AccessKeySecret'])) {
             $model->accessKeySecret = $map['AccessKeySecret'];
         }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
+        if (isset($map['Expiration'])) {
+            $model->expiration = $map['Expiration'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

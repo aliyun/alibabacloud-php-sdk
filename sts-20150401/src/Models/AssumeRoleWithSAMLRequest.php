@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleWithSAMLRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $durationSeconds;
+
+    /**
      * @var string
      */
-    public $SAMLProviderArn;
+    public $policy;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class AssumeRoleWithSAMLRequest extends Model
     /**
      * @var string
      */
-    public $policy;
-
-    /**
-     * @var int
-     */
-    public $durationSeconds;
+    public $SAMLProviderArn;
     protected $_name = [
-        'SAMLProviderArn' => 'SAMLProviderArn',
+        'durationSeconds' => 'DurationSeconds',
+        'policy'          => 'Policy',
         'roleArn'         => 'RoleArn',
         'SAMLAssertion'   => 'SAMLAssertion',
-        'policy'          => 'Policy',
-        'durationSeconds' => 'DurationSeconds',
+        'SAMLProviderArn' => 'SAMLProviderArn',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class AssumeRoleWithSAMLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SAMLProviderArn) {
-            $res['SAMLProviderArn'] = $this->SAMLProviderArn;
+        if (null !== $this->durationSeconds) {
+            $res['DurationSeconds'] = $this->durationSeconds;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
@@ -56,11 +59,8 @@ class AssumeRoleWithSAMLRequest extends Model
         if (null !== $this->SAMLAssertion) {
             $res['SAMLAssertion'] = $this->SAMLAssertion;
         }
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
-        }
-        if (null !== $this->durationSeconds) {
-            $res['DurationSeconds'] = $this->durationSeconds;
+        if (null !== $this->SAMLProviderArn) {
+            $res['SAMLProviderArn'] = $this->SAMLProviderArn;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class AssumeRoleWithSAMLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SAMLProviderArn'])) {
-            $model->SAMLProviderArn = $map['SAMLProviderArn'];
+        if (isset($map['DurationSeconds'])) {
+            $model->durationSeconds = $map['DurationSeconds'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
@@ -83,11 +86,8 @@ class AssumeRoleWithSAMLRequest extends Model
         if (isset($map['SAMLAssertion'])) {
             $model->SAMLAssertion = $map['SAMLAssertion'];
         }
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
-        }
-        if (isset($map['DurationSeconds'])) {
-            $model->durationSeconds = $map['DurationSeconds'];
+        if (isset($map['SAMLProviderArn'])) {
+            $model->SAMLProviderArn = $map['SAMLProviderArn'];
         }
 
         return $model;

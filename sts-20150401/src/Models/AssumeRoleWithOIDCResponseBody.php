@@ -12,16 +12,6 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleWithOIDCResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var OIDCTokenInfo
-     */
-    public $OIDCTokenInfo;
-
-    /**
      * @var assumedRoleUser
      */
     public $assumedRoleUser;
@@ -30,11 +20,21 @@ class AssumeRoleWithOIDCResponseBody extends Model
      * @var credentials
      */
     public $credentials;
+
+    /**
+     * @var OIDCTokenInfo
+     */
+    public $OIDCTokenInfo;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'OIDCTokenInfo'   => 'OIDCTokenInfo',
         'assumedRoleUser' => 'AssumedRoleUser',
         'credentials'     => 'Credentials',
+        'OIDCTokenInfo'   => 'OIDCTokenInfo',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -44,17 +44,17 @@ class AssumeRoleWithOIDCResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->OIDCTokenInfo) {
-            $res['OIDCTokenInfo'] = null !== $this->OIDCTokenInfo ? $this->OIDCTokenInfo->toMap() : null;
-        }
         if (null !== $this->assumedRoleUser) {
             $res['AssumedRoleUser'] = null !== $this->assumedRoleUser ? $this->assumedRoleUser->toMap() : null;
         }
         if (null !== $this->credentials) {
             $res['Credentials'] = null !== $this->credentials ? $this->credentials->toMap() : null;
+        }
+        if (null !== $this->OIDCTokenInfo) {
+            $res['OIDCTokenInfo'] = null !== $this->OIDCTokenInfo ? $this->OIDCTokenInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -68,17 +68,17 @@ class AssumeRoleWithOIDCResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['OIDCTokenInfo'])) {
-            $model->OIDCTokenInfo = OIDCTokenInfo::fromMap($map['OIDCTokenInfo']);
-        }
         if (isset($map['AssumedRoleUser'])) {
             $model->assumedRoleUser = assumedRoleUser::fromMap($map['AssumedRoleUser']);
         }
         if (isset($map['Credentials'])) {
             $model->credentials = credentials::fromMap($map['Credentials']);
+        }
+        if (isset($map['OIDCTokenInfo'])) {
+            $model->OIDCTokenInfo = OIDCTokenInfo::fromMap($map['OIDCTokenInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class OIDCTokenInfo extends Model
     /**
      * @var string
      */
-    public $subject;
+    public $clientIds;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class OIDCTokenInfo extends Model
     /**
      * @var string
      */
-    public $clientIds;
+    public $subject;
     protected $_name = [
-        'subject'   => 'Subject',
-        'issuer'    => 'Issuer',
         'clientIds' => 'ClientIds',
+        'issuer'    => 'Issuer',
+        'subject'   => 'Subject',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class OIDCTokenInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subject) {
-            $res['Subject'] = $this->subject;
+        if (null !== $this->clientIds) {
+            $res['ClientIds'] = $this->clientIds;
         }
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
         }
-        if (null !== $this->clientIds) {
-            $res['ClientIds'] = $this->clientIds;
+        if (null !== $this->subject) {
+            $res['Subject'] = $this->subject;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class OIDCTokenInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Subject'])) {
-            $model->subject = $map['Subject'];
+        if (isset($map['ClientIds'])) {
+            $model->clientIds = $map['ClientIds'];
         }
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
         }
-        if (isset($map['ClientIds'])) {
-            $model->clientIds = $map['ClientIds'];
+        if (isset($map['Subject'])) {
+            $model->subject = $map['Subject'];
         }
 
         return $model;

@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleWithOIDCRequest extends Model
 {
     /**
+     * @description Session过期时间，单位为秒。
+     *
+     * @var int
+     */
+    public $durationSeconds;
+
+    /**
      * @description OIDC Provider的ARN
      *
      * @var string
      */
     public $OIDCProviderArn;
-
-    /**
-     * @description 需要扮演的角色的ARN
-     *
-     * @var string
-     */
-    public $roleArn;
 
     /**
      * @description OIDC的ID Token，需输入原始Token，无需Base64解码
@@ -37,11 +37,11 @@ class AssumeRoleWithOIDCRequest extends Model
     public $policy;
 
     /**
-     * @description Session过期时间，单位为秒。
+     * @description 需要扮演的角色的ARN
      *
-     * @var int
+     * @var string
      */
-    public $durationSeconds;
+    public $roleArn;
 
     /**
      * @description 用户自定义参数。此参数用来区分不同的令牌，可用于用户级别的访问审计。
@@ -50,11 +50,11 @@ class AssumeRoleWithOIDCRequest extends Model
      */
     public $roleSessionName;
     protected $_name = [
+        'durationSeconds' => 'DurationSeconds',
         'OIDCProviderArn' => 'OIDCProviderArn',
-        'roleArn'         => 'RoleArn',
         'OIDCToken'       => 'OIDCToken',
         'policy'          => 'Policy',
-        'durationSeconds' => 'DurationSeconds',
+        'roleArn'         => 'RoleArn',
         'roleSessionName' => 'RoleSessionName',
     ];
 
@@ -65,11 +65,11 @@ class AssumeRoleWithOIDCRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->durationSeconds) {
+            $res['DurationSeconds'] = $this->durationSeconds;
+        }
         if (null !== $this->OIDCProviderArn) {
             $res['OIDCProviderArn'] = $this->OIDCProviderArn;
-        }
-        if (null !== $this->roleArn) {
-            $res['RoleArn'] = $this->roleArn;
         }
         if (null !== $this->OIDCToken) {
             $res['OIDCToken'] = $this->OIDCToken;
@@ -77,8 +77,8 @@ class AssumeRoleWithOIDCRequest extends Model
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
-        if (null !== $this->durationSeconds) {
-            $res['DurationSeconds'] = $this->durationSeconds;
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
         }
         if (null !== $this->roleSessionName) {
             $res['RoleSessionName'] = $this->roleSessionName;
@@ -95,11 +95,11 @@ class AssumeRoleWithOIDCRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DurationSeconds'])) {
+            $model->durationSeconds = $map['DurationSeconds'];
+        }
         if (isset($map['OIDCProviderArn'])) {
             $model->OIDCProviderArn = $map['OIDCProviderArn'];
-        }
-        if (isset($map['RoleArn'])) {
-            $model->roleArn = $map['RoleArn'];
         }
         if (isset($map['OIDCToken'])) {
             $model->OIDCToken = $map['OIDCToken'];
@@ -107,8 +107,8 @@ class AssumeRoleWithOIDCRequest extends Model
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
-        if (isset($map['DurationSeconds'])) {
-            $model->durationSeconds = $map['DurationSeconds'];
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
         }
         if (isset($map['RoleSessionName'])) {
             $model->roleSessionName = $map['RoleSessionName'];

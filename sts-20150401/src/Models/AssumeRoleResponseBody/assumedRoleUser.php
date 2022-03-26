@@ -11,15 +11,15 @@ class assumedRoleUser extends Model
     /**
      * @var string
      */
-    public $assumedRoleId;
+    public $arn;
 
     /**
      * @var string
      */
-    public $arn;
+    public $assumedRoleId;
     protected $_name = [
-        'assumedRoleId' => 'AssumedRoleId',
         'arn'           => 'Arn',
+        'assumedRoleId' => 'AssumedRoleId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class assumedRoleUser extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->assumedRoleId) {
-            $res['AssumedRoleId'] = $this->assumedRoleId;
-        }
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
+        }
+        if (null !== $this->assumedRoleId) {
+            $res['AssumedRoleId'] = $this->assumedRoleId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class assumedRoleUser extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssumedRoleId'])) {
-            $model->assumedRoleId = $map['AssumedRoleId'];
-        }
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
+        }
+        if (isset($map['AssumedRoleId'])) {
+            $model->assumedRoleId = $map['AssumedRoleId'];
         }
 
         return $model;

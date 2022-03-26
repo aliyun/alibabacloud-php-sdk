@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sts\V20150401;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleRequest;
 use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleResponse;
 use AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleWithOIDCRequest;
@@ -15,6 +16,7 @@ use AlibabaCloud\SDK\Sts\V20150401\Models\GetCallerIdentityResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Sts extends OpenApiClient
@@ -96,11 +98,35 @@ class Sts extends OpenApiClient
     public function assumeRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->durationSeconds)) {
+            $query['DurationSeconds'] = $request->durationSeconds;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->roleSessionName)) {
+            $query['RoleSessionName'] = $request->roleSessionName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssumeRole',
+            'version'     => '2015-04-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssumeRoleResponse::fromMap($this->doRPCRequest('AssumeRole', '2015-04-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssumeRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -124,11 +150,41 @@ class Sts extends OpenApiClient
     public function assumeRoleWithOIDCWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->durationSeconds)) {
+            $query['DurationSeconds'] = $request->durationSeconds;
+        }
+        if (!Utils::isUnset($request->OIDCProviderArn)) {
+            $query['OIDCProviderArn'] = $request->OIDCProviderArn;
+        }
+        if (!Utils::isUnset($request->OIDCToken)) {
+            $query['OIDCToken'] = $request->OIDCToken;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->roleSessionName)) {
+            $query['RoleSessionName'] = $request->roleSessionName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssumeRoleWithOIDC',
+            'version'     => '2015-04-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssumeRoleWithOIDCResponse::fromMap($this->doRPCRequest('AssumeRoleWithOIDC', '2015-04-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssumeRoleWithOIDCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -152,11 +208,38 @@ class Sts extends OpenApiClient
     public function assumeRoleWithSAMLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->durationSeconds)) {
+            $query['DurationSeconds'] = $request->durationSeconds;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->SAMLAssertion)) {
+            $query['SAMLAssertion'] = $request->SAMLAssertion;
+        }
+        if (!Utils::isUnset($request->SAMLProviderArn)) {
+            $query['SAMLProviderArn'] = $request->SAMLProviderArn;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssumeRoleWithSAML',
+            'version'     => '2015-04-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssumeRoleWithSAMLResponse::fromMap($this->doRPCRequest('AssumeRoleWithSAML', '2015-04-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssumeRoleWithSAMLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -178,9 +261,20 @@ class Sts extends OpenApiClient
      */
     public function getCallerIdentityWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetCallerIdentity',
+            'version'     => '2015-04-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetCallerIdentityResponse::fromMap($this->doRPCRequest('GetCallerIdentity', '2015-04-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCallerIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

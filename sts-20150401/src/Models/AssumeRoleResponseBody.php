@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var assumedRoleUser
      */
     public $assumedRoleUser;
@@ -24,10 +19,15 @@ class AssumeRoleResponseBody extends Model
      * @var credentials
      */
     public $credentials;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'assumedRoleUser' => 'AssumedRoleUser',
         'credentials'     => 'Credentials',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class AssumeRoleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->assumedRoleUser) {
             $res['AssumedRoleUser'] = null !== $this->assumedRoleUser ? $this->assumedRoleUser->toMap() : null;
         }
         if (null !== $this->credentials) {
             $res['Credentials'] = null !== $this->credentials ? $this->credentials->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class AssumeRoleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AssumedRoleUser'])) {
             $model->assumedRoleUser = assumedRoleUser::fromMap($map['AssumedRoleUser']);
         }
         if (isset($map['Credentials'])) {
             $model->credentials = credentials::fromMap($map['Credentials']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

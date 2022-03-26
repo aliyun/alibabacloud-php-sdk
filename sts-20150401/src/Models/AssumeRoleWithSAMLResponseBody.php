@@ -12,16 +12,6 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleWithSAMLResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var SAMLAssertionInfo
-     */
-    public $SAMLAssertionInfo;
-
-    /**
      * @var assumedRoleUser
      */
     public $assumedRoleUser;
@@ -30,11 +20,21 @@ class AssumeRoleWithSAMLResponseBody extends Model
      * @var credentials
      */
     public $credentials;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var SAMLAssertionInfo
+     */
+    public $SAMLAssertionInfo;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'SAMLAssertionInfo' => 'SAMLAssertionInfo',
         'assumedRoleUser'   => 'AssumedRoleUser',
         'credentials'       => 'Credentials',
+        'requestId'         => 'RequestId',
+        'SAMLAssertionInfo' => 'SAMLAssertionInfo',
     ];
 
     public function validate()
@@ -44,17 +44,17 @@ class AssumeRoleWithSAMLResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->SAMLAssertionInfo) {
-            $res['SAMLAssertionInfo'] = null !== $this->SAMLAssertionInfo ? $this->SAMLAssertionInfo->toMap() : null;
-        }
         if (null !== $this->assumedRoleUser) {
             $res['AssumedRoleUser'] = null !== $this->assumedRoleUser ? $this->assumedRoleUser->toMap() : null;
         }
         if (null !== $this->credentials) {
             $res['Credentials'] = null !== $this->credentials ? $this->credentials->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->SAMLAssertionInfo) {
+            $res['SAMLAssertionInfo'] = null !== $this->SAMLAssertionInfo ? $this->SAMLAssertionInfo->toMap() : null;
         }
 
         return $res;
@@ -68,17 +68,17 @@ class AssumeRoleWithSAMLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SAMLAssertionInfo'])) {
-            $model->SAMLAssertionInfo = SAMLAssertionInfo::fromMap($map['SAMLAssertionInfo']);
-        }
         if (isset($map['AssumedRoleUser'])) {
             $model->assumedRoleUser = assumedRoleUser::fromMap($map['AssumedRoleUser']);
         }
         if (isset($map['Credentials'])) {
             $model->credentials = credentials::fromMap($map['Credentials']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SAMLAssertionInfo'])) {
+            $model->SAMLAssertionInfo = SAMLAssertionInfo::fromMap($map['SAMLAssertionInfo']);
         }
 
         return $model;
