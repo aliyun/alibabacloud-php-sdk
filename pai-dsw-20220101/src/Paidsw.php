@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceSnapshotResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetUserConfigResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListDemoCategoriesResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListDemosRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListDemosResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListEcsSpecsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListEcsSpecsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceSnapshotRequest;
@@ -535,6 +538,98 @@ class Paidsw extends OpenApiClient
         ]);
 
         return GetUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListDemoCategoriesResponse
+     */
+    public function listDemoCategories()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDemoCategoriesWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListDemoCategoriesResponse
+     */
+    public function listDemoCategoriesWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListDemoCategories',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/democategories',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDemoCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDemosRequest $request
+     *
+     * @return ListDemosResponse
+     */
+    public function listDemos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDemosWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListDemosRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListDemosResponse
+     */
+    public function listDemosWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->demoName)) {
+            $query['DemoName'] = $request->demoName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDemos',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/demos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDemosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

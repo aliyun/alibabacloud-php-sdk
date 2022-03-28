@@ -174,6 +174,13 @@ class instances extends Model
     public $userId;
 
     /**
+     * @description 用户名称
+     *
+     * @var string
+     */
+    public $userName;
+
+    /**
      * @description user vpc配置
      *
      * @var userVpc
@@ -224,6 +231,7 @@ class instances extends Model
         'status'                     => 'Status',
         'terminalUrl'                => 'TerminalUrl',
         'userId'                     => 'UserId',
+        'userName'                   => 'UserName',
         'userVpc'                    => 'UserVpc',
         'webIDEUrl'                  => 'WebIDEUrl',
         'workspaceId'                => 'WorkspaceId',
@@ -311,6 +319,9 @@ class instances extends Model
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
         if (null !== $this->userVpc) {
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
@@ -410,6 +421,9 @@ class instances extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
         if (isset($map['UserVpc'])) {
             $model->userVpc = userVpc::fromMap($map['UserVpc']);

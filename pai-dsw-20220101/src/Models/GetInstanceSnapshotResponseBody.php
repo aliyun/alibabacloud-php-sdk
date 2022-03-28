@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceSnapshotResponseBody extends Model
 {
     /**
+     * @description 状态码
+     *
+     * @var string
+     */
+    public $code;
+
+    /**
      * @description 实例快照创建时间
      *
      * @var string
@@ -21,6 +28,13 @@ class GetInstanceSnapshotResponseBody extends Model
      * @var string
      */
     public $gmtModifiedTime;
+
+    /**
+     * @description http状态码
+     *
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @description 实例快照的镜像Id
@@ -42,6 +56,13 @@ class GetInstanceSnapshotResponseBody extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description 说明
+     *
+     * @var string
+     */
+    public $message;
 
     /**
      * @description 实例快照错误代码
@@ -84,18 +105,29 @@ class GetInstanceSnapshotResponseBody extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @description 成功标志
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'            => 'Code',
         'gmtCreateTime'   => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
+        'httpStatusCode'  => 'HttpStatusCode',
         'imageId'         => 'ImageId',
         'imageUrl'        => 'ImageUrl',
         'instanceId'      => 'InstanceId',
+        'message'         => 'Message',
         'reasonCode'      => 'ReasonCode',
         'reasonMessage'   => 'ReasonMessage',
         'requestId'       => 'RequestId',
         'snapshotId'      => 'SnapshotId',
         'snapshotName'    => 'SnapshotName',
         'status'          => 'Status',
+        'success'         => 'Success',
     ];
 
     public function validate()
@@ -105,11 +137,17 @@ class GetInstanceSnapshotResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -119,6 +157,9 @@ class GetInstanceSnapshotResponseBody extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -138,6 +179,9 @@ class GetInstanceSnapshotResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
 
         return $res;
     }
@@ -150,11 +194,17 @@ class GetInstanceSnapshotResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -164,6 +214,9 @@ class GetInstanceSnapshotResponseBody extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
@@ -182,6 +235,9 @@ class GetInstanceSnapshotResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

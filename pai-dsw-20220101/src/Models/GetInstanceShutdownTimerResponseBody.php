@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceShutdownTimerResponseBody extends Model
 {
     /**
+     * @description 状态码
+     *
+     * @var string
+     */
+    public $code;
+
+    /**
      * @description 设定关机时间
      *
      * @var string
@@ -30,11 +37,25 @@ class GetInstanceShutdownTimerResponseBody extends Model
     public $gmtModifiedTime;
 
     /**
+     * @description http状态码
+     *
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @description 实例Id
      *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description 说明
+     *
+     * @var string
+     */
+    public $message;
 
     /**
      * @description 剩余关机时间（ms）
@@ -49,13 +70,24 @@ class GetInstanceShutdownTimerResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 成功标志
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'              => 'Code',
         'dueTime'           => 'DueTime',
         'gmtCreateTime'     => 'GmtCreateTime',
         'gmtModifiedTime'   => 'GmtModifiedTime',
+        'httpStatusCode'    => 'HttpStatusCode',
         'instanceId'        => 'InstanceId',
+        'message'           => 'Message',
         'remainingTimeInMs' => 'RemainingTimeInMs',
         'requestId'         => 'RequestId',
+        'success'           => 'Success',
     ];
 
     public function validate()
@@ -65,6 +97,9 @@ class GetInstanceShutdownTimerResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->dueTime) {
             $res['DueTime'] = $this->dueTime;
         }
@@ -74,14 +109,23 @@ class GetInstanceShutdownTimerResponseBody extends Model
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->remainingTimeInMs) {
             $res['RemainingTimeInMs'] = $this->remainingTimeInMs;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -95,6 +139,9 @@ class GetInstanceShutdownTimerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['DueTime'])) {
             $model->dueTime = $map['DueTime'];
         }
@@ -104,14 +151,23 @@ class GetInstanceShutdownTimerResponseBody extends Model
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RemainingTimeInMs'])) {
             $model->remainingTimeInMs = $map['RemainingTimeInMs'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

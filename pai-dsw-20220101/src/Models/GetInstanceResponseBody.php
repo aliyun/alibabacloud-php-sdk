@@ -34,6 +34,13 @@ class GetInstanceResponseBody extends Model
     public $accumulatedRunningTimeInMs;
 
     /**
+     * @description 状态码
+     *
+     * @var string
+     */
+    public $code;
+
+    /**
      * @description 数据集集合
      *
      * @var datasets[]
@@ -67,6 +74,13 @@ class GetInstanceResponseBody extends Model
      * @var string
      */
     public $gmtModifiedTime;
+
+    /**
+     * @description http状态码
+     *
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @description 镜像Id
@@ -132,6 +146,13 @@ class GetInstanceResponseBody extends Model
     public $latestSnapshot;
 
     /**
+     * @description 说明
+     *
+     * @var string
+     */
+    public $message;
+
+    /**
      * @description 支付类型
      *
      * @var string
@@ -167,6 +188,13 @@ class GetInstanceResponseBody extends Model
     public $status;
 
     /**
+     * @description 成功标志
+     *
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @description 终端url
      *
      * @var string
@@ -179,6 +207,13 @@ class GetInstanceResponseBody extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @description 用户名称
+     *
+     * @var string
+     */
+    public $userName;
 
     /**
      * @description user vpc配置
@@ -211,11 +246,13 @@ class GetInstanceResponseBody extends Model
         'acceleratorType'            => 'AcceleratorType',
         'accessibility'              => 'Accessibility',
         'accumulatedRunningTimeInMs' => 'AccumulatedRunningTimeInMs',
+        'code'                       => 'Code',
         'datasets'                   => 'Datasets',
         'ecsSpec'                    => 'EcsSpec',
         'environmentVariables'       => 'EnvironmentVariables',
         'gmtCreateTime'              => 'GmtCreateTime',
         'gmtModifiedTime'            => 'GmtModifiedTime',
+        'httpStatusCode'             => 'HttpStatusCode',
         'imageId'                    => 'ImageId',
         'imageName'                  => 'ImageName',
         'imageUrl'                   => 'ImageUrl',
@@ -225,13 +262,16 @@ class GetInstanceResponseBody extends Model
         'instanceUrl'                => 'InstanceUrl',
         'jupyterlabUrl'              => 'JupyterlabUrl',
         'latestSnapshot'             => 'LatestSnapshot',
+        'message'                    => 'Message',
         'paymentType'                => 'PaymentType',
         'reasonCode'                 => 'ReasonCode',
         'reasonMessage'              => 'ReasonMessage',
         'requestId'                  => 'RequestId',
         'status'                     => 'Status',
+        'success'                    => 'Success',
         'terminalUrl'                => 'TerminalUrl',
         'userId'                     => 'UserId',
+        'userName'                   => 'UserName',
         'userVpc'                    => 'UserVpc',
         'webIDEUrl'                  => 'WebIDEUrl',
         'workspaceId'                => 'WorkspaceId',
@@ -254,6 +294,9 @@ class GetInstanceResponseBody extends Model
         if (null !== $this->accumulatedRunningTimeInMs) {
             $res['AccumulatedRunningTimeInMs'] = $this->accumulatedRunningTimeInMs;
         }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->datasets) {
             $res['Datasets'] = [];
             if (null !== $this->datasets && \is_array($this->datasets)) {
@@ -274,6 +317,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -302,6 +348,9 @@ class GetInstanceResponseBody extends Model
         if (null !== $this->latestSnapshot) {
             $res['LatestSnapshot'] = null !== $this->latestSnapshot ? $this->latestSnapshot->toMap() : null;
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
         }
@@ -317,11 +366,17 @@ class GetInstanceResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->terminalUrl) {
             $res['TerminalUrl'] = $this->terminalUrl;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
         if (null !== $this->userVpc) {
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
@@ -356,6 +411,9 @@ class GetInstanceResponseBody extends Model
         if (isset($map['AccumulatedRunningTimeInMs'])) {
             $model->accumulatedRunningTimeInMs = $map['AccumulatedRunningTimeInMs'];
         }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {
                 $model->datasets = [];
@@ -376,6 +434,9 @@ class GetInstanceResponseBody extends Model
         }
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -404,6 +465,9 @@ class GetInstanceResponseBody extends Model
         if (isset($map['LatestSnapshot'])) {
             $model->latestSnapshot = latestSnapshot::fromMap($map['LatestSnapshot']);
         }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
         }
@@ -419,11 +483,17 @@ class GetInstanceResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['TerminalUrl'])) {
             $model->terminalUrl = $map['TerminalUrl'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
         if (isset($map['UserVpc'])) {
             $model->userVpc = userVpc::fromMap($map['UserVpc']);
