@@ -9,6 +9,36 @@ use AlibabaCloud\Tea\Model;
 class clockWidgets extends Model
 {
     /**
+     * @var float
+     */
+    public $alpha;
+
+    /**
+     * @var int
+     */
+    public $borderColor;
+
+    /**
+     * @var int
+     */
+    public $borderWidth;
+
+    /**
+     * @var bool
+     */
+    public $box;
+
+    /**
+     * @var int
+     */
+    public $boxBorderWidth;
+
+    /**
+     * @var int
+     */
+    public $boxColor;
+
+    /**
      * @var int
      */
     public $fontColor;
@@ -38,12 +68,18 @@ class clockWidgets extends Model
      */
     public $ZOrder;
     protected $_name = [
-        'fontColor' => 'FontColor',
-        'fontSize'  => 'FontSize',
-        'fontType'  => 'FontType',
-        'x'         => 'X',
-        'y'         => 'Y',
-        'ZOrder'    => 'ZOrder',
+        'alpha'          => 'Alpha',
+        'borderColor'    => 'BorderColor',
+        'borderWidth'    => 'BorderWidth',
+        'box'            => 'Box',
+        'boxBorderWidth' => 'BoxBorderWidth',
+        'boxColor'       => 'BoxColor',
+        'fontColor'      => 'FontColor',
+        'fontSize'       => 'FontSize',
+        'fontType'       => 'FontType',
+        'x'              => 'X',
+        'y'              => 'Y',
+        'ZOrder'         => 'ZOrder',
     ];
 
     public function validate()
@@ -53,6 +89,24 @@ class clockWidgets extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alpha) {
+            $res['Alpha'] = $this->alpha;
+        }
+        if (null !== $this->borderColor) {
+            $res['BorderColor'] = $this->borderColor;
+        }
+        if (null !== $this->borderWidth) {
+            $res['BorderWidth'] = $this->borderWidth;
+        }
+        if (null !== $this->box) {
+            $res['Box'] = $this->box;
+        }
+        if (null !== $this->boxBorderWidth) {
+            $res['BoxBorderWidth'] = $this->boxBorderWidth;
+        }
+        if (null !== $this->boxColor) {
+            $res['BoxColor'] = $this->boxColor;
+        }
         if (null !== $this->fontColor) {
             $res['FontColor'] = $this->fontColor;
         }
@@ -83,6 +137,24 @@ class clockWidgets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Alpha'])) {
+            $model->alpha = $map['Alpha'];
+        }
+        if (isset($map['BorderColor'])) {
+            $model->borderColor = $map['BorderColor'];
+        }
+        if (isset($map['BorderWidth'])) {
+            $model->borderWidth = $map['BorderWidth'];
+        }
+        if (isset($map['Box'])) {
+            $model->box = $map['Box'];
+        }
+        if (isset($map['BoxBorderWidth'])) {
+            $model->boxBorderWidth = $map['BoxBorderWidth'];
+        }
+        if (isset($map['BoxColor'])) {
+            $model->boxColor = $map['BoxColor'];
+        }
         if (isset($map['FontColor'])) {
             $model->fontColor = $map['FontColor'];
         }
