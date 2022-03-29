@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDeviceChannelsResponse extends Model
+class DescribeUserDevicesResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ListDeviceChannelsResponse extends Model
     public $headers;
 
     /**
-     * @var ListDeviceChannelsResponseBody
+     * @var DescribeUserDevicesResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ListDeviceChannelsResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListDeviceChannelsResponse
+     * @return DescribeUserDevicesResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ListDeviceChannelsResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ListDeviceChannelsResponseBody::fromMap($map['body']);
+            $model->body = DescribeUserDevicesResponseBody::fromMap($map['body']);
         }
 
         return $model;

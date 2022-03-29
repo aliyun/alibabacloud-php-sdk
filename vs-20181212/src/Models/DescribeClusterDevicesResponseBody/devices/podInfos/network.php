@@ -21,11 +21,29 @@ class network extends Model
     /**
      * @var string
      */
+    public $externalIsp;
+
+    /**
+     * @var string
+     */
     public $externalPorts;
+
+    /**
+     * @var string
+     */
+    public $outgoingIp;
+
+    /**
+     * @var string
+     */
+    public $outgoingIsp;
     protected $_name = [
         'containerPorts' => 'ContainerPorts',
         'externalIp'     => 'ExternalIp',
+        'externalIsp'    => 'ExternalIsp',
         'externalPorts'  => 'ExternalPorts',
+        'outgoingIp'     => 'OutgoingIp',
+        'outgoingIsp'    => 'OutgoingIsp',
     ];
 
     public function validate()
@@ -41,8 +59,17 @@ class network extends Model
         if (null !== $this->externalIp) {
             $res['ExternalIp'] = $this->externalIp;
         }
+        if (null !== $this->externalIsp) {
+            $res['ExternalIsp'] = $this->externalIsp;
+        }
         if (null !== $this->externalPorts) {
             $res['ExternalPorts'] = $this->externalPorts;
+        }
+        if (null !== $this->outgoingIp) {
+            $res['OutgoingIp'] = $this->outgoingIp;
+        }
+        if (null !== $this->outgoingIsp) {
+            $res['OutgoingIsp'] = $this->outgoingIsp;
         }
 
         return $res;
@@ -62,8 +89,17 @@ class network extends Model
         if (isset($map['ExternalIp'])) {
             $model->externalIp = $map['ExternalIp'];
         }
+        if (isset($map['ExternalIsp'])) {
+            $model->externalIsp = $map['ExternalIsp'];
+        }
         if (isset($map['ExternalPorts'])) {
             $model->externalPorts = $map['ExternalPorts'];
+        }
+        if (isset($map['OutgoingIp'])) {
+            $model->outgoingIp = $map['OutgoingIp'];
+        }
+        if (isset($map['OutgoingIsp'])) {
+            $model->outgoingIsp = $map['OutgoingIsp'];
         }
 
         return $model;

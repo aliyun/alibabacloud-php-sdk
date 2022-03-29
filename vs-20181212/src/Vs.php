@@ -6,8 +6,6 @@ namespace AlibabaCloud\SDK\Vs\V20181212;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Vs\V20181212\Models\AddDeviceRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\AddDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredVendorRequest;
@@ -76,8 +74,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceSnapshotRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceSnapshotResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDirectoryResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupRequest;
@@ -184,6 +180,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplatesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeUserDevicesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeUserDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVodStreamURLRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVodStreamURLResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsCertificateDetailRequest;
@@ -250,10 +248,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListBucketsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListBucketsResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ListDeviceChannelsRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ListDeviceChannelsResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ListDeviceRecordsRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ListDeviceRecordsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListObjectsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListObjectsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceAlarmRequest;
@@ -317,8 +311,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\StopTransferStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopTransferStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SyncCatalogsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SyncCatalogsResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\SyncDeviceChannelsRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\SyncDeviceChannelsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindDirectoryResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindParentPlatformDeviceRequest;
@@ -343,8 +335,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesHostOSRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesHostOSResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesImageRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesImageResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UploadDeviceRecordRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UploadDeviceRecordResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -382,58 +372,6 @@ class Vs extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param AddDeviceRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return AddDeviceResponse
-     */
-    public function addDeviceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->protocol)) {
-            $query['Protocol'] = $request->protocol;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddDevice',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddDeviceRequest $request
-     *
-     * @return AddDeviceResponse
-     */
-    public function addDevice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -2304,61 +2242,6 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDeviceAlarmWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDeviceSnapshotRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateDeviceSnapshotResponse
-     */
-    public function createDeviceSnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
-        }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->snapshotConfig)) {
-            $query['SnapshotConfig'] = $request->snapshotConfig;
-        }
-        if (!Utils::isUnset($request->streamId)) {
-            $query['StreamId'] = $request->streamId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDeviceSnapshot',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDeviceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateDeviceSnapshotRequest $request
-     *
-     * @return CreateDeviceSnapshotResponse
-     */
-    public function createDeviceSnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDeviceSnapshotWithOptions($request, $runtime);
     }
 
     /**
@@ -5298,6 +5181,55 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeUserDevicesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeUserDevicesResponse
+     */
+    public function describeUserDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensInstanceIds)) {
+            $query['EnsInstanceIds'] = $request->ensInstanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->serverName)) {
+            $query['ServerName'] = $request->serverName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserDevicesRequest $request
+     *
+     * @return DescribeUserDevicesResponse
+     */
+    public function describeUserDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserDevicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVodStreamURLRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -7053,116 +6985,6 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBucketsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDeviceChannelsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListDeviceChannelsResponse
-     */
-    public function listDeviceChannelsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDeviceChannels',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDeviceChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDeviceChannelsRequest $request
-     *
-     * @return ListDeviceChannelsResponse
-     */
-    public function listDeviceChannels($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDeviceChannelsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDeviceRecordsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListDeviceRecordsResponse
-     */
-    public function listDeviceRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->searchCriteria)) {
-            $query['SearchCriteria'] = $request->searchCriteria;
-        }
-        if (!Utils::isUnset($request->streamId)) {
-            $query['StreamId'] = $request->streamId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDeviceRecords',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDeviceRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDeviceRecordsRequest $request
-     *
-     * @return ListDeviceRecordsResponse
-     */
-    public function listDeviceRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDeviceRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -9006,52 +8828,6 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SyncDeviceChannelsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SyncDeviceChannelsResponse
-     */
-    public function syncDeviceChannelsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SyncDeviceChannels',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SyncDeviceChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SyncDeviceChannelsRequest $request
-     *
-     * @return SyncDeviceChannelsResponse
-     */
-    public function syncDeviceChannels($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->syncDeviceChannelsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UnbindDirectoryRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -9709,69 +9485,5 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeRenderingDevicesImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UploadDeviceRecordRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UploadDeviceRecordResponse
-     */
-    public function uploadDeviceRecordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->searchCriteria)) {
-            $query['SearchCriteria'] = $request->searchCriteria;
-        }
-        if (!Utils::isUnset($request->streamId)) {
-            $query['StreamId'] = $request->streamId;
-        }
-        if (!Utils::isUnset($request->uploadId)) {
-            $query['UploadId'] = $request->uploadId;
-        }
-        if (!Utils::isUnset($request->uploadMode)) {
-            $query['UploadMode'] = $request->uploadMode;
-        }
-        if (!Utils::isUnset($request->uploadParams)) {
-            $query['UploadParams'] = $request->uploadParams;
-        }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UploadDeviceRecord',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UploadDeviceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UploadDeviceRecordRequest $request
-     *
-     * @return UploadDeviceRecordResponse
-     */
-    public function uploadDeviceRecord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->uploadDeviceRecordWithOptions($request, $runtime);
     }
 }
