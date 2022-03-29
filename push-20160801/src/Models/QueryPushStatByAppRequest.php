@@ -16,22 +16,22 @@ class QueryPushStatByAppRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $endTime;
 
     /**
      * @var string
      */
     public $granularity;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'appKey'      => 'AppKey',
-        'startTime'   => 'StartTime',
         'endTime'     => 'EndTime',
         'granularity' => 'Granularity',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryPushStatByAppRequest extends Model
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->granularity) {
             $res['Granularity'] = $this->granularity;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QueryPushStatByAppRequest extends Model
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['Granularity'])) {
             $model->granularity = $map['Granularity'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

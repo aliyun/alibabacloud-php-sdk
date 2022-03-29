@@ -16,7 +16,7 @@ class QueryDeviceStatRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $deviceType;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class QueryDeviceStatRequest extends Model
     /**
      * @var string
      */
-    public $deviceType;
+    public $queryType;
 
     /**
      * @var string
      */
-    public $queryType;
+    public $startTime;
     protected $_name = [
         'appKey'     => 'AppKey',
-        'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
         'deviceType' => 'DeviceType',
+        'endTime'    => 'EndTime',
         'queryType'  => 'QueryType',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class QueryDeviceStatRequest extends Model
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->deviceType) {
+            $res['DeviceType'] = $this->deviceType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->deviceType) {
-            $res['DeviceType'] = $this->deviceType;
-        }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class QueryDeviceStatRequest extends Model
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DeviceType'])) {
+            $model->deviceType = $map['DeviceType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['DeviceType'])) {
-            $model->deviceType = $map['DeviceType'];
-        }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class appDeviceStat extends Model
 {
     /**
-     * @var string
-     */
-    public $time;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $time;
     protected $_name = [
-        'time'  => 'Time',
         'count' => 'Count',
+        'time'  => 'Time',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class appDeviceStat extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class appDeviceStat extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class summaryAppInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $appName;
-
-    /**
      * @var int
      */
     public $appKey;
+
+    /**
+     * @var string
+     */
+    public $appName;
     protected $_name = [
-        'appName' => 'AppName',
         'appKey'  => 'AppKey',
+        'appName' => 'AppName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class summaryAppInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class summaryAppInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
 
         return $model;

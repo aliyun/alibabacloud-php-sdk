@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UnbindAliasRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $aliasName;
+
+    /**
      * @var int
      */
     public $appKey;
@@ -19,18 +24,13 @@ class UnbindAliasRequest extends Model
     public $deviceId;
 
     /**
-     * @var string
-     */
-    public $aliasName;
-
-    /**
      * @var bool
      */
     public $unbindAll;
     protected $_name = [
+        'aliasName' => 'AliasName',
         'appKey'    => 'AppKey',
         'deviceId'  => 'DeviceId',
-        'aliasName' => 'AliasName',
         'unbindAll' => 'UnbindAll',
     ];
 
@@ -41,14 +41,14 @@ class UnbindAliasRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
+        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->aliasName) {
-            $res['AliasName'] = $this->aliasName;
         }
         if (null !== $this->unbindAll) {
             $res['UnbindAll'] = $this->unbindAll;
@@ -65,14 +65,14 @@ class UnbindAliasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
+        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['AliasName'])) {
-            $model->aliasName = $map['AliasName'];
         }
         if (isset($map['UnbindAll'])) {
             $model->unbindAll = $map['UnbindAll'];

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryAliasesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var aliasInfos
      */
     public $aliasInfos;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'aliasInfos' => 'AliasInfos',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class QueryAliasesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->aliasInfos) {
             $res['AliasInfos'] = null !== $this->aliasInfos ? $this->aliasInfos->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class QueryAliasesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AliasInfos'])) {
             $model->aliasInfos = aliasInfos::fromMap($map['AliasInfos']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

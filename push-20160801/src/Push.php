@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Push\V20160801;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Push\V20160801\Models\BindAliasRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\BindAliasResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\BindPhoneRequest;
@@ -71,6 +72,7 @@ use AlibabaCloud\SDK\Push\V20160801\Models\UnbindTagResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Push extends OpenApiClient
@@ -171,11 +173,32 @@ class Push extends OpenApiClient
     public function bindAliasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindAlias',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindAliasResponse::fromMap($this->doRPCRequest('BindAlias', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -199,11 +222,32 @@ class Push extends OpenApiClient
     public function bindPhoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindPhone',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindPhoneResponse::fromMap($this->doRPCRequest('BindPhone', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -227,11 +271,35 @@ class Push extends OpenApiClient
     public function bindTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->clientKey)) {
+            $query['ClientKey'] = $request->clientKey;
+        }
+        if (!Utils::isUnset($request->keyType)) {
+            $query['KeyType'] = $request->keyType;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindTag',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindTagResponse::fromMap($this->doRPCRequest('BindTag', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -255,11 +323,29 @@ class Push extends OpenApiClient
     public function cancelPushWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $query['MessageId'] = $request->messageId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelPush',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelPushResponse::fromMap($this->doRPCRequest('CancelPush', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -283,11 +369,26 @@ class Push extends OpenApiClient
     public function checkCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckCertificate',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckCertificateResponse::fromMap($this->doRPCRequest('CheckCertificate', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -311,11 +412,29 @@ class Push extends OpenApiClient
     public function checkDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckDevice',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckDeviceResponse::fromMap($this->doRPCRequest('CheckDevice', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -339,11 +458,29 @@ class Push extends OpenApiClient
     public function checkDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceIds)) {
+            $query['DeviceIds'] = $request->deviceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckDevices',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckDevicesResponse::fromMap($this->doRPCRequest('CheckDevices', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -367,11 +504,29 @@ class Push extends OpenApiClient
     public function completeContinuouslyPushWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $query['MessageId'] = $request->messageId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CompleteContinuouslyPush',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CompleteContinuouslyPushResponse::fromMap($this->doRPCRequest('CompleteContinuouslyPush', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CompleteContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -395,11 +550,35 @@ class Push extends OpenApiClient
     public function continuouslyPushWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $query['MessageId'] = $request->messageId;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ContinuouslyPush',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ContinuouslyPushResponse::fromMap($this->doRPCRequest('ContinuouslyPush', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -421,9 +600,20 @@ class Push extends OpenApiClient
      */
     public function listSummaryAppsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListSummaryApps',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSummaryAppsResponse::fromMap($this->doRPCRequest('ListSummaryApps', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSummaryAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -445,11 +635,26 @@ class Push extends OpenApiClient
     public function listTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTags',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagsResponse::fromMap($this->doRPCRequest('ListTags', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -473,11 +678,31 @@ class Push extends OpenApiClient
     public function massPushWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->pushTask)) {
+            $body['PushTask'] = $request->pushTask;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'MassPush',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MassPushResponse::fromMap($this->doRPCRequest('MassPush', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MassPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -501,11 +726,206 @@ class Push extends OpenApiClient
     public function pushWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->androidActivity)) {
+            $query['AndroidActivity'] = $request->androidActivity;
+        }
+        if (!Utils::isUnset($request->androidBigBody)) {
+            $query['AndroidBigBody'] = $request->androidBigBody;
+        }
+        if (!Utils::isUnset($request->androidBigPictureUrl)) {
+            $query['AndroidBigPictureUrl'] = $request->androidBigPictureUrl;
+        }
+        if (!Utils::isUnset($request->androidBigTitle)) {
+            $query['AndroidBigTitle'] = $request->androidBigTitle;
+        }
+        if (!Utils::isUnset($request->androidExtParameters)) {
+            $query['AndroidExtParameters'] = $request->androidExtParameters;
+        }
+        if (!Utils::isUnset($request->androidImageUrl)) {
+            $query['AndroidImageUrl'] = $request->androidImageUrl;
+        }
+        if (!Utils::isUnset($request->androidInboxBody)) {
+            $query['AndroidInboxBody'] = $request->androidInboxBody;
+        }
+        if (!Utils::isUnset($request->androidMessageHuaweiCategory)) {
+            $query['AndroidMessageHuaweiCategory'] = $request->androidMessageHuaweiCategory;
+        }
+        if (!Utils::isUnset($request->androidMessageHuaweiUrgency)) {
+            $query['AndroidMessageHuaweiUrgency'] = $request->androidMessageHuaweiUrgency;
+        }
+        if (!Utils::isUnset($request->androidMusic)) {
+            $query['AndroidMusic'] = $request->androidMusic;
+        }
+        if (!Utils::isUnset($request->androidNotificationBarPriority)) {
+            $query['AndroidNotificationBarPriority'] = $request->androidNotificationBarPriority;
+        }
+        if (!Utils::isUnset($request->androidNotificationBarType)) {
+            $query['AndroidNotificationBarType'] = $request->androidNotificationBarType;
+        }
+        if (!Utils::isUnset($request->androidNotificationChannel)) {
+            $query['AndroidNotificationChannel'] = $request->androidNotificationChannel;
+        }
+        if (!Utils::isUnset($request->androidNotificationHuaweiChannel)) {
+            $query['AndroidNotificationHuaweiChannel'] = $request->androidNotificationHuaweiChannel;
+        }
+        if (!Utils::isUnset($request->androidNotificationNotifyId)) {
+            $query['AndroidNotificationNotifyId'] = $request->androidNotificationNotifyId;
+        }
+        if (!Utils::isUnset($request->androidNotificationVivoChannel)) {
+            $query['AndroidNotificationVivoChannel'] = $request->androidNotificationVivoChannel;
+        }
+        if (!Utils::isUnset($request->androidNotificationXiaomiChannel)) {
+            $query['AndroidNotificationXiaomiChannel'] = $request->androidNotificationXiaomiChannel;
+        }
+        if (!Utils::isUnset($request->androidNotifyType)) {
+            $query['AndroidNotifyType'] = $request->androidNotifyType;
+        }
+        if (!Utils::isUnset($request->androidOpenType)) {
+            $query['AndroidOpenType'] = $request->androidOpenType;
+        }
+        if (!Utils::isUnset($request->androidOpenUrl)) {
+            $query['AndroidOpenUrl'] = $request->androidOpenUrl;
+        }
+        if (!Utils::isUnset($request->androidPopupActivity)) {
+            $query['AndroidPopupActivity'] = $request->androidPopupActivity;
+        }
+        if (!Utils::isUnset($request->androidPopupBody)) {
+            $query['AndroidPopupBody'] = $request->androidPopupBody;
+        }
+        if (!Utils::isUnset($request->androidPopupTitle)) {
+            $query['AndroidPopupTitle'] = $request->androidPopupTitle;
+        }
+        if (!Utils::isUnset($request->androidRemind)) {
+            $query['AndroidRemind'] = $request->androidRemind;
+        }
+        if (!Utils::isUnset($request->androidRenderStyle)) {
+            $query['AndroidRenderStyle'] = $request->androidRenderStyle;
+        }
+        if (!Utils::isUnset($request->androidXiaoMiActivity)) {
+            $query['AndroidXiaoMiActivity'] = $request->androidXiaoMiActivity;
+        }
+        if (!Utils::isUnset($request->androidXiaoMiNotifyBody)) {
+            $query['AndroidXiaoMiNotifyBody'] = $request->androidXiaoMiNotifyBody;
+        }
+        if (!Utils::isUnset($request->androidXiaoMiNotifyTitle)) {
+            $query['AndroidXiaoMiNotifyTitle'] = $request->androidXiaoMiNotifyTitle;
+        }
+        if (!Utils::isUnset($request->androidXiaomiBigPictureUrl)) {
+            $query['AndroidXiaomiBigPictureUrl'] = $request->androidXiaomiBigPictureUrl;
+        }
+        if (!Utils::isUnset($request->androidXiaomiImageUrl)) {
+            $query['AndroidXiaomiImageUrl'] = $request->androidXiaomiImageUrl;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $query['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->deviceType)) {
+            $query['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->jobKey)) {
+            $query['JobKey'] = $request->jobKey;
+        }
+        if (!Utils::isUnset($request->pushTime)) {
+            $query['PushTime'] = $request->pushTime;
+        }
+        if (!Utils::isUnset($request->pushType)) {
+            $query['PushType'] = $request->pushType;
+        }
+        if (!Utils::isUnset($request->sendChannels)) {
+            $query['SendChannels'] = $request->sendChannels;
+        }
+        if (!Utils::isUnset($request->sendSpeed)) {
+            $query['SendSpeed'] = $request->sendSpeed;
+        }
+        if (!Utils::isUnset($request->smsDelaySecs)) {
+            $query['SmsDelaySecs'] = $request->smsDelaySecs;
+        }
+        if (!Utils::isUnset($request->smsParams)) {
+            $query['SmsParams'] = $request->smsParams;
+        }
+        if (!Utils::isUnset($request->smsSendPolicy)) {
+            $query['SmsSendPolicy'] = $request->smsSendPolicy;
+        }
+        if (!Utils::isUnset($request->smsSignName)) {
+            $query['SmsSignName'] = $request->smsSignName;
+        }
+        if (!Utils::isUnset($request->smsTemplateName)) {
+            $query['SmsTemplateName'] = $request->smsTemplateName;
+        }
+        if (!Utils::isUnset($request->storeOffline)) {
+            $query['StoreOffline'] = $request->storeOffline;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->iOSApnsEnv)) {
+            $query['iOSApnsEnv'] = $request->iOSApnsEnv;
+        }
+        if (!Utils::isUnset($request->iOSBadge)) {
+            $query['iOSBadge'] = $request->iOSBadge;
+        }
+        if (!Utils::isUnset($request->iOSBadgeAutoIncrement)) {
+            $query['iOSBadgeAutoIncrement'] = $request->iOSBadgeAutoIncrement;
+        }
+        if (!Utils::isUnset($request->iOSExtParameters)) {
+            $query['iOSExtParameters'] = $request->iOSExtParameters;
+        }
+        if (!Utils::isUnset($request->iOSMusic)) {
+            $query['iOSMusic'] = $request->iOSMusic;
+        }
+        if (!Utils::isUnset($request->iOSMutableContent)) {
+            $query['iOSMutableContent'] = $request->iOSMutableContent;
+        }
+        if (!Utils::isUnset($request->iOSNotificationCategory)) {
+            $query['iOSNotificationCategory'] = $request->iOSNotificationCategory;
+        }
+        if (!Utils::isUnset($request->iOSNotificationCollapseId)) {
+            $query['iOSNotificationCollapseId'] = $request->iOSNotificationCollapseId;
+        }
+        if (!Utils::isUnset($request->iOSNotificationThreadId)) {
+            $query['iOSNotificationThreadId'] = $request->iOSNotificationThreadId;
+        }
+        if (!Utils::isUnset($request->iOSRemind)) {
+            $query['iOSRemind'] = $request->iOSRemind;
+        }
+        if (!Utils::isUnset($request->iOSRemindBody)) {
+            $query['iOSRemindBody'] = $request->iOSRemindBody;
+        }
+        if (!Utils::isUnset($request->iOSSilentNotification)) {
+            $query['iOSSilentNotification'] = $request->iOSSilentNotification;
+        }
+        if (!Utils::isUnset($request->iOSSubtitle)) {
+            $query['iOSSubtitle'] = $request->iOSSubtitle;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Push',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PushResponse::fromMap($this->doRPCRequest('Push', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -529,11 +949,41 @@ class Push extends OpenApiClient
     public function pushMessageToAndroidWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $query['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->jobKey)) {
+            $query['JobKey'] = $request->jobKey;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PushMessageToAndroid',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PushMessageToAndroidResponse::fromMap($this->doRPCRequest('PushMessageToAndroid', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PushMessageToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -557,11 +1007,41 @@ class Push extends OpenApiClient
     public function pushMessageToiOSWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $query['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->jobKey)) {
+            $query['JobKey'] = $request->jobKey;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PushMessageToiOS',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PushMessageToiOSResponse::fromMap($this->doRPCRequest('PushMessageToiOS', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PushMessageToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -585,11 +1065,44 @@ class Push extends OpenApiClient
     public function pushNoticeToAndroidWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $query['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->extParameters)) {
+            $query['ExtParameters'] = $request->extParameters;
+        }
+        if (!Utils::isUnset($request->jobKey)) {
+            $query['JobKey'] = $request->jobKey;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PushNoticeToAndroid',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PushNoticeToAndroidResponse::fromMap($this->doRPCRequest('PushNoticeToAndroid', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PushNoticeToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -613,11 +1126,47 @@ class Push extends OpenApiClient
     public function pushNoticeToiOSWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apnsEnv)) {
+            $query['ApnsEnv'] = $request->apnsEnv;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $query['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->extParameters)) {
+            $query['ExtParameters'] = $request->extParameters;
+        }
+        if (!Utils::isUnset($request->jobKey)) {
+            $query['JobKey'] = $request->jobKey;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PushNoticeToiOS',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PushNoticeToiOSResponse::fromMap($this->doRPCRequest('PushNoticeToiOS', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PushNoticeToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -641,11 +1190,29 @@ class Push extends OpenApiClient
     public function queryAliasesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAliases',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAliasesResponse::fromMap($this->doRPCRequest('QueryAliases', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -669,11 +1236,32 @@ class Push extends OpenApiClient
     public function queryDeviceCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceCount',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceCountResponse::fromMap($this->doRPCRequest('QueryDeviceCount', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -697,11 +1285,29 @@ class Push extends OpenApiClient
     public function queryDeviceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceInfo',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceInfoResponse::fromMap($this->doRPCRequest('QueryDeviceInfo', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -717,6 +1323,61 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @param QueryDeviceStatRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryDeviceStatResponse
+     */
+    public function queryDeviceStatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceType)) {
+            $query['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceStat',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDeviceStatRequest $request
+     *
+     * @return QueryDeviceStatResponse
+     */
+    public function queryDeviceStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDeviceStatWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryDevicesByAccountRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -725,11 +1386,29 @@ class Push extends OpenApiClient
     public function queryDevicesByAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDevicesByAccount',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDevicesByAccountResponse::fromMap($this->doRPCRequest('QueryDevicesByAccount', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDevicesByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -753,11 +1432,29 @@ class Push extends OpenApiClient
     public function queryDevicesByAliasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alias)) {
+            $query['Alias'] = $request->alias;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDevicesByAlias',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDevicesByAliasResponse::fromMap($this->doRPCRequest('QueryDevicesByAlias', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDevicesByAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -773,34 +1470,6 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceStatRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return QueryDeviceStatResponse
-     */
-    public function queryDeviceStatWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryDeviceStatResponse::fromMap($this->doRPCRequest('QueryDeviceStat', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryDeviceStatRequest $request
-     *
-     * @return QueryDeviceStatResponse
-     */
-    public function queryDeviceStat($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryDeviceStatWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryPushRecordsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -809,11 +1478,53 @@ class Push extends OpenApiClient
     public function queryPushRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pushType)) {
+            $query['PushType'] = $request->pushType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPushRecords',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPushRecordsResponse::fromMap($this->doRPCRequest('QueryPushRecords', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPushRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -837,11 +1548,35 @@ class Push extends OpenApiClient
     public function queryPushStatByAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPushStatByApp',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPushStatByAppResponse::fromMap($this->doRPCRequest('QueryPushStatByApp', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPushStatByAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -865,11 +1600,29 @@ class Push extends OpenApiClient
     public function queryPushStatByMsgWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $query['MessageId'] = $request->messageId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPushStatByMsg',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPushStatByMsgResponse::fromMap($this->doRPCRequest('QueryPushStatByMsg', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPushStatByMsgResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -893,11 +1646,32 @@ class Push extends OpenApiClient
     public function queryTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->clientKey)) {
+            $query['ClientKey'] = $request->clientKey;
+        }
+        if (!Utils::isUnset($request->keyType)) {
+            $query['KeyType'] = $request->keyType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTags',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTagsResponse::fromMap($this->doRPCRequest('QueryTags', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -921,11 +1695,35 @@ class Push extends OpenApiClient
     public function queryUniqueDeviceStatWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUniqueDeviceStat',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryUniqueDeviceStatResponse::fromMap($this->doRPCRequest('QueryUniqueDeviceStat', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryUniqueDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -949,11 +1747,29 @@ class Push extends OpenApiClient
     public function removeTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveTag',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveTagResponse::fromMap($this->doRPCRequest('RemoveTag', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -977,11 +1793,35 @@ class Push extends OpenApiClient
     public function unbindAliasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->unbindAll)) {
+            $query['UnbindAll'] = $request->unbindAll;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindAlias',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindAliasResponse::fromMap($this->doRPCRequest('UnbindAlias', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1005,11 +1845,29 @@ class Push extends OpenApiClient
     public function unbindPhoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindPhone',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindPhoneResponse::fromMap($this->doRPCRequest('UnbindPhone', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1033,11 +1891,35 @@ class Push extends OpenApiClient
     public function unbindTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->clientKey)) {
+            $query['ClientKey'] = $request->clientKey;
+        }
+        if (!Utils::isUnset($request->keyType)) {
+            $query['KeyType'] = $request->keyType;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindTag',
+            'version'     => '2016-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindTagResponse::fromMap($this->doRPCRequest('UnbindTag', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryUniqueDeviceStatResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var appDeviceStats
      */
     public $appDeviceStats;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'appDeviceStats' => 'AppDeviceStats',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class QueryUniqueDeviceStatResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->appDeviceStats) {
             $res['AppDeviceStats'] = null !== $this->appDeviceStats ? $this->appDeviceStats->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class QueryUniqueDeviceStatResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AppDeviceStats'])) {
             $model->appDeviceStats = appDeviceStats::fromMap($map['AppDeviceStats']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

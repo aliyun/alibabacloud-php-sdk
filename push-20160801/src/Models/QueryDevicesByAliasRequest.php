@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicesByAliasRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $appKey;
-
-    /**
      * @var string
      */
     public $alias;
+
+    /**
+     * @var int
+     */
+    public $appKey;
     protected $_name = [
-        'appKey' => 'AppKey',
         'alias'  => 'Alias',
+        'appKey' => 'AppKey',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryDevicesByAliasRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appKey) {
-            $res['AppKey'] = $this->appKey;
-        }
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryDevicesByAliasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppKey'])) {
-            $model->appKey = $map['AppKey'];
-        }
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
+        }
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
         }
 
         return $model;

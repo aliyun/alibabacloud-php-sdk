@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class MassPushResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var messageIds
      */
     public $messageIds;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'messageIds' => 'MessageIds',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class MassPushResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->messageIds) {
             $res['MessageIds'] = null !== $this->messageIds ? $this->messageIds->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class MassPushResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MessageIds'])) {
             $model->messageIds = messageIds::fromMap($map['MessageIds']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

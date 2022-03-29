@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class productionCertInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
     public $exipreTime;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
         'exipreTime' => 'ExipreTime',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class productionCertInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->exipreTime) {
             $res['ExipreTime'] = $this->exipreTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class productionCertInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['ExipreTime'])) {
             $model->exipreTime = $map['ExipreTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -16,6 +16,16 @@ class PushMessageToiOSRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
+    public $jobKey;
+
+    /**
+     * @var string
+     */
     public $target;
 
     /**
@@ -27,23 +37,13 @@ class PushMessageToiOSRequest extends Model
      * @var string
      */
     public $title;
-
-    /**
-     * @var string
-     */
-    public $body;
-
-    /**
-     * @var string
-     */
-    public $jobKey;
     protected $_name = [
         'appKey'      => 'AppKey',
+        'body'        => 'Body',
+        'jobKey'      => 'JobKey',
         'target'      => 'Target',
         'targetValue' => 'TargetValue',
         'title'       => 'Title',
-        'body'        => 'Body',
-        'jobKey'      => 'JobKey',
     ];
 
     public function validate()
@@ -56,6 +56,12 @@ class PushMessageToiOSRequest extends Model
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+        if (null !== $this->body) {
+            $res['Body'] = $this->body;
+        }
+        if (null !== $this->jobKey) {
+            $res['JobKey'] = $this->jobKey;
+        }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
@@ -64,12 +70,6 @@ class PushMessageToiOSRequest extends Model
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
-        }
-        if (null !== $this->body) {
-            $res['Body'] = $this->body;
-        }
-        if (null !== $this->jobKey) {
-            $res['JobKey'] = $this->jobKey;
         }
 
         return $res;
@@ -86,6 +86,12 @@ class PushMessageToiOSRequest extends Model
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+        if (isset($map['Body'])) {
+            $model->body = $map['Body'];
+        }
+        if (isset($map['JobKey'])) {
+            $model->jobKey = $map['JobKey'];
+        }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
@@ -94,12 +100,6 @@ class PushMessageToiOSRequest extends Model
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
-        }
-        if (isset($map['Body'])) {
-            $model->body = $map['Body'];
-        }
-        if (isset($map['JobKey'])) {
-            $model->jobKey = $map['JobKey'];
         }
 
         return $model;

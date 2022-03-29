@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class pushInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $messageId;
-
-    /**
      * @var int
      */
     public $appKey;
-
-    /**
-     * @var string
-     */
-    public $deviceType;
-
-    /**
-     * @var string
-     */
-    public $pushType;
 
     /**
      * @var string
@@ -41,12 +21,12 @@ class pushInfo extends Model
     /**
      * @var string
      */
-    public $title;
+    public $deviceType;
 
     /**
      * @var string
      */
-    public $source;
+    public $messageId;
 
     /**
      * @var string
@@ -56,18 +36,38 @@ class pushInfo extends Model
     /**
      * @var string
      */
+    public $pushType;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $target;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'status'     => 'Status',
-        'messageId'  => 'MessageId',
         'appKey'     => 'AppKey',
-        'deviceType' => 'DeviceType',
-        'pushType'   => 'PushType',
         'body'       => 'Body',
-        'title'      => 'Title',
-        'source'     => 'Source',
+        'deviceType' => 'DeviceType',
+        'messageId'  => 'MessageId',
         'pushTime'   => 'PushTime',
+        'pushType'   => 'PushType',
+        'source'     => 'Source',
+        'status'     => 'Status',
         'target'     => 'Target',
+        'title'      => 'Title',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class pushInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
-        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
-        }
-        if (null !== $this->deviceType) {
-            $res['DeviceType'] = $this->deviceType;
-        }
-        if (null !== $this->pushType) {
-            $res['PushType'] = $this->pushType;
         }
         if (null !== $this->body) {
             $res['Body'] = $this->body;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->deviceType) {
+            $res['DeviceType'] = $this->deviceType;
         }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
         if (null !== $this->pushTime) {
             $res['PushTime'] = $this->pushTime;
         }
+        if (null !== $this->pushType) {
+            $res['PushType'] = $this->pushType;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class pushInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
-        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
-        }
-        if (isset($map['DeviceType'])) {
-            $model->deviceType = $map['DeviceType'];
-        }
-        if (isset($map['PushType'])) {
-            $model->pushType = $map['PushType'];
         }
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['DeviceType'])) {
+            $model->deviceType = $map['DeviceType'];
         }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
         if (isset($map['PushTime'])) {
             $model->pushTime = $map['PushTime'];
         }
+        if (isset($map['PushType'])) {
+            $model->pushType = $map['PushType'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

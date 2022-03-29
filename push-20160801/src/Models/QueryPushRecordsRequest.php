@@ -16,27 +16,7 @@ class QueryPushRecordsRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $pushType;
-
-    /**
-     * @var string
-     */
-    public $target;
-
-    /**
-     * @var string
-     */
-    public $source;
 
     /**
      * @var string
@@ -51,23 +31,43 @@ class QueryPushRecordsRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $page;
 
     /**
      * @var int
      */
-    public $page;
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $pushType;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $target;
     protected $_name = [
         'appKey'    => 'AppKey',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
-        'pushType'  => 'PushType',
-        'target'    => 'Target',
-        'source'    => 'Source',
         'keyword'   => 'Keyword',
         'nextToken' => 'NextToken',
-        'pageSize'  => 'PageSize',
         'page'      => 'Page',
+        'pageSize'  => 'PageSize',
+        'pushType'  => 'PushType',
+        'source'    => 'Source',
+        'startTime' => 'StartTime',
+        'target'    => 'Target',
     ];
 
     public function validate()
@@ -80,20 +80,8 @@ class QueryPushRecordsRequest extends Model
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->pushType) {
-            $res['PushType'] = $this->pushType;
-        }
-        if (null !== $this->target) {
-            $res['Target'] = $this->target;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
@@ -101,11 +89,23 @@ class QueryPushRecordsRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->page) {
-            $res['Page'] = $this->page;
+        if (null !== $this->pushType) {
+            $res['PushType'] = $this->pushType;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->target) {
+            $res['Target'] = $this->target;
         }
 
         return $res;
@@ -122,20 +122,8 @@ class QueryPushRecordsRequest extends Model
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['PushType'])) {
-            $model->pushType = $map['PushType'];
-        }
-        if (isset($map['Target'])) {
-            $model->target = $map['Target'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
@@ -143,11 +131,23 @@ class QueryPushRecordsRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Page'])) {
-            $model->page = $map['Page'];
+        if (isset($map['PushType'])) {
+            $model->pushType = $map['PushType'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Target'])) {
+            $model->target = $map['Target'];
         }
 
         return $model;

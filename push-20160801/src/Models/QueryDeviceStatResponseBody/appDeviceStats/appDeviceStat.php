@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class appDeviceStat extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $time;
+    public $count;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class appDeviceStat extends Model
     public $deviceType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $count;
+    public $time;
     protected $_name = [
-        'time'       => 'Time',
-        'deviceType' => 'DeviceType',
         'count'      => 'Count',
+        'deviceType' => 'DeviceType',
+        'time'       => 'Time',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class appDeviceStat extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class appDeviceStat extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

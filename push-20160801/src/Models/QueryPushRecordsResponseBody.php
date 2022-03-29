@@ -17,7 +17,17 @@ class QueryPushRecordsResponseBody extends Model
     /**
      * @var int
      */
+    public $page;
+
+    /**
+     * @var int
+     */
     public $pageSize;
+
+    /**
+     * @var pushInfos
+     */
+    public $pushInfos;
 
     /**
      * @var string
@@ -28,23 +38,13 @@ class QueryPushRecordsResponseBody extends Model
      * @var int
      */
     public $total;
-
-    /**
-     * @var int
-     */
-    public $page;
-
-    /**
-     * @var pushInfos
-     */
-    public $pushInfos;
     protected $_name = [
         'nextToken' => 'NextToken',
+        'page'      => 'Page',
         'pageSize'  => 'PageSize',
+        'pushInfos' => 'PushInfos',
         'requestId' => 'RequestId',
         'total'     => 'Total',
-        'page'      => 'Page',
-        'pushInfos' => 'PushInfos',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class QueryPushRecordsResponseBody extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->pushInfos) {
+            $res['PushInfos'] = null !== $this->pushInfos ? $this->pushInfos->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->page) {
-            $res['Page'] = $this->page;
-        }
-        if (null !== $this->pushInfos) {
-            $res['PushInfos'] = null !== $this->pushInfos ? $this->pushInfos->toMap() : null;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class QueryPushRecordsResponseBody extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PushInfos'])) {
+            $model->pushInfos = pushInfos::fromMap($map['PushInfos']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['Page'])) {
-            $model->page = $map['Page'];
-        }
-        if (isset($map['PushInfos'])) {
-            $model->pushInfos = pushInfos::fromMap($map['PushInfos']);
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class appPushStat extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $time;
+    public $acceptCount;
 
     /**
      * @var int
@@ -26,26 +26,6 @@ class appPushStat extends Model
     /**
      * @var int
      */
-    public $smsReceiveSuccessCount;
-
-    /**
-     * @var int
-     */
-    public $smsSkipCount;
-
-    /**
-     * @var int
-     */
-    public $smsReceiveFailedCount;
-
-    /**
-     * @var int
-     */
-    public $smsFailedCount;
-
-    /**
-     * @var int
-     */
     public $receivedCount;
 
     /**
@@ -56,24 +36,44 @@ class appPushStat extends Model
     /**
      * @var int
      */
+    public $smsFailedCount;
+
+    /**
+     * @var int
+     */
+    public $smsReceiveFailedCount;
+
+    /**
+     * @var int
+     */
+    public $smsReceiveSuccessCount;
+
+    /**
+     * @var int
+     */
     public $smsSentCount;
 
     /**
      * @var int
      */
-    public $acceptCount;
+    public $smsSkipCount;
+
+    /**
+     * @var string
+     */
+    public $time;
     protected $_name = [
-        'time'                   => 'Time',
+        'acceptCount'            => 'AcceptCount',
         'deletedCount'           => 'DeletedCount',
         'openedCount'            => 'OpenedCount',
-        'smsReceiveSuccessCount' => 'SmsReceiveSuccessCount',
-        'smsSkipCount'           => 'SmsSkipCount',
-        'smsReceiveFailedCount'  => 'SmsReceiveFailedCount',
-        'smsFailedCount'         => 'SmsFailedCount',
         'receivedCount'          => 'ReceivedCount',
         'sentCount'              => 'SentCount',
+        'smsFailedCount'         => 'SmsFailedCount',
+        'smsReceiveFailedCount'  => 'SmsReceiveFailedCount',
+        'smsReceiveSuccessCount' => 'SmsReceiveSuccessCount',
         'smsSentCount'           => 'SmsSentCount',
-        'acceptCount'            => 'AcceptCount',
+        'smsSkipCount'           => 'SmsSkipCount',
+        'time'                   => 'Time',
     ];
 
     public function validate()
@@ -83,8 +83,8 @@ class appPushStat extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->acceptCount) {
+            $res['AcceptCount'] = $this->acceptCount;
         }
         if (null !== $this->deletedCount) {
             $res['DeletedCount'] = $this->deletedCount;
@@ -92,29 +92,29 @@ class appPushStat extends Model
         if (null !== $this->openedCount) {
             $res['OpenedCount'] = $this->openedCount;
         }
-        if (null !== $this->smsReceiveSuccessCount) {
-            $res['SmsReceiveSuccessCount'] = $this->smsReceiveSuccessCount;
-        }
-        if (null !== $this->smsSkipCount) {
-            $res['SmsSkipCount'] = $this->smsSkipCount;
-        }
-        if (null !== $this->smsReceiveFailedCount) {
-            $res['SmsReceiveFailedCount'] = $this->smsReceiveFailedCount;
-        }
-        if (null !== $this->smsFailedCount) {
-            $res['SmsFailedCount'] = $this->smsFailedCount;
-        }
         if (null !== $this->receivedCount) {
             $res['ReceivedCount'] = $this->receivedCount;
         }
         if (null !== $this->sentCount) {
             $res['SentCount'] = $this->sentCount;
         }
+        if (null !== $this->smsFailedCount) {
+            $res['SmsFailedCount'] = $this->smsFailedCount;
+        }
+        if (null !== $this->smsReceiveFailedCount) {
+            $res['SmsReceiveFailedCount'] = $this->smsReceiveFailedCount;
+        }
+        if (null !== $this->smsReceiveSuccessCount) {
+            $res['SmsReceiveSuccessCount'] = $this->smsReceiveSuccessCount;
+        }
         if (null !== $this->smsSentCount) {
             $res['SmsSentCount'] = $this->smsSentCount;
         }
-        if (null !== $this->acceptCount) {
-            $res['AcceptCount'] = $this->acceptCount;
+        if (null !== $this->smsSkipCount) {
+            $res['SmsSkipCount'] = $this->smsSkipCount;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -128,8 +128,8 @@ class appPushStat extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['AcceptCount'])) {
+            $model->acceptCount = $map['AcceptCount'];
         }
         if (isset($map['DeletedCount'])) {
             $model->deletedCount = $map['DeletedCount'];
@@ -137,29 +137,29 @@ class appPushStat extends Model
         if (isset($map['OpenedCount'])) {
             $model->openedCount = $map['OpenedCount'];
         }
-        if (isset($map['SmsReceiveSuccessCount'])) {
-            $model->smsReceiveSuccessCount = $map['SmsReceiveSuccessCount'];
-        }
-        if (isset($map['SmsSkipCount'])) {
-            $model->smsSkipCount = $map['SmsSkipCount'];
-        }
-        if (isset($map['SmsReceiveFailedCount'])) {
-            $model->smsReceiveFailedCount = $map['SmsReceiveFailedCount'];
-        }
-        if (isset($map['SmsFailedCount'])) {
-            $model->smsFailedCount = $map['SmsFailedCount'];
-        }
         if (isset($map['ReceivedCount'])) {
             $model->receivedCount = $map['ReceivedCount'];
         }
         if (isset($map['SentCount'])) {
             $model->sentCount = $map['SentCount'];
         }
+        if (isset($map['SmsFailedCount'])) {
+            $model->smsFailedCount = $map['SmsFailedCount'];
+        }
+        if (isset($map['SmsReceiveFailedCount'])) {
+            $model->smsReceiveFailedCount = $map['SmsReceiveFailedCount'];
+        }
+        if (isset($map['SmsReceiveSuccessCount'])) {
+            $model->smsReceiveSuccessCount = $map['SmsReceiveSuccessCount'];
+        }
         if (isset($map['SmsSentCount'])) {
             $model->smsSentCount = $map['SmsSentCount'];
         }
-        if (isset($map['AcceptCount'])) {
-            $model->acceptCount = $map['AcceptCount'];
+        if (isset($map['SmsSkipCount'])) {
+            $model->smsSkipCount = $map['SmsSkipCount'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

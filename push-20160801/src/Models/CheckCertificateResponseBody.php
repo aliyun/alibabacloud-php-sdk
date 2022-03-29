@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class CheckCertificateResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $android;
+
+    /**
+     * @var developmentCertInfo
+     */
+    public $developmentCertInfo;
 
     /**
      * @var bool
@@ -31,15 +31,15 @@ class CheckCertificateResponseBody extends Model
     public $productionCertInfo;
 
     /**
-     * @var developmentCertInfo
+     * @var string
      */
-    public $developmentCertInfo;
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'android'             => 'Android',
+        'developmentCertInfo' => 'DevelopmentCertInfo',
         'IOS'                 => 'IOS',
         'productionCertInfo'  => 'ProductionCertInfo',
-        'developmentCertInfo' => 'DevelopmentCertInfo',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -49,11 +49,11 @@ class CheckCertificateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->android) {
             $res['Android'] = $this->android;
+        }
+        if (null !== $this->developmentCertInfo) {
+            $res['DevelopmentCertInfo'] = null !== $this->developmentCertInfo ? $this->developmentCertInfo->toMap() : null;
         }
         if (null !== $this->IOS) {
             $res['IOS'] = $this->IOS;
@@ -61,8 +61,8 @@ class CheckCertificateResponseBody extends Model
         if (null !== $this->productionCertInfo) {
             $res['ProductionCertInfo'] = null !== $this->productionCertInfo ? $this->productionCertInfo->toMap() : null;
         }
-        if (null !== $this->developmentCertInfo) {
-            $res['DevelopmentCertInfo'] = null !== $this->developmentCertInfo ? $this->developmentCertInfo->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -76,11 +76,11 @@ class CheckCertificateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Android'])) {
             $model->android = $map['Android'];
+        }
+        if (isset($map['DevelopmentCertInfo'])) {
+            $model->developmentCertInfo = developmentCertInfo::fromMap($map['DevelopmentCertInfo']);
         }
         if (isset($map['IOS'])) {
             $model->IOS = $map['IOS'];
@@ -88,8 +88,8 @@ class CheckCertificateResponseBody extends Model
         if (isset($map['ProductionCertInfo'])) {
             $model->productionCertInfo = productionCertInfo::fromMap($map['ProductionCertInfo']);
         }
-        if (isset($map['DevelopmentCertInfo'])) {
-            $model->developmentCertInfo = developmentCertInfo::fromMap($map['DevelopmentCertInfo']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
