@@ -9,23 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ExportMeasurementDataRequest extends Model
 {
     /**
+     * @description 结束时间，UTC格式
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description 开始时间，UTC格式
+     *
      * @var string
      */
     public $startDate;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'endDate'   => 'EndDate',
         'startDate' => 'StartDate',
-        'version'   => 'Version',
     ];
 
     public function validate()
@@ -40,9 +38,6 @@ class ExportMeasurementDataRequest extends Model
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -61,9 +56,6 @@ class ExportMeasurementDataRequest extends Model
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

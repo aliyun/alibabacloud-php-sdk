@@ -6,16 +6,22 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class dataDisk extends Model
+class dataDisks extends Model
 {
     /**
-     * @description 数据盘大小，单位GB。如果此字段不为空，则以此段为准。
+     * @description 磁盘类型
      *
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'size' => 'Size',
+        'category' => 'Category',
+        'size'     => 'Size',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class dataDisk extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -35,11 +44,14 @@ class dataDisk extends Model
     /**
      * @param array $map
      *
-     * @return dataDisk
+     * @return dataDisks
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

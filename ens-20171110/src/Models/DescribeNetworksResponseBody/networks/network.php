@@ -42,6 +42,11 @@ class network extends Model
     /**
      * @var string
      */
+    public $routerTableId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -49,14 +54,15 @@ class network extends Model
      */
     public $vSwitchIds;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
-        'createdTime' => 'CreatedTime',
-        'description' => 'Description',
-        'ensRegionId' => 'EnsRegionId',
-        'networkId'   => 'NetworkId',
-        'networkName' => 'NetworkName',
-        'status'      => 'Status',
-        'vSwitchIds'  => 'VSwitchIds',
+        'cidrBlock'     => 'CidrBlock',
+        'createdTime'   => 'CreatedTime',
+        'description'   => 'Description',
+        'ensRegionId'   => 'EnsRegionId',
+        'networkId'     => 'NetworkId',
+        'networkName'   => 'NetworkName',
+        'routerTableId' => 'RouterTableId',
+        'status'        => 'Status',
+        'vSwitchIds'    => 'VSwitchIds',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class network extends Model
         }
         if (null !== $this->networkName) {
             $res['NetworkName'] = $this->networkName;
+        }
+        if (null !== $this->routerTableId) {
+            $res['RouterTableId'] = $this->routerTableId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -119,6 +128,9 @@ class network extends Model
         }
         if (isset($map['NetworkName'])) {
             $model->networkName = $map['NetworkName'];
+        }
+        if (isset($map['RouterTableId'])) {
+            $model->routerTableId = $map['RouterTableId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

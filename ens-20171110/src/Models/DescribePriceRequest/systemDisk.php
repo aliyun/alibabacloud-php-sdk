@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @description 系统盘大小，单位：GB
+     *
      * @var int
      */
     public $size;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ConfigureSecurityGroupPermissionsResponseBody extends Model
+class ModifyPrepayInstanceSpecResponseBody extends Model
 {
     /**
      * @description Id of the request
@@ -35,7 +35,7 @@ class ConfigureSecurityGroupPermissionsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ConfigureSecurityGroupPermissionsResponseBody
+     * @return ModifyPrepayInstanceSpecResponseBody
      */
     public static function fromMap($map = [])
     {

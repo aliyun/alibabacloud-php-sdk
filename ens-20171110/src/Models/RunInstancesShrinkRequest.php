@@ -128,6 +128,13 @@ class RunInstancesShrinkRequest extends Model
     public $period;
 
     /**
+     * @description 查询云服务器ENS不同计费周期的价格。取值范围：
+     * Day：按天计费的价格单位。
+     * @var string
+     */
+    public $periodUnit;
+
+    /**
      * @description 私网ip
      *
      * @var string
@@ -207,6 +214,7 @@ class RunInstancesShrinkRequest extends Model
         'netWorkId'               => 'NetWorkId',
         'password'                => 'Password',
         'period'                  => 'Period',
+        'periodUnit'              => 'PeriodUnit',
         'privateIpAddress'        => 'PrivateIpAddress',
         'scheduleAreaLevel'       => 'ScheduleAreaLevel',
         'schedulingPriceStrategy' => 'SchedulingPriceStrategy',
@@ -275,6 +283,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
@@ -365,6 +376,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];

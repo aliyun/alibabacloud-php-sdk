@@ -87,11 +87,6 @@ class DescribeInstancesRequest extends Model
      * @var string
      */
     public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'ensRegionId'          => 'EnsRegionId',
         'ensRegionIds'         => 'EnsRegionIds',
@@ -109,7 +104,6 @@ class DescribeInstancesRequest extends Model
         'securityGroupId'      => 'SecurityGroupId',
         'status'               => 'Status',
         'vSwitchId'            => 'VSwitchId',
-        'version'              => 'Version',
     ];
 
     public function validate()
@@ -166,9 +160,6 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -229,9 +220,6 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

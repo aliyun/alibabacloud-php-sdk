@@ -4,12 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest\dataDisk;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest\dataDisks;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest\systemDisk;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceShrinkRequest\dataDisk;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceShrinkRequest\systemDisk;
 use AlibabaCloud\Tea\Model;
 
-class DescribePriceRequest extends Model
+class DescribePriceShrinkRequest extends Model
 {
     /**
      * @var dataDisk[]
@@ -24,9 +23,9 @@ class DescribePriceRequest extends Model
     /**
      * @description 如果DataDisk.1.Size为空且此字段不为空时的则以此字段为准
      *
-     * @var dataDisks[]
+     * @var string
      */
-    public $dataDisks;
+    public $dataDisksShrink;
 
     /**
      * @description 节点ID。
@@ -72,7 +71,7 @@ class DescribePriceRequest extends Model
     protected $_name = [
         'dataDisk'           => 'DataDisk',
         'systemDisk'         => 'SystemDisk',
-        'dataDisks'          => 'DataDisks',
+        'dataDisksShrink'    => 'DataDisks',
         'ensRegionId'        => 'EnsRegionId',
         'instanceType'       => 'InstanceType',
         'internetChargeType' => 'InternetChargeType',
@@ -100,14 +99,8 @@ class DescribePriceRequest extends Model
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
         }
-        if (null !== $this->dataDisks) {
-            $res['DataDisks'] = [];
-            if (null !== $this->dataDisks && \is_array($this->dataDisks)) {
-                $n = 0;
-                foreach ($this->dataDisks as $item) {
-                    $res['DataDisks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->dataDisksShrink) {
+            $res['DataDisks'] = $this->dataDisksShrink;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
@@ -134,7 +127,7 @@ class DescribePriceRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePriceRequest
+     * @return DescribePriceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -152,13 +145,7 @@ class DescribePriceRequest extends Model
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
         if (isset($map['DataDisks'])) {
-            if (!empty($map['DataDisks'])) {
-                $model->dataDisks = [];
-                $n                = 0;
-                foreach ($map['DataDisks'] as $item) {
-                    $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
-                }
-            }
+            $model->dataDisksShrink = $map['DataDisks'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];

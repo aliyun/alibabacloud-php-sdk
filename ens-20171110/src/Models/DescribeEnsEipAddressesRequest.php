@@ -33,6 +33,13 @@ class DescribeEnsEipAddressesRequest extends Model
     public $eipAddress;
 
     /**
+     * @description ENS节点ID
+     *
+     * @var string
+     */
+    public $ensRegionId;
+
+    /**
      * @description 列表的页码，默认值为1。
      *
      * @var int
@@ -50,6 +57,7 @@ class DescribeEnsEipAddressesRequest extends Model
         'associatedInstanceId'   => 'AssociatedInstanceId',
         'associatedInstanceType' => 'AssociatedInstanceType',
         'eipAddress'             => 'EipAddress',
+        'ensRegionId'            => 'EnsRegionId',
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
     ];
@@ -72,6 +80,9 @@ class DescribeEnsEipAddressesRequest extends Model
         }
         if (null !== $this->eipAddress) {
             $res['EipAddress'] = $this->eipAddress;
+        }
+        if (null !== $this->ensRegionId) {
+            $res['EnsRegionId'] = $this->ensRegionId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -102,6 +113,9 @@ class DescribeEnsEipAddressesRequest extends Model
         }
         if (isset($map['EipAddress'])) {
             $model->eipAddress = $map['EipAddress'];
+        }
+        if (isset($map['EnsRegionId'])) {
+            $model->ensRegionId = $map['EnsRegionId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

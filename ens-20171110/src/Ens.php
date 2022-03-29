@@ -29,23 +29,14 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CheckQuotaRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CheckQuotaResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\ConfigureSecurityGroupPermissionsRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\ConfigureSecurityGroupPermissionsResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\ConfigureSecurityGroupPermissionsShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskBuyOrderRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskBuyOrderResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateElbBuyOrderRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateElbBuyOrderResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsServiceResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEPInstanceRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEPInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateImageRequest;
@@ -196,6 +187,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePrePaidInstanceStockRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePrePaidInstanceStockResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionIspsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionIspsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeReservedResourceRequest;
@@ -254,6 +246,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyLoadBalancerAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyLoadBalancerAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyNetworkAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyNetworkAttributeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyPrepayInstanceSpecRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyPrepayInstanceSpecResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeRequest;
@@ -946,63 +940,6 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ConfigureSecurityGroupPermissionsRequest $tmpReq
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ConfigureSecurityGroupPermissionsResponse
-     */
-    public function configureSecurityGroupPermissionsWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ConfigureSecurityGroupPermissionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->authorizePermissions)) {
-            $request->authorizePermissionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->authorizePermissions, 'AuthorizePermissions', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->revokePermissions)) {
-            $request->revokePermissionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->revokePermissions, 'RevokePermissions', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->authorizePermissionsShrink)) {
-            $query['AuthorizePermissions'] = $request->authorizePermissionsShrink;
-        }
-        if (!Utils::isUnset($request->revokePermissionsShrink)) {
-            $query['RevokePermissions'] = $request->revokePermissionsShrink;
-        }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ConfigureSecurityGroupPermissions',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ConfigureSecurityGroupPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ConfigureSecurityGroupPermissionsRequest $request
-     *
-     * @return ConfigureSecurityGroupPermissionsResponse
-     */
-    public function configureSecurityGroupPermissions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->configureSecurityGroupPermissionsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateApplicationRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1101,104 +1038,6 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateDiskBuyOrderRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateDiskBuyOrderResponse
-     */
-    public function createDiskBuyOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->orderDetails)) {
-            $query['OrderDetails'] = $request->orderDetails;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDiskBuyOrder',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDiskBuyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateDiskBuyOrderRequest $request
-     *
-     * @return CreateDiskBuyOrderResponse
-     */
-    public function createDiskBuyOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDiskBuyOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateEPInstanceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateEPInstanceResponse
-     */
-    public function createEPInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->EPNInstanceName)) {
-            $query['EPNInstanceName'] = $request->EPNInstanceName;
-        }
-        if (!Utils::isUnset($request->EPNInstanceType)) {
-            $query['EPNInstanceType'] = $request->EPNInstanceType;
-        }
-        if (!Utils::isUnset($request->internetChargeType)) {
-            $query['InternetChargeType'] = $request->internetChargeType;
-        }
-        if (!Utils::isUnset($request->internetMaxBandwidthOut)) {
-            $query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
-        }
-        if (!Utils::isUnset($request->networkingModel)) {
-            $query['NetworkingModel'] = $request->networkingModel;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEPInstance',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateEPInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateEPInstanceRequest $request
-     *
-     * @return CreateEPInstanceResponse
-     */
-    public function createEPInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createEPInstanceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateEipInstanceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1254,49 +1093,6 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEipInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateElbBuyOrderRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateElbBuyOrderResponse
-     */
-    public function createElbBuyOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->orderDetails)) {
-            $query['OrderDetails'] = $request->orderDetails;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateElbBuyOrder',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateElbBuyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateElbBuyOrderRequest $request
-     *
-     * @return CreateElbBuyOrderResponse
-     */
-    public function createElbBuyOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createElbBuyOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -3448,6 +3244,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->eipAddress)) {
             $query['EipAddress'] = $request->eipAddress;
         }
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -4635,9 +4434,6 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5288,15 +5084,23 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
+     * @param DescribePriceRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return DescribePriceResponse
      */
-    public function describePriceWithOptions($request, $runtime)
+    public function describePriceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribePriceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataDisks)) {
+            $request->dataDisksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataDisks, 'DataDisks', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->dataDisksShrink)) {
+            $query['DataDisks'] = $request->dataDisksShrink;
+        }
         if (!Utils::isUnset($request->ensRegionId)) {
             $query['EnsRegionId'] = $request->ensRegionId;
         }
@@ -5309,11 +5113,11 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
         if (!Utils::isUnset($request->quantity)) {
             $query['Quantity'] = $request->quantity;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         if (!Utils::isUnset($request->dataDisk)) {
             $query['DataDisk'] = $request->dataDisk;
@@ -5817,9 +5621,6 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->startDate)) {
             $query['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5875,9 +5676,6 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->roleName)) {
             $query['RoleName'] = $request->roleName;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5923,9 +5721,6 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->startDate)) {
             $query['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6799,6 +6594,52 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyNetworkAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyPrepayInstanceSpecRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyPrepayInstanceSpecResponse
+     */
+    public function modifyPrepayInstanceSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPrepayInstanceSpec',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPrepayInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPrepayInstanceSpecRequest $request
+     *
+     * @return ModifyPrepayInstanceSpecResponse
+     */
+    public function modifyPrepayInstanceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPrepayInstanceSpecWithOptions($request, $runtime);
     }
 
     /**
@@ -7959,6 +7800,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;

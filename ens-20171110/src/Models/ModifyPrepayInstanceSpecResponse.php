@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDiskBuyOrderResponse extends Model
+class ModifyPrepayInstanceSpecResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CreateDiskBuyOrderResponse extends Model
     public $headers;
 
     /**
-     * @var CreateDiskBuyOrderResponseBody
+     * @var ModifyPrepayInstanceSpecResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CreateDiskBuyOrderResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateDiskBuyOrderResponse
+     * @return ModifyPrepayInstanceSpecResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CreateDiskBuyOrderResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateDiskBuyOrderResponseBody::fromMap($map['body']);
+            $model->body = ModifyPrepayInstanceSpecResponseBody::fromMap($map['body']);
         }
 
         return $model;

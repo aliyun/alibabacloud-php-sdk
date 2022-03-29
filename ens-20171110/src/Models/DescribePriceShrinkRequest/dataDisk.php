@@ -2,18 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ens\V20171110\Models;
+namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceShrinkRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateElbBuyOrderRequest extends Model
+class dataDisk extends Model
 {
     /**
-     * @var string
+     * @description 数据盘大小，单位GB。如果此字段不为空，则以此段为准。
+     *
+     * @var int
      */
-    public $orderDetails;
+    public $size;
     protected $_name = [
-        'orderDetails' => 'OrderDetails',
+        'size' => 'Size',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class CreateElbBuyOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderDetails) {
-            $res['OrderDetails'] = $this->orderDetails;
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class CreateElbBuyOrderRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateElbBuyOrderRequest
+     * @return dataDisk
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderDetails'])) {
-            $model->orderDetails = $map['OrderDetails'];
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

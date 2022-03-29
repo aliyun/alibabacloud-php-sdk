@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest;
+namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceShrinkRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class dataDisk extends Model
+class systemDisk extends Model
 {
     /**
-     * @description 数据盘大小，单位GB。如果此字段不为空，则以此段为准。
+     * @description 系统盘大小，单位：GB
      *
      * @var int
      */
@@ -35,7 +35,7 @@ class dataDisk extends Model
     /**
      * @param array $map
      *
-     * @return dataDisk
+     * @return systemDisk
      */
     public static function fromMap($map = [])
     {

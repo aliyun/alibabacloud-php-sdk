@@ -55,6 +55,11 @@ class DescribeNetworkAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $routerTableId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -70,6 +75,7 @@ class DescribeNetworkAttributeResponseBody extends Model
         'networkId'      => 'NetworkId',
         'networkName'    => 'NetworkName',
         'requestId'      => 'RequestId',
+        'routerTableId'  => 'RouterTableId',
         'status'         => 'Status',
         'vSwitchIds'     => 'VSwitchIds',
     ];
@@ -104,6 +110,9 @@ class DescribeNetworkAttributeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->routerTableId) {
+            $res['RouterTableId'] = $this->routerTableId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -146,6 +155,9 @@ class DescribeNetworkAttributeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RouterTableId'])) {
+            $model->routerTableId = $map['RouterTableId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

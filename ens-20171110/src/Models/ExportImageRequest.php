@@ -32,18 +32,12 @@ class ExportImageRequest extends Model
      * @var string
      */
     public $roleName;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'imageId'     => 'ImageId',
         'OSSBucket'   => 'OSSBucket',
         'OSSPrefix'   => 'OSSPrefix',
         'OSSRegionId' => 'OSSRegionId',
         'roleName'    => 'RoleName',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class ExportImageRequest extends Model
         }
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class ExportImageRequest extends Model
         }
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;
