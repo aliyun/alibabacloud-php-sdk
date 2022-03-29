@@ -2339,7 +2339,7 @@ class Ocrapi extends OpenApiClient
         $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
             'body'   => $request->body,
-            'stream' => $request->body,
+            'stream' => $tmpReq->body,
         ]);
         $params = new Params([
             'action'      => 'RecognizeMultiLanguage',
