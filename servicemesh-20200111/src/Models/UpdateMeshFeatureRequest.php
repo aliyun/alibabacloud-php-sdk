@@ -216,6 +216,26 @@ class UpdateMeshFeatureRequest extends Model
     /**
      * @var string
      */
+    public $OPAInjectorCPULimit;
+
+    /**
+     * @var string
+     */
+    public $OPAInjectorCPURequirement;
+
+    /**
+     * @var string
+     */
+    public $OPAInjectorMemoryLimit;
+
+    /**
+     * @var string
+     */
+    public $OPAInjectorMemoryRequirement;
+
+    /**
+     * @var string
+     */
     public $OPALimitCPU;
 
     /**
@@ -237,6 +257,11 @@ class UpdateMeshFeatureRequest extends Model
      * @var string
      */
     public $OPARequestMemory;
+
+    /**
+     * @var bool
+     */
+    public $OPAScopeInjected;
 
     /**
      * @var bool
@@ -404,11 +429,16 @@ class UpdateMeshFeatureRequest extends Model
         'multiBufferEnabled'             => 'MultiBufferEnabled',
         'multiBufferPollDelay'           => 'MultiBufferPollDelay',
         'mysqlFilterEnabled'             => 'MysqlFilterEnabled',
+        'OPAInjectorCPULimit'            => 'OPAInjectorCPULimit',
+        'OPAInjectorCPURequirement'      => 'OPAInjectorCPURequirement',
+        'OPAInjectorMemoryLimit'         => 'OPAInjectorMemoryLimit',
+        'OPAInjectorMemoryRequirement'   => 'OPAInjectorMemoryRequirement',
         'OPALimitCPU'                    => 'OPALimitCPU',
         'OPALimitMemory'                 => 'OPALimitMemory',
         'OPALogLevel'                    => 'OPALogLevel',
         'OPARequestCPU'                  => 'OPARequestCPU',
         'OPARequestMemory'               => 'OPARequestMemory',
+        'OPAScopeInjected'               => 'OPAScopeInjected',
         'opaEnabled'                     => 'OpaEnabled',
         'openAgentPolicy'                => 'OpenAgentPolicy',
         'outboundTrafficPolicy'          => 'OutboundTrafficPolicy',
@@ -566,6 +596,18 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->mysqlFilterEnabled) {
             $res['MysqlFilterEnabled'] = $this->mysqlFilterEnabled;
         }
+        if (null !== $this->OPAInjectorCPULimit) {
+            $res['OPAInjectorCPULimit'] = $this->OPAInjectorCPULimit;
+        }
+        if (null !== $this->OPAInjectorCPURequirement) {
+            $res['OPAInjectorCPURequirement'] = $this->OPAInjectorCPURequirement;
+        }
+        if (null !== $this->OPAInjectorMemoryLimit) {
+            $res['OPAInjectorMemoryLimit'] = $this->OPAInjectorMemoryLimit;
+        }
+        if (null !== $this->OPAInjectorMemoryRequirement) {
+            $res['OPAInjectorMemoryRequirement'] = $this->OPAInjectorMemoryRequirement;
+        }
         if (null !== $this->OPALimitCPU) {
             $res['OPALimitCPU'] = $this->OPALimitCPU;
         }
@@ -580,6 +622,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->OPARequestMemory) {
             $res['OPARequestMemory'] = $this->OPARequestMemory;
+        }
+        if (null !== $this->OPAScopeInjected) {
+            $res['OPAScopeInjected'] = $this->OPAScopeInjected;
         }
         if (null !== $this->opaEnabled) {
             $res['OpaEnabled'] = $this->opaEnabled;
@@ -791,6 +836,18 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['MysqlFilterEnabled'])) {
             $model->mysqlFilterEnabled = $map['MysqlFilterEnabled'];
         }
+        if (isset($map['OPAInjectorCPULimit'])) {
+            $model->OPAInjectorCPULimit = $map['OPAInjectorCPULimit'];
+        }
+        if (isset($map['OPAInjectorCPURequirement'])) {
+            $model->OPAInjectorCPURequirement = $map['OPAInjectorCPURequirement'];
+        }
+        if (isset($map['OPAInjectorMemoryLimit'])) {
+            $model->OPAInjectorMemoryLimit = $map['OPAInjectorMemoryLimit'];
+        }
+        if (isset($map['OPAInjectorMemoryRequirement'])) {
+            $model->OPAInjectorMemoryRequirement = $map['OPAInjectorMemoryRequirement'];
+        }
         if (isset($map['OPALimitCPU'])) {
             $model->OPALimitCPU = $map['OPALimitCPU'];
         }
@@ -805,6 +862,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['OPARequestMemory'])) {
             $model->OPARequestMemory = $map['OPARequestMemory'];
+        }
+        if (isset($map['OPAScopeInjected'])) {
+            $model->OPAScopeInjected = $map['OPAScopeInjected'];
         }
         if (isset($map['OpaEnabled'])) {
             $model->opaEnabled = $map['OpaEnabled'];

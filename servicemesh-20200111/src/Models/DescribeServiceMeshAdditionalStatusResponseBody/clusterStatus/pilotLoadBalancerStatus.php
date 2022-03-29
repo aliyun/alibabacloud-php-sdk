@@ -11,6 +11,16 @@ class pilotLoadBalancerStatus extends Model
     /**
      * @var string
      */
+    public $payType;
+
+    /**
+     * @var bool
+     */
+    public $reused;
+
+    /**
+     * @var string
+     */
     public $SLBBackEndServerNumStatus;
 
     /**
@@ -18,6 +28,8 @@ class pilotLoadBalancerStatus extends Model
      */
     public $SLBExistStatus;
     protected $_name = [
+        'payType'                   => 'PayType',
+        'reused'                    => 'Reused',
         'SLBBackEndServerNumStatus' => 'SLBBackEndServerNumStatus',
         'SLBExistStatus'            => 'SLBExistStatus',
     ];
@@ -29,6 +41,12 @@ class pilotLoadBalancerStatus extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->reused) {
+            $res['Reused'] = $this->reused;
+        }
         if (null !== $this->SLBBackEndServerNumStatus) {
             $res['SLBBackEndServerNumStatus'] = $this->SLBBackEndServerNumStatus;
         }
@@ -47,6 +65,12 @@ class pilotLoadBalancerStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+        if (isset($map['Reused'])) {
+            $model->reused = $map['Reused'];
+        }
         if (isset($map['SLBBackEndServerNumStatus'])) {
             $model->SLBBackEndServerNumStatus = $map['SLBBackEndServerNumStatus'];
         }
