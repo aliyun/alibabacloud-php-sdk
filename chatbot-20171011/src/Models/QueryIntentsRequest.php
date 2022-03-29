@@ -21,6 +21,13 @@ class QueryIntentsRequest extends Model
     public $dialogId;
 
     /**
+     * @description 机器人实例 ID
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var string
      */
     public $intentName;
@@ -37,6 +44,7 @@ class QueryIntentsRequest extends Model
     protected $_name = [
         'agentKey'   => 'AgentKey',
         'dialogId'   => 'DialogId',
+        'instanceId' => 'InstanceId',
         'intentName' => 'IntentName',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
@@ -54,6 +62,9 @@ class QueryIntentsRequest extends Model
         }
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->intentName) {
             $res['IntentName'] = $this->intentName;
@@ -81,6 +92,9 @@ class QueryIntentsRequest extends Model
         }
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IntentName'])) {
             $model->intentName = $map['IntentName'];

@@ -357,6 +357,9 @@ class Chatbot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -412,6 +415,9 @@ class Chatbot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -3008,6 +3014,9 @@ class Chatbot extends OpenApiClient
         }
         if (!Utils::isUnset($request->dialogId)) {
             $query['DialogId'] = $request->dialogId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->intentName)) {
             $query['IntentName'] = $request->intentName;

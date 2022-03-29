@@ -11,6 +11,11 @@ class AssociateRequest extends Model
     /**
      * @var string
      */
+    public $agentKey;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -33,6 +38,7 @@ class AssociateRequest extends Model
      */
     public $utterance;
     protected $_name = [
+        'agentKey'     => 'AgentKey',
         'instanceId'   => 'InstanceId',
         'perspective'  => 'Perspective',
         'recommendNum' => 'RecommendNum',
@@ -47,6 +53,9 @@ class AssociateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentKey) {
+            $res['AgentKey'] = $this->agentKey;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -74,6 +83,9 @@ class AssociateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentKey'])) {
+            $model->agentKey = $map['AgentKey'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
