@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowCategoryTreeRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowCategoryTreeResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowJobRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowJobResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowNodeInstanceRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowNodeInstanceResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowProjectRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowProjectResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowRequest;
@@ -1112,6 +1114,55 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFlowJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeFlowNodeInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeFlowNodeInstanceResponse
+     */
+    public function describeFlowNodeInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowNodeInstance',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFlowNodeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFlowNodeInstanceRequest $request
+     *
+     * @return DescribeFlowNodeInstanceResponse
+     */
+    public function describeFlowNodeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFlowNodeInstanceWithOptions($request, $runtime);
     }
 
     /**
