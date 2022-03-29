@@ -35,6 +35,7 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DeleteABTestExperimentResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DeleteABTestGroupResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DeleteABTestSceneResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DeleteFunctionInstanceResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DeleteFunctionTaskResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DeleteModelResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DeleteSortScriptFileResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DeleteSortScriptResponse;
@@ -71,6 +72,7 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionCurrentVersionRespon
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionDefaultInstanceResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionInstanceRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionInstanceResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionTaskResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionVersionResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetModelProgressResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetModelReportResponse;
@@ -117,6 +119,7 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListInterventionDictionaryNerRe
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListInterventionDictionaryRelatedEntitiesResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListModelsRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListModelsResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListProceedingsRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListProceedingsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListQueryProcessorAnalyzerResultsRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListQueryProcessorAnalyzerResultsResponse;
@@ -721,6 +724,9 @@ class OpenSearch extends OpenApiClient
         if (!Utils::isUnset($request->modelType)) {
             $body['modelType'] = $request->modelType;
         }
+        if (!Utils::isUnset($request->usageParameters)) {
+            $body['usageParameters'] = $request->usageParameters;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -1321,6 +1327,56 @@ class OpenSearch extends OpenApiClient
         ]);
 
         return DeleteFunctionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $appGroupIdentity
+     * @param string $functionName
+     * @param string $instanceName
+     * @param string $generation
+     *
+     * @return DeleteFunctionTaskResponse
+     */
+    public function deleteFunctionTask($appGroupIdentity, $functionName, $instanceName, $generation)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $appGroupIdentity
+     * @param string         $functionName
+     * @param string         $instanceName
+     * @param string         $generation
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteFunctionTaskResponse
+     */
+    public function deleteFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime)
+    {
+        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
+        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
+        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
+        $generation       = OpenApiUtilClient::getEncodeParam($generation);
+        $req              = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFunctionTask',
+            'version'     => '2017-12-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '/tasks/' . $generation . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFunctionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2678,6 +2734,56 @@ class OpenSearch extends OpenApiClient
         ]);
 
         return GetFunctionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $appGroupIdentity
+     * @param string $functionName
+     * @param string $instanceName
+     * @param string $generation
+     *
+     * @return GetFunctionTaskResponse
+     */
+    public function getFunctionTask($appGroupIdentity, $functionName, $instanceName, $generation)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $appGroupIdentity
+     * @param string         $functionName
+     * @param string         $instanceName
+     * @param string         $generation
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetFunctionTaskResponse
+     */
+    public function getFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime)
+    {
+        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
+        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
+        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
+        $generation       = OpenApiUtilClient::getEncodeParam($generation);
+        $req              = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetFunctionTask',
+            'version'     => '2017-12-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '/tasks/' . $generation . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFunctionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4198,30 +4304,38 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string $appGroupIdentity
+     * @param string                 $appGroupIdentity
+     * @param ListProceedingsRequest $request
      *
      * @return ListProceedingsResponse
      */
-    public function listProceedings($appGroupIdentity)
+    public function listProceedings($appGroupIdentity, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProceedingsWithOptions($appGroupIdentity, $headers, $runtime);
+        return $this->listProceedingsWithOptions($appGroupIdentity, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $appGroupIdentity
+     * @param ListProceedingsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return ListProceedingsResponse
      */
-    public function listProceedingsWithOptions($appGroupIdentity, $headers, $runtime)
+    public function listProceedingsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $query            = [];
+        if (!Utils::isUnset($request->filterFinished)) {
+            $query['filterFinished'] = $request->filterFinished;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProceedings',
@@ -6681,6 +6795,9 @@ class OpenSearch extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->usageParameters)) {
+            $body['usageParameters'] = $request->usageParameters;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

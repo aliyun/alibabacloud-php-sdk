@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionInstancesResp
 
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionInstancesResponseBody\result\belongs;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionInstancesResponseBody\result\createParameters;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionInstancesResponseBody\result\usageParameters;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
@@ -71,6 +72,11 @@ class result extends Model
     public $status;
 
     /**
+     * @var usageParameters[]
+     */
+    public $usageParameters;
+
+    /**
      * @var int
      */
     public $versionId;
@@ -87,6 +93,7 @@ class result extends Model
         'modelType'        => 'ModelType',
         'source'           => 'Source',
         'status'           => 'Status',
+        'usageParameters'  => 'UsageParameters',
         'versionId'        => 'VersionId',
     ];
 
@@ -138,6 +145,15 @@ class result extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->usageParameters) {
+            $res['UsageParameters'] = [];
+            if (null !== $this->usageParameters && \is_array($this->usageParameters)) {
+                $n = 0;
+                foreach ($this->usageParameters as $item) {
+                    $res['UsageParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
@@ -195,6 +211,15 @@ class result extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['UsageParameters'])) {
+            if (!empty($map['UsageParameters'])) {
+                $model->usageParameters = [];
+                $n                      = 0;
+                foreach ($map['UsageParameters'] as $item) {
+                    $model->usageParameters[$n++] = null !== $item ? usageParameters::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateFunctionInstanceRequest\createParameters;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateFunctionInstanceRequest\usageParameters;
 use AlibabaCloud\Tea\Model;
 
 class UpdateFunctionInstanceRequest extends Model
@@ -29,10 +30,18 @@ class UpdateFunctionInstanceRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @description 使用参数
+     *
+     * @var usageParameters[]
+     */
+    public $usageParameters;
     protected $_name = [
         'createParameters' => 'createParameters',
         'cron'             => 'cron',
         'description'      => 'description',
+        'usageParameters'  => 'usageParameters',
     ];
 
     public function validate()
@@ -56,6 +65,15 @@ class UpdateFunctionInstanceRequest extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->usageParameters) {
+            $res['usageParameters'] = [];
+            if (null !== $this->usageParameters && \is_array($this->usageParameters)) {
+                $n = 0;
+                foreach ($this->usageParameters as $item) {
+                    $res['usageParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,6 +101,15 @@ class UpdateFunctionInstanceRequest extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['usageParameters'])) {
+            if (!empty($map['usageParameters'])) {
+                $model->usageParameters = [];
+                $n                      = 0;
+                foreach ($map['usageParameters'] as $item) {
+                    $model->usageParameters[$n++] = null !== $item ? usageParameters::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

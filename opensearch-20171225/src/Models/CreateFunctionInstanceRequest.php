@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionInstanceRequest\createParameters;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionInstanceRequest\usageParameters;
 use AlibabaCloud\Tea\Model;
 
 class CreateFunctionInstanceRequest extends Model
@@ -50,6 +51,13 @@ class CreateFunctionInstanceRequest extends Model
      * @var string
      */
     public $modelType;
+
+    /**
+     * @description 使用参数
+     *
+     * @var usageParameters[]
+     */
+    public $usageParameters;
     protected $_name = [
         'createParameters' => 'createParameters',
         'cron'             => 'cron',
@@ -57,6 +65,7 @@ class CreateFunctionInstanceRequest extends Model
         'functionType'     => 'functionType',
         'instanceName'     => 'instanceName',
         'modelType'        => 'modelType',
+        'usageParameters'  => 'usageParameters',
     ];
 
     public function validate()
@@ -89,6 +98,15 @@ class CreateFunctionInstanceRequest extends Model
         }
         if (null !== $this->modelType) {
             $res['modelType'] = $this->modelType;
+        }
+        if (null !== $this->usageParameters) {
+            $res['usageParameters'] = [];
+            if (null !== $this->usageParameters && \is_array($this->usageParameters)) {
+                $n = 0;
+                foreach ($this->usageParameters as $item) {
+                    $res['usageParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -125,6 +143,15 @@ class CreateFunctionInstanceRequest extends Model
         }
         if (isset($map['modelType'])) {
             $model->modelType = $map['modelType'];
+        }
+        if (isset($map['usageParameters'])) {
+            if (!empty($map['usageParameters'])) {
+                $model->usageParameters = [];
+                $n                      = 0;
+                foreach ($map['usageParameters'] as $item) {
+                    $model->usageParameters[$n++] = null !== $item ? usageParameters::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

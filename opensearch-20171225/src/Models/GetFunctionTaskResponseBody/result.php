@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionTasksResponseBody;
+namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionTaskResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
