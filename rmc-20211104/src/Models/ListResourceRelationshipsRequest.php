@@ -21,11 +21,6 @@ class ListResourceRelationshipsRequest extends Model
     /**
      * @var string
      */
-    public $scene;
-
-    /**
-     * @var string
-     */
     public $sourceRegionId;
 
     /**
@@ -45,7 +40,6 @@ class ListResourceRelationshipsRequest extends Model
     protected $_name = [
         'maxResults'         => 'MaxResults',
         'nextToken'          => 'NextToken',
-        'scene'              => 'Scene',
         'sourceRegionId'     => 'SourceRegionId',
         'sourceResourceId'   => 'SourceResourceId',
         'sourceResourceType' => 'SourceResourceType',
@@ -64,9 +58,6 @@ class ListResourceRelationshipsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
         }
         if (null !== $this->sourceRegionId) {
             $res['SourceRegionId'] = $this->sourceRegionId;
@@ -97,9 +88,6 @@ class ListResourceRelationshipsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['Scene'])) {
-            $model->scene = $map['Scene'];
         }
         if (isset($map['SourceRegionId'])) {
             $model->sourceRegionId = $map['SourceRegionId'];

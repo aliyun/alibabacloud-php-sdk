@@ -65,9 +65,6 @@ class RMC extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
-        }
         if (!Utils::isUnset($request->sourceRegionId)) {
             $query['SourceRegionId'] = $request->sourceRegionId;
         }
