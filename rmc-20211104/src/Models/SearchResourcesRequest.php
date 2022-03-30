@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\RMC\V20211104\Models;
 
 use AlibabaCloud\SDK\RMC\V20211104\Models\SearchResourcesRequest\filter;
+use AlibabaCloud\SDK\RMC\V20211104\Models\SearchResourcesRequest\sortCriterion;
 use AlibabaCloud\Tea\Model;
 
 class SearchResourcesRequest extends Model
@@ -28,11 +29,17 @@ class SearchResourcesRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var sortCriterion
+     */
+    public $sortCriterion;
     protected $_name = [
         'filter'          => 'Filter',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
         'resourceGroupId' => 'ResourceGroupId',
+        'sortCriterion'   => 'SortCriterion',
     ];
 
     public function validate()
@@ -59,6 +66,9 @@ class SearchResourcesRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sortCriterion) {
+            $res['SortCriterion'] = null !== $this->sortCriterion ? $this->sortCriterion->toMap() : null;
         }
 
         return $res;
@@ -89,6 +99,9 @@ class SearchResourcesRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SortCriterion'])) {
+            $model->sortCriterion = sortCriterion::fromMap($map['SortCriterion']);
         }
 
         return $model;
