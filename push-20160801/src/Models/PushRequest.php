@@ -134,6 +134,11 @@ class PushRequest extends Model
     public $androidRenderStyle;
 
     /**
+     * @var int
+     */
+    public $androidVivoPushMode;
+
+    /**
      * @var string
      */
     public $androidXiaoMiActivity;
@@ -249,6 +254,11 @@ class PushRequest extends Model
     public $title;
 
     /**
+     * @var bool
+     */
+    public $trim;
+
+    /**
      * @var string
      */
     public $iOSApnsEnv;
@@ -267,6 +277,11 @@ class PushRequest extends Model
      * @var string
      */
     public $iOSExtParameters;
+
+    /**
+     * @var string
+     */
+    public $iOSInterruptionLevel;
 
     /**
      * @var string
@@ -292,6 +307,11 @@ class PushRequest extends Model
      * @var string
      */
     public $iOSNotificationThreadId;
+
+    /**
+     * @var float
+     */
+    public $iOSRelevanceScore;
 
     /**
      * @var bool
@@ -338,6 +358,7 @@ class PushRequest extends Model
         'androidPopupTitle'                => 'AndroidPopupTitle',
         'androidRemind'                    => 'AndroidRemind',
         'androidRenderStyle'               => 'AndroidRenderStyle',
+        'androidVivoPushMode'              => 'AndroidVivoPushMode',
         'androidXiaoMiActivity'            => 'AndroidXiaoMiActivity',
         'androidXiaoMiNotifyBody'          => 'AndroidXiaoMiNotifyBody',
         'androidXiaoMiNotifyTitle'         => 'AndroidXiaoMiNotifyTitle',
@@ -361,15 +382,18 @@ class PushRequest extends Model
         'target'                           => 'Target',
         'targetValue'                      => 'TargetValue',
         'title'                            => 'Title',
+        'trim'                             => 'Trim',
         'iOSApnsEnv'                       => 'iOSApnsEnv',
         'iOSBadge'                         => 'iOSBadge',
         'iOSBadgeAutoIncrement'            => 'iOSBadgeAutoIncrement',
         'iOSExtParameters'                 => 'iOSExtParameters',
+        'iOSInterruptionLevel'             => 'iOSInterruptionLevel',
         'iOSMusic'                         => 'iOSMusic',
         'iOSMutableContent'                => 'iOSMutableContent',
         'iOSNotificationCategory'          => 'iOSNotificationCategory',
         'iOSNotificationCollapseId'        => 'iOSNotificationCollapseId',
         'iOSNotificationThreadId'          => 'iOSNotificationThreadId',
+        'iOSRelevanceScore'                => 'iOSRelevanceScore',
         'iOSRemind'                        => 'iOSRemind',
         'iOSRemindBody'                    => 'iOSRemindBody',
         'iOSSilentNotification'            => 'iOSSilentNotification',
@@ -458,6 +482,9 @@ class PushRequest extends Model
         if (null !== $this->androidRenderStyle) {
             $res['AndroidRenderStyle'] = $this->androidRenderStyle;
         }
+        if (null !== $this->androidVivoPushMode) {
+            $res['AndroidVivoPushMode'] = $this->androidVivoPushMode;
+        }
         if (null !== $this->androidXiaoMiActivity) {
             $res['AndroidXiaoMiActivity'] = $this->androidXiaoMiActivity;
         }
@@ -527,6 +554,9 @@ class PushRequest extends Model
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+        if (null !== $this->trim) {
+            $res['Trim'] = $this->trim;
+        }
         if (null !== $this->iOSApnsEnv) {
             $res['iOSApnsEnv'] = $this->iOSApnsEnv;
         }
@@ -538,6 +568,9 @@ class PushRequest extends Model
         }
         if (null !== $this->iOSExtParameters) {
             $res['iOSExtParameters'] = $this->iOSExtParameters;
+        }
+        if (null !== $this->iOSInterruptionLevel) {
+            $res['iOSInterruptionLevel'] = $this->iOSInterruptionLevel;
         }
         if (null !== $this->iOSMusic) {
             $res['iOSMusic'] = $this->iOSMusic;
@@ -553,6 +586,9 @@ class PushRequest extends Model
         }
         if (null !== $this->iOSNotificationThreadId) {
             $res['iOSNotificationThreadId'] = $this->iOSNotificationThreadId;
+        }
+        if (null !== $this->iOSRelevanceScore) {
+            $res['iOSRelevanceScore'] = $this->iOSRelevanceScore;
         }
         if (null !== $this->iOSRemind) {
             $res['iOSRemind'] = $this->iOSRemind;
@@ -653,6 +689,9 @@ class PushRequest extends Model
         if (isset($map['AndroidRenderStyle'])) {
             $model->androidRenderStyle = $map['AndroidRenderStyle'];
         }
+        if (isset($map['AndroidVivoPushMode'])) {
+            $model->androidVivoPushMode = $map['AndroidVivoPushMode'];
+        }
         if (isset($map['AndroidXiaoMiActivity'])) {
             $model->androidXiaoMiActivity = $map['AndroidXiaoMiActivity'];
         }
@@ -722,6 +761,9 @@ class PushRequest extends Model
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+        if (isset($map['Trim'])) {
+            $model->trim = $map['Trim'];
+        }
         if (isset($map['iOSApnsEnv'])) {
             $model->iOSApnsEnv = $map['iOSApnsEnv'];
         }
@@ -733,6 +775,9 @@ class PushRequest extends Model
         }
         if (isset($map['iOSExtParameters'])) {
             $model->iOSExtParameters = $map['iOSExtParameters'];
+        }
+        if (isset($map['iOSInterruptionLevel'])) {
+            $model->iOSInterruptionLevel = $map['iOSInterruptionLevel'];
         }
         if (isset($map['iOSMusic'])) {
             $model->iOSMusic = $map['iOSMusic'];
@@ -748,6 +793,9 @@ class PushRequest extends Model
         }
         if (isset($map['iOSNotificationThreadId'])) {
             $model->iOSNotificationThreadId = $map['iOSNotificationThreadId'];
+        }
+        if (isset($map['iOSRelevanceScore'])) {
+            $model->iOSRelevanceScore = $map['iOSRelevanceScore'];
         }
         if (isset($map['iOSRemind'])) {
             $model->iOSRemind = $map['iOSRemind'];

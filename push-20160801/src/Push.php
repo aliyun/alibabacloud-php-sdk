@@ -802,6 +802,9 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->androidRenderStyle)) {
             $query['AndroidRenderStyle'] = $request->androidRenderStyle;
         }
+        if (!Utils::isUnset($request->androidVivoPushMode)) {
+            $query['AndroidVivoPushMode'] = $request->androidVivoPushMode;
+        }
         if (!Utils::isUnset($request->androidXiaoMiActivity)) {
             $query['AndroidXiaoMiActivity'] = $request->androidXiaoMiActivity;
         }
@@ -871,6 +874,9 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;
         }
+        if (!Utils::isUnset($request->trim)) {
+            $query['Trim'] = $request->trim;
+        }
         if (!Utils::isUnset($request->iOSApnsEnv)) {
             $query['iOSApnsEnv'] = $request->iOSApnsEnv;
         }
@@ -882,6 +888,9 @@ class Push extends OpenApiClient
         }
         if (!Utils::isUnset($request->iOSExtParameters)) {
             $query['iOSExtParameters'] = $request->iOSExtParameters;
+        }
+        if (!Utils::isUnset($request->iOSInterruptionLevel)) {
+            $query['iOSInterruptionLevel'] = $request->iOSInterruptionLevel;
         }
         if (!Utils::isUnset($request->iOSMusic)) {
             $query['iOSMusic'] = $request->iOSMusic;
@@ -897,6 +906,9 @@ class Push extends OpenApiClient
         }
         if (!Utils::isUnset($request->iOSNotificationThreadId)) {
             $query['iOSNotificationThreadId'] = $request->iOSNotificationThreadId;
+        }
+        if (!Utils::isUnset($request->iOSRelevanceScore)) {
+            $query['iOSRelevanceScore'] = $request->iOSRelevanceScore;
         }
         if (!Utils::isUnset($request->iOSRemind)) {
             $query['iOSRemind'] = $request->iOSRemind;
