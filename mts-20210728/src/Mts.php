@@ -712,6 +712,9 @@ class Mts extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->keyUri)) {
+            $body['KeyUri'] = $request->keyUri;
+        }
         if (!Utils::isUnset($request->mediaId)) {
             $body['MediaId'] = $request->mediaId;
         }

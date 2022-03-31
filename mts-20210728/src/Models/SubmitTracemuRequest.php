@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SubmitTracemuRequest extends Model
 {
     /**
+     * @description 密钥服务器uri
+     *
+     * @var string
+     */
+    public $keyUri;
+
+    /**
      * @description ab流处理后的媒体id
      *
      * @var string
@@ -29,6 +36,7 @@ class SubmitTracemuRequest extends Model
      */
     public $trace;
     protected $_name = [
+        'keyUri'  => 'KeyUri',
         'mediaId' => 'MediaId',
         'output'  => 'Output',
         'trace'   => 'Trace',
@@ -41,6 +49,9 @@ class SubmitTracemuRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keyUri) {
+            $res['KeyUri'] = $this->keyUri;
+        }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -62,6 +73,9 @@ class SubmitTracemuRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['KeyUri'])) {
+            $model->keyUri = $map['KeyUri'];
+        }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
