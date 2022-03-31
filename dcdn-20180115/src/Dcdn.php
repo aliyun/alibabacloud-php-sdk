@@ -226,6 +226,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillTypeRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillTypeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserCertificateExpireCountRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserCertificateExpireCountResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserConfigsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserDomainsByFuncRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserDomainsByFuncResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserDomainsRequest;
@@ -6137,6 +6139,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnUserCertificateExpireCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnUserConfigsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnUserConfigsResponse
+     */
+    public function describeDcdnUserConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserConfigs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnUserConfigsRequest $request
+     *
+     * @return DescribeDcdnUserConfigsResponse
+     */
+    public function describeDcdnUserConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnUserConfigsWithOptions($request, $runtime);
     }
 
     /**
