@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDomainCustomLogConfigResponse extends Model
+class DescribeIpStatusResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ModifyDomainCustomLogConfigResponse extends Model
     public $headers;
 
     /**
-     * @var ModifyDomainCustomLogConfigResponseBody
+     * @var DescribeIpStatusResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ModifyDomainCustomLogConfigResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDomainCustomLogConfigResponse
+     * @return DescribeIpStatusResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ModifyDomainCustomLogConfigResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyDomainCustomLogConfigResponseBody::fromMap($map['body']);
+            $model->body = DescribeIpStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

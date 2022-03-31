@@ -224,6 +224,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIllegalUrlExportTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIllegalUrlExportTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpInfoRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpInfoResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpStatusRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpStatusResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeL2VipsByDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeL2VipsByDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRangeDataByLocateAndIspServiceRequest;
@@ -276,8 +278,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyDomainCustomLogConfigRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyDomainCustomLogConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyUserCustomLogConfigRequest;
@@ -6048,6 +6048,46 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeIpStatusRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeIpStatusResponse
+     */
+    public function describeIpStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpStatus',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIpStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIpStatusRequest $request
+     *
+     * @return DescribeIpStatusResponse
+     */
+    public function describeIpStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIpStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeL2VipsByDomainRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -7316,46 +7356,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCdnDomainSchdmByPropertyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDomainCustomLogConfigRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyDomainCustomLogConfigResponse
-     */
-    public function modifyDomainCustomLogConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDomainCustomLogConfig',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyDomainCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDomainCustomLogConfigRequest $request
-     *
-     * @return ModifyDomainCustomLogConfigResponse
-     */
-    public function modifyDomainCustomLogConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDomainCustomLogConfigWithOptions($request, $runtime);
     }
 
     /**
