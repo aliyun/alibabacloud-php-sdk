@@ -12,14 +12,20 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\AddDcdnIpaDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\AddDcdnIpaDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchAddDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchAddDcdnDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchCreateDcdnWafRulesRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchCreateDcdnWafRulesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnDomainConfigsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnWafRulesRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnWafRulesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnIpaDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnIpaDomainConfigsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnWafDomainConfigsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnWafDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainRequest;
@@ -36,6 +42,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryReque
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSubTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnWafPolicyRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnWafPolicyResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineShrinkRequest;
@@ -57,6 +65,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigReques
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSubTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafPolicyRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafPolicyResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineCodeRevisionRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineCodeRevisionResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsRequest;
@@ -246,8 +256,30 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserTagsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserTagsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainDetailRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPoliciesRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPoliciesResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyDomainsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyDomainsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyValidDomainsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyValidDomainsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafRuleRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafRuleResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafRulesRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafRulesResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafScenesRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafScenesResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCodeRevisionRequest;
@@ -273,6 +305,12 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectReques
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafPolicyDomainsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafPolicyDomainsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafPolicyRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafPolicyResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafRuleRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafRuleResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\OpenDcdnServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\OpenDcdnServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PreloadDcdnObjectCachesRequest;
@@ -633,6 +671,57 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param BatchCreateDcdnWafRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchCreateDcdnWafRulesResponse
+     */
+    public function batchCreateDcdnWafRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->ruleConfigs)) {
+            $body['RuleConfigs'] = $request->ruleConfigs;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCreateDcdnWafRules',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchCreateDcdnWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchCreateDcdnWafRulesRequest $request
+     *
+     * @return BatchCreateDcdnWafRulesResponse
+     */
+    public function batchCreateDcdnWafRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateDcdnWafRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchDeleteDcdnDomainConfigsRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -685,6 +774,54 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchDeleteDcdnDomainConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchDeleteDcdnWafRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchDeleteDcdnWafRulesResponse
+     */
+    public function batchDeleteDcdnWafRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ruleIds)) {
+            $body['RuleIds'] = $request->ruleIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteDcdnWafRules',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDeleteDcdnWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchDeleteDcdnWafRulesRequest $request
+     *
+     * @return BatchDeleteDcdnWafRulesResponse
+     */
+    public function batchDeleteDcdnWafRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteDcdnWafRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -862,6 +999,57 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchSetDcdnIpaDomainConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchSetDcdnWafDomainConfigsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchSetDcdnWafDomainConfigsResponse
+     */
+    public function batchSetDcdnWafDomainConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->defenseStatus)) {
+            $body['DefenseStatus'] = $request->defenseStatus;
+        }
+        if (!Utils::isUnset($request->domainNames)) {
+            $body['DomainNames'] = $request->domainNames;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetDcdnWafDomainConfigs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchSetDcdnWafDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchSetDcdnWafDomainConfigsRequest $request
+     *
+     * @return BatchSetDcdnWafDomainConfigsResponse
+     */
+    public function batchSetDcdnWafDomainConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchSetDcdnWafDomainConfigsWithOptions($request, $runtime);
     }
 
     /**
@@ -1298,6 +1486,63 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDcdnSubTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDcdnWafPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDcdnWafPolicyResponse
+     */
+    public function createDcdnWafPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->defenseScene)) {
+            $body['DefenseScene'] = $request->defenseScene;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $body['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyStatus)) {
+            $body['PolicyStatus'] = $request->policyStatus;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $body['PolicyType'] = $request->policyType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDcdnWafPolicy',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDcdnWafPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDcdnWafPolicyRequest $request
+     *
+     * @return CreateDcdnWafPolicyResponse
+     */
+    public function createDcdnWafPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDcdnWafPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1803,6 +2048,54 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDcdnSubTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDcdnWafPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDcdnWafPolicyResponse
+     */
+    public function deleteDcdnWafPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnWafPolicy',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDcdnWafPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDcdnWafPolicyRequest $request
+     *
+     * @return DeleteDcdnWafPolicyResponse
+     */
+    public function deleteDcdnWafPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDcdnWafPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -6726,6 +7019,545 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnWafDomainDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnWafDomainDetailResponse
+     */
+    public function describeDcdnWafDomainDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafDomainDetail',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafDomainDetailRequest $request
+     *
+     * @return DescribeDcdnWafDomainDetailResponse
+     */
+    public function describeDcdnWafDomainDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafDomainDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafDomainsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnWafDomainsResponse
+     */
+    public function describeDcdnWafDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryArgs)) {
+            $query['QueryArgs'] = $request->queryArgs;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafDomains',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafDomainsRequest $request
+     *
+     * @return DescribeDcdnWafDomainsResponse
+     */
+    public function describeDcdnWafDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafFilterInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnWafFilterInfoResponse
+     */
+    public function describeDcdnWafFilterInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseScenes)) {
+            $query['DefenseScenes'] = $request->defenseScenes;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafFilterInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafFilterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafFilterInfoRequest $request
+     *
+     * @return DescribeDcdnWafFilterInfoResponse
+     */
+    public function describeDcdnWafFilterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafFilterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafPoliciesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnWafPoliciesResponse
+     */
+    public function describeDcdnWafPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryArgs)) {
+            $query['QueryArgs'] = $request->queryArgs;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafPolicies',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafPoliciesRequest $request
+     *
+     * @return DescribeDcdnWafPoliciesResponse
+     */
+    public function describeDcdnWafPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnWafPolicyResponse
+     */
+    public function describeDcdnWafPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafPolicy',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafPolicyRequest $request
+     *
+     * @return DescribeDcdnWafPolicyResponse
+     */
+    public function describeDcdnWafPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafPolicyDomainsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDcdnWafPolicyDomainsResponse
+     */
+    public function describeDcdnWafPolicyDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafPolicyDomains',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafPolicyDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafPolicyDomainsRequest $request
+     *
+     * @return DescribeDcdnWafPolicyDomainsResponse
+     */
+    public function describeDcdnWafPolicyDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafPolicyDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafPolicyValidDomainsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDcdnWafPolicyValidDomainsResponse
+     */
+    public function describeDcdnWafPolicyValidDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseScene)) {
+            $query['DefenseScene'] = $request->defenseScene;
+        }
+        if (!Utils::isUnset($request->domainNameLike)) {
+            $query['DomainNameLike'] = $request->domainNameLike;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafPolicyValidDomains',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafPolicyValidDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafPolicyValidDomainsRequest $request
+     *
+     * @return DescribeDcdnWafPolicyValidDomainsResponse
+     */
+    public function describeDcdnWafPolicyValidDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafPolicyValidDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDcdnWafRuleResponse
+     */
+    public function describeDcdnWafRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafRule',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafRuleRequest $request
+     *
+     * @return DescribeDcdnWafRuleResponse
+     */
+    public function describeDcdnWafRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDcdnWafRulesResponse
+     */
+    public function describeDcdnWafRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryArgs)) {
+            $query['QueryArgs'] = $request->queryArgs;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafRules',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafRulesRequest $request
+     *
+     * @return DescribeDcdnWafRulesResponse
+     */
+    public function describeDcdnWafRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafScenesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnWafScenesResponse
+     */
+    public function describeDcdnWafScenesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseScenes)) {
+            $query['DefenseScenes'] = $request->defenseScenes;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafScenes',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafScenesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafScenesRequest $request
+     *
+     * @return DescribeDcdnWafScenesResponse
+     */
+    public function describeDcdnWafScenes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafScenesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafSpecInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnWafSpecInfoResponse
+     */
+    public function describeDcdnWafSpecInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafSpecInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafSpecInfoRequest $request
+     *
+     * @return DescribeDcdnWafSpecInfoResponse
+     */
+    public function describeDcdnWafSpecInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafSpecInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnsecServiceRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -7344,6 +8176,171 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDCdnDomainSchdmByPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDcdnWafPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDcdnWafPolicyResponse
+     */
+    public function modifyDcdnWafPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $body['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyStatus)) {
+            $body['PolicyStatus'] = $request->policyStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDcdnWafPolicy',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDcdnWafPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDcdnWafPolicyRequest $request
+     *
+     * @return ModifyDcdnWafPolicyResponse
+     */
+    public function modifyDcdnWafPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDcdnWafPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDcdnWafPolicyDomainsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDcdnWafPolicyDomainsResponse
+     */
+    public function modifyDcdnWafPolicyDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bindDomains)) {
+            $body['BindDomains'] = $request->bindDomains;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->unbindDomains)) {
+            $body['UnbindDomains'] = $request->unbindDomains;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDcdnWafPolicyDomains',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDcdnWafPolicyDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDcdnWafPolicyDomainsRequest $request
+     *
+     * @return ModifyDcdnWafPolicyDomainsResponse
+     */
+    public function modifyDcdnWafPolicyDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDcdnWafPolicyDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDcdnWafRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyDcdnWafRuleResponse
+     */
+    public function modifyDcdnWafRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ruleConfig)) {
+            $body['RuleConfig'] = $request->ruleConfig;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $body['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleStatus)) {
+            $body['RuleStatus'] = $request->ruleStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDcdnWafRule',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDcdnWafRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDcdnWafRuleRequest $request
+     *
+     * @return ModifyDcdnWafRuleResponse
+     */
+    public function modifyDcdnWafRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDcdnWafRuleWithOptions($request, $runtime);
     }
 
     /**
