@@ -2,34 +2,49 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
+namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLhSpaceByNameResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateLakeHouseSpaceRequest extends Model
+class lakehouseSpace extends Model
 {
+    /**
+     * @var string
+     */
+    public $creatorId;
+
+    /**
+     * @var string
+     */
+    public $dbType;
+
     /**
      * @var string
      */
     public $description;
 
     /**
-     * @var string
+     * @var int
      */
     public $devDbId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $dwDbType;
+    public $id;
 
     /**
-     * @var string
+     * @var bool
+     */
+    public $isDeleted;
+
+    /**
+     * @var int
      */
     public $mode;
 
     /**
-     * @var string
+     * @var int
      */
     public $prodDbId;
 
@@ -44,18 +59,21 @@ class CreateLakeHouseSpaceRequest extends Model
     public $spaceName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $tid;
+    public $tenantId;
     protected $_name = [
+        'creatorId'   => 'CreatorId',
+        'dbType'      => 'DbType',
         'description' => 'Description',
         'devDbId'     => 'DevDbId',
-        'dwDbType'    => 'DwDbType',
+        'id'          => 'Id',
+        'isDeleted'   => 'IsDeleted',
         'mode'        => 'Mode',
         'prodDbId'    => 'ProdDbId',
         'spaceConfig' => 'SpaceConfig',
         'spaceName'   => 'SpaceName',
-        'tid'         => 'Tid',
+        'tenantId'    => 'TenantId',
     ];
 
     public function validate()
@@ -65,14 +83,23 @@ class CreateLakeHouseSpaceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creatorId) {
+            $res['CreatorId'] = $this->creatorId;
+        }
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->devDbId) {
             $res['DevDbId'] = $this->devDbId;
         }
-        if (null !== $this->dwDbType) {
-            $res['DwDbType'] = $this->dwDbType;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->isDeleted) {
+            $res['IsDeleted'] = $this->isDeleted;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
@@ -86,8 +113,8 @@ class CreateLakeHouseSpaceRequest extends Model
         if (null !== $this->spaceName) {
             $res['SpaceName'] = $this->spaceName;
         }
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -96,19 +123,28 @@ class CreateLakeHouseSpaceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateLakeHouseSpaceRequest
+     * @return lakehouseSpace
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreatorId'])) {
+            $model->creatorId = $map['CreatorId'];
+        }
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['DevDbId'])) {
             $model->devDbId = $map['DevDbId'];
         }
-        if (isset($map['DwDbType'])) {
-            $model->dwDbType = $map['DwDbType'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['IsDeleted'])) {
+            $model->isDeleted = $map['IsDeleted'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
@@ -122,8 +158,8 @@ class CreateLakeHouseSpaceRequest extends Model
         if (isset($map['SpaceName'])) {
             $model->spaceName = $map['SpaceName'];
         }
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

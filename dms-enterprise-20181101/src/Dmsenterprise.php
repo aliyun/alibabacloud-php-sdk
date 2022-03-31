@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobRespon
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLakeHouseSpaceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLakeHouseSpaceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLhMembersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLhMembersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLhMembersShrinkRequest;
@@ -71,6 +73,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyAccessRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyAccessResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserRequest;
@@ -115,6 +119,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLhSpaceByNameRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLhSpaceByNameResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLogicDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLogicDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetMetaTableColumnRequest;
@@ -149,6 +155,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskInstanceRelationRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskInstanceRelationResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserActiveTenantRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserActiveTenantResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserRequest;
@@ -212,6 +220,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowInstanceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUsersRequest;
@@ -902,9 +914,6 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1556,6 +1565,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param DeleteLakeHouseSpaceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteLakeHouseSpaceResponse
+     */
+    public function deleteLakeHouseSpaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $query['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLakeHouseSpace',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLakeHouseSpaceRequest $request
+     *
+     * @return DeleteLakeHouseSpaceResponse
+     */
+    public function deleteLakeHouseSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLakeHouseSpaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteLhMembersRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
@@ -1797,6 +1852,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteProxyAccessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTaskFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTaskFlowResponse
+     */
+    public function deleteTaskFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTaskFlow',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTaskFlowRequest $request
+     *
+     * @return DeleteTaskFlowResponse
+     */
+    public function deleteTaskFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTaskFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -2784,6 +2885,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetLhSpaceByNameRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetLhSpaceByNameResponse
+     */
+    public function getLhSpaceByNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->spaceName)) {
+            $query['SpaceName'] = $request->spaceName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLhSpaceByName',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLhSpaceByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLhSpaceByNameRequest $request
+     *
+     * @return GetLhSpaceByNameResponse
+     */
+    public function getLhSpaceByName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLhSpaceByNameWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetLogicDatabaseRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3593,6 +3740,55 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTableTopologyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTaskInstanceRelationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTaskInstanceRelationResponse
+     */
+    public function getTaskInstanceRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagInstanceId)) {
+            $query['DagInstanceId'] = $request->dagInstanceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskInstanceRelation',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskInstanceRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskInstanceRelationRequest $request
+     *
+     * @return GetTaskInstanceRelationResponse
+     */
+    public function getTaskInstanceRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskInstanceRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -5273,6 +5469,116 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTaskFlowRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTaskFlowResponse
+     */
+    public function listTaskFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagInstanceId)) {
+            $query['DagInstanceId'] = $request->dagInstanceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskFlow',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskFlowRequest $request
+     *
+     * @return ListTaskFlowResponse
+     */
+    public function listTaskFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTaskFlowInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListTaskFlowInstanceResponse
+     */
+    public function listTaskFlowInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTimeBegin)) {
+            $query['StartTimeBegin'] = $request->startTimeBegin;
+        }
+        if (!Utils::isUnset($request->startTimeEnd)) {
+            $query['StartTimeEnd'] = $request->startTimeEnd;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->triggerType)) {
+            $query['TriggerType'] = $request->triggerType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskFlowInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskFlowInstanceRequest $request
+     *
+     * @return ListTaskFlowInstanceResponse
+     */
+    public function listTaskFlowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskFlowInstanceWithOptions($request, $runtime);
     }
 
     /**
