@@ -31,7 +31,7 @@ class UntagResourceRequest extends Model
     protected $_name = [
         'all'         => 'all',
         'resourceArn' => 'resourceArn',
-        'tagKeys'     => 'tagKeys	',
+        'tagKeys'     => 'tagKeys',
     ];
 
     public function validate()
@@ -48,7 +48,7 @@ class UntagResourceRequest extends Model
             $res['resourceArn'] = $this->resourceArn;
         }
         if (null !== $this->tagKeys) {
-            $res['tagKeys	'] = $this->tagKeys;
+            $res['tagKeys'] = $this->tagKeys;
         }
 
         return $res;
@@ -68,9 +68,9 @@ class UntagResourceRequest extends Model
         if (isset($map['resourceArn'])) {
             $model->resourceArn = $map['resourceArn'];
         }
-        if (isset($map['tagKeys	'])) {
-            if (!empty($map['tagKeys	'])) {
-                $model->tagKeys = $map['tagKeys	'];
+        if (isset($map['tagKeys'])) {
+            if (!empty($map['tagKeys'])) {
+                $model->tagKeys = $map['tagKeys'];
             }
         }
 

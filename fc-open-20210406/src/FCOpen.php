@@ -70,8 +70,6 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionOnDemandConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionOnDemandConfigResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionResponse;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetLayerVersionByArnHeaders;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetLayerVersionByArnResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetLayerVersionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetLayerVersionResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetProvisionConfigHeaders;
@@ -106,9 +104,6 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionAsyncInvokeConfigsRespo
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsResponse;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesHeaders;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesRequest;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersResponse;
@@ -130,6 +125,9 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServicesResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServiceVersionsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServiceVersionsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServiceVersionsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationFunctionsHeaders;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationFunctionsRequest;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationFunctionsResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationsResponse;
@@ -141,10 +139,6 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListTriggersRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListTriggersResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListVpcBindingsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListVpcBindingsResponse;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\PermanentDeleteLayerVersionHeaders;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\PermanentDeleteLayerVersionResponse;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishLayerAsPublicHeaders;
-use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishLayerAsPublicResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishServiceVersionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishServiceVersionRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishServiceVersionResponse;
@@ -274,38 +268,29 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $body        = [];
         if (!Utils::isUnset($request->additionalVersionWeight)) {
-            @$body['additionalVersionWeight'] = $request->additionalVersionWeight;
+            $body['additionalVersionWeight'] = $request->additionalVersionWeight;
         }
         if (!Utils::isUnset($request->aliasName)) {
-            @$body['aliasName'] = $request->aliasName;
+            $body['aliasName'] = $request->aliasName;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->versionId)) {
-            @$body['versionId'] = $request->versionId;
+            $body['versionId'] = $request->versionId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -351,38 +336,29 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->certConfig)) {
-            @$body['certConfig'] = $request->certConfig;
+            $body['certConfig'] = $request->certConfig;
         }
         if (!Utils::isUnset($request->domainName)) {
-            @$body['domainName'] = $request->domainName;
+            $body['domainName'] = $request->domainName;
         }
         if (!Utils::isUnset($request->protocol)) {
-            @$body['protocol'] = $request->protocol;
+            $body['protocol'] = $request->protocol;
         }
         if (!Utils::isUnset($request->routeConfig)) {
-            @$body['routeConfig'] = $request->routeConfig;
+            $body['routeConfig'] = $request->routeConfig;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -431,80 +407,74 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $body        = [];
         if (!Utils::isUnset($request->caPort)) {
-            @$body['caPort'] = $request->caPort;
+            $body['caPort'] = $request->caPort;
         }
         if (!Utils::isUnset($request->code)) {
-            @$body['code'] = $request->code;
+            $body['code'] = $request->code;
         }
         if (!Utils::isUnset($request->customContainerConfig)) {
-            @$body['customContainerConfig'] = $request->customContainerConfig;
+            $body['customContainerConfig'] = $request->customContainerConfig;
         }
         if (!Utils::isUnset($request->customDNS)) {
-            @$body['customDNS'] = $request->customDNS;
+            $body['customDNS'] = $request->customDNS;
         }
         if (!Utils::isUnset($request->customRuntimeConfig)) {
-            @$body['customRuntimeConfig'] = $request->customRuntimeConfig;
+            $body['customRuntimeConfig'] = $request->customRuntimeConfig;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->environmentVariables)) {
-            @$body['environmentVariables'] = $request->environmentVariables;
+            $body['environmentVariables'] = $request->environmentVariables;
         }
         if (!Utils::isUnset($request->functionName)) {
-            @$body['functionName'] = $request->functionName;
+            $body['functionName'] = $request->functionName;
         }
         if (!Utils::isUnset($request->handler)) {
-            @$body['handler'] = $request->handler;
+            $body['handler'] = $request->handler;
         }
         if (!Utils::isUnset($request->initializationTimeout)) {
-            @$body['initializationTimeout'] = $request->initializationTimeout;
+            $body['initializationTimeout'] = $request->initializationTimeout;
         }
         if (!Utils::isUnset($request->initializer)) {
-            @$body['initializer'] = $request->initializer;
+            $body['initializer'] = $request->initializer;
         }
         if (!Utils::isUnset($request->instanceConcurrency)) {
-            @$body['instanceConcurrency'] = $request->instanceConcurrency;
+            $body['instanceConcurrency'] = $request->instanceConcurrency;
         }
         if (!Utils::isUnset($request->instanceLifecycleConfig)) {
-            @$body['instanceLifecycleConfig'] = $request->instanceLifecycleConfig;
+            $body['instanceLifecycleConfig'] = $request->instanceLifecycleConfig;
         }
         if (!Utils::isUnset($request->instanceType)) {
-            @$body['instanceType'] = $request->instanceType;
+            $body['instanceType'] = $request->instanceType;
         }
         if (!Utils::isUnset($request->layers)) {
-            @$body['layers'] = $request->layers;
+            $body['layers'] = $request->layers;
         }
         if (!Utils::isUnset($request->memorySize)) {
-            @$body['memorySize'] = $request->memorySize;
+            $body['memorySize'] = $request->memorySize;
         }
         if (!Utils::isUnset($request->runtime)) {
-            @$body['runtime'] = $request->runtime;
+            $body['runtime'] = $request->runtime;
         }
         if (!Utils::isUnset($request->timeout)) {
-            @$body['timeout'] = $request->timeout;
+            $body['timeout'] = $request->timeout;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -553,35 +523,26 @@ class FCOpen extends OpenApiClient
         $layerName = OpenApiUtilClient::getEncodeParam($layerName);
         $body      = [];
         if (!Utils::isUnset($request->code)) {
-            @$body['Code'] = $request->code;
+            $body['Code'] = $request->code;
         }
         if (!Utils::isUnset($request->compatibleRuntime)) {
-            @$body['compatibleRuntime'] = $request->compatibleRuntime;
+            $body['compatibleRuntime'] = $request->compatibleRuntime;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -627,50 +588,41 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->internetAccess)) {
-            @$body['internetAccess'] = $request->internetAccess;
+            $body['internetAccess'] = $request->internetAccess;
         }
         if (!Utils::isUnset($request->logConfig)) {
-            @$body['logConfig'] = $request->logConfig;
+            $body['logConfig'] = $request->logConfig;
         }
         if (!Utils::isUnset($request->nasConfig)) {
-            @$body['nasConfig'] = $request->nasConfig;
+            $body['nasConfig'] = $request->nasConfig;
         }
         if (!Utils::isUnset($request->role)) {
-            @$body['role'] = $request->role;
+            $body['role'] = $request->role;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$body['serviceName'] = $request->serviceName;
+            $body['serviceName'] = $request->serviceName;
         }
         if (!Utils::isUnset($request->tracingConfig)) {
-            @$body['tracingConfig'] = $request->tracingConfig;
+            $body['tracingConfig'] = $request->tracingConfig;
         }
         if (!Utils::isUnset($request->vpcConfig)) {
-            @$body['vpcConfig'] = $request->vpcConfig;
+            $body['vpcConfig'] = $request->vpcConfig;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -722,47 +674,38 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $body         = [];
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->invocationRole)) {
-            @$body['invocationRole'] = $request->invocationRole;
+            $body['invocationRole'] = $request->invocationRole;
         }
         if (!Utils::isUnset($request->qualifier)) {
-            @$body['qualifier'] = $request->qualifier;
+            $body['qualifier'] = $request->qualifier;
         }
         if (!Utils::isUnset($request->sourceArn)) {
-            @$body['sourceArn'] = $request->sourceArn;
+            $body['sourceArn'] = $request->sourceArn;
         }
         if (!Utils::isUnset($request->triggerConfig)) {
-            @$body['triggerConfig'] = $request->triggerConfig;
+            $body['triggerConfig'] = $request->triggerConfig;
         }
         if (!Utils::isUnset($request->triggerName)) {
-            @$body['triggerName'] = $request->triggerName;
+            $body['triggerName'] = $request->triggerName;
         }
         if (!Utils::isUnset($request->triggerType)) {
-            @$body['triggerType'] = $request->triggerType;
+            $body['triggerType'] = $request->triggerType;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -811,29 +754,20 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $body        = [];
         if (!Utils::isUnset($request->vpcId)) {
-            @$body['vpcId'] = $request->vpcId;
+            $body['vpcId'] = $request->vpcId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -885,25 +819,16 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -951,22 +876,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1017,25 +933,16 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1086,29 +993,20 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1160,32 +1058,23 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1237,22 +1126,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1300,25 +1180,16 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1369,22 +1240,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1438,25 +1300,16 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1507,22 +1360,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1576,29 +1420,20 @@ class FCOpen extends OpenApiClient
         $sourceArn    = OpenApiUtilClient::getEncodeParam($sourceArn);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1643,22 +1478,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1709,22 +1535,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1772,22 +1589,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1838,29 +1646,20 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1912,29 +1711,20 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -1986,29 +1776,20 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2060,29 +1841,20 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2134,22 +1906,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2167,69 +1930,6 @@ class FCOpen extends OpenApiClient
         ]);
 
         return GetLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $arn
-     *
-     * @return GetLayerVersionByArnResponse
-     */
-    public function getLayerVersionByArn($arn)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new GetLayerVersionByArnHeaders([]);
-
-        return $this->getLayerVersionByArnWithOptions($arn, $headers, $runtime);
-    }
-
-    /**
-     * @param string                      $arn
-     * @param GetLayerVersionByArnHeaders $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetLayerVersionByArnResponse
-     */
-    public function getLayerVersionByArnWithOptions($arn, $headers, $runtime)
-    {
-        $arn         = OpenApiUtilClient::getEncodeParam($arn);
-        $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
-            $realHeaders = $headers->commonHeaders;
-        }
-        if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
-        }
-        if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
-        }
-        if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
-        }
-        $req = new OpenApiRequest([
-            'headers' => $realHeaders,
-        ]);
-        $params = new Params([
-            'action'      => 'GetLayerVersionByArn',
-            'version'     => '2021-04-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/layerarn/' . $arn . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetLayerVersionByArnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2263,29 +1963,20 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2331,29 +2022,20 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->resourceArn)) {
-            @$query['resourceArn'] = $request->resourceArn;
+            $query['resourceArn'] = $request->resourceArn;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2402,29 +2084,20 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $query       = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2479,29 +2152,29 @@ class FCOpen extends OpenApiClient
         $invocationId = OpenApiUtilClient::getEncodeParam($invocationId);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+            $realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
         }
         if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2556,22 +2229,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2622,32 +2286,29 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+            $realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
         }
         if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
         }
         if (!Utils::isUnset($headers->xFcStatefulAsyncInvocationId)) {
-            @$realHeaders['X-Fc-Stateful-Async-Invocation-Id'] = Utils::toJSONString($headers->xFcStatefulAsyncInvocationId);
+            $realHeaders['X-Fc-Stateful-Async-Invocation-Id'] = Utils::toJSONString($headers->xFcStatefulAsyncInvocationId);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2697,38 +2358,29 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $query       = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->prefix)) {
-            @$query['prefix'] = $request->prefix;
+            $query['prefix'] = $request->prefix;
         }
         if (!Utils::isUnset($request->startKey)) {
-            @$query['startKey'] = $request->startKey;
+            $query['startKey'] = $request->startKey;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2774,38 +2426,29 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->prefix)) {
-            @$query['prefix'] = $request->prefix;
+            $query['prefix'] = $request->prefix;
         }
         if (!Utils::isUnset($request->startKey)) {
-            @$query['startKey'] = $request->startKey;
+            $query['startKey'] = $request->startKey;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2857,29 +2500,20 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -2931,32 +2565,32 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+            $realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
         }
         if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3005,41 +2639,32 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $query       = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->prefix)) {
-            @$query['prefix'] = $request->prefix;
+            $query['prefix'] = $request->prefix;
         }
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         if (!Utils::isUnset($request->startKey)) {
-            @$query['startKey'] = $request->startKey;
+            $query['startKey'] = $request->startKey;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3058,71 +2683,6 @@ class FCOpen extends OpenApiClient
         ]);
 
         return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string               $serviceName
-     * @param string               $functionName
-     * @param ListInstancesRequest $request
-     *
-     * @return ListInstancesResponse
-     */
-    public function listInstances($serviceName, $functionName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new ListInstancesHeaders([]);
-
-        return $this->listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string               $serviceName
-     * @param string               $functionName
-     * @param ListInstancesRequest $request
-     * @param ListInstancesHeaders $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListInstancesResponse
-     */
-    public function listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
-        if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
-        }
-        $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
-            $realHeaders = $headers->commonHeaders;
-        }
-        if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        $req = new OpenApiRequest([
-            'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2021-04-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3153,32 +2713,23 @@ class FCOpen extends OpenApiClient
         $layerName = OpenApiUtilClient::getEncodeParam($layerName);
         $query     = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->startVersion)) {
-            @$query['startVersion'] = $request->startVersion;
+            $query['startVersion'] = $request->startVersion;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3224,38 +2775,29 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->prefix)) {
-            @$query['prefix'] = $request->prefix;
+            $query['prefix'] = $request->prefix;
         }
         if (!Utils::isUnset($request->startKey)) {
-            @$query['startKey'] = $request->startKey;
+            $query['startKey'] = $request->startKey;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3301,38 +2843,29 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->prefix)) {
-            @$query['prefix'] = $request->prefix;
+            $query['prefix'] = $request->prefix;
         }
         if (!Utils::isUnset($request->startKey)) {
-            @$query['startKey'] = $request->startKey;
+            $query['startKey'] = $request->startKey;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3378,38 +2911,29 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$query['serviceName'] = $request->serviceName;
+            $query['serviceName'] = $request->serviceName;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3455,32 +2979,23 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3529,38 +3044,29 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $query       = [];
         if (!Utils::isUnset($request->direction)) {
-            @$query['direction'] = $request->direction;
+            $query['direction'] = $request->direction;
         }
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->startKey)) {
-            @$query['startKey'] = $request->startKey;
+            $query['startKey'] = $request->startKey;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3606,38 +3112,29 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->prefix)) {
-            @$query['prefix'] = $request->prefix;
+            $query['prefix'] = $request->prefix;
         }
         if (!Utils::isUnset($request->startKey)) {
-            @$query['startKey'] = $request->startKey;
+            $query['startKey'] = $request->startKey;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3656,6 +3153,68 @@ class FCOpen extends OpenApiClient
         ]);
 
         return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListStatefulAsyncInvocationFunctionsRequest $request
+     *
+     * @return ListStatefulAsyncInvocationFunctionsResponse
+     */
+    public function listStatefulAsyncInvocationFunctions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListStatefulAsyncInvocationFunctionsHeaders([]);
+
+        return $this->listStatefulAsyncInvocationFunctionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListStatefulAsyncInvocationFunctionsRequest $request
+     * @param ListStatefulAsyncInvocationFunctionsHeaders $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListStatefulAsyncInvocationFunctionsResponse
+     */
+    public function listStatefulAsyncInvocationFunctionsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStatefulAsyncInvocationFunctions',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/stateful-async-invocation-functions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStatefulAsyncInvocationFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3689,53 +3248,53 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->includePayload)) {
-            @$query['includePayload'] = $request->includePayload;
+            $query['includePayload'] = $request->includePayload;
         }
         if (!Utils::isUnset($request->invocationIdPrefix)) {
-            @$query['invocationIdPrefix'] = $request->invocationIdPrefix;
+            $query['invocationIdPrefix'] = $request->invocationIdPrefix;
         }
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         if (!Utils::isUnset($request->sortOrderByTime)) {
-            @$query['sortOrderByTime'] = $request->sortOrderByTime;
+            $query['sortOrderByTime'] = $request->sortOrderByTime;
         }
         if (!Utils::isUnset($request->startedTimeBegin)) {
-            @$query['startedTimeBegin'] = $request->startedTimeBegin;
+            $query['startedTimeBegin'] = $request->startedTimeBegin;
         }
         if (!Utils::isUnset($request->startedTimeEnd)) {
-            @$query['startedTimeEnd'] = $request->startedTimeEnd;
+            $query['startedTimeEnd'] = $request->startedTimeEnd;
         }
         if (!Utils::isUnset($request->status)) {
-            @$query['status'] = $request->status;
+            $query['status'] = $request->status;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+            $realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
         }
         if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3781,32 +3340,23 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3858,38 +3408,29 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->limit)) {
-            @$query['limit'] = $request->limit;
+            $query['limit'] = $request->limit;
         }
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['nextToken'] = $request->nextToken;
+            $query['nextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->prefix)) {
-            @$query['prefix'] = $request->prefix;
+            $query['prefix'] = $request->prefix;
         }
         if (!Utils::isUnset($request->startKey)) {
-            @$query['startKey'] = $request->startKey;
+            $query['startKey'] = $request->startKey;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3938,22 +3479,13 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -3971,141 +3503,6 @@ class FCOpen extends OpenApiClient
         ]);
 
         return ListVpcBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $userID
-     * @param string $layerName
-     * @param string $version
-     *
-     * @return PermanentDeleteLayerVersionResponse
-     */
-    public function permanentDeleteLayerVersion($userID, $layerName, $version)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new PermanentDeleteLayerVersionHeaders([]);
-
-        return $this->permanentDeleteLayerVersionWithOptions($userID, $layerName, $version, $headers, $runtime);
-    }
-
-    /**
-     * @param string                             $userID
-     * @param string                             $layerName
-     * @param string                             $version
-     * @param PermanentDeleteLayerVersionHeaders $headers
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return PermanentDeleteLayerVersionResponse
-     */
-    public function permanentDeleteLayerVersionWithOptions($userID, $layerName, $version, $headers, $runtime)
-    {
-        $userID      = OpenApiUtilClient::getEncodeParam($userID);
-        $layerName   = OpenApiUtilClient::getEncodeParam($layerName);
-        $version     = OpenApiUtilClient::getEncodeParam($version);
-        $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
-            $realHeaders = $headers->commonHeaders;
-        }
-        if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
-        }
-        if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
-        }
-        if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
-        }
-        $req = new OpenApiRequest([
-            'headers' => $realHeaders,
-        ]);
-        $params = new Params([
-            'action'      => 'PermanentDeleteLayerVersion',
-            'version'     => '2021-04-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/adminlayers/' . $userID . '/' . $layerName . '/versions/' . $version . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return PermanentDeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $layerName
-     * @param string $version
-     *
-     * @return PublishLayerAsPublicResponse
-     */
-    public function publishLayerAsPublic($layerName, $version)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new PublishLayerAsPublicHeaders([]);
-
-        return $this->publishLayerAsPublicWithOptions($layerName, $version, $headers, $runtime);
-    }
-
-    /**
-     * @param string                      $layerName
-     * @param string                      $version
-     * @param PublishLayerAsPublicHeaders $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return PublishLayerAsPublicResponse
-     */
-    public function publishLayerAsPublicWithOptions($layerName, $version, $headers, $runtime)
-    {
-        $layerName   = OpenApiUtilClient::getEncodeParam($layerName);
-        $version     = OpenApiUtilClient::getEncodeParam($version);
-        $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
-            $realHeaders = $headers->commonHeaders;
-        }
-        if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
-        }
-        if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
-        }
-        if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
-        }
-        $req = new OpenApiRequest([
-            'headers' => $realHeaders,
-        ]);
-        $params = new Params([
-            'action'      => 'PublishLayerAsPublic',
-            'version'     => '2021-04-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return PublishLayerAsPublicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4136,32 +3533,23 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $body        = [];
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4213,42 +3601,33 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $body = [];
         if (!Utils::isUnset($request->destinationConfig)) {
-            @$body['destinationConfig'] = $request->destinationConfig;
+            $body['destinationConfig'] = $request->destinationConfig;
         }
         if (!Utils::isUnset($request->maxAsyncEventAgeInSeconds)) {
-            @$body['maxAsyncEventAgeInSeconds'] = $request->maxAsyncEventAgeInSeconds;
+            $body['maxAsyncEventAgeInSeconds'] = $request->maxAsyncEventAgeInSeconds;
         }
         if (!Utils::isUnset($request->maxAsyncRetryAttempts)) {
-            @$body['maxAsyncRetryAttempts'] = $request->maxAsyncRetryAttempts;
+            $body['maxAsyncRetryAttempts'] = $request->maxAsyncRetryAttempts;
         }
         if (!Utils::isUnset($request->statefulInvocation)) {
-            @$body['statefulInvocation'] = $request->statefulInvocation;
+            $body['statefulInvocation'] = $request->statefulInvocation;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4301,36 +3680,27 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $body = [];
         if (!Utils::isUnset($request->maximumInstanceCount)) {
-            @$body['maximumInstanceCount'] = $request->maximumInstanceCount;
+            $body['maximumInstanceCount'] = $request->maximumInstanceCount;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4383,39 +3753,30 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $body = [];
         if (!Utils::isUnset($request->scheduledActions)) {
-            @$body['scheduledActions'] = $request->scheduledActions;
+            $body['scheduledActions'] = $request->scheduledActions;
         }
         if (!Utils::isUnset($request->target)) {
-            @$body['target'] = $request->target;
+            $body['target'] = $request->target;
         }
         if (!Utils::isUnset($request->targetTrackingPolicies)) {
-            @$body['targetTrackingPolicies'] = $request->targetTrackingPolicies;
+            $body['targetTrackingPolicies'] = $request->targetTrackingPolicies;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4468,33 +3829,24 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $body = [];
         if (!Utils::isUnset($request->sourceArn)) {
-            @$body['sourceArn'] = $request->sourceArn;
+            $body['sourceArn'] = $request->sourceArn;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4550,29 +3902,20 @@ class FCOpen extends OpenApiClient
         $invocationId = OpenApiUtilClient::getEncodeParam($invocationId);
         $query        = [];
         if (!Utils::isUnset($request->qualifier)) {
-            @$query['qualifier'] = $request->qualifier;
+            $query['qualifier'] = $request->qualifier;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4618,32 +3961,23 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->resourceArn)) {
-            @$body['resourceArn'] = $request->resourceArn;
+            $body['resourceArn'] = $request->resourceArn;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['tags'] = $request->tags;
+            $body['tags'] = $request->tags;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4689,35 +4023,26 @@ class FCOpen extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->all)) {
-            @$body['all'] = $request->all;
+            $body['all'] = $request->all;
         }
         if (!Utils::isUnset($request->resourceArn)) {
-            @$body['resourceArn'] = $request->resourceArn;
+            $body['resourceArn'] = $request->resourceArn;
         }
         if (!Utils::isUnset($request->tagKeys)) {
-            @$body['tagKeys'] = $request->tagKeys;
+            $body['tagKeys'] = $request->tagKeys;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4769,38 +4094,29 @@ class FCOpen extends OpenApiClient
         $aliasName   = OpenApiUtilClient::getEncodeParam($aliasName);
         $body        = [];
         if (!Utils::isUnset($request->additionalVersionWeight)) {
-            @$body['additionalVersionWeight'] = $request->additionalVersionWeight;
+            $body['additionalVersionWeight'] = $request->additionalVersionWeight;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->versionId)) {
-            @$body['versionId'] = $request->versionId;
+            $body['versionId'] = $request->versionId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4849,35 +4165,26 @@ class FCOpen extends OpenApiClient
         $domainName = OpenApiUtilClient::getEncodeParam($domainName);
         $body       = [];
         if (!Utils::isUnset($request->certConfig)) {
-            @$body['certConfig'] = $request->certConfig;
+            $body['certConfig'] = $request->certConfig;
         }
         if (!Utils::isUnset($request->protocol)) {
-            @$body['protocol'] = $request->protocol;
+            $body['protocol'] = $request->protocol;
         }
         if (!Utils::isUnset($request->routeConfig)) {
-            @$body['routeConfig'] = $request->routeConfig;
+            $body['routeConfig'] = $request->routeConfig;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -4929,80 +4236,74 @@ class FCOpen extends OpenApiClient
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $body         = [];
         if (!Utils::isUnset($request->instanceConcurrency)) {
-            @$body['InstanceConcurrency'] = $request->instanceConcurrency;
+            $body['InstanceConcurrency'] = $request->instanceConcurrency;
         }
         if (!Utils::isUnset($request->caPort)) {
-            @$body['caPort'] = $request->caPort;
+            $body['caPort'] = $request->caPort;
         }
         if (!Utils::isUnset($request->code)) {
-            @$body['code'] = $request->code;
+            $body['code'] = $request->code;
         }
         if (!Utils::isUnset($request->customContainerConfig)) {
-            @$body['customContainerConfig'] = $request->customContainerConfig;
+            $body['customContainerConfig'] = $request->customContainerConfig;
         }
         if (!Utils::isUnset($request->customDNS)) {
-            @$body['customDNS'] = $request->customDNS;
+            $body['customDNS'] = $request->customDNS;
         }
         if (!Utils::isUnset($request->customRuntimeConfig)) {
-            @$body['customRuntimeConfig'] = $request->customRuntimeConfig;
+            $body['customRuntimeConfig'] = $request->customRuntimeConfig;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->environmentVariables)) {
-            @$body['environmentVariables'] = $request->environmentVariables;
+            $body['environmentVariables'] = $request->environmentVariables;
         }
         if (!Utils::isUnset($request->handler)) {
-            @$body['handler'] = $request->handler;
+            $body['handler'] = $request->handler;
         }
         if (!Utils::isUnset($request->initializationTimeout)) {
-            @$body['initializationTimeout'] = $request->initializationTimeout;
+            $body['initializationTimeout'] = $request->initializationTimeout;
         }
         if (!Utils::isUnset($request->initializer)) {
-            @$body['initializer'] = $request->initializer;
+            $body['initializer'] = $request->initializer;
         }
         if (!Utils::isUnset($request->instanceLifecycleConfig)) {
-            @$body['instanceLifecycleConfig'] = $request->instanceLifecycleConfig;
+            $body['instanceLifecycleConfig'] = $request->instanceLifecycleConfig;
         }
         if (!Utils::isUnset($request->instanceType)) {
-            @$body['instanceType'] = $request->instanceType;
+            $body['instanceType'] = $request->instanceType;
         }
         if (!Utils::isUnset($request->layers)) {
-            @$body['layers'] = $request->layers;
+            $body['layers'] = $request->layers;
         }
         if (!Utils::isUnset($request->memorySize)) {
-            @$body['memorySize'] = $request->memorySize;
+            $body['memorySize'] = $request->memorySize;
         }
         if (!Utils::isUnset($request->runtime)) {
-            @$body['runtime'] = $request->runtime;
+            $body['runtime'] = $request->runtime;
         }
         if (!Utils::isUnset($request->timeout)) {
-            @$body['timeout'] = $request->timeout;
+            $body['timeout'] = $request->timeout;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -5051,50 +4352,41 @@ class FCOpen extends OpenApiClient
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $body        = [];
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->internetAccess)) {
-            @$body['internetAccess'] = $request->internetAccess;
+            $body['internetAccess'] = $request->internetAccess;
         }
         if (!Utils::isUnset($request->logConfig)) {
-            @$body['logConfig'] = $request->logConfig;
+            $body['logConfig'] = $request->logConfig;
         }
         if (!Utils::isUnset($request->nasConfig)) {
-            @$body['nasConfig'] = $request->nasConfig;
+            $body['nasConfig'] = $request->nasConfig;
         }
         if (!Utils::isUnset($request->role)) {
-            @$body['role'] = $request->role;
+            $body['role'] = $request->role;
         }
         if (!Utils::isUnset($request->tracingConfig)) {
-            @$body['tracingConfig'] = $request->tracingConfig;
+            $body['tracingConfig'] = $request->tracingConfig;
         }
         if (!Utils::isUnset($request->vpcConfig)) {
-            @$body['vpcConfig'] = $request->vpcConfig;
+            $body['vpcConfig'] = $request->vpcConfig;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
@@ -5149,41 +4441,32 @@ class FCOpen extends OpenApiClient
         $triggerName  = OpenApiUtilClient::getEncodeParam($triggerName);
         $body         = [];
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->invocationRole)) {
-            @$body['invocationRole'] = $request->invocationRole;
+            $body['invocationRole'] = $request->invocationRole;
         }
         if (!Utils::isUnset($request->qualifier)) {
-            @$body['qualifier'] = $request->qualifier;
+            $body['qualifier'] = $request->qualifier;
         }
         if (!Utils::isUnset($request->triggerConfig)) {
-            @$body['triggerConfig'] = $request->triggerConfig;
+            $body['triggerConfig'] = $request->triggerConfig;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
+            $realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
-        }
-        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcDate)) {
-            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
-        }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
         }
         if (!Utils::isUnset($headers->xFcTraceId)) {
-            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,

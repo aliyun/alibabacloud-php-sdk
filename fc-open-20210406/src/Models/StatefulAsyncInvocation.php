@@ -9,84 +9,98 @@ use AlibabaCloud\Tea\Model;
 class StatefulAsyncInvocation extends Model
 {
     /**
-     * @description alreadyRetriedTimes
+     * @description 异步任务调用失败后的已重试次数。
      *
      * @var int
      */
     public $alreadyRetriedTimes;
 
     /**
-     * @description destinationStatus
+     * @description 异步任务的目的状态。
      *
      * @var string
      */
     public $destinationStatus;
 
     /**
-     * @description endTime
+     * @description 异步任务的结束时间。
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description functionName
+     * @description 异步任务事件列表。
+     *
+     * @var StatefulAsyncInvocationEvent[]
+     */
+    public $events;
+
+    /**
+     * @description 异步任务所属的函数的名称。
      *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description invocationErrorMessage
+     * @description 异步任务的执行实例ID。
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description 异步任务的错误消息。
      *
      * @var string
      */
     public $invocationErrorMessage;
 
     /**
-     * @description invocationId
+     * @description 异步任务ID。
      *
      * @var string
      */
     public $invocationId;
 
     /**
-     * @description invocationPayload
+     * @description 异步任务的任务触发事件。
      *
      * @var string
      */
     public $invocationPayload;
 
     /**
-     * @description qualifier
+     * @description 异步任务所属的服务的别名或版本。
      *
      * @var string
      */
     public $qualifier;
 
     /**
-     * @description requestId
+     * @description 异步任务的请求ID。
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description serviceName
+     * @description 异步任务所属的服务的名称。
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description startedTime
+     * @description 异步任务的开始时间。
      *
      * @var int
      */
     public $startedTime;
 
     /**
-     * @description status
+     * @description 异步任务的执行状态。      Enqueued：异步消息已入队，等待处理。      Succeeded：调用执行成功。      Failed：调用执行失败。      Running：调用执行中。      Stopped：调用执行终止。      Stopping：执行停止中。      Invalid：您的执行因函数被删除等原因处于无效状态（任务未被执行）。      Expired：您为任务配置了最长排队等待的期限。该任务因为超期被丢弃（任务未被执行）。      Retrying：异步调用因执行错误重试中。
      *
      * @var string
      */
@@ -95,7 +109,9 @@ class StatefulAsyncInvocation extends Model
         'alreadyRetriedTimes'    => 'alreadyRetriedTimes',
         'destinationStatus'      => 'destinationStatus',
         'endTime'                => 'endTime',
+        'events'                 => 'events',
         'functionName'           => 'functionName',
+        'instanceId'             => 'instanceId',
         'invocationErrorMessage' => 'invocationErrorMessage',
         'invocationId'           => 'invocationId',
         'invocationPayload'      => 'invocationPayload',
@@ -122,8 +138,20 @@ class StatefulAsyncInvocation extends Model
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+        if (null !== $this->events) {
+            $res['events'] = [];
+            if (null !== $this->events && \is_array($this->events)) {
+                $n = 0;
+                foreach ($this->events as $item) {
+                    $res['events'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
+        }
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
         }
         if (null !== $this->invocationErrorMessage) {
             $res['invocationErrorMessage'] = $this->invocationErrorMessage;
@@ -170,8 +198,20 @@ class StatefulAsyncInvocation extends Model
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+        if (isset($map['events'])) {
+            if (!empty($map['events'])) {
+                $model->events = [];
+                $n             = 0;
+                foreach ($map['events'] as $item) {
+                    $model->events[$n++] = null !== $item ? StatefulAsyncInvocationEvent::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
+        }
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
         }
         if (isset($map['invocationErrorMessage'])) {
             $model->invocationErrorMessage = $map['invocationErrorMessage'];

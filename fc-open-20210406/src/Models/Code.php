@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class Code extends Model
 {
     /**
-     * @description codeCheckSum
-     *
-     * @var string
-     */
-    public $codeCheckSum;
-
-    /**
-     * @description error
-     *
-     * @var string
-     */
-    public $err;
-
-    /**
      * @description 函数代码包的OSS bucket name
      *
      * @var string
@@ -43,8 +29,6 @@ class Code extends Model
      */
     public $zipFile;
     protected $_name = [
-        'codeCheckSum'  => 'codeCheckSum',
-        'err'           => 'err',
         'ossBucketName' => 'ossBucketName',
         'ossObjectName' => 'ossObjectName',
         'zipFile'       => 'zipFile',
@@ -57,12 +41,6 @@ class Code extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->codeCheckSum) {
-            $res['codeCheckSum'] = $this->codeCheckSum;
-        }
-        if (null !== $this->err) {
-            $res['err'] = $this->err;
-        }
         if (null !== $this->ossBucketName) {
             $res['ossBucketName'] = $this->ossBucketName;
         }
@@ -84,12 +62,6 @@ class Code extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['codeCheckSum'])) {
-            $model->codeCheckSum = $map['codeCheckSum'];
-        }
-        if (isset($map['err'])) {
-            $model->err = $map['err'];
-        }
         if (isset($map['ossBucketName'])) {
             $model->ossBucketName = $map['ossBucketName'];
         }

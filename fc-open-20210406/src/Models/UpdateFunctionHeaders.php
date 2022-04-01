@@ -35,25 +35,13 @@ class UpdateFunctionHeaders extends Model
     /**
      * @var string
      */
-    public $xFcInvocationType;
-
-    /**
-     * @var string
-     */
-    public $xFcLogType;
-
-    /**
-     * @var string
-     */
     public $xFcTraceId;
     protected $_name = [
-        'ifMatch'           => 'If-Match',
-        'xFcAccountId'      => 'X-Fc-Account-Id',
-        'xFcCodeChecksum'   => 'X-Fc-Code-Checksum',
-        'xFcDate'           => 'X-Fc-Date',
-        'xFcInvocationType' => 'X-Fc-Invocation-Type',
-        'xFcLogType'        => 'X-Fc-Log-Type',
-        'xFcTraceId'        => 'X-Fc-Trace-Id',
+        'ifMatch'         => 'If-Match',
+        'xFcAccountId'    => 'X-Fc-Account-Id',
+        'xFcCodeChecksum' => 'X-Fc-Code-Checksum',
+        'xFcDate'         => 'X-Fc-Date',
+        'xFcTraceId'      => 'X-Fc-Trace-Id',
     ];
 
     public function validate()
@@ -77,12 +65,6 @@ class UpdateFunctionHeaders extends Model
         }
         if (null !== $this->xFcDate) {
             $res['X-Fc-Date'] = $this->xFcDate;
-        }
-        if (null !== $this->xFcInvocationType) {
-            $res['X-Fc-Invocation-Type'] = $this->xFcInvocationType;
-        }
-        if (null !== $this->xFcLogType) {
-            $res['X-Fc-Log-Type'] = $this->xFcLogType;
         }
         if (null !== $this->xFcTraceId) {
             $res['X-Fc-Trace-Id'] = $this->xFcTraceId;
@@ -113,12 +95,6 @@ class UpdateFunctionHeaders extends Model
         }
         if (isset($map['X-Fc-Date'])) {
             $model->xFcDate = $map['X-Fc-Date'];
-        }
-        if (isset($map['X-Fc-Invocation-Type'])) {
-            $model->xFcInvocationType = $map['X-Fc-Invocation-Type'];
-        }
-        if (isset($map['X-Fc-Log-Type'])) {
-            $model->xFcLogType = $map['X-Fc-Log-Type'];
         }
         if (isset($map['X-Fc-Trace-Id'])) {
             $model->xFcTraceId = $map['X-Fc-Trace-Id'];

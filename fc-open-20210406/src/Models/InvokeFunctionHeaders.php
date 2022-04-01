@@ -18,11 +18,6 @@ class InvokeFunctionHeaders extends Model
     /**
      * @var string
      */
-    public $xFcCodeChecksum;
-
-    /**
-     * @var string
-     */
     public $xFcDate;
 
     /**
@@ -50,7 +45,6 @@ class InvokeFunctionHeaders extends Model
     public $xFcTraceId;
     protected $_name = [
         'xFcAccountId'                 => 'X-Fc-Account-Id',
-        'xFcCodeChecksum'              => 'X-Fc-Code-Checksum',
         'xFcDate'                      => 'X-Fc-Date',
         'xFcInvocationType'            => 'X-Fc-Invocation-Type',
         'xFcLogType'                   => 'X-Fc-Log-Type',
@@ -70,9 +64,6 @@ class InvokeFunctionHeaders extends Model
         }
         if (null !== $this->xFcAccountId) {
             $res['X-Fc-Account-Id'] = $this->xFcAccountId;
-        }
-        if (null !== $this->xFcCodeChecksum) {
-            $res['X-Fc-Code-Checksum'] = $this->xFcCodeChecksum;
         }
         if (null !== $this->xFcDate) {
             $res['X-Fc-Date'] = $this->xFcDate;
@@ -106,9 +97,6 @@ class InvokeFunctionHeaders extends Model
         }
         if (isset($map['X-Fc-Account-Id'])) {
             $model->xFcAccountId = $map['X-Fc-Account-Id'];
-        }
-        if (isset($map['X-Fc-Code-Checksum'])) {
-            $model->xFcCodeChecksum = $map['X-Fc-Code-Checksum'];
         }
         if (isset($map['X-Fc-Date'])) {
             $model->xFcDate = $map['X-Fc-Date'];
