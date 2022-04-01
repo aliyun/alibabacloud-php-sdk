@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class PutProvisionConfigRequest extends Model
 {
     /**
+     * @description 当实例进入空闲状态时，是否继续分配CPU。
+     *
+     * @var bool
+     */
+    public $alwaysAllocateCPU;
+
+    /**
      * @description 定时策略配置
      *
      * @var ScheduledActions[]
@@ -36,6 +43,7 @@ class PutProvisionConfigRequest extends Model
      */
     public $qualifier;
     protected $_name = [
+        'alwaysAllocateCPU'      => 'alwaysAllocateCPU',
         'scheduledActions'       => 'scheduledActions',
         'target'                 => 'target',
         'targetTrackingPolicies' => 'targetTrackingPolicies',
@@ -49,6 +57,9 @@ class PutProvisionConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alwaysAllocateCPU) {
+            $res['alwaysAllocateCPU'] = $this->alwaysAllocateCPU;
+        }
         if (null !== $this->scheduledActions) {
             $res['scheduledActions'] = [];
             if (null !== $this->scheduledActions && \is_array($this->scheduledActions)) {
@@ -85,6 +96,9 @@ class PutProvisionConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['alwaysAllocateCPU'])) {
+            $model->alwaysAllocateCPU = $map['alwaysAllocateCPU'];
+        }
         if (isset($map['scheduledActions'])) {
             if (!empty($map['scheduledActions'])) {
                 $model->scheduledActions = [];

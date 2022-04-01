@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class provisionConfigs extends Model
 {
     /**
+     * @description 是否始终分配CPU给函数实例。
+     *
+     * @var bool
+     */
+    public $alwaysAllocateCPU;
+
+    /**
      * @description 实际资源个数
      *
      * @var int
@@ -52,6 +59,7 @@ class provisionConfigs extends Model
      */
     public $targetTrackingPolicies;
     protected $_name = [
+        'alwaysAllocateCPU'      => 'alwaysAllocateCPU',
         'current'                => 'current',
         'currentError'           => 'currentError',
         'resource'               => 'resource',
@@ -67,6 +75,9 @@ class provisionConfigs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alwaysAllocateCPU) {
+            $res['alwaysAllocateCPU'] = $this->alwaysAllocateCPU;
+        }
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
@@ -109,6 +120,9 @@ class provisionConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['alwaysAllocateCPU'])) {
+            $model->alwaysAllocateCPU = $map['alwaysAllocateCPU'];
+        }
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }

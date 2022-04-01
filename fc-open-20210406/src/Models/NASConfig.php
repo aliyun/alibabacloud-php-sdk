@@ -12,7 +12,7 @@ class NASConfig extends Model
     /**
      * @description groupID
      *
-     * @var string
+     * @var int
      */
     public $groupId;
 
@@ -26,7 +26,7 @@ class NASConfig extends Model
     /**
      * @description userID
      *
-     * @var string
+     * @var int
      */
     public $userId;
     protected $_name = [

@@ -3756,6 +3756,9 @@ class FCOpen extends OpenApiClient
             $query['qualifier'] = $request->qualifier;
         }
         $body = [];
+        if (!Utils::isUnset($request->alwaysAllocateCPU)) {
+            $body['alwaysAllocateCPU'] = $request->alwaysAllocateCPU;
+        }
         if (!Utils::isUnset($request->scheduledActions)) {
             $body['scheduledActions'] = $request->scheduledActions;
         }
