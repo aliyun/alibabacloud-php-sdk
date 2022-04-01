@@ -81,8 +81,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCriteriaResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDialogMessagesRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDialogMessagesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDingTalkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDingTalkResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainCountRequest;
@@ -138,6 +136,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesReq
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
@@ -2417,49 +2417,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDialogMessagesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeDialogMessagesResponse
-     */
-    public function describeDialogMessagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDialogMessages',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDialogMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDialogMessagesRequest $request
-     *
-     * @return DescribeDialogMessagesResponse
-     */
-    public function describeDialogMessages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDialogMessagesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDingTalkRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4069,6 +4026,58 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLoginBaseConfigsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLoginBaseConfigsResponse
+     */
+    public function describeLoginBaseConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoginBaseConfigs',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLoginBaseConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLoginBaseConfigsRequest $request
+     *
+     * @return DescribeLoginBaseConfigsResponse
+     */
+    public function describeLoginBaseConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLoginBaseConfigsWithOptions($request, $runtime);
     }
 
     /**

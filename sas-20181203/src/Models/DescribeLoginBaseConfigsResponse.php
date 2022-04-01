@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDialogMessagesResponse extends Model
+class DescribeLoginBaseConfigsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeDialogMessagesResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeDialogMessagesResponseBody
+     * @var DescribeLoginBaseConfigsResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeDialogMessagesResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDialogMessagesResponse
+     * @return DescribeLoginBaseConfigsResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeDialogMessagesResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeDialogMessagesResponseBody::fromMap($map['body']);
+            $model->body = DescribeLoginBaseConfigsResponseBody::fromMap($map['body']);
         }
 
         return $model;
