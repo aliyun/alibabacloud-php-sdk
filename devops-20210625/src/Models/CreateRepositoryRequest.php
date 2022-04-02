@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryRequest\importSvnRepoConfig;
 use AlibabaCloud\Tea\Model;
 
 class CreateRepositoryRequest extends Model
@@ -55,13 +54,6 @@ class CreateRepositoryRequest extends Model
      * @var string
      */
     public $importRepoType;
-
-    /**
-     * @description 导入SVN库的设置
-     *
-     * @var importSvnRepoConfig
-     */
-    public $importSvnRepoConfig;
 
     /**
      * @description 导入时账号的token
@@ -160,7 +152,6 @@ class CreateRepositoryRequest extends Model
         'importAccount'        => 'importAccount',
         'importDemoProject'    => 'importDemoProject',
         'importRepoType'       => 'importRepoType',
-        'importSvnRepoConfig'  => 'importSvnRepoConfig',
         'importToken'          => 'importToken',
         'importTokenEncrypted' => 'importTokenEncrypted',
         'importUrl'            => 'importUrl',
@@ -204,9 +195,6 @@ class CreateRepositoryRequest extends Model
         }
         if (null !== $this->importRepoType) {
             $res['importRepoType'] = $this->importRepoType;
-        }
-        if (null !== $this->importSvnRepoConfig) {
-            $res['importSvnRepoConfig'] = null !== $this->importSvnRepoConfig ? $this->importSvnRepoConfig->toMap() : null;
         }
         if (null !== $this->importToken) {
             $res['importToken'] = $this->importToken;
@@ -282,9 +270,6 @@ class CreateRepositoryRequest extends Model
         }
         if (isset($map['importRepoType'])) {
             $model->importRepoType = $map['importRepoType'];
-        }
-        if (isset($map['importSvnRepoConfig'])) {
-            $model->importSvnRepoConfig = importSvnRepoConfig::fromMap($map['importSvnRepoConfig']);
         }
         if (isset($map['importToken'])) {
             $model->importToken = $map['importToken'];

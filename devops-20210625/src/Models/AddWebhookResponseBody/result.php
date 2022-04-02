@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var bool
-     */
-    public $enableSslVerification;
-
-    /**
-     * @var bool
-     */
-    public $buildEvents;
-
-    /**
      * @var string
      */
     public $createdAt;
@@ -29,14 +19,14 @@ class result extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableSslVerification;
+
+    /**
      * @var int
      */
     public $id;
-
-    /**
-     * @var bool
-     */
-    public $issuesEvents;
 
     /**
      * @var string
@@ -78,12 +68,10 @@ class result extends Model
      */
     public $url;
     protected $_name = [
-        'enableSslVerification' => 'EnableSslVerification',
-        'buildEvents'           => 'buildEvents',
         'createdAt'             => 'createdAt',
         'description'           => 'description',
+        'enableSslVerification' => 'enableSslVerification',
         'id'                    => 'id',
-        'issuesEvents'          => 'issuesEvents',
         'lastTestResult'        => 'lastTestResult',
         'mergeRequestsEvents'   => 'mergeRequestsEvents',
         'noteEvents'            => 'noteEvents',
@@ -101,23 +89,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enableSslVerification) {
-            $res['EnableSslVerification'] = $this->enableSslVerification;
-        }
-        if (null !== $this->buildEvents) {
-            $res['buildEvents'] = $this->buildEvents;
-        }
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+        if (null !== $this->enableSslVerification) {
+            $res['enableSslVerification'] = $this->enableSslVerification;
+        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
-        }
-        if (null !== $this->issuesEvents) {
-            $res['issuesEvents'] = $this->issuesEvents;
         }
         if (null !== $this->lastTestResult) {
             $res['lastTestResult'] = $this->lastTestResult;
@@ -155,23 +137,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnableSslVerification'])) {
-            $model->enableSslVerification = $map['EnableSslVerification'];
-        }
-        if (isset($map['buildEvents'])) {
-            $model->buildEvents = $map['buildEvents'];
-        }
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+        if (isset($map['enableSslVerification'])) {
+            $model->enableSslVerification = $map['enableSslVerification'];
+        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
-        }
-        if (isset($map['issuesEvents'])) {
-            $model->issuesEvents = $map['issuesEvents'];
         }
         if (isset($map['lastTestResult'])) {
             $model->lastTestResult = $map['lastTestResult'];

@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Devops\V20210625;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFlowTagGroupRequest;
@@ -182,6 +184,66 @@ class Devops extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param string                     $repositoryId
+     * @param AddRepositoryMemberRequest $request
+     *
+     * @return AddRepositoryMemberResponse
+     */
+    public function addRepositoryMember($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addRepositoryMemberWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $repositoryId
+     * @param AddRepositoryMemberRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddRepositoryMemberResponse
+     */
+    public function addRepositoryMemberWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $repositoryId = OpenApiUtilClient::getEncodeParam($repositoryId);
+        $query        = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->accessLevel)) {
+            $body['accessLevel'] = $request->accessLevel;
+        }
+        if (!Utils::isUnset($request->aliyunPks)) {
+            $body['aliyunPks'] = $request->aliyunPks;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRepositoryMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . $repositoryId . '/members',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -554,9 +616,6 @@ class Devops extends OpenApiClient
         }
         if (!Utils::isUnset($request->importRepoType)) {
             $body['importRepoType'] = $request->importRepoType;
-        }
-        if (!Utils::isUnset($request->importSvnRepoConfig)) {
-            $body['importSvnRepoConfig'] = $request->importSvnRepoConfig;
         }
         if (!Utils::isUnset($request->importToken)) {
             $body['importToken'] = $request->importToken;
