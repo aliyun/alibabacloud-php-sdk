@@ -16,6 +16,11 @@ class nodes extends Model
     /**
      * @var string
      */
+    public $dir;
+
+    /**
+     * @var string
+     */
     public $hostName;
 
     /**
@@ -34,6 +39,7 @@ class nodes extends Model
     public $schedulerType;
     protected $_name = [
         'accountType'   => 'AccountType',
+        'dir'           => 'Dir',
         'hostName'      => 'HostName',
         'ipAddress'     => 'IpAddress',
         'role'          => 'Role',
@@ -49,6 +55,9 @@ class nodes extends Model
         $res = [];
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->dir) {
+            $res['Dir'] = $this->dir;
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
@@ -76,6 +85,9 @@ class nodes extends Model
         $model = new self();
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['Dir'])) {
+            $model->dir = $map['Dir'];
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];

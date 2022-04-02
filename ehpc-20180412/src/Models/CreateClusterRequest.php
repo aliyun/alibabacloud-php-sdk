@@ -85,6 +85,11 @@ class CreateClusterRequest extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $ecsChargeType;
 
     /**
@@ -235,6 +240,11 @@ class CreateClusterRequest extends Model
     /**
      * @var string
      */
+    public $volumeMountOption;
+
+    /**
+     * @var string
+     */
     public $volumeMountpoint;
 
     /**
@@ -281,6 +291,7 @@ class CreateClusterRequest extends Model
         'computeSpotStrategy'   => 'ComputeSpotStrategy',
         'deployMode'            => 'DeployMode',
         'description'           => 'Description',
+        'domain'                => 'Domain',
         'ecsChargeType'         => 'EcsChargeType',
         'ehpcVersion'           => 'EhpcVersion',
         'haEnable'              => 'HaEnable',
@@ -311,6 +322,7 @@ class CreateClusterRequest extends Model
         'systemDiskType'        => 'SystemDiskType',
         'vSwitchId'             => 'VSwitchId',
         'volumeId'              => 'VolumeId',
+        'volumeMountOption'     => 'VolumeMountOption',
         'volumeMountpoint'      => 'VolumeMountpoint',
         'volumeProtocol'        => 'VolumeProtocol',
         'volumeType'            => 'VolumeType',
@@ -380,6 +392,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->ecsChargeType) {
             $res['EcsChargeType'] = $this->ecsChargeType;
@@ -477,6 +492,9 @@ class CreateClusterRequest extends Model
         if (null !== $this->volumeId) {
             $res['VolumeId'] = $this->volumeId;
         }
+        if (null !== $this->volumeMountOption) {
+            $res['VolumeMountOption'] = $this->volumeMountOption;
+        }
         if (null !== $this->volumeMountpoint) {
             $res['VolumeMountpoint'] = $this->volumeMountpoint;
         }
@@ -563,6 +581,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['EcsChargeType'])) {
             $model->ecsChargeType = $map['EcsChargeType'];
@@ -661,6 +682,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['VolumeId'])) {
             $model->volumeId = $map['VolumeId'];
+        }
+        if (isset($map['VolumeMountOption'])) {
+            $model->volumeMountOption = $map['VolumeMountOption'];
         }
         if (isset($map['VolumeMountpoint'])) {
             $model->volumeMountpoint = $map['VolumeMountpoint'];

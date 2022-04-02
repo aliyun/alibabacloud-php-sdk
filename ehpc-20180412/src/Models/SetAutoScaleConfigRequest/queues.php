@@ -53,7 +53,17 @@ class queues extends Model
     /**
      * @var int
      */
+    public $maxNodesPerCycle;
+
+    /**
+     * @var int
+     */
     public $minNodesInQueue;
+
+    /**
+     * @var int
+     */
+    public $minNodesPerCycle;
 
     /**
      * @var string
@@ -98,7 +108,9 @@ class queues extends Model
         'instanceType'       => 'InstanceType',
         'instanceTypes'      => 'InstanceTypes',
         'maxNodesInQueue'    => 'MaxNodesInQueue',
+        'maxNodesPerCycle'   => 'MaxNodesPerCycle',
         'minNodesInQueue'    => 'MinNodesInQueue',
+        'minNodesPerCycle'   => 'MinNodesPerCycle',
         'queueImageId'       => 'QueueImageId',
         'queueName'          => 'QueueName',
         'spotPriceLimit'     => 'SpotPriceLimit',
@@ -151,8 +163,14 @@ class queues extends Model
         if (null !== $this->maxNodesInQueue) {
             $res['MaxNodesInQueue'] = $this->maxNodesInQueue;
         }
+        if (null !== $this->maxNodesPerCycle) {
+            $res['MaxNodesPerCycle'] = $this->maxNodesPerCycle;
+        }
         if (null !== $this->minNodesInQueue) {
             $res['MinNodesInQueue'] = $this->minNodesInQueue;
+        }
+        if (null !== $this->minNodesPerCycle) {
+            $res['MinNodesPerCycle'] = $this->minNodesPerCycle;
         }
         if (null !== $this->queueImageId) {
             $res['QueueImageId'] = $this->queueImageId;
@@ -223,8 +241,14 @@ class queues extends Model
         if (isset($map['MaxNodesInQueue'])) {
             $model->maxNodesInQueue = $map['MaxNodesInQueue'];
         }
+        if (isset($map['MaxNodesPerCycle'])) {
+            $model->maxNodesPerCycle = $map['MaxNodesPerCycle'];
+        }
         if (isset($map['MinNodesInQueue'])) {
             $model->minNodesInQueue = $map['MinNodesInQueue'];
+        }
+        if (isset($map['MinNodesPerCycle'])) {
+            $model->minNodesPerCycle = $map['MinNodesPerCycle'];
         }
         if (isset($map['QueueImageId'])) {
             $model->queueImageId = $map['QueueImageId'];

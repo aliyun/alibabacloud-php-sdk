@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeContainerAppRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeContainerAppResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeDeployProcessRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeDeployProcessResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClusterPolicyRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClusterPolicyResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClustersRequest;
@@ -102,6 +104,10 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetIfEcsTypeSupportHtConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetIfEcsTypeSupportHtConfigResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetPostScriptsRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetPostScriptsResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetQueueConfRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetQueueConfResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetVisualServiceStatusRequest;
@@ -145,6 +151,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\ListInvocationStatusRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListInvocationStatusResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobsResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobsWithFiltersRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobsWithFiltersResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobTemplatesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobTemplatesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListNodesByQueueRequest;
@@ -201,6 +209,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSInstanceNameRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSInstanceNameResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSInstanceUserRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSInstanceUserResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SetPostScriptsRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SetPostScriptsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetQueueRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetQueueResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetSchedulerInfoRequest;
@@ -1435,6 +1445,46 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param DescribeDeployProcessRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDeployProcessResponse
+     */
+    public function describeDeployProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeployProcess',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDeployProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDeployProcessRequest $request
+     *
+     * @return DescribeDeployProcessResponse
+     */
+    public function describeDeployProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDeployProcessWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeGWSClusterPolicyRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2201,6 +2251,86 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIfEcsTypeSupportHtConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPostScriptsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetPostScriptsResponse
+     */
+    public function getPostScriptsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPostScripts',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPostScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPostScriptsRequest $request
+     *
+     * @return GetPostScriptsResponse
+     */
+    public function getPostScripts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPostScriptsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetQueueConfRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetQueueConfResponse
+     */
+    public function getQueueConfWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQueueConf',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQueueConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetQueueConfRequest $request
+     *
+     * @return GetQueueConfResponse
+     */
+    public function getQueueConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQueueConfWithOptions($request, $runtime);
     }
 
     /**
@@ -3114,6 +3244,46 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListJobsWithFiltersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListJobsWithFiltersResponse
+     */
+    public function listJobsWithFiltersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobsWithFilters',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJobsWithFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListJobsWithFiltersRequest $request
+     *
+     * @return ListJobsWithFiltersResponse
+     */
+    public function listJobsWithFilters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listJobsWithFiltersWithOptions($request, $runtime);
     }
 
     /**
@@ -4241,6 +4411,46 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setGWSInstanceUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPostScriptsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SetPostScriptsResponse
+     */
+    public function setPostScriptsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPostScripts',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPostScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPostScriptsRequest $request
+     *
+     * @return SetPostScriptsResponse
+     */
+    public function setPostScripts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPostScriptsWithOptions($request, $runtime);
     }
 
     /**
