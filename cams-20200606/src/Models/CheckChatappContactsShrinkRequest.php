@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CheckChatappContactsRequest extends Model
+class CheckChatappContactsShrinkRequest extends Model
 {
     /**
      * @description 通道类型
@@ -18,9 +18,9 @@ class CheckChatappContactsRequest extends Model
     /**
      * @description 需要查询的用户列表,单次调用最多查询10个。注意：用户号码必须加国家码
      *
-     * @var string[]
+     * @var string
      */
-    public $contacts;
+    public $contactsShrink;
 
     /**
      * @description 发送号码,所选择ChannelType下的Business账号，即在控制台上审核通过的Number
@@ -29,9 +29,9 @@ class CheckChatappContactsRequest extends Model
      */
     public $from;
     protected $_name = [
-        'channelType' => 'ChannelType',
-        'contacts'    => 'Contacts',
-        'from'        => 'From',
+        'channelType'    => 'ChannelType',
+        'contactsShrink' => 'Contacts',
+        'from'           => 'From',
     ];
 
     public function validate()
@@ -44,8 +44,8 @@ class CheckChatappContactsRequest extends Model
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
-        if (null !== $this->contacts) {
-            $res['Contacts'] = $this->contacts;
+        if (null !== $this->contactsShrink) {
+            $res['Contacts'] = $this->contactsShrink;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -57,7 +57,7 @@ class CheckChatappContactsRequest extends Model
     /**
      * @param array $map
      *
-     * @return CheckChatappContactsRequest
+     * @return CheckChatappContactsShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -66,9 +66,7 @@ class CheckChatappContactsRequest extends Model
             $model->channelType = $map['ChannelType'];
         }
         if (isset($map['Contacts'])) {
-            if (!empty($map['Contacts'])) {
-                $model->contacts = $map['Contacts'];
-            }
+            $model->contactsShrink = $map['Contacts'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

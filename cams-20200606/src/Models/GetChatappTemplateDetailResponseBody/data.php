@@ -2,13 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cams\V20200606\Models;
+namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody;
 
-use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest\components;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data\components;
 use AlibabaCloud\Tea\Model;
 
-class CreateChatappTemplateRequest extends Model
+class data extends Model
 {
+    /**
+     * @description 审核状态
+     *
+     * @var string
+     */
+    public $auditStatus;
+
     /**
      * @description 模板分类
      *
@@ -17,12 +24,14 @@ class CreateChatappTemplateRequest extends Model
     public $category;
 
     /**
+     * @description 消息模板组件
+     *
      * @var components[]
      */
     public $components;
 
     /**
-     * @description 变量，KEY-VALUE结构
+     * @description 变量例子
      *
      * @var string[]
      */
@@ -43,18 +52,19 @@ class CreateChatappTemplateRequest extends Model
     public $name;
 
     /**
-     * @description 模板类型
+     * @description 模板编码
      *
      * @var string
      */
-    public $templateType;
+    public $templateCode;
     protected $_name = [
+        'auditStatus'  => 'AuditStatus',
         'category'     => 'Category',
         'components'   => 'Components',
         'example'      => 'Example',
         'language'     => 'Language',
         'name'         => 'Name',
-        'templateType' => 'TemplateType',
+        'templateCode' => 'TemplateCode',
     ];
 
     public function validate()
@@ -64,6 +74,9 @@ class CreateChatappTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->auditStatus) {
+            $res['AuditStatus'] = $this->auditStatus;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -85,8 +98,8 @@ class CreateChatappTemplateRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
+        if (null !== $this->templateCode) {
+            $res['TemplateCode'] = $this->templateCode;
         }
 
         return $res;
@@ -95,11 +108,14 @@ class CreateChatappTemplateRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateChatappTemplateRequest
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuditStatus'])) {
+            $model->auditStatus = $map['AuditStatus'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -121,8 +137,8 @@ class CreateChatappTemplateRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
+        if (isset($map['TemplateCode'])) {
+            $model->templateCode = $map['TemplateCode'];
         }
 
         return $model;

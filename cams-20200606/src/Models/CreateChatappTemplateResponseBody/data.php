@@ -2,20 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cams\V20200606\Models;
+namespace AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteChatappTemplateRequest extends Model
+class data extends Model
 {
     /**
-     * @description 模板编码
+     * @description 模板Code
      *
      * @var string
      */
     public $templateCode;
+
+    /**
+     * @description 模板名称
+     *
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
         'templateCode' => 'TemplateCode',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -28,6 +36,9 @@ class DeleteChatappTemplateRequest extends Model
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
 
         return $res;
     }
@@ -35,13 +46,16 @@ class DeleteChatappTemplateRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteChatappTemplateRequest
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

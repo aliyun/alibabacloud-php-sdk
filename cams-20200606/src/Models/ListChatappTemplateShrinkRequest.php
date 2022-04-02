@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest\page;
 use AlibabaCloud\Tea\Model;
 
-class ListChatappTemplateRequest extends Model
+class ListChatappTemplateShrinkRequest extends Model
 {
     /**
      * @description 审核状态
@@ -31,14 +30,14 @@ class ListChatappTemplateRequest extends Model
     public $name;
 
     /**
-     * @var page
+     * @var string
      */
-    public $page;
+    public $pageShrink;
     protected $_name = [
         'auditStatus' => 'AuditStatus',
         'language'    => 'Language',
         'name'        => 'Name',
-        'page'        => 'Page',
+        'pageShrink'  => 'Page',
     ];
 
     public function validate()
@@ -57,8 +56,8 @@ class ListChatappTemplateRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
+        if (null !== $this->pageShrink) {
+            $res['Page'] = $this->pageShrink;
         }
 
         return $res;
@@ -67,7 +66,7 @@ class ListChatappTemplateRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListChatappTemplateRequest
+     * @return ListChatappTemplateShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -82,7 +81,7 @@ class ListChatappTemplateRequest extends Model
             $model->name = $map['Name'];
         }
         if (isset($map['Page'])) {
-            $model->page = page::fromMap($map['Page']);
+            $model->pageShrink = $map['Page'];
         }
 
         return $model;

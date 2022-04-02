@@ -4,19 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class GetChatappTemplateDetailResponseBody extends Model
 {
     /**
+     * @description 返回结果 OK 为正常
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 返回数据对像
+     * @description TemplateDetail
      *
-     * @var string
+     * @var data
      */
     public $data;
 
@@ -26,6 +29,8 @@ class GetChatappTemplateDetailResponseBody extends Model
     public $message;
 
     /**
+     * @description 请求ID
+     *
      * @var string
      */
     public $requestId;
@@ -47,7 +52,7 @@ class GetChatappTemplateDetailResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -71,7 +76,7 @@ class GetChatappTemplateDetailResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

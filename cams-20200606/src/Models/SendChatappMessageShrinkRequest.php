@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SendChatappMessageRequest extends Model
+class SendChatappMessageShrinkRequest extends Model
 {
     /**
      * @description 通道类型 whatsapp/viber/line
@@ -44,9 +44,9 @@ class SendChatappMessageRequest extends Model
     public $messageType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $payload;
+    public $payloadShrink;
 
     /**
      * @description 模板编码
@@ -56,9 +56,9 @@ class SendChatappMessageRequest extends Model
     public $templateCode;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $templateParams;
+    public $templateParamsShrink;
 
     /**
      * @description 接收号码
@@ -74,16 +74,16 @@ class SendChatappMessageRequest extends Model
      */
     public $type;
     protected $_name = [
-        'channelType'    => 'ChannelType',
-        'content'        => 'Content',
-        'from'           => 'From',
-        'language'       => 'Language',
-        'messageType'    => 'MessageType',
-        'payload'        => 'Payload',
-        'templateCode'   => 'TemplateCode',
-        'templateParams' => 'TemplateParams',
-        'to'             => 'To',
-        'type'           => 'Type',
+        'channelType'          => 'ChannelType',
+        'content'              => 'Content',
+        'from'                 => 'From',
+        'language'             => 'Language',
+        'messageType'          => 'MessageType',
+        'payloadShrink'        => 'Payload',
+        'templateCode'         => 'TemplateCode',
+        'templateParamsShrink' => 'TemplateParams',
+        'to'                   => 'To',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -108,14 +108,14 @@ class SendChatappMessageRequest extends Model
         if (null !== $this->messageType) {
             $res['MessageType'] = $this->messageType;
         }
-        if (null !== $this->payload) {
-            $res['Payload'] = $this->payload;
+        if (null !== $this->payloadShrink) {
+            $res['Payload'] = $this->payloadShrink;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
-        if (null !== $this->templateParams) {
-            $res['TemplateParams'] = $this->templateParams;
+        if (null !== $this->templateParamsShrink) {
+            $res['TemplateParams'] = $this->templateParamsShrink;
         }
         if (null !== $this->to) {
             $res['To'] = $this->to;
@@ -130,7 +130,7 @@ class SendChatappMessageRequest extends Model
     /**
      * @param array $map
      *
-     * @return SendChatappMessageRequest
+     * @return SendChatappMessageShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -151,15 +151,13 @@ class SendChatappMessageRequest extends Model
             $model->messageType = $map['MessageType'];
         }
         if (isset($map['Payload'])) {
-            if (!empty($map['Payload'])) {
-                $model->payload = $map['Payload'];
-            }
+            $model->payloadShrink = $map['Payload'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
         if (isset($map['TemplateParams'])) {
-            $model->templateParams = $map['TemplateParams'];
+            $model->templateParamsShrink = $map['TemplateParams'];
         }
         if (isset($map['To'])) {
             $model->to = $map['To'];

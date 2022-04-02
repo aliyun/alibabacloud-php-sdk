@@ -8,20 +8,25 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckContactsRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckContactsResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendMessageResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -62,35 +67,31 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param CheckChatappContactsRequest $request
+     * @param CheckChatappContactsRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
      * @return CheckChatappContactsResponse
      */
-    public function checkChatappContactsWithOptions($request, $runtime)
+    public function checkChatappContactsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelType)) {
-            $query['ChannelType'] = $request->channelType;
+        Utils::validateModel($tmpReq);
+        $request = new CheckChatappContactsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contacts)) {
+            $request->contactsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contacts, 'Contacts', 'json');
         }
-        if (!Utils::isUnset($request->contacts)) {
-            $query['Contacts'] = $request->contacts;
+        $body = [];
+        if (!Utils::isUnset($request->channelType)) {
+            $body['ChannelType'] = $request->channelType;
+        }
+        if (!Utils::isUnset($request->contactsShrink)) {
+            $body['Contacts'] = $request->contactsShrink;
         }
         if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+            $body['From'] = $request->from;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CheckChatappContacts',
@@ -180,44 +181,43 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param CreateChatappTemplateRequest $request
+     * @param CreateChatappTemplateRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return CreateChatappTemplateResponse
      */
-    public function createChatappTemplateWithOptions($request, $runtime)
+    public function createChatappTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
+        Utils::validateModel($tmpReq);
+        $request = new CreateChatappTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->components)) {
+            $request->componentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->example)) {
+            $request->exampleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->example, 'Example', 'json');
+        }
+        $body = [];
         if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+            $body['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->components)) {
-            $query['Components'] = $request->components;
+        if (!Utils::isUnset($request->componentsShrink)) {
+            $body['Components'] = $request->componentsShrink;
         }
-        if (!Utils::isUnset($request->example)) {
-            $query['Example'] = $request->example;
+        if (!Utils::isUnset($request->exampleShrink)) {
+            $body['Example'] = $request->exampleShrink;
         }
         if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+            $body['Language'] = $request->language;
         }
         if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+            $body['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+            $body['TemplateType'] = $request->templateType;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateChatappTemplate',
@@ -256,15 +256,6 @@ class Cams extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
         }
@@ -314,12 +305,6 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
         }
@@ -354,14 +339,19 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListChatappTemplateRequest $request
+     * @param ListChatappTemplateRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return ListChatappTemplateResponse
      */
-    public function listChatappTemplateWithOptions($request, $runtime)
+    public function listChatappTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListChatappTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->page)) {
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->page), 'Page', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->auditStatus)) {
             $query['AuditStatus'] = $request->auditStatus;
@@ -372,17 +362,8 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->pageShrink)) {
+            $query['Page'] = $request->pageShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -415,56 +396,57 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param SendChatappMessageRequest $request
+     * @param SendChatappMessageRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return SendChatappMessageResponse
      */
-    public function sendChatappMessageWithOptions($request, $runtime)
+    public function sendChatappMessageWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelType)) {
-            $query['ChannelType'] = $request->channelType;
+        Utils::validateModel($tmpReq);
+        $request = new SendChatappMessageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->payload)) {
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
+        if (!Utils::isUnset($tmpReq->templateParams)) {
+            $request->templateParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateParams, 'TemplateParams', 'json');
+        }
+        $query = [];
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
         }
+        if (!Utils::isUnset($request->payloadShrink)) {
+            $query['Payload'] = $request->payloadShrink;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->channelType)) {
+            $body['ChannelType'] = $request->channelType;
+        }
         if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
+            $body['From'] = $request->from;
         }
         if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+            $body['Language'] = $request->language;
         }
         if (!Utils::isUnset($request->messageType)) {
-            $query['MessageType'] = $request->messageType;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->payload)) {
-            $query['Payload'] = $request->payload;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+            $body['MessageType'] = $request->messageType;
         }
         if (!Utils::isUnset($request->templateCode)) {
-            $query['TemplateCode'] = $request->templateCode;
+            $body['TemplateCode'] = $request->templateCode;
         }
-        if (!Utils::isUnset($request->templateParams)) {
-            $query['TemplateParams'] = $request->templateParams;
+        if (!Utils::isUnset($request->templateParamsShrink)) {
+            $body['TemplateParams'] = $request->templateParamsShrink;
         }
         if (!Utils::isUnset($request->to)) {
-            $query['To'] = $request->to;
+            $body['To'] = $request->to;
         }
         if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+            $body['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendChatappMessage',

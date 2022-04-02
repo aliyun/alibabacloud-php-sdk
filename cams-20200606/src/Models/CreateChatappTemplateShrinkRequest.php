@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest\components;
 use AlibabaCloud\Tea\Model;
 
-class CreateChatappTemplateRequest extends Model
+class CreateChatappTemplateShrinkRequest extends Model
 {
     /**
      * @description 模板分类
@@ -17,16 +16,16 @@ class CreateChatappTemplateRequest extends Model
     public $category;
 
     /**
-     * @var components[]
+     * @var string
      */
-    public $components;
+    public $componentsShrink;
 
     /**
      * @description 变量，KEY-VALUE结构
      *
-     * @var string[]
+     * @var string
      */
-    public $example;
+    public $exampleShrink;
 
     /**
      * @description 语言
@@ -49,12 +48,12 @@ class CreateChatappTemplateRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'category'     => 'Category',
-        'components'   => 'Components',
-        'example'      => 'Example',
-        'language'     => 'Language',
-        'name'         => 'Name',
-        'templateType' => 'TemplateType',
+        'category'         => 'Category',
+        'componentsShrink' => 'Components',
+        'exampleShrink'    => 'Example',
+        'language'         => 'Language',
+        'name'             => 'Name',
+        'templateType'     => 'TemplateType',
     ];
 
     public function validate()
@@ -67,17 +66,11 @@ class CreateChatappTemplateRequest extends Model
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->components) {
-            $res['Components'] = [];
-            if (null !== $this->components && \is_array($this->components)) {
-                $n = 0;
-                foreach ($this->components as $item) {
-                    $res['Components'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->componentsShrink) {
+            $res['Components'] = $this->componentsShrink;
         }
-        if (null !== $this->example) {
-            $res['Example'] = $this->example;
+        if (null !== $this->exampleShrink) {
+            $res['Example'] = $this->exampleShrink;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -95,7 +88,7 @@ class CreateChatappTemplateRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateChatappTemplateRequest
+     * @return CreateChatappTemplateShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -104,16 +97,10 @@ class CreateChatappTemplateRequest extends Model
             $model->category = $map['Category'];
         }
         if (isset($map['Components'])) {
-            if (!empty($map['Components'])) {
-                $model->components = [];
-                $n                 = 0;
-                foreach ($map['Components'] as $item) {
-                    $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
-                }
-            }
+            $model->componentsShrink = $map['Components'];
         }
         if (isset($map['Example'])) {
-            $model->example = $map['Example'];
+            $model->exampleShrink = $map['Example'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];

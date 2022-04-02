@@ -16,12 +16,14 @@ class SendChatappMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $data;
+    public $message;
 
     /**
+     * @description 消息ID
+     *
      * @var string
      */
-    public $message;
+    public $messageId;
 
     /**
      * @var string
@@ -29,8 +31,8 @@ class SendChatappMessageResponseBody extends Model
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
-        'data'      => 'Data',
         'message'   => 'Message',
+        'messageId' => 'MessageId',
         'requestId' => 'RequestId',
     ];
 
@@ -44,11 +46,11 @@ class SendChatappMessageResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -68,11 +70,11 @@ class SendChatappMessageResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
