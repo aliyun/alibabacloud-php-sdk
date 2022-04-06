@@ -19,6 +19,11 @@ class managementRoutes extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
     public $priority;
@@ -40,6 +45,7 @@ class managementRoutes extends Model
     protected $_name = [
         'ASMGatewayName' => 'ASMGatewayName',
         'description'    => 'Description',
+        'namespace'      => 'Namespace',
         'priority'       => 'Priority',
         'routeName'      => 'RouteName',
         'routePath'      => 'RoutePath',
@@ -58,6 +64,9 @@ class managementRoutes extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -88,6 +97,9 @@ class managementRoutes extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];

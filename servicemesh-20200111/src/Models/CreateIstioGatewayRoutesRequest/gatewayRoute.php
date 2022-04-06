@@ -22,6 +22,11 @@ class gatewayRoute extends Model
     public $matchRequest;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var routeDestinations[]
      */
     public $routeDestinations;
@@ -38,6 +43,7 @@ class gatewayRoute extends Model
     protected $_name = [
         'HTTPAdvancedOptions' => 'HTTPAdvancedOptions',
         'matchRequest'        => 'MatchRequest',
+        'namespace'           => 'Namespace',
         'routeDestinations'   => 'RouteDestinations',
         'routeName'           => 'RouteName',
         'routeType'           => 'RouteType',
@@ -55,6 +61,9 @@ class gatewayRoute extends Model
         }
         if (null !== $this->matchRequest) {
             $res['MatchRequest'] = null !== $this->matchRequest ? $this->matchRequest->toMap() : null;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->routeDestinations) {
             $res['RouteDestinations'] = [];
@@ -88,6 +97,9 @@ class gatewayRoute extends Model
         }
         if (isset($map['MatchRequest'])) {
             $model->matchRequest = matchRequest::fromMap($map['MatchRequest']);
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['RouteDestinations'])) {
             if (!empty($map['RouteDestinations'])) {

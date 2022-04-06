@@ -59,6 +59,11 @@ class UpdateMeshFeatureRequest extends Model
     public $CRAggregationEnabled;
 
     /**
+     * @var bool
+     */
+    public $canaryUpgradeEnabled;
+
+    /**
      * @var string
      */
     public $clusterSpec;
@@ -398,6 +403,7 @@ class UpdateMeshFeatureRequest extends Model
         'auditProject'                   => 'AuditProject',
         'autoInjectionPolicyEnabled'     => 'AutoInjectionPolicyEnabled',
         'CRAggregationEnabled'           => 'CRAggregationEnabled',
+        'canaryUpgradeEnabled'           => 'CanaryUpgradeEnabled',
         'clusterSpec'                    => 'ClusterSpec',
         'cniEnabled'                     => 'CniEnabled',
         'cniExcludeNamespaces'           => 'CniExcludeNamespaces',
@@ -502,6 +508,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->CRAggregationEnabled) {
             $res['CRAggregationEnabled'] = $this->CRAggregationEnabled;
+        }
+        if (null !== $this->canaryUpgradeEnabled) {
+            $res['CanaryUpgradeEnabled'] = $this->canaryUpgradeEnabled;
         }
         if (null !== $this->clusterSpec) {
             $res['ClusterSpec'] = $this->clusterSpec;
@@ -742,6 +751,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['CRAggregationEnabled'])) {
             $model->CRAggregationEnabled = $map['CRAggregationEnabled'];
+        }
+        if (isset($map['CanaryUpgradeEnabled'])) {
+            $model->canaryUpgradeEnabled = $map['CanaryUpgradeEnabled'];
         }
         if (isset($map['ClusterSpec'])) {
             $model->clusterSpec = $map['ClusterSpec'];

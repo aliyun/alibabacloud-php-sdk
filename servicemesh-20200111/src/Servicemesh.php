@@ -410,6 +410,12 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->istioGatewayName)) {
             $body['IstioGatewayName'] = $request->istioGatewayName;
         }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
         if (!Utils::isUnset($request->number)) {
             $body['Number'] = $request->number;
         }
@@ -866,6 +872,12 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->istioGatewayName)) {
             $body['IstioGatewayName'] = $request->istioGatewayName;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->portName)) {
             $body['PortName'] = $request->portName;
@@ -1600,6 +1612,12 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->istioGatewayName)) {
             $body['IstioGatewayName'] = $request->istioGatewayName;
         }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;
         }
@@ -2081,8 +2099,16 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->serviceMeshId)) {
             $query['ServiceMeshId'] = $request->serviceMeshId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $body['Offset'] = $request->offset;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeServiceMeshClusters',
@@ -3589,6 +3615,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->CRAggregationEnabled)) {
             $body['CRAggregationEnabled'] = $request->CRAggregationEnabled;
+        }
+        if (!Utils::isUnset($request->canaryUpgradeEnabled)) {
+            $body['CanaryUpgradeEnabled'] = $request->canaryUpgradeEnabled;
         }
         if (!Utils::isUnset($request->clusterSpec)) {
             $body['ClusterSpec'] = $request->clusterSpec;

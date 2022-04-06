@@ -21,6 +21,16 @@ class DeleteIstioGatewayDomainsRequest extends Model
     /**
      * @var string
      */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $portName;
 
     /**
@@ -30,6 +40,8 @@ class DeleteIstioGatewayDomainsRequest extends Model
     protected $_name = [
         'hosts'            => 'Hosts',
         'istioGatewayName' => 'IstioGatewayName',
+        'limit'            => 'Limit',
+        'namespace'        => 'Namespace',
         'portName'         => 'PortName',
         'serviceMeshId'    => 'ServiceMeshId',
     ];
@@ -46,6 +58,12 @@ class DeleteIstioGatewayDomainsRequest extends Model
         }
         if (null !== $this->istioGatewayName) {
             $res['IstioGatewayName'] = $this->istioGatewayName;
+        }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->portName) {
             $res['PortName'] = $this->portName;
@@ -70,6 +88,12 @@ class DeleteIstioGatewayDomainsRequest extends Model
         }
         if (isset($map['IstioGatewayName'])) {
             $model->istioGatewayName = $map['IstioGatewayName'];
+        }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['PortName'])) {
             $model->portName = $map['PortName'];

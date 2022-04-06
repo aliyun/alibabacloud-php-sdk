@@ -29,6 +29,16 @@ class CreateIstioGatewayDomainsRequest extends Model
     public $istioGatewayName;
 
     /**
+     * @var string
+     */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
     public $number;
@@ -52,6 +62,8 @@ class CreateIstioGatewayDomainsRequest extends Model
         'forceHttps'       => 'ForceHttps',
         'hosts'            => 'Hosts',
         'istioGatewayName' => 'IstioGatewayName',
+        'limit'            => 'Limit',
+        'namespace'        => 'Namespace',
         'number'           => 'Number',
         'portName'         => 'PortName',
         'protocol'         => 'Protocol',
@@ -76,6 +88,12 @@ class CreateIstioGatewayDomainsRequest extends Model
         }
         if (null !== $this->istioGatewayName) {
             $res['IstioGatewayName'] = $this->istioGatewayName;
+        }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->number) {
             $res['Number'] = $this->number;
@@ -112,6 +130,12 @@ class CreateIstioGatewayDomainsRequest extends Model
         }
         if (isset($map['IstioGatewayName'])) {
             $model->istioGatewayName = $map['IstioGatewayName'];
+        }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Number'])) {
             $model->number = $map['Number'];

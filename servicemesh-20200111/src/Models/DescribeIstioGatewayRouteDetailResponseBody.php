@@ -15,6 +15,11 @@ class DescribeIstioGatewayRouteDetailResponseBody extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
     public $priority;
@@ -35,6 +40,7 @@ class DescribeIstioGatewayRouteDetailResponseBody extends Model
     public $status;
     protected $_name = [
         'description' => 'Description',
+        'namespace'   => 'Namespace',
         'priority'    => 'Priority',
         'requestId'   => 'RequestId',
         'routeDetail' => 'RouteDetail',
@@ -50,6 +56,9 @@ class DescribeIstioGatewayRouteDetailResponseBody extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -77,6 +86,9 @@ class DescribeIstioGatewayRouteDetailResponseBody extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];

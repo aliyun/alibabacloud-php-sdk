@@ -26,6 +26,11 @@ class gatewaySecretDetails extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $portName;
 
     /**
@@ -36,6 +41,7 @@ class gatewaySecretDetails extends Model
         'credentialName' => 'CredentialName',
         'detail'         => 'Detail',
         'domains'        => 'Domains',
+        'namespace'      => 'Namespace',
         'portName'       => 'PortName',
         'protocol'       => 'Protocol',
     ];
@@ -55,6 +61,9 @@ class gatewaySecretDetails extends Model
         }
         if (null !== $this->domains) {
             $res['Domains'] = $this->domains;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->portName) {
             $res['PortName'] = $this->portName;
@@ -84,6 +93,9 @@ class gatewaySecretDetails extends Model
             if (!empty($map['Domains'])) {
                 $model->domains = $map['Domains'];
             }
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['PortName'])) {
             $model->portName = $map['PortName'];

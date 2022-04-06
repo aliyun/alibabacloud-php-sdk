@@ -9,10 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshClustersRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var int
+     */
+    public $offset;
+
+    /**
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
+        'limit'         => 'Limit',
+        'offset'        => 'Offset',
         'serviceMeshId' => 'ServiceMeshId',
     ];
 
@@ -23,6 +35,12 @@ class DescribeServiceMeshClustersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
+        }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -38,6 +56,12 @@ class DescribeServiceMeshClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
+        }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
