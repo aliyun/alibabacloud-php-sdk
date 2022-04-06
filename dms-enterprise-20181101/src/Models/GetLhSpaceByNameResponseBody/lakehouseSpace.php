@@ -16,17 +16,17 @@ class lakehouseSpace extends Model
     /**
      * @var string
      */
-    public $dbType;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var int
      */
     public $devDbId;
+
+    /**
+     * @var string
+     */
+    public $dwDbType;
 
     /**
      * @var int
@@ -64,9 +64,9 @@ class lakehouseSpace extends Model
     public $tenantId;
     protected $_name = [
         'creatorId'   => 'CreatorId',
-        'dbType'      => 'DbType',
         'description' => 'Description',
         'devDbId'     => 'DevDbId',
+        'dwDbType'    => 'DwDbType',
         'id'          => 'Id',
         'isDeleted'   => 'IsDeleted',
         'mode'        => 'Mode',
@@ -86,14 +86,14 @@ class lakehouseSpace extends Model
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
-        if (null !== $this->dbType) {
-            $res['DbType'] = $this->dbType;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->devDbId) {
             $res['DevDbId'] = $this->devDbId;
+        }
+        if (null !== $this->dwDbType) {
+            $res['DwDbType'] = $this->dwDbType;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -131,14 +131,14 @@ class lakehouseSpace extends Model
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
-        if (isset($map['DbType'])) {
-            $model->dbType = $map['DbType'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['DevDbId'])) {
             $model->devDbId = $map['DevDbId'];
+        }
+        if (isset($map['DwDbType'])) {
+            $model->dwDbType = $map['DwDbType'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

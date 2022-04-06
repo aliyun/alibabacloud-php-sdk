@@ -26,6 +26,16 @@ class dag extends Model
     /**
      * @var string
      */
+    public $dagName;
+
+    /**
+     * @var string
+     */
+    public $dagOwnerId;
+
+    /**
+     * @var string
+     */
     public $dagOwnerNickName;
 
     /**
@@ -81,6 +91,8 @@ class dag extends Model
         'canEdit'              => 'CanEdit',
         'creatorId'            => 'CreatorId',
         'creatorNickName'      => 'CreatorNickName',
+        'dagName'              => 'DagName',
+        'dagOwnerId'           => 'DagOwnerId',
         'dagOwnerNickName'     => 'DagOwnerNickName',
         'dataFlowId'           => 'DataFlowId',
         'demoId'               => 'DemoId',
@@ -109,6 +121,12 @@ class dag extends Model
         }
         if (null !== $this->creatorNickName) {
             $res['CreatorNickName'] = $this->creatorNickName;
+        }
+        if (null !== $this->dagName) {
+            $res['DagName'] = $this->dagName;
+        }
+        if (null !== $this->dagOwnerId) {
+            $res['DagOwnerId'] = $this->dagOwnerId;
         }
         if (null !== $this->dagOwnerNickName) {
             $res['DagOwnerNickName'] = $this->dagOwnerNickName;
@@ -163,6 +181,12 @@ class dag extends Model
         }
         if (isset($map['CreatorNickName'])) {
             $model->creatorNickName = $map['CreatorNickName'];
+        }
+        if (isset($map['DagName'])) {
+            $model->dagName = $map['DagName'];
+        }
+        if (isset($map['DagOwnerId'])) {
+            $model->dagOwnerId = $map['DagOwnerId'];
         }
         if (isset($map['DagOwnerNickName'])) {
             $model->dagOwnerNickName = $map['DagOwnerNickName'];
