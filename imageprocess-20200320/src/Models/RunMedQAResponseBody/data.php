@@ -11,12 +11,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $sessionId;
+    public $answerType;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $questionType;
+    public $options;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class data extends Model
     /**
      * @var string
      */
-    public $answerType;
-
-    /**
-     * @var string[]
-     */
-    public $options;
+    public $questionType;
 
     /**
      * @var string[]
      */
     public $reports;
+
+    /**
+     * @var string
+     */
+    public $sessionId;
     protected $_name = [
-        'sessionId'    => 'SessionId',
-        'questionType' => 'QuestionType',
-        'question'     => 'Question',
         'answerType'   => 'AnswerType',
         'options'      => 'Options',
+        'question'     => 'Question',
+        'questionType' => 'QuestionType',
         'reports'      => 'Reports',
+        'sessionId'    => 'SessionId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
-        }
-        if (null !== $this->questionType) {
-            $res['QuestionType'] = $this->questionType;
-        }
-        if (null !== $this->question) {
-            $res['Question'] = $this->question;
-        }
         if (null !== $this->answerType) {
             $res['AnswerType'] = $this->answerType;
         }
         if (null !== $this->options) {
             $res['Options'] = $this->options;
         }
+        if (null !== $this->question) {
+            $res['Question'] = $this->question;
+        }
+        if (null !== $this->questionType) {
+            $res['QuestionType'] = $this->questionType;
+        }
         if (null !== $this->reports) {
             $res['Reports'] = $this->reports;
+        }
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         return $res;
@@ -83,15 +83,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
-        }
-        if (isset($map['QuestionType'])) {
-            $model->questionType = $map['QuestionType'];
-        }
-        if (isset($map['Question'])) {
-            $model->question = $map['Question'];
-        }
         if (isset($map['AnswerType'])) {
             $model->answerType = $map['AnswerType'];
         }
@@ -100,8 +91,17 @@ class data extends Model
                 $model->options = $map['Options'];
             }
         }
+        if (isset($map['Question'])) {
+            $model->question = $map['Question'];
+        }
+        if (isset($map['QuestionType'])) {
+            $model->questionType = $map['QuestionType'];
+        }
         if (isset($map['Reports'])) {
             $model->reports = $map['Reports'];
+        }
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         return $model;

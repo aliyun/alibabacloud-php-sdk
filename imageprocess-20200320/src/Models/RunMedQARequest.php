@@ -12,6 +12,26 @@ use AlibabaCloud\Tea\Model;
 class RunMedQARequest extends Model
 {
     /**
+     * @var answerImageDataList[]
+     */
+    public $answerImageDataList;
+
+    /**
+     * @var answerImageURLList[]
+     */
+    public $answerImageURLList;
+
+    /**
+     * @var answerTextList[]
+     */
+    public $answerTextList;
+
+    /**
+     * @var string
+     */
+    public $department;
+
+    /**
      * @var string
      */
     public $orgId;
@@ -24,41 +44,21 @@ class RunMedQARequest extends Model
     /**
      * @var string
      */
-    public $sessionId;
-
-    /**
-     * @var string
-     */
-    public $department;
-
-    /**
-     * @var string
-     */
     public $questionType;
 
     /**
-     * @var answerImageURLList[]
+     * @var string
      */
-    public $answerImageURLList;
-
-    /**
-     * @var answerImageDataList[]
-     */
-    public $answerImageDataList;
-
-    /**
-     * @var answerTextList[]
-     */
-    public $answerTextList;
+    public $sessionId;
     protected $_name = [
+        'answerImageDataList' => 'AnswerImageDataList',
+        'answerImageURLList'  => 'AnswerImageURLList',
+        'answerTextList'      => 'AnswerTextList',
+        'department'          => 'Department',
         'orgId'               => 'OrgId',
         'orgName'             => 'OrgName',
-        'sessionId'           => 'SessionId',
-        'department'          => 'Department',
         'questionType'        => 'QuestionType',
-        'answerImageURLList'  => 'AnswerImageURLList',
-        'answerImageDataList' => 'AnswerImageDataList',
-        'answerTextList'      => 'AnswerTextList',
+        'sessionId'           => 'SessionId',
     ];
 
     public function validate()
@@ -68,20 +68,14 @@ class RunMedQARequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orgId) {
-            $res['OrgId'] = $this->orgId;
-        }
-        if (null !== $this->orgName) {
-            $res['OrgName'] = $this->orgName;
-        }
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
-        }
-        if (null !== $this->department) {
-            $res['Department'] = $this->department;
-        }
-        if (null !== $this->questionType) {
-            $res['QuestionType'] = $this->questionType;
+        if (null !== $this->answerImageDataList) {
+            $res['AnswerImageDataList'] = [];
+            if (null !== $this->answerImageDataList && \is_array($this->answerImageDataList)) {
+                $n = 0;
+                foreach ($this->answerImageDataList as $item) {
+                    $res['AnswerImageDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->answerImageURLList) {
             $res['AnswerImageURLList'] = [];
@@ -89,15 +83,6 @@ class RunMedQARequest extends Model
                 $n = 0;
                 foreach ($this->answerImageURLList as $item) {
                     $res['AnswerImageURLList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->answerImageDataList) {
-            $res['AnswerImageDataList'] = [];
-            if (null !== $this->answerImageDataList && \is_array($this->answerImageDataList)) {
-                $n = 0;
-                foreach ($this->answerImageDataList as $item) {
-                    $res['AnswerImageDataList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -109,6 +94,21 @@ class RunMedQARequest extends Model
                     $res['AnswerTextList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->department) {
+            $res['Department'] = $this->department;
+        }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
+        }
+        if (null !== $this->orgName) {
+            $res['OrgName'] = $this->orgName;
+        }
+        if (null !== $this->questionType) {
+            $res['QuestionType'] = $this->questionType;
+        }
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         return $res;
@@ -122,20 +122,14 @@ class RunMedQARequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrgId'])) {
-            $model->orgId = $map['OrgId'];
-        }
-        if (isset($map['OrgName'])) {
-            $model->orgName = $map['OrgName'];
-        }
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
-        }
-        if (isset($map['Department'])) {
-            $model->department = $map['Department'];
-        }
-        if (isset($map['QuestionType'])) {
-            $model->questionType = $map['QuestionType'];
+        if (isset($map['AnswerImageDataList'])) {
+            if (!empty($map['AnswerImageDataList'])) {
+                $model->answerImageDataList = [];
+                $n                          = 0;
+                foreach ($map['AnswerImageDataList'] as $item) {
+                    $model->answerImageDataList[$n++] = null !== $item ? answerImageDataList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['AnswerImageURLList'])) {
             if (!empty($map['AnswerImageURLList'])) {
@@ -143,15 +137,6 @@ class RunMedQARequest extends Model
                 $n                         = 0;
                 foreach ($map['AnswerImageURLList'] as $item) {
                     $model->answerImageURLList[$n++] = null !== $item ? answerImageURLList::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['AnswerImageDataList'])) {
-            if (!empty($map['AnswerImageDataList'])) {
-                $model->answerImageDataList = [];
-                $n                          = 0;
-                foreach ($map['AnswerImageDataList'] as $item) {
-                    $model->answerImageDataList[$n++] = null !== $item ? answerImageDataList::fromMap($item) : $item;
                 }
             }
         }
@@ -163,6 +148,21 @@ class RunMedQARequest extends Model
                     $model->answerTextList[$n++] = null !== $item ? answerTextList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Department'])) {
+            $model->department = $map['Department'];
+        }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
+        }
+        if (isset($map['OrgName'])) {
+            $model->orgName = $map['OrgName'];
+        }
+        if (isset($map['QuestionType'])) {
+            $model->questionType = $map['QuestionType'];
+        }
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         return $model;

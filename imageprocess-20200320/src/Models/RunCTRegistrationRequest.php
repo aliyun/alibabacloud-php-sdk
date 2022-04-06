@@ -18,7 +18,12 @@ class RunCTRegistrationRequest extends Model
     /**
      * @var string
      */
-    public $orgName;
+    public $dataSourceType;
+
+    /**
+     * @var floatingList[]
+     */
+    public $floatingList;
 
     /**
      * @var string
@@ -28,24 +33,19 @@ class RunCTRegistrationRequest extends Model
     /**
      * @var string
      */
-    public $dataSourceType;
+    public $orgName;
 
     /**
      * @var referenceList[]
      */
     public $referenceList;
-
-    /**
-     * @var floatingList[]
-     */
-    public $floatingList;
     protected $_name = [
         'dataFormat'     => 'DataFormat',
-        'orgName'        => 'OrgName',
-        'orgId'          => 'OrgId',
         'dataSourceType' => 'DataSourceType',
-        'referenceList'  => 'ReferenceList',
         'floatingList'   => 'FloatingList',
+        'orgId'          => 'OrgId',
+        'orgName'        => 'OrgName',
+        'referenceList'  => 'ReferenceList',
     ];
 
     public function validate()
@@ -58,23 +58,8 @@ class RunCTRegistrationRequest extends Model
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
-        if (null !== $this->orgName) {
-            $res['OrgName'] = $this->orgName;
-        }
-        if (null !== $this->orgId) {
-            $res['OrgId'] = $this->orgId;
-        }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
-        }
-        if (null !== $this->referenceList) {
-            $res['ReferenceList'] = [];
-            if (null !== $this->referenceList && \is_array($this->referenceList)) {
-                $n = 0;
-                foreach ($this->referenceList as $item) {
-                    $res['ReferenceList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->floatingList) {
             $res['FloatingList'] = [];
@@ -82,6 +67,21 @@ class RunCTRegistrationRequest extends Model
                 $n = 0;
                 foreach ($this->floatingList as $item) {
                     $res['FloatingList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
+        }
+        if (null !== $this->orgName) {
+            $res['OrgName'] = $this->orgName;
+        }
+        if (null !== $this->referenceList) {
+            $res['ReferenceList'] = [];
+            if (null !== $this->referenceList && \is_array($this->referenceList)) {
+                $n = 0;
+                foreach ($this->referenceList as $item) {
+                    $res['ReferenceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -100,23 +100,8 @@ class RunCTRegistrationRequest extends Model
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
-        if (isset($map['OrgName'])) {
-            $model->orgName = $map['OrgName'];
-        }
-        if (isset($map['OrgId'])) {
-            $model->orgId = $map['OrgId'];
-        }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
-        }
-        if (isset($map['ReferenceList'])) {
-            if (!empty($map['ReferenceList'])) {
-                $model->referenceList = [];
-                $n                    = 0;
-                foreach ($map['ReferenceList'] as $item) {
-                    $model->referenceList[$n++] = null !== $item ? referenceList::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['FloatingList'])) {
             if (!empty($map['FloatingList'])) {
@@ -124,6 +109,21 @@ class RunCTRegistrationRequest extends Model
                 $n                   = 0;
                 foreach ($map['FloatingList'] as $item) {
                     $model->floatingList[$n++] = null !== $item ? floatingList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
+        }
+        if (isset($map['OrgName'])) {
+            $model->orgName = $map['OrgName'];
+        }
+        if (isset($map['ReferenceList'])) {
+            if (!empty($map['ReferenceList'])) {
+                $model->referenceList = [];
+                $n                    = 0;
+                foreach ($map['ReferenceList'] as $item) {
+                    $model->referenceList[$n++] = null !== $item ? referenceList::fromMap($item) : $item;
                 }
             }
         }

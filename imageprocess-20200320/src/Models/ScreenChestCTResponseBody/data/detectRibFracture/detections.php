@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class detections extends Model
 {
     /**
+     * @var int[]
+     */
+    public $coordinateImage;
+
+    /**
+     * @var int[]
+     */
+    public $coordinates;
+
+    /**
      * @var int
      */
-    public $fractureId;
+    public $fractureCategory;
 
     /**
      * @var float
@@ -21,17 +31,7 @@ class detections extends Model
     /**
      * @var int
      */
-    public $fractureCategory;
-
-    /**
-     * @var int[]
-     */
-    public $coordinates;
-
-    /**
-     * @var int[]
-     */
-    public $coordinateImage;
+    public $fractureId;
 
     /**
      * @var string
@@ -43,11 +43,11 @@ class detections extends Model
      */
     public $fractureSegment;
     protected $_name = [
-        'fractureId'         => 'FractureId',
-        'fractureConfidence' => 'FractureConfidence',
-        'fractureCategory'   => 'FractureCategory',
-        'coordinates'        => 'Coordinates',
         'coordinateImage'    => 'CoordinateImage',
+        'coordinates'        => 'Coordinates',
+        'fractureCategory'   => 'FractureCategory',
+        'fractureConfidence' => 'FractureConfidence',
+        'fractureId'         => 'FractureId',
         'fractureLocation'   => 'FractureLocation',
         'fractureSegment'    => 'FractureSegment',
     ];
@@ -59,20 +59,20 @@ class detections extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fractureId) {
-            $res['FractureId'] = $this->fractureId;
-        }
-        if (null !== $this->fractureConfidence) {
-            $res['FractureConfidence'] = $this->fractureConfidence;
-        }
-        if (null !== $this->fractureCategory) {
-            $res['FractureCategory'] = $this->fractureCategory;
+        if (null !== $this->coordinateImage) {
+            $res['CoordinateImage'] = $this->coordinateImage;
         }
         if (null !== $this->coordinates) {
             $res['Coordinates'] = $this->coordinates;
         }
-        if (null !== $this->coordinateImage) {
-            $res['CoordinateImage'] = $this->coordinateImage;
+        if (null !== $this->fractureCategory) {
+            $res['FractureCategory'] = $this->fractureCategory;
+        }
+        if (null !== $this->fractureConfidence) {
+            $res['FractureConfidence'] = $this->fractureConfidence;
+        }
+        if (null !== $this->fractureId) {
+            $res['FractureId'] = $this->fractureId;
         }
         if (null !== $this->fractureLocation) {
             $res['FractureLocation'] = $this->fractureLocation;
@@ -92,24 +92,24 @@ class detections extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FractureId'])) {
-            $model->fractureId = $map['FractureId'];
-        }
-        if (isset($map['FractureConfidence'])) {
-            $model->fractureConfidence = $map['FractureConfidence'];
-        }
-        if (isset($map['FractureCategory'])) {
-            $model->fractureCategory = $map['FractureCategory'];
+        if (isset($map['CoordinateImage'])) {
+            if (!empty($map['CoordinateImage'])) {
+                $model->coordinateImage = $map['CoordinateImage'];
+            }
         }
         if (isset($map['Coordinates'])) {
             if (!empty($map['Coordinates'])) {
                 $model->coordinates = $map['Coordinates'];
             }
         }
-        if (isset($map['CoordinateImage'])) {
-            if (!empty($map['CoordinateImage'])) {
-                $model->coordinateImage = $map['CoordinateImage'];
-            }
+        if (isset($map['FractureCategory'])) {
+            $model->fractureCategory = $map['FractureCategory'];
+        }
+        if (isset($map['FractureConfidence'])) {
+            $model->fractureConfidence = $map['FractureConfidence'];
+        }
+        if (isset($map['FractureId'])) {
+            $model->fractureId = $map['FractureId'];
         }
         if (isset($map['FractureLocation'])) {
             $model->fractureLocation = $map['FractureLocation'];

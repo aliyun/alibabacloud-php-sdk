@@ -17,28 +17,28 @@ class DetectLungNoduleRequest extends Model
     /**
      * @var string
      */
-    public $orgName;
+    public $orgId;
 
     /**
      * @var string
      */
-    public $orgId;
-
-    /**
-     * @var URLList[]
-     */
-    public $URLList;
+    public $orgName;
 
     /**
      * @var float
      */
     public $threshold;
+
+    /**
+     * @var URLList[]
+     */
+    public $URLList;
     protected $_name = [
         'dataFormat' => 'DataFormat',
-        'orgName'    => 'OrgName',
         'orgId'      => 'OrgId',
-        'URLList'    => 'URLList',
+        'orgName'    => 'OrgName',
         'threshold'  => 'Threshold',
+        'URLList'    => 'URLList',
     ];
 
     public function validate()
@@ -51,11 +51,14 @@ class DetectLungNoduleRequest extends Model
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
+        }
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
-        if (null !== $this->orgId) {
-            $res['OrgId'] = $this->orgId;
+        if (null !== $this->threshold) {
+            $res['Threshold'] = $this->threshold;
         }
         if (null !== $this->URLList) {
             $res['URLList'] = [];
@@ -65,9 +68,6 @@ class DetectLungNoduleRequest extends Model
                     $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->threshold) {
-            $res['Threshold'] = $this->threshold;
         }
 
         return $res;
@@ -84,11 +84,14 @@ class DetectLungNoduleRequest extends Model
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
+        }
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }
-        if (isset($map['OrgId'])) {
-            $model->orgId = $map['OrgId'];
+        if (isset($map['Threshold'])) {
+            $model->threshold = $map['Threshold'];
         }
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {
@@ -98,9 +101,6 @@ class DetectLungNoduleRequest extends Model
                     $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Threshold'])) {
-            $model->threshold = $map['Threshold'];
         }
 
         return $model;

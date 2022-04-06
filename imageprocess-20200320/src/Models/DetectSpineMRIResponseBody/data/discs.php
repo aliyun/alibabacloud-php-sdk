@@ -11,20 +11,20 @@ class discs extends Model
     /**
      * @var string
      */
-    public $identification;
+    public $disease;
 
     /**
      * @var string
      */
-    public $disease;
+    public $identification;
 
     /**
      * @var float[]
      */
     public $location;
     protected $_name = [
-        'identification' => 'Identification',
         'disease'        => 'Disease',
+        'identification' => 'Identification',
         'location'       => 'Location',
     ];
 
@@ -35,11 +35,11 @@ class discs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->identification) {
-            $res['Identification'] = $this->identification;
-        }
         if (null !== $this->disease) {
             $res['Disease'] = $this->disease;
+        }
+        if (null !== $this->identification) {
+            $res['Identification'] = $this->identification;
         }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
@@ -56,11 +56,11 @@ class discs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Identification'])) {
-            $model->identification = $map['Identification'];
-        }
         if (isset($map['Disease'])) {
             $model->disease = $map['Disease'];
+        }
+        if (isset($map['Identification'])) {
+            $model->identification = $map['Identification'];
         }
         if (isset($map['Location'])) {
             if (!empty($map['Location'])) {

@@ -22,17 +22,17 @@ class DetectKneeXRayAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $orgName;
+    public $orgId;
 
     /**
      * @var string
      */
-    public $orgId;
+    public $orgName;
     protected $_name = [
         'urlObject'  => 'UrlObject',
         'dataFormat' => 'DataFormat',
-        'orgName'    => 'OrgName',
         'orgId'      => 'OrgId',
+        'orgName'    => 'OrgName',
     ];
 
     public function validate()
@@ -49,11 +49,11 @@ class DetectKneeXRayAdvanceRequest extends Model
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
-        if (null !== $this->orgName) {
-            $res['OrgName'] = $this->orgName;
-        }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
+        }
+        if (null !== $this->orgName) {
+            $res['OrgName'] = $this->orgName;
         }
 
         return $res;
@@ -73,11 +73,11 @@ class DetectKneeXRayAdvanceRequest extends Model
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
-        if (isset($map['OrgName'])) {
-            $model->orgName = $map['OrgName'];
-        }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
+        }
+        if (isset($map['OrgName'])) {
+            $model->orgName = $map['OrgName'];
         }
 
         return $model;

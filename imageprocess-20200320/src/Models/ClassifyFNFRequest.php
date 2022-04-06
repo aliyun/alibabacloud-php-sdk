@@ -11,12 +11,12 @@ class ClassifyFNFRequest extends Model
     /**
      * @var string
      */
-    public $imageUrl;
+    public $dataFormat;
 
     /**
      * @var string
      */
-    public $dataFormat;
+    public $imageUrl;
 
     /**
      * @var string
@@ -33,8 +33,8 @@ class ClassifyFNFRequest extends Model
      */
     public $tracerId;
     protected $_name = [
-        'imageUrl'   => 'ImageUrl',
         'dataFormat' => 'DataFormat',
+        'imageUrl'   => 'ImageUrl',
         'orgId'      => 'OrgId',
         'orgName'    => 'OrgName',
         'tracerId'   => 'TracerId',
@@ -47,11 +47,11 @@ class ClassifyFNFRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
-        }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
+        }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
@@ -74,11 +74,11 @@ class ClassifyFNFRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
-        }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];

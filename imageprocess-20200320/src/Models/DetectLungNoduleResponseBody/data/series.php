@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
-     * @var string
-     */
-    public $seriesInstanceUid;
-
-    /**
      * @var elements[]
      */
     public $elements;
@@ -30,14 +25,19 @@ class series extends Model
     public $report;
 
     /**
+     * @var string
+     */
+    public $seriesInstanceUid;
+
+    /**
      * @var float[]
      */
     public $spacing;
     protected $_name = [
-        'seriesInstanceUid' => 'SeriesInstanceUid',
         'elements'          => 'Elements',
         'origin'            => 'Origin',
         'report'            => 'Report',
+        'seriesInstanceUid' => 'SeriesInstanceUid',
         'spacing'           => 'Spacing',
     ];
 
@@ -48,9 +48,6 @@ class series extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->seriesInstanceUid) {
-            $res['SeriesInstanceUid'] = $this->seriesInstanceUid;
-        }
         if (null !== $this->elements) {
             $res['Elements'] = [];
             if (null !== $this->elements && \is_array($this->elements)) {
@@ -65,6 +62,9 @@ class series extends Model
         }
         if (null !== $this->report) {
             $res['Report'] = $this->report;
+        }
+        if (null !== $this->seriesInstanceUid) {
+            $res['SeriesInstanceUid'] = $this->seriesInstanceUid;
         }
         if (null !== $this->spacing) {
             $res['Spacing'] = $this->spacing;
@@ -81,9 +81,6 @@ class series extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SeriesInstanceUid'])) {
-            $model->seriesInstanceUid = $map['SeriesInstanceUid'];
-        }
         if (isset($map['Elements'])) {
             if (!empty($map['Elements'])) {
                 $model->elements = [];
@@ -100,6 +97,9 @@ class series extends Model
         }
         if (isset($map['Report'])) {
             $model->report = $map['Report'];
+        }
+        if (isset($map['SeriesInstanceUid'])) {
+            $model->seriesInstanceUid = $map['SeriesInstanceUid'];
         }
         if (isset($map['Spacing'])) {
             if (!empty($map['Spacing'])) {

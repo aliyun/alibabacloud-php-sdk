@@ -17,12 +17,12 @@ class DetectRibFractureRequest extends Model
     /**
      * @var string
      */
-    public $orgName;
+    public $orgId;
 
     /**
      * @var string
      */
-    public $orgId;
+    public $orgName;
 
     /**
      * @var string
@@ -35,8 +35,8 @@ class DetectRibFractureRequest extends Model
     public $URLList;
     protected $_name = [
         'dataFormat' => 'DataFormat',
-        'orgName'    => 'OrgName',
         'orgId'      => 'OrgId',
+        'orgName'    => 'OrgName',
         'sourceType' => 'SourceType',
         'URLList'    => 'URLList',
     ];
@@ -51,11 +51,11 @@ class DetectRibFractureRequest extends Model
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
-        if (null !== $this->orgName) {
-            $res['OrgName'] = $this->orgName;
-        }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
+        }
+        if (null !== $this->orgName) {
+            $res['OrgName'] = $this->orgName;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -84,11 +84,11 @@ class DetectRibFractureRequest extends Model
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
-        if (isset($map['OrgName'])) {
-            $model->orgName = $map['OrgName'];
-        }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
+        }
+        if (isset($map['OrgName'])) {
+            $model->orgName = $map['OrgName'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

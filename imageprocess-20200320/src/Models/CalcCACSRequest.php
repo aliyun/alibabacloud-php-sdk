@@ -17,7 +17,7 @@ class CalcCACSRequest extends Model
     /**
      * @var string
      */
-    public $orgName;
+    public $dataSourceType;
 
     /**
      * @var string
@@ -27,7 +27,7 @@ class CalcCACSRequest extends Model
     /**
      * @var string
      */
-    public $dataSourceType;
+    public $orgName;
 
     /**
      * @var URLList[]
@@ -35,9 +35,9 @@ class CalcCACSRequest extends Model
     public $URLList;
     protected $_name = [
         'dataFormat'     => 'DataFormat',
-        'orgName'        => 'OrgName',
-        'orgId'          => 'OrgId',
         'dataSourceType' => 'DataSourceType',
+        'orgId'          => 'OrgId',
+        'orgName'        => 'OrgName',
         'URLList'        => 'URLList',
     ];
 
@@ -51,14 +51,14 @@ class CalcCACSRequest extends Model
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
-        if (null !== $this->orgName) {
-            $res['OrgName'] = $this->orgName;
+        if (null !== $this->dataSourceType) {
+            $res['DataSourceType'] = $this->dataSourceType;
         }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
-        if (null !== $this->dataSourceType) {
-            $res['DataSourceType'] = $this->dataSourceType;
+        if (null !== $this->orgName) {
+            $res['OrgName'] = $this->orgName;
         }
         if (null !== $this->URLList) {
             $res['URLList'] = [];
@@ -84,14 +84,14 @@ class CalcCACSRequest extends Model
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
-        if (isset($map['OrgName'])) {
-            $model->orgName = $map['OrgName'];
+        if (isset($map['DataSourceType'])) {
+            $model->dataSourceType = $map['DataSourceType'];
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
-        if (isset($map['DataSourceType'])) {
-            $model->dataSourceType = $map['DataSourceType'];
+        if (isset($map['OrgName'])) {
+            $model->orgName = $map['OrgName'];
         }
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {

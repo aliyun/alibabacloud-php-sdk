@@ -14,9 +14,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var lungNodule
+     * @var analyzeChestVessel
      */
-    public $lungNodule;
+    public $analyzeChestVessel;
 
     /**
      * @var CACS
@@ -39,16 +39,16 @@ class data extends Model
     public $errorMessage;
 
     /**
-     * @var analyzeChestVessel
+     * @var lungNodule
      */
-    public $analyzeChestVessel;
+    public $lungNodule;
     protected $_name = [
-        'lungNodule'         => 'LungNodule',
+        'analyzeChestVessel' => 'AnalyzeChestVessel',
         'CACS'               => 'CACS',
         'covid'              => 'Covid',
         'detectRibFracture'  => 'DetectRibFracture',
         'errorMessage'       => 'ErrorMessage',
-        'analyzeChestVessel' => 'AnalyzeChestVessel',
+        'lungNodule'         => 'LungNodule',
     ];
 
     public function validate()
@@ -58,8 +58,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lungNodule) {
-            $res['LungNodule'] = null !== $this->lungNodule ? $this->lungNodule->toMap() : null;
+        if (null !== $this->analyzeChestVessel) {
+            $res['AnalyzeChestVessel'] = null !== $this->analyzeChestVessel ? $this->analyzeChestVessel->toMap() : null;
         }
         if (null !== $this->CACS) {
             $res['CACS'] = null !== $this->CACS ? $this->CACS->toMap() : null;
@@ -73,8 +73,8 @@ class data extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->analyzeChestVessel) {
-            $res['AnalyzeChestVessel'] = null !== $this->analyzeChestVessel ? $this->analyzeChestVessel->toMap() : null;
+        if (null !== $this->lungNodule) {
+            $res['LungNodule'] = null !== $this->lungNodule ? $this->lungNodule->toMap() : null;
         }
 
         return $res;
@@ -88,8 +88,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LungNodule'])) {
-            $model->lungNodule = lungNodule::fromMap($map['LungNodule']);
+        if (isset($map['AnalyzeChestVessel'])) {
+            $model->analyzeChestVessel = analyzeChestVessel::fromMap($map['AnalyzeChestVessel']);
         }
         if (isset($map['CACS'])) {
             $model->CACS = CACS::fromMap($map['CACS']);
@@ -103,8 +103,8 @@ class data extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['AnalyzeChestVessel'])) {
-            $model->analyzeChestVessel = analyzeChestVessel::fromMap($map['AnalyzeChestVessel']);
+        if (isset($map['LungNodule'])) {
+            $model->lungNodule = lungNodule::fromMap($map['LungNodule']);
         }
 
         return $model;

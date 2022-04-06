@@ -11,12 +11,12 @@ class DetectKneeXRayRequest extends Model
     /**
      * @var string
      */
-    public $url;
+    public $dataFormat;
 
     /**
      * @var string
      */
-    public $dataFormat;
+    public $orgId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DetectKneeXRayRequest extends Model
     /**
      * @var string
      */
-    public $orgId;
+    public $url;
     protected $_name = [
-        'url'        => 'Url',
         'dataFormat' => 'DataFormat',
-        'orgName'    => 'OrgName',
         'orgId'      => 'OrgId',
+        'orgName'    => 'OrgName',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DetectKneeXRayRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
+        }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
         }
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
-        if (null !== $this->orgId) {
-            $res['OrgId'] = $this->orgId;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DetectKneeXRayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
+        }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
         }
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }
-        if (isset($map['OrgId'])) {
-            $model->orgId = $map['OrgId'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -15,9 +15,9 @@ class ScreenChestCTRequest extends Model
     public $dataFormat;
 
     /**
-     * @var string
+     * @var int
      */
-    public $orgName;
+    public $mask;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class ScreenChestCTRequest extends Model
     public $orgId;
 
     /**
+     * @var string
+     */
+    public $orgName;
+
+    /**
      * @var URLList[]
      */
     public $URLList;
-
-    /**
-     * @var int
-     */
-    public $mask;
     protected $_name = [
         'dataFormat' => 'DataFormat',
-        'orgName'    => 'OrgName',
-        'orgId'      => 'OrgId',
-        'URLList'    => 'URLList',
         'mask'       => 'Mask',
+        'orgId'      => 'OrgId',
+        'orgName'    => 'OrgName',
+        'URLList'    => 'URLList',
     ];
 
     public function validate()
@@ -51,11 +51,14 @@ class ScreenChestCTRequest extends Model
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
-        if (null !== $this->orgName) {
-            $res['OrgName'] = $this->orgName;
+        if (null !== $this->mask) {
+            $res['Mask'] = $this->mask;
         }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
+        }
+        if (null !== $this->orgName) {
+            $res['OrgName'] = $this->orgName;
         }
         if (null !== $this->URLList) {
             $res['URLList'] = [];
@@ -65,9 +68,6 @@ class ScreenChestCTRequest extends Model
                     $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->mask) {
-            $res['Mask'] = $this->mask;
         }
 
         return $res;
@@ -84,11 +84,14 @@ class ScreenChestCTRequest extends Model
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
-        if (isset($map['OrgName'])) {
-            $model->orgName = $map['OrgName'];
+        if (isset($map['Mask'])) {
+            $model->mask = $map['Mask'];
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
+        }
+        if (isset($map['OrgName'])) {
+            $model->orgName = $map['OrgName'];
         }
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {
@@ -98,9 +101,6 @@ class ScreenChestCTRequest extends Model
                     $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Mask'])) {
-            $model->mask = $map['Mask'];
         }
 
         return $model;

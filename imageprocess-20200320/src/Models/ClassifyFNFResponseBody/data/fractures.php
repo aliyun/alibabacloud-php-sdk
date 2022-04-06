@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class fractures extends Model
 {
     /**
-     * @var float
-     */
-    public $value;
-
-    /**
      * @var int[]
      */
     public $boxes;
@@ -23,10 +18,15 @@ class fractures extends Model
      * @var tag
      */
     public $tag;
+
+    /**
+     * @var float
+     */
+    public $value;
     protected $_name = [
-        'value' => 'Value',
         'boxes' => 'Boxes',
         'tag'   => 'Tag',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class fractures extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->boxes) {
             $res['Boxes'] = $this->boxes;
         }
         if (null !== $this->tag) {
             $res['Tag'] = null !== $this->tag ? $this->tag->toMap() : null;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -57,9 +57,6 @@ class fractures extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Boxes'])) {
             if (!empty($map['Boxes'])) {
                 $model->boxes = $map['Boxes'];
@@ -67,6 +64,9 @@ class fractures extends Model
         }
         if (isset($map['Tag'])) {
             $model->tag = tag::fromMap($map['Tag']);
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

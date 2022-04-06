@@ -54,6 +54,7 @@ use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Imageprocess extends OpenApiClient
@@ -90,6 +91,116 @@ class Imageprocess extends OpenApiClient
     }
 
     /**
+     * @param AnalyzeChestVesselRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AnalyzeChestVesselResponse
+     */
+    public function analyzeChestVesselWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AnalyzeChestVessel',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AnalyzeChestVesselResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AnalyzeChestVesselRequest $request
+     *
+     * @return AnalyzeChestVesselResponse
+     */
+    public function analyzeChestVessel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->analyzeChestVesselWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CalcCACSRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return CalcCACSResponse
+     */
+    public function calcCACSWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CalcCACS',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CalcCACSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CalcCACSRequest $request
+     *
+     * @return CalcCACSResponse
+     */
+    public function calcCACS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->calcCACSWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ClassifyFNFRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -98,11 +209,38 @@ class Imageprocess extends OpenApiClient
     public function classifyFNFWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->tracerId)) {
+            $body['TracerId'] = $request->tracerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ClassifyFNF',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ClassifyFNFResponse::fromMap($this->doRPCRequest('ClassifyFNF', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ClassifyFNFResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -196,171 +334,55 @@ class Imageprocess extends OpenApiClient
     }
 
     /**
-     * @param DetectLungNoduleRequest $request
+     * @param DetectCovid19CadRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return DetectLungNoduleResponse
+     * @return DetectCovid19CadResponse
      */
-    public function detectLungNoduleWithOptions($request, $runtime)
+    public function detectCovid19CadWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectCovid19Cad',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectLungNoduleResponse::fromMap($this->doRPCRequest('DetectLungNodule', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectCovid19CadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DetectLungNoduleRequest $request
+     * @param DetectCovid19CadRequest $request
      *
-     * @return DetectLungNoduleResponse
+     * @return DetectCovid19CadResponse
      */
-    public function detectLungNodule($request)
+    public function detectCovid19Cad($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->detectLungNoduleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RunCTRegistrationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RunCTRegistrationResponse
-     */
-    public function runCTRegistrationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RunCTRegistrationResponse::fromMap($this->doRPCRequest('RunCTRegistration', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RunCTRegistrationRequest $request
-     *
-     * @return RunCTRegistrationResponse
-     */
-    public function runCTRegistration($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->runCTRegistrationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AnalyzeChestVesselRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AnalyzeChestVesselResponse
-     */
-    public function analyzeChestVesselWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AnalyzeChestVesselResponse::fromMap($this->doRPCRequest('AnalyzeChestVessel', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AnalyzeChestVesselRequest $request
-     *
-     * @return AnalyzeChestVesselResponse
-     */
-    public function analyzeChestVessel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->analyzeChestVesselWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TranslateMedRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TranslateMedResponse
-     */
-    public function translateMedWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TranslateMedResponse::fromMap($this->doRPCRequest('TranslateMed', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TranslateMedRequest $request
-     *
-     * @return TranslateMedResponse
-     */
-    public function translateMed($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->translateMedWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectSpineMRIRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DetectSpineMRIResponse
-     */
-    public function detectSpineMRIWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectSpineMRIResponse::fromMap($this->doRPCRequest('DetectSpineMRI', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectSpineMRIRequest $request
-     *
-     * @return DetectSpineMRIResponse
-     */
-    public function detectSpineMRI($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectSpineMRIWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CalcCACSRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return CalcCACSResponse
-     */
-    public function calcCACSWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CalcCACSResponse::fromMap($this->doRPCRequest('CalcCACS', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CalcCACSRequest $request
-     *
-     * @return CalcCACSResponse
-     */
-    public function calcCACS($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->calcCACSWithOptions($request, $runtime);
+        return $this->detectCovid19CadWithOptions($request, $runtime);
     }
 
     /**
@@ -372,11 +394,38 @@ class Imageprocess extends OpenApiClient
     public function detectHipKeypointXRayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->tracerId)) {
+            $body['TracerId'] = $request->tracerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectHipKeypointXRay',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectHipKeypointXRayResponse::fromMap($this->doRPCRequest('DetectHipKeypointXRay', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectHipKeypointXRayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -478,11 +527,38 @@ class Imageprocess extends OpenApiClient
     public function detectKneeKeypointXRayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->tracerId)) {
+            $body['TracerId'] = $request->tracerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectKneeKeypointXRay',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectKneeKeypointXRayResponse::fromMap($this->doRPCRequest('DetectKneeKeypointXRay', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectKneeKeypointXRayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -576,34 +652,6 @@ class Imageprocess extends OpenApiClient
     }
 
     /**
-     * @param RunMedQARequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return RunMedQAResponse
-     */
-    public function runMedQAWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RunMedQAResponse::fromMap($this->doRPCRequest('RunMedQA', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RunMedQARequest $request
-     *
-     * @return RunMedQAResponse
-     */
-    public function runMedQA($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->runMedQAWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetectKneeXRayRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -612,11 +660,35 @@ class Imageprocess extends OpenApiClient
     public function detectKneeXRayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectKneeXRay',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectKneeXRayResponse::fromMap($this->doRPCRequest('DetectKneeXRay', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectKneeXRayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -710,31 +782,58 @@ class Imageprocess extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncJobResultRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DetectLungNoduleRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetAsyncJobResultResponse
+     * @return DetectLungNoduleResponse
      */
-    public function getAsyncJobResultWithOptions($request, $runtime)
+    public function detectLungNoduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $body['Threshold'] = $request->threshold;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectLungNodule',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectLungNoduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetAsyncJobResultRequest $request
+     * @param DetectLungNoduleRequest $request
      *
-     * @return GetAsyncJobResultResponse
+     * @return DetectLungNoduleResponse
      */
-    public function getAsyncJobResult($request)
+    public function detectLungNodule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAsyncJobResultWithOptions($request, $runtime);
+        return $this->detectLungNoduleWithOptions($request, $runtime);
     }
 
     /**
@@ -746,11 +845,38 @@ class Imageprocess extends OpenApiClient
     public function detectRibFractureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectRibFracture',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectRibFractureResponse::fromMap($this->doRPCRequest('DetectRibFracture', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectRibFractureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -766,62 +892,6 @@ class Imageprocess extends OpenApiClient
     }
 
     /**
-     * @param DetectCovid19CadRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DetectCovid19CadResponse
-     */
-    public function detectCovid19CadWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectCovid19CadResponse::fromMap($this->doRPCRequest('DetectCovid19Cad', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectCovid19CadRequest $request
-     *
-     * @return DetectCovid19CadResponse
-     */
-    public function detectCovid19Cad($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectCovid19CadWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ScreenChestCTRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ScreenChestCTResponse
-     */
-    public function screenChestCTWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ScreenChestCTResponse::fromMap($this->doRPCRequest('ScreenChestCT', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ScreenChestCTRequest $request
-     *
-     * @return ScreenChestCTResponse
-     */
-    public function screenChestCT($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->screenChestCTWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetectSkinDiseaseRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -830,11 +900,32 @@ class Imageprocess extends OpenApiClient
     public function detectSkinDiseaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectSkinDisease',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectSkinDiseaseResponse::fromMap($this->doRPCRequest('DetectSkinDisease', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectSkinDiseaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -925,5 +1016,326 @@ class Imageprocess extends OpenApiClient
         }
 
         return $this->detectSkinDiseaseWithOptions($detectSkinDiseaseReq, $runtime);
+    }
+
+    /**
+     * @param DetectSpineMRIRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DetectSpineMRIResponse
+     */
+    public function detectSpineMRIWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectSpineMRI',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectSpineMRIResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectSpineMRIRequest $request
+     *
+     * @return DetectSpineMRIResponse
+     */
+    public function detectSpineMRI($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectSpineMRIWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAsyncJobResultRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAsyncJobResultResponse
+     */
+    public function getAsyncJobResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsyncJobResult',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAsyncJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAsyncJobResultRequest $request
+     *
+     * @return GetAsyncJobResultResponse
+     */
+    public function getAsyncJobResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAsyncJobResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunCTRegistrationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RunCTRegistrationResponse
+     */
+    public function runCTRegistrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->floatingList)) {
+            $body['FloatingList'] = $request->floatingList;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->referenceList)) {
+            $body['ReferenceList'] = $request->referenceList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunCTRegistration',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunCTRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RunCTRegistrationRequest $request
+     *
+     * @return RunCTRegistrationResponse
+     */
+    public function runCTRegistration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCTRegistrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunMedQARequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RunMedQAResponse
+     */
+    public function runMedQAWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->answerImageDataList)) {
+            $body['AnswerImageDataList'] = $request->answerImageDataList;
+        }
+        if (!Utils::isUnset($request->answerImageURLList)) {
+            $body['AnswerImageURLList'] = $request->answerImageURLList;
+        }
+        if (!Utils::isUnset($request->answerTextList)) {
+            $body['AnswerTextList'] = $request->answerTextList;
+        }
+        if (!Utils::isUnset($request->department)) {
+            $body['Department'] = $request->department;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->questionType)) {
+            $body['QuestionType'] = $request->questionType;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunMedQA',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunMedQAResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RunMedQARequest $request
+     *
+     * @return RunMedQAResponse
+     */
+    public function runMedQA($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runMedQAWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ScreenChestCTRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ScreenChestCTResponse
+     */
+    public function screenChestCTWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $body['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ScreenChestCT',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ScreenChestCTResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ScreenChestCTRequest $request
+     *
+     * @return ScreenChestCTResponse
+     */
+    public function screenChestCT($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->screenChestCTWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TranslateMedRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TranslateMedResponse
+     */
+    public function translateMedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fromLanguage)) {
+            $body['FromLanguage'] = $request->fromLanguage;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $body['Text'] = $request->text;
+        }
+        if (!Utils::isUnset($request->toLanguage)) {
+            $body['ToLanguage'] = $request->toLanguage;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TranslateMed',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TranslateMedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TranslateMedRequest $request
+     *
+     * @return TranslateMedResponse
+     */
+    public function translateMed($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->translateMedWithOptions($request, $runtime);
     }
 }

@@ -16,16 +16,16 @@ class TranslateMedRequest extends Model
     /**
      * @var string
      */
-    public $toLanguage;
+    public $text;
 
     /**
      * @var string
      */
-    public $text;
+    public $toLanguage;
     protected $_name = [
         'fromLanguage' => 'FromLanguage',
-        'toLanguage'   => 'ToLanguage',
         'text'         => 'Text',
+        'toLanguage'   => 'ToLanguage',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class TranslateMedRequest extends Model
         if (null !== $this->fromLanguage) {
             $res['FromLanguage'] = $this->fromLanguage;
         }
-        if (null !== $this->toLanguage) {
-            $res['ToLanguage'] = $this->toLanguage;
-        }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+        if (null !== $this->toLanguage) {
+            $res['ToLanguage'] = $this->toLanguage;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class TranslateMedRequest extends Model
         if (isset($map['FromLanguage'])) {
             $model->fromLanguage = $map['FromLanguage'];
         }
-        if (isset($map['ToLanguage'])) {
-            $model->toLanguage = $map['ToLanguage'];
-        }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+        if (isset($map['ToLanguage'])) {
+            $model->toLanguage = $map['ToLanguage'];
         }
 
         return $model;

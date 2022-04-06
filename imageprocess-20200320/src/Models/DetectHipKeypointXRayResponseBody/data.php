@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var keyPoints[]
-     */
-    public $keyPoints;
-
-    /**
      * @var string
      */
     public $imageUrl;
+
+    /**
+     * @var keyPoints[]
+     */
+    public $keyPoints;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class data extends Model
      */
     public $orgName;
     protected $_name = [
-        'keyPoints' => 'KeyPoints',
         'imageUrl'  => 'ImageUrl',
+        'keyPoints' => 'KeyPoints',
         'orgId'     => 'OrgId',
         'orgName'   => 'OrgName',
     ];
@@ -42,6 +42,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
+        }
         if (null !== $this->keyPoints) {
             $res['KeyPoints'] = [];
             if (null !== $this->keyPoints && \is_array($this->keyPoints)) {
@@ -50,9 +53,6 @@ class data extends Model
                     $res['KeyPoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
         }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
@@ -72,6 +72,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
+        }
         if (isset($map['KeyPoints'])) {
             if (!empty($map['KeyPoints'])) {
                 $model->keyPoints = [];
@@ -80,9 +83,6 @@ class data extends Model
                     $model->keyPoints[$n++] = null !== $item ? keyPoints::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];

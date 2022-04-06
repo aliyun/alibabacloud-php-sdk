@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class aortaInfo extends Model
 {
     /**
-     * @var int
+     * @var float[]
      */
-    public $maxAreaIndex;
-
-    /**
-     * @var float
-     */
-    public $maxArea;
-
-    /**
-     * @var float
-     */
-    public $maxDiameter;
-
-    /**
-     * @var int
-     */
-    public $labelValue;
+    public $area;
 
     /**
      * @var float[][]
@@ -34,16 +19,31 @@ class aortaInfo extends Model
     public $coordinates;
 
     /**
-     * @var float[]
+     * @var int
      */
-    public $area;
+    public $labelValue;
+
+    /**
+     * @var float
+     */
+    public $maxArea;
+
+    /**
+     * @var int
+     */
+    public $maxAreaIndex;
+
+    /**
+     * @var float
+     */
+    public $maxDiameter;
     protected $_name = [
-        'maxAreaIndex' => 'MaxAreaIndex',
-        'maxArea'      => 'MaxArea',
-        'maxDiameter'  => 'MaxDiameter',
-        'labelValue'   => 'LabelValue',
-        'coordinates'  => 'Coordinates',
         'area'         => 'Area',
+        'coordinates'  => 'Coordinates',
+        'labelValue'   => 'LabelValue',
+        'maxArea'      => 'MaxArea',
+        'maxAreaIndex' => 'MaxAreaIndex',
+        'maxDiameter'  => 'MaxDiameter',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class aortaInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxAreaIndex) {
-            $res['MaxAreaIndex'] = $this->maxAreaIndex;
-        }
-        if (null !== $this->maxArea) {
-            $res['MaxArea'] = $this->maxArea;
-        }
-        if (null !== $this->maxDiameter) {
-            $res['MaxDiameter'] = $this->maxDiameter;
-        }
-        if (null !== $this->labelValue) {
-            $res['LabelValue'] = $this->labelValue;
+        if (null !== $this->area) {
+            $res['Area'] = $this->area;
         }
         if (null !== $this->coordinates) {
             $res['Coordinates'] = $this->coordinates;
         }
-        if (null !== $this->area) {
-            $res['Area'] = $this->area;
+        if (null !== $this->labelValue) {
+            $res['LabelValue'] = $this->labelValue;
+        }
+        if (null !== $this->maxArea) {
+            $res['MaxArea'] = $this->maxArea;
+        }
+        if (null !== $this->maxAreaIndex) {
+            $res['MaxAreaIndex'] = $this->maxAreaIndex;
+        }
+        if (null !== $this->maxDiameter) {
+            $res['MaxDiameter'] = $this->maxDiameter;
         }
 
         return $res;
@@ -83,27 +83,27 @@ class aortaInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxAreaIndex'])) {
-            $model->maxAreaIndex = $map['MaxAreaIndex'];
-        }
-        if (isset($map['MaxArea'])) {
-            $model->maxArea = $map['MaxArea'];
-        }
-        if (isset($map['MaxDiameter'])) {
-            $model->maxDiameter = $map['MaxDiameter'];
-        }
-        if (isset($map['LabelValue'])) {
-            $model->labelValue = $map['LabelValue'];
+        if (isset($map['Area'])) {
+            if (!empty($map['Area'])) {
+                $model->area = $map['Area'];
+            }
         }
         if (isset($map['Coordinates'])) {
             if (!empty($map['Coordinates'])) {
                 $model->coordinates = $map['Coordinates'];
             }
         }
-        if (isset($map['Area'])) {
-            if (!empty($map['Area'])) {
-                $model->area = $map['Area'];
-            }
+        if (isset($map['LabelValue'])) {
+            $model->labelValue = $map['LabelValue'];
+        }
+        if (isset($map['MaxArea'])) {
+            $model->maxArea = $map['MaxArea'];
+        }
+        if (isset($map['MaxAreaIndex'])) {
+            $model->maxAreaIndex = $map['MaxAreaIndex'];
+        }
+        if (isset($map['MaxDiameter'])) {
+            $model->maxDiameter = $map['MaxDiameter'];
         }
 
         return $model;

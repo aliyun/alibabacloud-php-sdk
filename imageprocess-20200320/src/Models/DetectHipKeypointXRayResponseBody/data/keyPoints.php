@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class keyPoints extends Model
 {
     /**
-     * @var float
-     */
-    public $value;
-
-    /**
      * @var int[]
      */
     public $coordinates;
@@ -23,10 +18,15 @@ class keyPoints extends Model
      * @var tag
      */
     public $tag;
+
+    /**
+     * @var float
+     */
+    public $value;
     protected $_name = [
-        'value'       => 'Value',
         'coordinates' => 'Coordinates',
         'tag'         => 'Tag',
+        'value'       => 'Value',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class keyPoints extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->coordinates) {
             $res['Coordinates'] = $this->coordinates;
         }
         if (null !== $this->tag) {
             $res['Tag'] = null !== $this->tag ? $this->tag->toMap() : null;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -57,9 +57,6 @@ class keyPoints extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Coordinates'])) {
             if (!empty($map['Coordinates'])) {
                 $model->coordinates = $map['Coordinates'];
@@ -67,6 +64,9 @@ class keyPoints extends Model
         }
         if (isset($map['Tag'])) {
             $model->tag = tag::fromMap($map['Tag']);
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;
