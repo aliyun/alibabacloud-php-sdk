@@ -474,6 +474,9 @@ class Schedulerx2 extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         if (!Utils::isUnset($request->uid)) {
             $query['Uid'] = $request->uid;
         }

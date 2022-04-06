@@ -26,11 +26,17 @@ class CreateNamespaceRequest extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $uid;
     protected $_name = [
         'description' => 'Description',
         'name'        => 'Name',
         'regionId'    => 'RegionId',
+        'source'      => 'Source',
         'uid'         => 'Uid',
     ];
 
@@ -49,6 +55,9 @@ class CreateNamespaceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
@@ -73,6 +82,9 @@ class CreateNamespaceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];

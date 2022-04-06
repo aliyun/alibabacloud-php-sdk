@@ -11,11 +11,6 @@ class CreateAppGroupRequest extends Model
     /**
      * @var string
      */
-    public $alarmJson;
-
-    /**
-     * @var string
-     */
     public $appKey;
 
     /**
@@ -67,8 +62,12 @@ class CreateAppGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $scheduleBusyWorkers;
     protected $_name = [
-        'alarmJson'           => 'AlarmJson',
         'appKey'              => 'AppKey',
         'appName'             => 'AppName',
         'description'         => 'Description',
@@ -80,6 +79,7 @@ class CreateAppGroupRequest extends Model
         'namespaceName'       => 'NamespaceName',
         'namespaceSource'     => 'NamespaceSource',
         'regionId'            => 'RegionId',
+        'scheduleBusyWorkers' => 'ScheduleBusyWorkers',
     ];
 
     public function validate()
@@ -89,9 +89,6 @@ class CreateAppGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->alarmJson) {
-            $res['AlarmJson'] = $this->alarmJson;
-        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
@@ -125,6 +122,9 @@ class CreateAppGroupRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->scheduleBusyWorkers) {
+            $res['ScheduleBusyWorkers'] = $this->scheduleBusyWorkers;
+        }
 
         return $res;
     }
@@ -137,9 +137,6 @@ class CreateAppGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AlarmJson'])) {
-            $model->alarmJson = $map['AlarmJson'];
-        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
@@ -172,6 +169,9 @@ class CreateAppGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ScheduleBusyWorkers'])) {
+            $model->scheduleBusyWorkers = $map['ScheduleBusyWorkers'];
         }
 
         return $model;
