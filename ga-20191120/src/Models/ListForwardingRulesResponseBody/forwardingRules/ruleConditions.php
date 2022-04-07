@@ -24,10 +24,16 @@ class ruleConditions extends Model
      * @var string
      */
     public $ruleConditionType;
+
+    /**
+     * @var string
+     */
+    public $ruleConditionValue;
     protected $_name = [
-        'hostConfig'        => 'HostConfig',
-        'pathConfig'        => 'PathConfig',
-        'ruleConditionType' => 'RuleConditionType',
+        'hostConfig'         => 'HostConfig',
+        'pathConfig'         => 'PathConfig',
+        'ruleConditionType'  => 'RuleConditionType',
+        'ruleConditionValue' => 'RuleConditionValue',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class ruleConditions extends Model
         }
         if (null !== $this->ruleConditionType) {
             $res['RuleConditionType'] = $this->ruleConditionType;
+        }
+        if (null !== $this->ruleConditionValue) {
+            $res['RuleConditionValue'] = $this->ruleConditionValue;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class ruleConditions extends Model
         }
         if (isset($map['RuleConditionType'])) {
             $model->ruleConditionType = $map['RuleConditionType'];
+        }
+        if (isset($map['RuleConditionValue'])) {
+            $model->ruleConditionValue = $map['RuleConditionValue'];
         }
 
         return $model;

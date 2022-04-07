@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponseBody\basicBandwidthPackage;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponseBody\crossDomainBandwidthPackage;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponseBody\ipSetConfig;
 use AlibabaCloud\Tea\Model;
 
 class DescribeAcceleratorResponseBody extends Model
@@ -61,6 +62,11 @@ class DescribeAcceleratorResponseBody extends Model
     public $instanceChargeType;
 
     /**
+     * @var ipSetConfig
+     */
+    public $ipSetConfig;
+
+    /**
      * @var string
      */
     public $name;
@@ -100,6 +106,7 @@ class DescribeAcceleratorResponseBody extends Model
         'dnsName'                     => 'DnsName',
         'expiredTime'                 => 'ExpiredTime',
         'instanceChargeType'          => 'InstanceChargeType',
+        'ipSetConfig'                 => 'IpSetConfig',
         'name'                        => 'Name',
         'regionId'                    => 'RegionId',
         'requestId'                   => 'RequestId',
@@ -144,6 +151,9 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->ipSetConfig) {
+            $res['IpSetConfig'] = null !== $this->ipSetConfig ? $this->ipSetConfig->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -204,6 +214,9 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['IpSetConfig'])) {
+            $model->ipSetConfig = ipSetConfig::fromMap($map['IpSetConfig']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -13,6 +13,11 @@ class forwardingRules extends Model
     /**
      * @var string
      */
+    public $forwardingRuleDirection;
+
+    /**
+     * @var string
+     */
     public $forwardingRuleId;
 
     /**
@@ -45,13 +50,14 @@ class forwardingRules extends Model
      */
     public $ruleConditions;
     protected $_name = [
-        'forwardingRuleId'     => 'ForwardingRuleId',
-        'forwardingRuleName'   => 'ForwardingRuleName',
-        'forwardingRuleStatus' => 'ForwardingRuleStatus',
-        'listenerId'           => 'ListenerId',
-        'priority'             => 'Priority',
-        'ruleActions'          => 'RuleActions',
-        'ruleConditions'       => 'RuleConditions',
+        'forwardingRuleDirection' => 'ForwardingRuleDirection',
+        'forwardingRuleId'        => 'ForwardingRuleId',
+        'forwardingRuleName'      => 'ForwardingRuleName',
+        'forwardingRuleStatus'    => 'ForwardingRuleStatus',
+        'listenerId'              => 'ListenerId',
+        'priority'                => 'Priority',
+        'ruleActions'             => 'RuleActions',
+        'ruleConditions'          => 'RuleConditions',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class forwardingRules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forwardingRuleDirection) {
+            $res['ForwardingRuleDirection'] = $this->forwardingRuleDirection;
+        }
         if (null !== $this->forwardingRuleId) {
             $res['ForwardingRuleId'] = $this->forwardingRuleId;
         }
@@ -106,6 +115,9 @@ class forwardingRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForwardingRuleDirection'])) {
+            $model->forwardingRuleDirection = $map['ForwardingRuleDirection'];
+        }
         if (isset($map['ForwardingRuleId'])) {
             $model->forwardingRuleId = $map['ForwardingRuleId'];
         }

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAcceleratorRequest\ipSetConfig;
 use AlibabaCloud\Tea\Model;
 
 class CreateAcceleratorRequest extends Model
@@ -39,6 +40,11 @@ class CreateAcceleratorRequest extends Model
     public $duration;
 
     /**
+     * @var ipSetConfig
+     */
+    public $ipSetConfig;
+
+    /**
      * @var string
      */
     public $name;
@@ -64,6 +70,7 @@ class CreateAcceleratorRequest extends Model
         'autoUseCoupon'     => 'AutoUseCoupon',
         'clientToken'       => 'ClientToken',
         'duration'          => 'Duration',
+        'ipSetConfig'       => 'IpSetConfig',
         'name'              => 'Name',
         'pricingCycle'      => 'PricingCycle',
         'regionId'          => 'RegionId',
@@ -94,6 +101,9 @@ class CreateAcceleratorRequest extends Model
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->ipSetConfig) {
+            $res['IpSetConfig'] = null !== $this->ipSetConfig ? $this->ipSetConfig->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -136,6 +146,9 @@ class CreateAcceleratorRequest extends Model
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['IpSetConfig'])) {
+            $model->ipSetConfig = ipSetConfig::fromMap($map['IpSetConfig']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

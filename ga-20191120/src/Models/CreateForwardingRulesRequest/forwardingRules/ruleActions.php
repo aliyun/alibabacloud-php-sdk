@@ -23,10 +23,16 @@ class ruleActions extends Model
      * @var string
      */
     public $ruleActionType;
+
+    /**
+     * @var string
+     */
+    public $ruleActionValue;
     protected $_name = [
         'forwardGroupConfig' => 'ForwardGroupConfig',
         'order'              => 'Order',
         'ruleActionType'     => 'RuleActionType',
+        'ruleActionValue'    => 'RuleActionValue',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class ruleActions extends Model
         }
         if (null !== $this->ruleActionType) {
             $res['RuleActionType'] = $this->ruleActionType;
+        }
+        if (null !== $this->ruleActionValue) {
+            $res['RuleActionValue'] = $this->ruleActionValue;
         }
 
         return $res;
@@ -65,6 +74,9 @@ class ruleActions extends Model
         }
         if (isset($map['RuleActionType'])) {
             $model->ruleActionType = $map['RuleActionType'];
+        }
+        if (isset($map['RuleActionValue'])) {
+            $model->ruleActionValue = $map['RuleActionValue'];
         }
 
         return $model;

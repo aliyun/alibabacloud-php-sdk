@@ -701,6 +701,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->duration)) {
             $query['Duration'] = $request->duration;
         }
+        if (!Utils::isUnset($request->ipSetConfig)) {
+            $query['IpSetConfig'] = $request->ipSetConfig;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }

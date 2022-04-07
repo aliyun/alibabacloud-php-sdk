@@ -34,12 +34,18 @@ class forwardingRules extends Model
      * @var ruleConditions[]
      */
     public $ruleConditions;
+
+    /**
+     * @var string
+     */
+    public $ruleDirection;
     protected $_name = [
         'forwardingRuleId'   => 'ForwardingRuleId',
         'forwardingRuleName' => 'ForwardingRuleName',
         'priority'           => 'Priority',
         'ruleActions'        => 'RuleActions',
         'ruleConditions'     => 'RuleConditions',
+        'ruleDirection'      => 'RuleDirection',
     ];
 
     public function validate()
@@ -75,6 +81,9 @@ class forwardingRules extends Model
                     $res['RuleConditions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ruleDirection) {
+            $res['RuleDirection'] = $this->ruleDirection;
         }
 
         return $res;
@@ -114,6 +123,9 @@ class forwardingRules extends Model
                     $model->ruleConditions[$n++] = null !== $item ? ruleConditions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RuleDirection'])) {
+            $model->ruleDirection = $map['RuleDirection'];
         }
 
         return $model;
