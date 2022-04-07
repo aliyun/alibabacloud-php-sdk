@@ -59,6 +59,11 @@ class result extends Model
     public $domainNameList;
 
     /**
+     * @var string
+     */
+    public $enableWaf;
+
+    /**
      * @var int
      */
     public $gatewayId;
@@ -137,6 +142,7 @@ class result extends Model
         'domainIdList'       => 'DomainIdList',
         'domainName'         => 'DomainName',
         'domainNameList'     => 'DomainNameList',
+        'enableWaf'          => 'EnableWaf',
         'gatewayId'          => 'GatewayId',
         'gatewayUniqueId'    => 'GatewayUniqueId',
         'gmtCreate'          => 'GmtCreate',
@@ -186,6 +192,9 @@ class result extends Model
         }
         if (null !== $this->domainNameList) {
             $res['DomainNameList'] = $this->domainNameList;
+        }
+        if (null !== $this->enableWaf) {
+            $res['EnableWaf'] = $this->enableWaf;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -277,6 +286,9 @@ class result extends Model
             if (!empty($map['DomainNameList'])) {
                 $model->domainNameList = $map['DomainNameList'];
             }
+        }
+        if (isset($map['EnableWaf'])) {
+            $model->enableWaf = $map['EnableWaf'];
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];

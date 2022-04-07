@@ -92,6 +92,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceRequest;
@@ -265,6 +267,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteTimeoutRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteTimeoutResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteTimeoutShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteWafStatusRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteWafStatusResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyShrinkRequest;
@@ -272,6 +276,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceVersionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosConfigRequest;
@@ -611,6 +618,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->domainIdListJSON)) {
             $query['DomainIdListJSON'] = $request->domainIdListJSON;
+        }
+        if (!Utils::isUnset($request->enableWaf)) {
+            $query['EnableWaf'] = $request->enableWaf;
         }
         if (!Utils::isUnset($request->gatewayId)) {
             $query['GatewayId'] = $request->gatewayId;
@@ -2814,6 +2824,55 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param GetAppMessageQueueRouteRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAppMessageQueueRouteResponse
+     */
+    public function getAppMessageQueueRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppMessageQueueRoute',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppMessageQueueRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAppMessageQueueRouteRequest $request
+     *
+     * @return GetAppMessageQueueRouteResponse
+     */
+    public function getAppMessageQueueRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppMessageQueueRouteWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBlackWhiteListRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3073,8 +3132,17 @@ class Mse extends OpenApiClient
     public function getGatewayRouteDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3082,7 +3150,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -6612,6 +6680,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->domainIdListJSON)) {
             $query['DomainIdListJSON'] = $request->domainIdListJSON;
         }
+        if (!Utils::isUnset($request->enableWaf)) {
+            $query['EnableWaf'] = $request->enableWaf;
+        }
         if (!Utils::isUnset($request->gatewayId)) {
             $query['GatewayId'] = $request->gatewayId;
         }
@@ -6957,6 +7028,58 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param UpdateGatewayRouteWafStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateGatewayRouteWafStatusResponse
+     */
+    public function updateGatewayRouteWafStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->enableWaf)) {
+            $query['EnableWaf'] = $request->enableWaf;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayRouteWafStatus',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayRouteWafStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayRouteWafStatusRequest $request
+     *
+     * @return UpdateGatewayRouteWafStatusResponse
+     */
+    public function updateGatewayRouteWafStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayRouteWafStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateGatewayServiceTrafficPolicyRequest $tmpReq
      * @param RuntimeOptions                           $runtime
      *
@@ -7115,6 +7238,66 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMessageQueueRouteRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateMessageQueueRouteResponse
+     */
+    public function updateMessageQueueRouteWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateMessageQueueRouteShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMessageQueueRoute',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMessageQueueRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMessageQueueRouteRequest $request
+     *
+     * @return UpdateMessageQueueRouteResponse
+     */
+    public function updateMessageQueueRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMessageQueueRouteWithOptions($request, $runtime);
     }
 
     /**

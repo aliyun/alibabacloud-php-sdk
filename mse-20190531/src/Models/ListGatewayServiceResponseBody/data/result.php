@@ -35,6 +35,11 @@ class result extends Model
     public $groupName;
 
     /**
+     * @var string
+     */
+    public $healehStatus;
+
+    /**
      * @var int
      */
     public $id;
@@ -94,6 +99,7 @@ class result extends Model
         'gmtCreate'             => 'GmtCreate',
         'gmtModified'           => 'GmtModified',
         'groupName'             => 'GroupName',
+        'healehStatus'          => 'HealehStatus',
         'id'                    => 'Id',
         'ips'                   => 'Ips',
         'metaInfo'              => 'MetaInfo',
@@ -128,6 +134,9 @@ class result extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->healehStatus) {
+            $res['HealehStatus'] = $this->healehStatus;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -194,6 +203,9 @@ class result extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['HealehStatus'])) {
+            $model->healehStatus = $map['HealehStatus'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

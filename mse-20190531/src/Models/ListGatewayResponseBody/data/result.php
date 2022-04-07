@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\initConfig;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\internetSlb;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\slb;
 use AlibabaCloud\Tea\Model;
@@ -59,6 +60,11 @@ class result extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var initConfig
+     */
+    public $initConfig;
 
     /**
      * @var string
@@ -145,6 +151,7 @@ class result extends Model
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
         'id'              => 'Id',
+        'initConfig'      => 'InitConfig',
         'instanceId'      => 'InstanceId',
         'internetSlb'     => 'InternetSlb',
         'latestVersion'   => 'LatestVersion',
@@ -198,6 +205,9 @@ class result extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->initConfig) {
+            $res['InitConfig'] = null !== $this->initConfig ? $this->initConfig->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -297,6 +307,9 @@ class result extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['InitConfig'])) {
+            $model->initConfig = initConfig::fromMap($map['InitConfig']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

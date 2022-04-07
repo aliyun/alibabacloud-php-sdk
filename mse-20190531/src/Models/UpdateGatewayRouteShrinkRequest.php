@@ -29,6 +29,11 @@ class UpdateGatewayRouteShrinkRequest extends Model
     public $domainIdListJSON;
 
     /**
+     * @var bool
+     */
+    public $enableWaf;
+
+    /**
      * @var int
      */
     public $gatewayId;
@@ -72,6 +77,7 @@ class UpdateGatewayRouteShrinkRequest extends Model
         'destinationType'          => 'DestinationType',
         'directResponseJSONShrink' => 'DirectResponseJSON',
         'domainIdListJSON'         => 'DomainIdListJSON',
+        'enableWaf'                => 'EnableWaf',
         'gatewayId'                => 'GatewayId',
         'gatewayUniqueId'          => 'GatewayUniqueId',
         'id'                       => 'Id',
@@ -100,6 +106,9 @@ class UpdateGatewayRouteShrinkRequest extends Model
         }
         if (null !== $this->domainIdListJSON) {
             $res['DomainIdListJSON'] = $this->domainIdListJSON;
+        }
+        if (null !== $this->enableWaf) {
+            $res['EnableWaf'] = $this->enableWaf;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -148,6 +157,9 @@ class UpdateGatewayRouteShrinkRequest extends Model
         }
         if (isset($map['DomainIdListJSON'])) {
             $model->domainIdListJSON = $map['DomainIdListJSON'];
+        }
+        if (isset($map['EnableWaf'])) {
+            $model->enableWaf = $map['EnableWaf'];
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];

@@ -33,6 +33,11 @@ class UpdateGatewayRouteRequest extends Model
     public $domainIdListJSON;
 
     /**
+     * @var bool
+     */
+    public $enableWaf;
+
+    /**
      * @var int
      */
     public $gatewayId;
@@ -76,6 +81,7 @@ class UpdateGatewayRouteRequest extends Model
         'destinationType'    => 'DestinationType',
         'directResponseJSON' => 'DirectResponseJSON',
         'domainIdListJSON'   => 'DomainIdListJSON',
+        'enableWaf'          => 'EnableWaf',
         'gatewayId'          => 'GatewayId',
         'gatewayUniqueId'    => 'GatewayUniqueId',
         'id'                 => 'Id',
@@ -104,6 +110,9 @@ class UpdateGatewayRouteRequest extends Model
         }
         if (null !== $this->domainIdListJSON) {
             $res['DomainIdListJSON'] = $this->domainIdListJSON;
+        }
+        if (null !== $this->enableWaf) {
+            $res['EnableWaf'] = $this->enableWaf;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -158,6 +167,9 @@ class UpdateGatewayRouteRequest extends Model
         }
         if (isset($map['DomainIdListJSON'])) {
             $model->domainIdListJSON = $map['DomainIdListJSON'];
+        }
+        if (isset($map['EnableWaf'])) {
+            $model->enableWaf = $map['EnableWaf'];
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
