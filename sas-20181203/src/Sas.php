@@ -259,6 +259,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupRequest;
@@ -7458,6 +7460,61 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installBackupClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InstallCloudMonitorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InstallCloudMonitorResponse
+     */
+    public function installCloudMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentAccessKey)) {
+            $query['AgentAccessKey'] = $request->agentAccessKey;
+        }
+        if (!Utils::isUnset($request->agentSecretKey)) {
+            $query['AgentSecretKey'] = $request->agentSecretKey;
+        }
+        if (!Utils::isUnset($request->argusVersion)) {
+            $query['ArgusVersion'] = $request->argusVersion;
+        }
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $query['InstanceIdList'] = $request->instanceIdList;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallCloudMonitor',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InstallCloudMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InstallCloudMonitorRequest $request
+     *
+     * @return InstallCloudMonitorResponse
+     */
+    public function installCloudMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installCloudMonitorWithOptions($request, $runtime);
     }
 
     /**
