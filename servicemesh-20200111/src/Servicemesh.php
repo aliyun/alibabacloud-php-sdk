@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClustersInServiceMeshR
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClustersInServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCrTemplatesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCrTemplatesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeEipResourcesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeEipResourcesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGatewaySecretDetailsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGatewaySecretDetailsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterAccessLogDashboardsRequest;
@@ -119,6 +121,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListDashboardRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListDashboardResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyApiServerEipResourceRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyApiServerEipResourceResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyServiceMeshNameRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyServiceMeshNameResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ReActivateAuditRequest;
@@ -1324,6 +1328,55 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCrTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEipResourcesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeEipResourcesResponse
+     */
+    public function describeEipResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEipResources',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEipResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEipResourcesRequest $request
+     *
+     * @return DescribeEipResourcesResponse
+     */
+    public function describeEipResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEipResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -3056,6 +3109,55 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDashboardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyApiServerEipResourceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyApiServerEipResourceResponse
+     */
+    public function modifyApiServerEipResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiServerEipId)) {
+            $body['ApiServerEipId'] = $request->apiServerEipId;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $body['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApiServerEipResource',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApiServerEipResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyApiServerEipResourceRequest $request
+     *
+     * @return ModifyApiServerEipResourceResponse
+     */
+    public function modifyApiServerEipResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApiServerEipResourceWithOptions($request, $runtime);
     }
 
     /**
