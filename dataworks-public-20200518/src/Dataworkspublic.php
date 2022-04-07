@@ -449,6 +449,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateTableThemeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateUdfFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateUdfFileResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateWorkbenchEventResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateWorkbenchEventResultResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
@@ -12398,5 +12400,57 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUdfFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateWorkbenchEventResultRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateWorkbenchEventResultResponse
+     */
+    public function updateWorkbenchEventResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkResult)) {
+            $query['CheckResult'] = $request->checkResult;
+        }
+        if (!Utils::isUnset($request->checkResultTip)) {
+            $query['CheckResultTip'] = $request->checkResultTip;
+        }
+        if (!Utils::isUnset($request->extensionCode)) {
+            $query['ExtensionCode'] = $request->extensionCode;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $query['MessageId'] = $request->messageId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWorkbenchEventResult',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWorkbenchEventResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateWorkbenchEventResultRequest $request
+     *
+     * @return UpdateWorkbenchEventResultResponse
+     */
+    public function updateWorkbenchEventResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWorkbenchEventResultWithOptions($request, $runtime);
     }
 }
