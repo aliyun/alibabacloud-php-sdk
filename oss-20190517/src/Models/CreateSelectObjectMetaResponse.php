@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetBucketResponse extends Model
+class CreateSelectObjectMetaResponse extends Model
 {
     /**
      * @var string[]
@@ -14,12 +14,11 @@ class GetBucketResponse extends Model
     public $headers;
 
     /**
-     * @var GetBucketResponseBody
+     * @var SelectMetaStatus
      */
     public $body;
     protected $_name = [
         'headers' => 'headers',
-        'body'    => 'body',
     ];
 
     public function validate()
@@ -44,7 +43,7 @@ class GetBucketResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetBucketResponse
+     * @return CreateSelectObjectMetaResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +52,7 @@ class GetBucketResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetBucketResponseBody::fromMap($map['body']);
+            $model->body = SelectMetaStatus::fromMap($map['body']);
         }
 
         return $model;

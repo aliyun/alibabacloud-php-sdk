@@ -4,20 +4,18 @@
 
 namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
-use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketWebsiteResponseBody\errorDocument;
-use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketWebsiteResponseBody\indexDocument;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketWebsiteResponseBody\routingRules;
 use AlibabaCloud\Tea\Model;
 
 class GetBucketWebsiteResponseBody extends Model
 {
     /**
-     * @var errorDocument
+     * @var ErrorDocument
      */
     public $errorDocument;
 
     /**
-     * @var indexDocument
+     * @var IndexDocument
      */
     public $indexDocument;
 
@@ -60,10 +58,10 @@ class GetBucketWebsiteResponseBody extends Model
     {
         $model = new self();
         if (isset($map['ErrorDocument'])) {
-            $model->errorDocument = errorDocument::fromMap($map['ErrorDocument']);
+            $model->errorDocument = ErrorDocument::fromMap($map['ErrorDocument']);
         }
         if (isset($map['IndexDocument'])) {
-            $model->indexDocument = indexDocument::fromMap($map['IndexDocument']);
+            $model->indexDocument = IndexDocument::fromMap($map['IndexDocument']);
         }
         if (isset($map['RoutingRules'])) {
             $model->routingRules = routingRules::fromMap($map['RoutingRules']);

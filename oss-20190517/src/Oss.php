@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Oss\V20190517\Models\CompleteMultipartUploadRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\CompleteMultipartUploadResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\CopyObjectHeaders;
 use AlibabaCloud\SDK\Oss\V20190517\Models\CopyObjectResponse;
+use AlibabaCloud\SDK\Oss\V20190517\Models\CreateSelectObjectMetaRequest;
+use AlibabaCloud\SDK\Oss\V20190517\Models\CreateSelectObjectMetaResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteBucketCorsResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteBucketEncryptionResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteBucketInventoryRequest;
@@ -56,9 +58,7 @@ use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketReplicationLocationResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketReplicationProgressRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketReplicationProgressResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketReplicationResponse;
-use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketRequestPaymentResponse;
-use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketTagsResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketTransferAccelerationResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketVersioningResponse;
@@ -76,8 +76,6 @@ use AlibabaCloud\SDK\Oss\V20190517\Models\GetObjectRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetObjectResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetObjectTaggingRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetObjectTaggingResponse;
-use AlibabaCloud\SDK\Oss\V20190517\Models\GetServiceRequest;
-use AlibabaCloud\SDK\Oss\V20190517\Models\GetServiceResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetSymlinkRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetSymlinkResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetVodPlaylistRequest;
@@ -166,6 +164,7 @@ use AlibabaCloud\SDK\Oss\V20190517\Models\UploadPartCopyRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\UploadPartCopyResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\UploadPartRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\UploadPartResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewayOss\Client as DarabonbaGatewayOssClient;
@@ -222,7 +221,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return AbortBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
@@ -276,7 +275,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return AbortMultipartUploadResponse::fromMap($this->execute($params, $req, $runtime));
@@ -363,7 +362,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'binary',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return AppendObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -414,7 +413,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return CompleteBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
@@ -550,8 +549,8 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($headers->acl)) {
             $realHeaders['x-oss-object-acl'] = Utils::toJSONString($headers->acl);
         }
-        if (!Utils::isUnset($headers->sse)) {
-            $realHeaders['x-oss-server-side-encryption'] = Utils::toJSONString($headers->sse);
+        if (!Utils::isUnset($headers->serverSideEncryption)) {
+            $realHeaders['x-oss-server-side-encryption'] = Utils::toJSONString($headers->serverSideEncryption);
         }
         if (!Utils::isUnset($headers->sseKeyId)) {
             $realHeaders['x-oss-server-side-encryption-key-id'] = Utils::toJSONString($headers->sseKeyId);
@@ -562,8 +561,8 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($headers->tagging)) {
             $realHeaders['x-oss-tagging'] = Utils::toJSONString($headers->tagging);
         }
-        if (!Utils::isUnset($headers->xOssTaggingDirective)) {
-            $realHeaders['x-oss-tagging-directive'] = Utils::toJSONString($headers->xOssTaggingDirective);
+        if (!Utils::isUnset($headers->taggingDirective)) {
+            $realHeaders['x-oss-tagging-directive'] = Utils::toJSONString($headers->taggingDirective);
         }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
@@ -577,11 +576,61 @@ class Oss extends OpenApiClient
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'binary',
+            'reqBodyType' => 'xml',
             'bodyType'    => 'xml',
         ]);
 
         return CopyObjectResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $bucket
+     * @param string                        $key
+     * @param CreateSelectObjectMetaRequest $request
+     *
+     * @return CreateSelectObjectMetaResponse
+     */
+    public function createSelectObjectMeta($bucket, $key, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSelectObjectMetaWithOptions($bucket, $key, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $bucket
+     * @param string                        $key
+     * @param CreateSelectObjectMetaRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSelectObjectMetaResponse
+     */
+    public function createSelectObjectMetaWithOptions($bucket, $key, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap           = [];
+        $hostMap['bucket'] = $bucket;
+        $key               = OpenApiUtilClient::getEncodeParam($key);
+        $req               = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->selectMetaRequest)),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSelectObjectMeta',
+            'version'     => '2019-05-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . $key . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'xml',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSelectObjectMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -621,7 +670,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketResponse::fromMap($this->execute($params, $req, $runtime));
@@ -664,7 +713,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketCorsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -707,7 +756,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketEncryptionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -758,7 +807,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketInventoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -801,7 +850,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketLifecycleResponse::fromMap($this->execute($params, $req, $runtime));
@@ -844,7 +893,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketLoggingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -887,7 +936,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketPolicyResponse::fromMap($this->execute($params, $req, $runtime));
@@ -920,14 +969,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->body)),
         ]);
         $params = new Params([
             'action'      => 'DeleteBucketReplication',
@@ -938,7 +983,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketReplicationResponse::fromMap($this->execute($params, $req, $runtime));
@@ -981,7 +1026,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketTagsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1024,7 +1069,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteBucketWebsiteResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1070,47 +1115,48 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteLiveChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param string                       $bucket
      * @param DeleteMultipleObjectsRequest $request
      *
      * @return DeleteMultipleObjectsResponse
      */
-    public function deleteMultipleObjects($request)
+    public function deleteMultipleObjects($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteMultipleObjectsWithOptions($request, $headers, $runtime);
+        return $this->deleteMultipleObjectsWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
+     * @param string                       $bucket
      * @param DeleteMultipleObjectsRequest $request
      * @param string[]                     $headers
      * @param RuntimeOptions               $runtime
      *
      * @return DeleteMultipleObjectsResponse
      */
-    public function deleteMultipleObjectsWithOptions($request, $headers, $runtime)
+    public function deleteMultipleObjectsWithOptions($bucket, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $hostMap           = [];
+        $hostMap['bucket'] = $bucket;
+        $query             = [];
         if (!Utils::isUnset($request->encodingType)) {
             $query['encoding-type'] = $request->encodingType;
         }
-        $body = [];
-        if (!Utils::isUnset($request->delete)) {
-            $body['delete'] = $request->delete;
-        }
         $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->delete)),
         ]);
         $params = new Params([
             'action'      => 'DeleteMultipleObjects',
@@ -1174,7 +1220,7 @@ class Oss extends OpenApiClient
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'binary',
+            'reqBodyType' => 'xml',
             'bodyType'    => 'none',
         ]);
 
@@ -1229,7 +1275,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return DeleteObjectTaggingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1331,73 +1377,10 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
-        ]);
-
-        return ExtendBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string           $bucket
-     * @param GetBucketRequest $request
-     *
-     * @return GetBucketResponse
-     */
-    public function getBucket($bucket, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getBucketWithOptions($bucket, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string           $bucket
-     * @param GetBucketRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
-     *
-     * @return GetBucketResponse
-     */
-    public function getBucketWithOptions($bucket, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap           = [];
-        $hostMap['bucket'] = $bucket;
-        $query             = [];
-        if (!Utils::isUnset($request->delimiter)) {
-            $query['delimiter'] = $request->delimiter;
-        }
-        if (!Utils::isUnset($request->encodingType)) {
-            $query['encoding-type'] = $request->encodingType;
-        }
-        if (!Utils::isUnset($request->marker)) {
-            $query['marker'] = $request->marker;
-        }
-        if (!Utils::isUnset($request->maxKeys)) {
-            $query['max-keys'] = $request->maxKeys;
-        }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['prefix'] = $request->prefix;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBucket',
-            'version'     => '2019-05-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'xml',
             'bodyType'    => 'xml',
         ]);
 
-        return GetBucketResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExtendBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2563,7 +2546,7 @@ class Oss extends OpenApiClient
             'method'      => 'HEAD',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'binary',
+            'reqBodyType' => 'xml',
             'bodyType'    => 'none',
         ]);
 
@@ -2625,58 +2608,6 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param GetServiceRequest $request
-     *
-     * @return GetServiceResponse
-     */
-    public function getService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getServiceWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetServiceRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetServiceResponse
-     */
-    public function getServiceWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->marker)) {
-            $query['marker'] = $request->marker;
-        }
-        if (!Utils::isUnset($request->maxKeys)) {
-            $query['max-keys'] = $request->maxKeys;
-        }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['prefix'] = $request->prefix;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetService',
-            'version'     => '2019-05-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
-        ]);
-
-        return GetServiceResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
      * @param string            $bucket
      * @param string            $key
      * @param GetSymlinkRequest $request
@@ -2724,7 +2655,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return GetSymlinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2884,14 +2815,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->initiateWormConfiguration)) {
-            $body['InitiateWormConfiguration'] = $request->initiateWormConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->initiateWormConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'InitiateBucketWorm',
@@ -2902,7 +2829,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return InitiateBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3541,7 +3468,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return OptionObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3584,7 +3511,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'none',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PostObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3644,7 +3571,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PostVodPlaylistResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3677,11 +3604,7 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->createBucketConfiguration)) {
-            $body['CreateBucketConfiguration'] = $request->createBucketConfiguration;
-        }
-        $realHeaders = [];
+        $realHeaders       = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -3691,7 +3614,7 @@ class Oss extends OpenApiClient
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->createBucketConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucket',
@@ -3702,7 +3625,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3752,7 +3675,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketAclResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3785,14 +3708,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->cORSConfiguration)) {
-            $body['CORSConfiguration'] = $request->cORSConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->cORSConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketCors',
@@ -3803,7 +3722,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketCorsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3836,14 +3755,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->serverSideEncryptionRule)) {
-            $body['ServerSideEncryptionRule'] = $request->serverSideEncryptionRule;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->serverSideEncryptionRule)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketEncryption',
@@ -3854,7 +3769,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketEncryptionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3891,15 +3806,11 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($request->inventoryId)) {
             $query['inventoryId'] = $request->inventoryId;
         }
-        $body = [];
-        if (!Utils::isUnset($request->inventoryConfiguration)) {
-            $body['InventoryConfiguration'] = $request->inventoryConfiguration;
-        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->inventoryConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketInventory',
@@ -3910,7 +3821,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketInventoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3943,14 +3854,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->lifecycleConfiguration)) {
-            $body['LifecycleConfiguration'] = $request->lifecycleConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->lifecycleConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketLifecycle',
@@ -3961,7 +3868,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketLifecycleResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3994,14 +3901,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->bucketLoggingStatus)) {
-            $body['BucketLoggingStatus'] = $request->bucketLoggingStatus;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->bucketLoggingStatus)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketLogging',
@@ -4012,7 +3915,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketLoggingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4059,7 +3962,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return PutBucketPolicyResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4092,14 +3995,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->refererConfiguration)) {
-            $body['RefererConfiguration'] = $request->refererConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->refererConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketReferer',
@@ -4110,7 +4009,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketRefererResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4143,14 +4042,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->replicationConfiguration)) {
-            $body['ReplicationConfiguration'] = $request->replicationConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->replicationConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketReplication',
@@ -4161,7 +4056,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketReplicationResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4194,14 +4089,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->requestPaymentConfiguration)) {
-            $body['RequestPaymentConfiguration'] = $request->requestPaymentConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->requestPaymentConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketRequestPayment',
@@ -4212,7 +4103,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketRequestPaymentResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4245,14 +4136,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->tagging)) {
-            $body['Tagging'] = $request->tagging;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->tagging)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketTags',
@@ -4263,7 +4150,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketTagsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4296,14 +4183,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->transferAccelerationConfiguration)) {
-            $body['TransferAccelerationConfiguration'] = $request->transferAccelerationConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->transferAccelerationConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketTransferAcceleration',
@@ -4314,7 +4197,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketTransferAccelerationResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4347,14 +4230,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->versioningConfiguration)) {
-            $body['VersioningConfiguration'] = $request->versioningConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->versioningConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketVersioning',
@@ -4365,7 +4244,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketVersioningResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4398,14 +4277,10 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $body              = [];
-        if (!Utils::isUnset($request->websiteConfiguration)) {
-            $body['WebsiteConfiguration'] = $request->websiteConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->websiteConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutBucketWebsite',
@@ -4416,7 +4291,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutBucketWebsiteResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4452,14 +4327,10 @@ class Oss extends OpenApiClient
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
         $channel           = OpenApiUtilClient::getEncodeParam($channel);
-        $body              = [];
-        if (!Utils::isUnset($request->liveChannelConfiguration)) {
-            $body['LiveChannelConfiguration'] = $request->liveChannelConfiguration;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->liveChannelConfiguration)),
         ]);
         $params = new Params([
             'action'      => 'PutLiveChannel',
@@ -4524,7 +4395,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutLiveChannelStatusResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4664,7 +4535,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutObjectAclResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4704,15 +4575,11 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
         }
-        $body = [];
-        if (!Utils::isUnset($request->tagging)) {
-            $body['Tagging'] = $request->tagging;
-        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->tagging)),
         ]);
         $params = new Params([
             'action'      => 'PutObjectTagging',
@@ -4723,7 +4590,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutObjectTaggingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4785,7 +4652,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return PutSymlinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4825,15 +4692,11 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
         }
-        $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
-        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->restoreRequest)),
         ]);
         $params = new Params([
             'action'      => 'RestoreObject',
@@ -4844,7 +4707,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return RestoreObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4880,14 +4743,10 @@ class Oss extends OpenApiClient
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
         $key               = OpenApiUtilClient::getEncodeParam($key);
-        $body              = [];
-        if (!Utils::isUnset($request->selectRequest)) {
-            $body['SelectRequest'] = $request->selectRequest;
-        }
-        $req = new OpenApiRequest([
+        $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->selectRequest)),
         ]);
         $params = new Params([
             'action'      => 'SelectObject',
@@ -4957,7 +4816,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'binary',
-            'bodyType'    => 'none',
+            'bodyType'    => 'xml',
         ]);
 
         return UploadPartResponse::fromMap($this->execute($params, $req, $runtime));

@@ -24,7 +24,7 @@ class ListMultipartUploadsRequest extends Model
     public $keyMarker;
 
     /**
-     * @var string
+     * @var int
      */
     public $maxUploads;
 

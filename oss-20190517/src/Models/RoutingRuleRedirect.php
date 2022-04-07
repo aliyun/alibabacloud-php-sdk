@@ -68,7 +68,7 @@ class RoutingRuleRedirect extends Model
     /**
      * @description description
      *
-     * @var string
+     * @var bool
      */
     public $passQueryString;
 

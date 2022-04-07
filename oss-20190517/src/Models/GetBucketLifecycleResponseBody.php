@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetBucketLifecycleResponseBody extends Model
 {
     /**
-     * @var LifecycleRule
+     * @var LifecycleRule[]
      */
-    public $rule;
+    public $rules;
     protected $_name = [
-        'rule' => 'Rule',
+        'rules' => 'Rule',
     ];
 
     public function validate()
@@ -23,8 +23,14 @@ class GetBucketLifecycleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rule) {
-            $res['Rule'] = null !== $this->rule ? $this->rule->toMap() : null;
+        if (null !== $this->rules) {
+            $res['Rule'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rule'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -39,7 +45,13 @@ class GetBucketLifecycleResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Rule'])) {
-            $model->rule = LifecycleRule::fromMap($map['Rule']);
+            if (!empty($map['Rule'])) {
+                $model->rules = [];
+                $n            = 0;
+                foreach ($map['Rule'] as $item) {
+                    $model->rules[$n++] = null !== $item ? LifecycleRule::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

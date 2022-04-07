@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UploadPartCopyRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $partNumber;
 

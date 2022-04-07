@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Oss\V20190517\Models\WebsiteConfiguration;
+namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class errorDocument extends Model
+class ErrorDocument extends Model
 {
     /**
      * @description description
@@ -46,7 +46,7 @@ class errorDocument extends Model
     /**
      * @param array $map
      *
-     * @return errorDocument
+     * @return ErrorDocument
      */
     public static function fromMap($map = [])
     {

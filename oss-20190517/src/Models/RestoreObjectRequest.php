@@ -11,15 +11,15 @@ class RestoreObjectRequest extends Model
     /**
      * @var RestoreRequest
      */
-    public $body;
+    public $restoreRequest;
 
     /**
      * @var string
      */
     public $versionId;
     protected $_name = [
-        'body'      => 'body',
-        'versionId' => 'versionId',
+        'restoreRequest' => 'RestoreRequest',
+        'versionId'      => 'versionId',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class RestoreObjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->restoreRequest) {
+            $res['RestoreRequest'] = null !== $this->restoreRequest ? $this->restoreRequest->toMap() : null;
         }
         if (null !== $this->versionId) {
             $res['versionId'] = $this->versionId;
@@ -47,8 +47,8 @@ class RestoreObjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = RestoreRequest::fromMap($map['body']);
+        if (isset($map['RestoreRequest'])) {
+            $model->restoreRequest = RestoreRequest::fromMap($map['RestoreRequest']);
         }
         if (isset($map['versionId'])) {
             $model->versionId = $map['versionId'];

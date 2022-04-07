@@ -14,6 +14,16 @@ class ListMultipartUploadsResponseBody extends Model
     public $bucket;
 
     /**
+     * @var CommonPrefix[]
+     */
+    public $commonPrefixes;
+
+    /**
+     * @var string
+     */
+    public $delimiter;
+
+    /**
      * @var string
      */
     public $encodingType;
@@ -41,7 +51,12 @@ class ListMultipartUploadsResponseBody extends Model
     /**
      * @var string
      */
-    public $nextUploadMarker;
+    public $nextUploadIdMarker;
+
+    /**
+     * @var string
+     */
+    public $prefix;
 
     /**
      * @var Upload[]
@@ -53,15 +68,18 @@ class ListMultipartUploadsResponseBody extends Model
      */
     public $uploadIdMarker;
     protected $_name = [
-        'bucket'           => 'Bucket',
-        'encodingType'     => 'EncodingType',
-        'isTruncated'      => 'IsTruncated',
-        'keyMarker'        => 'KeyMarker',
-        'maxUploads'       => 'MaxUploads',
-        'nextKeyMarker'    => 'NextKeyMarker',
-        'nextUploadMarker' => 'NextUploadMarker',
-        'uploads'          => 'Upload',
-        'uploadIdMarker'   => 'UploadIdMarker',
+        'bucket'             => 'Bucket',
+        'commonPrefixes'     => 'CommonPrefixes',
+        'delimiter'          => 'Delimiter',
+        'encodingType'       => 'EncodingType',
+        'isTruncated'        => 'IsTruncated',
+        'keyMarker'          => 'KeyMarker',
+        'maxUploads'         => 'MaxUploads',
+        'nextKeyMarker'      => 'NextKeyMarker',
+        'nextUploadIdMarker' => 'NextUploadIdMarker',
+        'prefix'             => 'Prefix',
+        'uploads'            => 'Upload',
+        'uploadIdMarker'     => 'UploadIdMarker',
     ];
 
     public function validate()
@@ -73,6 +91,18 @@ class ListMultipartUploadsResponseBody extends Model
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
+        }
+        if (null !== $this->commonPrefixes) {
+            $res['CommonPrefixes'] = [];
+            if (null !== $this->commonPrefixes && \is_array($this->commonPrefixes)) {
+                $n = 0;
+                foreach ($this->commonPrefixes as $item) {
+                    $res['CommonPrefixes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->delimiter) {
+            $res['Delimiter'] = $this->delimiter;
         }
         if (null !== $this->encodingType) {
             $res['EncodingType'] = $this->encodingType;
@@ -89,8 +119,11 @@ class ListMultipartUploadsResponseBody extends Model
         if (null !== $this->nextKeyMarker) {
             $res['NextKeyMarker'] = $this->nextKeyMarker;
         }
-        if (null !== $this->nextUploadMarker) {
-            $res['NextUploadMarker'] = $this->nextUploadMarker;
+        if (null !== $this->nextUploadIdMarker) {
+            $res['NextUploadIdMarker'] = $this->nextUploadIdMarker;
+        }
+        if (null !== $this->prefix) {
+            $res['Prefix'] = $this->prefix;
         }
         if (null !== $this->uploads) {
             $res['Upload'] = [];
@@ -119,6 +152,18 @@ class ListMultipartUploadsResponseBody extends Model
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
+        if (isset($map['CommonPrefixes'])) {
+            if (!empty($map['CommonPrefixes'])) {
+                $model->commonPrefixes = [];
+                $n                     = 0;
+                foreach ($map['CommonPrefixes'] as $item) {
+                    $model->commonPrefixes[$n++] = null !== $item ? CommonPrefix::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Delimiter'])) {
+            $model->delimiter = $map['Delimiter'];
+        }
         if (isset($map['EncodingType'])) {
             $model->encodingType = $map['EncodingType'];
         }
@@ -134,8 +179,11 @@ class ListMultipartUploadsResponseBody extends Model
         if (isset($map['NextKeyMarker'])) {
             $model->nextKeyMarker = $map['NextKeyMarker'];
         }
-        if (isset($map['NextUploadMarker'])) {
-            $model->nextUploadMarker = $map['NextUploadMarker'];
+        if (isset($map['NextUploadIdMarker'])) {
+            $model->nextUploadIdMarker = $map['NextUploadIdMarker'];
+        }
+        if (isset($map['Prefix'])) {
+            $model->prefix = $map['Prefix'];
         }
         if (isset($map['Upload'])) {
             if (!empty($map['Upload'])) {

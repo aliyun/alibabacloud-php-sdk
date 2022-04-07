@@ -14,9 +14,9 @@ class routingRules extends Model
      *
      * @var RoutingRule[]
      */
-    public $routingRules;
+    public $routingRule;
     protected $_name = [
-        'routingRules' => 'RoutingRule',
+        'routingRule' => 'RoutingRule',
     ];
 
     public function validate()
@@ -26,11 +26,11 @@ class routingRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routingRules) {
+        if (null !== $this->routingRule) {
             $res['RoutingRule'] = [];
-            if (null !== $this->routingRules && \is_array($this->routingRules)) {
+            if (null !== $this->routingRule && \is_array($this->routingRule)) {
                 $n = 0;
-                foreach ($this->routingRules as $item) {
+                foreach ($this->routingRule as $item) {
                     $res['RoutingRule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
@@ -49,10 +49,10 @@ class routingRules extends Model
         $model = new self();
         if (isset($map['RoutingRule'])) {
             if (!empty($map['RoutingRule'])) {
-                $model->routingRules = [];
-                $n                   = 0;
+                $model->routingRule = [];
+                $n                  = 0;
                 foreach ($map['RoutingRule'] as $item) {
-                    $model->routingRules[$n++] = null !== $item ? RoutingRule::fromMap($item) : $item;
+                    $model->routingRule[$n++] = null !== $item ? RoutingRule::fromMap($item) : $item;
                 }
             }
         }

@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
-use AlibabaCloud\SDK\Oss\V20190517\Models\WebsiteConfiguration\errorDocument;
-use AlibabaCloud\SDK\Oss\V20190517\Models\WebsiteConfiguration\indexDocument;
 use AlibabaCloud\SDK\Oss\V20190517\Models\WebsiteConfiguration\routingRules;
 use AlibabaCloud\Tea\Model;
 
 class WebsiteConfiguration extends Model
 {
     /**
-     * @description description
-     *
-     * @var errorDocument
+     * @var ErrorDocument
      */
     public $errorDocument;
 
     /**
-     * @description description
-     *
-     * @var indexDocument
+     * @var IndexDocument
      */
     public $indexDocument;
 
@@ -66,10 +60,10 @@ class WebsiteConfiguration extends Model
     {
         $model = new self();
         if (isset($map['ErrorDocument'])) {
-            $model->errorDocument = errorDocument::fromMap($map['ErrorDocument']);
+            $model->errorDocument = ErrorDocument::fromMap($map['ErrorDocument']);
         }
         if (isset($map['IndexDocument'])) {
-            $model->indexDocument = indexDocument::fromMap($map['IndexDocument']);
+            $model->indexDocument = IndexDocument::fromMap($map['IndexDocument']);
         }
         if (isset($map['RoutingRules'])) {
             $model->routingRules = routingRules::fromMap($map['RoutingRules']);

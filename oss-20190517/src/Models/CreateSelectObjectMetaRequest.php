@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteBucketReplicationRequest extends Model
+class CreateSelectObjectMetaRequest extends Model
 {
     /**
-     * @var ReplicationRules
+     * @var SelectMetaRequest
      */
-    public $body;
+    public $selectMetaRequest;
     protected $_name = [
-        'body' => 'ReplicationRules',
+        'selectMetaRequest' => 'body',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class DeleteBucketReplicationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['ReplicationRules'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->selectMetaRequest) {
+            $res['body'] = null !== $this->selectMetaRequest ? $this->selectMetaRequest->toMap() : null;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class DeleteBucketReplicationRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteBucketReplicationRequest
+     * @return CreateSelectObjectMetaRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReplicationRules'])) {
-            $model->body = ReplicationRules::fromMap($map['ReplicationRules']);
+        if (isset($map['body'])) {
+            $model->selectMetaRequest = SelectMetaRequest::fromMap($map['body']);
         }
 
         return $model;

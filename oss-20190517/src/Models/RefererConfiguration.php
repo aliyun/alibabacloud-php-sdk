@@ -17,14 +17,22 @@ class RefererConfiguration extends Model
     public $allowEmptyReferer;
 
     /**
+     * @description description
+     *
+     * @var bool
+     */
+    public $allowTruncateQueryString;
+
+    /**
      * @description 保存Referer访问白名单
      *
      * @var refererList
      */
     public $refererList;
     protected $_name = [
-        'allowEmptyReferer' => 'AllowEmptyReferer',
-        'refererList'       => 'RefererList',
+        'allowEmptyReferer'        => 'AllowEmptyReferer',
+        'allowTruncateQueryString' => 'AllowTruncateQueryString',
+        'refererList'              => 'RefererList',
     ];
 
     public function validate()
@@ -36,6 +44,9 @@ class RefererConfiguration extends Model
         $res = [];
         if (null !== $this->allowEmptyReferer) {
             $res['AllowEmptyReferer'] = $this->allowEmptyReferer;
+        }
+        if (null !== $this->allowTruncateQueryString) {
+            $res['AllowTruncateQueryString'] = $this->allowTruncateQueryString;
         }
         if (null !== $this->refererList) {
             $res['RefererList'] = null !== $this->refererList ? $this->refererList->toMap() : null;
@@ -54,6 +65,9 @@ class RefererConfiguration extends Model
         $model = new self();
         if (isset($map['AllowEmptyReferer'])) {
             $model->allowEmptyReferer = $map['AllowEmptyReferer'];
+        }
+        if (isset($map['AllowTruncateQueryString'])) {
+            $model->allowTruncateQueryString = $map['AllowTruncateQueryString'];
         }
         if (isset($map['RefererList'])) {
             $model->refererList = refererList::fromMap($map['RefererList']);

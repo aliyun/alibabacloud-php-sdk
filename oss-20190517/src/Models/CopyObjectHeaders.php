@@ -58,7 +58,7 @@ class CopyObjectHeaders extends Model
     /**
      * @var string
      */
-    public $sse;
+    public $serverSideEncryption;
 
     /**
      * @var string
@@ -78,7 +78,7 @@ class CopyObjectHeaders extends Model
     /**
      * @var string
      */
-    public $xOssTaggingDirective;
+    public $taggingDirective;
     protected $_name = [
         'copySource'                  => 'x-oss-copy-source',
         'copySourceIfMatch'           => 'x-oss-copy-source-if-match',
@@ -89,11 +89,11 @@ class CopyObjectHeaders extends Model
         'metaData'                    => 'x-oss-meta-*',
         'metadataDirective'           => 'x-oss-metadata-directive',
         'acl'                         => 'x-oss-object-acl',
-        'sse'                         => 'x-oss-server-side-encryption',
+        'serverSideEncryption'        => 'x-oss-server-side-encryption',
         'sseKeyId'                    => 'x-oss-server-side-encryption-key-id',
         'storageClass'                => 'x-oss-storage-class',
         'tagging'                     => 'x-oss-tagging',
-        'xOssTaggingDirective'        => 'x-oss-tagging-directive',
+        'taggingDirective'            => 'x-oss-tagging-directive',
     ];
 
     public function validate()
@@ -133,8 +133,8 @@ class CopyObjectHeaders extends Model
         if (null !== $this->acl) {
             $res['x-oss-object-acl'] = $this->acl;
         }
-        if (null !== $this->sse) {
-            $res['x-oss-server-side-encryption'] = $this->sse;
+        if (null !== $this->serverSideEncryption) {
+            $res['x-oss-server-side-encryption'] = $this->serverSideEncryption;
         }
         if (null !== $this->sseKeyId) {
             $res['x-oss-server-side-encryption-key-id'] = $this->sseKeyId;
@@ -145,8 +145,8 @@ class CopyObjectHeaders extends Model
         if (null !== $this->tagging) {
             $res['x-oss-tagging'] = $this->tagging;
         }
-        if (null !== $this->xOssTaggingDirective) {
-            $res['x-oss-tagging-directive'] = $this->xOssTaggingDirective;
+        if (null !== $this->taggingDirective) {
+            $res['x-oss-tagging-directive'] = $this->taggingDirective;
         }
 
         return $res;
@@ -191,7 +191,7 @@ class CopyObjectHeaders extends Model
             $model->acl = $map['x-oss-object-acl'];
         }
         if (isset($map['x-oss-server-side-encryption'])) {
-            $model->sse = $map['x-oss-server-side-encryption'];
+            $model->serverSideEncryption = $map['x-oss-server-side-encryption'];
         }
         if (isset($map['x-oss-server-side-encryption-key-id'])) {
             $model->sseKeyId = $map['x-oss-server-side-encryption-key-id'];
@@ -203,7 +203,7 @@ class CopyObjectHeaders extends Model
             $model->tagging = $map['x-oss-tagging'];
         }
         if (isset($map['x-oss-tagging-directive'])) {
-            $model->xOssTaggingDirective = $map['x-oss-tagging-directive'];
+            $model->taggingDirective = $map['x-oss-tagging-directive'];
         }
 
         return $model;

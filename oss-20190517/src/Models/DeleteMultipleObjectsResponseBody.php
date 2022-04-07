@@ -12,8 +12,14 @@ class DeleteMultipleObjectsResponseBody extends Model
      * @var DeletedObject[]
      */
     public $deleted;
+
+    /**
+     * @var string
+     */
+    public $encodingType;
     protected $_name = [
-        'deleted' => 'Deleted',
+        'deleted'      => 'Deleted',
+        'encodingType' => 'EncodingType',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class DeleteMultipleObjectsResponseBody extends Model
                     $res['Deleted'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->encodingType) {
+            $res['EncodingType'] = $this->encodingType;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DeleteMultipleObjectsResponseBody extends Model
                     $model->deleted[$n++] = null !== $item ? DeletedObject::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EncodingType'])) {
+            $model->encodingType = $map['EncodingType'];
         }
 
         return $model;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class LifecycleConfiguration extends Model
 {
     /**
-     * @description 生命周期规则
+     * @description description
      *
      * @var LifecycleRule[]
      */

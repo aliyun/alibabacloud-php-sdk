@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Oss\V20190517\Models\WebsiteConfiguration;
+namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class indexDocument extends Model
+class IndexDocument extends Model
 {
     /**
      * @description description
@@ -57,7 +57,7 @@ class indexDocument extends Model
     /**
      * @param array $map
      *
-     * @return indexDocument
+     * @return IndexDocument
      */
     public static function fromMap($map = [])
     {

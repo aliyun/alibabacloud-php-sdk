@@ -2,18 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketWebsiteResponseBody;
+namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class indexDocument extends Model
+class JSONOutput extends Model
 {
     /**
+     * @description description
+     *
      * @var string
      */
-    public $suffix;
+    public $recordDelimiter;
     protected $_name = [
-        'suffix' => 'Suffix',
+        'recordDelimiter' => 'RecordDelimiter',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class indexDocument extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suffix) {
-            $res['Suffix'] = $this->suffix;
+        if (null !== $this->recordDelimiter) {
+            $res['RecordDelimiter'] = $this->recordDelimiter;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class indexDocument extends Model
     /**
      * @param array $map
      *
-     * @return indexDocument
+     * @return JSONOutput
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suffix'])) {
-            $model->suffix = $map['Suffix'];
+        if (isset($map['RecordDelimiter'])) {
+            $model->recordDelimiter = $map['RecordDelimiter'];
         }
 
         return $model;
