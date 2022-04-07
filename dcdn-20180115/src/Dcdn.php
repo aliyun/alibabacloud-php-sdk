@@ -278,6 +278,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafRulesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafRulesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafScenesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafScenesResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafServiceRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsRequest;
@@ -7512,6 +7514,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnWafScenesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafServiceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnWafServiceResponse
+     */
+    public function describeDcdnWafServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafService',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafServiceRequest $request
+     *
+     * @return DescribeDcdnWafServiceResponse
+     */
+    public function describeDcdnWafService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafServiceWithOptions($request, $runtime);
     }
 
     /**
