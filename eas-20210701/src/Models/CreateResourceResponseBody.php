@@ -34,7 +34,7 @@ class CreateResourceResponseBody extends Model
      *
      * @var string
      */
-    public $resourceID;
+    public $resourceId;
 
     /**
      * @description 资源组名称
@@ -46,7 +46,7 @@ class CreateResourceResponseBody extends Model
         'clusterId'    => 'ClusterId',
         'ownerUid'     => 'OwnerUid',
         'requestId'    => 'RequestId',
-        'resourceID'   => 'ResourceID',
+        'resourceId'   => 'ResourceId',
         'resourceName' => 'ResourceName',
     ];
 
@@ -66,8 +66,8 @@ class CreateResourceResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->resourceID) {
-            $res['ResourceID'] = $this->resourceID;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
@@ -93,8 +93,8 @@ class CreateResourceResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ResourceID'])) {
-            $model->resourceID = $map['ResourceID'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];

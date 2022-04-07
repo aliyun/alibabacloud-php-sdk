@@ -51,6 +51,13 @@ class Instance extends Model
     public $lastState;
 
     /**
+     * @description 实例的命名空间
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description 实例已经启动完成的进程数
      *
      * @var int
@@ -98,6 +105,7 @@ class Instance extends Model
         'instanceName'   => 'InstanceName',
         'instancePort'   => 'InstancePort',
         'lastState'      => 'LastState',
+        'namespace'      => 'Namespace',
         'readyProcesses' => 'ReadyProcesses',
         'reason'         => 'Reason',
         'restartCount'   => 'RestartCount',
@@ -130,6 +138,9 @@ class Instance extends Model
         }
         if (null !== $this->lastState) {
             $res['LastState'] = $this->lastState;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->readyProcesses) {
             $res['ReadyProcesses'] = $this->readyProcesses;
@@ -180,6 +191,9 @@ class Instance extends Model
             if (!empty($map['LastState'])) {
                 $model->lastState = $map['LastState'];
             }
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['ReadyProcesses'])) {
             $model->readyProcesses = $map['ReadyProcesses'];

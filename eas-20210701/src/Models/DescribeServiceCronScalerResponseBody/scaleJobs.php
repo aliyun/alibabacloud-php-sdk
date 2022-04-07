@@ -11,6 +11,11 @@ class scaleJobs extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $lastProbeTime;
 
     /**
@@ -38,6 +43,7 @@ class scaleJobs extends Model
      */
     public $targetSize;
     protected $_name = [
+        'createTime'    => 'CreateTime',
         'lastProbeTime' => 'LastProbeTime',
         'message'       => 'Message',
         'name'          => 'Name',
@@ -53,6 +59,9 @@ class scaleJobs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->lastProbeTime) {
             $res['LastProbeTime'] = $this->lastProbeTime;
         }
@@ -83,6 +92,9 @@ class scaleJobs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['LastProbeTime'])) {
             $model->lastProbeTime = $map['LastProbeTime'];
         }

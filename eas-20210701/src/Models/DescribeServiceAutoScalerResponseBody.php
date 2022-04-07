@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceAutoScalerResponseBody extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $currentValues;
+
+    /**
      * @description 服务最大实例数
      *
      * @var int
@@ -43,11 +48,12 @@ class DescribeServiceAutoScalerResponseBody extends Model
      */
     public $strategies;
     protected $_name = [
-        'maxReplica'  => 'MaxReplica',
-        'minReplica'  => 'MinReplica',
-        'requestId'   => 'RequestId',
-        'serviceName' => 'ServiceName',
-        'strategies'  => 'Strategies',
+        'currentValues' => 'CurrentValues',
+        'maxReplica'    => 'MaxReplica',
+        'minReplica'    => 'MinReplica',
+        'requestId'     => 'RequestId',
+        'serviceName'   => 'ServiceName',
+        'strategies'    => 'Strategies',
     ];
 
     public function validate()
@@ -57,6 +63,9 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentValues) {
+            $res['CurrentValues'] = $this->currentValues;
+        }
         if (null !== $this->maxReplica) {
             $res['MaxReplica'] = $this->maxReplica;
         }
@@ -84,6 +93,9 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentValues'])) {
+            $model->currentValues = $map['CurrentValues'];
+        }
         if (isset($map['MaxReplica'])) {
             $model->maxReplica = $map['MaxReplica'];
         }

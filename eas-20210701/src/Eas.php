@@ -31,6 +31,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceResponse;
@@ -83,63 +84,21 @@ class Eas extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
-            'cn-beijing'                  => 'pai-eas.cn-beijing.aliyuncs.com',
-            'cn-zhangjiakou'              => 'pai-eas.cn-zhangjiakou.aliyuncs.com',
-            'cn-hangzhou'                 => 'pai-eas.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai'                 => 'pai-eas.cn-shanghai.aliyuncs.com',
-            'cn-shenzhen'                 => 'pai-eas.cn-shenzhen.aliyuncs.com',
-            'cn-hongkong'                 => 'pai-eas.cn-hongkong.aliyuncs.com',
-            'ap-southeast-1'              => 'pai-eas.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'              => 'pai-eas.ap-southeast-5.aliyuncs.com',
-            'us-west-1'                   => 'pai-eas.us-west-1.aliyuncs.com',
-            'us-east-1'                   => 'pai-eas.us-east-1.aliyuncs.com',
-            'eu-central-1'                => 'pai-eas.eu-central-1.aliyuncs.com',
-            'ap-south-1'                  => 'pai-eas.ap-south-1.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'pai-eas.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'pai-eas.cn-north-2-gov-1.aliyuncs.com',
-            'ap-northeast-1'              => 'eas.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'eas.aliyuncs.com',
-            'ap-southeast-2'              => 'eas.aliyuncs.com',
-            'ap-southeast-3'              => 'eas.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'eas.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'eas.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'eas.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'eas.aliyuncs.com',
-            'cn-chengdu'                  => 'pai-eas.cn-chengdu.aliyuncs.com',
-            'cn-edge-1'                   => 'eas.aliyuncs.com',
-            'cn-fujian'                   => 'eas.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'eas.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'eas.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'eas.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'eas.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'eas.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'eas.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'eas.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'eas.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'eas.aliyuncs.com',
-            'cn-huhehaote'                => 'eas.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'eas.aliyuncs.com',
-            'cn-qingdao'                  => 'eas.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'eas.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'eas.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'eas.aliyuncs.com',
-            'cn-shanghai-inner'           => 'eas.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'eas.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'eas.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'eas.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'eas.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'eas.aliyuncs.com',
-            'cn-wuhan'                    => 'eas.aliyuncs.com',
-            'cn-wulanchabu'               => 'eas.aliyuncs.com',
-            'cn-yushanfang'               => 'eas.aliyuncs.com',
-            'cn-zhangbei'                 => 'eas.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'eas.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'eas.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'eas.aliyuncs.com',
-            'eu-west-1'                   => 'eas.aliyuncs.com',
-            'eu-west-1-oxs'               => 'eas.aliyuncs.com',
-            'me-east-1'                   => 'eas.aliyuncs.com',
-            'rus-west-1-pop'              => 'eas.aliyuncs.com',
+            'cn-beijing'            => 'pai-eas.cn-beijing.aliyuncs.com',
+            'cn-zhangjiakou'        => 'pai-eas.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou'           => 'pai-eas.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai'           => 'pai-eas.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen'           => 'pai-eas.cn-shenzhen.aliyuncs.com',
+            'cn-hongkong'           => 'pai-eas.cn-hongkong.aliyuncs.com',
+            'ap-southeast-1'        => 'pai-eas.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5'        => 'pai-eas.ap-southeast-5.aliyuncs.com',
+            'us-east-1'             => 'pai-eas.us-east-1.aliyuncs.com',
+            'us-west-1'             => 'pai-eas.us-west-1.aliyuncs.com',
+            'eu-central-1'          => 'pai-eas.eu-central-1.aliyuncs.com',
+            'ap-south-1'            => 'pai-eas.ap-south-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'pai-eas.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-north-2-gov-1'      => 'pai-eas.cn-north-2-gov-1.aliyuncs.com',
+            'cn-chengdu'            => 'pai-eas.cn-chengdu.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -965,6 +924,43 @@ class Eas extends OpenApiClient
         ]);
 
         return DeleteServiceMirrorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/regions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
