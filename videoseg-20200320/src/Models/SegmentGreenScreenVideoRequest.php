@@ -14,14 +14,8 @@ class SegmentGreenScreenVideoRequest extends Model
      * @var string
      */
     public $videoURL;
-
-    /**
-     * @var bool
-     */
-    public $async;
     protected $_name = [
         'videoURL' => 'VideoURL',
-        'async'    => 'Async',
     ];
 
     public function validate()
@@ -33,9 +27,6 @@ class SegmentGreenScreenVideoRequest extends Model
         $res = [];
         if (null !== $this->videoURL) {
             $res['VideoURL'] = $this->videoURL;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
 
         return $res;
@@ -51,9 +42,6 @@ class SegmentGreenScreenVideoRequest extends Model
         $model = new self();
         if (isset($map['VideoURL'])) {
             $model->videoURL = $map['VideoURL'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
 
         return $model;
