@@ -13,10 +13,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AddDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddDeviceInternetPortResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddNetworkInterfaceToInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddNetworkInterfaceToInstanceResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\AllocateEipAddressRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\AllocateEipAddressResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEipAddressRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskRequest;
@@ -27,18 +23,20 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupEgressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupEgressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CheckQuotaRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CheckQuotaResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsRouteEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsRouteEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsServiceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEpnInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateForwardEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateForwardEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateInstanceRequest;
@@ -55,30 +53,38 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateLoadBalancerTCPListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateLoadBalancerTCPListenerResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateLoadBalancerUDPListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateLoadBalancerUDPListenerResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNatGatewayRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNatGatewayResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSecurityGroupResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVmAndSaveStockRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVmAndSaveStockResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSnatEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVSwitchResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDeviceInternetPortResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteForwardEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteForwardEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteKeyPairsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteKeyPairsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteLoadBalancerListenerResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNatGatewayRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNatGatewayResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSecurityGroupResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVmRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVmResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationRequest;
@@ -127,6 +133,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRegionsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRegionsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsResourceUsageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsResourceUsageResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnBandWidthDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnBandWidthDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnBandwitdhByInternetChargeTypeRequest;
@@ -141,6 +149,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeExportImageInfoRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeExportImageInfoResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeExportImageStatusRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeExportImageStatusResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeForwardTableEntriesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeForwardTableEntriesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageSharePermissionRequest;
@@ -177,6 +187,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerUDPListenerAttribu
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerUDPListenerAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMeasurementDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMeasurementDataResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesRequest;
@@ -198,6 +210,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatTableEntriesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatTableEntriesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesRequest;
@@ -214,8 +228,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ExportMeasurementDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ExportMeasurementDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetDeviceInternetPortResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\GetVmListRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\GetVmListResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinPublicIpsToEpnInstanceRequest;
@@ -228,8 +240,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\LeaveSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\LeaveSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListApplicationsResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\MigrateVmRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\MigrateVmResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEpnInstanceRequest;
@@ -260,8 +270,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseEipAddressRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleasePostPaidInstanceRequest;
@@ -296,8 +304,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\SchedulePodRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\SchedulePodResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersShrinkRequest;
@@ -323,8 +329,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateEipAddressRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeApplicationRequest;
@@ -507,110 +511,6 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addNetworkInterfaceToInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AllocateEipAddressRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AllocateEipAddressResponse
-     */
-    public function allocateEipAddressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
-        }
-        if (!Utils::isUnset($request->ensRegionId)) {
-            $query['EnsRegionId'] = $request->ensRegionId;
-        }
-        if (!Utils::isUnset($request->minCount)) {
-            $query['MinCount'] = $request->minCount;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AllocateEipAddress',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AllocateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AllocateEipAddressRequest $request
-     *
-     * @return AllocateEipAddressResponse
-     */
-    public function allocateEipAddress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->allocateEipAddressWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssociateEipAddressRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AssociateEipAddressResponse
-     */
-    public function associateEipAddressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->eip)) {
-            $query['Eip'] = $request->eip;
-        }
-        if (!Utils::isUnset($request->ensRegionId)) {
-            $query['EnsRegionId'] = $request->ensRegionId;
-        }
-        if (!Utils::isUnset($request->instanceIdInternetIp)) {
-            $query['InstanceIdInternetIp'] = $request->instanceIdInternetIp;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AssociateEipAddress',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AssociateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AssociateEipAddressRequest $request
-     *
-     * @return AssociateEipAddressResponse
-     */
-    public function associateEipAddress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associateEipAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -889,57 +789,6 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CheckQuotaRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CheckQuotaResponse
-     */
-    public function checkQuotaWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->groupUuid)) {
-            $query['GroupUuid'] = $request->groupUuid;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->resourceAttribute)) {
-            $body['ResourceAttribute'] = $request->resourceAttribute;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckQuota',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CheckQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CheckQuotaRequest $request
-     *
-     * @return CheckQuotaResponse
-     */
-    public function checkQuota($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkQuotaWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateApplicationRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1096,6 +945,64 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param CreateEnsRouteEntryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateEnsRouteEntryResponse
+     */
+    public function createEnsRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $query['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        }
+        if (!Utils::isUnset($request->nextHopId)) {
+            $query['NextHopId'] = $request->nextHopId;
+        }
+        if (!Utils::isUnset($request->nextHopType)) {
+            $query['NextHopType'] = $request->nextHopType;
+        }
+        if (!Utils::isUnset($request->routeEntryName)) {
+            $query['RouteEntryName'] = $request->routeEntryName;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEnsRouteEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEnsRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateEnsRouteEntryRequest $request
+     *
+     * @return CreateEnsRouteEntryResponse
+     */
+    public function createEnsRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnsRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateEnsServiceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1200,6 +1107,67 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param CreateForwardEntryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateForwardEntryResponse
+     */
+    public function createForwardEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->externalIp)) {
+            $query['ExternalIp'] = $request->externalIp;
+        }
+        if (!Utils::isUnset($request->externalPort)) {
+            $query['ExternalPort'] = $request->externalPort;
+        }
+        if (!Utils::isUnset($request->forwardEntryName)) {
+            $query['ForwardEntryName'] = $request->forwardEntryName;
+        }
+        if (!Utils::isUnset($request->internalIp)) {
+            $query['InternalIp'] = $request->internalIp;
+        }
+        if (!Utils::isUnset($request->internalPort)) {
+            $query['InternalPort'] = $request->internalPort;
+        }
+        if (!Utils::isUnset($request->ipProtocol)) {
+            $query['IpProtocol'] = $request->ipProtocol;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateForwardEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateForwardEntryRequest $request
+     *
+     * @return CreateForwardEntryResponse
+     */
+    public function createForwardEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateImageRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1296,6 +1264,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->passwordInherit)) {
+            $query['PasswordInherit'] = $request->passwordInherit;
         }
         if (!Utils::isUnset($request->paymentType)) {
             $query['PaymentType'] = $request->paymentType;
@@ -1835,6 +1806,58 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param CreateNatGatewayRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateNatGatewayResponse
+     */
+    public function createNatGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->networkId)) {
+            $query['NetworkId'] = $request->networkId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNatGateway',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateNatGatewayRequest $request
+     *
+     * @return CreateNatGatewayResponse
+     */
+    public function createNatGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNatGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateNetworkRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1936,6 +1959,61 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param CreateSnatEntryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateSnatEntryResponse
+     */
+    public function createSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->snatEntryName)) {
+            $query['SnatEntryName'] = $request->snatEntryName;
+        }
+        if (!Utils::isUnset($request->snatIp)) {
+            $query['SnatIp'] = $request->snatIp;
+        }
+        if (!Utils::isUnset($request->sourceCIDR)) {
+            $query['SourceCIDR'] = $request->sourceCIDR;
+        }
+        if (!Utils::isUnset($request->sourceVSwitchId)) {
+            $query['SourceVSwitchId'] = $request->sourceVSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSnatEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSnatEntryRequest $request
+     *
+     * @return CreateSnatEntryResponse
+     */
+    public function createSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVSwitchRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1991,63 +2069,6 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVSwitchWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVmAndSaveStockRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateVmAndSaveStockResponse
-     */
-    public function createVmAndSaveStockWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->groupUuid)) {
-            $query['GroupUuid'] = $request->groupUuid;
-        }
-        if (!Utils::isUnset($request->tenant)) {
-            $query['Tenant'] = $request->tenant;
-        }
-        if (!Utils::isUnset($request->workloadUuid)) {
-            $query['WorkloadUuid'] = $request->workloadUuid;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->resourceAttribute)) {
-            $body['ResourceAttribute'] = $request->resourceAttribute;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateVmAndSaveStock',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateVmAndSaveStockResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateVmAndSaveStockRequest $request
-     *
-     * @return CreateVmAndSaveStockResponse
-     */
-    public function createVmAndSaveStock($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVmAndSaveStockWithOptions($request, $runtime);
     }
 
     /**
@@ -2137,6 +2158,49 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DeleteEnsRouteEntryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteEnsRouteEntryResponse
+     */
+    public function deleteEnsRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->routeEntryId)) {
+            $query['RouteEntryId'] = $request->routeEntryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnsRouteEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnsRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnsRouteEntryRequest $request
+     *
+     * @return DeleteEnsRouteEntryResponse
+     */
+    public function deleteEnsRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnsRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteEpnInstanceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2177,6 +2241,49 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEpnInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteForwardEntryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteForwardEntryResponse
+     */
+    public function deleteForwardEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forwardEntryId)) {
+            $query['ForwardEntryId'] = $request->forwardEntryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteForwardEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteForwardEntryRequest $request
+     *
+     * @return DeleteForwardEntryResponse
+     */
+    public function deleteForwardEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteForwardEntryWithOptions($request, $runtime);
     }
 
     /**
@@ -2272,6 +2379,49 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DeleteNatGatewayRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteNatGatewayResponse
+     */
+    public function deleteNatGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNatGateway',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNatGatewayRequest $request
+     *
+     * @return DeleteNatGatewayResponse
+     */
+    public function deleteNatGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNatGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteNetworkRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2361,6 +2511,49 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DeleteSnatEntryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteSnatEntryResponse
+     */
+    public function deleteSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSnatEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSnatEntryRequest $request
+     *
+     * @return DeleteSnatEntryResponse
+     */
+    public function deleteSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteVSwitchRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2404,52 +2597,6 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVSwitchWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteVmRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return DeleteVmResponse
-     */
-    public function deleteVmWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->workloadUuid)) {
-            $query['WorkloadUuid'] = $request->workloadUuid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteVm',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteVmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteVmRequest $request
-     *
-     * @return DeleteVmResponse
-     */
-    public function deleteVm($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteVmWithOptions($request, $runtime);
     }
 
     /**
@@ -3615,6 +3762,73 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeEnsRouteEntryListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeEnsRouteEntryListResponse
+     */
+    public function describeEnsRouteEntryListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $query['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        }
+        if (!Utils::isUnset($request->nextHopId)) {
+            $query['NextHopId'] = $request->nextHopId;
+        }
+        if (!Utils::isUnset($request->nextHopType)) {
+            $query['NextHopType'] = $request->nextHopType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->routeEntryId)) {
+            $query['RouteEntryId'] = $request->routeEntryId;
+        }
+        if (!Utils::isUnset($request->routeEntryName)) {
+            $query['RouteEntryName'] = $request->routeEntryName;
+        }
+        if (!Utils::isUnset($request->routeEntryType)) {
+            $query['RouteEntryType'] = $request->routeEntryType;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnsRouteEntryList',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnsRouteEntryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnsRouteEntryListRequest $request
+     *
+     * @return DescribeEnsRouteEntryListResponse
+     */
+    public function describeEnsRouteEntryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnsRouteEntryListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeEpnBandWidthDataRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3979,6 +4193,70 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeExportImageStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeForwardTableEntriesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeForwardTableEntriesResponse
+     */
+    public function describeForwardTableEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->externalIp)) {
+            $query['ExternalIp'] = $request->externalIp;
+        }
+        if (!Utils::isUnset($request->forwardEntryId)) {
+            $query['ForwardEntryId'] = $request->forwardEntryId;
+        }
+        if (!Utils::isUnset($request->forwardEntryName)) {
+            $query['ForwardEntryName'] = $request->forwardEntryName;
+        }
+        if (!Utils::isUnset($request->internalIp)) {
+            $query['InternalIp'] = $request->internalIp;
+        }
+        if (!Utils::isUnset($request->ipProtocol)) {
+            $query['IpProtocol'] = $request->ipProtocol;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeForwardTableEntries',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeForwardTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeForwardTableEntriesRequest $request
+     *
+     * @return DescribeForwardTableEntriesResponse
+     */
+    public function describeForwardTableEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeForwardTableEntriesWithOptions($request, $runtime);
     }
 
     /**
@@ -4873,6 +5151,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeNatGatewaysRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeNatGatewaysResponse
+     */
+    public function describeNatGatewaysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNatGateways',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNatGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNatGatewaysRequest $request
+     *
+     * @return DescribeNatGatewaysResponse
+     */
+    public function describeNatGateways($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatGatewaysWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeNetworkAttributeRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -5386,6 +5704,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeSnatTableEntriesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeSnatTableEntriesResponse
+     */
+    public function describeSnatTableEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSnatTableEntries',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSnatTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSnatTableEntriesRequest $request
+     *
+     * @return DescribeSnatTableEntriesResponse
+     */
+    public function describeSnatTableEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSnatTableEntriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeUserBandWidthDataRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -5793,46 +6151,6 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetVmListRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return GetVmListResponse
-     */
-    public function getVmListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetVmList',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetVmListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetVmListRequest $request
-     *
-     * @return GetVmListResponse
-     */
-    public function getVmList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getVmListWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ImportKeyPairRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -6133,60 +6451,6 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MigrateVmRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return MigrateVmResponse
-     */
-    public function migrateVmWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupUuid)) {
-            $query['GroupUuid'] = $request->groupUuid;
-        }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
-        }
-        if (!Utils::isUnset($request->tenant)) {
-            $query['Tenant'] = $request->tenant;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->instances)) {
-            $body['Instances'] = $request->instances;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'MigrateVm',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return MigrateVmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param MigrateVmRequest $request
-     *
-     * @return MigrateVmResponse
-     */
-    public function migrateVm($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->migrateVmWithOptions($request, $runtime);
     }
 
     /**
@@ -6973,55 +7237,6 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebootInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ReleaseEipAddressRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ReleaseEipAddressResponse
-     */
-    public function releaseEipAddressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->eips)) {
-            $query['Eips'] = $request->eips;
-        }
-        if (!Utils::isUnset($request->ensRegionId)) {
-            $query['EnsRegionId'] = $request->ensRegionId;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ReleaseEipAddress',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ReleaseEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ReleaseEipAddressRequest $request
-     *
-     * @return ReleaseEipAddressResponse
-     */
-    public function releaseEipAddress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->releaseEipAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -7929,78 +8144,6 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param SchedulePodRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SchedulePodResponse
-     */
-    public function schedulePodWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->areaCodes)) {
-            $query['AreaCodes'] = $request->areaCodes;
-        }
-        if (!Utils::isUnset($request->groupUuid)) {
-            $query['GroupUuid'] = $request->groupUuid;
-        }
-        if (!Utils::isUnset($request->isps)) {
-            $query['Isps'] = $request->isps;
-        }
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
-        }
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
-        }
-        if (!Utils::isUnset($request->tenant)) {
-            $query['Tenant'] = $request->tenant;
-        }
-        if (!Utils::isUnset($request->workloadUuid)) {
-            $query['WorkloadUuid'] = $request->workloadUuid;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->requirements)) {
-            $body['Requirements'] = $request->requirements;
-        }
-        if (!Utils::isUnset($request->resourceAttribute)) {
-            $body['ResourceAttribute'] = $request->resourceAttribute;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SchedulePod',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SchedulePodResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SchedulePodRequest $request
-     *
-     * @return SchedulePodResponse
-     */
-    public function schedulePod($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->schedulePodWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetBackendServersRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
@@ -8754,58 +8897,6 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unAssociateEnsEipAddressWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnassociateEipAddressRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UnassociateEipAddressResponse
-     */
-    public function unassociateEipAddressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->eip)) {
-            $query['Eip'] = $request->eip;
-        }
-        if (!Utils::isUnset($request->ensRegionId)) {
-            $query['EnsRegionId'] = $request->ensRegionId;
-        }
-        if (!Utils::isUnset($request->instanceIdInternetIp)) {
-            $query['InstanceIdInternetIp'] = $request->instanceIdInternetIp;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UnassociateEipAddress',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UnassociateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UnassociateEipAddressRequest $request
-     *
-     * @return UnassociateEipAddressResponse
-     */
-    public function unassociateEipAddress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unassociateEipAddressWithOptions($request, $runtime);
     }
 
     /**

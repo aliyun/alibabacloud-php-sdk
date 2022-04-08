@@ -81,6 +81,13 @@ class CreateInstanceRequest extends Model
     public $password;
 
     /**
+     * @description 是否使用镜像预设的密码。使用该参数时，Password参数必须为空，同时您需要确保使用的镜像已经设置了密码。
+     *
+     * @var bool
+     */
+    public $passwordInherit;
+
+    /**
      * @var string
      */
     public $paymentType;
@@ -134,6 +141,7 @@ class CreateInstanceRequest extends Model
         'keyPairName'            => 'KeyPairName',
         'ownerId'                => 'OwnerId',
         'password'               => 'Password',
+        'passwordInherit'        => 'PasswordInherit',
         'paymentType'            => 'PaymentType',
         'period'                 => 'Period',
         'privateIpAddress'       => 'PrivateIpAddress',
@@ -198,6 +206,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->passwordInherit) {
+            $res['PasswordInherit'] = $this->passwordInherit;
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
@@ -282,6 +293,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['PasswordInherit'])) {
+            $model->passwordInherit = $map['PasswordInherit'];
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
