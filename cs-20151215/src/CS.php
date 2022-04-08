@@ -1270,13 +1270,13 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
         $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
-        $body       = [];
+        $query      = [];
         if (!Utils::isUnset($request->force)) {
-            $body['force'] = $request->force;
+            $query['force'] = $request->force;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteClusterNodepool',
