@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSpineMRIRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSpineMRIResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\FeedbackSessionRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\FeedbackSessionResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GetAsyncJobResultRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GetAsyncJobResultResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunCTRegistrationRequest;
@@ -1068,6 +1070,52 @@ class Imageprocess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectSpineMRIWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FeedbackSessionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FeedbackSessionResponse
+     */
+    public function feedbackSessionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->feedback)) {
+            $body['Feedback'] = $request->feedback;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FeedbackSession',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FeedbackSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FeedbackSessionRequest $request
+     *
+     * @return FeedbackSessionResponse
+     */
+    public function feedbackSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->feedbackSessionWithOptions($request, $runtime);
     }
 
     /**
