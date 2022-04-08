@@ -28,6 +28,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesResponse;
@@ -1241,33 +1242,41 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $NodepoolId
+     * @param string                       $ClusterId
+     * @param string                       $NodepoolId
+     * @param DeleteClusterNodepoolRequest $request
      *
      * @return DeleteClusterNodepoolResponse
      */
-    public function deleteClusterNodepool($ClusterId, $NodepoolId)
+    public function deleteClusterNodepool($ClusterId, $NodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $headers, $runtime);
+        return $this->deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string         $NodepoolId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                       $ClusterId
+     * @param string                       $NodepoolId
+     * @param DeleteClusterNodepoolRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
      * @return DeleteClusterNodepoolResponse
      */
-    public function deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $headers, $runtime)
+    public function deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
         $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
-        $req        = new OpenApiRequest([
+        $body       = [];
+        if (!Utils::isUnset($request->force)) {
+            $body['force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteClusterNodepool',

@@ -16,6 +16,13 @@ class body extends Model
     public $componentName;
 
     /**
+     * @description 组件自定义参数
+     *
+     * @var string
+     */
+    public $config;
+
+    /**
      * @description 可升级版本
      *
      * @var string
@@ -30,6 +37,7 @@ class body extends Model
     public $version;
     protected $_name = [
         'componentName' => 'component_name',
+        'config'        => 'config',
         'nextVersion'   => 'next_version',
         'version'       => 'version',
     ];
@@ -43,6 +51,9 @@ class body extends Model
         $res = [];
         if (null !== $this->componentName) {
             $res['component_name'] = $this->componentName;
+        }
+        if (null !== $this->config) {
+            $res['config'] = $this->config;
         }
         if (null !== $this->nextVersion) {
             $res['next_version'] = $this->nextVersion;
@@ -64,6 +75,9 @@ class body extends Model
         $model = new self();
         if (isset($map['component_name'])) {
             $model->componentName = $map['component_name'];
+        }
+        if (isset($map['config'])) {
+            $model->config = $map['config'];
         }
         if (isset($map['next_version'])) {
             $model->nextVersion = $map['next_version'];
