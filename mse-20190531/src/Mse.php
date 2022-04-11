@@ -230,8 +230,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RetryClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RetryClusterResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ScalingClusterRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ScalingClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\SelectGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\SelectGatewaySlbResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateAclRequest;
@@ -1364,6 +1362,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->desc)) {
             $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -6052,64 +6053,6 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->retryClusterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ScalingClusterRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ScalingClusterResponse
-     */
-    public function scalingClusterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->clusterSpecification)) {
-            $query['ClusterSpecification'] = $request->clusterSpecification;
-        }
-        if (!Utils::isUnset($request->cpu)) {
-            $query['Cpu'] = $request->cpu;
-        }
-        if (!Utils::isUnset($request->instanceCount)) {
-            $query['InstanceCount'] = $request->instanceCount;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->memoryCapacity)) {
-            $query['MemoryCapacity'] = $request->memoryCapacity;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ScalingCluster',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ScalingClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ScalingClusterRequest $request
-     *
-     * @return ScalingClusterResponse
-     */
-    public function scalingCluster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->scalingClusterWithOptions($request, $runtime);
     }
 
     /**

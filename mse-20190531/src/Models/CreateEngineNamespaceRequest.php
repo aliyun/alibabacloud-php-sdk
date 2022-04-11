@@ -26,6 +26,11 @@ class CreateEngineNamespaceRequest extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -41,6 +46,7 @@ class CreateEngineNamespaceRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
         'desc'           => 'Desc',
+        'id'             => 'Id',
         'instanceId'     => 'InstanceId',
         'name'           => 'Name',
         'serviceCount'   => 'ServiceCount',
@@ -61,6 +67,9 @@ class CreateEngineNamespaceRequest extends Model
         }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -91,6 +100,9 @@ class CreateEngineNamespaceRequest extends Model
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
