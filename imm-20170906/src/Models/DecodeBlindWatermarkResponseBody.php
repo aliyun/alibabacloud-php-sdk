@@ -11,11 +11,6 @@ class DecodeBlindWatermarkResponseBody extends Model
     /**
      * @var string
      */
-    public $content;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
@@ -23,7 +18,6 @@ class DecodeBlindWatermarkResponseBody extends Model
      */
     public $targetUri;
     protected $_name = [
-        'content'   => 'Content',
         'requestId' => 'RequestId',
         'targetUri' => 'TargetUri',
     ];
@@ -35,9 +29,6 @@ class DecodeBlindWatermarkResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,9 +47,6 @@ class DecodeBlindWatermarkResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -14,28 +14,16 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\CreateGrabFrameTaskRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateGrabFrameTaskResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateGroupFacesJobRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateGroupFacesJobResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateImageProcessTaskRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateImageProcessTaskResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateMediaComplexTaskRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateMediaComplexTaskResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateMergeFaceGroupsJobRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateMergeFaceGroupsJobResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateOfficeConversionTaskRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateSetRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateSetResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoAbstractTaskRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoAbstractTaskResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoAnalyseTaskRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoAnalyseTaskResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoCompressTaskRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoCompressTaskResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoProduceTaskRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoProduceTaskResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DecodeBlindWatermarkRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DecodeBlindWatermarkResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteImageJobRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteImageJobResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteOfficeConversionTaskRequest;
@@ -48,7 +36,6 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteVideoRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteVideoResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteVideoTaskRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DeleteVideoTaskResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageBodiesRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageBodiesResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageFacesRequest;
@@ -65,10 +52,6 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\FindImagesRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\FindImagesResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\FindSimilarFacesRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\FindSimilarFacesResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\GetContentKeyRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\GetContentKeyResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\GetDRMLicenseRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\GetDRMLicenseResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetImageCroppingSuggestionsRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetImageCroppingSuggestionsResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetImageQualityRequest;
@@ -79,8 +62,6 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\GetMediaMetaRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetMediaMetaResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetOfficeConversionTaskRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetOfficeConversionTaskResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\GetOfficeEditURLRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\GetOfficeEditURLResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetOfficePreviewURLRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetOfficePreviewURLResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\GetProjectRequest;
@@ -103,8 +84,6 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\ListImagesRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\ListImagesResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\ListOfficeConversionTaskRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\ListOfficeConversionTaskResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\ListProjectAPIsRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\ListProjectAPIsResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\ListSetsRequest;
@@ -123,8 +102,6 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\OpenImmServiceRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\OpenImmServiceResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\PutProjectRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\PutProjectResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\RefreshOfficeEditTokenRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\RefreshOfficeEditTokenResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\RefreshOfficePreviewTokenRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\RefreshOfficePreviewTokenResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\RefreshWebofficeTokenRequest;
@@ -141,6 +118,7 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateSetResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Imm extends OpenApiClient
@@ -188,11 +166,41 @@ class Imm extends OpenApiClient
     public function compareImageFacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->faceIdA)) {
+            $query['FaceIdA'] = $request->faceIdA;
+        }
+        if (!Utils::isUnset($request->faceIdB)) {
+            $query['FaceIdB'] = $request->faceIdB;
+        }
+        if (!Utils::isUnset($request->imageUriA)) {
+            $query['ImageUriA'] = $request->imageUriA;
+        }
+        if (!Utils::isUnset($request->imageUriB)) {
+            $query['ImageUriB'] = $request->imageUriB;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CompareImageFaces',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CompareImageFacesResponse::fromMap($this->doRPCRequest('CompareImageFaces', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CompareImageFacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -216,11 +224,83 @@ class Imm extends OpenApiClient
     public function convertOfficeFormatWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endPage)) {
+            $query['EndPage'] = $request->endPage;
+        }
+        if (!Utils::isUnset($request->fitToPagesTall)) {
+            $query['FitToPagesTall'] = $request->fitToPagesTall;
+        }
+        if (!Utils::isUnset($request->fitToPagesWide)) {
+            $query['FitToPagesWide'] = $request->fitToPagesWide;
+        }
+        if (!Utils::isUnset($request->hidecomments)) {
+            $query['Hidecomments'] = $request->hidecomments;
+        }
+        if (!Utils::isUnset($request->maxSheetCol)) {
+            $query['MaxSheetCol'] = $request->maxSheetCol;
+        }
+        if (!Utils::isUnset($request->maxSheetCount)) {
+            $query['MaxSheetCount'] = $request->maxSheetCount;
+        }
+        if (!Utils::isUnset($request->maxSheetRow)) {
+            $query['MaxSheetRow'] = $request->maxSheetRow;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->pdfVector)) {
+            $query['PdfVector'] = $request->pdfVector;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->sheetOnePage)) {
+            $query['SheetOnePage'] = $request->sheetOnePage;
+        }
+        if (!Utils::isUnset($request->srcType)) {
+            $query['SrcType'] = $request->srcType;
+        }
+        if (!Utils::isUnset($request->srcUri)) {
+            $query['SrcUri'] = $request->srcUri;
+        }
+        if (!Utils::isUnset($request->startPage)) {
+            $query['StartPage'] = $request->startPage;
+        }
+        if (!Utils::isUnset($request->tgtFilePages)) {
+            $query['TgtFilePages'] = $request->tgtFilePages;
+        }
+        if (!Utils::isUnset($request->tgtFilePrefix)) {
+            $query['TgtFilePrefix'] = $request->tgtFilePrefix;
+        }
+        if (!Utils::isUnset($request->tgtFileSuffix)) {
+            $query['TgtFileSuffix'] = $request->tgtFileSuffix;
+        }
+        if (!Utils::isUnset($request->tgtType)) {
+            $query['TgtType'] = $request->tgtType;
+        }
+        if (!Utils::isUnset($request->tgtUri)) {
+            $query['TgtUri'] = $request->tgtUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConvertOfficeFormat',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConvertOfficeFormatResponse::fromMap($this->doRPCRequest('ConvertOfficeFormat', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConvertOfficeFormatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -244,11 +324,41 @@ class Imm extends OpenApiClient
     public function createGrabFrameTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customMessage)) {
+            $query['CustomMessage'] = $request->customMessage;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->targetList)) {
+            $query['TargetList'] = $request->targetList;
+        }
+        if (!Utils::isUnset($request->videoUri)) {
+            $query['VideoUri'] = $request->videoUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGrabFrameTask',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGrabFrameTaskResponse::fromMap($this->doRPCRequest('CreateGrabFrameTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGrabFrameTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -272,11 +382,35 @@ class Imm extends OpenApiClient
     public function createGroupFacesJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroupFacesJob',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGroupFacesJobResponse::fromMap($this->doRPCRequest('CreateGroupFacesJob', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGroupFacesJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -292,62 +426,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateImageProcessTaskRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateImageProcessTaskResponse
-     */
-    public function createImageProcessTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateImageProcessTaskResponse::fromMap($this->doRPCRequest('CreateImageProcessTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateImageProcessTaskRequest $request
-     *
-     * @return CreateImageProcessTaskResponse
-     */
-    public function createImageProcessTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createImageProcessTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateMediaComplexTaskRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateMediaComplexTaskResponse
-     */
-    public function createMediaComplexTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateMediaComplexTaskResponse::fromMap($this->doRPCRequest('CreateMediaComplexTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateMediaComplexTaskRequest $request
-     *
-     * @return CreateMediaComplexTaskResponse
-     */
-    public function createMediaComplexTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createMediaComplexTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateMergeFaceGroupsJobRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -356,11 +434,44 @@ class Imm extends OpenApiClient
     public function createMergeFaceGroupsJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customMessage)) {
+            $query['CustomMessage'] = $request->customMessage;
+        }
+        if (!Utils::isUnset($request->groupIdFrom)) {
+            $query['GroupIdFrom'] = $request->groupIdFrom;
+        }
+        if (!Utils::isUnset($request->groupIdTo)) {
+            $query['GroupIdTo'] = $request->groupIdTo;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMergeFaceGroupsJob',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMergeFaceGroupsJobResponse::fromMap($this->doRPCRequest('CreateMergeFaceGroupsJob', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMergeFaceGroupsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -384,11 +495,98 @@ class Imm extends OpenApiClient
     public function createOfficeConversionTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->displayDpi)) {
+            $query['DisplayDpi'] = $request->displayDpi;
+        }
+        if (!Utils::isUnset($request->endPage)) {
+            $query['EndPage'] = $request->endPage;
+        }
+        if (!Utils::isUnset($request->fitToPagesTall)) {
+            $query['FitToPagesTall'] = $request->fitToPagesTall;
+        }
+        if (!Utils::isUnset($request->fitToPagesWide)) {
+            $query['FitToPagesWide'] = $request->fitToPagesWide;
+        }
+        if (!Utils::isUnset($request->hidecomments)) {
+            $query['Hidecomments'] = $request->hidecomments;
+        }
+        if (!Utils::isUnset($request->idempotentToken)) {
+            $query['IdempotentToken'] = $request->idempotentToken;
+        }
+        if (!Utils::isUnset($request->maxSheetCol)) {
+            $query['MaxSheetCol'] = $request->maxSheetCol;
+        }
+        if (!Utils::isUnset($request->maxSheetCount)) {
+            $query['MaxSheetCount'] = $request->maxSheetCount;
+        }
+        if (!Utils::isUnset($request->maxSheetRow)) {
+            $query['MaxSheetRow'] = $request->maxSheetRow;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->pdfVector)) {
+            $query['PdfVector'] = $request->pdfVector;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->sheetOnePage)) {
+            $query['SheetOnePage'] = $request->sheetOnePage;
+        }
+        if (!Utils::isUnset($request->srcType)) {
+            $query['SrcType'] = $request->srcType;
+        }
+        if (!Utils::isUnset($request->srcUri)) {
+            $query['SrcUri'] = $request->srcUri;
+        }
+        if (!Utils::isUnset($request->startPage)) {
+            $query['StartPage'] = $request->startPage;
+        }
+        if (!Utils::isUnset($request->tgtFilePages)) {
+            $query['TgtFilePages'] = $request->tgtFilePages;
+        }
+        if (!Utils::isUnset($request->tgtFilePrefix)) {
+            $query['TgtFilePrefix'] = $request->tgtFilePrefix;
+        }
+        if (!Utils::isUnset($request->tgtFileSuffix)) {
+            $query['TgtFileSuffix'] = $request->tgtFileSuffix;
+        }
+        if (!Utils::isUnset($request->tgtType)) {
+            $query['TgtType'] = $request->tgtType;
+        }
+        if (!Utils::isUnset($request->tgtUri)) {
+            $query['TgtUri'] = $request->tgtUri;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOfficeConversionTask',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOfficeConversionTaskResponse::fromMap($this->doRPCRequest('CreateOfficeConversionTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -412,11 +610,32 @@ class Imm extends OpenApiClient
     public function createSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->setName)) {
+            $query['SetName'] = $request->setName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSet',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSetResponse::fromMap($this->doRPCRequest('CreateSet', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -432,62 +651,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateVideoAbstractTaskRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateVideoAbstractTaskResponse
-     */
-    public function createVideoAbstractTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateVideoAbstractTaskResponse::fromMap($this->doRPCRequest('CreateVideoAbstractTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateVideoAbstractTaskRequest $request
-     *
-     * @return CreateVideoAbstractTaskResponse
-     */
-    public function createVideoAbstractTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVideoAbstractTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVideoAnalyseTaskRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateVideoAnalyseTaskResponse
-     */
-    public function createVideoAnalyseTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateVideoAnalyseTaskResponse::fromMap($this->doRPCRequest('CreateVideoAnalyseTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateVideoAnalyseTaskRequest $request
-     *
-     * @return CreateVideoAnalyseTaskResponse
-     */
-    public function createVideoAnalyseTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVideoAnalyseTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateVideoCompressTaskRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -496,11 +659,47 @@ class Imm extends OpenApiClient
     public function createVideoCompressTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customMessage)) {
+            $query['CustomMessage'] = $request->customMessage;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->targetList)) {
+            $query['TargetList'] = $request->targetList;
+        }
+        if (!Utils::isUnset($request->targetSegment)) {
+            $query['TargetSegment'] = $request->targetSegment;
+        }
+        if (!Utils::isUnset($request->targetSubtitle)) {
+            $query['TargetSubtitle'] = $request->targetSubtitle;
+        }
+        if (!Utils::isUnset($request->videoUri)) {
+            $query['VideoUri'] = $request->videoUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVideoCompressTask',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVideoCompressTaskResponse::fromMap($this->doRPCRequest('CreateVideoCompressTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateVideoCompressTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -516,34 +715,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateVideoProduceTaskRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateVideoProduceTaskResponse
-     */
-    public function createVideoProduceTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateVideoProduceTaskResponse::fromMap($this->doRPCRequest('CreateVideoProduceTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateVideoProduceTaskRequest $request
-     *
-     * @return CreateVideoProduceTaskResponse
-     */
-    public function createVideoProduceTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVideoProduceTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DecodeBlindWatermarkRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -552,11 +723,41 @@ class Imm extends OpenApiClient
     public function decodeBlindWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageQuality)) {
+            $query['ImageQuality'] = $request->imageQuality;
+        }
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
+        }
+        if (!Utils::isUnset($request->originalImageUri)) {
+            $query['OriginalImageUri'] = $request->originalImageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->targetUri)) {
+            $query['TargetUri'] = $request->targetUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DecodeBlindWatermark',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DecodeBlindWatermarkResponse::fromMap($this->doRPCRequest('DecodeBlindWatermark', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DecodeBlindWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -580,11 +781,32 @@ class Imm extends OpenApiClient
     public function deleteImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteImage',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteImageResponse::fromMap($this->doRPCRequest('DeleteImage', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -600,34 +822,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageJobRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteImageJobResponse
-     */
-    public function deleteImageJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteImageJobResponse::fromMap($this->doRPCRequest('DeleteImageJob', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteImageJobRequest $request
-     *
-     * @return DeleteImageJobResponse
-     */
-    public function deleteImageJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteImageJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteOfficeConversionTaskRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -636,11 +830,29 @@ class Imm extends OpenApiClient
     public function deleteOfficeConversionTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOfficeConversionTask',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteOfficeConversionTaskResponse::fromMap($this->doRPCRequest('DeleteOfficeConversionTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -664,11 +876,26 @@ class Imm extends OpenApiClient
     public function deleteProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProject',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteProjectResponse::fromMap($this->doRPCRequest('DeleteProject', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -692,11 +919,29 @@ class Imm extends OpenApiClient
     public function deleteSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSet',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSetResponse::fromMap($this->doRPCRequest('DeleteSet', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -720,11 +965,35 @@ class Imm extends OpenApiClient
     public function deleteVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->videoUri)) {
+            $query['VideoUri'] = $request->videoUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVideo',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVideoResponse::fromMap($this->doRPCRequest('DeleteVideo', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -748,11 +1017,32 @@ class Imm extends OpenApiClient
     public function deleteVideoTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVideoTask',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVideoTaskResponse::fromMap($this->doRPCRequest('DeleteVideoTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVideoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -768,28 +1058,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeRegionsResponse
-     */
-    public function describeRegionsWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeRegionsResponse
-     */
-    public function describeRegions()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRegionsWithOptions($runtime);
-    }
-
-    /**
      * @param DetectImageBodiesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -798,11 +1066,29 @@ class Imm extends OpenApiClient
     public function detectImageBodiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageBodies',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectImageBodiesResponse::fromMap($this->doRPCRequest('DetectImageBodies', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectImageBodiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -826,11 +1112,29 @@ class Imm extends OpenApiClient
     public function detectImageFacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageFaces',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectImageFacesResponse::fromMap($this->doRPCRequest('DetectImageFaces', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectImageFacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -854,11 +1158,29 @@ class Imm extends OpenApiClient
     public function detectImageQRCodesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageQRCodes',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectImageQRCodesResponse::fromMap($this->doRPCRequest('DetectImageQRCodes', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectImageQRCodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -882,11 +1204,29 @@ class Imm extends OpenApiClient
     public function detectImageTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageTags',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectImageTagsResponse::fromMap($this->doRPCRequest('DetectImageTags', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectImageTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -910,11 +1250,29 @@ class Imm extends OpenApiClient
     public function detectQRCodesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->srcUris)) {
+            $query['SrcUris'] = $request->srcUris;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectQRCodes',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectQRCodesResponse::fromMap($this->doRPCRequest('DetectQRCodes', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectQRCodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -938,11 +1296,47 @@ class Imm extends OpenApiClient
     public function encodeBlindWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->imageQuality)) {
+            $query['ImageQuality'] = $request->imageQuality;
+        }
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->targetImageType)) {
+            $query['TargetImageType'] = $request->targetImageType;
+        }
+        if (!Utils::isUnset($request->targetUri)) {
+            $query['TargetUri'] = $request->targetUri;
+        }
+        if (!Utils::isUnset($request->watermarkUri)) {
+            $query['WatermarkUri'] = $request->watermarkUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EncodeBlindWatermark',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EncodeBlindWatermarkResponse::fromMap($this->doRPCRequest('EncodeBlindWatermark', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EncodeBlindWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -966,11 +1360,110 @@ class Imm extends OpenApiClient
     public function findImagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressLineContentsMatch)) {
+            $query['AddressLineContentsMatch'] = $request->addressLineContentsMatch;
+        }
+        if (!Utils::isUnset($request->ageRange)) {
+            $query['AgeRange'] = $request->ageRange;
+        }
+        if (!Utils::isUnset($request->createTimeRange)) {
+            $query['CreateTimeRange'] = $request->createTimeRange;
+        }
+        if (!Utils::isUnset($request->emotion)) {
+            $query['Emotion'] = $request->emotion;
+        }
+        if (!Utils::isUnset($request->externalId)) {
+            $query['ExternalId'] = $request->externalId;
+        }
+        if (!Utils::isUnset($request->facesModifyTimeRange)) {
+            $query['FacesModifyTimeRange'] = $request->facesModifyTimeRange;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $query['Gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->imageSizeRange)) {
+            $query['ImageSizeRange'] = $request->imageSizeRange;
+        }
+        if (!Utils::isUnset($request->imageTimeRange)) {
+            $query['ImageTimeRange'] = $request->imageTimeRange;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->locationBoundary)) {
+            $query['LocationBoundary'] = $request->locationBoundary;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->modifyTimeRange)) {
+            $query['ModifyTimeRange'] = $request->modifyTimeRange;
+        }
+        if (!Utils::isUnset($request->OCRContentsMatch)) {
+            $query['OCRContentsMatch'] = $request->OCRContentsMatch;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->remarksAPrefix)) {
+            $query['RemarksAPrefix'] = $request->remarksAPrefix;
+        }
+        if (!Utils::isUnset($request->remarksArrayAIn)) {
+            $query['RemarksArrayAIn'] = $request->remarksArrayAIn;
+        }
+        if (!Utils::isUnset($request->remarksArrayBIn)) {
+            $query['RemarksArrayBIn'] = $request->remarksArrayBIn;
+        }
+        if (!Utils::isUnset($request->remarksBPrefix)) {
+            $query['RemarksBPrefix'] = $request->remarksBPrefix;
+        }
+        if (!Utils::isUnset($request->remarksCPrefix)) {
+            $query['RemarksCPrefix'] = $request->remarksCPrefix;
+        }
+        if (!Utils::isUnset($request->remarksDPrefix)) {
+            $query['RemarksDPrefix'] = $request->remarksDPrefix;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->sourceUriPrefix)) {
+            $query['SourceUriPrefix'] = $request->sourceUriPrefix;
+        }
+        if (!Utils::isUnset($request->tagNames)) {
+            $query['TagNames'] = $request->tagNames;
+        }
+        if (!Utils::isUnset($request->tagsModifyTimeRange)) {
+            $query['TagsModifyTimeRange'] = $request->tagsModifyTimeRange;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FindImages',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FindImagesResponse::fromMap($this->doRPCRequest('FindImages', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FindImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -994,11 +1487,44 @@ class Imm extends OpenApiClient
     public function findSimilarFacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->faceId)) {
+            $query['FaceId'] = $request->faceId;
+        }
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->minSimilarity)) {
+            $query['MinSimilarity'] = $request->minSimilarity;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->responseFormat)) {
+            $query['ResponseFormat'] = $request->responseFormat;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FindSimilarFaces',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FindSimilarFacesResponse::fromMap($this->doRPCRequest('FindSimilarFaces', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FindSimilarFacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1014,62 +1540,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetContentKeyRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetContentKeyResponse
-     */
-    public function getContentKeyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetContentKeyResponse::fromMap($this->doRPCRequest('GetContentKey', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetContentKeyRequest $request
-     *
-     * @return GetContentKeyResponse
-     */
-    public function getContentKey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getContentKeyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDRMLicenseRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetDRMLicenseResponse
-     */
-    public function getDRMLicenseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDRMLicenseResponse::fromMap($this->doRPCRequest('GetDRMLicense', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDRMLicenseRequest $request
-     *
-     * @return GetDRMLicenseResponse
-     */
-    public function getDRMLicense($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDRMLicenseWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetImageRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -1078,11 +1548,32 @@ class Imm extends OpenApiClient
     public function getImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImage',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImageResponse::fromMap($this->doRPCRequest('GetImage', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1106,11 +1597,32 @@ class Imm extends OpenApiClient
     public function getImageCroppingSuggestionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aspectRatios)) {
+            $query['AspectRatios'] = $request->aspectRatios;
+        }
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageCroppingSuggestions',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImageCroppingSuggestionsResponse::fromMap($this->doRPCRequest('GetImageCroppingSuggestions', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImageCroppingSuggestionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1134,11 +1646,29 @@ class Imm extends OpenApiClient
     public function getImageQualityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageQuality',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImageQualityResponse::fromMap($this->doRPCRequest('GetImageQuality', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImageQualityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1162,11 +1692,29 @@ class Imm extends OpenApiClient
     public function getMediaMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaUri)) {
+            $query['MediaUri'] = $request->mediaUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaMeta',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMediaMetaResponse::fromMap($this->doRPCRequest('GetMediaMeta', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMediaMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1190,11 +1738,29 @@ class Imm extends OpenApiClient
     public function getOfficeConversionTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOfficeConversionTask',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOfficeConversionTaskResponse::fromMap($this->doRPCRequest('GetOfficeConversionTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1210,34 +1776,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetOfficeEditURLRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetOfficeEditURLResponse
-     */
-    public function getOfficeEditURLWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetOfficeEditURLResponse::fromMap($this->doRPCRequest('GetOfficeEditURL', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetOfficeEditURLRequest $request
-     *
-     * @return GetOfficeEditURLResponse
-     */
-    public function getOfficeEditURL($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getOfficeEditURLWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetOfficePreviewURLRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1246,11 +1784,53 @@ class Imm extends OpenApiClient
     public function getOfficePreviewURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->srcType)) {
+            $query['SrcType'] = $request->srcType;
+        }
+        if (!Utils::isUnset($request->srcUri)) {
+            $query['SrcUri'] = $request->srcUri;
+        }
+        if (!Utils::isUnset($request->watermarkFillStyle)) {
+            $query['WatermarkFillStyle'] = $request->watermarkFillStyle;
+        }
+        if (!Utils::isUnset($request->watermarkFont)) {
+            $query['WatermarkFont'] = $request->watermarkFont;
+        }
+        if (!Utils::isUnset($request->watermarkHorizontal)) {
+            $query['WatermarkHorizontal'] = $request->watermarkHorizontal;
+        }
+        if (!Utils::isUnset($request->watermarkRotate)) {
+            $query['WatermarkRotate'] = $request->watermarkRotate;
+        }
+        if (!Utils::isUnset($request->watermarkType)) {
+            $query['WatermarkType'] = $request->watermarkType;
+        }
+        if (!Utils::isUnset($request->watermarkValue)) {
+            $query['WatermarkValue'] = $request->watermarkValue;
+        }
+        if (!Utils::isUnset($request->watermarkVertical)) {
+            $query['WatermarkVertical'] = $request->watermarkVertical;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOfficePreviewURL',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOfficePreviewURLResponse::fromMap($this->doRPCRequest('GetOfficePreviewURL', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOfficePreviewURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1274,11 +1854,26 @@ class Imm extends OpenApiClient
     public function getProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProject',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetProjectResponse::fromMap($this->doRPCRequest('GetProject', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1302,11 +1897,29 @@ class Imm extends OpenApiClient
     public function getSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSet',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSetResponse::fromMap($this->doRPCRequest('GetSet', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1330,11 +1943,32 @@ class Imm extends OpenApiClient
     public function getVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->videoUri)) {
+            $query['VideoUri'] = $request->videoUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideo',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVideoResponse::fromMap($this->doRPCRequest('GetVideo', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1358,11 +1992,32 @@ class Imm extends OpenApiClient
     public function getVideoTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoTask',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVideoTaskResponse::fromMap($this->doRPCRequest('GetVideoTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVideoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1386,11 +2041,53 @@ class Imm extends OpenApiClient
     public function getWebofficeURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->file)) {
+            $query['File'] = $request->file;
+        }
+        if (!Utils::isUnset($request->fileID)) {
+            $query['FileID'] = $request->fileID;
+        }
+        if (!Utils::isUnset($request->hidecmb)) {
+            $query['Hidecmb'] = $request->hidecmb;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->permission)) {
+            $query['Permission'] = $request->permission;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->srcType)) {
+            $query['SrcType'] = $request->srcType;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        if (!Utils::isUnset($request->watermark)) {
+            $query['Watermark'] = $request->watermark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWebofficeURL',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetWebofficeURLResponse::fromMap($this->doRPCRequest('GetWebofficeURL', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetWebofficeURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1414,11 +2111,68 @@ class Imm extends OpenApiClient
     public function indexImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->externalId)) {
+            $query['ExternalId'] = $request->externalId;
+        }
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->remarksA)) {
+            $query['RemarksA'] = $request->remarksA;
+        }
+        if (!Utils::isUnset($request->remarksArrayA)) {
+            $query['RemarksArrayA'] = $request->remarksArrayA;
+        }
+        if (!Utils::isUnset($request->remarksArrayB)) {
+            $query['RemarksArrayB'] = $request->remarksArrayB;
+        }
+        if (!Utils::isUnset($request->remarksB)) {
+            $query['RemarksB'] = $request->remarksB;
+        }
+        if (!Utils::isUnset($request->remarksC)) {
+            $query['RemarksC'] = $request->remarksC;
+        }
+        if (!Utils::isUnset($request->remarksD)) {
+            $query['RemarksD'] = $request->remarksD;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->sourcePosition)) {
+            $query['SourcePosition'] = $request->sourcePosition;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->sourceUri)) {
+            $query['SourceUri'] = $request->sourceUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IndexImage',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return IndexImageResponse::fromMap($this->doRPCRequest('IndexImage', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return IndexImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1442,11 +2196,56 @@ class Imm extends OpenApiClient
     public function indexVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->externalId)) {
+            $query['ExternalId'] = $request->externalId;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->remarksA)) {
+            $query['RemarksA'] = $request->remarksA;
+        }
+        if (!Utils::isUnset($request->remarksB)) {
+            $query['RemarksB'] = $request->remarksB;
+        }
+        if (!Utils::isUnset($request->remarksC)) {
+            $query['RemarksC'] = $request->remarksC;
+        }
+        if (!Utils::isUnset($request->remarksD)) {
+            $query['RemarksD'] = $request->remarksD;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->tgtUri)) {
+            $query['TgtUri'] = $request->tgtUri;
+        }
+        if (!Utils::isUnset($request->videoUri)) {
+            $query['VideoUri'] = $request->videoUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IndexVideo',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return IndexVideoResponse::fromMap($this->doRPCRequest('IndexVideo', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return IndexVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1470,11 +2269,62 @@ class Imm extends OpenApiClient
     public function listFaceGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->externalId)) {
+            $query['ExternalId'] = $request->externalId;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->remarksAQuery)) {
+            $query['RemarksAQuery'] = $request->remarksAQuery;
+        }
+        if (!Utils::isUnset($request->remarksArrayAQuery)) {
+            $query['RemarksArrayAQuery'] = $request->remarksArrayAQuery;
+        }
+        if (!Utils::isUnset($request->remarksArrayBQuery)) {
+            $query['RemarksArrayBQuery'] = $request->remarksArrayBQuery;
+        }
+        if (!Utils::isUnset($request->remarksBQuery)) {
+            $query['RemarksBQuery'] = $request->remarksBQuery;
+        }
+        if (!Utils::isUnset($request->remarksCQuery)) {
+            $query['RemarksCQuery'] = $request->remarksCQuery;
+        }
+        if (!Utils::isUnset($request->remarksDQuery)) {
+            $query['RemarksDQuery'] = $request->remarksDQuery;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFaceGroups',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFaceGroupsResponse::fromMap($this->doRPCRequest('ListFaceGroups', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFaceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1498,11 +2348,38 @@ class Imm extends OpenApiClient
     public function listImagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListImages',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListImagesResponse::fromMap($this->doRPCRequest('ListImages', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1526,11 +2403,32 @@ class Imm extends OpenApiClient
     public function listOfficeConversionTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxKeys)) {
+            $query['MaxKeys'] = $request->maxKeys;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOfficeConversionTask',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOfficeConversionTaskResponse::fromMap($this->doRPCRequest('ListOfficeConversionTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1546,34 +2444,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListProjectAPIsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListProjectAPIsResponse
-     */
-    public function listProjectAPIsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListProjectAPIsResponse::fromMap($this->doRPCRequest('ListProjectAPIs', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListProjectAPIsRequest $request
-     *
-     * @return ListProjectAPIsResponse
-     */
-    public function listProjectAPIs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listProjectAPIsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListProjectsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1582,11 +2452,29 @@ class Imm extends OpenApiClient
     public function listProjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxKeys)) {
+            $query['MaxKeys'] = $request->maxKeys;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjects',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProjectsResponse::fromMap($this->doRPCRequest('ListProjects', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1610,11 +2498,29 @@ class Imm extends OpenApiClient
     public function listSetTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSetTags',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSetTagsResponse::fromMap($this->doRPCRequest('ListSetTags', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSetTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1638,11 +2544,29 @@ class Imm extends OpenApiClient
     public function listSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSets',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSetsResponse::fromMap($this->doRPCRequest('ListSets', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1666,11 +2590,35 @@ class Imm extends OpenApiClient
     public function listVideoAudiosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->videoUri)) {
+            $query['VideoUri'] = $request->videoUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVideoAudios',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVideoAudiosResponse::fromMap($this->doRPCRequest('ListVideoAudios', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVideoAudiosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1694,11 +2642,35 @@ class Imm extends OpenApiClient
     public function listVideoFramesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->videoUri)) {
+            $query['VideoUri'] = $request->videoUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVideoFrames',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVideoFramesResponse::fromMap($this->doRPCRequest('ListVideoFrames', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVideoFramesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1722,11 +2694,35 @@ class Imm extends OpenApiClient
     public function listVideoTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxKeys)) {
+            $query['MaxKeys'] = $request->maxKeys;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVideoTasks',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVideoTasksResponse::fromMap($this->doRPCRequest('ListVideoTasks', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVideoTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1750,11 +2746,35 @@ class Imm extends OpenApiClient
     public function listVideosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVideos',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVideosResponse::fromMap($this->doRPCRequest('ListVideos', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVideosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1778,11 +2798,26 @@ class Imm extends OpenApiClient
     public function openImmServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenImmService',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OpenImmServiceResponse::fromMap($this->doRPCRequest('OpenImmService', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenImmServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1806,11 +2841,29 @@ class Imm extends OpenApiClient
     public function putProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->serviceRole)) {
+            $query['ServiceRole'] = $request->serviceRole;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutProject',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutProjectResponse::fromMap($this->doRPCRequest('PutProject', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1826,34 +2879,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param RefreshOfficeEditTokenRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RefreshOfficeEditTokenResponse
-     */
-    public function refreshOfficeEditTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RefreshOfficeEditTokenResponse::fromMap($this->doRPCRequest('RefreshOfficeEditToken', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RefreshOfficeEditTokenRequest $request
-     *
-     * @return RefreshOfficeEditTokenResponse
-     */
-    public function refreshOfficeEditToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->refreshOfficeEditTokenWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RefreshOfficePreviewTokenRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1862,11 +2887,32 @@ class Imm extends OpenApiClient
     public function refreshOfficePreviewTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->refreshToken)) {
+            $query['RefreshToken'] = $request->refreshToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshOfficePreviewToken',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshOfficePreviewTokenResponse::fromMap($this->doRPCRequest('RefreshOfficePreviewToken', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshOfficePreviewTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1890,11 +2936,32 @@ class Imm extends OpenApiClient
     public function refreshWebofficeTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->refreshToken)) {
+            $query['RefreshToken'] = $request->refreshToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshWebofficeToken',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshWebofficeTokenResponse::fromMap($this->doRPCRequest('RefreshWebofficeToken', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshWebofficeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1918,11 +2985,62 @@ class Imm extends OpenApiClient
     public function updateFaceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->externalId)) {
+            $query['ExternalId'] = $request->externalId;
+        }
+        if (!Utils::isUnset($request->groupCoverFaceId)) {
+            $query['GroupCoverFaceId'] = $request->groupCoverFaceId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->remarksA)) {
+            $query['RemarksA'] = $request->remarksA;
+        }
+        if (!Utils::isUnset($request->remarksArrayA)) {
+            $query['RemarksArrayA'] = $request->remarksArrayA;
+        }
+        if (!Utils::isUnset($request->remarksArrayB)) {
+            $query['RemarksArrayB'] = $request->remarksArrayB;
+        }
+        if (!Utils::isUnset($request->remarksB)) {
+            $query['RemarksB'] = $request->remarksB;
+        }
+        if (!Utils::isUnset($request->remarksC)) {
+            $query['RemarksC'] = $request->remarksC;
+        }
+        if (!Utils::isUnset($request->remarksD)) {
+            $query['RemarksD'] = $request->remarksD;
+        }
+        if (!Utils::isUnset($request->resetItems)) {
+            $query['ResetItems'] = $request->resetItems;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFaceGroup',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateFaceGroupResponse::fromMap($this->doRPCRequest('UpdateFaceGroup', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateFaceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1951,11 +3069,65 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->faces)) {
             $request->facesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->faces, 'Faces', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->externalId)) {
+            $query['ExternalId'] = $request->externalId;
+        }
+        if (!Utils::isUnset($request->facesShrink)) {
+            $query['Faces'] = $request->facesShrink;
+        }
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->remarksA)) {
+            $query['RemarksA'] = $request->remarksA;
+        }
+        if (!Utils::isUnset($request->remarksArrayA)) {
+            $query['RemarksArrayA'] = $request->remarksArrayA;
+        }
+        if (!Utils::isUnset($request->remarksArrayB)) {
+            $query['RemarksArrayB'] = $request->remarksArrayB;
+        }
+        if (!Utils::isUnset($request->remarksB)) {
+            $query['RemarksB'] = $request->remarksB;
+        }
+        if (!Utils::isUnset($request->remarksC)) {
+            $query['RemarksC'] = $request->remarksC;
+        }
+        if (!Utils::isUnset($request->remarksD)) {
+            $query['RemarksD'] = $request->remarksD;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->sourcePosition)) {
+            $query['SourcePosition'] = $request->sourcePosition;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->sourceUri)) {
+            $query['SourceUri'] = $request->sourceUri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateImage',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateImageResponse::fromMap($this->doRPCRequest('UpdateImage', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1979,11 +3151,32 @@ class Imm extends OpenApiClient
     public function updateProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newCU)) {
+            $query['NewCU'] = $request->newCU;
+        }
+        if (!Utils::isUnset($request->newServiceRole)) {
+            $query['NewServiceRole'] = $request->newServiceRole;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProject',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateProjectResponse::fromMap($this->doRPCRequest('UpdateProject', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2007,11 +3200,32 @@ class Imm extends OpenApiClient
     public function updateSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $query['SetId'] = $request->setId;
+        }
+        if (!Utils::isUnset($request->setName)) {
+            $query['SetName'] = $request->setName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSet',
+            'version'     => '2017-09-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSetResponse::fromMap($this->doRPCRequest('UpdateSet', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
