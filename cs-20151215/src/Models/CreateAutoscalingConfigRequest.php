@@ -16,11 +16,25 @@ class CreateAutoscalingConfigRequest extends Model
     public $coolDownDuration;
 
     /**
+     * @description 节点池扩容顺序策略
+     *
+     * @var string
+     */
+    public $expander;
+
+    /**
      * @description GPU缩容阈值，节点上 Request 的资源与总资源量的比值
      *
      * @var string
      */
     public $gpuUtilizationThreshold;
+
+    /**
+     * @description 是否允许缩容
+     *
+     * @var bool
+     */
+    public $scaleDownEnabled;
 
     /**
      * @description 弹性灵敏度，判断伸缩的间隔时间
@@ -44,7 +58,9 @@ class CreateAutoscalingConfigRequest extends Model
     public $utilizationThreshold;
     protected $_name = [
         'coolDownDuration'        => 'cool_down_duration',
+        'expander'                => 'expander',
         'gpuUtilizationThreshold' => 'gpu_utilization_threshold',
+        'scaleDownEnabled'        => 'scale_down_enabled',
         'scanInterval'            => 'scan_interval',
         'unneededDuration'        => 'unneeded_duration',
         'utilizationThreshold'    => 'utilization_threshold',
@@ -60,8 +76,14 @@ class CreateAutoscalingConfigRequest extends Model
         if (null !== $this->coolDownDuration) {
             $res['cool_down_duration'] = $this->coolDownDuration;
         }
+        if (null !== $this->expander) {
+            $res['expander'] = $this->expander;
+        }
         if (null !== $this->gpuUtilizationThreshold) {
             $res['gpu_utilization_threshold'] = $this->gpuUtilizationThreshold;
+        }
+        if (null !== $this->scaleDownEnabled) {
+            $res['scale_down_enabled'] = $this->scaleDownEnabled;
         }
         if (null !== $this->scanInterval) {
             $res['scan_interval'] = $this->scanInterval;
@@ -87,8 +109,14 @@ class CreateAutoscalingConfigRequest extends Model
         if (isset($map['cool_down_duration'])) {
             $model->coolDownDuration = $map['cool_down_duration'];
         }
+        if (isset($map['expander'])) {
+            $model->expander = $map['expander'];
+        }
         if (isset($map['gpu_utilization_threshold'])) {
             $model->gpuUtilizationThreshold = $map['gpu_utilization_threshold'];
+        }
+        if (isset($map['scale_down_enabled'])) {
+            $model->scaleDownEnabled = $map['scale_down_enabled'];
         }
         if (isset($map['scan_interval'])) {
             $model->scanInterval = $map['scan_interval'];

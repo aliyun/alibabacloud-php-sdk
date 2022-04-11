@@ -57,7 +57,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAttachScriptsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAttachScriptsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterLogsResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNamespacesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesRequest;
@@ -482,8 +481,14 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->coolDownDuration)) {
             $body['cool_down_duration'] = $request->coolDownDuration;
         }
+        if (!Utils::isUnset($request->expander)) {
+            $body['expander'] = $request->expander;
+        }
         if (!Utils::isUnset($request->gpuUtilizationThreshold)) {
             $body['gpu_utilization_threshold'] = $request->gpuUtilizationThreshold;
+        }
+        if (!Utils::isUnset($request->scaleDownEnabled)) {
+            $body['scale_down_enabled'] = $request->scaleDownEnabled;
         }
         if (!Utils::isUnset($request->scanInterval)) {
             $body['scan_interval'] = $request->scanInterval;
@@ -2053,47 +2058,6 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $ClusterId
-     *
-     * @return DescribeClusterNamespacesResponse
-     */
-    public function describeClusterNamespaces($ClusterId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeClusterNamespacesWithOptions($ClusterId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeClusterNamespacesResponse
-     */
-    public function describeClusterNamespacesWithOptions($ClusterId, $headers, $runtime)
-    {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeClusterNamespaces',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/k8s/' . $ClusterId . '/namespaces',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'array',
-        ]);
-
-        return DescribeClusterNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
