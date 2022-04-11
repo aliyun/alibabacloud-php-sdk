@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeVodDomainSrcBpsDataResponse extends Model
+class GetMediaRefreshJobsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeVodDomainSrcBpsDataResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeVodDomainSrcBpsDataResponseBody
+     * @var GetMediaRefreshJobsResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeVodDomainSrcBpsDataResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeVodDomainSrcBpsDataResponse
+     * @return GetMediaRefreshJobsResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeVodDomainSrcBpsDataResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeVodDomainSrcBpsDataResponseBody::fromMap($map['body']);
+            $model->body = GetMediaRefreshJobsResponseBody::fromMap($map['body']);
         }
 
         return $model;

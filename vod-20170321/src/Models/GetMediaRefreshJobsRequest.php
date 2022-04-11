@@ -6,28 +6,24 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitLiveEditingResponseBody extends Model
+class GetMediaRefreshJobsRequest extends Model
 {
     /**
+     * @description 媒资ID
+     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @description Id of the request
+     * @description 媒资刷新预热任务ID
      *
      * @var string
      */
-    public $requestId;
+    public $mediaRefreshJobId;
     protected $_name = [
-        'mediaId'   => 'MediaId',
-        'projectId' => 'ProjectId',
-        'requestId' => 'RequestId',
+        'mediaId'           => 'MediaId',
+        'mediaRefreshJobId' => 'MediaRefreshJobId',
     ];
 
     public function validate()
@@ -40,11 +36,8 @@ class SubmitLiveEditingResponseBody extends Model
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->mediaRefreshJobId) {
+            $res['MediaRefreshJobId'] = $this->mediaRefreshJobId;
         }
 
         return $res;
@@ -53,7 +46,7 @@ class SubmitLiveEditingResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SubmitLiveEditingResponseBody
+     * @return GetMediaRefreshJobsRequest
      */
     public static function fromMap($map = [])
     {
@@ -61,11 +54,8 @@ class SubmitLiveEditingResponseBody extends Model
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['MediaRefreshJobId'])) {
+            $model->mediaRefreshJobId = $map['MediaRefreshJobId'];
         }
 
         return $model;

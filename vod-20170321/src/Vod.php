@@ -12,8 +12,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\AddCategoryRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddCategoryResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddEditingProjectResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\AddFileInfoRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\AddFileInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddTranscodeTemplateGroupRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddTranscodeTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodDomainRequest;
@@ -42,8 +40,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadImageResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadVideoResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\CreateVodRealTimeLogDeliveryRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\CreateVodRealTimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteAIImageInfosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteAIImageInfosResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteAITemplateRequest;
@@ -60,8 +56,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteEditingProjectResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteImageResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMediaInfoRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMediaInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMessageCallbackRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMessageCallbackResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMezzaninesRequest;
@@ -76,8 +70,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVideoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodDomainRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodDomainResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodRealtimeLogDeliveryRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodSpecificConfigRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodSpecificConfigResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodTemplateRequest;
@@ -106,12 +98,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainDetailRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainDetailResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealtimeLogDeliveryRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealtimeLogDeliveryResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcTrafficDataRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcTrafficDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainUsageDataRequest;
@@ -122,22 +108,14 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshTasksRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshTasksResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodStorageDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodStorageDataResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTagResourcesRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTagResourcesResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTranscodeDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTranscodeDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserDomainsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserDomainsResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserTagsRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserTagsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodVerifyContentRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodVerifyContentResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DetachAppPolicyFromIdentityRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DetachAppPolicyFromIdentityResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DisableVodRealtimeLogDeliveryRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DisableVodRealtimeLogDeliveryResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\EnableVodRealtimeLogDeliveryRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\EnableVodRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobRequest;
@@ -172,6 +150,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaRefreshJobsRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaRefreshJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMessageCallbackRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMessageCallbackResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMezzanineInfoRequest;
@@ -216,30 +196,24 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\ListDynamicImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListDynamicImageResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListLiveRecordVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListLiveRecordVideoResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListMediaDNADeleteJobRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListMediaDNADeleteJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListSnapshotsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListSnapshotsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListTranscodeTaskRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListTranscodeTaskResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListTranscodeTemplateGroupRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListTranscodeTemplateGroupResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListVodRealtimeLogDeliveryDomainsRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListVodRealtimeLogDeliveryDomainsResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListVodRealtimeLogDeliveryInfosRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListVodRealtimeLogDeliveryInfosResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListVodTemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListVodTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListWatermarkRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListWatermarkResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ModifyMediaInfoRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ModifyMediaInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\MoveAppResourceRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\MoveAppResourceResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\PreloadVodObjectCachesRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\PreloadVodObjectCachesResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ProduceEditingProjectVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ProduceEditingProjectVideoResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\RefreshMediaPlayUrlsRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\RefreshMediaPlayUrlsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\RefreshUploadVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\RefreshUploadVideoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\RefreshVodObjectCachesRequest;
@@ -276,8 +250,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIMediaAuditJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIMediaAuditJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitDynamicImageJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitDynamicImageJobResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitLiveEditingRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitLiveEditingResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitMediaDNADeleteJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitMediaDNADeleteJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitPreprocessJobsRequest;
@@ -288,10 +260,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitTranscodeJobsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitTranscodeJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitWorkflowJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitWorkflowJobResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\TagVodResourcesRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\TagVodResourcesResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\UnTagVodResourcesRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\UnTagVodResourcesResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateAITemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateAITemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateAppInfoRequest;
@@ -304,8 +272,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateEditingProjectResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateImageInfosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateImageInfosResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateStreamInfoRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateStreamInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateTranscodeTemplateGroupRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateTranscodeTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateVideoInfoRequest;
@@ -576,64 +542,6 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addEditingProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddFileInfoRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return AddFileInfoResponse
-     */
-    public function addFileInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
-        }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['FileType'] = $request->fileType;
-        }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
-        }
-        if (!Utils::isUnset($request->filename)) {
-            $query['Filename'] = $request->filename;
-        }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddFileInfo',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddFileInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddFileInfoRequest $request
-     *
-     * @return AddFileInfoResponse
-     */
-    public function addFileInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addFileInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1416,46 +1324,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateVodRealTimeLogDeliveryRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CreateVodRealTimeLogDeliveryResponse
-     */
-    public function createVodRealTimeLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateVodRealTimeLogDelivery',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateVodRealTimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateVodRealTimeLogDeliveryRequest $request
-     *
-     * @return CreateVodRealTimeLogDeliveryResponse
-     */
-    public function createVodRealTimeLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVodRealTimeLogDeliveryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteAIImageInfosRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1827,52 +1695,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaInfoRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteMediaInfoResponse
-     */
-    public function deleteMediaInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteMediaInfo',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteMediaInfoRequest $request
-     *
-     * @return DeleteMediaInfoResponse
-     */
-    public function deleteMediaInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteMediaInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteMessageCallbackRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2201,46 +2023,6 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVodDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteVodRealtimeLogDeliveryRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DeleteVodRealtimeLogDeliveryResponse
-     */
-    public function deleteVodRealtimeLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteVodRealtimeLogDelivery',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteVodRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteVodRealtimeLogDeliveryRequest $request
-     *
-     * @return DeleteVodRealtimeLogDeliveryResponse
-     */
-    public function deleteVodRealtimeLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteVodRealtimeLogDeliveryWithOptions($request, $runtime);
     }
 
     /**
@@ -2954,156 +2736,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodDomainRealtimeLogDeliveryRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeVodDomainRealtimeLogDeliveryResponse
-     */
-    public function describeVodDomainRealtimeLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVodDomainRealtimeLogDelivery',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVodDomainRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVodDomainRealtimeLogDeliveryRequest $request
-     *
-     * @return DescribeVodDomainRealtimeLogDeliveryResponse
-     */
-    public function describeVodDomainRealtimeLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVodDomainRealtimeLogDeliveryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVodDomainSrcBpsDataRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeVodDomainSrcBpsDataResponse
-     */
-    public function describeVodDomainSrcBpsDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVodDomainSrcBpsData',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVodDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVodDomainSrcBpsDataRequest $request
-     *
-     * @return DescribeVodDomainSrcBpsDataResponse
-     */
-    public function describeVodDomainSrcBpsData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVodDomainSrcBpsDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVodDomainSrcTrafficDataRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeVodDomainSrcTrafficDataResponse
-     */
-    public function describeVodDomainSrcTrafficDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVodDomainSrcTrafficData',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVodDomainSrcTrafficDataRequest $request
-     *
-     * @return DescribeVodDomainSrcTrafficDataResponse
-     */
-    public function describeVodDomainSrcTrafficData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVodDomainSrcTrafficDataWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeVodDomainTrafficDataRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -3403,58 +3035,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodTagResourcesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeVodTagResourcesResponse
-     */
-    public function describeVodTagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVodTagResources',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVodTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVodTagResourcesRequest $request
-     *
-     * @return DescribeVodTagResourcesResponse
-     */
-    public function describeVodTagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVodTagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeVodTranscodeDataRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3580,49 +3160,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodUserTagsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeVodUserTagsResponse
-     */
-    public function describeVodUserTagsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVodUserTags',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVodUserTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVodUserTagsRequest $request
-     *
-     * @return DescribeVodUserTagsResponse
-     */
-    public function describeVodUserTags($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVodUserTagsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeVodVerifyContentRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3718,86 +3255,6 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachAppPolicyFromIdentityWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DisableVodRealtimeLogDeliveryRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DisableVodRealtimeLogDeliveryResponse
-     */
-    public function disableVodRealtimeLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DisableVodRealtimeLogDelivery',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DisableVodRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DisableVodRealtimeLogDeliveryRequest $request
-     *
-     * @return DisableVodRealtimeLogDeliveryResponse
-     */
-    public function disableVodRealtimeLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableVodRealtimeLogDeliveryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EnableVodRealtimeLogDeliveryRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return EnableVodRealtimeLogDeliveryResponse
-     */
-    public function enableVodRealtimeLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableVodRealtimeLogDelivery',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return EnableVodRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param EnableVodRealtimeLogDeliveryRequest $request
-     *
-     * @return EnableVodRealtimeLogDeliveryResponse
-     */
-    public function enableVodRealtimeLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enableVodRealtimeLogDeliveryWithOptions($request, $runtime);
     }
 
     /**
@@ -4646,6 +4103,46 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMediaDNAResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMediaRefreshJobsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMediaRefreshJobsResponse
+     */
+    public function getMediaRefreshJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaRefreshJobs',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMediaRefreshJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaRefreshJobsRequest $request
+     *
+     * @return GetMediaRefreshJobsResponse
+     */
+    public function getMediaRefreshJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaRefreshJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -5712,61 +5209,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListMediaDNADeleteJobRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListMediaDNADeleteJobResponse
-     */
-    public function listMediaDNADeleteJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListMediaDNADeleteJob',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListMediaDNADeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListMediaDNADeleteJobRequest $request
-     *
-     * @return ListMediaDNADeleteJobResponse
-     */
-    public function listMediaDNADeleteJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listMediaDNADeleteJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListSnapshotsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -5920,86 +5362,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListVodRealtimeLogDeliveryDomainsRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ListVodRealtimeLogDeliveryDomainsResponse
-     */
-    public function listVodRealtimeLogDeliveryDomainsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListVodRealtimeLogDeliveryDomains',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListVodRealtimeLogDeliveryDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListVodRealtimeLogDeliveryDomainsRequest $request
-     *
-     * @return ListVodRealtimeLogDeliveryDomainsResponse
-     */
-    public function listVodRealtimeLogDeliveryDomains($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVodRealtimeLogDeliveryDomainsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListVodRealtimeLogDeliveryInfosRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ListVodRealtimeLogDeliveryInfosResponse
-     */
-    public function listVodRealtimeLogDeliveryInfosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListVodRealtimeLogDeliveryInfos',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListVodRealtimeLogDeliveryInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListVodRealtimeLogDeliveryInfosRequest $request
-     *
-     * @return ListVodRealtimeLogDeliveryInfosResponse
-     */
-    public function listVodRealtimeLogDeliveryInfos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVodRealtimeLogDeliveryInfosWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListVodTemplateRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -6086,85 +5448,6 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listWatermarkWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyMediaInfoRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifyMediaInfoResponse
-     */
-    public function modifyMediaInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aiLabelUrl)) {
-            $query['AiLabelUrl'] = $request->aiLabelUrl;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
-        }
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->dynamicData)) {
-            $query['DynamicData'] = $request->dynamicData;
-        }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
-        }
-        if (!Utils::isUnset($request->label)) {
-            $query['Label'] = $request->label;
-        }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
-        }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
-        }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyMediaInfo',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyMediaInfoRequest $request
-     *
-     * @return ModifyMediaInfoResponse
-     */
-    public function modifyMediaInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyMediaInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -6336,6 +5619,73 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->produceEditingProjectVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshMediaPlayUrlsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RefreshMediaPlayUrlsResponse
+     */
+    public function refreshMediaPlayUrlsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->definitions)) {
+            $query['Definitions'] = $request->definitions;
+        }
+        if (!Utils::isUnset($request->formats)) {
+            $query['Formats'] = $request->formats;
+        }
+        if (!Utils::isUnset($request->mediaIds)) {
+            $query['MediaIds'] = $request->mediaIds;
+        }
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
+        }
+        if (!Utils::isUnset($request->sliceCount)) {
+            $query['SliceCount'] = $request->sliceCount;
+        }
+        if (!Utils::isUnset($request->sliceFlag)) {
+            $query['SliceFlag'] = $request->sliceFlag;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshMediaPlayUrls',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshMediaPlayUrlsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshMediaPlayUrlsRequest $request
+     *
+     * @return RefreshMediaPlayUrlsResponse
+     */
+    public function refreshMediaPlayUrls($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshMediaPlayUrlsWithOptions($request, $runtime);
     }
 
     /**
@@ -7347,85 +6697,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveEditingRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return SubmitLiveEditingResponse
-     */
-    public function submitLiveEditingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->clips)) {
-            $query['Clips'] = $request->clips;
-        }
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->mediaMetadata)) {
-            $query['MediaMetadata'] = $request->mediaMetadata;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->produceConfig)) {
-            $query['ProduceConfig'] = $request->produceConfig;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->streamName)) {
-            $query['StreamName'] = $request->streamName;
-        }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitLiveEditing',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitLiveEditingResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SubmitLiveEditingRequest $request
-     *
-     * @return SubmitLiveEditingResponse
-     */
-    public function submitLiveEditing($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitLiveEditingWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SubmitMediaDNADeleteJobRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -7698,113 +6969,6 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitWorkflowJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TagVodResourcesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return TagVodResourcesResponse
-     */
-    public function tagVodResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TagVodResources',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return TagVodResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param TagVodResourcesRequest $request
-     *
-     * @return TagVodResourcesResponse
-     */
-    public function tagVodResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tagVodResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnTagVodResourcesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UnTagVodResourcesResponse
-     */
-    public function unTagVodResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UnTagVodResources',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UnTagVodResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UnTagVodResourcesRequest $request
-     *
-     * @return UnTagVodResourcesResponse
-     */
-    public function unTagVodResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unTagVodResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -8105,52 +7269,6 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateImageInfosWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateStreamInfoRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateStreamInfoResponse
-     */
-    public function updateStreamInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateStreamInfo',
-            'version'     => '2017-03-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateStreamInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateStreamInfoRequest $request
-     *
-     * @return UpdateStreamInfoResponse
-     */
-    public function updateStreamInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateStreamInfoWithOptions($request, $runtime);
     }
 
     /**

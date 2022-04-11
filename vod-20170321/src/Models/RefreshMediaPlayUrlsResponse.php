@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DisableVodRealtimeLogDeliveryResponse extends Model
+class RefreshMediaPlayUrlsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DisableVodRealtimeLogDeliveryResponse extends Model
     public $headers;
 
     /**
-     * @var DisableVodRealtimeLogDeliveryResponseBody
+     * @var RefreshMediaPlayUrlsResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DisableVodRealtimeLogDeliveryResponse extends Model
     /**
      * @param array $map
      *
-     * @return DisableVodRealtimeLogDeliveryResponse
+     * @return RefreshMediaPlayUrlsResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DisableVodRealtimeLogDeliveryResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DisableVodRealtimeLogDeliveryResponseBody::fromMap($map['body']);
+            $model->body = RefreshMediaPlayUrlsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -35,6 +35,11 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $totalTraffic;
+
+    /**
      * @var trafficDataPerInterval
      */
     public $trafficDataPerInterval;
@@ -44,6 +49,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
         'endTime'                => 'EndTime',
         'requestId'              => 'RequestId',
         'startTime'              => 'StartTime',
+        'totalTraffic'           => 'TotalTraffic',
         'trafficDataPerInterval' => 'TrafficDataPerInterval',
     ];
 
@@ -68,6 +74,9 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->totalTraffic) {
+            $res['TotalTraffic'] = $this->totalTraffic;
         }
         if (null !== $this->trafficDataPerInterval) {
             $res['TrafficDataPerInterval'] = null !== $this->trafficDataPerInterval ? $this->trafficDataPerInterval->toMap() : null;
@@ -98,6 +107,9 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TotalTraffic'])) {
+            $model->totalTraffic = $map['TotalTraffic'];
         }
         if (isset($map['TrafficDataPerInterval'])) {
             $model->trafficDataPerInterval = trafficDataPerInterval::fromMap($map['TrafficDataPerInterval']);
