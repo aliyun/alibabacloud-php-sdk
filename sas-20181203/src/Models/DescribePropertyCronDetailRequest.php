@@ -14,6 +14,11 @@ class DescribePropertyCronDetailRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $extend;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -39,6 +44,7 @@ class DescribePropertyCronDetailRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'extend'      => 'Extend',
         'pageSize'    => 'PageSize',
         'remark'      => 'Remark',
         'source'      => 'Source',
@@ -55,6 +61,9 @@ class DescribePropertyCronDetailRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -85,6 +94,9 @@ class DescribePropertyCronDetailRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

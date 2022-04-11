@@ -14,6 +14,11 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $extend;
+
+    /**
      * @var int
      */
     public $installTimeEnd;
@@ -54,6 +59,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage'      => 'CurrentPage',
+        'extend'           => 'Extend',
         'installTimeEnd'   => 'InstallTimeEnd',
         'installTimeStart' => 'InstallTimeStart',
         'name'             => 'Name',
@@ -73,6 +79,9 @@ class DescribePropertySoftwareDetailRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->installTimeEnd) {
             $res['InstallTimeEnd'] = $this->installTimeEnd;
@@ -112,6 +121,9 @@ class DescribePropertySoftwareDetailRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['InstallTimeEnd'])) {
             $model->installTimeEnd = $map['InstallTimeEnd'];

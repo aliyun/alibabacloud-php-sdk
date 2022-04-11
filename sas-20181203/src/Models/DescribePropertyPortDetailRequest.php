@@ -19,6 +19,11 @@ class DescribePropertyPortDetailRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $extend;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -45,6 +50,7 @@ class DescribePropertyPortDetailRequest extends Model
     protected $_name = [
         'bindIp'      => 'BindIp',
         'currentPage' => 'CurrentPage',
+        'extend'      => 'Extend',
         'pageSize'    => 'PageSize',
         'port'        => 'Port',
         'procName'    => 'ProcName',
@@ -64,6 +70,9 @@ class DescribePropertyPortDetailRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -97,6 +106,9 @@ class DescribePropertyPortDetailRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

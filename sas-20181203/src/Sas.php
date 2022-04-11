@@ -244,6 +244,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportVulRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportVulResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportWarningRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportWarningResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
@@ -4263,6 +4265,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -4323,6 +4328,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
@@ -4436,6 +4444,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -4653,6 +4664,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
+        }
         if (!Utils::isUnset($request->installTimeEnd)) {
             $query['InstallTimeEnd'] = $request->installTimeEnd;
         }
@@ -4814,6 +4828,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
         if (!Utils::isUnset($request->isRoot)) {
             $query['IsRoot'] = $request->isRoot;
@@ -7054,6 +7071,91 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportVulWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExportWarningRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ExportWarningResponse
+     */
+    public function exportWarningWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->exportType)) {
+            $query['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->isCleartextPwd)) {
+            $query['IsCleartextPwd'] = $request->isCleartextPwd;
+        }
+        if (!Utils::isUnset($request->isSummaryExport)) {
+            $query['IsSummaryExport'] = $request->isSummaryExport;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->riskIds)) {
+            $query['RiskIds'] = $request->riskIds;
+        }
+        if (!Utils::isUnset($request->riskLevels)) {
+            $query['RiskLevels'] = $request->riskLevels;
+        }
+        if (!Utils::isUnset($request->riskName)) {
+            $query['RiskName'] = $request->riskName;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->subTypeNames)) {
+            $query['SubTypeNames'] = $request->subTypeNames;
+        }
+        if (!Utils::isUnset($request->typeName)) {
+            $query['TypeName'] = $request->typeName;
+        }
+        if (!Utils::isUnset($request->typeNames)) {
+            $query['TypeNames'] = $request->typeNames;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportWarning',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportWarningResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportWarningRequest $request
+     *
+     * @return ExportWarningResponse
+     */
+    public function exportWarning($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportWarningWithOptions($request, $runtime);
     }
 
     /**

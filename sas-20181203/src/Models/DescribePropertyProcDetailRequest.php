@@ -21,6 +21,11 @@ class DescribePropertyProcDetailRequest extends Model
     /**
      * @var string
      */
+    public $extend;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -55,6 +60,7 @@ class DescribePropertyProcDetailRequest extends Model
     protected $_name = [
         'cmdline'       => 'Cmdline',
         'currentPage'   => 'CurrentPage',
+        'extend'        => 'Extend',
         'name'          => 'Name',
         'pageSize'      => 'PageSize',
         'procTimeEnd'   => 'ProcTimeEnd',
@@ -76,6 +82,9 @@ class DescribePropertyProcDetailRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -115,6 +124,9 @@ class DescribePropertyProcDetailRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

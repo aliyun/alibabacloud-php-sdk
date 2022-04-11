@@ -16,6 +16,11 @@ class DescribePropertyUserDetailRequest extends Model
     /**
      * @var string
      */
+    public $extend;
+
+    /**
+     * @var string
+     */
     public $isRoot;
 
     /**
@@ -49,6 +54,7 @@ class DescribePropertyUserDetailRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage'        => 'CurrentPage',
+        'extend'             => 'Extend',
         'isRoot'             => 'IsRoot',
         'lastLoginTimeEnd'   => 'LastLoginTimeEnd',
         'lastLoginTimeStart' => 'LastLoginTimeStart',
@@ -67,6 +73,9 @@ class DescribePropertyUserDetailRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->isRoot) {
             $res['IsRoot'] = $this->isRoot;
@@ -103,6 +112,9 @@ class DescribePropertyUserDetailRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['IsRoot'])) {
             $model->isRoot = $map['IsRoot'];
