@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\PTS\V20201020;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustJMeterSceneSpeedRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustJMeterSceneSpeedResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\CreatePtsSceneBaseLineFromReportRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\CreatePtsSceneBaseLineFromReportResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\CreatePtsSceneRequest;
@@ -17,6 +19,7 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\DeletePtsSceneResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\DeletePtsScenesRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\DeletePtsScenesResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\DeletePtsScenesShrinkRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetAllRegionsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterLogsRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterLogsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterSampleMetricsRequest;
@@ -39,6 +42,12 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneRunningDataRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneRunningDataResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneRunningStatusRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneRunningStatusResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetUserVpcSecurityGroupRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetUserVpcSecurityGroupResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetUserVpcsRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetUserVpcsResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetUserVpcVSwitchRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetUserVpcVSwitchResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListEnvsRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListEnvsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListJMeterReportsRequest;
@@ -119,6 +128,52 @@ class PTS extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AdjustJMeterSceneSpeedRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AdjustJMeterSceneSpeedResponse
+     */
+    public function adjustJMeterSceneSpeedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AdjustJMeterSceneSpeed',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AdjustJMeterSceneSpeedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AdjustJMeterSceneSpeedRequest $request
+     *
+     * @return AdjustJMeterSceneSpeedResponse
+     */
+    public function adjustJMeterSceneSpeed($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->adjustJMeterSceneSpeedWithOptions($request, $runtime);
     }
 
     /**
@@ -342,6 +397,39 @@ class PTS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePtsScenesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAllRegionsResponse
+     */
+    public function getAllRegionsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAllRegions',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAllRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetAllRegionsResponse
+     */
+    public function getAllRegions()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAllRegionsWithOptions($runtime);
     }
 
     /**
@@ -896,6 +984,162 @@ class PTS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPtsSceneRunningStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserVpcSecurityGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetUserVpcSecurityGroupResponse
+     */
+    public function getUserVpcSecurityGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserVpcSecurityGroup',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserVpcSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserVpcSecurityGroupRequest $request
+     *
+     * @return GetUserVpcSecurityGroupResponse
+     */
+    public function getUserVpcSecurityGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserVpcSecurityGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserVpcVSwitchRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetUserVpcVSwitchResponse
+     */
+    public function getUserVpcVSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserVpcVSwitch',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserVpcVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserVpcVSwitchRequest $request
+     *
+     * @return GetUserVpcVSwitchResponse
+     */
+    public function getUserVpcVSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserVpcVSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserVpcsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetUserVpcsResponse
+     */
+    public function getUserVpcsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserVpcs',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserVpcsRequest $request
+     *
+     * @return GetUserVpcsResponse
+     */
+    public function getUserVpcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserVpcsWithOptions($request, $runtime);
     }
 
     /**

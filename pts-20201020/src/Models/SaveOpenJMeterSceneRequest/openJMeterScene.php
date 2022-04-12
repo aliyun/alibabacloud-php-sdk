@@ -82,6 +82,18 @@ class openJMeterScene extends Model
     public $jmeterPluginLabel;
 
     /**
+     * @var int
+     */
+    public $maxRps;
+
+    /**
+     * @description 压力模式
+     *
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @description 预热时间
      *
      * @var int
@@ -115,6 +127,16 @@ class openJMeterScene extends Model
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @var int
+     */
+    public $startConcurrency;
+
+    /**
+     * @var int
+     */
+    public $startRps;
 
     /**
      * @description 预热阶段
@@ -161,11 +183,15 @@ class openJMeterScene extends Model
         'isVpcTest'                   => 'IsVpcTest',
         'JMeterProperties'            => 'JMeterProperties',
         'jmeterPluginLabel'           => 'JmeterPluginLabel',
+        'maxRps'                      => 'MaxRps',
+        'mode'                        => 'Mode',
         'rampUp'                      => 'RampUp',
         'regionId'                    => 'RegionId',
         'sceneId'                     => 'SceneId',
         'sceneName'                   => 'SceneName',
         'securityGroupId'             => 'SecurityGroupId',
+        'startConcurrency'            => 'StartConcurrency',
+        'startRps'                    => 'StartRps',
         'steps'                       => 'Steps',
         'syncTimerType'               => 'SyncTimerType',
         'testFile'                    => 'TestFile',
@@ -222,6 +248,12 @@ class openJMeterScene extends Model
         if (null !== $this->jmeterPluginLabel) {
             $res['JmeterPluginLabel'] = $this->jmeterPluginLabel;
         }
+        if (null !== $this->maxRps) {
+            $res['MaxRps'] = $this->maxRps;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->rampUp) {
             $res['RampUp'] = $this->rampUp;
         }
@@ -236,6 +268,12 @@ class openJMeterScene extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->startConcurrency) {
+            $res['StartConcurrency'] = $this->startConcurrency;
+        }
+        if (null !== $this->startRps) {
+            $res['StartRps'] = $this->startRps;
         }
         if (null !== $this->steps) {
             $res['Steps'] = $this->steps;
@@ -306,6 +344,12 @@ class openJMeterScene extends Model
         if (isset($map['JmeterPluginLabel'])) {
             $model->jmeterPluginLabel = $map['JmeterPluginLabel'];
         }
+        if (isset($map['MaxRps'])) {
+            $model->maxRps = $map['MaxRps'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['RampUp'])) {
             $model->rampUp = $map['RampUp'];
         }
@@ -320,6 +364,12 @@ class openJMeterScene extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['StartConcurrency'])) {
+            $model->startConcurrency = $map['StartConcurrency'];
+        }
+        if (isset($map['StartRps'])) {
+            $model->startRps = $map['StartRps'];
         }
         if (isset($map['Steps'])) {
             $model->steps = $map['Steps'];

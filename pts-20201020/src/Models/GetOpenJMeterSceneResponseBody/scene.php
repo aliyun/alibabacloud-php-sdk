@@ -26,7 +26,7 @@ class scene extends Model
     public $baseInfo;
 
     /**
-     * @description 最大并发
+     * @description 最大并发，并发模式下生效
      *
      * @var int
      */
@@ -75,6 +75,25 @@ class scene extends Model
     public $isVpcTest;
 
     /**
+     * @var int
+     */
+    public $maxRps;
+
+    /**
+     * @description 施压模式，concurrency_mode表示并发压测,tps_mode表示RPS压测
+     *
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @description 压力来源。“”表示公网，intranet-vpc表示VPC
+     *
+     * @var string
+     */
+    public $pool;
+
+    /**
      * @description 递增时间，单位s
      *
      * @var int
@@ -108,6 +127,16 @@ class scene extends Model
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @var int
+     */
+    public $startConcurrency;
+
+    /**
+     * @var int
+     */
+    public $startRps;
 
     /**
      * @description 递增阶梯数。预热时间和预热阶段数都不配置时 使用固定压力值 只配置预热时间，不配置阶段数时 使用均匀递增 预热时间和阶段数都配置时，并且steps<rampUp 使用阶梯递增 不能只配置steps，不配置rampUp 如果这样配置，默认使用固定压力值
@@ -153,11 +182,16 @@ class scene extends Model
         'environmentId'               => 'EnvironmentId',
         'fileList'                    => 'FileList',
         'isVpcTest'                   => 'IsVpcTest',
+        'maxRps'                      => 'MaxRps',
+        'mode'                        => 'Mode',
+        'pool'                        => 'Pool',
         'rampUp'                      => 'RampUp',
         'regionId'                    => 'RegionId',
         'sceneId'                     => 'SceneId',
         'sceneName'                   => 'SceneName',
         'securityGroupId'             => 'SecurityGroupId',
+        'startConcurrency'            => 'StartConcurrency',
+        'startRps'                    => 'StartRps',
         'steps'                       => 'Steps',
         'syncTimerType'               => 'SyncTimerType',
         'testFile'                    => 'TestFile',
@@ -205,6 +239,15 @@ class scene extends Model
         if (null !== $this->isVpcTest) {
             $res['IsVpcTest'] = $this->isVpcTest;
         }
+        if (null !== $this->maxRps) {
+            $res['MaxRps'] = $this->maxRps;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->pool) {
+            $res['Pool'] = $this->pool;
+        }
         if (null !== $this->rampUp) {
             $res['RampUp'] = $this->rampUp;
         }
@@ -219,6 +262,12 @@ class scene extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->startConcurrency) {
+            $res['StartConcurrency'] = $this->startConcurrency;
+        }
+        if (null !== $this->startRps) {
+            $res['StartRps'] = $this->startRps;
         }
         if (null !== $this->steps) {
             $res['Steps'] = $this->steps;
@@ -280,6 +329,15 @@ class scene extends Model
         if (isset($map['IsVpcTest'])) {
             $model->isVpcTest = $map['IsVpcTest'];
         }
+        if (isset($map['MaxRps'])) {
+            $model->maxRps = $map['MaxRps'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['Pool'])) {
+            $model->pool = $map['Pool'];
+        }
         if (isset($map['RampUp'])) {
             $model->rampUp = $map['RampUp'];
         }
@@ -294,6 +352,12 @@ class scene extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['StartConcurrency'])) {
+            $model->startConcurrency = $map['StartConcurrency'];
+        }
+        if (isset($map['StartRps'])) {
+            $model->startRps = $map['StartRps'];
         }
         if (isset($map['Steps'])) {
             $model->steps = $map['Steps'];
