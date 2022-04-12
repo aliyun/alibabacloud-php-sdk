@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class servicePorts extends Model
 {
     /**
-     * @var string
-     */
-    public $protocol;
-
-    /**
-     * @var string
-     */
-    public $targetPort;
-
-    /**
      * @var int
      */
     public $nodePort;
@@ -27,11 +17,21 @@ class servicePorts extends Model
      * @var int
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $protocol;
+
+    /**
+     * @var string
+     */
+    public $targetPort;
     protected $_name = [
-        'protocol'   => 'Protocol',
-        'targetPort' => 'TargetPort',
         'nodePort'   => 'NodePort',
         'port'       => 'Port',
+        'protocol'   => 'Protocol',
+        'targetPort' => 'TargetPort',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class servicePorts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->targetPort) {
-            $res['TargetPort'] = $this->targetPort;
-        }
         if (null !== $this->nodePort) {
             $res['NodePort'] = $this->nodePort;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->targetPort) {
+            $res['TargetPort'] = $this->targetPort;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class servicePorts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['TargetPort'])) {
-            $model->targetPort = $map['TargetPort'];
-        }
         if (isset($map['NodePort'])) {
             $model->nodePort = $map['NodePort'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['TargetPort'])) {
+            $model->targetPort = $map['TargetPort'];
         }
 
         return $model;

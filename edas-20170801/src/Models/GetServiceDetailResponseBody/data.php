@@ -12,37 +12,22 @@ class data extends Model
     /**
      * @var string
      */
-    public $edasAppName;
-
-    /**
-     * @var string
-     */
     public $dubboApplicationName;
 
     /**
      * @var string
      */
-    public $version;
+    public $edasAppName;
 
     /**
      * @var string
      */
-    public $registryType;
+    public $group;
 
     /**
      * @var string
      */
-    public $springApplicationName;
-
-    /**
-     * @var string
-     */
-    public $serviceType;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
+    public $metadata;
 
     /**
      * @var methods[]
@@ -52,23 +37,38 @@ class data extends Model
     /**
      * @var string
      */
-    public $metadata;
+    public $registryType;
 
     /**
      * @var string
      */
-    public $group;
+    public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $serviceType;
+
+    /**
+     * @var string
+     */
+    public $springApplicationName;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'edasAppName'           => 'EdasAppName',
         'dubboApplicationName'  => 'DubboApplicationName',
-        'version'               => 'Version',
-        'registryType'          => 'RegistryType',
-        'springApplicationName' => 'SpringApplicationName',
-        'serviceType'           => 'ServiceType',
-        'serviceName'           => 'ServiceName',
-        'methods'               => 'Methods',
-        'metadata'              => 'Metadata',
+        'edasAppName'           => 'EdasAppName',
         'group'                 => 'Group',
+        'metadata'              => 'Metadata',
+        'methods'               => 'Methods',
+        'registryType'          => 'RegistryType',
+        'serviceName'           => 'ServiceName',
+        'serviceType'           => 'ServiceType',
+        'springApplicationName' => 'SpringApplicationName',
+        'version'               => 'Version',
     ];
 
     public function validate()
@@ -78,26 +78,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->edasAppName) {
-            $res['EdasAppName'] = $this->edasAppName;
-        }
         if (null !== $this->dubboApplicationName) {
             $res['DubboApplicationName'] = $this->dubboApplicationName;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->edasAppName) {
+            $res['EdasAppName'] = $this->edasAppName;
         }
-        if (null !== $this->registryType) {
-            $res['RegistryType'] = $this->registryType;
+        if (null !== $this->group) {
+            $res['Group'] = $this->group;
         }
-        if (null !== $this->springApplicationName) {
-            $res['SpringApplicationName'] = $this->springApplicationName;
-        }
-        if (null !== $this->serviceType) {
-            $res['ServiceType'] = $this->serviceType;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
+        if (null !== $this->metadata) {
+            $res['Metadata'] = $this->metadata;
         }
         if (null !== $this->methods) {
             $res['Methods'] = [];
@@ -108,11 +99,20 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->metadata) {
-            $res['Metadata'] = $this->metadata;
+        if (null !== $this->registryType) {
+            $res['RegistryType'] = $this->registryType;
         }
-        if (null !== $this->group) {
-            $res['Group'] = $this->group;
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
+        }
+        if (null !== $this->springApplicationName) {
+            $res['SpringApplicationName'] = $this->springApplicationName;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -126,26 +126,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EdasAppName'])) {
-            $model->edasAppName = $map['EdasAppName'];
-        }
         if (isset($map['DubboApplicationName'])) {
             $model->dubboApplicationName = $map['DubboApplicationName'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['EdasAppName'])) {
+            $model->edasAppName = $map['EdasAppName'];
         }
-        if (isset($map['RegistryType'])) {
-            $model->registryType = $map['RegistryType'];
+        if (isset($map['Group'])) {
+            $model->group = $map['Group'];
         }
-        if (isset($map['SpringApplicationName'])) {
-            $model->springApplicationName = $map['SpringApplicationName'];
-        }
-        if (isset($map['ServiceType'])) {
-            $model->serviceType = $map['ServiceType'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
+        if (isset($map['Metadata'])) {
+            $model->metadata = $map['Metadata'];
         }
         if (isset($map['Methods'])) {
             if (!empty($map['Methods'])) {
@@ -156,11 +147,20 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['Metadata'])) {
-            $model->metadata = $map['Metadata'];
+        if (isset($map['RegistryType'])) {
+            $model->registryType = $map['RegistryType'];
         }
-        if (isset($map['Group'])) {
-            $model->group = $map['Group'];
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
+        }
+        if (isset($map['SpringApplicationName'])) {
+            $model->springApplicationName = $map['SpringApplicationName'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

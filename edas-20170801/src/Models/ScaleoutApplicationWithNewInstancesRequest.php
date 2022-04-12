@@ -14,34 +14,14 @@ class ScaleoutApplicationWithNewInstancesRequest extends Model
     public $appId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $groupId;
+    public $autoRenew;
 
     /**
      * @var int
      */
-    public $scalingNum;
-
-    /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
-     * @var string
-     */
-    public $templateVersion;
-
-    /**
-     * @var string
-     */
-    public $scalingPolicy;
-
-    /**
-     * @var string
-     */
-    public $templateInstanceId;
+    public $autoRenewPeriod;
 
     /**
      * @var string
@@ -51,12 +31,7 @@ class ScaleoutApplicationWithNewInstancesRequest extends Model
     /**
      * @var string
      */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $instanceChargePeriodUnit;
+    public $groupId;
 
     /**
      * @var int
@@ -64,28 +39,53 @@ class ScaleoutApplicationWithNewInstancesRequest extends Model
     public $instanceChargePeriod;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $autoRenew;
+    public $instanceChargePeriodUnit;
+
+    /**
+     * @var string
+     */
+    public $instanceChargeType;
 
     /**
      * @var int
      */
-    public $autoRenewPeriod;
+    public $scalingNum;
+
+    /**
+     * @var string
+     */
+    public $scalingPolicy;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateInstanceId;
+
+    /**
+     * @var string
+     */
+    public $templateVersion;
     protected $_name = [
         'appId'                    => 'AppId',
-        'groupId'                  => 'GroupId',
-        'scalingNum'               => 'ScalingNum',
-        'templateId'               => 'TemplateId',
-        'templateVersion'          => 'TemplateVersion',
-        'scalingPolicy'            => 'ScalingPolicy',
-        'templateInstanceId'       => 'TemplateInstanceId',
-        'clusterId'                => 'ClusterId',
-        'instanceChargeType'       => 'InstanceChargeType',
-        'instanceChargePeriodUnit' => 'InstanceChargePeriodUnit',
-        'instanceChargePeriod'     => 'InstanceChargePeriod',
         'autoRenew'                => 'AutoRenew',
         'autoRenewPeriod'          => 'AutoRenewPeriod',
+        'clusterId'                => 'ClusterId',
+        'groupId'                  => 'GroupId',
+        'instanceChargePeriod'     => 'InstanceChargePeriod',
+        'instanceChargePeriodUnit' => 'InstanceChargePeriodUnit',
+        'instanceChargeType'       => 'InstanceChargeType',
+        'scalingNum'               => 'ScalingNum',
+        'scalingPolicy'            => 'ScalingPolicy',
+        'templateId'               => 'TemplateId',
+        'templateInstanceId'       => 'TemplateInstanceId',
+        'templateVersion'          => 'TemplateVersion',
     ];
 
     public function validate()
@@ -98,41 +98,41 @@ class ScaleoutApplicationWithNewInstancesRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->scalingNum) {
-            $res['ScalingNum'] = $this->scalingNum;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
-        }
-        if (null !== $this->scalingPolicy) {
-            $res['ScalingPolicy'] = $this->scalingPolicy;
-        }
-        if (null !== $this->templateInstanceId) {
-            $res['TemplateInstanceId'] = $this->templateInstanceId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->instanceChargePeriodUnit) {
-            $res['InstanceChargePeriodUnit'] = $this->instanceChargePeriodUnit;
-        }
-        if (null !== $this->instanceChargePeriod) {
-            $res['InstanceChargePeriod'] = $this->instanceChargePeriod;
-        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->autoRenewPeriod) {
             $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->instanceChargePeriod) {
+            $res['InstanceChargePeriod'] = $this->instanceChargePeriod;
+        }
+        if (null !== $this->instanceChargePeriodUnit) {
+            $res['InstanceChargePeriodUnit'] = $this->instanceChargePeriodUnit;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->scalingNum) {
+            $res['ScalingNum'] = $this->scalingNum;
+        }
+        if (null !== $this->scalingPolicy) {
+            $res['ScalingPolicy'] = $this->scalingPolicy;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateInstanceId) {
+            $res['TemplateInstanceId'] = $this->templateInstanceId;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         return $res;
@@ -149,41 +149,41 @@ class ScaleoutApplicationWithNewInstancesRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['ScalingNum'])) {
-            $model->scalingNum = $map['ScalingNum'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['ScalingPolicy'])) {
-            $model->scalingPolicy = $map['ScalingPolicy'];
-        }
-        if (isset($map['TemplateInstanceId'])) {
-            $model->templateInstanceId = $map['TemplateInstanceId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['InstanceChargePeriodUnit'])) {
-            $model->instanceChargePeriodUnit = $map['InstanceChargePeriodUnit'];
-        }
-        if (isset($map['InstanceChargePeriod'])) {
-            $model->instanceChargePeriod = $map['InstanceChargePeriod'];
-        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['AutoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['AutoRenewPeriod'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['InstanceChargePeriod'])) {
+            $model->instanceChargePeriod = $map['InstanceChargePeriod'];
+        }
+        if (isset($map['InstanceChargePeriodUnit'])) {
+            $model->instanceChargePeriodUnit = $map['InstanceChargePeriodUnit'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['ScalingNum'])) {
+            $model->scalingNum = $map['ScalingNum'];
+        }
+        if (isset($map['ScalingPolicy'])) {
+            $model->scalingPolicy = $map['ScalingPolicy'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateInstanceId'])) {
+            $model->templateInstanceId = $map['TemplateInstanceId'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         return $model;

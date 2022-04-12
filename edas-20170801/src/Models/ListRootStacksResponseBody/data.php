@@ -15,6 +15,11 @@ class data extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var result[]
      */
     public $result;
@@ -23,16 +28,11 @@ class data extends Model
      * @var int
      */
     public $totalSize;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
         'result'      => 'Result',
         'totalSize'   => 'TotalSize',
-        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -45,6 +45,9 @@ class data extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->result) {
             $res['Result'] = [];
             if (null !== $this->result && \is_array($this->result)) {
@@ -56,9 +59,6 @@ class data extends Model
         }
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -75,6 +75,9 @@ class data extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
@@ -86,9 +89,6 @@ class data extends Model
         }
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

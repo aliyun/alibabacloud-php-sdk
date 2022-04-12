@@ -11,21 +11,21 @@ class trafficControl extends Model
     /**
      * @var string
      */
-    public $tips;
-
-    /**
-     * @var string
-     */
     public $routes;
 
     /**
      * @var string
      */
     public $rules;
+
+    /**
+     * @var string
+     */
+    public $tips;
     protected $_name = [
-        'tips'   => 'Tips',
         'routes' => 'Routes',
         'rules'  => 'Rules',
+        'tips'   => 'Tips',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class trafficControl extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tips) {
-            $res['Tips'] = $this->tips;
-        }
         if (null !== $this->routes) {
             $res['Routes'] = $this->routes;
         }
         if (null !== $this->rules) {
             $res['Rules'] = $this->rules;
+        }
+        if (null !== $this->tips) {
+            $res['Tips'] = $this->tips;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class trafficControl extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tips'])) {
-            $model->tips = $map['Tips'];
-        }
         if (isset($map['Routes'])) {
             $model->routes = $map['Routes'];
         }
         if (isset($map['Rules'])) {
             $model->rules = $map['Rules'];
+        }
+        if (isset($map['Tips'])) {
+            $model->tips = $map['Tips'];
         }
 
         return $model;

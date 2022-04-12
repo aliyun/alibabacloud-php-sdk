@@ -21,17 +21,17 @@ class UnbindK8sSlbRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $slbName;
 
     /**
      * @var string
      */
-    public $slbName;
+    public $type;
     protected $_name = [
         'appId'     => 'AppId',
         'clusterId' => 'ClusterId',
-        'type'      => 'Type',
         'slbName'   => 'SlbName',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class UnbindK8sSlbRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->slbName) {
             $res['SlbName'] = $this->slbName;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class UnbindK8sSlbRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['SlbName'])) {
             $model->slbName = $map['SlbName'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

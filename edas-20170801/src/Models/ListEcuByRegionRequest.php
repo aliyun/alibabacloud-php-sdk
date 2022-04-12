@@ -11,15 +11,15 @@ class ListEcuByRegionRequest extends Model
     /**
      * @var string
      */
-    public $logicalRegionId;
+    public $act;
 
     /**
      * @var string
      */
-    public $act;
+    public $logicalRegionId;
     protected $_name = [
-        'logicalRegionId' => 'LogicalRegionId',
         'act'             => 'Act',
+        'logicalRegionId' => 'LogicalRegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListEcuByRegionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logicalRegionId) {
-            $res['LogicalRegionId'] = $this->logicalRegionId;
-        }
         if (null !== $this->act) {
             $res['Act'] = $this->act;
+        }
+        if (null !== $this->logicalRegionId) {
+            $res['LogicalRegionId'] = $this->logicalRegionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListEcuByRegionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogicalRegionId'])) {
-            $model->logicalRegionId = $map['LogicalRegionId'];
-        }
         if (isset($map['Act'])) {
             $model->act = $map['Act'];
+        }
+        if (isset($map['LogicalRegionId'])) {
+            $model->logicalRegionId = $map['LogicalRegionId'];
         }
 
         return $model;

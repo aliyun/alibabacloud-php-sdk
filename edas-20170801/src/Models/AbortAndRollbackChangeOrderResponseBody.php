@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class AbortAndRollbackChangeOrderResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,28 +38,13 @@ class AbortAndRollbackChangeOrderResponseBody extends Model
      * @var string
      */
     public $traceId;
-
-    /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
+        'data'      => 'Data',
+        'errorCode' => 'ErrorCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'traceId'   => 'TraceId',
-        'data'      => 'Data',
-        'errorCode' => 'ErrorCode',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -54,6 +54,15 @@ class AbortAndRollbackChangeOrderResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -62,15 +71,6 @@ class AbortAndRollbackChangeOrderResponseBody extends Model
         }
         if (null !== $this->traceId) {
             $res['TraceId'] = $this->traceId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -84,6 +84,15 @@ class AbortAndRollbackChangeOrderResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -92,15 +101,6 @@ class AbortAndRollbackChangeOrderResponseBody extends Model
         }
         if (isset($map['TraceId'])) {
             $model->traceId = $map['TraceId'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

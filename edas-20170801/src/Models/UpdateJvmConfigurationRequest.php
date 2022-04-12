@@ -19,14 +19,9 @@ class UpdateJvmConfigurationRequest extends Model
     public $groupId;
 
     /**
-     * @var string
-     */
-    public $options;
-
-    /**
      * @var int
      */
-    public $minHeapSize;
+    public $maxHeapSize;
 
     /**
      * @var int
@@ -36,14 +31,19 @@ class UpdateJvmConfigurationRequest extends Model
     /**
      * @var int
      */
-    public $maxHeapSize;
+    public $minHeapSize;
+
+    /**
+     * @var string
+     */
+    public $options;
     protected $_name = [
         'appId'       => 'AppId',
         'groupId'     => 'GroupId',
-        'options'     => 'Options',
-        'minHeapSize' => 'MinHeapSize',
-        'maxPermSize' => 'MaxPermSize',
         'maxHeapSize' => 'MaxHeapSize',
+        'maxPermSize' => 'MaxPermSize',
+        'minHeapSize' => 'MinHeapSize',
+        'options'     => 'Options',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class UpdateJvmConfigurationRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->options) {
-            $res['Options'] = $this->options;
-        }
-        if (null !== $this->minHeapSize) {
-            $res['MinHeapSize'] = $this->minHeapSize;
+        if (null !== $this->maxHeapSize) {
+            $res['MaxHeapSize'] = $this->maxHeapSize;
         }
         if (null !== $this->maxPermSize) {
             $res['MaxPermSize'] = $this->maxPermSize;
         }
-        if (null !== $this->maxHeapSize) {
-            $res['MaxHeapSize'] = $this->maxHeapSize;
+        if (null !== $this->minHeapSize) {
+            $res['MinHeapSize'] = $this->minHeapSize;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
 
         return $res;
@@ -89,17 +89,17 @@ class UpdateJvmConfigurationRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Options'])) {
-            $model->options = $map['Options'];
-        }
-        if (isset($map['MinHeapSize'])) {
-            $model->minHeapSize = $map['MinHeapSize'];
+        if (isset($map['MaxHeapSize'])) {
+            $model->maxHeapSize = $map['MaxHeapSize'];
         }
         if (isset($map['MaxPermSize'])) {
             $model->maxPermSize = $map['MaxPermSize'];
         }
-        if (isset($map['MaxHeapSize'])) {
-            $model->maxHeapSize = $map['MaxHeapSize'];
+        if (isset($map['MinHeapSize'])) {
+            $model->minHeapSize = $map['MinHeapSize'];
+        }
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
 
         return $model;

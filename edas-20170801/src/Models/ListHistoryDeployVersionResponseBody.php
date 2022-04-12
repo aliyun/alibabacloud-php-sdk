@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListHistoryDeployVersionResponseBody extends Model
 {
     /**
-     * @var packageVersionList
+     * @var int
      */
-    public $packageVersionList;
+    public $code;
 
     /**
      * @var string
@@ -20,19 +20,19 @@ class ListHistoryDeployVersionResponseBody extends Model
     public $message;
 
     /**
+     * @var packageVersionList
+     */
+    public $packageVersionList;
+
+    /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
-        'packageVersionList' => 'PackageVersionList',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
         'code'               => 'Code',
+        'message'            => 'Message',
+        'packageVersionList' => 'PackageVersionList',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class ListHistoryDeployVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->packageVersionList) {
-            $res['PackageVersionList'] = null !== $this->packageVersionList ? $this->packageVersionList->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->packageVersionList) {
+            $res['PackageVersionList'] = null !== $this->packageVersionList ? $this->packageVersionList->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class ListHistoryDeployVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PackageVersionList'])) {
-            $model->packageVersionList = packageVersionList::fromMap($map['PackageVersionList']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['PackageVersionList'])) {
+            $model->packageVersionList = packageVersionList::fromMap($map['PackageVersionList']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

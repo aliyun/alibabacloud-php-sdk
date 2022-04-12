@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ContinuePipelineRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
      * @var bool
      */
     public $confirm;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
     protected $_name = [
-        'pipelineId' => 'PipelineId',
         'confirm'    => 'Confirm',
+        'pipelineId' => 'PipelineId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ContinuePipelineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
-        }
         if (null !== $this->confirm) {
             $res['Confirm'] = $this->confirm;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ContinuePipelineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
-        }
         if (isset($map['Confirm'])) {
             $model->confirm = $map['Confirm'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
 
         return $model;

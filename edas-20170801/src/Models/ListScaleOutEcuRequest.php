@@ -11,7 +11,7 @@ class ListScaleOutEcuRequest extends Model
     /**
      * @var string
      */
-    public $logicalRegionId;
+    public $appId;
 
     /**
      * @var string
@@ -19,9 +19,9 @@ class ListScaleOutEcuRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $appId;
+    public $cpu;
 
     /**
      * @var string
@@ -31,25 +31,25 @@ class ListScaleOutEcuRequest extends Model
     /**
      * @var int
      */
-    public $cpu;
+    public $instanceNum;
+
+    /**
+     * @var string
+     */
+    public $logicalRegionId;
 
     /**
      * @var int
      */
     public $mem;
-
-    /**
-     * @var int
-     */
-    public $instanceNum;
     protected $_name = [
-        'logicalRegionId' => 'LogicalRegionId',
-        'clusterId'       => 'ClusterId',
         'appId'           => 'AppId',
-        'groupId'         => 'GroupId',
+        'clusterId'       => 'ClusterId',
         'cpu'             => 'Cpu',
-        'mem'             => 'Mem',
+        'groupId'         => 'GroupId',
         'instanceNum'     => 'InstanceNum',
+        'logicalRegionId' => 'LogicalRegionId',
+        'mem'             => 'Mem',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ListScaleOutEcuRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logicalRegionId) {
-            $res['LogicalRegionId'] = $this->logicalRegionId;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->cpu) {
-            $res['Cpu'] = $this->cpu;
+        if (null !== $this->instanceNum) {
+            $res['InstanceNum'] = $this->instanceNum;
+        }
+        if (null !== $this->logicalRegionId) {
+            $res['LogicalRegionId'] = $this->logicalRegionId;
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
-        }
-        if (null !== $this->instanceNum) {
-            $res['InstanceNum'] = $this->instanceNum;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ListScaleOutEcuRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogicalRegionId'])) {
-            $model->logicalRegionId = $map['LogicalRegionId'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Cpu'])) {
-            $model->cpu = $map['Cpu'];
+        if (isset($map['InstanceNum'])) {
+            $model->instanceNum = $map['InstanceNum'];
+        }
+        if (isset($map['LogicalRegionId'])) {
+            $model->logicalRegionId = $map['LogicalRegionId'];
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
-        }
-        if (isset($map['InstanceNum'])) {
-            $model->instanceNum = $map['InstanceNum'];
         }
 
         return $model;

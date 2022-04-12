@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetPackageStorageCredentialResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var credential
      */
     public $credential;
@@ -23,16 +28,11 @@ class GetPackageStorageCredentialResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'       => 'Code',
         'credential' => 'Credential',
         'message'    => 'Message',
         'requestId'  => 'RequestId',
-        'code'       => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class GetPackageStorageCredentialResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->credential) {
             $res['Credential'] = null !== $this->credential ? $this->credential->toMap() : null;
         }
@@ -50,9 +53,6 @@ class GetPackageStorageCredentialResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class GetPackageStorageCredentialResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Credential'])) {
             $model->credential = credential::fromMap($map['Credential']);
         }
@@ -74,9 +77,6 @@ class GetPackageStorageCredentialResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

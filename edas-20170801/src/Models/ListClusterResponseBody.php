@@ -15,6 +15,11 @@ class ListClusterResponseBody extends Model
     public $clusterList;
 
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class ListClusterResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
         'clusterList' => 'ClusterList',
+        'code'        => 'Code',
         'message'     => 'Message',
         'requestId'   => 'RequestId',
-        'code'        => 'Code',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class ListClusterResponseBody extends Model
         if (null !== $this->clusterList) {
             $res['ClusterList'] = null !== $this->clusterList ? $this->clusterList->toMap() : null;
         }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class ListClusterResponseBody extends Model
         if (isset($map['ClusterList'])) {
             $model->clusterList = clusterList::fromMap($map['ClusterList']);
         }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

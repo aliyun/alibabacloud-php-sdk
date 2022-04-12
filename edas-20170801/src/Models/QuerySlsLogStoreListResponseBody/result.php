@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $link;
+    public $consumerSide;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $logstore;
+    public $link;
 
     /**
      * @var string
      */
-    public $consumerSide;
+    public $logstore;
 
     /**
      * @var string
@@ -38,10 +38,10 @@ class result extends Model
      */
     public $source;
     protected $_name = [
-        'link'         => 'Link',
-        'createTime'   => 'CreateTime',
-        'logstore'     => 'Logstore',
         'consumerSide' => 'ConsumerSide',
+        'createTime'   => 'CreateTime',
+        'link'         => 'Link',
+        'logstore'     => 'Logstore',
         'project'      => 'Project',
         'source'       => 'Source',
     ];
@@ -53,17 +53,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->link) {
-            $res['Link'] = $this->link;
+        if (null !== $this->consumerSide) {
+            $res['ConsumerSide'] = $this->consumerSide;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->link) {
+            $res['Link'] = $this->link;
+        }
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
-        }
-        if (null !== $this->consumerSide) {
-            $res['ConsumerSide'] = $this->consumerSide;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
@@ -83,17 +83,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Link'])) {
-            $model->link = $map['Link'];
+        if (isset($map['ConsumerSide'])) {
+            $model->consumerSide = $map['ConsumerSide'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['Link'])) {
+            $model->link = $map['Link'];
+        }
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
-        }
-        if (isset($map['ConsumerSide'])) {
-            $model->consumerSide = $map['ConsumerSide'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];

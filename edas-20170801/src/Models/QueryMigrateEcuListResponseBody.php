@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class QueryMigrateEcuListResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var ecuEntityList
+     */
+    public $ecuEntityList;
+
+    /**
      * @var string
      */
     public $message;
@@ -18,21 +28,11 @@ class QueryMigrateEcuListResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var ecuEntityList
-     */
-    public $ecuEntityList;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'          => 'Code',
+        'ecuEntityList' => 'EcuEntityList',
         'message'       => 'Message',
         'requestId'     => 'RequestId',
-        'ecuEntityList' => 'EcuEntityList',
-        'code'          => 'Code',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class QueryMigrateEcuListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->ecuEntityList) {
+            $res['EcuEntityList'] = null !== $this->ecuEntityList ? $this->ecuEntityList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->ecuEntityList) {
-            $res['EcuEntityList'] = null !== $this->ecuEntityList ? $this->ecuEntityList->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class QueryMigrateEcuListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['EcuEntityList'])) {
+            $model->ecuEntityList = ecuEntityList::fromMap($map['EcuEntityList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['EcuEntityList'])) {
-            $model->ecuEntityList = ecuEntityList::fromMap($map['EcuEntityList']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

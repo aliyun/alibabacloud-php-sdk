@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class regionConfig extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $no;
+    public $addressServerHost;
+
+    /**
+     * @var string
+     */
+    public $agentInstallScript;
 
     /**
      * @var fileServerConfig
@@ -22,27 +27,12 @@ class regionConfig extends Model
     /**
      * @var string
      */
-    public $addressServerHost;
-
-    /**
-     * @var string
-     */
-    public $tag;
-
-    /**
-     * @var string
-     */
-    public $agentInstallScript;
-
-    /**
-     * @var string
-     */
     public $fileServerType;
 
     /**
      * @var string
      */
-    public $name;
+    public $id;
 
     /**
      * @var string
@@ -52,17 +42,27 @@ class regionConfig extends Model
     /**
      * @var string
      */
-    public $id;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $no;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
-        'no'                 => 'No',
-        'fileServerConfig'   => 'FileServerConfig',
         'addressServerHost'  => 'AddressServerHost',
-        'tag'                => 'Tag',
         'agentInstallScript' => 'AgentInstallScript',
+        'fileServerConfig'   => 'FileServerConfig',
         'fileServerType'     => 'FileServerType',
-        'name'               => 'Name',
-        'imageId'            => 'ImageId',
         'id'                 => 'Id',
+        'imageId'            => 'ImageId',
+        'name'               => 'Name',
+        'no'                 => 'No',
+        'tag'                => 'Tag',
     ];
 
     public function validate()
@@ -72,32 +72,32 @@ class regionConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->no) {
-            $res['No'] = $this->no;
-        }
-        if (null !== $this->fileServerConfig) {
-            $res['FileServerConfig'] = null !== $this->fileServerConfig ? $this->fileServerConfig->toMap() : null;
-        }
         if (null !== $this->addressServerHost) {
             $res['AddressServerHost'] = $this->addressServerHost;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
         }
         if (null !== $this->agentInstallScript) {
             $res['AgentInstallScript'] = $this->agentInstallScript;
         }
+        if (null !== $this->fileServerConfig) {
+            $res['FileServerConfig'] = null !== $this->fileServerConfig ? $this->fileServerConfig->toMap() : null;
+        }
         if (null !== $this->fileServerType) {
             $res['FileServerType'] = $this->fileServerType;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->no) {
+            $res['No'] = $this->no;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -111,32 +111,32 @@ class regionConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['No'])) {
-            $model->no = $map['No'];
-        }
-        if (isset($map['FileServerConfig'])) {
-            $model->fileServerConfig = fileServerConfig::fromMap($map['FileServerConfig']);
-        }
         if (isset($map['AddressServerHost'])) {
             $model->addressServerHost = $map['AddressServerHost'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
         }
         if (isset($map['AgentInstallScript'])) {
             $model->agentInstallScript = $map['AgentInstallScript'];
         }
+        if (isset($map['FileServerConfig'])) {
+            $model->fileServerConfig = fileServerConfig::fromMap($map['FileServerConfig']);
+        }
         if (isset($map['FileServerType'])) {
             $model->fileServerType = $map['FileServerType'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['No'])) {
+            $model->no = $map['No'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

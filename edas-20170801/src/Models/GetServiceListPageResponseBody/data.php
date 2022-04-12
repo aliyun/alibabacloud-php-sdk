@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var content[]
+     */
+    public $content;
+
+    /**
      * @var int
      */
     public $size;
@@ -17,22 +22,17 @@ class data extends Model
     /**
      * @var int
      */
-    public $totalPages;
+    public $totalElements;
 
     /**
      * @var int
      */
-    public $totalElements;
-
-    /**
-     * @var content[]
-     */
-    public $content;
+    public $totalPages;
     protected $_name = [
-        'size'          => 'Size',
-        'totalPages'    => 'TotalPages',
-        'totalElements' => 'TotalElements',
         'content'       => 'Content',
+        'size'          => 'Size',
+        'totalElements' => 'TotalElements',
+        'totalPages'    => 'TotalPages',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
-        if (null !== $this->totalPages) {
-            $res['TotalPages'] = $this->totalPages;
-        }
-        if (null !== $this->totalElements) {
-            $res['TotalElements'] = $this->totalElements;
-        }
         if (null !== $this->content) {
             $res['Content'] = [];
             if (null !== $this->content && \is_array($this->content)) {
@@ -59,6 +50,15 @@ class data extends Model
                     $res['Content'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
+        }
+        if (null !== $this->totalElements) {
+            $res['TotalElements'] = $this->totalElements;
+        }
+        if (null !== $this->totalPages) {
+            $res['TotalPages'] = $this->totalPages;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
-        if (isset($map['TotalPages'])) {
-            $model->totalPages = $map['TotalPages'];
-        }
-        if (isset($map['TotalElements'])) {
-            $model->totalElements = $map['TotalElements'];
-        }
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
@@ -89,6 +80,15 @@ class data extends Model
                     $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
+        if (isset($map['TotalElements'])) {
+            $model->totalElements = $map['TotalElements'];
+        }
+        if (isset($map['TotalPages'])) {
+            $model->totalPages = $map['TotalPages'];
         }
 
         return $model;

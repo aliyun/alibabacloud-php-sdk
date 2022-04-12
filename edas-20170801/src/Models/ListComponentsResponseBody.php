@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListComponentsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $message;
+    public $code;
 
     /**
      * @var componentList
@@ -20,13 +20,13 @@ class ListComponentsResponseBody extends Model
     public $componentList;
 
     /**
-     * @var int
+     * @var string
      */
-    public $code;
+    public $message;
     protected $_name = [
-        'message'       => 'Message',
-        'componentList' => 'ComponentList',
         'code'          => 'Code',
+        'componentList' => 'ComponentList',
+        'message'       => 'Message',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ListComponentsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->componentList) {
             $res['ComponentList'] = null !== $this->componentList ? $this->componentList->toMap() : null;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ListComponentsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['ComponentList'])) {
             $model->componentList = componentList::fromMap($map['ComponentList']);
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

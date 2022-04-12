@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateHookConfigurationResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var hooksConfiguration[]
      */
     public $hooksConfiguration;
@@ -23,16 +28,11 @@ class UpdateHookConfigurationResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'               => 'Code',
         'hooksConfiguration' => 'HooksConfiguration',
         'message'            => 'Message',
         'requestId'          => 'RequestId',
-        'code'               => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class UpdateHookConfigurationResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->hooksConfiguration) {
             $res['HooksConfiguration'] = [];
             if (null !== $this->hooksConfiguration && \is_array($this->hooksConfiguration)) {
@@ -57,9 +60,6 @@ class UpdateHookConfigurationResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
 
         return $res;
     }
@@ -72,6 +72,9 @@ class UpdateHookConfigurationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['HooksConfiguration'])) {
             if (!empty($map['HooksConfiguration'])) {
                 $model->hooksConfiguration = [];
@@ -86,9 +89,6 @@ class UpdateHookConfigurationResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

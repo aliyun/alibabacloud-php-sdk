@@ -11,12 +11,7 @@ class ConvertK8sResourceRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $resourceName;
+    public $clusterId;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class ConvertK8sResourceRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $resourceName;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'resourceType' => 'ResourceType',
-        'resourceName' => 'ResourceName',
-        'namespace'    => 'Namespace',
         'clusterId'    => 'ClusterId',
+        'namespace'    => 'Namespace',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ConvertK8sResourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceName) {
-            $res['ResourceName'] = $this->resourceName;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ConvertK8sResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceName'])) {
-            $model->resourceName = $map['ResourceName'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

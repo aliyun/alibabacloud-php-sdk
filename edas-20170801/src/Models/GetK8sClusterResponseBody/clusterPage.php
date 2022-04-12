@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class clusterPage extends Model
 {
     /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
      * @var clusterList
      */
     public $clusterList;
@@ -22,17 +17,22 @@ class clusterPage extends Model
     /**
      * @var int
      */
-    public $totalSize;
+    public $currentPage;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $totalSize;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
         'clusterList' => 'ClusterList',
-        'totalSize'   => 'TotalSize',
+        'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
+        'totalSize'   => 'TotalSize',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class clusterPage extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
         if (null !== $this->clusterList) {
             $res['ClusterList'] = null !== $this->clusterList ? $this->clusterList->toMap() : null;
         }
-        if (null !== $this->totalSize) {
-            $res['TotalSize'] = $this->totalSize;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalSize) {
+            $res['TotalSize'] = $this->totalSize;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class clusterPage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
         if (isset($map['ClusterList'])) {
             $model->clusterList = clusterList::fromMap($map['ClusterList']);
         }
-        if (isset($map['TotalSize'])) {
-            $model->totalSize = $map['TotalSize'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalSize'])) {
+            $model->totalSize = $map['TotalSize'];
         }
 
         return $model;

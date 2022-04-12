@@ -11,15 +11,15 @@ class InsertRoleRequest extends Model
     /**
      * @var string
      */
-    public $roleName;
+    public $actionData;
 
     /**
      * @var string
      */
-    public $actionData;
+    public $roleName;
     protected $_name = [
-        'roleName'   => 'RoleName',
         'actionData' => 'ActionData',
+        'roleName'   => 'RoleName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class InsertRoleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
-        }
         if (null !== $this->actionData) {
             $res['ActionData'] = $this->actionData;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class InsertRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
-        }
         if (isset($map['ActionData'])) {
             $model->actionData = $map['ActionData'];
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
 
         return $model;

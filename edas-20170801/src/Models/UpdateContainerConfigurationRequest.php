@@ -16,12 +16,12 @@ class UpdateContainerConfigurationRequest extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $contextPath;
 
     /**
      * @var string
      */
-    public $contextPath;
+    public $groupId;
 
     /**
      * @var int
@@ -44,8 +44,8 @@ class UpdateContainerConfigurationRequest extends Model
     public $useBodyEncoding;
     protected $_name = [
         'appId'           => 'AppId',
-        'groupId'         => 'GroupId',
         'contextPath'     => 'ContextPath',
+        'groupId'         => 'GroupId',
         'httpPort'        => 'HttpPort',
         'maxThreads'      => 'MaxThreads',
         'URIEncoding'     => 'URIEncoding',
@@ -62,11 +62,11 @@ class UpdateContainerConfigurationRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->contextPath) {
             $res['ContextPath'] = $this->contextPath;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->httpPort) {
             $res['HttpPort'] = $this->httpPort;
@@ -95,11 +95,11 @@ class UpdateContainerConfigurationRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['ContextPath'])) {
             $model->contextPath = $map['ContextPath'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['HttpPort'])) {
             $model->httpPort = $map['HttpPort'];

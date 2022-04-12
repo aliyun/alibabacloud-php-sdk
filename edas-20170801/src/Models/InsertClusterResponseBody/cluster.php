@@ -11,22 +11,12 @@ class cluster extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var int
-     */
-    public $oversoldFactor;
-
-    /**
-     * @var int
-     */
-    public $networkMode;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $iaasProvider;
+    public $clusterName;
 
     /**
      * @var int
@@ -36,26 +26,36 @@ class cluster extends Model
     /**
      * @var string
      */
-    public $clusterName;
+    public $iaasProvider;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clusterId;
+    public $networkMode;
+
+    /**
+     * @var int
+     */
+    public $oversoldFactor;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'vpcId'          => 'VpcId',
-        'oversoldFactor' => 'OversoldFactor',
-        'networkMode'    => 'NetworkMode',
-        'iaasProvider'   => 'IaasProvider',
-        'clusterType'    => 'ClusterType',
-        'clusterName'    => 'ClusterName',
         'clusterId'      => 'ClusterId',
+        'clusterName'    => 'ClusterName',
+        'clusterType'    => 'ClusterType',
+        'iaasProvider'   => 'IaasProvider',
+        'networkMode'    => 'NetworkMode',
+        'oversoldFactor' => 'OversoldFactor',
         'regionId'       => 'RegionId',
+        'vpcId'          => 'VpcId',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class cluster extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->oversoldFactor) {
-            $res['OversoldFactor'] = $this->oversoldFactor;
-        }
-        if (null !== $this->networkMode) {
-            $res['NetworkMode'] = $this->networkMode;
-        }
-        if (null !== $this->iaasProvider) {
-            $res['IaasProvider'] = $this->iaasProvider;
-        }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->iaasProvider) {
+            $res['IaasProvider'] = $this->iaasProvider;
+        }
+        if (null !== $this->networkMode) {
+            $res['NetworkMode'] = $this->networkMode;
+        }
+        if (null !== $this->oversoldFactor) {
+            $res['OversoldFactor'] = $this->oversoldFactor;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class cluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['OversoldFactor'])) {
-            $model->oversoldFactor = $map['OversoldFactor'];
-        }
-        if (isset($map['NetworkMode'])) {
-            $model->networkMode = $map['NetworkMode'];
-        }
-        if (isset($map['IaasProvider'])) {
-            $model->iaasProvider = $map['IaasProvider'];
-        }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['IaasProvider'])) {
+            $model->iaasProvider = $map['IaasProvider'];
+        }
+        if (isset($map['NetworkMode'])) {
+            $model->networkMode = $map['NetworkMode'];
+        }
+        if (isset($map['OversoldFactor'])) {
+            $model->oversoldFactor = $map['OversoldFactor'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

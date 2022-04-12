@@ -19,19 +19,9 @@ class UpdateK8sSlbRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $slbProtocol;
-
-    /**
-     * @var string
-     */
-    public $targetPort;
+    public $disableForceOverride;
 
     /**
      * @var string
@@ -41,7 +31,22 @@ class UpdateK8sSlbRequest extends Model
     /**
      * @var string
      */
+    public $scheduler;
+
+    /**
+     * @var string
+     */
     public $servicePortInfos;
+
+    /**
+     * @var string
+     */
+    public $slbName;
+
+    /**
+     * @var string
+     */
+    public $slbProtocol;
 
     /**
      * @var string
@@ -51,23 +56,24 @@ class UpdateK8sSlbRequest extends Model
     /**
      * @var string
      */
-    public $scheduler;
+    public $targetPort;
 
     /**
      * @var string
      */
-    public $slbName;
+    public $type;
     protected $_name = [
-        'appId'            => 'AppId',
-        'clusterId'        => 'ClusterId',
-        'type'             => 'Type',
-        'slbProtocol'      => 'SlbProtocol',
-        'targetPort'       => 'TargetPort',
-        'port'             => 'Port',
-        'servicePortInfos' => 'ServicePortInfos',
-        'specification'    => 'Specification',
-        'scheduler'        => 'Scheduler',
-        'slbName'          => 'SlbName',
+        'appId'                => 'AppId',
+        'clusterId'            => 'ClusterId',
+        'disableForceOverride' => 'DisableForceOverride',
+        'port'                 => 'Port',
+        'scheduler'            => 'Scheduler',
+        'servicePortInfos'     => 'ServicePortInfos',
+        'slbName'              => 'SlbName',
+        'slbProtocol'          => 'SlbProtocol',
+        'specification'        => 'Specification',
+        'targetPort'           => 'TargetPort',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -83,29 +89,32 @@ class UpdateK8sSlbRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->slbProtocol) {
-            $res['SlbProtocol'] = $this->slbProtocol;
-        }
-        if (null !== $this->targetPort) {
-            $res['TargetPort'] = $this->targetPort;
+        if (null !== $this->disableForceOverride) {
+            $res['DisableForceOverride'] = $this->disableForceOverride;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->scheduler) {
+            $res['Scheduler'] = $this->scheduler;
+        }
         if (null !== $this->servicePortInfos) {
             $res['ServicePortInfos'] = $this->servicePortInfos;
+        }
+        if (null !== $this->slbName) {
+            $res['SlbName'] = $this->slbName;
+        }
+        if (null !== $this->slbProtocol) {
+            $res['SlbProtocol'] = $this->slbProtocol;
         }
         if (null !== $this->specification) {
             $res['Specification'] = $this->specification;
         }
-        if (null !== $this->scheduler) {
-            $res['Scheduler'] = $this->scheduler;
+        if (null !== $this->targetPort) {
+            $res['TargetPort'] = $this->targetPort;
         }
-        if (null !== $this->slbName) {
-            $res['SlbName'] = $this->slbName;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -125,29 +134,32 @@ class UpdateK8sSlbRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['SlbProtocol'])) {
-            $model->slbProtocol = $map['SlbProtocol'];
-        }
-        if (isset($map['TargetPort'])) {
-            $model->targetPort = $map['TargetPort'];
+        if (isset($map['DisableForceOverride'])) {
+            $model->disableForceOverride = $map['DisableForceOverride'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['Scheduler'])) {
+            $model->scheduler = $map['Scheduler'];
+        }
         if (isset($map['ServicePortInfos'])) {
             $model->servicePortInfos = $map['ServicePortInfos'];
+        }
+        if (isset($map['SlbName'])) {
+            $model->slbName = $map['SlbName'];
+        }
+        if (isset($map['SlbProtocol'])) {
+            $model->slbProtocol = $map['SlbProtocol'];
         }
         if (isset($map['Specification'])) {
             $model->specification = $map['Specification'];
         }
-        if (isset($map['Scheduler'])) {
-            $model->scheduler = $map['Scheduler'];
+        if (isset($map['TargetPort'])) {
+            $model->targetPort = $map['TargetPort'];
         }
-        if (isset($map['SlbName'])) {
-            $model->slbName = $map['SlbName'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

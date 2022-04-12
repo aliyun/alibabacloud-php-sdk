@@ -11,17 +11,12 @@ class instanceStageDTO extends Model
     /**
      * @var string
      */
-    public $stageId;
-
-    /**
-     * @var int
-     */
-    public $status;
+    public $finishTime;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $stageId;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class instanceStageDTO extends Model
     /**
      * @var string
      */
-    public $finishTime;
+    public $stageName;
 
     /**
      * @var string
      */
-    public $stageName;
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'stageId'      => 'StageId',
-        'status'       => 'Status',
-        'startTime'    => 'StartTime',
-        'stageMessage' => 'StageMessage',
         'finishTime'   => 'FinishTime',
+        'stageId'      => 'StageId',
+        'stageMessage' => 'StageMessage',
         'stageName'    => 'StageName',
+        'startTime'    => 'StartTime',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class instanceStageDTO extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->stageMessage) {
             $res['StageMessage'] = $this->stageMessage;
         }
-        if (null !== $this->finishTime) {
-            $res['FinishTime'] = $this->finishTime;
-        }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class instanceStageDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['StageMessage'])) {
             $model->stageMessage = $map['StageMessage'];
         }
-        if (isset($map['FinishTime'])) {
-            $model->finishTime = $map['FinishTime'];
-        }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

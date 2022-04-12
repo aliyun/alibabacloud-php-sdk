@@ -11,16 +11,6 @@ class executionResult extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $finishedTime;
 
     /**
@@ -32,12 +22,22 @@ class executionResult extends Model
      * @var string
      */
     public $invokeRecordStatus;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'status'             => 'Status',
-        'success'            => 'Success',
         'finishedTime'       => 'FinishedTime',
         'instanceId'         => 'InstanceId',
         'invokeRecordStatus' => 'InvokeRecordStatus',
+        'status'             => 'Status',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class executionResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->finishedTime) {
             $res['FinishedTime'] = $this->finishedTime;
         }
@@ -61,6 +55,12 @@ class executionResult extends Model
         }
         if (null !== $this->invokeRecordStatus) {
             $res['InvokeRecordStatus'] = $this->invokeRecordStatus;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class executionResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['FinishedTime'])) {
             $model->finishedTime = $map['FinishedTime'];
         }
@@ -88,6 +82,12 @@ class executionResult extends Model
         }
         if (isset($map['InvokeRecordStatus'])) {
             $model->invokeRecordStatus = $map['InvokeRecordStatus'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

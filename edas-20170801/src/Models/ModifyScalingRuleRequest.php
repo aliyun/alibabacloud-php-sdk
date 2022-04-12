@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyScalingRuleRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $acceptEULA;
+
+    /**
      * @var string
      */
     public $appId;
@@ -24,11 +29,6 @@ class ModifyScalingRuleRequest extends Model
     public $inCondition;
 
     /**
-     * @var bool
-     */
-    public $inEnable;
-
-    /**
      * @var int
      */
     public $inCpu;
@@ -37,6 +37,11 @@ class ModifyScalingRuleRequest extends Model
      * @var int
      */
     public $inDuration;
+
+    /**
+     * @var bool
+     */
+    public $inEnable;
 
     /**
      * @var int
@@ -61,12 +66,22 @@ class ModifyScalingRuleRequest extends Model
     /**
      * @var string
      */
-    public $outCondition;
+    public $keyPairName;
+
+    /**
+     * @var string
+     */
+    public $multiAzPolicy;
 
     /**
      * @var int
      */
     public $outCPU;
+
+    /**
+     * @var string
+     */
+    public $outCondition;
 
     /**
      * @var int
@@ -101,27 +116,22 @@ class ModifyScalingRuleRequest extends Model
     /**
      * @var string
      */
+    public $password;
+
+    /**
+     * @var string
+     */
     public $resourceFrom;
 
     /**
      * @var string
      */
-    public $multiAzPolicy;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchIds;
-
-    /**
-     * @var string
-     */
     public $scalingPolicy;
+
+    /**
+     * @var string
+     */
+    public $templateId;
 
     /**
      * @var string
@@ -134,60 +144,50 @@ class ModifyScalingRuleRequest extends Model
     public $templateInstanceName;
 
     /**
-     * @var string
-     */
-    public $password;
-
-    /**
-     * @var string
-     */
-    public $keyPairName;
-
-    /**
-     * @var bool
-     */
-    public $acceptEULA;
-
-    /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
      * @var int
      */
     public $templateVersion;
+
+    /**
+     * @var string
+     */
+    public $vSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
+        'acceptEULA'           => 'AcceptEULA',
         'appId'                => 'AppId',
         'groupId'              => 'GroupId',
         'inCondition'          => 'InCondition',
-        'inEnable'             => 'InEnable',
         'inCpu'                => 'InCpu',
         'inDuration'           => 'InDuration',
+        'inEnable'             => 'InEnable',
         'inInstanceNum'        => 'InInstanceNum',
         'inLoad'               => 'InLoad',
         'inRT'                 => 'InRT',
         'inStep'               => 'InStep',
-        'outCondition'         => 'OutCondition',
+        'keyPairName'          => 'KeyPairName',
+        'multiAzPolicy'        => 'MultiAzPolicy',
         'outCPU'               => 'OutCPU',
+        'outCondition'         => 'OutCondition',
         'outDuration'          => 'OutDuration',
         'outEnable'            => 'OutEnable',
         'outInstanceNum'       => 'OutInstanceNum',
         'outLoad'              => 'OutLoad',
         'outRT'                => 'OutRT',
         'outStep'              => 'OutStep',
+        'password'             => 'Password',
         'resourceFrom'         => 'ResourceFrom',
-        'multiAzPolicy'        => 'MultiAzPolicy',
-        'vpcId'                => 'VpcId',
-        'vSwitchIds'           => 'VSwitchIds',
         'scalingPolicy'        => 'ScalingPolicy',
+        'templateId'           => 'TemplateId',
         'templateInstanceId'   => 'TemplateInstanceId',
         'templateInstanceName' => 'TemplateInstanceName',
-        'password'             => 'Password',
-        'keyPairName'          => 'KeyPairName',
-        'acceptEULA'           => 'AcceptEULA',
-        'templateId'           => 'TemplateId',
         'templateVersion'      => 'TemplateVersion',
+        'vSwitchIds'           => 'VSwitchIds',
+        'vpcId'                => 'VpcId',
     ];
 
     public function validate()
@@ -197,6 +197,9 @@ class ModifyScalingRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptEULA) {
+            $res['AcceptEULA'] = $this->acceptEULA;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -206,14 +209,14 @@ class ModifyScalingRuleRequest extends Model
         if (null !== $this->inCondition) {
             $res['InCondition'] = $this->inCondition;
         }
-        if (null !== $this->inEnable) {
-            $res['InEnable'] = $this->inEnable;
-        }
         if (null !== $this->inCpu) {
             $res['InCpu'] = $this->inCpu;
         }
         if (null !== $this->inDuration) {
             $res['InDuration'] = $this->inDuration;
+        }
+        if (null !== $this->inEnable) {
+            $res['InEnable'] = $this->inEnable;
         }
         if (null !== $this->inInstanceNum) {
             $res['InInstanceNum'] = $this->inInstanceNum;
@@ -227,11 +230,17 @@ class ModifyScalingRuleRequest extends Model
         if (null !== $this->inStep) {
             $res['InStep'] = $this->inStep;
         }
-        if (null !== $this->outCondition) {
-            $res['OutCondition'] = $this->outCondition;
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->multiAzPolicy) {
+            $res['MultiAzPolicy'] = $this->multiAzPolicy;
         }
         if (null !== $this->outCPU) {
             $res['OutCPU'] = $this->outCPU;
+        }
+        if (null !== $this->outCondition) {
+            $res['OutCondition'] = $this->outCondition;
         }
         if (null !== $this->outDuration) {
             $res['OutDuration'] = $this->outDuration;
@@ -251,20 +260,17 @@ class ModifyScalingRuleRequest extends Model
         if (null !== $this->outStep) {
             $res['OutStep'] = $this->outStep;
         }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
         if (null !== $this->resourceFrom) {
             $res['ResourceFrom'] = $this->resourceFrom;
         }
-        if (null !== $this->multiAzPolicy) {
-            $res['MultiAzPolicy'] = $this->multiAzPolicy;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchIds) {
-            $res['VSwitchIds'] = $this->vSwitchIds;
-        }
         if (null !== $this->scalingPolicy) {
             $res['ScalingPolicy'] = $this->scalingPolicy;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->templateInstanceId) {
             $res['TemplateInstanceId'] = $this->templateInstanceId;
@@ -272,20 +278,14 @@ class ModifyScalingRuleRequest extends Model
         if (null !== $this->templateInstanceName) {
             $res['TemplateInstanceName'] = $this->templateInstanceName;
         }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
-        }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->acceptEULA) {
-            $res['AcceptEULA'] = $this->acceptEULA;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -299,6 +299,9 @@ class ModifyScalingRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptEULA'])) {
+            $model->acceptEULA = $map['AcceptEULA'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -308,14 +311,14 @@ class ModifyScalingRuleRequest extends Model
         if (isset($map['InCondition'])) {
             $model->inCondition = $map['InCondition'];
         }
-        if (isset($map['InEnable'])) {
-            $model->inEnable = $map['InEnable'];
-        }
         if (isset($map['InCpu'])) {
             $model->inCpu = $map['InCpu'];
         }
         if (isset($map['InDuration'])) {
             $model->inDuration = $map['InDuration'];
+        }
+        if (isset($map['InEnable'])) {
+            $model->inEnable = $map['InEnable'];
         }
         if (isset($map['InInstanceNum'])) {
             $model->inInstanceNum = $map['InInstanceNum'];
@@ -329,11 +332,17 @@ class ModifyScalingRuleRequest extends Model
         if (isset($map['InStep'])) {
             $model->inStep = $map['InStep'];
         }
-        if (isset($map['OutCondition'])) {
-            $model->outCondition = $map['OutCondition'];
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['MultiAzPolicy'])) {
+            $model->multiAzPolicy = $map['MultiAzPolicy'];
         }
         if (isset($map['OutCPU'])) {
             $model->outCPU = $map['OutCPU'];
+        }
+        if (isset($map['OutCondition'])) {
+            $model->outCondition = $map['OutCondition'];
         }
         if (isset($map['OutDuration'])) {
             $model->outDuration = $map['OutDuration'];
@@ -353,20 +362,17 @@ class ModifyScalingRuleRequest extends Model
         if (isset($map['OutStep'])) {
             $model->outStep = $map['OutStep'];
         }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
         if (isset($map['ResourceFrom'])) {
             $model->resourceFrom = $map['ResourceFrom'];
         }
-        if (isset($map['MultiAzPolicy'])) {
-            $model->multiAzPolicy = $map['MultiAzPolicy'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchIds'])) {
-            $model->vSwitchIds = $map['VSwitchIds'];
-        }
         if (isset($map['ScalingPolicy'])) {
             $model->scalingPolicy = $map['ScalingPolicy'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TemplateInstanceId'])) {
             $model->templateInstanceId = $map['TemplateInstanceId'];
@@ -374,20 +380,14 @@ class ModifyScalingRuleRequest extends Model
         if (isset($map['TemplateInstanceName'])) {
             $model->templateInstanceName = $map['TemplateInstanceName'];
         }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
-        }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['AcceptEULA'])) {
-            $model->acceptEULA = $map['AcceptEULA'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['VSwitchIds'])) {
+            $model->vSwitchIds = $map['VSwitchIds'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

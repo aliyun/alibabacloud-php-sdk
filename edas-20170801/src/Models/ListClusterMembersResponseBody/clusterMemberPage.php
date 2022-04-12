@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class clusterMemberPage extends Model
 {
     /**
+     * @var clusterMemberList
+     */
+    public $clusterMemberList;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -17,22 +22,17 @@ class clusterMemberPage extends Model
     /**
      * @var int
      */
-    public $totalSize;
+    public $pageSize;
 
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var clusterMemberList
-     */
-    public $clusterMemberList;
+    public $totalSize;
     protected $_name = [
-        'currentPage'       => 'CurrentPage',
-        'totalSize'         => 'TotalSize',
-        'pageSize'          => 'PageSize',
         'clusterMemberList' => 'ClusterMemberList',
+        'currentPage'       => 'CurrentPage',
+        'pageSize'          => 'PageSize',
+        'totalSize'         => 'TotalSize',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class clusterMemberPage extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterMemberList) {
+            $res['ClusterMemberList'] = null !== $this->clusterMemberList ? $this->clusterMemberList->toMap() : null;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->totalSize) {
-            $res['TotalSize'] = $this->totalSize;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->clusterMemberList) {
-            $res['ClusterMemberList'] = null !== $this->clusterMemberList ? $this->clusterMemberList->toMap() : null;
+        if (null !== $this->totalSize) {
+            $res['TotalSize'] = $this->totalSize;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class clusterMemberPage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterMemberList'])) {
+            $model->clusterMemberList = clusterMemberList::fromMap($map['ClusterMemberList']);
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['TotalSize'])) {
-            $model->totalSize = $map['TotalSize'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ClusterMemberList'])) {
-            $model->clusterMemberList = clusterMemberList::fromMap($map['ClusterMemberList']);
+        if (isset($map['TotalSize'])) {
+            $model->totalSize = $map['TotalSize'];
         }
 
         return $model;

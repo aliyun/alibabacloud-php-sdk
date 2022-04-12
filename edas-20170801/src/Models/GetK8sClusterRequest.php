@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetK8sClusterRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionTag;
+    public $clusterType;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class GetK8sClusterRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $clusterType;
+    public $regionTag;
     protected $_name = [
-        'regionTag'   => 'RegionTag',
+        'clusterType' => 'ClusterType',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
-        'clusterType' => 'ClusterType',
+        'regionTag'   => 'RegionTag',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class GetK8sClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionTag) {
-            $res['RegionTag'] = $this->regionTag;
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -50,8 +50,8 @@ class GetK8sClusterRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
+        if (null !== $this->regionTag) {
+            $res['RegionTag'] = $this->regionTag;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class GetK8sClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionTag'])) {
-            $model->regionTag = $map['RegionTag'];
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
@@ -74,8 +74,8 @@ class GetK8sClusterRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
+        if (isset($map['RegionTag'])) {
+            $model->regionTag = $map['RegionTag'];
         }
 
         return $model;

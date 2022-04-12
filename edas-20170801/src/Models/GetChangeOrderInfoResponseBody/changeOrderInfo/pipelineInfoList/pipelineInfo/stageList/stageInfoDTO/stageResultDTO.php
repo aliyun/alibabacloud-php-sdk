@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class stageResultDTO extends Model
 {
     /**
-     * @var serviceStage
-     */
-    public $serviceStage;
-
-    /**
      * @var instanceDTOList
      */
     public $instanceDTOList;
+
+    /**
+     * @var serviceStage
+     */
+    public $serviceStage;
     protected $_name = [
-        'serviceStage'    => 'ServiceStage',
         'instanceDTOList' => 'InstanceDTOList',
+        'serviceStage'    => 'ServiceStage',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class stageResultDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceStage) {
-            $res['ServiceStage'] = null !== $this->serviceStage ? $this->serviceStage->toMap() : null;
-        }
         if (null !== $this->instanceDTOList) {
             $res['InstanceDTOList'] = null !== $this->instanceDTOList ? $this->instanceDTOList->toMap() : null;
+        }
+        if (null !== $this->serviceStage) {
+            $res['ServiceStage'] = null !== $this->serviceStage ? $this->serviceStage->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class stageResultDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceStage'])) {
-            $model->serviceStage = serviceStage::fromMap($map['ServiceStage']);
-        }
         if (isset($map['InstanceDTOList'])) {
             $model->instanceDTOList = instanceDTOList::fromMap($map['InstanceDTOList']);
+        }
+        if (isset($map['ServiceStage'])) {
+            $model->serviceStage = serviceStage::fromMap($map['ServiceStage']);
         }
 
         return $model;

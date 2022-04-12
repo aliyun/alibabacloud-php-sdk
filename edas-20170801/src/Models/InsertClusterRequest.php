@@ -11,11 +11,6 @@ class InsertClusterRequest extends Model
     /**
      * @var string
      */
-    public $logicalRegionId;
-
-    /**
-     * @var string
-     */
     public $clusterName;
 
     /**
@@ -24,14 +19,19 @@ class InsertClusterRequest extends Model
     public $clusterType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $networkMode;
+    public $iaasProvider;
 
     /**
      * @var string
      */
-    public $vpcId;
+    public $logicalRegionId;
+
+    /**
+     * @var int
+     */
+    public $networkMode;
 
     /**
      * @var int
@@ -41,15 +41,15 @@ class InsertClusterRequest extends Model
     /**
      * @var string
      */
-    public $iaasProvider;
+    public $vpcId;
     protected $_name = [
-        'logicalRegionId' => 'LogicalRegionId',
         'clusterName'     => 'ClusterName',
         'clusterType'     => 'ClusterType',
-        'networkMode'     => 'NetworkMode',
-        'vpcId'           => 'VpcId',
-        'oversoldFactor'  => 'OversoldFactor',
         'iaasProvider'    => 'IaasProvider',
+        'logicalRegionId' => 'LogicalRegionId',
+        'networkMode'     => 'NetworkMode',
+        'oversoldFactor'  => 'OversoldFactor',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class InsertClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logicalRegionId) {
-            $res['LogicalRegionId'] = $this->logicalRegionId;
-        }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
+        if (null !== $this->iaasProvider) {
+            $res['IaasProvider'] = $this->iaasProvider;
+        }
+        if (null !== $this->logicalRegionId) {
+            $res['LogicalRegionId'] = $this->logicalRegionId;
+        }
         if (null !== $this->networkMode) {
             $res['NetworkMode'] = $this->networkMode;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->oversoldFactor) {
             $res['OversoldFactor'] = $this->oversoldFactor;
         }
-        if (null !== $this->iaasProvider) {
-            $res['IaasProvider'] = $this->iaasProvider;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class InsertClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogicalRegionId'])) {
-            $model->logicalRegionId = $map['LogicalRegionId'];
-        }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
+        if (isset($map['IaasProvider'])) {
+            $model->iaasProvider = $map['IaasProvider'];
+        }
+        if (isset($map['LogicalRegionId'])) {
+            $model->logicalRegionId = $map['LogicalRegionId'];
+        }
         if (isset($map['NetworkMode'])) {
             $model->networkMode = $map['NetworkMode'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
         }
         if (isset($map['OversoldFactor'])) {
             $model->oversoldFactor = $map['OversoldFactor'];
         }
-        if (isset($map['IaasProvider'])) {
-            $model->iaasProvider = $map['IaasProvider'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

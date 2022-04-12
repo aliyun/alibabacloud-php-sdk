@@ -11,21 +11,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var dubboMockItems[]
-     */
-    public $dubboMockItems;
-
-    /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $consumerAppName;
-
-    /**
      * @var string
      */
     public $consumerAppId;
@@ -33,22 +18,37 @@ class result extends Model
     /**
      * @var string
      */
-    public $gmtModified;
+    public $consumerAppName;
 
     /**
-     * @var string
+     * @var dubboMockItems[]
      */
-    public $region;
+    public $dubboMockItems;
 
     /**
-     * @var scMockItems[]
+     * @var bool
      */
-    public $scMockItems;
+    public $enable;
 
     /**
      * @var string
      */
     public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -63,31 +63,31 @@ class result extends Model
     /**
      * @var string
      */
-    public $name;
+    public $region;
+
+    /**
+     * @var scMockItems[]
+     */
+    public $scMockItems;
 
     /**
      * @var int
      */
-    public $id;
-
-    /**
-     * @var bool
-     */
-    public $enable;
+    public $status;
     protected $_name = [
-        'dubboMockItems'  => 'DubboMockItems',
-        'status'          => 'Status',
-        'consumerAppName' => 'ConsumerAppName',
         'consumerAppId'   => 'ConsumerAppId',
-        'gmtModified'     => 'GmtModified',
-        'region'          => 'Region',
-        'scMockItems'     => 'ScMockItems',
+        'consumerAppName' => 'ConsumerAppName',
+        'dubboMockItems'  => 'DubboMockItems',
+        'enable'          => 'Enable',
         'gmtCreate'       => 'GmtCreate',
+        'gmtModified'     => 'GmtModified',
+        'id'              => 'Id',
+        'name'            => 'Name',
         'providerAppId'   => 'ProviderAppId',
         'providerAppName' => 'ProviderAppName',
-        'name'            => 'Name',
-        'id'              => 'Id',
-        'enable'          => 'Enable',
+        'region'          => 'Region',
+        'scMockItems'     => 'ScMockItems',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -97,6 +97,12 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->consumerAppId) {
+            $res['ConsumerAppId'] = $this->consumerAppId;
+        }
+        if (null !== $this->consumerAppName) {
+            $res['ConsumerAppName'] = $this->consumerAppName;
+        }
         if (null !== $this->dubboMockItems) {
             $res['DubboMockItems'] = [];
             if (null !== $this->dubboMockItems && \is_array($this->dubboMockItems)) {
@@ -106,17 +112,26 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
-        if (null !== $this->consumerAppName) {
-            $res['ConsumerAppName'] = $this->consumerAppName;
-        }
-        if (null !== $this->consumerAppId) {
-            $res['ConsumerAppId'] = $this->consumerAppId;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->providerAppId) {
+            $res['ProviderAppId'] = $this->providerAppId;
+        }
+        if (null !== $this->providerAppName) {
+            $res['ProviderAppName'] = $this->providerAppName;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -130,23 +145,8 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->providerAppId) {
-            $res['ProviderAppId'] = $this->providerAppId;
-        }
-        if (null !== $this->providerAppName) {
-            $res['ProviderAppName'] = $this->providerAppName;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -160,6 +160,12 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConsumerAppId'])) {
+            $model->consumerAppId = $map['ConsumerAppId'];
+        }
+        if (isset($map['ConsumerAppName'])) {
+            $model->consumerAppName = $map['ConsumerAppName'];
+        }
         if (isset($map['DubboMockItems'])) {
             if (!empty($map['DubboMockItems'])) {
                 $model->dubboMockItems = [];
@@ -169,17 +175,26 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
-        if (isset($map['ConsumerAppName'])) {
-            $model->consumerAppName = $map['ConsumerAppName'];
-        }
-        if (isset($map['ConsumerAppId'])) {
-            $model->consumerAppId = $map['ConsumerAppId'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ProviderAppId'])) {
+            $model->providerAppId = $map['ProviderAppId'];
+        }
+        if (isset($map['ProviderAppName'])) {
+            $model->providerAppName = $map['ProviderAppName'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -193,23 +208,8 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['ProviderAppId'])) {
-            $model->providerAppId = $map['ProviderAppId'];
-        }
-        if (isset($map['ProviderAppName'])) {
-            $model->providerAppName = $map['ProviderAppName'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

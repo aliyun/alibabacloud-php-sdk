@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class deployGroupEntity extends Model
 {
     /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
      * @var string
      */
-    public $groupName;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $appId;
 
     /**
      * @var string
@@ -31,12 +21,17 @@ class deployGroupEntity extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $clusterId;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var string
      */
-    public $packageVersionId;
+    public $groupName;
 
     /**
      * @var int
@@ -51,17 +46,22 @@ class deployGroupEntity extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $packageVersionId;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
     protected $_name = [
-        'updateTime'       => 'UpdateTime',
-        'groupName'        => 'GroupName',
-        'createTime'       => 'CreateTime',
-        'appVersionId'     => 'AppVersionId',
         'appId'            => 'AppId',
-        'packageVersionId' => 'PackageVersionId',
+        'appVersionId'     => 'AppVersionId',
+        'clusterId'        => 'ClusterId',
+        'createTime'       => 'CreateTime',
+        'groupName'        => 'GroupName',
         'groupType'        => 'GroupType',
         'id'               => 'Id',
-        'clusterId'        => 'ClusterId',
+        'packageVersionId' => 'PackageVersionId',
+        'updateTime'       => 'UpdateTime',
     ];
 
     public function validate()
@@ -71,23 +71,20 @@ class deployGroupEntity extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->appVersionId) {
             $res['AppVersionId'] = $this->appVersionId;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->packageVersionId) {
-            $res['PackageVersionId'] = $this->packageVersionId;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
@@ -95,8 +92,11 @@ class deployGroupEntity extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->packageVersionId) {
+            $res['PackageVersionId'] = $this->packageVersionId;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -110,23 +110,20 @@ class deployGroupEntity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['AppVersionId'])) {
             $model->appVersionId = $map['AppVersionId'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['PackageVersionId'])) {
-            $model->packageVersionId = $map['PackageVersionId'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
@@ -134,8 +131,11 @@ class deployGroupEntity extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['PackageVersionId'])) {
+            $model->packageVersionId = $map['PackageVersionId'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

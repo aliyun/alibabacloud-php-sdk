@@ -12,6 +12,16 @@ class GetServiceMethodPageResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @var string
+     */
     public $httpCode;
 
     /**
@@ -25,25 +35,15 @@ class GetServiceMethodPageResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
+        'code'      => 'Code',
+        'data'      => 'Data',
         'httpCode'  => 'HttpCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'data'      => 'Data',
-        'code'      => 'Code',
         'success'   => 'Success',
     ];
 
@@ -54,6 +54,12 @@ class GetServiceMethodPageResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->httpCode) {
             $res['HttpCode'] = $this->httpCode;
         }
@@ -62,12 +68,6 @@ class GetServiceMethodPageResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,6 +84,12 @@ class GetServiceMethodPageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['HttpCode'])) {
             $model->httpCode = $map['HttpCode'];
         }
@@ -92,12 +98,6 @@ class GetServiceMethodPageResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

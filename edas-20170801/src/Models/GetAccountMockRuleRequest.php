@@ -11,17 +11,12 @@ class GetAccountMockRuleRequest extends Model
     /**
      * @var string
      */
-    public $region;
+    public $consumerAppName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $pageNumber;
+    public $mockType;
 
     /**
      * @var string
@@ -31,7 +26,17 @@ class GetAccountMockRuleRequest extends Model
     /**
      * @var string
      */
-    public $consumerAppName;
+    public $namespace;
+
+    /**
+     * @var string
+     */
+    public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -41,15 +46,16 @@ class GetAccountMockRuleRequest extends Model
     /**
      * @var string
      */
-    public $namespace;
+    public $region;
     protected $_name = [
-        'region'          => 'Region',
-        'pageSize'        => 'PageSize',
-        'pageNumber'      => 'PageNumber',
-        'name'            => 'Name',
         'consumerAppName' => 'ConsumerAppName',
-        'providerAppName' => 'ProviderAppName',
+        'mockType'        => 'MockType',
+        'name'            => 'Name',
         'namespace'       => 'Namespace',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'providerAppName' => 'ProviderAppName',
+        'region'          => 'Region',
     ];
 
     public function validate()
@@ -59,26 +65,29 @@ class GetAccountMockRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->consumerAppName) {
+            $res['ConsumerAppName'] = $this->consumerAppName;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->mockType) {
+            $res['MockType'] = $this->mockType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->consumerAppName) {
-            $res['ConsumerAppName'] = $this->consumerAppName;
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->providerAppName) {
             $res['ProviderAppName'] = $this->providerAppName;
         }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -92,26 +101,29 @@ class GetAccountMockRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['ConsumerAppName'])) {
+            $model->consumerAppName = $map['ConsumerAppName'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['MockType'])) {
+            $model->mockType = $map['MockType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['ConsumerAppName'])) {
-            $model->consumerAppName = $map['ConsumerAppName'];
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ProviderAppName'])) {
             $model->providerAppName = $map['ProviderAppName'];
         }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

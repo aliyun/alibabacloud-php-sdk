@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StartK8sApplicationRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var int
      */
     public $replicas;
@@ -17,15 +22,10 @@ class StartK8sApplicationRequest extends Model
      * @var int
      */
     public $timeout;
-
-    /**
-     * @var string
-     */
-    public $appId;
     protected $_name = [
+        'appId'    => 'AppId',
         'replicas' => 'Replicas',
         'timeout'  => 'Timeout',
-        'appId'    => 'AppId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class StartK8sApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
         }
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
-        }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class StartK8sApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
         }
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
-        }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
         }
 
         return $model;

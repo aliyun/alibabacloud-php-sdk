@@ -11,15 +11,15 @@ class AuthorizeApplicationRequest extends Model
     /**
      * @var string
      */
-    public $targetUserId;
+    public $appIds;
 
     /**
      * @var string
      */
-    public $appIds;
+    public $targetUserId;
     protected $_name = [
-        'targetUserId' => 'TargetUserId',
         'appIds'       => 'AppIds',
+        'targetUserId' => 'TargetUserId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AuthorizeApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetUserId) {
-            $res['TargetUserId'] = $this->targetUserId;
-        }
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
+        }
+        if (null !== $this->targetUserId) {
+            $res['TargetUserId'] = $this->targetUserId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AuthorizeApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetUserId'])) {
-            $model->targetUserId = $map['TargetUserId'];
-        }
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
+        }
+        if (isset($map['TargetUserId'])) {
+            $model->targetUserId = $map['TargetUserId'];
         }
 
         return $model;

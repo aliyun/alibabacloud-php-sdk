@@ -14,16 +14,6 @@ class RollbackApplicationRequest extends Model
     public $appId;
 
     /**
-     * @var string
-     */
-    public $historyVersion;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
      * @var int
      */
     public $batch;
@@ -32,12 +22,22 @@ class RollbackApplicationRequest extends Model
      * @var int
      */
     public $batchWaitTime;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $historyVersion;
     protected $_name = [
         'appId'          => 'AppId',
-        'historyVersion' => 'HistoryVersion',
-        'groupId'        => 'GroupId',
         'batch'          => 'Batch',
         'batchWaitTime'  => 'BatchWaitTime',
+        'groupId'        => 'GroupId',
+        'historyVersion' => 'HistoryVersion',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class RollbackApplicationRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->historyVersion) {
-            $res['HistoryVersion'] = $this->historyVersion;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->batch) {
             $res['Batch'] = $this->batch;
         }
         if (null !== $this->batchWaitTime) {
             $res['BatchWaitTime'] = $this->batchWaitTime;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->historyVersion) {
+            $res['HistoryVersion'] = $this->historyVersion;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class RollbackApplicationRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['HistoryVersion'])) {
-            $model->historyVersion = $map['HistoryVersion'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['Batch'])) {
             $model->batch = $map['Batch'];
         }
         if (isset($map['BatchWaitTime'])) {
             $model->batchWaitTime = $map['BatchWaitTime'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['HistoryVersion'])) {
+            $model->historyVersion = $map['HistoryVersion'];
         }
 
         return $model;

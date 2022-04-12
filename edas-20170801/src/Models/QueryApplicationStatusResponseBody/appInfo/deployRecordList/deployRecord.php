@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class deployRecord extends Model
 {
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
     public $deployRecordId;
@@ -26,24 +31,19 @@ class deployRecord extends Model
     /**
      * @var string
      */
-    public $packageVersionId;
+    public $packageMd5;
 
     /**
      * @var string
      */
-    public $packageMd5;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $packageVersionId;
     protected $_name = [
+        'createTime'       => 'CreateTime',
         'deployRecordId'   => 'DeployRecordId',
         'eccId'            => 'EccId',
         'ecuId'            => 'EcuId',
-        'packageVersionId' => 'PackageVersionId',
         'packageMd5'       => 'PackageMd5',
-        'createTime'       => 'CreateTime',
+        'packageVersionId' => 'PackageVersionId',
     ];
 
     public function validate()
@@ -53,6 +53,9 @@ class deployRecord extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->deployRecordId) {
             $res['DeployRecordId'] = $this->deployRecordId;
         }
@@ -62,14 +65,11 @@ class deployRecord extends Model
         if (null !== $this->ecuId) {
             $res['EcuId'] = $this->ecuId;
         }
-        if (null !== $this->packageVersionId) {
-            $res['PackageVersionId'] = $this->packageVersionId;
-        }
         if (null !== $this->packageMd5) {
             $res['PackageMd5'] = $this->packageMd5;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->packageVersionId) {
+            $res['PackageVersionId'] = $this->packageVersionId;
         }
 
         return $res;
@@ -83,6 +83,9 @@ class deployRecord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['DeployRecordId'])) {
             $model->deployRecordId = $map['DeployRecordId'];
         }
@@ -92,14 +95,11 @@ class deployRecord extends Model
         if (isset($map['EcuId'])) {
             $model->ecuId = $map['EcuId'];
         }
-        if (isset($map['PackageVersionId'])) {
-            $model->packageVersionId = $map['PackageVersionId'];
-        }
         if (isset($map['PackageMd5'])) {
             $model->packageMd5 = $map['PackageMd5'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['PackageVersionId'])) {
+            $model->packageVersionId = $map['PackageVersionId'];
         }
 
         return $model;

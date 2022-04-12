@@ -9,71 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ecuEntity extends Model
 {
     /**
-     * @var string
-     */
-    public $ecuId;
-
-    /**
-     * @var bool
-     */
-    public $online;
-
-    /**
-     * @var bool
-     */
-    public $dockerEnv;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
-    public $ipAddr;
-
-    /**
-     * @var int
-     */
-    public $heartbeatTime;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
      * @var int
      */
     public $availableCpu;
@@ -91,25 +26,90 @@ class ecuEntity extends Model
     /**
      * @var int
      */
+    public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $dockerEnv;
+
+    /**
+     * @var string
+     */
+    public $ecuId;
+
+    /**
+     * @var int
+     */
+    public $heartbeatTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ipAddr;
+
+    /**
+     * @var int
+     */
     public $mem;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var bool
+     */
+    public $online;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'ecuId'         => 'EcuId',
-        'online'        => 'Online',
-        'dockerEnv'     => 'DockerEnv',
-        'createTime'    => 'CreateTime',
-        'updateTime'    => 'UpdateTime',
-        'ipAddr'        => 'IpAddr',
-        'heartbeatTime' => 'HeartbeatTime',
-        'userId'        => 'UserId',
-        'name'          => 'Name',
-        'zoneId'        => 'ZoneId',
-        'regionId'      => 'RegionId',
-        'instanceId'    => 'InstanceId',
-        'vpcId'         => 'VpcId',
         'availableCpu'  => 'AvailableCpu',
         'availableMem'  => 'AvailableMem',
         'cpu'           => 'Cpu',
+        'createTime'    => 'CreateTime',
+        'dockerEnv'     => 'DockerEnv',
+        'ecuId'         => 'EcuId',
+        'heartbeatTime' => 'HeartbeatTime',
+        'instanceId'    => 'InstanceId',
+        'ipAddr'        => 'IpAddr',
         'mem'           => 'Mem',
+        'name'          => 'Name',
+        'online'        => 'Online',
+        'regionId'      => 'RegionId',
+        'updateTime'    => 'UpdateTime',
+        'userId'        => 'UserId',
+        'vpcId'         => 'VpcId',
+        'zoneId'        => 'ZoneId',
     ];
 
     public function validate()
@@ -119,45 +119,6 @@ class ecuEntity extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ecuId) {
-            $res['EcuId'] = $this->ecuId;
-        }
-        if (null !== $this->online) {
-            $res['Online'] = $this->online;
-        }
-        if (null !== $this->dockerEnv) {
-            $res['DockerEnv'] = $this->dockerEnv;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->ipAddr) {
-            $res['IpAddr'] = $this->ipAddr;
-        }
-        if (null !== $this->heartbeatTime) {
-            $res['HeartbeatTime'] = $this->heartbeatTime;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->availableCpu) {
             $res['AvailableCpu'] = $this->availableCpu;
         }
@@ -167,8 +128,47 @@ class ecuEntity extends Model
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->dockerEnv) {
+            $res['DockerEnv'] = $this->dockerEnv;
+        }
+        if (null !== $this->ecuId) {
+            $res['EcuId'] = $this->ecuId;
+        }
+        if (null !== $this->heartbeatTime) {
+            $res['HeartbeatTime'] = $this->heartbeatTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ipAddr) {
+            $res['IpAddr'] = $this->ipAddr;
+        }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->online) {
+            $res['Online'] = $this->online;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -182,45 +182,6 @@ class ecuEntity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EcuId'])) {
-            $model->ecuId = $map['EcuId'];
-        }
-        if (isset($map['Online'])) {
-            $model->online = $map['Online'];
-        }
-        if (isset($map['DockerEnv'])) {
-            $model->dockerEnv = $map['DockerEnv'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['IpAddr'])) {
-            $model->ipAddr = $map['IpAddr'];
-        }
-        if (isset($map['HeartbeatTime'])) {
-            $model->heartbeatTime = $map['HeartbeatTime'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['AvailableCpu'])) {
             $model->availableCpu = $map['AvailableCpu'];
         }
@@ -230,8 +191,47 @@ class ecuEntity extends Model
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DockerEnv'])) {
+            $model->dockerEnv = $map['DockerEnv'];
+        }
+        if (isset($map['EcuId'])) {
+            $model->ecuId = $map['EcuId'];
+        }
+        if (isset($map['HeartbeatTime'])) {
+            $model->heartbeatTime = $map['HeartbeatTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IpAddr'])) {
+            $model->ipAddr = $map['IpAddr'];
+        }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Online'])) {
+            $model->online = $map['Online'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

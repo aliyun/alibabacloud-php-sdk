@@ -9,34 +9,24 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $oversoldFactor;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $vpcId;
+    public $clusterName;
 
     /**
      * @var int
      */
-    public $updateTime;
+    public $clusterType;
 
     /**
      * @var int
      */
-    public $memUsed;
-
-    /**
-     * @var string
-     */
-    public $iaasProvider;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $cpu;
 
     /**
      * @var int
@@ -46,17 +36,7 @@ class cluster extends Model
     /**
      * @var int
      */
-    public $mem;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var int
-     */
-    public $cpu;
+    public $createTime;
 
     /**
      * @var string
@@ -69,6 +49,21 @@ class cluster extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $iaasProvider;
+
+    /**
+     * @var int
+     */
+    public $mem;
+
+    /**
+     * @var int
+     */
+    public $memUsed;
+
+    /**
      * @var int
      */
     public $networkMode;
@@ -76,7 +71,17 @@ class cluster extends Model
     /**
      * @var int
      */
-    public $clusterType;
+    public $nodeNum;
+
+    /**
+     * @var int
+     */
+    public $oversoldFactor;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -84,38 +89,33 @@ class cluster extends Model
     public $resourceGroupId;
 
     /**
-     * @var string
-     */
-    public $clusterName;
-
-    /**
      * @var int
      */
-    public $nodeNum;
+    public $updateTime;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $vpcId;
     protected $_name = [
-        'oversoldFactor'  => 'OversoldFactor',
-        'vpcId'           => 'VpcId',
-        'updateTime'      => 'UpdateTime',
-        'memUsed'         => 'MemUsed',
-        'iaasProvider'    => 'IaasProvider',
-        'createTime'      => 'CreateTime',
-        'cpuUsed'         => 'CpuUsed',
-        'mem'             => 'Mem',
-        'regionId'        => 'RegionId',
+        'clusterId'       => 'ClusterId',
+        'clusterName'     => 'ClusterName',
+        'clusterType'     => 'ClusterType',
         'cpu'             => 'Cpu',
+        'cpuUsed'         => 'CpuUsed',
+        'createTime'      => 'CreateTime',
         'csClusterId'     => 'CsClusterId',
         'description'     => 'Description',
+        'iaasProvider'    => 'IaasProvider',
+        'mem'             => 'Mem',
+        'memUsed'         => 'MemUsed',
         'networkMode'     => 'NetworkMode',
-        'clusterType'     => 'ClusterType',
-        'resourceGroupId' => 'ResourceGroupId',
-        'clusterName'     => 'ClusterName',
         'nodeNum'         => 'NodeNum',
-        'clusterId'       => 'ClusterId',
+        'oversoldFactor'  => 'OversoldFactor',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'updateTime'      => 'UpdateTime',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -125,35 +125,23 @@ class cluster extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->oversoldFactor) {
-            $res['OversoldFactor'] = $this->oversoldFactor;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
-        if (null !== $this->memUsed) {
-            $res['MemUsed'] = $this->memUsed;
-        }
-        if (null !== $this->iaasProvider) {
-            $res['IaasProvider'] = $this->iaasProvider;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
         }
         if (null !== $this->cpuUsed) {
             $res['CpuUsed'] = $this->cpuUsed;
         }
-        if (null !== $this->mem) {
-            $res['Mem'] = $this->mem;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->cpu) {
-            $res['Cpu'] = $this->cpu;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->csClusterId) {
             $res['CsClusterId'] = $this->csClusterId;
@@ -161,23 +149,35 @@ class cluster extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->iaasProvider) {
+            $res['IaasProvider'] = $this->iaasProvider;
+        }
+        if (null !== $this->mem) {
+            $res['Mem'] = $this->mem;
+        }
+        if (null !== $this->memUsed) {
+            $res['MemUsed'] = $this->memUsed;
+        }
         if (null !== $this->networkMode) {
             $res['NetworkMode'] = $this->networkMode;
-        }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
         }
         if (null !== $this->nodeNum) {
             $res['NodeNum'] = $this->nodeNum;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->oversoldFactor) {
+            $res['OversoldFactor'] = $this->oversoldFactor;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -191,35 +191,23 @@ class cluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OversoldFactor'])) {
-            $model->oversoldFactor = $map['OversoldFactor'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
-        if (isset($map['MemUsed'])) {
-            $model->memUsed = $map['MemUsed'];
-        }
-        if (isset($map['IaasProvider'])) {
-            $model->iaasProvider = $map['IaasProvider'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
         }
         if (isset($map['CpuUsed'])) {
             $model->cpuUsed = $map['CpuUsed'];
         }
-        if (isset($map['Mem'])) {
-            $model->mem = $map['Mem'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Cpu'])) {
-            $model->cpu = $map['Cpu'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['CsClusterId'])) {
             $model->csClusterId = $map['CsClusterId'];
@@ -227,23 +215,35 @@ class cluster extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['IaasProvider'])) {
+            $model->iaasProvider = $map['IaasProvider'];
+        }
+        if (isset($map['Mem'])) {
+            $model->mem = $map['Mem'];
+        }
+        if (isset($map['MemUsed'])) {
+            $model->memUsed = $map['MemUsed'];
+        }
         if (isset($map['NetworkMode'])) {
             $model->networkMode = $map['NetworkMode'];
-        }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
         }
         if (isset($map['NodeNum'])) {
             $model->nodeNum = $map['NodeNum'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['OversoldFactor'])) {
+            $model->oversoldFactor = $map['OversoldFactor'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

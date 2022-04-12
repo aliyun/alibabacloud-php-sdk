@@ -11,6 +11,21 @@ class UpdateMockRuleRequest extends Model
     /**
      * @var string
      */
+    public $dubboMockItemJson;
+
+    /**
+     * @var string
+     */
+    public $extraJson;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -21,29 +36,14 @@ class UpdateMockRuleRequest extends Model
     /**
      * @var string
      */
-    public $extraJson;
-
-    /**
-     * @var string
-     */
     public $scMockItemJson;
-
-    /**
-     * @var string
-     */
-    public $dubboMockItemJson;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
+        'dubboMockItemJson' => 'DubboMockItemJson',
+        'extraJson'         => 'ExtraJson',
+        'id'                => 'Id',
         'name'              => 'Name',
         'region'            => 'Region',
-        'extraJson'         => 'ExtraJson',
         'scMockItemJson'    => 'ScMockItemJson',
-        'dubboMockItemJson' => 'DubboMockItemJson',
-        'id'                => 'Id',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class UpdateMockRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dubboMockItemJson) {
+            $res['DubboMockItemJson'] = $this->dubboMockItemJson;
+        }
+        if (null !== $this->extraJson) {
+            $res['ExtraJson'] = $this->extraJson;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->extraJson) {
-            $res['ExtraJson'] = $this->extraJson;
-        }
         if (null !== $this->scMockItemJson) {
             $res['ScMockItemJson'] = $this->scMockItemJson;
-        }
-        if (null !== $this->dubboMockItemJson) {
-            $res['DubboMockItemJson'] = $this->dubboMockItemJson;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class UpdateMockRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DubboMockItemJson'])) {
+            $model->dubboMockItemJson = $map['DubboMockItemJson'];
+        }
+        if (isset($map['ExtraJson'])) {
+            $model->extraJson = $map['ExtraJson'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['ExtraJson'])) {
-            $model->extraJson = $map['ExtraJson'];
-        }
         if (isset($map['ScMockItemJson'])) {
             $model->scMockItemJson = $map['ScMockItemJson'];
-        }
-        if (isset($map['DubboMockItemJson'])) {
-            $model->dubboMockItemJson = $map['DubboMockItemJson'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

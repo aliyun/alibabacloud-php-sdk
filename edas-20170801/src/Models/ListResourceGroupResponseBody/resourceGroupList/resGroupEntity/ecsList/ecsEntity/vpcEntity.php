@@ -11,12 +11,22 @@ class vpcEntity extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $cidrblock;
 
     /**
      * @var string
      */
-    public $vpcName;
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $ecsNum;
+
+    /**
+     * @var bool
+     */
+    public $expired;
 
     /**
      * @var string
@@ -26,42 +36,32 @@ class vpcEntity extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $cidrblock;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
      * @var string
      */
-    public $description;
+    public $userId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $expired;
+    public $vpcId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ecsNum;
+    public $vpcName;
     protected $_name = [
+        'cidrblock'   => 'Cidrblock',
+        'description' => 'Description',
+        'ecsNum'      => 'EcsNum',
+        'expired'     => 'Expired',
+        'regionId'    => 'RegionId',
+        'status'      => 'Status',
+        'userId'      => 'UserId',
         'vpcId'       => 'VpcId',
         'vpcName'     => 'VpcName',
-        'regionId'    => 'RegionId',
-        'userId'      => 'UserId',
-        'cidrblock'   => 'Cidrblock',
-        'status'      => 'Status',
-        'description' => 'Description',
-        'expired'     => 'Expired',
-        'ecsNum'      => 'EcsNum',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class vpcEntity extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cidrblock) {
+            $res['Cidrblock'] = $this->cidrblock;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->ecsNum) {
+            $res['EcsNum'] = $this->ecsNum;
+        }
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->cidrblock) {
-            $res['Cidrblock'] = $this->cidrblock;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
-        }
-        if (null !== $this->ecsNum) {
-            $res['EcsNum'] = $this->ecsNum;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class vpcEntity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cidrblock'])) {
+            $model->cidrblock = $map['Cidrblock'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EcsNum'])) {
+            $model->ecsNum = $map['EcsNum'];
+        }
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['Cidrblock'])) {
-            $model->cidrblock = $map['Cidrblock'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
-        }
-        if (isset($map['EcsNum'])) {
-            $model->ecsNum = $map['EcsNum'];
         }
 
         return $model;

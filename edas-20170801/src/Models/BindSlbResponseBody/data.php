@@ -11,22 +11,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $VServerGroupId;
-
-    /**
-     * @var string
-     */
-    public $slbId;
+    public $extSlbId;
 
     /**
      * @var string
      */
     public $extSlbIp;
-
-    /**
-     * @var int
-     */
-    public $slbPort;
 
     /**
      * @var string
@@ -36,12 +26,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $extSlbId;
+    public $extVServerGroupId;
 
     /**
      * @var string
      */
-    public $extVServerGroupId;
+    public $slbId;
+
+    /**
+     * @var string
+     */
+    public $slbIp;
 
     /**
      * @var string
@@ -49,19 +44,24 @@ class data extends Model
     public $slbName;
 
     /**
+     * @var int
+     */
+    public $slbPort;
+
+    /**
      * @var string
      */
-    public $slbIp;
+    public $VServerGroupId;
     protected $_name = [
-        'VServerGroupId'    => 'VServerGroupId',
-        'slbId'             => 'SlbId',
-        'extSlbIp'          => 'ExtSlbIp',
-        'slbPort'           => 'SlbPort',
-        'extSlbName'        => 'ExtSlbName',
         'extSlbId'          => 'ExtSlbId',
+        'extSlbIp'          => 'ExtSlbIp',
+        'extSlbName'        => 'ExtSlbName',
         'extVServerGroupId' => 'ExtVServerGroupId',
-        'slbName'           => 'SlbName',
+        'slbId'             => 'SlbId',
         'slbIp'             => 'SlbIp',
+        'slbName'           => 'SlbName',
+        'slbPort'           => 'SlbPort',
+        'VServerGroupId'    => 'VServerGroupId',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->VServerGroupId) {
-            $res['VServerGroupId'] = $this->VServerGroupId;
-        }
-        if (null !== $this->slbId) {
-            $res['SlbId'] = $this->slbId;
+        if (null !== $this->extSlbId) {
+            $res['ExtSlbId'] = $this->extSlbId;
         }
         if (null !== $this->extSlbIp) {
             $res['ExtSlbIp'] = $this->extSlbIp;
         }
-        if (null !== $this->slbPort) {
-            $res['SlbPort'] = $this->slbPort;
-        }
         if (null !== $this->extSlbName) {
             $res['ExtSlbName'] = $this->extSlbName;
-        }
-        if (null !== $this->extSlbId) {
-            $res['ExtSlbId'] = $this->extSlbId;
         }
         if (null !== $this->extVServerGroupId) {
             $res['ExtVServerGroupId'] = $this->extVServerGroupId;
         }
-        if (null !== $this->slbName) {
-            $res['SlbName'] = $this->slbName;
+        if (null !== $this->slbId) {
+            $res['SlbId'] = $this->slbId;
         }
         if (null !== $this->slbIp) {
             $res['SlbIp'] = $this->slbIp;
+        }
+        if (null !== $this->slbName) {
+            $res['SlbName'] = $this->slbName;
+        }
+        if (null !== $this->slbPort) {
+            $res['SlbPort'] = $this->slbPort;
+        }
+        if (null !== $this->VServerGroupId) {
+            $res['VServerGroupId'] = $this->VServerGroupId;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VServerGroupId'])) {
-            $model->VServerGroupId = $map['VServerGroupId'];
-        }
-        if (isset($map['SlbId'])) {
-            $model->slbId = $map['SlbId'];
+        if (isset($map['ExtSlbId'])) {
+            $model->extSlbId = $map['ExtSlbId'];
         }
         if (isset($map['ExtSlbIp'])) {
             $model->extSlbIp = $map['ExtSlbIp'];
         }
-        if (isset($map['SlbPort'])) {
-            $model->slbPort = $map['SlbPort'];
-        }
         if (isset($map['ExtSlbName'])) {
             $model->extSlbName = $map['ExtSlbName'];
-        }
-        if (isset($map['ExtSlbId'])) {
-            $model->extSlbId = $map['ExtSlbId'];
         }
         if (isset($map['ExtVServerGroupId'])) {
             $model->extVServerGroupId = $map['ExtVServerGroupId'];
         }
-        if (isset($map['SlbName'])) {
-            $model->slbName = $map['SlbName'];
+        if (isset($map['SlbId'])) {
+            $model->slbId = $map['SlbId'];
         }
         if (isset($map['SlbIp'])) {
             $model->slbIp = $map['SlbIp'];
+        }
+        if (isset($map['SlbName'])) {
+            $model->slbName = $map['SlbName'];
+        }
+        if (isset($map['SlbPort'])) {
+            $model->slbPort = $map['SlbPort'];
+        }
+        if (isset($map['VServerGroupId'])) {
+            $model->VServerGroupId = $map['VServerGroupId'];
         }
 
         return $model;

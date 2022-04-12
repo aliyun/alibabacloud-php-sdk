@@ -19,19 +19,19 @@ class CreateK8sServiceRequest extends Model
     public $name;
 
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $type;
+    public $servicePorts;
 
     /**
      * @var string
      */
-    public $servicePorts;
+    public $type;
     protected $_name = [
         'appId'        => 'AppId',
         'name'         => 'Name',
-        'type'         => 'Type',
         'servicePorts' => 'ServicePorts',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class CreateK8sServiceRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->servicePorts) {
             $res['ServicePorts'] = $this->servicePorts;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class CreateK8sServiceRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['ServicePorts'])) {
             $model->servicePorts = $map['ServicePorts'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

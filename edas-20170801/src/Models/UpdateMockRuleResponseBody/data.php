@@ -11,17 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $namespaceId;
-
-    /**
-     * @var string
-     */
-    public $scMockItemJson;
-
-    /**
-     * @var string
-     */
-    public $consumerAppName;
+    public $accountId;
 
     /**
      * @var string
@@ -31,7 +21,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $accountId;
+    public $consumerAppName;
+
+    /**
+     * @var string
+     */
+    public $dubboMockItemJson;
+
+    /**
+     * @var bool
+     */
+    public $enable;
 
     /**
      * @var string
@@ -39,14 +39,19 @@ class data extends Model
     public $extraJson;
 
     /**
-     * @var string
+     * @var int
      */
-    public $source;
+    public $id;
 
     /**
      * @var string
      */
-    public $region;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $namespaceId;
 
     /**
      * @var string
@@ -56,42 +61,37 @@ class data extends Model
     /**
      * @var string
      */
-    public $dubboMockItemJson;
-
-    /**
-     * @var string
-     */
     public $providerAppName;
 
     /**
      * @var string
      */
-    public $name;
+    public $region;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $scMockItemJson;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enable;
+    public $source;
     protected $_name = [
-        'namespaceId'       => 'NamespaceId',
-        'scMockItemJson'    => 'ScMockItemJson',
-        'consumerAppName'   => 'ConsumerAppName',
-        'consumerAppId'     => 'ConsumerAppId',
         'accountId'         => 'AccountId',
-        'extraJson'         => 'ExtraJson',
-        'source'            => 'Source',
-        'region'            => 'Region',
-        'providerAppId'     => 'ProviderAppId',
+        'consumerAppId'     => 'ConsumerAppId',
+        'consumerAppName'   => 'ConsumerAppName',
         'dubboMockItemJson' => 'DubboMockItemJson',
-        'providerAppName'   => 'ProviderAppName',
-        'name'              => 'Name',
-        'id'                => 'Id',
         'enable'            => 'Enable',
+        'extraJson'         => 'ExtraJson',
+        'id'                => 'Id',
+        'name'              => 'Name',
+        'namespaceId'       => 'NamespaceId',
+        'providerAppId'     => 'ProviderAppId',
+        'providerAppName'   => 'ProviderAppName',
+        'region'            => 'Region',
+        'scMockItemJson'    => 'ScMockItemJson',
+        'source'            => 'Source',
     ];
 
     public function validate()
@@ -101,47 +101,47 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->namespaceId) {
-            $res['NamespaceId'] = $this->namespaceId;
-        }
-        if (null !== $this->scMockItemJson) {
-            $res['ScMockItemJson'] = $this->scMockItemJson;
-        }
-        if (null !== $this->consumerAppName) {
-            $res['ConsumerAppName'] = $this->consumerAppName;
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
         }
         if (null !== $this->consumerAppId) {
             $res['ConsumerAppId'] = $this->consumerAppId;
         }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
-        if (null !== $this->extraJson) {
-            $res['ExtraJson'] = $this->extraJson;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->providerAppId) {
-            $res['ProviderAppId'] = $this->providerAppId;
+        if (null !== $this->consumerAppName) {
+            $res['ConsumerAppName'] = $this->consumerAppName;
         }
         if (null !== $this->dubboMockItemJson) {
             $res['DubboMockItemJson'] = $this->dubboMockItemJson;
         }
-        if (null !== $this->providerAppName) {
-            $res['ProviderAppName'] = $this->providerAppName;
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->extraJson) {
+            $res['ExtraJson'] = $this->extraJson;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->providerAppId) {
+            $res['ProviderAppId'] = $this->providerAppId;
+        }
+        if (null !== $this->providerAppName) {
+            $res['ProviderAppName'] = $this->providerAppName;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->scMockItemJson) {
+            $res['ScMockItemJson'] = $this->scMockItemJson;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -155,47 +155,47 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NamespaceId'])) {
-            $model->namespaceId = $map['NamespaceId'];
-        }
-        if (isset($map['ScMockItemJson'])) {
-            $model->scMockItemJson = $map['ScMockItemJson'];
-        }
-        if (isset($map['ConsumerAppName'])) {
-            $model->consumerAppName = $map['ConsumerAppName'];
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
         }
         if (isset($map['ConsumerAppId'])) {
             $model->consumerAppId = $map['ConsumerAppId'];
         }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
-        if (isset($map['ExtraJson'])) {
-            $model->extraJson = $map['ExtraJson'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['ProviderAppId'])) {
-            $model->providerAppId = $map['ProviderAppId'];
+        if (isset($map['ConsumerAppName'])) {
+            $model->consumerAppName = $map['ConsumerAppName'];
         }
         if (isset($map['DubboMockItemJson'])) {
             $model->dubboMockItemJson = $map['DubboMockItemJson'];
         }
-        if (isset($map['ProviderAppName'])) {
-            $model->providerAppName = $map['ProviderAppName'];
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['ExtraJson'])) {
+            $model->extraJson = $map['ExtraJson'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['ProviderAppId'])) {
+            $model->providerAppId = $map['ProviderAppId'];
+        }
+        if (isset($map['ProviderAppName'])) {
+            $model->providerAppName = $map['ProviderAppName'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['ScMockItemJson'])) {
+            $model->scMockItemJson = $map['ScMockItemJson'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

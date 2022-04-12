@@ -11,12 +11,7 @@ class credential extends Model
     /**
      * @var string
      */
-    public $keyPrefix;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
+    public $accessKeyId;
 
     /**
      * @var string
@@ -26,30 +21,35 @@ class credential extends Model
     /**
      * @var string
      */
-    public $expiration;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
     public $bucket;
 
     /**
      * @var string
      */
+    public $expiration;
+
+    /**
+     * @var string
+     */
+    public $keyPrefix;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'keyPrefix'       => 'KeyPrefix',
-        'securityToken'   => 'SecurityToken',
-        'accessKeySecret' => 'AccessKeySecret',
-        'expiration'      => 'Expiration',
         'accessKeyId'     => 'AccessKeyId',
+        'accessKeySecret' => 'AccessKeySecret',
         'bucket'          => 'Bucket',
+        'expiration'      => 'Expiration',
+        'keyPrefix'       => 'KeyPrefix',
         'regionId'        => 'RegionId',
+        'securityToken'   => 'SecurityToken',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class credential extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyPrefix) {
-            $res['KeyPrefix'] = $this->keyPrefix;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->accessKeyId) {
+            $res['AccessKeyId'] = $this->accessKeyId;
         }
         if (null !== $this->accessKeySecret) {
             $res['AccessKeySecret'] = $this->accessKeySecret;
         }
-        if (null !== $this->expiration) {
-            $res['Expiration'] = $this->expiration;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
-        }
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
+        if (null !== $this->expiration) {
+            $res['Expiration'] = $this->expiration;
+        }
+        if (null !== $this->keyPrefix) {
+            $res['KeyPrefix'] = $this->keyPrefix;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class credential extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KeyPrefix'])) {
-            $model->keyPrefix = $map['KeyPrefix'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AccessKeyId'])) {
+            $model->accessKeyId = $map['AccessKeyId'];
         }
         if (isset($map['AccessKeySecret'])) {
             $model->accessKeySecret = $map['AccessKeySecret'];
         }
-        if (isset($map['Expiration'])) {
-            $model->expiration = $map['Expiration'];
-        }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
-        }
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
+        if (isset($map['Expiration'])) {
+            $model->expiration = $map['Expiration'];
+        }
+        if (isset($map['KeyPrefix'])) {
+            $model->keyPrefix = $map['KeyPrefix'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class ScaleOutApplicationRequest extends Model
     /**
      * @var string
      */
-    public $ecuInfo;
+    public $deployGroup;
 
     /**
      * @var string
      */
-    public $deployGroup;
+    public $ecuInfo;
     protected $_name = [
         'appId'       => 'AppId',
-        'ecuInfo'     => 'EcuInfo',
         'deployGroup' => 'DeployGroup',
+        'ecuInfo'     => 'EcuInfo',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ScaleOutApplicationRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->ecuInfo) {
-            $res['EcuInfo'] = $this->ecuInfo;
-        }
         if (null !== $this->deployGroup) {
             $res['DeployGroup'] = $this->deployGroup;
+        }
+        if (null !== $this->ecuInfo) {
+            $res['EcuInfo'] = $this->ecuInfo;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ScaleOutApplicationRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['EcuInfo'])) {
-            $model->ecuInfo = $map['EcuInfo'];
-        }
         if (isset($map['DeployGroup'])) {
             $model->deployGroup = $map['DeployGroup'];
+        }
+        if (isset($map['EcuInfo'])) {
+            $model->ecuInfo = $map['EcuInfo'];
         }
 
         return $model;

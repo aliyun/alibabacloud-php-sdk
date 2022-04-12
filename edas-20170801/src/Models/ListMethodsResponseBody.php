@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListMethodsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class ListMethodsResponseBody extends Model
      * @var serviceMethodList
      */
     public $serviceMethodList;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'              => 'Code',
         'message'           => 'Message',
         'requestId'         => 'RequestId',
         'serviceMethodList' => 'ServiceMethodList',
-        'code'              => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class ListMethodsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -50,9 +53,6 @@ class ListMethodsResponseBody extends Model
         }
         if (null !== $this->serviceMethodList) {
             $res['ServiceMethodList'] = null !== $this->serviceMethodList ? $this->serviceMethodList->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class ListMethodsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -74,9 +77,6 @@ class ListMethodsResponseBody extends Model
         }
         if (isset($map['ServiceMethodList'])) {
             $model->serviceMethodList = serviceMethodList::fromMap($map['ServiceMethodList']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

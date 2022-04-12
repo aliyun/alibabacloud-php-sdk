@@ -11,7 +11,7 @@ class component extends Model
     /**
      * @var string
      */
-    public $type;
+    public $componentId;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class component extends Model
     /**
      * @var string
      */
-    public $version;
+    public $desc;
 
     /**
      * @var bool
@@ -31,19 +31,19 @@ class component extends Model
     /**
      * @var string
      */
-    public $componentId;
+    public $type;
 
     /**
      * @var string
      */
-    public $desc;
+    public $version;
     protected $_name = [
-        'type'         => 'Type',
-        'componentKey' => 'ComponentKey',
-        'version'      => 'Version',
-        'expired'      => 'Expired',
         'componentId'  => 'ComponentId',
+        'componentKey' => 'ComponentKey',
         'desc'         => 'Desc',
+        'expired'      => 'Expired',
+        'type'         => 'Type',
+        'version'      => 'Version',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class component extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->componentId) {
+            $res['ComponentId'] = $this->componentId;
         }
         if (null !== $this->componentKey) {
             $res['ComponentKey'] = $this->componentKey;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
         }
-        if (null !== $this->componentId) {
-            $res['ComponentId'] = $this->componentId;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class component extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ComponentId'])) {
+            $model->componentId = $map['ComponentId'];
         }
         if (isset($map['ComponentKey'])) {
             $model->componentKey = $map['ComponentKey'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
         }
-        if (isset($map['ComponentId'])) {
-            $model->componentId = $map['ComponentId'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

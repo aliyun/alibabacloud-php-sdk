@@ -16,17 +16,7 @@ class regionDefine extends Model
     /**
      * @var string
      */
-    public $regionName;
-
-    /**
-     * @var string
-     */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $userId;
 
     /**
      * @var int
@@ -37,13 +27,23 @@ class regionDefine extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $regionName;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'belongRegion' => 'BelongRegion',
-        'regionName'   => 'RegionName',
         'description'  => 'Description',
-        'userId'       => 'UserId',
         'id'           => 'Id',
         'regionId'     => 'RegionId',
+        'regionName'   => 'RegionName',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class regionDefine extends Model
         if (null !== $this->belongRegion) {
             $res['BelongRegion'] = $this->belongRegion;
         }
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class regionDefine extends Model
         if (isset($map['BelongRegion'])) {
             $model->belongRegion = $map['BelongRegion'];
         }
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

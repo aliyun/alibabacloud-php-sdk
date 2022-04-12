@@ -16,16 +16,16 @@ class content extends Model
     /**
      * @var string
      */
-    public $ip;
+    public $edassAppId;
 
     /**
      * @var string
      */
-    public $edassAppId;
+    public $ip;
     protected $_name = [
         'edasAppName' => 'EdasAppName',
-        'ip'          => 'Ip',
         'edassAppId'  => 'EdassAppId',
+        'ip'          => 'Ip',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class content extends Model
         if (null !== $this->edasAppName) {
             $res['EdasAppName'] = $this->edasAppName;
         }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->edassAppId) {
             $res['EdassAppId'] = $this->edassAppId;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class content extends Model
         if (isset($map['EdasAppName'])) {
             $model->edasAppName = $map['EdasAppName'];
         }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['EdassAppId'])) {
             $model->edassAppId = $map['EdassAppId'];
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         return $model;

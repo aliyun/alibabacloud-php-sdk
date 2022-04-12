@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateRoleRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $roleId;
-
-    /**
      * @var string
      */
     public $actionData;
+
+    /**
+     * @var int
+     */
+    public $roleId;
     protected $_name = [
-        'roleId'     => 'RoleId',
         'actionData' => 'ActionData',
+        'roleId'     => 'RoleId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateRoleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->roleId) {
-            $res['RoleId'] = $this->roleId;
-        }
         if (null !== $this->actionData) {
             $res['ActionData'] = $this->actionData;
+        }
+        if (null !== $this->roleId) {
+            $res['RoleId'] = $this->roleId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RoleId'])) {
-            $model->roleId = $map['RoleId'];
-        }
         if (isset($map['ActionData'])) {
             $model->actionData = $map['ActionData'];
+        }
+        if (isset($map['RoleId'])) {
+            $model->roleId = $map['RoleId'];
         }
 
         return $model;

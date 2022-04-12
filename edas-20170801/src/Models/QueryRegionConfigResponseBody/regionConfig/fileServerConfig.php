@@ -11,6 +11,11 @@ class fileServerConfig extends Model
     /**
      * @var string
      */
+    public $bucket;
+
+    /**
+     * @var string
+     */
     public $internalUrl;
 
     /**
@@ -22,16 +27,11 @@ class fileServerConfig extends Model
      * @var string
      */
     public $vpcUrl;
-
-    /**
-     * @var string
-     */
-    public $bucket;
     protected $_name = [
+        'bucket'      => 'Bucket',
         'internalUrl' => 'InternalUrl',
         'publicUrl'   => 'PublicUrl',
         'vpcUrl'      => 'VpcUrl',
-        'bucket'      => 'Bucket',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class fileServerConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bucket) {
+            $res['Bucket'] = $this->bucket;
+        }
         if (null !== $this->internalUrl) {
             $res['InternalUrl'] = $this->internalUrl;
         }
@@ -49,9 +52,6 @@ class fileServerConfig extends Model
         }
         if (null !== $this->vpcUrl) {
             $res['VpcUrl'] = $this->vpcUrl;
-        }
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class fileServerConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bucket'])) {
+            $model->bucket = $map['Bucket'];
+        }
         if (isset($map['InternalUrl'])) {
             $model->internalUrl = $map['InternalUrl'];
         }
@@ -73,9 +76,6 @@ class fileServerConfig extends Model
         }
         if (isset($map['VpcUrl'])) {
             $model->vpcUrl = $map['VpcUrl'];
-        }
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
         }
 
         return $model;

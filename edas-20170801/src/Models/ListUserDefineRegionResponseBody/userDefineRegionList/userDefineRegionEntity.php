@@ -14,16 +14,6 @@ class userDefineRegionEntity extends Model
     public $belongRegion;
 
     /**
-     * @var string
-     */
-    public $regionName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var bool
      */
     public $debugEnable;
@@ -31,7 +21,7 @@ class userDefineRegionEntity extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $description;
 
     /**
      * @var int
@@ -42,14 +32,24 @@ class userDefineRegionEntity extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $regionName;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'belongRegion' => 'BelongRegion',
-        'regionName'   => 'RegionName',
-        'description'  => 'Description',
         'debugEnable'  => 'DebugEnable',
-        'userId'       => 'UserId',
+        'description'  => 'Description',
         'id'           => 'Id',
         'regionId'     => 'RegionId',
+        'regionName'   => 'RegionName',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class userDefineRegionEntity extends Model
         if (null !== $this->belongRegion) {
             $res['BelongRegion'] = $this->belongRegion;
         }
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->debugEnable) {
             $res['DebugEnable'] = $this->debugEnable;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class userDefineRegionEntity extends Model
         if (isset($map['BelongRegion'])) {
             $model->belongRegion = $map['BelongRegion'];
         }
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['DebugEnable'])) {
             $model->debugEnable = $map['DebugEnable'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

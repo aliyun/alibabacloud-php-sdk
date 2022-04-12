@@ -9,6 +9,61 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @var int
+     */
+    public $cpu;
+
+    /**
+     * @var string
+     */
+    public $ecuId;
+
+    /**
+     * @var string
+     */
+    public $eip;
+
+    /**
+     * @var bool
+     */
+    public $expired;
+
+    /**
+     * @var string
+     */
+    public $innerIp;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var int
+     */
+    public $mem;
+
+    /**
+     * @var string
+     */
+    public $privateIp;
+
+    /**
+     * @var string
+     */
+    public $publicIp;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string
      */
     public $status;
@@ -21,77 +76,22 @@ class instance extends Model
     /**
      * @var string
      */
-    public $privateIp;
-
-    /**
-     * @var bool
-     */
-    public $expired;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $mem;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $vpcName;
-
-    /**
-     * @var string
-     */
-    public $ecuId;
-
-    /**
-     * @var string
-     */
-    public $innerIp;
-
-    /**
-     * @var int
-     */
-    public $cpu;
-
-    /**
-     * @var string
-     */
-    public $eip;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $publicIp;
     protected $_name = [
+        'cpu'          => 'Cpu',
+        'ecuId'        => 'EcuId',
+        'eip'          => 'Eip',
+        'expired'      => 'Expired',
+        'innerIp'      => 'InnerIp',
+        'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'mem'          => 'Mem',
+        'privateIp'    => 'PrivateIp',
+        'publicIp'     => 'PublicIp',
+        'regionId'     => 'RegionId',
         'status'       => 'Status',
         'vpcId'        => 'VpcId',
-        'privateIp'    => 'PrivateIp',
-        'expired'      => 'Expired',
-        'instanceId'   => 'InstanceId',
-        'mem'          => 'Mem',
-        'regionId'     => 'RegionId',
         'vpcName'      => 'VpcName',
-        'ecuId'        => 'EcuId',
-        'innerIp'      => 'InnerIp',
-        'cpu'          => 'Cpu',
-        'eip'          => 'Eip',
-        'instanceName' => 'InstanceName',
-        'publicIp'     => 'PublicIp',
     ];
 
     public function validate()
@@ -101,47 +101,47 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->ecuId) {
+            $res['EcuId'] = $this->ecuId;
+        }
+        if (null !== $this->eip) {
+            $res['Eip'] = $this->eip;
+        }
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->innerIp) {
+            $res['InnerIp'] = $this->innerIp;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->mem) {
+            $res['Mem'] = $this->mem;
+        }
+        if (null !== $this->privateIp) {
+            $res['PrivateIp'] = $this->privateIp;
+        }
+        if (null !== $this->publicIp) {
+            $res['PublicIp'] = $this->publicIp;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->privateIp) {
-            $res['PrivateIp'] = $this->privateIp;
-        }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->mem) {
-            $res['Mem'] = $this->mem;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->ecuId) {
-            $res['EcuId'] = $this->ecuId;
-        }
-        if (null !== $this->innerIp) {
-            $res['InnerIp'] = $this->innerIp;
-        }
-        if (null !== $this->cpu) {
-            $res['Cpu'] = $this->cpu;
-        }
-        if (null !== $this->eip) {
-            $res['Eip'] = $this->eip;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->publicIp) {
-            $res['PublicIp'] = $this->publicIp;
         }
 
         return $res;
@@ -155,47 +155,47 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['EcuId'])) {
+            $model->ecuId = $map['EcuId'];
+        }
+        if (isset($map['Eip'])) {
+            $model->eip = $map['Eip'];
+        }
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
+        }
+        if (isset($map['InnerIp'])) {
+            $model->innerIp = $map['InnerIp'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['Mem'])) {
+            $model->mem = $map['Mem'];
+        }
+        if (isset($map['PrivateIp'])) {
+            $model->privateIp = $map['PrivateIp'];
+        }
+        if (isset($map['PublicIp'])) {
+            $model->publicIp = $map['PublicIp'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['PrivateIp'])) {
-            $model->privateIp = $map['PrivateIp'];
-        }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Mem'])) {
-            $model->mem = $map['Mem'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['EcuId'])) {
-            $model->ecuId = $map['EcuId'];
-        }
-        if (isset($map['InnerIp'])) {
-            $model->innerIp = $map['InnerIp'];
-        }
-        if (isset($map['Cpu'])) {
-            $model->cpu = $map['Cpu'];
-        }
-        if (isset($map['Eip'])) {
-            $model->eip = $map['Eip'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['PublicIp'])) {
-            $model->publicIp = $map['PublicIp'];
         }
 
         return $model;

@@ -11,22 +11,17 @@ class imageInfo extends Model
     /**
      * @var string
      */
-    public $repoId;
-
-    /**
-     * @var string
-     */
     public $imageUrl;
 
     /**
      * @var string
      */
-    public $repoOriginType;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $tag;
+    public $repoId;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class imageInfo extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $repoOriginType;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
-        'repoId'         => 'RepoId',
         'imageUrl'       => 'ImageUrl',
-        'repoOriginType' => 'RepoOriginType',
-        'tag'            => 'Tag',
+        'regionId'       => 'RegionId',
+        'repoId'         => 'RepoId',
         'repoName'       => 'RepoName',
         'repoNamespace'  => 'RepoNamespace',
-        'regionId'       => 'RegionId',
+        'repoOriginType' => 'RepoOriginType',
+        'tag'            => 'Tag',
     ];
 
     public function validate()
@@ -59,17 +59,14 @@ class imageInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
-        }
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
-        if (null !== $this->repoOriginType) {
-            $res['RepoOriginType'] = $this->repoOriginType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -77,8 +74,11 @@ class imageInfo extends Model
         if (null !== $this->repoNamespace) {
             $res['RepoNamespace'] = $this->repoNamespace;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->repoOriginType) {
+            $res['RepoOriginType'] = $this->repoOriginType;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -92,17 +92,14 @@ class imageInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
-        }
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
-        if (isset($map['RepoOriginType'])) {
-            $model->repoOriginType = $map['RepoOriginType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
@@ -110,8 +107,11 @@ class imageInfo extends Model
         if (isset($map['RepoNamespace'])) {
             $model->repoNamespace = $map['RepoNamespace'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['RepoOriginType'])) {
+            $model->repoOriginType = $map['RepoOriginType'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserDefineRegionResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $message;
+    public $code;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $message;
 
     /**
      * @var regionDefine
@@ -25,14 +25,14 @@ class DeleteUserDefineRegionResponseBody extends Model
     public $regionDefine;
 
     /**
-     * @var int
+     * @var string
      */
-    public $code;
+    public $requestId;
     protected $_name = [
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
-        'regionDefine' => 'RegionDefine',
         'code'         => 'Code',
+        'message'      => 'Message',
+        'regionDefine' => 'RegionDefine',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class DeleteUserDefineRegionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->regionDefine) {
             $res['RegionDefine'] = null !== $this->regionDefine ? $this->regionDefine->toMap() : null;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class DeleteUserDefineRegionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RegionDefine'])) {
             $model->regionDefine = regionDefine::fromMap($map['RegionDefine']);
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

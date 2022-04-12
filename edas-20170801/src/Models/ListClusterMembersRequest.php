@@ -19,19 +19,19 @@ class ListClusterMembersRequest extends Model
     public $currentPage;
 
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
     public $ecsList;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
         'clusterId'   => 'ClusterId',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
         'ecsList'     => 'EcsList',
+        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class ListClusterMembersRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->ecsList) {
             $res['EcsList'] = $this->ecsList;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class ListClusterMembersRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['EcsList'])) {
             $model->ecsList = $map['EcsList'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

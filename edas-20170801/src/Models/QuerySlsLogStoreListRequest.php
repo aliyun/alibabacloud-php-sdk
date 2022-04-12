@@ -14,9 +14,9 @@ class QuerySlsLogStoreListRequest extends Model
     public $appId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $type;
+    public $currentPage;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class QuerySlsLogStoreListRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $type;
     protected $_name = [
         'appId'       => 'AppId',
-        'type'        => 'Type',
-        'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QuerySlsLogStoreListRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QuerySlsLogStoreListRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

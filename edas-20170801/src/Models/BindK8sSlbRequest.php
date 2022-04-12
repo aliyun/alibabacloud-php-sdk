@@ -21,7 +21,17 @@ class BindK8sSlbRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $port;
+
+    /**
+     * @var string
+     */
+    public $scheduler;
+
+    /**
+     * @var string
+     */
+    public $servicePortInfos;
 
     /**
      * @var string
@@ -36,38 +46,28 @@ class BindK8sSlbRequest extends Model
     /**
      * @var string
      */
-    public $targetPort;
-
-    /**
-     * @var string
-     */
-    public $port;
-
-    /**
-     * @var string
-     */
-    public $servicePortInfos;
-
-    /**
-     * @var string
-     */
     public $specification;
 
     /**
      * @var string
      */
-    public $scheduler;
+    public $targetPort;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'appId'            => 'AppId',
         'clusterId'        => 'ClusterId',
-        'type'             => 'Type',
+        'port'             => 'Port',
+        'scheduler'        => 'Scheduler',
+        'servicePortInfos' => 'ServicePortInfos',
         'slbId'            => 'SlbId',
         'slbProtocol'      => 'SlbProtocol',
-        'targetPort'       => 'TargetPort',
-        'port'             => 'Port',
-        'servicePortInfos' => 'ServicePortInfos',
         'specification'    => 'Specification',
-        'scheduler'        => 'Scheduler',
+        'targetPort'       => 'TargetPort',
+        'type'             => 'Type',
     ];
 
     public function validate()
@@ -83,8 +83,14 @@ class BindK8sSlbRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->scheduler) {
+            $res['Scheduler'] = $this->scheduler;
+        }
+        if (null !== $this->servicePortInfos) {
+            $res['ServicePortInfos'] = $this->servicePortInfos;
         }
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
@@ -92,20 +98,14 @@ class BindK8sSlbRequest extends Model
         if (null !== $this->slbProtocol) {
             $res['SlbProtocol'] = $this->slbProtocol;
         }
-        if (null !== $this->targetPort) {
-            $res['TargetPort'] = $this->targetPort;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->servicePortInfos) {
-            $res['ServicePortInfos'] = $this->servicePortInfos;
-        }
         if (null !== $this->specification) {
             $res['Specification'] = $this->specification;
         }
-        if (null !== $this->scheduler) {
-            $res['Scheduler'] = $this->scheduler;
+        if (null !== $this->targetPort) {
+            $res['TargetPort'] = $this->targetPort;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -125,8 +125,14 @@ class BindK8sSlbRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['Scheduler'])) {
+            $model->scheduler = $map['Scheduler'];
+        }
+        if (isset($map['ServicePortInfos'])) {
+            $model->servicePortInfos = $map['ServicePortInfos'];
         }
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];
@@ -134,20 +140,14 @@ class BindK8sSlbRequest extends Model
         if (isset($map['SlbProtocol'])) {
             $model->slbProtocol = $map['SlbProtocol'];
         }
-        if (isset($map['TargetPort'])) {
-            $model->targetPort = $map['TargetPort'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['ServicePortInfos'])) {
-            $model->servicePortInfos = $map['ServicePortInfos'];
-        }
         if (isset($map['Specification'])) {
             $model->specification = $map['Specification'];
         }
-        if (isset($map['Scheduler'])) {
-            $model->scheduler = $map['Scheduler'];
+        if (isset($map['TargetPort'])) {
+            $model->targetPort = $map['TargetPort'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

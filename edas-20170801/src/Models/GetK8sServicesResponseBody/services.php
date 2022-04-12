@@ -12,7 +12,12 @@ class services extends Model
     /**
      * @var string
      */
-    public $type;
+    public $clusterIP;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var servicePorts[]
@@ -22,17 +27,12 @@ class services extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $clusterIP;
+    public $type;
     protected $_name = [
-        'type'         => 'Type',
-        'servicePorts' => 'ServicePorts',
-        'name'         => 'Name',
         'clusterIP'    => 'ClusterIP',
+        'name'         => 'Name',
+        'servicePorts' => 'ServicePorts',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -42,8 +42,11 @@ class services extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->clusterIP) {
+            $res['ClusterIP'] = $this->clusterIP;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->servicePorts) {
             $res['ServicePorts'] = [];
@@ -54,11 +57,8 @@ class services extends Model
                 }
             }
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->clusterIP) {
-            $res['ClusterIP'] = $this->clusterIP;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -72,8 +72,11 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ClusterIP'])) {
+            $model->clusterIP = $map['ClusterIP'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ServicePorts'])) {
             if (!empty($map['ServicePorts'])) {
@@ -84,11 +87,8 @@ class services extends Model
                 }
             }
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ClusterIP'])) {
-            $model->clusterIP = $map['ClusterIP'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

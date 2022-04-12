@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $deleteAll;
+
+    /**
+     * @var string
+     */
+    public $resourceIds;
+
+    /**
      * @var string
      */
     public $resourceRegionId;
@@ -21,23 +31,13 @@ class UntagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $resourceIds;
-
-    /**
-     * @var string
-     */
     public $tagKeys;
-
-    /**
-     * @var bool
-     */
-    public $deleteAll;
     protected $_name = [
+        'deleteAll'        => 'DeleteAll',
+        'resourceIds'      => 'ResourceIds',
         'resourceRegionId' => 'ResourceRegionId',
         'resourceType'     => 'ResourceType',
-        'resourceIds'      => 'ResourceIds',
         'tagKeys'          => 'TagKeys',
-        'deleteAll'        => 'DeleteAll',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UntagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deleteAll) {
+            $res['DeleteAll'] = $this->deleteAll;
+        }
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
+        }
         if (null !== $this->resourceRegionId) {
             $res['ResourceRegionId'] = $this->resourceRegionId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
-        }
         if (null !== $this->tagKeys) {
             $res['TagKeys'] = $this->tagKeys;
-        }
-        if (null !== $this->deleteAll) {
-            $res['DeleteAll'] = $this->deleteAll;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UntagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeleteAll'])) {
+            $model->deleteAll = $map['DeleteAll'];
+        }
+        if (isset($map['ResourceIds'])) {
+            $model->resourceIds = $map['ResourceIds'];
+        }
         if (isset($map['ResourceRegionId'])) {
             $model->resourceRegionId = $map['ResourceRegionId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['ResourceIds'])) {
-            $model->resourceIds = $map['ResourceIds'];
-        }
         if (isset($map['TagKeys'])) {
             $model->tagKeys = $map['TagKeys'];
-        }
-        if (isset($map['DeleteAll'])) {
-            $model->deleteAll = $map['DeleteAll'];
         }
 
         return $model;

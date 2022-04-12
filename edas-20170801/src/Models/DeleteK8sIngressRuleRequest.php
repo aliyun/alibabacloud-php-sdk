@@ -16,16 +16,16 @@ class DeleteK8sIngressRuleRequest extends Model
     /**
      * @var string
      */
-    public $namespace;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $namespace;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'namespace' => 'Namespace',
         'name'      => 'Name',
+        'namespace' => 'Namespace',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteK8sIngressRuleRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DeleteK8sIngressRuleRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         return $model;

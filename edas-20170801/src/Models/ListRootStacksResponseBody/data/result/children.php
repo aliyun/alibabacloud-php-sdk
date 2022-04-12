@@ -19,19 +19,19 @@ class children extends Model
     public $icon;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'comment' => 'Comment',
         'icon'    => 'Icon',
-        'name'    => 'Name',
         'id'      => 'Id',
+        'name'    => 'Name',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class children extends Model
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class children extends Model
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

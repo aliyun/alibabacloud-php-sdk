@@ -14,19 +14,9 @@ use AlibabaCloud\Tea\Model;
 class appInfo extends Model
 {
     /**
-     * @var ecuList
+     * @var application
      */
-    public $ecuList;
-
-    /**
-     * @var eccList
-     */
-    public $eccList;
-
-    /**
-     * @var groupList
-     */
-    public $groupList;
+    public $application;
 
     /**
      * @var deployRecordList
@@ -34,15 +24,25 @@ class appInfo extends Model
     public $deployRecordList;
 
     /**
-     * @var application
+     * @var eccList
      */
-    public $application;
+    public $eccList;
+
+    /**
+     * @var ecuList
+     */
+    public $ecuList;
+
+    /**
+     * @var groupList
+     */
+    public $groupList;
     protected $_name = [
-        'ecuList'          => 'EcuList',
-        'eccList'          => 'EccList',
-        'groupList'        => 'GroupList',
-        'deployRecordList' => 'DeployRecordList',
         'application'      => 'Application',
+        'deployRecordList' => 'DeployRecordList',
+        'eccList'          => 'EccList',
+        'ecuList'          => 'EcuList',
+        'groupList'        => 'GroupList',
     ];
 
     public function validate()
@@ -52,20 +52,20 @@ class appInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ecuList) {
-            $res['EcuList'] = null !== $this->ecuList ? $this->ecuList->toMap() : null;
-        }
-        if (null !== $this->eccList) {
-            $res['EccList'] = null !== $this->eccList ? $this->eccList->toMap() : null;
-        }
-        if (null !== $this->groupList) {
-            $res['GroupList'] = null !== $this->groupList ? $this->groupList->toMap() : null;
+        if (null !== $this->application) {
+            $res['Application'] = null !== $this->application ? $this->application->toMap() : null;
         }
         if (null !== $this->deployRecordList) {
             $res['DeployRecordList'] = null !== $this->deployRecordList ? $this->deployRecordList->toMap() : null;
         }
-        if (null !== $this->application) {
-            $res['Application'] = null !== $this->application ? $this->application->toMap() : null;
+        if (null !== $this->eccList) {
+            $res['EccList'] = null !== $this->eccList ? $this->eccList->toMap() : null;
+        }
+        if (null !== $this->ecuList) {
+            $res['EcuList'] = null !== $this->ecuList ? $this->ecuList->toMap() : null;
+        }
+        if (null !== $this->groupList) {
+            $res['GroupList'] = null !== $this->groupList ? $this->groupList->toMap() : null;
         }
 
         return $res;
@@ -79,20 +79,20 @@ class appInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EcuList'])) {
-            $model->ecuList = ecuList::fromMap($map['EcuList']);
-        }
-        if (isset($map['EccList'])) {
-            $model->eccList = eccList::fromMap($map['EccList']);
-        }
-        if (isset($map['GroupList'])) {
-            $model->groupList = groupList::fromMap($map['GroupList']);
+        if (isset($map['Application'])) {
+            $model->application = application::fromMap($map['Application']);
         }
         if (isset($map['DeployRecordList'])) {
             $model->deployRecordList = deployRecordList::fromMap($map['DeployRecordList']);
         }
-        if (isset($map['Application'])) {
-            $model->application = application::fromMap($map['Application']);
+        if (isset($map['EccList'])) {
+            $model->eccList = eccList::fromMap($map['EccList']);
+        }
+        if (isset($map['EcuList'])) {
+            $model->ecuList = ecuList::fromMap($map['EcuList']);
+        }
+        if (isset($map['GroupList'])) {
+            $model->groupList = groupList::fromMap($map['GroupList']);
         }
 
         return $model;

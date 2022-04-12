@@ -11,7 +11,7 @@ class eccInfo extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $appId;
 
     /**
      * @var string
@@ -41,21 +41,21 @@ class eccInfo extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $packageVersion;
 
     /**
      * @var string
      */
-    public $packageVersion;
+    public $vpcId;
     protected $_name = [
-        'vpcId'          => 'VpcId',
+        'appId'          => 'AppId',
         'eccId'          => 'EccId',
         'ecuId'          => 'EcuId',
         'groupId'        => 'GroupId',
         'groupName'      => 'GroupName',
         'packageMd5'     => 'PackageMd5',
-        'appId'          => 'AppId',
         'packageVersion' => 'PackageVersion',
+        'vpcId'          => 'VpcId',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class eccInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->eccId) {
             $res['EccId'] = $this->eccId;
@@ -83,11 +83,11 @@ class eccInfo extends Model
         if (null !== $this->packageMd5) {
             $res['PackageMd5'] = $this->packageMd5;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
         if (null !== $this->packageVersion) {
             $res['PackageVersion'] = $this->packageVersion;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -101,8 +101,8 @@ class eccInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['EccId'])) {
             $model->eccId = $map['EccId'];
@@ -119,11 +119,11 @@ class eccInfo extends Model
         if (isset($map['PackageMd5'])) {
             $model->packageMd5 = $map['PackageMd5'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
         if (isset($map['PackageVersion'])) {
             $model->packageVersion = $map['PackageVersion'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

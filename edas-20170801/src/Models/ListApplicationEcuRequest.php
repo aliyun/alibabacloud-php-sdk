@@ -12,8 +12,14 @@ class ListApplicationEcuRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $logicalRegionId;
     protected $_name = [
-        'appId' => 'AppId',
+        'appId'           => 'AppId',
+        'logicalRegionId' => 'LogicalRegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class ListApplicationEcuRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->logicalRegionId) {
+            $res['LogicalRegionId'] = $this->logicalRegionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class ListApplicationEcuRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['LogicalRegionId'])) {
+            $model->logicalRegionId = $map['LogicalRegionId'];
         }
 
         return $model;

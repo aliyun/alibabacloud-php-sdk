@@ -11,12 +11,7 @@ class conf extends Model
     /**
      * @var string
      */
-    public $postStart;
-
-    /**
-     * @var string
-     */
-    public $readiness;
+    public $affinity;
 
     /**
      * @var bool
@@ -26,32 +21,7 @@ class conf extends Model
     /**
      * @var string
      */
-    public $k8sCmdArgs;
-
-    /**
-     * @var string
-     */
-    public $liveness;
-
-    /**
-     * @var string
-     */
     public $deployAcrossNodes;
-
-    /**
-     * @var string
-     */
-    public $k8sCmd;
-
-    /**
-     * @var string
-     */
-    public $preStop;
-
-    /**
-     * @var string
-     */
-    public $jarStartArgs;
 
     /**
      * @var string
@@ -61,7 +31,7 @@ class conf extends Model
     /**
      * @var string
      */
-    public $k8sNasInfo;
+    public $jarStartArgs;
 
     /**
      * @var string
@@ -71,7 +41,12 @@ class conf extends Model
     /**
      * @var string
      */
-    public $runtimeClassName;
+    public $k8sCmd;
+
+    /**
+     * @var string
+     */
+    public $k8sCmdArgs;
 
     /**
      * @var string
@@ -81,23 +56,60 @@ class conf extends Model
     /**
      * @var string
      */
+    public $k8sNasInfo;
+
+    /**
+     * @var string
+     */
     public $k8sVolumeInfo;
+
+    /**
+     * @var string
+     */
+    public $liveness;
+
+    /**
+     * @var string
+     */
+    public $postStart;
+
+    /**
+     * @var string
+     */
+    public $preStop;
+
+    /**
+     * @var string
+     */
+    public $readiness;
+
+    /**
+     * @var string
+     */
+    public $runtimeClassName;
+
+    /**
+     * @var string
+     */
+    public $tolerations;
     protected $_name = [
-        'postStart'          => 'PostStart',
-        'readiness'          => 'Readiness',
+        'affinity'           => 'Affinity',
         'ahasEnabled'        => 'AhasEnabled',
-        'k8sCmdArgs'         => 'K8sCmdArgs',
-        'liveness'           => 'Liveness',
         'deployAcrossNodes'  => 'DeployAcrossNodes',
-        'k8sCmd'             => 'K8sCmd',
-        'preStop'            => 'PreStop',
-        'jarStartArgs'       => 'JarStartArgs',
         'deployAcrossZones'  => 'DeployAcrossZones',
-        'k8sNasInfo'         => 'K8sNasInfo',
+        'jarStartArgs'       => 'JarStartArgs',
         'jarStartOptions'    => 'JarStartOptions',
-        'runtimeClassName'   => 'RuntimeClassName',
+        'k8sCmd'             => 'K8sCmd',
+        'k8sCmdArgs'         => 'K8sCmdArgs',
         'k8sLocalvolumeInfo' => 'K8sLocalvolumeInfo',
+        'k8sNasInfo'         => 'K8sNasInfo',
         'k8sVolumeInfo'      => 'K8sVolumeInfo',
+        'liveness'           => 'Liveness',
+        'postStart'          => 'PostStart',
+        'preStop'            => 'PreStop',
+        'readiness'          => 'Readiness',
+        'runtimeClassName'   => 'RuntimeClassName',
+        'tolerations'        => 'Tolerations',
     ];
 
     public function validate()
@@ -107,50 +119,56 @@ class conf extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->postStart) {
-            $res['PostStart'] = $this->postStart;
-        }
-        if (null !== $this->readiness) {
-            $res['Readiness'] = $this->readiness;
+        if (null !== $this->affinity) {
+            $res['Affinity'] = $this->affinity;
         }
         if (null !== $this->ahasEnabled) {
             $res['AhasEnabled'] = $this->ahasEnabled;
         }
-        if (null !== $this->k8sCmdArgs) {
-            $res['K8sCmdArgs'] = $this->k8sCmdArgs;
-        }
-        if (null !== $this->liveness) {
-            $res['Liveness'] = $this->liveness;
-        }
         if (null !== $this->deployAcrossNodes) {
             $res['DeployAcrossNodes'] = $this->deployAcrossNodes;
-        }
-        if (null !== $this->k8sCmd) {
-            $res['K8sCmd'] = $this->k8sCmd;
-        }
-        if (null !== $this->preStop) {
-            $res['PreStop'] = $this->preStop;
-        }
-        if (null !== $this->jarStartArgs) {
-            $res['JarStartArgs'] = $this->jarStartArgs;
         }
         if (null !== $this->deployAcrossZones) {
             $res['DeployAcrossZones'] = $this->deployAcrossZones;
         }
-        if (null !== $this->k8sNasInfo) {
-            $res['K8sNasInfo'] = $this->k8sNasInfo;
+        if (null !== $this->jarStartArgs) {
+            $res['JarStartArgs'] = $this->jarStartArgs;
         }
         if (null !== $this->jarStartOptions) {
             $res['JarStartOptions'] = $this->jarStartOptions;
         }
-        if (null !== $this->runtimeClassName) {
-            $res['RuntimeClassName'] = $this->runtimeClassName;
+        if (null !== $this->k8sCmd) {
+            $res['K8sCmd'] = $this->k8sCmd;
+        }
+        if (null !== $this->k8sCmdArgs) {
+            $res['K8sCmdArgs'] = $this->k8sCmdArgs;
         }
         if (null !== $this->k8sLocalvolumeInfo) {
             $res['K8sLocalvolumeInfo'] = $this->k8sLocalvolumeInfo;
         }
+        if (null !== $this->k8sNasInfo) {
+            $res['K8sNasInfo'] = $this->k8sNasInfo;
+        }
         if (null !== $this->k8sVolumeInfo) {
             $res['K8sVolumeInfo'] = $this->k8sVolumeInfo;
+        }
+        if (null !== $this->liveness) {
+            $res['Liveness'] = $this->liveness;
+        }
+        if (null !== $this->postStart) {
+            $res['PostStart'] = $this->postStart;
+        }
+        if (null !== $this->preStop) {
+            $res['PreStop'] = $this->preStop;
+        }
+        if (null !== $this->readiness) {
+            $res['Readiness'] = $this->readiness;
+        }
+        if (null !== $this->runtimeClassName) {
+            $res['RuntimeClassName'] = $this->runtimeClassName;
+        }
+        if (null !== $this->tolerations) {
+            $res['Tolerations'] = $this->tolerations;
         }
 
         return $res;
@@ -164,50 +182,56 @@ class conf extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PostStart'])) {
-            $model->postStart = $map['PostStart'];
-        }
-        if (isset($map['Readiness'])) {
-            $model->readiness = $map['Readiness'];
+        if (isset($map['Affinity'])) {
+            $model->affinity = $map['Affinity'];
         }
         if (isset($map['AhasEnabled'])) {
             $model->ahasEnabled = $map['AhasEnabled'];
         }
-        if (isset($map['K8sCmdArgs'])) {
-            $model->k8sCmdArgs = $map['K8sCmdArgs'];
-        }
-        if (isset($map['Liveness'])) {
-            $model->liveness = $map['Liveness'];
-        }
         if (isset($map['DeployAcrossNodes'])) {
             $model->deployAcrossNodes = $map['DeployAcrossNodes'];
-        }
-        if (isset($map['K8sCmd'])) {
-            $model->k8sCmd = $map['K8sCmd'];
-        }
-        if (isset($map['PreStop'])) {
-            $model->preStop = $map['PreStop'];
-        }
-        if (isset($map['JarStartArgs'])) {
-            $model->jarStartArgs = $map['JarStartArgs'];
         }
         if (isset($map['DeployAcrossZones'])) {
             $model->deployAcrossZones = $map['DeployAcrossZones'];
         }
-        if (isset($map['K8sNasInfo'])) {
-            $model->k8sNasInfo = $map['K8sNasInfo'];
+        if (isset($map['JarStartArgs'])) {
+            $model->jarStartArgs = $map['JarStartArgs'];
         }
         if (isset($map['JarStartOptions'])) {
             $model->jarStartOptions = $map['JarStartOptions'];
         }
-        if (isset($map['RuntimeClassName'])) {
-            $model->runtimeClassName = $map['RuntimeClassName'];
+        if (isset($map['K8sCmd'])) {
+            $model->k8sCmd = $map['K8sCmd'];
+        }
+        if (isset($map['K8sCmdArgs'])) {
+            $model->k8sCmdArgs = $map['K8sCmdArgs'];
         }
         if (isset($map['K8sLocalvolumeInfo'])) {
             $model->k8sLocalvolumeInfo = $map['K8sLocalvolumeInfo'];
         }
+        if (isset($map['K8sNasInfo'])) {
+            $model->k8sNasInfo = $map['K8sNasInfo'];
+        }
         if (isset($map['K8sVolumeInfo'])) {
             $model->k8sVolumeInfo = $map['K8sVolumeInfo'];
+        }
+        if (isset($map['Liveness'])) {
+            $model->liveness = $map['Liveness'];
+        }
+        if (isset($map['PostStart'])) {
+            $model->postStart = $map['PostStart'];
+        }
+        if (isset($map['PreStop'])) {
+            $model->preStop = $map['PreStop'];
+        }
+        if (isset($map['Readiness'])) {
+            $model->readiness = $map['Readiness'];
+        }
+        if (isset($map['RuntimeClassName'])) {
+            $model->runtimeClassName = $map['RuntimeClassName'];
+        }
+        if (isset($map['Tolerations'])) {
+            $model->tolerations = $map['Tolerations'];
         }
 
         return $model;

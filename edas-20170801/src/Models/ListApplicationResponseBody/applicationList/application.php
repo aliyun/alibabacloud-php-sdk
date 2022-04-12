@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
-     * @var int
-     */
-    public $clusterType;
-
-    /**
      * @var string
      */
     public $appId;
@@ -21,22 +16,7 @@ class application extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $applicationType;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $runningInstanceCount;
 
     /**
      * @var int
@@ -49,19 +29,39 @@ class application extends Model
     public $clusterId;
 
     /**
+     * @var int
+     */
+    public $clusterType;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $runningInstanceCount;
     protected $_name = [
-        'clusterType'          => 'ClusterType',
         'appId'                => 'AppId',
-        'resourceGroupId'      => 'ResourceGroupId',
         'applicationType'      => 'ApplicationType',
-        'name'                 => 'Name',
-        'runningInstanceCount' => 'RunningInstanceCount',
         'buildPackageId'       => 'BuildPackageId',
         'clusterId'            => 'ClusterId',
+        'clusterType'          => 'ClusterType',
+        'name'                 => 'Name',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'runningInstanceCount' => 'RunningInstanceCount',
     ];
 
     public function validate()
@@ -71,23 +71,11 @@ class application extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->applicationType) {
             $res['ApplicationType'] = $this->applicationType;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->runningInstanceCount) {
-            $res['RunningInstanceCount'] = $this->runningInstanceCount;
         }
         if (null !== $this->buildPackageId) {
             $res['BuildPackageId'] = $this->buildPackageId;
@@ -95,8 +83,20 @@ class application extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->runningInstanceCount) {
+            $res['RunningInstanceCount'] = $this->runningInstanceCount;
         }
 
         return $res;
@@ -110,23 +110,11 @@ class application extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['ApplicationType'])) {
             $model->applicationType = $map['ApplicationType'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['RunningInstanceCount'])) {
-            $model->runningInstanceCount = $map['RunningInstanceCount'];
         }
         if (isset($map['BuildPackageId'])) {
             $model->buildPackageId = $map['BuildPackageId'];
@@ -134,8 +122,20 @@ class application extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RunningInstanceCount'])) {
+            $model->runningInstanceCount = $map['RunningInstanceCount'];
         }
 
         return $model;

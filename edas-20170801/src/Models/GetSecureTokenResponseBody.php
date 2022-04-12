@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetSecureTokenResponseBody extends Model
 {
     /**
-     * @var secureToken
+     * @var int
      */
-    public $secureToken;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class GetSecureTokenResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var secureToken
      */
-    public $code;
+    public $secureToken;
     protected $_name = [
-        'secureToken' => 'SecureToken',
+        'code'        => 'Code',
         'message'     => 'Message',
         'requestId'   => 'RequestId',
-        'code'        => 'Code',
+        'secureToken' => 'SecureToken',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class GetSecureTokenResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secureToken) {
-            $res['SecureToken'] = null !== $this->secureToken ? $this->secureToken->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class GetSecureTokenResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->secureToken) {
+            $res['SecureToken'] = null !== $this->secureToken ? $this->secureToken->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class GetSecureTokenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecureToken'])) {
-            $model->secureToken = secureToken::fromMap($map['SecureToken']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class GetSecureTokenResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['SecureToken'])) {
+            $model->secureToken = secureToken::fromMap($map['SecureToken']);
         }
 
         return $model;

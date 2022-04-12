@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryEccInfoResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var eccInfo
      */
     public $eccInfo;
@@ -23,16 +28,11 @@ class QueryEccInfoResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
         'eccInfo'   => 'EccInfo',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class QueryEccInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->eccInfo) {
             $res['EccInfo'] = null !== $this->eccInfo ? $this->eccInfo->toMap() : null;
         }
@@ -50,9 +53,6 @@ class QueryEccInfoResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class QueryEccInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['EccInfo'])) {
             $model->eccInfo = eccInfo::fromMap($map['EccInfo']);
         }
@@ -74,9 +77,6 @@ class QueryEccInfoResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

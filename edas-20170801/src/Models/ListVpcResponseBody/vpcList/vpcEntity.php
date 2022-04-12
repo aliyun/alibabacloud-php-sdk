@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class vpcEntity extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vpcName;
+    public $ecsNum;
 
     /**
      * @var bool
@@ -26,24 +21,29 @@ class vpcEntity extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var int
-     */
-    public $ecsNum;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vpcName;
     protected $_name = [
+        'ecsNum'   => 'EcsNum',
+        'expired'  => 'Expired',
+        'regionId' => 'RegionId',
+        'userId'   => 'UserId',
         'vpcId'    => 'VpcId',
         'vpcName'  => 'VpcName',
-        'expired'  => 'Expired',
-        'userId'   => 'UserId',
-        'ecsNum'   => 'EcsNum',
-        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class vpcEntity extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ecsNum) {
+            $res['EcsNum'] = $this->ecsNum;
+        }
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->ecsNum) {
-            $res['EcsNum'] = $this->ecsNum;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class vpcEntity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EcsNum'])) {
+            $model->ecsNum = $map['EcsNum'];
+        }
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['EcsNum'])) {
-            $model->ecsNum = $map['EcsNum'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

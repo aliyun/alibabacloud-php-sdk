@@ -11,12 +11,22 @@ class applicationInfo extends Model
     /**
      * @var string
      */
-    public $changeOrderId;
+    public $appId;
 
     /**
      * @var string
      */
     public $appName;
+
+    /**
+     * @var string
+     */
+    public $changeOrderId;
+
+    /**
+     * @var int
+     */
+    public $clusterType;
 
     /**
      * @var bool
@@ -26,42 +36,32 @@ class applicationInfo extends Model
     /**
      * @var string
      */
+    public $edasId;
+
+    /**
+     * @var string
+     */
     public $owner;
 
     /**
      * @var string
      */
-    public $edasId;
-
-    /**
-     * @var int
-     */
-    public $clusterType;
-
-    /**
-     * @var string
-     */
-    public $appId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $userId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
-        'changeOrderId' => 'ChangeOrderId',
-        'appName'       => 'AppName',
-        'dockerize'     => 'Dockerize',
-        'owner'         => 'Owner',
-        'edasId'        => 'EdasId',
-        'clusterType'   => 'ClusterType',
         'appId'         => 'AppId',
-        'userId'        => 'UserId',
+        'appName'       => 'AppName',
+        'changeOrderId' => 'ChangeOrderId',
+        'clusterType'   => 'ClusterType',
+        'dockerize'     => 'Dockerize',
+        'edasId'        => 'EdasId',
+        'owner'         => 'Owner',
         'regionId'      => 'RegionId',
+        'userId'        => 'UserId',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class applicationInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->changeOrderId) {
-            $res['ChangeOrderId'] = $this->changeOrderId;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->dockerize) {
-            $res['Dockerize'] = $this->dockerize;
-        }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->edasId) {
-            $res['EdasId'] = $this->edasId;
+        if (null !== $this->changeOrderId) {
+            $res['ChangeOrderId'] = $this->changeOrderId;
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->dockerize) {
+            $res['Dockerize'] = $this->dockerize;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->edasId) {
+            $res['EdasId'] = $this->edasId;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class applicationInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChangeOrderId'])) {
-            $model->changeOrderId = $map['ChangeOrderId'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['Dockerize'])) {
-            $model->dockerize = $map['Dockerize'];
-        }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['EdasId'])) {
-            $model->edasId = $map['EdasId'];
+        if (isset($map['ChangeOrderId'])) {
+            $model->changeOrderId = $map['ChangeOrderId'];
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['Dockerize'])) {
+            $model->dockerize = $map['Dockerize'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['EdasId'])) {
+            $model->edasId = $map['EdasId'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

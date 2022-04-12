@@ -11,12 +11,12 @@ class secureToken extends Model
     /**
      * @var string
      */
-    public $secretKey;
+    public $accessKey;
 
     /**
      * @var string
      */
-    public $accessKey;
+    public $addressServerHost;
 
     /**
      * @var string
@@ -31,22 +31,7 @@ class secureToken extends Model
     /**
      * @var string
      */
-    public $regionName;
-
-    /**
-     * @var string
-     */
     public $edasId;
-
-    /**
-     * @var string
-     */
-    public $addressServerHost;
-
-    /**
-     * @var string
-     */
-    public $userId;
 
     /**
      * @var int
@@ -56,24 +41,39 @@ class secureToken extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $regionName;
+
+    /**
+     * @var string
+     */
+    public $secretKey;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $userId;
     protected $_name = [
-        'secretKey'         => 'SecretKey',
         'accessKey'         => 'AccessKey',
+        'addressServerHost' => 'AddressServerHost',
         'belongRegion'      => 'BelongRegion',
         'description'       => 'Description',
-        'regionName'        => 'RegionName',
         'edasId'            => 'EdasId',
-        'addressServerHost' => 'AddressServerHost',
-        'userId'            => 'UserId',
         'id'                => 'Id',
-        'tenantId'          => 'TenantId',
         'regionId'          => 'RegionId',
+        'regionName'        => 'RegionName',
+        'secretKey'         => 'SecretKey',
+        'tenantId'          => 'TenantId',
+        'userId'            => 'UserId',
     ];
 
     public function validate()
@@ -83,11 +83,11 @@ class secureToken extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secretKey) {
-            $res['SecretKey'] = $this->secretKey;
-        }
         if (null !== $this->accessKey) {
             $res['AccessKey'] = $this->accessKey;
+        }
+        if (null !== $this->addressServerHost) {
+            $res['AddressServerHost'] = $this->addressServerHost;
         }
         if (null !== $this->belongRegion) {
             $res['BelongRegion'] = $this->belongRegion;
@@ -95,26 +95,26 @@ class secureToken extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
-        }
         if (null !== $this->edasId) {
             $res['EdasId'] = $this->edasId;
-        }
-        if (null !== $this->addressServerHost) {
-            $res['AddressServerHost'] = $this->addressServerHost;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
+        }
+        if (null !== $this->secretKey) {
+            $res['SecretKey'] = $this->secretKey;
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -128,11 +128,11 @@ class secureToken extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecretKey'])) {
-            $model->secretKey = $map['SecretKey'];
-        }
         if (isset($map['AccessKey'])) {
             $model->accessKey = $map['AccessKey'];
+        }
+        if (isset($map['AddressServerHost'])) {
+            $model->addressServerHost = $map['AddressServerHost'];
         }
         if (isset($map['BelongRegion'])) {
             $model->belongRegion = $map['BelongRegion'];
@@ -140,26 +140,26 @@ class secureToken extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
-        }
         if (isset($map['EdasId'])) {
             $model->edasId = $map['EdasId'];
-        }
-        if (isset($map['AddressServerHost'])) {
-            $model->addressServerHost = $map['AddressServerHost'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
+        }
+        if (isset($map['SecretKey'])) {
+            $model->secretKey = $map['SecretKey'];
+        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

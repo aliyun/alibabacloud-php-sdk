@@ -15,9 +15,9 @@ class stageInfoDTO extends Model
     public $stageId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $status;
+    public $stageName;
 
     /**
      * @var stageResultDTO
@@ -25,14 +25,14 @@ class stageInfoDTO extends Model
     public $stageResultDTO;
 
     /**
-     * @var string
+     * @var int
      */
-    public $stageName;
+    public $status;
     protected $_name = [
         'stageId'        => 'StageId',
-        'status'         => 'Status',
-        'stageResultDTO' => 'StageResultDTO',
         'stageName'      => 'StageName',
+        'stageResultDTO' => 'StageResultDTO',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class stageInfoDTO extends Model
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
         }
         if (null !== $this->stageResultDTO) {
             $res['StageResultDTO'] = null !== $this->stageResultDTO ? $this->stageResultDTO->toMap() : null;
         }
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class stageInfoDTO extends Model
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
         }
         if (isset($map['StageResultDTO'])) {
             $model->stageResultDTO = stageResultDTO::fromMap($map['StageResultDTO']);
         }
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

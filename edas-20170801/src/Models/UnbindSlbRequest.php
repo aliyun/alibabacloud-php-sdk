@@ -16,6 +16,11 @@ class UnbindSlbRequest extends Model
     /**
      * @var string
      */
+    public $deleteListener;
+
+    /**
+     * @var string
+     */
     public $slbId;
 
     /**
@@ -23,9 +28,10 @@ class UnbindSlbRequest extends Model
      */
     public $type;
     protected $_name = [
-        'appId' => 'AppId',
-        'slbId' => 'SlbId',
-        'type'  => 'Type',
+        'appId'          => 'AppId',
+        'deleteListener' => 'DeleteListener',
+        'slbId'          => 'SlbId',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class UnbindSlbRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->deleteListener) {
+            $res['DeleteListener'] = $this->deleteListener;
         }
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
@@ -58,6 +67,9 @@ class UnbindSlbRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['DeleteListener'])) {
+            $model->deleteListener = $map['DeleteListener'];
         }
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];

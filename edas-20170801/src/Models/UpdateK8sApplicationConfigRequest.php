@@ -26,7 +26,7 @@ class UpdateK8sApplicationConfigRequest extends Model
     /**
      * @var string
      */
-    public $memoryLimit;
+    public $cpuRequest;
 
     /**
      * @var string
@@ -36,12 +36,12 @@ class UpdateK8sApplicationConfigRequest extends Model
     /**
      * @var string
      */
-    public $cpuRequest;
+    public $mcpuRequest;
 
     /**
      * @var string
      */
-    public $mcpuRequest;
+    public $memoryLimit;
 
     /**
      * @var string
@@ -56,10 +56,10 @@ class UpdateK8sApplicationConfigRequest extends Model
         'appId'         => 'AppId',
         'clusterId'     => 'ClusterId',
         'cpuLimit'      => 'CpuLimit',
-        'memoryLimit'   => 'MemoryLimit',
-        'mcpuLimit'     => 'McpuLimit',
         'cpuRequest'    => 'CpuRequest',
+        'mcpuLimit'     => 'McpuLimit',
         'mcpuRequest'   => 'McpuRequest',
+        'memoryLimit'   => 'MemoryLimit',
         'memoryRequest' => 'MemoryRequest',
         'timeout'       => 'Timeout',
     ];
@@ -80,17 +80,17 @@ class UpdateK8sApplicationConfigRequest extends Model
         if (null !== $this->cpuLimit) {
             $res['CpuLimit'] = $this->cpuLimit;
         }
-        if (null !== $this->memoryLimit) {
-            $res['MemoryLimit'] = $this->memoryLimit;
+        if (null !== $this->cpuRequest) {
+            $res['CpuRequest'] = $this->cpuRequest;
         }
         if (null !== $this->mcpuLimit) {
             $res['McpuLimit'] = $this->mcpuLimit;
         }
-        if (null !== $this->cpuRequest) {
-            $res['CpuRequest'] = $this->cpuRequest;
-        }
         if (null !== $this->mcpuRequest) {
             $res['McpuRequest'] = $this->mcpuRequest;
+        }
+        if (null !== $this->memoryLimit) {
+            $res['MemoryLimit'] = $this->memoryLimit;
         }
         if (null !== $this->memoryRequest) {
             $res['MemoryRequest'] = $this->memoryRequest;
@@ -119,17 +119,17 @@ class UpdateK8sApplicationConfigRequest extends Model
         if (isset($map['CpuLimit'])) {
             $model->cpuLimit = $map['CpuLimit'];
         }
-        if (isset($map['MemoryLimit'])) {
-            $model->memoryLimit = $map['MemoryLimit'];
+        if (isset($map['CpuRequest'])) {
+            $model->cpuRequest = $map['CpuRequest'];
         }
         if (isset($map['McpuLimit'])) {
             $model->mcpuLimit = $map['McpuLimit'];
         }
-        if (isset($map['CpuRequest'])) {
-            $model->cpuRequest = $map['CpuRequest'];
-        }
         if (isset($map['McpuRequest'])) {
             $model->mcpuRequest = $map['McpuRequest'];
+        }
+        if (isset($map['MemoryLimit'])) {
+            $model->memoryLimit = $map['MemoryLimit'];
         }
         if (isset($map['MemoryRequest'])) {
             $model->memoryRequest = $map['MemoryRequest'];

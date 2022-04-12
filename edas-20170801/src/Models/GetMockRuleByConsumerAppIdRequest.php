@@ -11,15 +11,15 @@ class GetMockRuleByConsumerAppIdRequest extends Model
     /**
      * @var string
      */
-    public $region;
+    public $consumerAppId;
 
     /**
      * @var string
      */
-    public $consumerAppId;
+    public $region;
     protected $_name = [
-        'region'        => 'Region',
         'consumerAppId' => 'ConsumerAppId',
+        'region'        => 'Region',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetMockRuleByConsumerAppIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
         if (null !== $this->consumerAppId) {
             $res['ConsumerAppId'] = $this->consumerAppId;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetMockRuleByConsumerAppIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
         if (isset($map['ConsumerAppId'])) {
             $model->consumerAppId = $map['ConsumerAppId'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

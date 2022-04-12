@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var result[]
-     */
-    public $result;
-
-    /**
-     * @var int
-     */
-    public $totalSize;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -28,11 +18,21 @@ class data extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var result[]
+     */
+    public $result;
+
+    /**
+     * @var int
+     */
+    public $totalSize;
     protected $_name = [
-        'result'     => 'Result',
-        'totalSize'  => 'TotalSize',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'result'     => 'Result',
+        'totalSize'  => 'TotalSize',
     ];
 
     public function validate()
@@ -42,6 +42,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->result) {
             $res['Result'] = [];
             if (null !== $this->result && \is_array($this->result)) {
@@ -53,12 +59,6 @@ class data extends Model
         }
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -72,6 +72,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
@@ -83,12 +89,6 @@ class data extends Model
         }
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

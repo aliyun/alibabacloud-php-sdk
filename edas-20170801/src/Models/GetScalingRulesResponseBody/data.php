@@ -12,12 +12,17 @@ class data extends Model
     /**
      * @var int
      */
+    public $clusterType;
+
+    /**
+     * @var int
+     */
     public $oversoldFactor;
 
     /**
-     * @var string
+     * @var ruleList
      */
-    public $vpcId;
+    public $ruleList;
 
     /**
      * @var int
@@ -25,20 +30,15 @@ class data extends Model
     public $updateTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $clusterType;
-
-    /**
-     * @var ruleList
-     */
-    public $ruleList;
+    public $vpcId;
     protected $_name = [
-        'oversoldFactor' => 'OversoldFactor',
-        'vpcId'          => 'VpcId',
-        'updateTime'     => 'UpdateTime',
         'clusterType'    => 'ClusterType',
+        'oversoldFactor' => 'OversoldFactor',
         'ruleList'       => 'RuleList',
+        'updateTime'     => 'UpdateTime',
+        'vpcId'          => 'VpcId',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
         if (null !== $this->oversoldFactor) {
             $res['OversoldFactor'] = $this->oversoldFactor;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->ruleList) {
+            $res['RuleList'] = null !== $this->ruleList ? $this->ruleList->toMap() : null;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->ruleList) {
-            $res['RuleList'] = null !== $this->ruleList ? $this->ruleList->toMap() : null;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
         if (isset($map['OversoldFactor'])) {
             $model->oversoldFactor = $map['OversoldFactor'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['RuleList'])) {
+            $model->ruleList = ruleList::fromMap($map['RuleList']);
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['RuleList'])) {
-            $model->ruleList = ruleList::fromMap($map['RuleList']);
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

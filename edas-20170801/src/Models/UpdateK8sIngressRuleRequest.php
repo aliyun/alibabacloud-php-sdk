@@ -14,9 +14,9 @@ class UpdateK8sIngressRuleRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $namespace;
+    public $ingressConf;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class UpdateK8sIngressRuleRequest extends Model
     /**
      * @var string
      */
-    public $rules;
+    public $namespace;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'namespace' => 'Namespace',
-        'name'      => 'Name',
-        'rules'     => 'Rules',
+        'clusterId'   => 'ClusterId',
+        'ingressConf' => 'IngressConf',
+        'name'        => 'Name',
+        'namespace'   => 'Namespace',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class UpdateK8sIngressRuleRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
+        if (null !== $this->ingressConf) {
+            $res['IngressConf'] = $this->ingressConf;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->rules) {
-            $res['Rules'] = $this->rules;
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class UpdateK8sIngressRuleRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
+        if (isset($map['IngressConf'])) {
+            $model->ingressConf = $map['IngressConf'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Rules'])) {
-            $model->rules = $map['Rules'];
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         return $model;

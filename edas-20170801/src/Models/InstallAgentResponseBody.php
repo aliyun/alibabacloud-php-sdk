@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class InstallAgentResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var executionResultList
+     */
+    public $executionResultList;
+
+    /**
      * @var string
      */
     public $message;
@@ -18,21 +28,11 @@ class InstallAgentResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var executionResultList
-     */
-    public $executionResultList;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'                => 'Code',
+        'executionResultList' => 'ExecutionResultList',
         'message'             => 'Message',
         'requestId'           => 'RequestId',
-        'executionResultList' => 'ExecutionResultList',
-        'code'                => 'Code',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class InstallAgentResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->executionResultList) {
+            $res['ExecutionResultList'] = null !== $this->executionResultList ? $this->executionResultList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->executionResultList) {
-            $res['ExecutionResultList'] = null !== $this->executionResultList ? $this->executionResultList->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class InstallAgentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['ExecutionResultList'])) {
+            $model->executionResultList = executionResultList::fromMap($map['ExecutionResultList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ExecutionResultList'])) {
-            $model->executionResultList = executionResultList::fromMap($map['ExecutionResultList']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

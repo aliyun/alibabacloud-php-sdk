@@ -14,18 +14,18 @@ class InstallAgentRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $instanceIds;
-
-    /**
      * @var bool
      */
     public $doAsync;
+
+    /**
+     * @var string
+     */
+    public $instanceIds;
     protected $_name = [
         'clusterId'   => 'ClusterId',
-        'instanceIds' => 'InstanceIds',
         'doAsync'     => 'DoAsync',
+        'instanceIds' => 'InstanceIds',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class InstallAgentRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
-        }
         if (null !== $this->doAsync) {
             $res['DoAsync'] = $this->doAsync;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class InstallAgentRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = $map['InstanceIds'];
-        }
         if (isset($map['DoAsync'])) {
             $model->doAsync = $map['DoAsync'];
+        }
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = $map['InstanceIds'];
         }
 
         return $model;

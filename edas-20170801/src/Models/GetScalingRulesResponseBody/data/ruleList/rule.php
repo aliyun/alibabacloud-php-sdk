@@ -11,52 +11,7 @@ class rule extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
-     * @var int
-     */
-    public $rt;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $resourceFrom;
-
-    /**
-     * @var string
-     */
-    public $multiAzPolicy;
-
-    /**
-     * @var string
-     */
-    public $specId;
-
-    /**
-     * @var string
-     */
-    public $mode;
-
-    /**
-     * @var int
-     */
-    public $loadNum;
-
-    /**
-     * @var int
-     */
-    public $templateVersion;
+    public $appId;
 
     /**
      * @var string
@@ -66,12 +21,22 @@ class rule extends Model
     /**
      * @var int
      */
-    public $step;
+    public $cpu;
 
     /**
      * @var int
      */
-    public $cpu;
+    public $createTime;
+
+    /**
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @var bool
+     */
+    public $enable;
 
     /**
      * @var string
@@ -84,19 +49,9 @@ class rule extends Model
     public $instNum;
 
     /**
-     * @var string
-     */
-    public $appId;
-
-    /**
      * @var int
      */
-    public $duration;
-
-    /**
-     * @var string
-     */
-    public $vSwitchIds;
+    public $loadNum;
 
     /**
      * @var string
@@ -106,34 +61,79 @@ class rule extends Model
     /**
      * @var string
      */
+    public $mode;
+
+    /**
+     * @var string
+     */
+    public $multiAzPolicy;
+
+    /**
+     * @var string
+     */
+    public $resourceFrom;
+
+    /**
+     * @var int
+     */
+    public $rt;
+
+    /**
+     * @var string
+     */
+    public $specId;
+
+    /**
+     * @var int
+     */
+    public $step;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $enable;
+    public $templateVersion;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $vSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'vpcId'           => 'VpcId',
-        'updateTime'      => 'UpdateTime',
-        'rt'              => 'Rt',
-        'createTime'      => 'CreateTime',
-        'resourceFrom'    => 'ResourceFrom',
-        'multiAzPolicy'   => 'MultiAzPolicy',
-        'specId'          => 'SpecId',
-        'mode'            => 'Mode',
-        'loadNum'         => 'LoadNum',
-        'templateVersion' => 'TemplateVersion',
+        'appId'           => 'AppId',
         'cond'            => 'Cond',
-        'step'            => 'Step',
         'cpu'             => 'Cpu',
+        'createTime'      => 'CreateTime',
+        'duration'        => 'Duration',
+        'enable'          => 'Enable',
         'groupId'         => 'GroupId',
         'instNum'         => 'InstNum',
-        'appId'           => 'AppId',
-        'duration'        => 'Duration',
-        'vSwitchIds'      => 'VSwitchIds',
+        'loadNum'         => 'LoadNum',
         'metricType'      => 'MetricType',
+        'mode'            => 'Mode',
+        'multiAzPolicy'   => 'MultiAzPolicy',
+        'resourceFrom'    => 'ResourceFrom',
+        'rt'              => 'Rt',
+        'specId'          => 'SpecId',
+        'step'            => 'Step',
         'templateId'      => 'TemplateId',
-        'enable'          => 'Enable',
+        'templateVersion' => 'TemplateVersion',
+        'updateTime'      => 'UpdateTime',
+        'vSwitchIds'      => 'VSwitchIds',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -143,44 +143,23 @@ class rule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->rt) {
-            $res['Rt'] = $this->rt;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->resourceFrom) {
-            $res['ResourceFrom'] = $this->resourceFrom;
-        }
-        if (null !== $this->multiAzPolicy) {
-            $res['MultiAzPolicy'] = $this->multiAzPolicy;
-        }
-        if (null !== $this->specId) {
-            $res['SpecId'] = $this->specId;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->loadNum) {
-            $res['LoadNum'] = $this->loadNum;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->cond) {
             $res['Cond'] = $this->cond;
         }
-        if (null !== $this->step) {
-            $res['Step'] = $this->step;
-        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -188,23 +167,44 @@ class rule extends Model
         if (null !== $this->instNum) {
             $res['InstNum'] = $this->instNum;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->vSwitchIds) {
-            $res['VSwitchIds'] = $this->vSwitchIds;
+        if (null !== $this->loadNum) {
+            $res['LoadNum'] = $this->loadNum;
         }
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->multiAzPolicy) {
+            $res['MultiAzPolicy'] = $this->multiAzPolicy;
+        }
+        if (null !== $this->resourceFrom) {
+            $res['ResourceFrom'] = $this->resourceFrom;
+        }
+        if (null !== $this->rt) {
+            $res['Rt'] = $this->rt;
+        }
+        if (null !== $this->specId) {
+            $res['SpecId'] = $this->specId;
+        }
+        if (null !== $this->step) {
+            $res['Step'] = $this->step;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -218,44 +218,23 @@ class rule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['Rt'])) {
-            $model->rt = $map['Rt'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ResourceFrom'])) {
-            $model->resourceFrom = $map['ResourceFrom'];
-        }
-        if (isset($map['MultiAzPolicy'])) {
-            $model->multiAzPolicy = $map['MultiAzPolicy'];
-        }
-        if (isset($map['SpecId'])) {
-            $model->specId = $map['SpecId'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['LoadNum'])) {
-            $model->loadNum = $map['LoadNum'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['Cond'])) {
             $model->cond = $map['Cond'];
         }
-        if (isset($map['Step'])) {
-            $model->step = $map['Step'];
-        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -263,23 +242,44 @@ class rule extends Model
         if (isset($map['InstNum'])) {
             $model->instNum = $map['InstNum'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['VSwitchIds'])) {
-            $model->vSwitchIds = $map['VSwitchIds'];
+        if (isset($map['LoadNum'])) {
+            $model->loadNum = $map['LoadNum'];
         }
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['MultiAzPolicy'])) {
+            $model->multiAzPolicy = $map['MultiAzPolicy'];
+        }
+        if (isset($map['ResourceFrom'])) {
+            $model->resourceFrom = $map['ResourceFrom'];
+        }
+        if (isset($map['Rt'])) {
+            $model->rt = $map['Rt'];
+        }
+        if (isset($map['SpecId'])) {
+            $model->specId = $map['SpecId'];
+        }
+        if (isset($map['Step'])) {
+            $model->step = $map['Step'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['VSwitchIds'])) {
+            $model->vSwitchIds = $map['VSwitchIds'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

@@ -13,12 +13,12 @@ class pipelineInfo extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $pipelineId;
 
     /**
      * @var string
      */
-    public $updateTime;
+    public $pipelineName;
 
     /**
      * @var int
@@ -31,11 +31,6 @@ class pipelineInfo extends Model
     public $stageDetailList;
 
     /**
-     * @var string
-     */
-    public $pipelineName;
-
-    /**
      * @var stageList
      */
     public $stageList;
@@ -43,15 +38,20 @@ class pipelineInfo extends Model
     /**
      * @var string
      */
-    public $pipelineId;
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
-        'startTime'       => 'StartTime',
-        'updateTime'      => 'UpdateTime',
+        'pipelineId'      => 'PipelineId',
+        'pipelineName'    => 'PipelineName',
         'pipelineStatus'  => 'PipelineStatus',
         'stageDetailList' => 'StageDetailList',
-        'pipelineName'    => 'PipelineName',
         'stageList'       => 'StageList',
-        'pipelineId'      => 'PipelineId',
+        'startTime'       => 'StartTime',
+        'updateTime'      => 'UpdateTime',
     ];
 
     public function validate()
@@ -61,11 +61,11 @@ class pipelineInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->pipelineName) {
+            $res['PipelineName'] = $this->pipelineName;
         }
         if (null !== $this->pipelineStatus) {
             $res['PipelineStatus'] = $this->pipelineStatus;
@@ -73,14 +73,14 @@ class pipelineInfo extends Model
         if (null !== $this->stageDetailList) {
             $res['StageDetailList'] = null !== $this->stageDetailList ? $this->stageDetailList->toMap() : null;
         }
-        if (null !== $this->pipelineName) {
-            $res['PipelineName'] = $this->pipelineName;
-        }
         if (null !== $this->stageList) {
             $res['StageList'] = null !== $this->stageList ? $this->stageList->toMap() : null;
         }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -94,11 +94,11 @@ class pipelineInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['PipelineName'])) {
+            $model->pipelineName = $map['PipelineName'];
         }
         if (isset($map['PipelineStatus'])) {
             $model->pipelineStatus = $map['PipelineStatus'];
@@ -106,14 +106,14 @@ class pipelineInfo extends Model
         if (isset($map['StageDetailList'])) {
             $model->stageDetailList = stageDetailList::fromMap($map['StageDetailList']);
         }
-        if (isset($map['PipelineName'])) {
-            $model->pipelineName = $map['PipelineName'];
-        }
         if (isset($map['StageList'])) {
             $model->stageList = stageList::fromMap($map['StageList']);
         }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

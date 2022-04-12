@@ -14,6 +14,11 @@ class BindSlbRequest extends Model
     public $appId;
 
     /**
+     * @var int
+     */
+    public $listenerPort;
+
+    /**
      * @var string
      */
     public $slbId;
@@ -29,20 +34,15 @@ class BindSlbRequest extends Model
     public $type;
 
     /**
-     * @var int
-     */
-    public $listenerPort;
-
-    /**
      * @var string
      */
     public $VServerGroupId;
     protected $_name = [
         'appId'          => 'AppId',
+        'listenerPort'   => 'ListenerPort',
         'slbId'          => 'SlbId',
         'slbIp'          => 'SlbIp',
         'type'           => 'Type',
-        'listenerPort'   => 'ListenerPort',
         'VServerGroupId' => 'VServerGroupId',
     ];
 
@@ -56,6 +56,9 @@ class BindSlbRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
+        }
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
         }
@@ -64,9 +67,6 @@ class BindSlbRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
         }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
@@ -86,6 +86,9 @@ class BindSlbRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
+        }
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];
         }
@@ -94,9 +97,6 @@ class BindSlbRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
         }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];

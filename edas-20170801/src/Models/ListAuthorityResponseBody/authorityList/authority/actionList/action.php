@@ -11,6 +11,11 @@ class action extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -21,16 +26,11 @@ class action extends Model
     /**
      * @var string
      */
-    public $code;
-
-    /**
-     * @var string
-     */
     public $name;
     protected $_name = [
+        'code'        => 'Code',
         'description' => 'Description',
         'groupId'     => 'GroupId',
-        'code'        => 'Code',
         'name'        => 'Name',
     ];
 
@@ -41,14 +41,14 @@ class action extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -65,14 +65,14 @@ class action extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

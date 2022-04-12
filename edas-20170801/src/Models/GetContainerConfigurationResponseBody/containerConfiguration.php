@@ -14,30 +14,30 @@ class containerConfiguration extends Model
     public $contextPath;
 
     /**
-     * @var string
-     */
-    public $URIEncoding;
-
-    /**
      * @var int
      */
     public $httpPort;
 
     /**
-     * @var bool
-     */
-    public $useBodyEncoding;
-
-    /**
      * @var int
      */
     public $maxThreads;
+
+    /**
+     * @var string
+     */
+    public $URIEncoding;
+
+    /**
+     * @var bool
+     */
+    public $useBodyEncoding;
     protected $_name = [
         'contextPath'     => 'ContextPath',
-        'URIEncoding'     => 'URIEncoding',
         'httpPort'        => 'HttpPort',
-        'useBodyEncoding' => 'UseBodyEncoding',
         'maxThreads'      => 'MaxThreads',
+        'URIEncoding'     => 'URIEncoding',
+        'useBodyEncoding' => 'UseBodyEncoding',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class containerConfiguration extends Model
         if (null !== $this->contextPath) {
             $res['ContextPath'] = $this->contextPath;
         }
-        if (null !== $this->URIEncoding) {
-            $res['URIEncoding'] = $this->URIEncoding;
-        }
         if (null !== $this->httpPort) {
             $res['HttpPort'] = $this->httpPort;
         }
-        if (null !== $this->useBodyEncoding) {
-            $res['UseBodyEncoding'] = $this->useBodyEncoding;
-        }
         if (null !== $this->maxThreads) {
             $res['MaxThreads'] = $this->maxThreads;
+        }
+        if (null !== $this->URIEncoding) {
+            $res['URIEncoding'] = $this->URIEncoding;
+        }
+        if (null !== $this->useBodyEncoding) {
+            $res['UseBodyEncoding'] = $this->useBodyEncoding;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class containerConfiguration extends Model
         if (isset($map['ContextPath'])) {
             $model->contextPath = $map['ContextPath'];
         }
-        if (isset($map['URIEncoding'])) {
-            $model->URIEncoding = $map['URIEncoding'];
-        }
         if (isset($map['HttpPort'])) {
             $model->httpPort = $map['HttpPort'];
         }
-        if (isset($map['UseBodyEncoding'])) {
-            $model->useBodyEncoding = $map['UseBodyEncoding'];
-        }
         if (isset($map['MaxThreads'])) {
             $model->maxThreads = $map['MaxThreads'];
+        }
+        if (isset($map['URIEncoding'])) {
+            $model->URIEncoding = $map['URIEncoding'];
+        }
+        if (isset($map['UseBodyEncoding'])) {
+            $model->useBodyEncoding = $map['UseBodyEncoding'];
         }
 
         return $model;

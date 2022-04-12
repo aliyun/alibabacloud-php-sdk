@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class authority extends Model
 {
     /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var actionList
      */
     public $actionList;
@@ -27,11 +17,21 @@ class authority extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
     public $name;
     protected $_name = [
-        'groupId'     => 'GroupId',
-        'description' => 'Description',
         'actionList'  => 'ActionList',
+        'description' => 'Description',
+        'groupId'     => 'GroupId',
         'name'        => 'Name',
     ];
 
@@ -42,14 +42,14 @@ class authority extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->actionList) {
+            $res['ActionList'] = null !== $this->actionList ? $this->actionList->toMap() : null;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->actionList) {
-            $res['ActionList'] = null !== $this->actionList ? $this->actionList->toMap() : null;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -66,14 +66,14 @@ class authority extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['ActionList'])) {
+            $model->actionList = actionList::fromMap($map['ActionList']);
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ActionList'])) {
-            $model->actionList = actionList::fromMap($map['ActionList']);
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -14,8 +14,6 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\AddLogPathRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AddLogPathResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AddMockRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AddMockRuleResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\AddServiceTimeConfigRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\AddServiceTimeConfigResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AuthorizeApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AuthorizeApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AuthorizeResourceGroupRequest;
@@ -34,34 +32,42 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\ContinuePipelineRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ContinuePipelineResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ConvertK8sResourceRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ConvertK8sResourceResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\CreateApplicationScalingRuleRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\CreateApplicationScalingRuleResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\CreateConfigTemplateRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\CreateConfigTemplateResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\CreateIDCImportCommandRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\CreateIDCImportCommandResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\CreateK8sConfigMapRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\CreateK8sConfigMapResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\CreateK8sIngressRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\CreateK8sIngressRuleResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\CreateK8sSecretRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\CreateK8sSecretResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\CreateK8sServiceRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\CreateK8sServiceResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DelegateAdminRoleRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DelegateAdminRoleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteApplicationResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteApplicationScalingRuleRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteClusterMemberRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteClusterMemberResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteClusterResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteConfigCenterRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteConfigCenterResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteDegradeControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteDegradeControlResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteConfigTemplateRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteConfigTemplateResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteDeployGroupRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteDeployGroupResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteEcuRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteEcuResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteFlowControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteFlowControlResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sApplicationResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sConfigMapRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sConfigMapResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sIngressRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sIngressRuleResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sSecretRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sSecretResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sServiceRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteK8sServiceResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteLogPathRequest;
@@ -70,34 +76,28 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteRoleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteRoleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteServiceGroupRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteServiceGroupResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteServiceTimeConfigRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteServiceTimeConfigResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteSwimmingLaneGroupRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteSwimmingLaneGroupResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteSwimmingLaneRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteSwimmingLaneResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteUserDefineRegionRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteUserDefineRegionResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeployApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeployApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeployK8sApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeployK8sApplicationResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DisableDegradeControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DisableDegradeControlResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DisableFlowControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DisableFlowControlResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeAppInstanceListRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeAppInstanceListResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeApplicationScalingRulesRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeApplicationScalingRulesResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DisableApplicationScalingRuleRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DisableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DisableMockRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DisableMockRuleResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\EnableDegradeControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\EnableDegradeControlResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\EnableFlowControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\EnableFlowControlResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\EnableApplicationScalingRuleRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\EnableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\EnableMockRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\EnableMockRuleResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ExecuteStatusRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ExecuteStatusResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetAccountMockRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetAccountMockRuleResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetAppDeploymentRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetAppDeploymentResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetChangeOrderInfoRequest;
@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\GetClusterRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetClusterResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetContainerConfigurationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetContainerConfigurationResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetJavaStartUpConfigRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetJavaStartUpConfigResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetJvmConfigurationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetJvmConfigurationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sApplicationRequest;
@@ -116,8 +118,6 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sServicesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sServicesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByConsumerAppIdRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByConsumerAppIdResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByIdRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByIdResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByProviderAppIdRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByProviderAppIdResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetPackageStorageCredentialResponse;
@@ -131,16 +131,12 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceDetailRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceDetailResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceListPageRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceListPageResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceListRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceListResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceMethodPageRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceMethodPageResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceProvidersPageRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceProvidersPageResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetSubAccountInfoRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetSubAccountInfoResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetSwimmingLaneRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetSwimmingLaneResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetWebContainerConfigRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetWebContainerConfigResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ImportK8sClusterRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ImportK8sClusterResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertApplicationRequest;
@@ -149,14 +145,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\InsertClusterMemberRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertClusterMemberResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertClusterRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertClusterResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertConfigCenterRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertConfigCenterResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertDegradeControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertDegradeControlResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertDeployGroupRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertDeployGroupResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertFlowControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertFlowControlResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertK8sApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertK8sApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertOrUpdateRegionRequest;
@@ -165,10 +155,6 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\InsertRoleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertRoleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertServiceGroupRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertServiceGroupResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneGroupRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneGroupResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InstallAgentRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InstallAgentResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListAliyunRegionResponse;
@@ -178,39 +164,33 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\ListApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListAuthorityResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListBuildPackResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListChildrenStacksRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListChildrenStacksResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListClusterMembersRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListClusterMembersResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListClusterRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListClusterResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListComponentsResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListConfigCentersRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListConfigCentersResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListConfigTemplatesRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListConfigTemplatesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListConsumedServicesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListConsumedServicesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListConvertableEcuRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListConvertableEcuResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListCSBGatewayRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListCSBGatewayResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListDegradeControlsRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListDegradeControlsResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListDeployGroupRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListDeployGroupResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListEcsNotInClusterRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListEcsNotInClusterResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListEcuByRegionRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListEcuByRegionResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListFlowControlsRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListFlowControlsResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListHistoryDeployVersionRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListHistoryDeployVersionResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sConfigMapsRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sConfigMapsResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sSecretsRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sSecretsResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListMethodsRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListMethodsResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListOperationLogsRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListOperationLogsResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListPublishedServicesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListPublishedServicesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListRecentChangeOrderRequest;
@@ -223,13 +203,7 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\ListScaleOutEcuRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListScaleOutEcuResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListServiceGroupsResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListSlbResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListStatusRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListStatusResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListSubAccountResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListSwimmingLaneGroupRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListSwimmingLaneGroupResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListSwimmingLaneRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListSwimmingLaneResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListUserDefineRegionRequest;
@@ -241,21 +215,13 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\ModifyScalingRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ModifyScalingRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryApplicationStatusRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryApplicationStatusResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\QueryConfigCenterRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\QueryConfigCenterResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryEccInfoRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryEccInfoResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\QueryK8sClusterLogProjectInfoRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\QueryK8sClusterLogProjectInfoResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryMigrateEcuListRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryMigrateEcuListResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryMigrateRegionListRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryMigrateRegionListResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\QueryMonitorInfoRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\QueryMonitorInfoResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryRegionConfigResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\QueryServiceTimeConfigRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\QueryServiceTimeConfigResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QuerySlsLogStoreListRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QuerySlsLogStoreListResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\RemoveMockRuleRequest;
@@ -266,6 +232,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\RestartApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\RestartApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\RestartK8sApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\RestartK8sApplicationResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\RetryChangeOrderTaskRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\RetryChangeOrderTaskResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\RollbackApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\RollbackApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\RollbackChangeOrderRequest;
@@ -304,14 +272,14 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateAccountInfoRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateAccountInfoResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationBaseInfoRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationBaseInfoResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationScalingRuleRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationScalingRuleResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateConfigTemplateRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateConfigTemplateResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateContainerConfigurationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateContainerConfigurationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateContainerRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateContainerResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateDegradeControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateDegradeControlResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateFlowControlRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateFlowControlResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateHealthCheckUrlRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateHealthCheckUrlResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateHookConfigurationRequest;
@@ -322,10 +290,14 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sApplicationBaseInfoRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sApplicationBaseInfoResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sApplicationConfigRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sApplicationConfigResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sConfigMapRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sConfigMapResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sIngressRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sIngressRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sResourceRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sResourceResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sSecretRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sSecretResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sServiceRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sServiceResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sSlbRequest;
@@ -336,13 +308,10 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateRoleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateRoleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSlsLogStoreRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSlsLogStoreResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneGroupRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneGroupResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Edas extends OpenApiClient
@@ -446,14 +415,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->changeOrderId)) {
-            @$query['ChangeOrderId'] = $request->changeOrderId;
+            $query['ChangeOrderId'] = $request->changeOrderId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AbortAndRollbackChangeOrder',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/change_order_abort_and_rollback',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AbortAndRollbackChangeOrderResponse::fromMap($this->doROARequest('AbortAndRollbackChangeOrder', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/changeorder/change_order_abort_and_rollback', 'json', $req, $runtime));
+        return AbortAndRollbackChangeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -481,14 +461,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->changeOrderId)) {
-            @$query['ChangeOrderId'] = $request->changeOrderId;
+            $query['ChangeOrderId'] = $request->changeOrderId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AbortChangeOrder',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/change_order_abort',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AbortChangeOrderResponse::fromMap($this->doROARequest('AbortChangeOrder', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/changeorder/change_order_abort', 'json', $req, $runtime));
+        return AbortChangeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -516,17 +507,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->appId)) {
-            @$body['AppId'] = $request->appId;
+            $body['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->path)) {
-            @$body['Path'] = $request->path;
+            $body['Path'] = $request->path;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'AddLogPath',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/log/popListLogDirs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddLogPathResponse::fromMap($this->doROARequestWithForm('AddLogPath', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/log/popListLogDirs', 'json', $req, $runtime));
+        return AddLogPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -553,113 +555,59 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->source)) {
-            @$query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->providerAppId)) {
-            @$query['ProviderAppId'] = $request->providerAppId;
-        }
-        if (!Utils::isUnset($request->providerAppName)) {
-            @$query['ProviderAppName'] = $request->providerAppName;
-        }
-        if (!Utils::isUnset($request->extraJson)) {
-            @$query['ExtraJson'] = $request->extraJson;
-        }
-        if (!Utils::isUnset($request->scMockItemJson)) {
-            @$query['ScMockItemJson'] = $request->scMockItemJson;
+        if (!Utils::isUnset($request->consumerAppsJson)) {
+            $query['ConsumerAppsJson'] = $request->consumerAppsJson;
         }
         if (!Utils::isUnset($request->dubboMockItemJson)) {
-            @$query['DubboMockItemJson'] = $request->dubboMockItemJson;
-        }
-        if (!Utils::isUnset($request->consumerAppsJson)) {
-            @$query['ConsumerAppsJson'] = $request->consumerAppsJson;
+            $query['DubboMockItemJson'] = $request->dubboMockItemJson;
         }
         if (!Utils::isUnset($request->enable)) {
-            @$query['Enable'] = $request->enable;
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->extraJson)) {
+            $query['ExtraJson'] = $request->extraJson;
+        }
+        if (!Utils::isUnset($request->mockType)) {
+            $query['MockType'] = $request->mockType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+            $query['Namespace'] = $request->namespace_;
         }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return AddMockRuleResponse::fromMap($this->doROARequest('AddMockRule', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/addMockRule', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddServiceTimeConfigRequest $request
-     *
-     * @return AddServiceTimeConfigResponse
-     */
-    public function addServiceTimeConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->addServiceTimeConfigWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param AddServiceTimeConfigRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return AddServiceTimeConfigResponse
-     */
-    public function addServiceTimeConfigWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
+        if (!Utils::isUnset($request->providerAppId)) {
+            $query['ProviderAppId'] = $request->providerAppId;
+        }
+        if (!Utils::isUnset($request->providerAppName)) {
+            $query['ProviderAppName'] = $request->providerAppName;
+        }
         if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
+            $query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->serviceType)) {
-            @$query['ServiceType'] = $request->serviceType;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['ServiceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->serviceVersion)) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
-        }
-        if (!Utils::isUnset($request->serviceGroup)) {
-            @$query['ServiceGroup'] = $request->serviceGroup;
-        }
-        if (!Utils::isUnset($request->path)) {
-            @$query['Path'] = $request->path;
-        }
-        if (!Utils::isUnset($request->consumerAppName)) {
-            @$query['ConsumerAppName'] = $request->consumerAppName;
-        }
-        if (!Utils::isUnset($request->consumerAppId)) {
-            @$query['ConsumerAppId'] = $request->consumerAppId;
-        }
-        if (!Utils::isUnset($request->timeout)) {
-            @$query['Timeout'] = $request->timeout;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+        if (!Utils::isUnset($request->scMockItemJson)) {
+            $query['ScMockItemJson'] = $request->scMockItemJson;
         }
         if (!Utils::isUnset($request->source)) {
-            @$query['Source'] = $request->source;
+            $query['Source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AddMockRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mock/addMockRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddServiceTimeConfigResponse::fromMap($this->doROARequest('AddServiceTimeConfig', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/timeout/add', 'json', $req, $runtime));
+        return AddMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -686,18 +634,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->targetUserId)) {
-            @$query['TargetUserId'] = $request->targetUserId;
-        }
         if (!Utils::isUnset($request->appIds)) {
-            @$query['AppIds'] = $request->appIds;
+            $query['AppIds'] = $request->appIds;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AuthorizeApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/authorize_app',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AuthorizeApplicationResponse::fromMap($this->doROARequest('AuthorizeApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/authorize_app', 'json', $req, $runtime));
+        return AuthorizeApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -724,18 +683,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->targetUserId)) {
-            @$query['TargetUserId'] = $request->targetUserId;
-        }
         if (!Utils::isUnset($request->resourceGroupIds)) {
-            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
+            $query['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AuthorizeResourceGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/authorize_res_group',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AuthorizeResourceGroupResponse::fromMap($this->doROARequest('AuthorizeResourceGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/authorize_res_group', 'json', $req, $runtime));
+        return AuthorizeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -762,18 +732,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->targetUserId)) {
-            @$query['TargetUserId'] = $request->targetUserId;
-        }
         if (!Utils::isUnset($request->roleIds)) {
-            @$query['RoleIds'] = $request->roleIds;
+            $query['RoleIds'] = $request->roleIds;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AuthorizeRole',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/authorize_role',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AuthorizeRoleResponse::fromMap($this->doROARequest('AuthorizeRole', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/authorize_role', 'json', $req, $runtime));
+        return AuthorizeRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -801,38 +782,49 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->slbId)) {
-            @$query['SlbId'] = $request->slbId;
-        }
-        if (!Utils::isUnset($request->listenerPort)) {
-            @$query['ListenerPort'] = $request->listenerPort;
-        }
-        if (!Utils::isUnset($request->VServerGroupId)) {
-            @$query['VServerGroupId'] = $request->VServerGroupId;
-        }
-        if (!Utils::isUnset($request->listenerProtocol)) {
-            @$query['ListenerProtocol'] = $request->listenerProtocol;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->deployGroupId)) {
-            @$query['DeployGroupId'] = $request->deployGroupId;
-        }
-        if (!Utils::isUnset($request->VServerGroupName)) {
-            @$query['VServerGroupName'] = $request->VServerGroupName;
+            $query['DeployGroupId'] = $request->deployGroupId;
         }
         if (!Utils::isUnset($request->listenerHealthCheckUrl)) {
-            @$query['ListenerHealthCheckUrl'] = $request->listenerHealthCheckUrl;
+            $query['ListenerHealthCheckUrl'] = $request->listenerHealthCheckUrl;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->slbId)) {
+            $query['SlbId'] = $request->slbId;
         }
         if (!Utils::isUnset($request->VForwardingUrlRule)) {
-            @$query['VForwardingUrlRule'] = $request->VForwardingUrlRule;
+            $query['VForwardingUrlRule'] = $request->VForwardingUrlRule;
+        }
+        if (!Utils::isUnset($request->VServerGroupId)) {
+            $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->VServerGroupName)) {
+            $query['VServerGroupName'] = $request->VServerGroupName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'BindEcsSlb',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/slb/bind_slb',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return BindEcsSlbResponse::fromMap($this->doROARequest('BindEcsSlb', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/slb/bind_slb', 'json', $req, $runtime));
+        return BindEcsSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -860,41 +852,52 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->slbId)) {
-            @$query['SlbId'] = $request->slbId;
-        }
-        if (!Utils::isUnset($request->slbProtocol)) {
-            @$query['SlbProtocol'] = $request->slbProtocol;
-        }
-        if (!Utils::isUnset($request->targetPort)) {
-            @$query['TargetPort'] = $request->targetPort;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->port)) {
-            @$query['Port'] = $request->port;
-        }
-        if (!Utils::isUnset($request->servicePortInfos)) {
-            @$query['ServicePortInfos'] = $request->servicePortInfos;
-        }
-        if (!Utils::isUnset($request->specification)) {
-            @$query['Specification'] = $request->specification;
+            $query['Port'] = $request->port;
         }
         if (!Utils::isUnset($request->scheduler)) {
-            @$query['Scheduler'] = $request->scheduler;
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->servicePortInfos)) {
+            $query['ServicePortInfos'] = $request->servicePortInfos;
+        }
+        if (!Utils::isUnset($request->slbId)) {
+            $query['SlbId'] = $request->slbId;
+        }
+        if (!Utils::isUnset($request->slbProtocol)) {
+            $query['SlbProtocol'] = $request->slbProtocol;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
+        if (!Utils::isUnset($request->targetPort)) {
+            $query['TargetPort'] = $request->targetPort;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'BindK8sSlb',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_slb_binding',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return BindK8sSlbResponse::fromMap($this->doROARequest('BindK8sSlb', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/acs/k8s_slb_binding', 'json', $req, $runtime));
+        return BindK8sSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -922,29 +925,40 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->slbId)) {
-            @$query['SlbId'] = $request->slbId;
-        }
-        if (!Utils::isUnset($request->slbIp)) {
-            @$query['SlbIp'] = $request->slbIp;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->listenerPort)) {
-            @$query['ListenerPort'] = $request->listenerPort;
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->slbId)) {
+            $query['SlbId'] = $request->slbId;
+        }
+        if (!Utils::isUnset($request->slbIp)) {
+            $query['SlbIp'] = $request->slbIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         if (!Utils::isUnset($request->VServerGroupId)) {
-            @$query['VServerGroupId'] = $request->VServerGroupId;
+            $query['VServerGroupId'] = $request->VServerGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'BindSlb',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/app/bind_slb_json',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return BindSlbResponse::fromMap($this->doROARequest('BindSlb', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/app/bind_slb_json', 'json', $req, $runtime));
+        return BindSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -972,23 +986,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->eccInfo)) {
-            @$query['EccInfo'] = $request->eccInfo;
-        }
-        if (!Utils::isUnset($request->groupName)) {
-            @$query['GroupName'] = $request->groupName;
+            $query['EccInfo'] = $request->eccInfo;
         }
         if (!Utils::isUnset($request->forceStatus)) {
-            @$query['ForceStatus'] = $request->forceStatus;
+            $query['ForceStatus'] = $request->forceStatus;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ChangeDeployGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_change_group',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ChangeDeployGroupResponse::fromMap($this->doROARequest('ChangeDeployGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_change_group', 'json', $req, $runtime));
+        return ChangeDeployGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1015,18 +1040,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->pipelineId)) {
-            @$query['PipelineId'] = $request->pipelineId;
-        }
         if (!Utils::isUnset($request->confirm)) {
-            @$query['Confirm'] = $request->confirm;
+            $query['Confirm'] = $request->confirm;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ContinuePipeline',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/pipeline_batch_confirm',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ContinuePipelineResponse::fromMap($this->doROARequest('ContinuePipeline', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/changeorder/pipeline_batch_confirm', 'json', $req, $runtime));
+        return ContinuePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1053,24 +1089,154 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            @$query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->resourceName)) {
-            @$query['ResourceName'] = $request->resourceName;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+            $query['Namespace'] = $request->namespace_;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->resourceName)) {
+            $query['ResourceName'] = $request->resourceName;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ConvertK8sResource',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/oam/k8s_resource_convert',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ConvertK8sResourceResponse::fromMap($this->doROARequest('ConvertK8sResource', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/oam/k8s_resource_convert', 'json', $req, $runtime));
+        return ConvertK8sResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateApplicationScalingRuleRequest $request
+     *
+     * @return CreateApplicationScalingRuleResponse
+     */
+    public function createApplicationScalingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createApplicationScalingRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateApplicationScalingRuleRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateApplicationScalingRuleResponse
+     */
+    public function createApplicationScalingRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scalingRuleEnable)) {
+            $query['ScalingRuleEnable'] = $request->scalingRuleEnable;
+        }
+        if (!Utils::isUnset($request->scalingRuleMetric)) {
+            $query['ScalingRuleMetric'] = $request->scalingRuleMetric;
+        }
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
+        }
+        if (!Utils::isUnset($request->scalingRuleTimer)) {
+            $query['ScalingRuleTimer'] = $request->scalingRuleTimer;
+        }
+        if (!Utils::isUnset($request->scalingRuleTrigger)) {
+            $query['ScalingRuleTrigger'] = $request->scalingRuleTrigger;
+        }
+        if (!Utils::isUnset($request->scalingRuleType)) {
+            $query['ScalingRuleType'] = $request->scalingRuleType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApplicationScalingRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/eam/scale/application_scaling_rule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateConfigTemplateRequest $request
+     *
+     * @return CreateConfigTemplateResponse
+     */
+    public function createConfigTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConfigTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateConfigTemplateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateConfigTemplateResponse
+     */
+    public function createConfigTemplateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->format)) {
+            $body['Format'] = $request->format;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConfigTemplate',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/config_template',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateConfigTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1098,14 +1264,80 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$body['ClusterId'] = $request->clusterId;
+            $body['ClusterId'] = $request->clusterId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateIDCImportCommand',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/create_idc_import_command',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateIDCImportCommandResponse::fromMap($this->doROARequestWithForm('CreateIDCImportCommand', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/create_idc_import_command', 'json', $req, $runtime));
+        return CreateIDCImportCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateK8sConfigMapRequest $request
+     *
+     * @return CreateK8sConfigMapResponse
+     */
+    public function createK8sConfigMap($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createK8sConfigMapWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateK8sConfigMapRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateK8sConfigMapResponse
+     */
+    public function createK8sConfigMapWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateK8sConfigMap',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_config_map',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateK8sConfigMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1133,23 +1365,101 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+        if (!Utils::isUnset($request->ingressConf)) {
+            $query['IngressConf'] = $request->ingressConf;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->rules)) {
-            @$query['Rules'] = $request->rules;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreateK8sIngressRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_ingress',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateK8sIngressRuleResponse::fromMap($this->doROARequest('CreateK8sIngressRule', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/acs/k8s_ingress', 'json', $req, $runtime));
+        return CreateK8sIngressRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateK8sSecretRequest $request
+     *
+     * @return CreateK8sSecretResponse
+     */
+    public function createK8sSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createK8sSecretWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateK8sSecretRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateK8sSecretResponse
+     */
+    public function createK8sSecretWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->base64Encoded)) {
+            $body['Base64Encoded'] = $request->base64Encoded;
+        }
+        if (!Utils::isUnset($request->certId)) {
+            $body['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certRegionId)) {
+            $body['CertRegionId'] = $request->certRegionId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateK8sSecret',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_secret',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateK8sSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1177,58 +1487,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->servicePorts)) {
-            @$query['ServicePorts'] = $request->servicePorts;
+            $query['ServicePorts'] = $request->servicePorts;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return CreateK8sServiceResponse::fromMap($this->doROARequest('CreateK8sService', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/acs/k8s_service', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DelegateAdminRoleRequest $request
-     *
-     * @return DelegateAdminRoleResponse
-     */
-    public function delegateAdminRole($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->delegateAdminRoleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DelegateAdminRoleRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DelegateAdminRoleResponse
-     */
-    public function delegateAdminRoleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->targetUserId)) {
-            @$query['TargetUserId'] = $request->targetUserId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'CreateK8sService',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_service',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DelegateAdminRoleResponse::fromMap($this->doROARequest('DelegateAdminRole', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/account/delegate_admin_role', 'json', $req, $runtime));
+        return CreateK8sServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1256,14 +1542,74 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_delete_app',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteApplicationResponse::fromMap($this->doROARequest('DeleteApplication', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/changeorder/co_delete_app', 'json', $req, $runtime));
+        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteApplicationScalingRuleRequest $request
+     *
+     * @return DeleteApplicationScalingRuleResponse
+     */
+    public function deleteApplicationScalingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteApplicationScalingRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteApplicationScalingRuleRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteApplicationScalingRuleResponse
+     */
+    public function deleteApplicationScalingRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApplicationScalingRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/eam/scale/application_scaling_rule',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1291,17 +1637,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->mode)) {
-            @$query['Mode'] = $request->mode;
+            $query['Mode'] = $request->mode;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/cluster',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteClusterResponse::fromMap($this->doROARequest('DeleteCluster', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/resource/cluster', 'json', $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1329,96 +1686,74 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->clusterMemberId)) {
-            @$query['ClusterMemberId'] = $request->clusterMemberId;
+            $query['ClusterMemberId'] = $request->clusterMemberId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return DeleteClusterMemberResponse::fromMap($this->doROARequest('DeleteClusterMember', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/resource/cluster_member', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteConfigCenterRequest $request
-     *
-     * @return DeleteConfigCenterResponse
-     */
-    public function deleteConfigCenter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteConfigCenterWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DeleteConfigCenterRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteConfigCenterResponse
-     */
-    public function deleteConfigCenterWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataId)) {
-            @$query['DataId'] = $request->dataId;
-        }
-        if (!Utils::isUnset($request->group)) {
-            @$query['Group'] = $request->group;
-        }
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'DeleteClusterMember',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/cluster_member',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteConfigCenterResponse::fromMap($this->doROARequest('DeleteConfigCenter', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/configCenter', 'json', $req, $runtime));
+        return DeleteClusterMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteDegradeControlRequest $request
+     * @param DeleteConfigTemplateRequest $request
      *
-     * @return DeleteDegradeControlResponse
+     * @return DeleteConfigTemplateResponse
      */
-    public function deleteDegradeControl($request)
+    public function deleteConfigTemplate($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDegradeControlWithOptions($request, $headers, $runtime);
+        return $this->deleteConfigTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param DeleteDegradeControlRequest $request
+     * @param DeleteConfigTemplateRequest $request
      * @param string[]                    $headers
      * @param RuntimeOptions              $runtime
      *
-     * @return DeleteDegradeControlResponse
+     * @return DeleteConfigTemplateResponse
      */
-    public function deleteDegradeControlWithOptions($request, $headers, $runtime)
+    public function deleteConfigTemplateWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            @$query['RuleId'] = $request->ruleId;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteConfigTemplate',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/config_template',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteDegradeControlResponse::fromMap($this->doROARequest('DeleteDegradeControl', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/degradeControl', 'json', $req, $runtime));
+        return DeleteConfigTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1446,17 +1781,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->groupName)) {
-            @$query['GroupName'] = $request->groupName;
+            $query['GroupName'] = $request->groupName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteDeployGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/deploy_group',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteDeployGroupResponse::fromMap($this->doROARequest('DeleteDeployGroup', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/deploy_group', 'json', $req, $runtime));
+        return DeleteDeployGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1484,52 +1830,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->ecuId)) {
-            @$query['EcuId'] = $request->ecuId;
+            $query['EcuId'] = $request->ecuId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return DeleteEcuResponse::fromMap($this->doROARequest('DeleteEcu', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/delete_ecu', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteFlowControlRequest $request
-     *
-     * @return DeleteFlowControlResponse
-     */
-    public function deleteFlowControl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteFlowControlWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DeleteFlowControlRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteFlowControlResponse
-     */
-    public function deleteFlowControlWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            @$query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'DeleteEcu',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/delete_ecu',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowControlResponse::fromMap($this->doROARequest('DeleteFlowControl', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/flowControl', 'json', $req, $runtime));
+        return DeleteEcuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1557,14 +1876,77 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteK8sApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_apps',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteK8sApplicationResponse::fromMap($this->doROARequest('DeleteK8sApplication', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/k8s/acs/k8s_apps', 'json', $req, $runtime));
+        return DeleteK8sApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteK8sConfigMapRequest $request
+     *
+     * @return DeleteK8sConfigMapResponse
+     */
+    public function deleteK8sConfigMap($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteK8sConfigMapWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteK8sConfigMapRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteK8sConfigMapResponse
+     */
+    public function deleteK8sConfigMapWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteK8sConfigMap',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_config_map',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteK8sConfigMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1592,20 +1974,83 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteK8sIngressRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_ingress',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteK8sIngressRuleResponse::fromMap($this->doROARequest('DeleteK8sIngressRule', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/k8s/acs/k8s_ingress', 'json', $req, $runtime));
+        return DeleteK8sIngressRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteK8sSecretRequest $request
+     *
+     * @return DeleteK8sSecretResponse
+     */
+    public function deleteK8sSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteK8sSecretWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteK8sSecretRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteK8sSecretResponse
+     */
+    public function deleteK8sSecretWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteK8sSecret',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_secret',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteK8sSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1633,17 +2078,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteK8sService',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_service',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteK8sServiceResponse::fromMap($this->doROARequest('DeleteK8sService', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/k8s/acs/k8s_service', 'json', $req, $runtime));
+        return DeleteK8sServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1671,17 +2127,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->path)) {
-            @$query['Path'] = $request->path;
+            $query['Path'] = $request->path;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteLogPath',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/log/popListLogDirs',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteLogPathResponse::fromMap($this->doROARequest('DeleteLogPath', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/log/popListLogDirs', 'json', $req, $runtime));
+        return DeleteLogPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1709,14 +2176,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->roleId)) {
-            @$query['RoleId'] = $request->roleId;
+            $query['RoleId'] = $request->roleId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteRole',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/delete_role',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteRoleResponse::fromMap($this->doROARequest('DeleteRole', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/delete_role', 'json', $req, $runtime));
+        return DeleteRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1744,119 +2222,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['GroupId'] = $request->groupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return DeleteServiceGroupResponse::fromMap($this->doROARequest('DeleteServiceGroup', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/service/serviceGroups', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteServiceTimeConfigRequest $request
-     *
-     * @return DeleteServiceTimeConfigResponse
-     */
-    public function deleteServiceTimeConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteServiceTimeConfigWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DeleteServiceTimeConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteServiceTimeConfigResponse
-     */
-    public function deleteServiceTimeConfigWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->id)) {
-            @$query['Id'] = $request->id;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'DeleteServiceGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/service/serviceGroups',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteServiceTimeConfigResponse::fromMap($this->doROARequest('DeleteServiceTimeConfig', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/timeout/remove', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSwimmingLaneRequest $request
-     *
-     * @return DeleteSwimmingLaneResponse
-     */
-    public function deleteSwimmingLane($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteSwimmingLaneWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DeleteSwimmingLaneRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteSwimmingLaneResponse
-     */
-    public function deleteSwimmingLaneWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->laneId)) {
-            @$query['LaneId'] = $request->laneId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DeleteSwimmingLaneResponse::fromMap($this->doROARequest('DeleteSwimmingLane', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/trafficmgnt/swimming_lanes', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSwimmingLaneGroupRequest $request
-     *
-     * @return DeleteSwimmingLaneGroupResponse
-     */
-    public function deleteSwimmingLaneGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteSwimmingLaneGroupWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DeleteSwimmingLaneGroupRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteSwimmingLaneGroupResponse
-     */
-    public function deleteSwimmingLaneGroupWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DeleteSwimmingLaneGroupResponse::fromMap($this->doROARequest('DeleteSwimmingLaneGroup', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/trafficmgnt/swimming_lane_groups', 'json', $req, $runtime));
+        return DeleteServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1884,17 +2268,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->id)) {
-            @$query['Id'] = $request->id;
+            $query['Id'] = $request->id;
         }
         if (!Utils::isUnset($request->regionTag)) {
-            @$query['RegionTag'] = $request->regionTag;
+            $query['RegionTag'] = $request->regionTag;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteUserDefineRegion',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/user_region_def',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteUserDefineRegionResponse::fromMap($this->doROARequest('DeleteUserDefineRegion', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/user_region_def', 'json', $req, $runtime));
+        return DeleteUserDefineRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1921,57 +2316,68 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appEnv)) {
+            $query['AppEnv'] = $request->appEnv;
+        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->packageVersion)) {
-            @$query['PackageVersion'] = $request->packageVersion;
-        }
-        if (!Utils::isUnset($request->desc)) {
-            @$query['Desc'] = $request->desc;
-        }
-        if (!Utils::isUnset($request->deployType)) {
-            @$query['DeployType'] = $request->deployType;
-        }
-        if (!Utils::isUnset($request->warUrl)) {
-            @$query['WarUrl'] = $request->warUrl;
-        }
-        if (!Utils::isUnset($request->imageUrl)) {
-            @$query['ImageUrl'] = $request->imageUrl;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->batch)) {
-            @$query['Batch'] = $request->batch;
+            $query['Batch'] = $request->batch;
         }
         if (!Utils::isUnset($request->batchWaitTime)) {
-            @$query['BatchWaitTime'] = $request->batchWaitTime;
-        }
-        if (!Utils::isUnset($request->appEnv)) {
-            @$query['AppEnv'] = $request->appEnv;
+            $query['BatchWaitTime'] = $request->batchWaitTime;
         }
         if (!Utils::isUnset($request->buildPackId)) {
-            @$query['BuildPackId'] = $request->buildPackId;
+            $query['BuildPackId'] = $request->buildPackId;
         }
         if (!Utils::isUnset($request->componentIds)) {
-            @$query['ComponentIds'] = $request->componentIds;
+            $query['ComponentIds'] = $request->componentIds;
         }
-        if (!Utils::isUnset($request->releaseType)) {
-            @$query['ReleaseType'] = $request->releaseType;
+        if (!Utils::isUnset($request->deployType)) {
+            $query['DeployType'] = $request->deployType;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
         }
         if (!Utils::isUnset($request->gray)) {
-            @$query['Gray'] = $request->gray;
+            $query['Gray'] = $request->gray;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->packageVersion)) {
+            $query['PackageVersion'] = $request->packageVersion;
+        }
+        if (!Utils::isUnset($request->releaseType)) {
+            $query['ReleaseType'] = $request->releaseType;
         }
         if (!Utils::isUnset($request->trafficControlStrategy)) {
-            @$query['TrafficControlStrategy'] = $request->trafficControlStrategy;
+            $query['TrafficControlStrategy'] = $request->trafficControlStrategy;
+        }
+        if (!Utils::isUnset($request->warUrl)) {
+            $query['WarUrl'] = $request->warUrl;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeployApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_deploy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeployApplicationResponse::fromMap($this->doROARequest('DeployApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_deploy', 'json', $req, $runtime));
+        return DeployApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1998,214 +2404,311 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->preStop)) {
-            @$query['PreStop'] = $request->preStop;
-        }
-        if (!Utils::isUnset($request->envs)) {
-            @$query['Envs'] = $request->envs;
-        }
-        if (!Utils::isUnset($request->imageTag)) {
-            @$query['ImageTag'] = $request->imageTag;
-        }
-        if (!Utils::isUnset($request->batchWaitTime)) {
-            @$query['BatchWaitTime'] = $request->batchWaitTime;
-        }
-        if (!Utils::isUnset($request->command)) {
-            @$query['Command'] = $request->command;
-        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->postStart)) {
-            @$query['PostStart'] = $request->postStart;
-        }
-        if (!Utils::isUnset($request->readiness)) {
-            @$query['Readiness'] = $request->readiness;
-        }
-        if (!Utils::isUnset($request->liveness)) {
-            @$query['Liveness'] = $request->liveness;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->args)) {
-            @$query['Args'] = $request->args;
-        }
-        if (!Utils::isUnset($request->replicas)) {
-            @$query['Replicas'] = $request->replicas;
-        }
-        if (!Utils::isUnset($request->image)) {
-            @$query['Image'] = $request->image;
-        }
-        if (!Utils::isUnset($request->cpuLimit)) {
-            @$query['CpuLimit'] = $request->cpuLimit;
-        }
-        if (!Utils::isUnset($request->memoryLimit)) {
-            @$query['MemoryLimit'] = $request->memoryLimit;
-        }
-        if (!Utils::isUnset($request->cpuRequest)) {
-            @$query['CpuRequest'] = $request->cpuRequest;
-        }
-        if (!Utils::isUnset($request->memoryRequest)) {
-            @$query['MemoryRequest'] = $request->memoryRequest;
-        }
-        if (!Utils::isUnset($request->nasId)) {
-            @$query['NasId'] = $request->nasId;
-        }
-        if (!Utils::isUnset($request->mountDescs)) {
-            @$query['MountDescs'] = $request->mountDescs;
-        }
-        if (!Utils::isUnset($request->storageType)) {
-            @$query['StorageType'] = $request->storageType;
-        }
-        if (!Utils::isUnset($request->localVolume)) {
-            @$query['LocalVolume'] = $request->localVolume;
-        }
-        if (!Utils::isUnset($request->packageUrl)) {
-            @$query['PackageUrl'] = $request->packageUrl;
-        }
-        if (!Utils::isUnset($request->packageVersion)) {
-            @$query['PackageVersion'] = $request->packageVersion;
-        }
-        if (!Utils::isUnset($request->JDK)) {
-            @$query['JDK'] = $request->JDK;
-        }
-        if (!Utils::isUnset($request->webContainer)) {
-            @$query['WebContainer'] = $request->webContainer;
-        }
-        if (!Utils::isUnset($request->edasContainerVersion)) {
-            @$query['EdasContainerVersion'] = $request->edasContainerVersion;
-        }
-        if (!Utils::isUnset($request->uriEncoding)) {
-            @$query['UriEncoding'] = $request->uriEncoding;
-        }
-        if (!Utils::isUnset($request->useBodyEncoding)) {
-            @$query['UseBodyEncoding'] = $request->useBodyEncoding;
-        }
-        if (!Utils::isUnset($request->updateStrategy)) {
-            @$query['UpdateStrategy'] = $request->updateStrategy;
-        }
-        if (!Utils::isUnset($request->mcpuRequest)) {
-            @$query['McpuRequest'] = $request->mcpuRequest;
-        }
-        if (!Utils::isUnset($request->mcpuLimit)) {
-            @$query['McpuLimit'] = $request->mcpuLimit;
-        }
-        if (!Utils::isUnset($request->volumesStr)) {
-            @$query['VolumesStr'] = $request->volumesStr;
-        }
-        if (!Utils::isUnset($request->packageVersionId)) {
-            @$query['PackageVersionId'] = $request->packageVersionId;
-        }
-        if (!Utils::isUnset($request->changeOrderDesc)) {
-            @$query['ChangeOrderDesc'] = $request->changeOrderDesc;
-        }
-        if (!Utils::isUnset($request->runtimeClassName)) {
-            @$query['RuntimeClassName'] = $request->runtimeClassName;
-        }
-        if (!Utils::isUnset($request->deployAcrossZones)) {
-            @$query['DeployAcrossZones'] = $request->deployAcrossZones;
+            $query['Args'] = $request->args;
         }
         if (!Utils::isUnset($request->batchTimeout)) {
-            @$query['BatchTimeout'] = $request->batchTimeout;
+            $query['BatchTimeout'] = $request->batchTimeout;
         }
-        if (!Utils::isUnset($request->enableAhas)) {
-            @$query['EnableAhas'] = $request->enableAhas;
+        if (!Utils::isUnset($request->batchWaitTime)) {
+            $query['BatchWaitTime'] = $request->batchWaitTime;
         }
-        if (!Utils::isUnset($request->webContainerConfig)) {
-            @$query['WebContainerConfig'] = $request->webContainerConfig;
+        if (!Utils::isUnset($request->changeOrderDesc)) {
+            $query['ChangeOrderDesc'] = $request->changeOrderDesc;
         }
-        if (!Utils::isUnset($request->javaStartUpConfig)) {
-            @$query['JavaStartUpConfig'] = $request->javaStartUpConfig;
+        if (!Utils::isUnset($request->command)) {
+            $query['Command'] = $request->command;
         }
-        if (!Utils::isUnset($request->slsConfigs)) {
-            @$query['SlsConfigs'] = $request->slsConfigs;
+        if (!Utils::isUnset($request->configMountDescs)) {
+            $query['ConfigMountDescs'] = $request->configMountDescs;
+        }
+        if (!Utils::isUnset($request->cpuLimit)) {
+            $query['CpuLimit'] = $request->cpuLimit;
+        }
+        if (!Utils::isUnset($request->cpuRequest)) {
+            $query['CpuRequest'] = $request->cpuRequest;
+        }
+        if (!Utils::isUnset($request->customAffinity)) {
+            $query['CustomAffinity'] = $request->customAffinity;
+        }
+        if (!Utils::isUnset($request->customTolerations)) {
+            $query['CustomTolerations'] = $request->customTolerations;
         }
         if (!Utils::isUnset($request->deployAcrossNodes)) {
-            @$query['DeployAcrossNodes'] = $request->deployAcrossNodes;
+            $query['DeployAcrossNodes'] = $request->deployAcrossNodes;
+        }
+        if (!Utils::isUnset($request->deployAcrossZones)) {
+            $query['DeployAcrossZones'] = $request->deployAcrossZones;
+        }
+        if (!Utils::isUnset($request->edasContainerVersion)) {
+            $query['EdasContainerVersion'] = $request->edasContainerVersion;
+        }
+        if (!Utils::isUnset($request->emptyDirs)) {
+            $query['EmptyDirs'] = $request->emptyDirs;
+        }
+        if (!Utils::isUnset($request->enableAhas)) {
+            $query['EnableAhas'] = $request->enableAhas;
+        }
+        if (!Utils::isUnset($request->envFroms)) {
+            $query['EnvFroms'] = $request->envFroms;
+        }
+        if (!Utils::isUnset($request->envs)) {
+            $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->image)) {
+            $query['Image'] = $request->image;
+        }
+        if (!Utils::isUnset($request->imageTag)) {
+            $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->JDK)) {
+            $query['JDK'] = $request->JDK;
+        }
+        if (!Utils::isUnset($request->javaStartUpConfig)) {
+            $query['JavaStartUpConfig'] = $request->javaStartUpConfig;
+        }
+        if (!Utils::isUnset($request->liveness)) {
+            $query['Liveness'] = $request->liveness;
+        }
+        if (!Utils::isUnset($request->localVolume)) {
+            $query['LocalVolume'] = $request->localVolume;
+        }
+        if (!Utils::isUnset($request->mcpuLimit)) {
+            $query['McpuLimit'] = $request->mcpuLimit;
+        }
+        if (!Utils::isUnset($request->mcpuRequest)) {
+            $query['McpuRequest'] = $request->mcpuRequest;
+        }
+        if (!Utils::isUnset($request->memoryLimit)) {
+            $query['MemoryLimit'] = $request->memoryLimit;
+        }
+        if (!Utils::isUnset($request->memoryRequest)) {
+            $query['MemoryRequest'] = $request->memoryRequest;
+        }
+        if (!Utils::isUnset($request->mountDescs)) {
+            $query['MountDescs'] = $request->mountDescs;
+        }
+        if (!Utils::isUnset($request->nasId)) {
+            $query['NasId'] = $request->nasId;
+        }
+        if (!Utils::isUnset($request->packageUrl)) {
+            $query['PackageUrl'] = $request->packageUrl;
+        }
+        if (!Utils::isUnset($request->packageVersion)) {
+            $query['PackageVersion'] = $request->packageVersion;
+        }
+        if (!Utils::isUnset($request->packageVersionId)) {
+            $query['PackageVersionId'] = $request->packageVersionId;
+        }
+        if (!Utils::isUnset($request->postStart)) {
+            $query['PostStart'] = $request->postStart;
+        }
+        if (!Utils::isUnset($request->preStop)) {
+            $query['PreStop'] = $request->preStop;
+        }
+        if (!Utils::isUnset($request->pvcMountDescs)) {
+            $query['PvcMountDescs'] = $request->pvcMountDescs;
+        }
+        if (!Utils::isUnset($request->readiness)) {
+            $query['Readiness'] = $request->readiness;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $query['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->runtimeClassName)) {
+            $query['RuntimeClassName'] = $request->runtimeClassName;
+        }
+        if (!Utils::isUnset($request->slsConfigs)) {
+            $query['SlsConfigs'] = $request->slsConfigs;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
         if (!Utils::isUnset($request->trafficControlStrategy)) {
-            @$query['TrafficControlStrategy'] = $request->trafficControlStrategy;
+            $query['TrafficControlStrategy'] = $request->trafficControlStrategy;
+        }
+        if (!Utils::isUnset($request->updateStrategy)) {
+            $query['UpdateStrategy'] = $request->updateStrategy;
+        }
+        if (!Utils::isUnset($request->uriEncoding)) {
+            $query['UriEncoding'] = $request->uriEncoding;
+        }
+        if (!Utils::isUnset($request->useBodyEncoding)) {
+            $query['UseBodyEncoding'] = $request->useBodyEncoding;
+        }
+        if (!Utils::isUnset($request->volumesStr)) {
+            $query['VolumesStr'] = $request->volumesStr;
+        }
+        if (!Utils::isUnset($request->webContainer)) {
+            $query['WebContainer'] = $request->webContainer;
+        }
+        if (!Utils::isUnset($request->webContainerConfig)) {
+            $query['WebContainerConfig'] = $request->webContainerConfig;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeployK8sApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_apps',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeployK8sApplicationResponse::fromMap($this->doROARequest('DeployK8sApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/acs/k8s_apps', 'json', $req, $runtime));
+        return DeployK8sApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DisableDegradeControlRequest $request
+     * @param DescribeAppInstanceListRequest $request
      *
-     * @return DisableDegradeControlResponse
+     * @return DescribeAppInstanceListResponse
      */
-    public function disableDegradeControl($request)
+    public function describeAppInstanceList($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableDegradeControlWithOptions($request, $headers, $runtime);
+        return $this->describeAppInstanceListWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param DisableDegradeControlRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DescribeAppInstanceListRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DisableDegradeControlResponse
+     * @return DescribeAppInstanceListResponse
      */
-    public function disableDegradeControlWithOptions($request, $headers, $runtime)
+    public function describeAppInstanceListWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            @$query['RuleId'] = $request->ruleId;
+        if (!Utils::isUnset($request->withNodeInfo)) {
+            $query['WithNodeInfo'] = $request->withNodeInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeAppInstanceList',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/oam/app_instance_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableDegradeControlResponse::fromMap($this->doROARequest('DisableDegradeControl', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/degradecontrol/disable', 'json', $req, $runtime));
+        return DescribeAppInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DisableFlowControlRequest $request
+     * @param DescribeApplicationScalingRulesRequest $request
      *
-     * @return DisableFlowControlResponse
+     * @return DescribeApplicationScalingRulesResponse
      */
-    public function disableFlowControl($request)
+    public function describeApplicationScalingRules($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableFlowControlWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationScalingRulesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param DisableFlowControlRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DescribeApplicationScalingRulesRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
      *
-     * @return DisableFlowControlResponse
+     * @return DescribeApplicationScalingRulesResponse
      */
-    public function disableFlowControlWithOptions($request, $headers, $runtime)
+    public function describeApplicationScalingRulesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            @$query['RuleId'] = $request->ruleId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeApplicationScalingRules',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/eam/scale/application_scaling_rules',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableFlowControlResponse::fromMap($this->doROARequest('DisableFlowControl', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/flowcontrol/disable', 'json', $req, $runtime));
+        return DescribeApplicationScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableApplicationScalingRuleRequest $request
+     *
+     * @return DisableApplicationScalingRuleResponse
+     */
+    public function disableApplicationScalingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableApplicationScalingRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DisableApplicationScalingRuleRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DisableApplicationScalingRuleResponse
+     */
+    public function disableApplicationScalingRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableApplicationScalingRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/eam/scale/disable_application_scaling_rule',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2233,90 +2736,74 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->id)) {
-            @$query['Id'] = $request->id;
+            $query['Id'] = $request->id;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DisableMockRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mock/disableMockRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableMockRuleResponse::fromMap($this->doROARequest('DisableMockRule', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/disableMockRule', 'json', $req, $runtime));
+        return DisableMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EnableDegradeControlRequest $request
+     * @param EnableApplicationScalingRuleRequest $request
      *
-     * @return EnableDegradeControlResponse
+     * @return EnableApplicationScalingRuleResponse
      */
-    public function enableDegradeControl($request)
+    public function enableApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableDegradeControlWithOptions($request, $headers, $runtime);
+        return $this->enableApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param EnableDegradeControlRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param EnableApplicationScalingRuleRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
      *
-     * @return EnableDegradeControlResponse
+     * @return EnableApplicationScalingRuleResponse
      */
-    public function enableDegradeControlWithOptions($request, $headers, $runtime)
+    public function enableApplicationScalingRuleWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            @$query['RuleId'] = $request->ruleId;
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return EnableDegradeControlResponse::fromMap($this->doROARequest('EnableDegradeControl', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/degradecontrol/enable', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EnableFlowControlRequest $request
-     *
-     * @return EnableFlowControlResponse
-     */
-    public function enableFlowControl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->enableFlowControlWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param EnableFlowControlRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return EnableFlowControlResponse
-     */
-    public function enableFlowControlWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            @$query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'EnableApplicationScalingRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/eam/scale/enable_application_scaling_rule',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableFlowControlResponse::fromMap($this->doROARequest('EnableFlowControl', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/flowcontrol/enable', 'json', $req, $runtime));
+        return EnableApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2344,73 +2831,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->id)) {
-            @$query['Id'] = $request->id;
+            $query['Id'] = $request->id;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return EnableMockRuleResponse::fromMap($this->doROARequest('EnableMockRule', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/enableMockRule', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExecuteStatusRequest $request
-     *
-     * @return ExecuteStatusResponse
-     */
-    public function executeStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->executeStatusWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ExecuteStatusRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ExecuteStatusResponse
-     */
-    public function executeStatusWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            @$query['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->source)) {
-            @$query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->accountId)) {
-            @$query['AccountId'] = $request->accountId;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ip)) {
-            @$query['Ip'] = $request->ip;
-        }
-        if (!Utils::isUnset($request->podName)) {
-            @$query['PodName'] = $request->podName;
-        }
-        if (!Utils::isUnset($request->status)) {
-            @$query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'EnableMockRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mock/enableMockRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteStatusResponse::fromMap($this->doROARequest('ExecuteStatus', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mse/status/execute', 'json', $req, $runtime));
+        return EnableMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2437,33 +2876,93 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->consumerAppName)) {
+            $query['ConsumerAppName'] = $request->consumerAppName;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->mockType)) {
+            $query['MockType'] = $request->mockType;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->consumerAppName)) {
-            @$query['ConsumerAppName'] = $request->consumerAppName;
-        }
-        if (!Utils::isUnset($request->providerAppName)) {
-            @$query['ProviderAppName'] = $request->providerAppName;
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->providerAppName)) {
+            $query['ProviderAppName'] = $request->providerAppName;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetAccountMockRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mock/getAccountMockRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAccountMockRuleResponse::fromMap($this->doROARequest('GetAccountMockRule', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/getAccountMockRule', 'json', $req, $runtime));
+        return GetAccountMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAppDeploymentRequest $request
+     *
+     * @return GetAppDeploymentResponse
+     */
+    public function getAppDeployment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAppDeploymentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetAppDeploymentRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAppDeploymentResponse
+     */
+    public function getAppDeploymentWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppDeployment',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/oam/app_deployment',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2491,14 +2990,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/app_info',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetApplicationResponse::fromMap($this->doROARequest('GetApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/app_info', 'json', $req, $runtime));
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2526,14 +3036,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->changeOrderId)) {
-            @$query['ChangeOrderId'] = $request->changeOrderId;
+            $query['ChangeOrderId'] = $request->changeOrderId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetChangeOrderInfo',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/change_order_info',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetChangeOrderInfoResponse::fromMap($this->doROARequest('GetChangeOrderInfo', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/change_order_info', 'json', $req, $runtime));
+        return GetChangeOrderInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2561,14 +3082,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/cluster',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetClusterResponse::fromMap($this->doROARequest('GetCluster', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/cluster', 'json', $req, $runtime));
+        return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2596,17 +3128,74 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['GroupId'] = $request->groupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetContainerConfiguration',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/container_config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetContainerConfigurationResponse::fromMap($this->doROARequest('GetContainerConfiguration', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/app/container_config', 'json', $req, $runtime));
+        return GetContainerConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetJavaStartUpConfigRequest $request
+     *
+     * @return GetJavaStartUpConfigResponse
+     */
+    public function getJavaStartUpConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getJavaStartUpConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetJavaStartUpConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetJavaStartUpConfigResponse
+     */
+    public function getJavaStartUpConfigWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJavaStartUpConfig',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/oam/java_start_up_config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJavaStartUpConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2634,17 +3223,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['GroupId'] = $request->groupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetJvmConfiguration',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/app_jvm_config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetJvmConfigurationResponse::fromMap($this->doROARequest('GetJvmConfiguration', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/app/app_jvm_config', 'json', $req, $runtime));
+        return GetJvmConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2672,17 +3272,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->from)) {
-            @$query['From'] = $request->from;
+            $query['From'] = $request->from;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetK8sApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_application',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetK8sApplicationResponse::fromMap($this->doROARequest('GetK8sApplication', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/changeorder/co_application', 'json', $req, $runtime));
+        return GetK8sApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2709,24 +3320,35 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionTag)) {
-            @$query['RegionTag'] = $request->regionTag;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            @$query['ClusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->regionTag)) {
+            $query['RegionTag'] = $request->regionTag;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetK8sCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s_clusters',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetK8sClusterResponse::fromMap($this->doROARequest('GetK8sCluster', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s_clusters', 'json', $req, $runtime));
+        return GetK8sClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2754,14 +3376,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetK8sServices',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_service',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetK8sServicesResponse::fromMap($this->doROARequest('GetK8sServices', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/k8s/acs/k8s_service', 'json', $req, $runtime));
+        return GetK8sServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2788,53 +3421,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
-        }
         if (!Utils::isUnset($request->consumerAppId)) {
-            @$query['ConsumerAppId'] = $request->consumerAppId;
+            $query['ConsumerAppId'] = $request->consumerAppId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return GetMockRuleByConsumerAppIdResponse::fromMap($this->doROARequest('GetMockRuleByConsumerAppId', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/getMockRuleByConsumerAppId', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMockRuleByIdRequest $request
-     *
-     * @return GetMockRuleByIdResponse
-     */
-    public function getMockRuleById($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getMockRuleByIdWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetMockRuleByIdRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetMockRuleByIdResponse
-     */
-    public function getMockRuleByIdWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->id)) {
-            @$query['Id'] = $request->id;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'GetMockRuleByConsumerAppId',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mock/getMockRuleByConsumerAppId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMockRuleByIdResponse::fromMap($this->doROARequest('GetMockRuleById', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/getMockRuleById', 'json', $req, $runtime));
+        return GetMockRuleByConsumerAppIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2861,18 +3470,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
-        }
         if (!Utils::isUnset($request->providerAppId)) {
-            @$query['ProviderAppId'] = $request->providerAppId;
+            $query['ProviderAppId'] = $request->providerAppId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetMockRuleByProviderAppId',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mock/getMockRuleByProviderAppId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetMockRuleByProviderAppIdResponse::fromMap($this->doROARequest('GetMockRuleByProviderAppId', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/getMockRuleByProviderAppId', 'json', $req, $runtime));
+        return GetMockRuleByProviderAppIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2897,8 +3517,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetPackageStorageCredential',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/package_storage_credential',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetPackageStorageCredentialResponse::fromMap($this->doROARequest('GetPackageStorageCredential', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/package_storage_credential', 'json', $req, $runtime));
+        return GetPackageStorageCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2926,20 +3557,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->mode)) {
-            @$query['Mode'] = $request->mode;
+            $query['Mode'] = $request->mode;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetScalingRules',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/scalingRules',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetScalingRulesResponse::fromMap($this->doROARequest('GetScalingRules', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/app/scalingRules', 'json', $req, $runtime));
+        return GetScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2967,14 +3609,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetSecureToken',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/secure_token',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSecureTokenResponse::fromMap($this->doROARequest('GetSecureToken', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/secure_token', 'json', $req, $runtime));
+        return GetSecureTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3001,54 +3654,65 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['namespace_'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->origin)) {
-            @$query['origin'] = $request->origin;
-        }
-        if (!Utils::isUnset($request->serviceType)) {
-            @$query['serviceType'] = $request->serviceType;
-        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['appId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->source)) {
-            @$query['source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->serviceId)) {
-            @$query['serviceId'] = $request->serviceId;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['serviceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->serviceVersion)) {
-            @$query['serviceVersion'] = $request->serviceVersion;
+            $query['appId'] = $request->appId;
         }
         if (!Utils::isUnset($request->group)) {
-            @$query['group'] = $request->group;
+            $query['group'] = $request->group;
         }
         if (!Utils::isUnset($request->ip)) {
-            @$query['ip'] = $request->ip;
+            $query['ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->registryType)) {
-            @$query['registryType'] = $request->registryType;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['origin'] = $request->origin;
         }
         if (!Utils::isUnset($request->page)) {
-            @$query['page'] = $request->page;
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->registryType)) {
+            $query['registryType'] = $request->registryType;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['serviceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['serviceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['serviceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['serviceVersion'] = $request->serviceVersion;
         }
         if (!Utils::isUnset($request->size)) {
-            @$query['size'] = $request->size;
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceConsumersPage',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mseForOam/getServiceConsumersPage',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceConsumersPageResponse::fromMap($this->doROARequest('GetServiceConsumersPage', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mseForOam/getServiceConsumersPage', 'json', $req, $runtime));
+        return GetServiceConsumersPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3075,101 +3739,59 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['namespace_'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->origin)) {
-            @$query['origin'] = $request->origin;
-        }
-        if (!Utils::isUnset($request->serviceType)) {
-            @$query['serviceType'] = $request->serviceType;
-        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['appId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->source)) {
-            @$query['source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->serviceId)) {
-            @$query['serviceId'] = $request->serviceId;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['serviceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->serviceVersion)) {
-            @$query['serviceVersion'] = $request->serviceVersion;
+            $query['appId'] = $request->appId;
         }
         if (!Utils::isUnset($request->group)) {
-            @$query['group'] = $request->group;
+            $query['group'] = $request->group;
         }
         if (!Utils::isUnset($request->ip)) {
-            @$query['ip'] = $request->ip;
-        }
-        if (!Utils::isUnset($request->registryType)) {
-            @$query['registryType'] = $request->registryType;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return GetServiceDetailResponse::fromMap($this->doROARequest('GetServiceDetail', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mseForOam/getServiceDetail', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetServiceListRequest $request
-     *
-     * @return GetServiceListResponse
-     */
-    public function getServiceList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getServiceListWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetServiceListRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetServiceListResponse
-     */
-    public function getServiceListWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['region'] = $request->region;
+            $query['ip'] = $request->ip;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['namespace_'] = $request->namespace_;
+            $query['namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->origin)) {
-            @$query['origin'] = $request->origin;
+            $query['origin'] = $request->origin;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->registryType)) {
+            $query['registryType'] = $request->registryType;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['serviceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['serviceName'] = $request->serviceName;
         }
         if (!Utils::isUnset($request->serviceType)) {
-            @$query['serviceType'] = $request->serviceType;
+            $query['serviceType'] = $request->serviceType;
         }
-        if (!Utils::isUnset($request->searchType)) {
-            @$query['searchType'] = $request->searchType;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['serviceVersion'] = $request->serviceVersion;
         }
-        if (!Utils::isUnset($request->searchValue)) {
-            @$query['searchValue'] = $request->searchValue;
-        }
-        if (!Utils::isUnset($request->side)) {
-            @$query['side'] = $request->side;
+        if (!Utils::isUnset($request->source)) {
+            $query['source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceDetail',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mseForOam/getServiceDetail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceListResponse::fromMap($this->doROARequest('GetServiceList', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mseForOam/getServiceList', 'json', $req, $runtime));
+        return GetServiceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3196,39 +3818,50 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['region'] = $request->region;
-        }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['namespace_'] = $request->namespace_;
+            $query['namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->origin)) {
-            @$query['origin'] = $request->origin;
-        }
-        if (!Utils::isUnset($request->serviceType)) {
-            @$query['serviceType'] = $request->serviceType;
-        }
-        if (!Utils::isUnset($request->searchType)) {
-            @$query['searchType'] = $request->searchType;
-        }
-        if (!Utils::isUnset($request->searchValue)) {
-            @$query['searchValue'] = $request->searchValue;
-        }
-        if (!Utils::isUnset($request->side)) {
-            @$query['side'] = $request->side;
+            $query['origin'] = $request->origin;
         }
         if (!Utils::isUnset($request->page)) {
-            @$query['page'] = $request->page;
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->searchType)) {
+            $query['searchType'] = $request->searchType;
+        }
+        if (!Utils::isUnset($request->searchValue)) {
+            $query['searchValue'] = $request->searchValue;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['serviceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->side)) {
+            $query['side'] = $request->side;
         }
         if (!Utils::isUnset($request->size)) {
-            @$query['size'] = $request->size;
+            $query['size'] = $request->size;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceListPage',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mseForOam/getServiceListPage',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceListPageResponse::fromMap($this->doROARequest('GetServiceListPage', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mseForOam/getServiceListPage', 'json', $req, $runtime));
+        return GetServiceListPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3255,63 +3888,74 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['namespace_'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->origin)) {
-            @$query['origin'] = $request->origin;
-        }
-        if (!Utils::isUnset($request->serviceType)) {
-            @$query['serviceType'] = $request->serviceType;
-        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['appId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->source)) {
-            @$query['source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->serviceId)) {
-            @$query['serviceId'] = $request->serviceId;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['serviceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->serviceVersion)) {
-            @$query['serviceVersion'] = $request->serviceVersion;
+            $query['appId'] = $request->appId;
         }
         if (!Utils::isUnset($request->group)) {
-            @$query['group'] = $request->group;
+            $query['group'] = $request->group;
         }
         if (!Utils::isUnset($request->ip)) {
-            @$query['ip'] = $request->ip;
-        }
-        if (!Utils::isUnset($request->registryType)) {
-            @$query['registryType'] = $request->registryType;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            @$query['pageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['pageSize'] = $request->pageSize;
+            $query['ip'] = $request->ip;
         }
         if (!Utils::isUnset($request->methodController)) {
-            @$query['methodController'] = $request->methodController;
-        }
-        if (!Utils::isUnset($request->path)) {
-            @$query['path'] = $request->path;
+            $query['methodController'] = $request->methodController;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['name'] = $request->name;
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['origin'] = $request->origin;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->registryType)) {
+            $query['registryType'] = $request->registryType;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['serviceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['serviceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['serviceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['serviceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceMethodPage',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mseForOam/getServiceMethodPage',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceMethodPageResponse::fromMap($this->doROARequest('GetServiceMethodPage', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mseForOam/getServiceMethodPage', 'json', $req, $runtime));
+        return GetServiceMethodPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3338,124 +3982,111 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['namespace_'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->origin)) {
-            @$query['origin'] = $request->origin;
-        }
-        if (!Utils::isUnset($request->serviceType)) {
-            @$query['serviceType'] = $request->serviceType;
-        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['appId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->source)) {
-            @$query['source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->serviceId)) {
-            @$query['serviceId'] = $request->serviceId;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['serviceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->serviceVersion)) {
-            @$query['serviceVersion'] = $request->serviceVersion;
+            $query['appId'] = $request->appId;
         }
         if (!Utils::isUnset($request->group)) {
-            @$query['group'] = $request->group;
+            $query['group'] = $request->group;
         }
         if (!Utils::isUnset($request->ip)) {
-            @$query['ip'] = $request->ip;
+            $query['ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->registryType)) {
-            @$query['registryType'] = $request->registryType;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['origin'] = $request->origin;
         }
         if (!Utils::isUnset($request->page)) {
-            @$query['page'] = $request->page;
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->registryType)) {
+            $query['registryType'] = $request->registryType;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['serviceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['serviceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['serviceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['serviceVersion'] = $request->serviceVersion;
         }
         if (!Utils::isUnset($request->size)) {
-            @$query['size'] = $request->size;
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceProvidersPage',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mseForOam/getServiceProvidersPage',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceProvidersPageResponse::fromMap($this->doROARequest('GetServiceProvidersPage', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mseForOam/getServiceProvidersPage', 'json', $req, $runtime));
+        return GetServiceProvidersPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetSubAccountInfoRequest $request
+     * @param GetWebContainerConfigRequest $request
      *
-     * @return GetSubAccountInfoResponse
+     * @return GetWebContainerConfigResponse
      */
-    public function getSubAccountInfo($request)
+    public function getWebContainerConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSubAccountInfoWithOptions($request, $headers, $runtime);
+        return $this->getWebContainerConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param GetSubAccountInfoRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param GetWebContainerConfigRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return GetSubAccountInfoResponse
+     * @return GetWebContainerConfigResponse
      */
-    public function getSubAccountInfoWithOptions($request, $headers, $runtime)
+    public function getWebContainerConfigWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->targetUserId)) {
-            @$query['TargetUserId'] = $request->targetUserId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return GetSubAccountInfoResponse::fromMap($this->doROARequest('GetSubAccountInfo', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/sub_account_info', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSwimmingLaneRequest $request
-     *
-     * @return GetSwimmingLaneResponse
-     */
-    public function getSwimmingLane($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getSwimmingLaneWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetSwimmingLaneRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetSwimmingLaneResponse
-     */
-    public function getSwimmingLaneWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->laneId)) {
-            @$query['LaneId'] = $request->laneId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'GetWebContainerConfig',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/oam/web_container_config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSwimmingLaneResponse::fromMap($this->doROARequest('GetSwimmingLane', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/trafficmgnt/swimming_lane', 'json', $req, $runtime));
+        return GetWebContainerConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3483,23 +4114,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
-        }
-        if (!Utils::isUnset($request->mode)) {
-            @$query['Mode'] = $request->mode;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->enableAsm)) {
-            @$query['EnableAsm'] = $request->enableAsm;
+            $query['EnableAsm'] = $request->enableAsm;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ImportK8sCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/import_k8s_cluster',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImportK8sClusterResponse::fromMap($this->doROARequest('ImportK8sCluster', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/import_k8s_cluster', 'json', $req, $runtime));
+        return ImportK8sClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3526,78 +4168,89 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
         if (!Utils::isUnset($request->buildPackId)) {
-            @$query['BuildPackId'] = $request->buildPackId;
+            $query['BuildPackId'] = $request->buildPackId;
         }
-        if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->applicationName)) {
-            @$query['ApplicationName'] = $request->applicationName;
-        }
-        if (!Utils::isUnset($request->reservedPortStr)) {
-            @$query['ReservedPortStr'] = $request->reservedPortStr;
-        }
-        if (!Utils::isUnset($request->ecuInfo)) {
-            @$query['EcuInfo'] = $request->ecuInfo;
-        }
-        if (!Utils::isUnset($request->cpu)) {
-            @$query['Cpu'] = $request->cpu;
-        }
-        if (!Utils::isUnset($request->mem)) {
-            @$query['Mem'] = $request->mem;
-        }
-        if (!Utils::isUnset($request->healthCheckURL)) {
-            @$query['HealthCheckURL'] = $request->healthCheckURL;
-        }
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        if (!Utils::isUnset($request->jdk)) {
-            @$query['Jdk'] = $request->jdk;
-        }
-        if (!Utils::isUnset($request->webContainer)) {
-            @$query['WebContainer'] = $request->webContainer;
-        }
-        if (!Utils::isUnset($request->packageType)) {
-            @$query['PackageType'] = $request->packageType;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->componentIds)) {
-            @$query['ComponentIds'] = $request->componentIds;
+            $query['ComponentIds'] = $request->componentIds;
         }
-        if (!Utils::isUnset($request->hooks)) {
-            @$query['Hooks'] = $request->hooks;
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->jvmOptions)) {
-            @$query['JvmOptions'] = $request->jvmOptions;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->minHeapSize)) {
-            @$query['MinHeapSize'] = $request->minHeapSize;
-        }
-        if (!Utils::isUnset($request->maxPermSize)) {
-            @$query['MaxPermSize'] = $request->maxPermSize;
-        }
-        if (!Utils::isUnset($request->maxHeapSize)) {
-            @$query['MaxHeapSize'] = $request->maxHeapSize;
-        }
-        if (!Utils::isUnset($request->enableUrlCheck)) {
-            @$query['EnableUrlCheck'] = $request->enableUrlCheck;
+        if (!Utils::isUnset($request->ecuInfo)) {
+            $query['EcuInfo'] = $request->ecuInfo;
         }
         if (!Utils::isUnset($request->enablePortCheck)) {
-            @$query['EnablePortCheck'] = $request->enablePortCheck;
+            $query['EnablePortCheck'] = $request->enablePortCheck;
+        }
+        if (!Utils::isUnset($request->enableUrlCheck)) {
+            $query['EnableUrlCheck'] = $request->enableUrlCheck;
+        }
+        if (!Utils::isUnset($request->healthCheckURL)) {
+            $query['HealthCheckURL'] = $request->healthCheckURL;
         }
         if (!Utils::isUnset($request->healthCheckUrl)) {
-            @$query['HealthCheckUrl'] = $request->healthCheckUrl;
+            $query['HealthCheckUrl'] = $request->healthCheckUrl;
+        }
+        if (!Utils::isUnset($request->hooks)) {
+            $query['Hooks'] = $request->hooks;
+        }
+        if (!Utils::isUnset($request->jdk)) {
+            $query['Jdk'] = $request->jdk;
+        }
+        if (!Utils::isUnset($request->jvmOptions)) {
+            $query['JvmOptions'] = $request->jvmOptions;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
+        }
+        if (!Utils::isUnset($request->maxHeapSize)) {
+            $query['MaxHeapSize'] = $request->maxHeapSize;
+        }
+        if (!Utils::isUnset($request->maxPermSize)) {
+            $query['MaxPermSize'] = $request->maxPermSize;
+        }
+        if (!Utils::isUnset($request->mem)) {
+            $query['Mem'] = $request->mem;
+        }
+        if (!Utils::isUnset($request->minHeapSize)) {
+            $query['MinHeapSize'] = $request->minHeapSize;
+        }
+        if (!Utils::isUnset($request->packageType)) {
+            $query['PackageType'] = $request->packageType;
+        }
+        if (!Utils::isUnset($request->reservedPortStr)) {
+            $query['ReservedPortStr'] = $request->reservedPortStr;
+        }
+        if (!Utils::isUnset($request->webContainer)) {
+            $query['WebContainer'] = $request->webContainer;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InsertApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_create_app',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InsertApplicationResponse::fromMap($this->doROARequest('InsertApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_create_app', 'json', $req, $runtime));
+        return InsertApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3624,33 +4277,44 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
         if (!Utils::isUnset($request->clusterName)) {
-            @$query['ClusterName'] = $request->clusterName;
+            $query['ClusterName'] = $request->clusterName;
         }
         if (!Utils::isUnset($request->clusterType)) {
-            @$query['ClusterType'] = $request->clusterType;
-        }
-        if (!Utils::isUnset($request->networkMode)) {
-            @$query['NetworkMode'] = $request->networkMode;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            @$query['VpcId'] = $request->vpcId;
-        }
-        if (!Utils::isUnset($request->oversoldFactor)) {
-            @$query['OversoldFactor'] = $request->oversoldFactor;
+            $query['ClusterType'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->iaasProvider)) {
-            @$query['IaasProvider'] = $request->iaasProvider;
+            $query['IaasProvider'] = $request->iaasProvider;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
+        }
+        if (!Utils::isUnset($request->networkMode)) {
+            $query['NetworkMode'] = $request->networkMode;
+        }
+        if (!Utils::isUnset($request->oversoldFactor)) {
+            $query['OversoldFactor'] = $request->oversoldFactor;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InsertCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/cluster',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InsertClusterResponse::fromMap($this->doROARequest('InsertCluster', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/cluster', 'json', $req, $runtime));
+        return InsertClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3678,120 +4342,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['clusterId'] = $request->clusterId;
+            $query['clusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->instanceIds)) {
-            @$query['instanceIds'] = $request->instanceIds;
+            $query['instanceIds'] = $request->instanceIds;
         }
         if (!Utils::isUnset($request->password)) {
-            @$query['password'] = $request->password;
+            $query['password'] = $request->password;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return InsertClusterMemberResponse::fromMap($this->doROARequest('InsertClusterMember', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/cluster_member', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InsertConfigCenterRequest $request
-     *
-     * @return InsertConfigCenterResponse
-     */
-    public function insertConfigCenter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->insertConfigCenterWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param InsertConfigCenterRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return InsertConfigCenterResponse
-     */
-    public function insertConfigCenterWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataId)) {
-            @$query['DataId'] = $request->dataId;
-        }
-        if (!Utils::isUnset($request->group)) {
-            @$query['Group'] = $request->group;
-        }
-        if (!Utils::isUnset($request->data)) {
-            @$query['Data'] = $request->data;
-        }
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        if (!Utils::isUnset($request->appName)) {
-            @$query['AppName'] = $request->appName;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'InsertClusterMember',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/cluster_member',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return InsertConfigCenterResponse::fromMap($this->doROARequest('InsertConfigCenter', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/configCenter', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InsertDegradeControlRequest $request
-     *
-     * @return InsertDegradeControlResponse
-     */
-    public function insertDegradeControl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->insertDegradeControlWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param InsertDegradeControlRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return InsertDegradeControlResponse
-     */
-    public function insertDegradeControlWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->duration)) {
-            @$query['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->methodName)) {
-            @$query['MethodName'] = $request->methodName;
-        }
-        if (!Utils::isUnset($request->rtThreshold)) {
-            @$query['RtThreshold'] = $request->rtThreshold;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['ServiceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->urlVar)) {
-            @$query['UrlVar'] = $request->urlVar;
-        }
-        if (!Utils::isUnset($request->ruleType)) {
-            @$query['RuleType'] = $request->ruleType;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return InsertDegradeControlResponse::fromMap($this->doROARequest('InsertDegradeControl', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/degradeControl', 'json', $req, $runtime));
+        return InsertClusterMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3819,79 +4394,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->groupName)) {
-            @$query['GroupName'] = $request->groupName;
+            $query['GroupName'] = $request->groupName;
         }
         if (!Utils::isUnset($request->initPackageVersionId)) {
-            @$query['InitPackageVersionId'] = $request->initPackageVersionId;
+            $query['InitPackageVersionId'] = $request->initPackageVersionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return InsertDeployGroupResponse::fromMap($this->doROARequest('InsertDeployGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/deploy_group', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InsertFlowControlRequest $request
-     *
-     * @return InsertFlowControlResponse
-     */
-    public function insertFlowControl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->insertFlowControlWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param InsertFlowControlRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return InsertFlowControlResponse
-     */
-    public function insertFlowControlWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->consumerAppId)) {
-            @$query['ConsumerAppId'] = $request->consumerAppId;
-        }
-        if (!Utils::isUnset($request->granularity)) {
-            @$query['Granularity'] = $request->granularity;
-        }
-        if (!Utils::isUnset($request->methodName)) {
-            @$query['MethodName'] = $request->methodName;
-        }
-        if (!Utils::isUnset($request->ruleType)) {
-            @$query['RuleType'] = $request->ruleType;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['ServiceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->strategy)) {
-            @$query['Strategy'] = $request->strategy;
-        }
-        if (!Utils::isUnset($request->threshold)) {
-            @$query['Threshold'] = $request->threshold;
-        }
-        if (!Utils::isUnset($request->urlVar)) {
-            @$query['UrlVar'] = $request->urlVar;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'InsertDeployGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/deploy_group',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return InsertFlowControlResponse::fromMap($this->doROARequest('InsertFlowControl', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/flowControl', 'json', $req, $runtime));
+        return InsertDeployGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3918,162 +4445,200 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->intranetTargetPort)) {
-            @$query['IntranetTargetPort'] = $request->intranetTargetPort;
-        }
-        if (!Utils::isUnset($request->intranetSlbPort)) {
-            @$query['IntranetSlbPort'] = $request->intranetSlbPort;
-        }
-        if (!Utils::isUnset($request->imageUrl)) {
-            @$query['ImageUrl'] = $request->imageUrl;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
         if (!Utils::isUnset($request->applicationDescription)) {
-            @$query['ApplicationDescription'] = $request->applicationDescription;
+            $query['ApplicationDescription'] = $request->applicationDescription;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            @$query['RepoId'] = $request->repoId;
-        }
-        if (!Utils::isUnset($request->replicas)) {
-            @$query['Replicas'] = $request->replicas;
-        }
-        if (!Utils::isUnset($request->limitCpu)) {
-            @$query['LimitCpu'] = $request->limitCpu;
-        }
-        if (!Utils::isUnset($request->limitMem)) {
-            @$query['LimitMem'] = $request->limitMem;
-        }
-        if (!Utils::isUnset($request->requestsCpu)) {
-            @$query['RequestsCpu'] = $request->requestsCpu;
-        }
-        if (!Utils::isUnset($request->requestsMem)) {
-            @$query['RequestsMem'] = $request->requestsMem;
-        }
-        if (!Utils::isUnset($request->command)) {
-            @$query['Command'] = $request->command;
-        }
-        if (!Utils::isUnset($request->commandArgs)) {
-            @$query['CommandArgs'] = $request->commandArgs;
-        }
-        if (!Utils::isUnset($request->appName)) {
-            @$query['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->intranetSlbProtocol)) {
-            @$query['IntranetSlbProtocol'] = $request->intranetSlbProtocol;
-        }
-        if (!Utils::isUnset($request->intranetSlbId)) {
-            @$query['IntranetSlbId'] = $request->intranetSlbId;
+        if (!Utils::isUnset($request->buildPackId)) {
+            $query['BuildPackId'] = $request->buildPackId;
         }
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->internetSlbId)) {
-            @$query['InternetSlbId'] = $request->internetSlbId;
+        if (!Utils::isUnset($request->command)) {
+            $query['Command'] = $request->command;
         }
-        if (!Utils::isUnset($request->internetSlbProtocol)) {
-            @$query['InternetSlbProtocol'] = $request->internetSlbProtocol;
+        if (!Utils::isUnset($request->commandArgs)) {
+            $query['CommandArgs'] = $request->commandArgs;
         }
-        if (!Utils::isUnset($request->internetSlbPort)) {
-            @$query['InternetSlbPort'] = $request->internetSlbPort;
+        if (!Utils::isUnset($request->configMountDescs)) {
+            $query['ConfigMountDescs'] = $request->configMountDescs;
         }
-        if (!Utils::isUnset($request->internetTargetPort)) {
-            @$query['InternetTargetPort'] = $request->internetTargetPort;
+        if (!Utils::isUnset($request->csClusterId)) {
+            $query['CsClusterId'] = $request->csClusterId;
         }
-        if (!Utils::isUnset($request->envs)) {
-            @$query['Envs'] = $request->envs;
+        if (!Utils::isUnset($request->customAffinity)) {
+            $query['CustomAffinity'] = $request->customAffinity;
         }
-        if (!Utils::isUnset($request->preStop)) {
-            @$query['PreStop'] = $request->preStop;
-        }
-        if (!Utils::isUnset($request->postStart)) {
-            @$query['PostStart'] = $request->postStart;
-        }
-        if (!Utils::isUnset($request->liveness)) {
-            @$query['Liveness'] = $request->liveness;
-        }
-        if (!Utils::isUnset($request->readiness)) {
-            @$query['Readiness'] = $request->readiness;
-        }
-        if (!Utils::isUnset($request->nasId)) {
-            @$query['NasId'] = $request->nasId;
-        }
-        if (!Utils::isUnset($request->mountDescs)) {
-            @$query['MountDescs'] = $request->mountDescs;
-        }
-        if (!Utils::isUnset($request->storageType)) {
-            @$query['StorageType'] = $request->storageType;
-        }
-        if (!Utils::isUnset($request->localVolume)) {
-            @$query['LocalVolume'] = $request->localVolume;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        if (!Utils::isUnset($request->packageType)) {
-            @$query['PackageType'] = $request->packageType;
-        }
-        if (!Utils::isUnset($request->packageUrl)) {
-            @$query['PackageUrl'] = $request->packageUrl;
-        }
-        if (!Utils::isUnset($request->packageVersion)) {
-            @$query['PackageVersion'] = $request->packageVersion;
-        }
-        if (!Utils::isUnset($request->JDK)) {
-            @$query['JDK'] = $request->JDK;
-        }
-        if (!Utils::isUnset($request->webContainer)) {
-            @$query['WebContainer'] = $request->webContainer;
-        }
-        if (!Utils::isUnset($request->edasContainerVersion)) {
-            @$query['EdasContainerVersion'] = $request->edasContainerVersion;
-        }
-        if (!Utils::isUnset($request->uriEncoding)) {
-            @$query['UriEncoding'] = $request->uriEncoding;
-        }
-        if (!Utils::isUnset($request->useBodyEncoding)) {
-            @$query['UseBodyEncoding'] = $request->useBodyEncoding;
-        }
-        if (!Utils::isUnset($request->requestsmCpu)) {
-            @$query['RequestsmCpu'] = $request->requestsmCpu;
-        }
-        if (!Utils::isUnset($request->limitmCpu)) {
-            @$query['LimitmCpu'] = $request->limitmCpu;
-        }
-        if (!Utils::isUnset($request->runtimeClassName)) {
-            @$query['RuntimeClassName'] = $request->runtimeClassName;
-        }
-        if (!Utils::isUnset($request->deployAcrossZones)) {
-            @$query['DeployAcrossZones'] = $request->deployAcrossZones;
-        }
-        if (!Utils::isUnset($request->timeout)) {
-            @$query['Timeout'] = $request->timeout;
-        }
-        if (!Utils::isUnset($request->enableAhas)) {
-            @$query['EnableAhas'] = $request->enableAhas;
-        }
-        if (!Utils::isUnset($request->webContainerConfig)) {
-            @$query['WebContainerConfig'] = $request->webContainerConfig;
-        }
-        if (!Utils::isUnset($request->javaStartUpConfig)) {
-            @$query['JavaStartUpConfig'] = $request->javaStartUpConfig;
-        }
-        if (!Utils::isUnset($request->slsConfigs)) {
-            @$query['SlsConfigs'] = $request->slsConfigs;
-        }
-        if (!Utils::isUnset($request->isMultilingualApp)) {
-            @$query['IsMultilingualApp'] = $request->isMultilingualApp;
+        if (!Utils::isUnset($request->customTolerations)) {
+            $query['CustomTolerations'] = $request->customTolerations;
         }
         if (!Utils::isUnset($request->deployAcrossNodes)) {
-            @$query['DeployAcrossNodes'] = $request->deployAcrossNodes;
+            $query['DeployAcrossNodes'] = $request->deployAcrossNodes;
+        }
+        if (!Utils::isUnset($request->deployAcrossZones)) {
+            $query['DeployAcrossZones'] = $request->deployAcrossZones;
+        }
+        if (!Utils::isUnset($request->edasContainerVersion)) {
+            $query['EdasContainerVersion'] = $request->edasContainerVersion;
+        }
+        if (!Utils::isUnset($request->emptyDirs)) {
+            $query['EmptyDirs'] = $request->emptyDirs;
+        }
+        if (!Utils::isUnset($request->enableAhas)) {
+            $query['EnableAhas'] = $request->enableAhas;
+        }
+        if (!Utils::isUnset($request->enableAsm)) {
+            $query['EnableAsm'] = $request->enableAsm;
+        }
+        if (!Utils::isUnset($request->envFroms)) {
+            $query['EnvFroms'] = $request->envFroms;
+        }
+        if (!Utils::isUnset($request->envs)) {
+            $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->internetSlbId)) {
+            $query['InternetSlbId'] = $request->internetSlbId;
+        }
+        if (!Utils::isUnset($request->internetSlbPort)) {
+            $query['InternetSlbPort'] = $request->internetSlbPort;
+        }
+        if (!Utils::isUnset($request->internetSlbProtocol)) {
+            $query['InternetSlbProtocol'] = $request->internetSlbProtocol;
+        }
+        if (!Utils::isUnset($request->internetTargetPort)) {
+            $query['InternetTargetPort'] = $request->internetTargetPort;
+        }
+        if (!Utils::isUnset($request->intranetSlbId)) {
+            $query['IntranetSlbId'] = $request->intranetSlbId;
+        }
+        if (!Utils::isUnset($request->intranetSlbPort)) {
+            $query['IntranetSlbPort'] = $request->intranetSlbPort;
+        }
+        if (!Utils::isUnset($request->intranetSlbProtocol)) {
+            $query['IntranetSlbProtocol'] = $request->intranetSlbProtocol;
+        }
+        if (!Utils::isUnset($request->intranetTargetPort)) {
+            $query['IntranetTargetPort'] = $request->intranetTargetPort;
+        }
+        if (!Utils::isUnset($request->isMultilingualApp)) {
+            $query['IsMultilingualApp'] = $request->isMultilingualApp;
+        }
+        if (!Utils::isUnset($request->JDK)) {
+            $query['JDK'] = $request->JDK;
+        }
+        if (!Utils::isUnset($request->javaStartUpConfig)) {
+            $query['JavaStartUpConfig'] = $request->javaStartUpConfig;
+        }
+        if (!Utils::isUnset($request->limitCpu)) {
+            $query['LimitCpu'] = $request->limitCpu;
+        }
+        if (!Utils::isUnset($request->limitMem)) {
+            $query['LimitMem'] = $request->limitMem;
+        }
+        if (!Utils::isUnset($request->limitmCpu)) {
+            $query['LimitmCpu'] = $request->limitmCpu;
+        }
+        if (!Utils::isUnset($request->liveness)) {
+            $query['Liveness'] = $request->liveness;
+        }
+        if (!Utils::isUnset($request->localVolume)) {
+            $query['LocalVolume'] = $request->localVolume;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
+        }
+        if (!Utils::isUnset($request->mountDescs)) {
+            $query['MountDescs'] = $request->mountDescs;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->nasId)) {
+            $query['NasId'] = $request->nasId;
+        }
+        if (!Utils::isUnset($request->packageType)) {
+            $query['PackageType'] = $request->packageType;
+        }
+        if (!Utils::isUnset($request->packageUrl)) {
+            $query['PackageUrl'] = $request->packageUrl;
+        }
+        if (!Utils::isUnset($request->packageVersion)) {
+            $query['PackageVersion'] = $request->packageVersion;
+        }
+        if (!Utils::isUnset($request->postStart)) {
+            $query['PostStart'] = $request->postStart;
+        }
+        if (!Utils::isUnset($request->preStop)) {
+            $query['PreStop'] = $request->preStop;
+        }
+        if (!Utils::isUnset($request->pvcMountDescs)) {
+            $query['PvcMountDescs'] = $request->pvcMountDescs;
+        }
+        if (!Utils::isUnset($request->readiness)) {
+            $query['Readiness'] = $request->readiness;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $query['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->requestsCpu)) {
+            $query['RequestsCpu'] = $request->requestsCpu;
+        }
+        if (!Utils::isUnset($request->requestsMem)) {
+            $query['RequestsMem'] = $request->requestsMem;
+        }
+        if (!Utils::isUnset($request->requestsmCpu)) {
+            $query['RequestsmCpu'] = $request->requestsmCpu;
+        }
+        if (!Utils::isUnset($request->runtimeClassName)) {
+            $query['RuntimeClassName'] = $request->runtimeClassName;
+        }
+        if (!Utils::isUnset($request->slsConfigs)) {
+            $query['SlsConfigs'] = $request->slsConfigs;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->uriEncoding)) {
+            $query['UriEncoding'] = $request->uriEncoding;
+        }
+        if (!Utils::isUnset($request->useBodyEncoding)) {
+            $query['UseBodyEncoding'] = $request->useBodyEncoding;
+        }
+        if (!Utils::isUnset($request->webContainer)) {
+            $query['WebContainer'] = $request->webContainer;
+        }
+        if (!Utils::isUnset($request->webContainerConfig)) {
+            $query['WebContainerConfig'] = $request->webContainerConfig;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InsertK8sApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/create_k8s_app',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InsertK8sApplicationResponse::fromMap($this->doROARequest('InsertK8sApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/acs/create_k8s_app', 'json', $req, $runtime));
+        return InsertK8sApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4100,27 +4665,38 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionTag)) {
-            @$query['RegionTag'] = $request->regionTag;
-        }
-        if (!Utils::isUnset($request->regionName)) {
-            @$query['RegionName'] = $request->regionName;
+        if (!Utils::isUnset($request->debugEnable)) {
+            $query['DebugEnable'] = $request->debugEnable;
         }
         if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->id)) {
-            @$query['Id'] = $request->id;
+            $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->debugEnable)) {
-            @$query['DebugEnable'] = $request->debugEnable;
+        if (!Utils::isUnset($request->regionName)) {
+            $query['RegionName'] = $request->regionName;
+        }
+        if (!Utils::isUnset($request->regionTag)) {
+            $query['RegionTag'] = $request->regionTag;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InsertOrUpdateRegion',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/user_region_def',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InsertOrUpdateRegionResponse::fromMap($this->doROARequest('InsertOrUpdateRegion', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/user_region_def', 'json', $req, $runtime));
+        return InsertOrUpdateRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4147,18 +4723,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->roleName)) {
-            @$query['RoleName'] = $request->roleName;
-        }
         if (!Utils::isUnset($request->actionData)) {
-            @$query['ActionData'] = $request->actionData;
+            $query['ActionData'] = $request->actionData;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InsertRole',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/create_role',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InsertRoleResponse::fromMap($this->doROARequest('InsertRole', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/create_role', 'json', $req, $runtime));
+        return InsertRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4186,111 +4773,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->groupName)) {
-            @$query['GroupName'] = $request->groupName;
+            $query['GroupName'] = $request->groupName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return InsertServiceGroupResponse::fromMap($this->doROARequest('InsertServiceGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/service/serviceGroups', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InsertSwimmingLaneRequest $request
-     *
-     * @return InsertSwimmingLaneResponse
-     */
-    public function insertSwimmingLane($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->insertSwimmingLaneWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param InsertSwimmingLaneRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return InsertSwimmingLaneResponse
-     */
-    public function insertSwimmingLaneWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            @$query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->entryRules)) {
-            @$query['EntryRules'] = $request->entryRules;
-        }
-        if (!Utils::isUnset($request->enableRules)) {
-            @$query['EnableRules'] = $request->enableRules;
-        }
-        if (!Utils::isUnset($request->appInfos)) {
-            @$query['AppInfos'] = $request->appInfos;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'InsertServiceGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/service/serviceGroups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return InsertSwimmingLaneResponse::fromMap($this->doROARequest('InsertSwimmingLane', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/trafficmgnt/swimming_lanes', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InsertSwimmingLaneGroupRequest $request
-     *
-     * @return InsertSwimmingLaneGroupResponse
-     */
-    public function insertSwimmingLaneGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->insertSwimmingLaneGroupWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param InsertSwimmingLaneGroupRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return InsertSwimmingLaneGroupResponse
-     */
-    public function insertSwimmingLaneGroupWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->entryApp)) {
-            @$query['EntryApp'] = $request->entryApp;
-        }
-        if (!Utils::isUnset($request->appIds)) {
-            @$query['AppIds'] = $request->appIds;
-        }
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return InsertSwimmingLaneGroupResponse::fromMap($this->doROARequest('InsertSwimmingLaneGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/trafficmgnt/swimming_lane_groups', 'json', $req, $runtime));
+        return InsertServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4318,20 +4819,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->instanceIds)) {
-            @$query['InstanceIds'] = $request->instanceIds;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->doAsync)) {
-            @$query['DoAsync'] = $request->doAsync;
+            $query['DoAsync'] = $request->doAsync;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InstallAgent',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/ecss/install_agent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InstallAgentResponse::fromMap($this->doROARequest('InstallAgent', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/ecss/install_agent', 'json', $req, $runtime));
+        return InstallAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4356,8 +4868,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListAliyunRegion',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/region_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAliyunRegionResponse::fromMap($this->doROARequest('ListAliyunRegion', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/region_list', 'json', $req, $runtime));
+        return ListAliyunRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4384,27 +4907,38 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        if (!Utils::isUnset($request->appName)) {
-            @$query['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+            $query['LogicalRegionId'] = $request->logicalRegionId;
         }
         if (!Utils::isUnset($request->logicalRegionIdFilter)) {
-            @$query['LogicalRegionIdFilter'] = $request->logicalRegionIdFilter;
+            $query['LogicalRegionIdFilter'] = $request->logicalRegionIdFilter;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/app_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListApplicationResponse::fromMap($this->doROARequest('ListApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/app_list', 'json', $req, $runtime));
+        return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4432,14 +4966,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListApplicationEcu',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/ecu_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListApplicationEcuResponse::fromMap($this->doROARequest('ListApplicationEcu', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/ecu_list', 'json', $req, $runtime));
+        return ListApplicationEcuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4464,8 +5012,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListAuthority',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/authority_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAuthorityResponse::fromMap($this->doROARequest('ListAuthority', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/authority_list', 'json', $req, $runtime));
+        return ListAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4490,49 +5049,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
-
-        return ListBuildPackResponse::fromMap($this->doROARequest('ListBuildPack', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/build_pack_list', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListChildrenStacksRequest $request
-     *
-     * @return ListChildrenStacksResponse
-     */
-    public function listChildrenStacks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listChildrenStacksWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListChildrenStacksRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListChildrenStacksResponse
-     */
-    public function listChildrenStacksWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->stackId)) {
-            @$query['StackId'] = $request->stackId;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'ListBuildPack',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/build_pack_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListChildrenStacksResponse::fromMap($this->doROARequest('ListChildrenStacks', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/s2i/list_children_stack', 'json', $req, $runtime));
+        return ListBuildPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4560,17 +5089,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
+            $query['LogicalRegionId'] = $request->logicalRegionId;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/cluster_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListClusterResponse::fromMap($this->doROARequest('ListCluster', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/cluster_list', 'json', $req, $runtime));
+        return ListClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4598,23 +5138,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->ecsList)) {
-            @$query['EcsList'] = $request->ecsList;
+            $query['EcsList'] = $request->ecsList;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListClusterMembers',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/cluster_member_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListClusterMembersResponse::fromMap($this->doROARequest('ListClusterMembers', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/cluster_member_list', 'json', $req, $runtime));
+        return ListClusterMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4639,52 +5190,74 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListComponents',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/components',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListComponentsResponse::fromMap($this->doROARequest('ListComponents', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/components', 'json', $req, $runtime));
+        return ListComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListConfigCentersRequest $request
+     * @param ListConfigTemplatesRequest $request
      *
-     * @return ListConfigCentersResponse
+     * @return ListConfigTemplatesResponse
      */
-    public function listConfigCenters($request)
+    public function listConfigTemplates($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConfigCentersWithOptions($request, $headers, $runtime);
+        return $this->listConfigTemplatesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListConfigCentersRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListConfigTemplatesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return ListConfigCentersResponse
+     * @return ListConfigTemplatesResponse
      */
-    public function listConfigCentersWithOptions($request, $headers, $runtime)
+    public function listConfigTemplatesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->dataIdPattern)) {
-            @$query['DataIdPattern'] = $request->dataIdPattern;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->group)) {
-            @$query['Group'] = $request->group;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->appName)) {
-            @$query['AppName'] = $request->appName;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListConfigTemplates',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/config_template',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListConfigCentersResponse::fromMap($this->doROARequest('ListConfigCenters', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/configCenters', 'json', $req, $runtime));
+        return ListConfigTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4712,14 +5285,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListConsumedServices',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/service/listConsumedServices',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListConsumedServicesResponse::fromMap($this->doROARequest('ListConsumedServices', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/service/listConsumedServices', 'json', $req, $runtime));
+        return ListConsumedServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4747,84 +5331,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['clusterId'] = $request->clusterId;
+            $query['clusterId'] = $request->clusterId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return ListConvertableEcuResponse::fromMap($this->doROARequest('ListConvertableEcu', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/convertable_ecu_list', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCSBGatewayRequest $request
-     *
-     * @return ListCSBGatewayResponse
-     */
-    public function listCSBGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listCSBGatewayWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListCSBGatewayRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListCSBGatewayResponse
-     */
-    public function listCSBGatewayWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'ListConvertableEcu',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/convertable_ecu_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCSBGatewayResponse::fromMap($this->doROARequest('ListCSBGateway', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/csbgateway/gateway', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDegradeControlsRequest $request
-     *
-     * @return ListDegradeControlsResponse
-     */
-    public function listDegradeControls($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listDegradeControlsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListDegradeControlsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListDegradeControlsResponse
-     */
-    public function listDegradeControlsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return ListDegradeControlsResponse::fromMap($this->doROARequest('ListDegradeControls', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/app/degradeControls', 'json', $req, $runtime));
+        return ListConvertableEcuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4852,14 +5377,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListDeployGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/deploy_group_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDeployGroupResponse::fromMap($this->doROARequest('ListDeployGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/deploy_group_list', 'json', $req, $runtime));
+        return ListDeployGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4887,17 +5423,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->networkMode)) {
-            @$query['NetworkMode'] = $request->networkMode;
+            $query['NetworkMode'] = $request->networkMode;
         }
         if (!Utils::isUnset($request->vpcId)) {
-            @$query['VpcId'] = $request->vpcId;
+            $query['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListEcsNotInCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/ecs_not_in_cluster',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListEcsNotInClusterResponse::fromMap($this->doROARequest('ListEcsNotInCluster', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/ecs_not_in_cluster', 'json', $req, $runtime));
+        return ListEcsNotInClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4924,53 +5471,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
         if (!Utils::isUnset($request->act)) {
-            @$query['Act'] = $request->act;
+            $query['Act'] = $request->act;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return ListEcuByRegionResponse::fromMap($this->doROARequest('ListEcuByRegion', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/ecu_list', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListFlowControlsRequest $request
-     *
-     * @return ListFlowControlsResponse
-     */
-    public function listFlowControls($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listFlowControlsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListFlowControlsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListFlowControlsResponse
-     */
-    public function listFlowControlsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'ListEcuByRegion',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/ecu_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowControlsResponse::fromMap($this->doROARequest('ListFlowControls', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/app/flowControls', 'json', $req, $runtime));
+        return ListEcuByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4998,14 +5521,89 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListHistoryDeployVersion',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/deploy_history_version_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListHistoryDeployVersionResponse::fromMap($this->doROARequest('ListHistoryDeployVersion', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/app/deploy_history_version_list', 'json', $req, $runtime));
+        return ListHistoryDeployVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListK8sConfigMapsRequest $request
+     *
+     * @return ListK8sConfigMapsResponse
+     */
+    public function listK8sConfigMaps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listK8sConfigMapsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListK8sConfigMapsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListK8sConfigMapsResponse
+     */
+    public function listK8sConfigMapsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->condition)) {
+            $query['Condition'] = $request->condition;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->showRelatedApps)) {
+            $query['ShowRelatedApps'] = $request->showRelatedApps;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListK8sConfigMaps',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_config_map',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListK8sConfigMapsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5032,21 +5630,99 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->condition)) {
+            $query['Condition'] = $request->condition;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListK8sIngressRules',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_ingress',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListK8sIngressRulesResponse::fromMap($this->doROARequest('ListK8sIngressRules', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/k8s/acs/k8s_ingress', 'json', $req, $runtime));
+        return ListK8sIngressRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListK8sSecretsRequest $request
+     *
+     * @return ListK8sSecretsResponse
+     */
+    public function listK8sSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listK8sSecretsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListK8sSecretsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListK8sSecretsResponse
+     */
+    public function listK8sSecretsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->condition)) {
+            $query['Condition'] = $request->condition;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->showRelatedApps)) {
+            $query['ShowRelatedApps'] = $request->showRelatedApps;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListK8sSecrets',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_secret',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListK8sSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5074,67 +5750,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$query['ServiceName'] = $request->serviceName;
+            $query['ServiceName'] = $request->serviceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return ListMethodsResponse::fromMap($this->doROARequest('ListMethods', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/service/list_methods', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListOperationLogsRequest $request
-     *
-     * @return ListOperationLogsResponse
-     */
-    public function listOperationLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listOperationLogsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListOperationLogsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListOperationLogsResponse
-     */
-    public function listOperationLogsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->beginTime)) {
-            @$query['BeginTime'] = $request->beginTime;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            @$query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            @$query['UserId'] = $request->userId;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'ListMethods',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/service/list_methods',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOperationLogsResponse::fromMap($this->doROARequest('ListOperationLogs', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/operationlog/log_list', 'json', $req, $runtime));
+        return ListMethodsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5162,14 +5799,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListPublishedServices',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/service/listPublishedServices',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListPublishedServicesResponse::fromMap($this->doROARequest('ListPublishedServices', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/service/listPublishedServices', 'json', $req, $runtime));
+        return ListPublishedServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5197,14 +5845,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListRecentChangeOrder',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/change_order_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListRecentChangeOrderResponse::fromMap($this->doROARequest('ListRecentChangeOrder', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/change_order_list', 'json', $req, $runtime));
+        return ListRecentChangeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5229,8 +5888,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListResourceGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/reg_group_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListResourceGroupResponse::fromMap($this->doROARequest('ListResourceGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/reg_group_list', 'json', $req, $runtime));
+        return ListResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5255,8 +5925,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListRole',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/role_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListRoleResponse::fromMap($this->doROARequest('ListRole', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/role_list', 'json', $req, $runtime));
+        return ListRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5284,17 +5965,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListRootStacks',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/s2i/list_root_stack',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListRootStacksResponse::fromMap($this->doROARequest('ListRootStacks', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/s2i/list_root_stack', 'json', $req, $runtime));
+        return ListRootStacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5321,33 +6013,44 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->cpu)) {
-            @$query['Cpu'] = $request->cpu;
+            $query['Cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->mem)) {
-            @$query['Mem'] = $request->mem;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->instanceNum)) {
-            @$query['InstanceNum'] = $request->instanceNum;
+            $query['InstanceNum'] = $request->instanceNum;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
+        }
+        if (!Utils::isUnset($request->mem)) {
+            $query['Mem'] = $request->mem;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListScaleOutEcu',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/scale_out_ecu_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListScaleOutEcuResponse::fromMap($this->doROARequest('ListScaleOutEcu', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/scale_out_ecu_list', 'json', $req, $runtime));
+        return ListScaleOutEcuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5372,8 +6075,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListServiceGroups',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/service/serviceGroups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListServiceGroupsResponse::fromMap($this->doROARequest('ListServiceGroups', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/service/serviceGroups', 'json', $req, $runtime));
+        return ListServiceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5398,67 +6112,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
-
-        return ListSlbResponse::fromMap($this->doROARequest('ListSlb', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/slb_list', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListStatusRequest $request
-     *
-     * @return ListStatusResponse
-     */
-    public function listStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listStatusWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListStatusRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListStatusResponse
-     */
-    public function listStatusWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            @$query['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->source)) {
-            @$query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->accountId)) {
-            @$query['AccountId'] = $request->accountId;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ip)) {
-            @$query['Ip'] = $request->ip;
-        }
-        if (!Utils::isUnset($request->podName)) {
-            @$query['PodName'] = $request->podName;
-        }
-        if (!Utils::isUnset($request->status)) {
-            @$query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'ListSlb',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/slb_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStatusResponse::fromMap($this->doROARequest('ListStatus', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mse/status/list', 'json', $req, $runtime));
+        return ListSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5483,78 +6149,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
-
-        return ListSubAccountResponse::fromMap($this->doROARequest('ListSubAccount', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/sub_account_list', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSwimmingLaneRequest $request
-     *
-     * @return ListSwimmingLaneResponse
-     */
-    public function listSwimmingLane($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listSwimmingLaneWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListSwimmingLaneRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListSwimmingLaneResponse
-     */
-    public function listSwimmingLaneWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'ListSubAccount',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/sub_account_list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSwimmingLaneResponse::fromMap($this->doROARequest('ListSwimmingLane', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/trafficmgnt/swimming_lanes', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSwimmingLaneGroupRequest $request
-     *
-     * @return ListSwimmingLaneGroupResponse
-     */
-    public function listSwimmingLaneGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listSwimmingLaneGroupWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListSwimmingLaneGroupRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListSwimmingLaneGroupResponse
-     */
-    public function listSwimmingLaneGroupWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return ListSwimmingLaneGroupResponse::fromMap($this->doROARequest('ListSwimmingLaneGroup', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/trafficmgnt/swimming_lane_groups', 'json', $req, $runtime));
+        return ListSubAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5581,24 +6188,35 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            @$query['ResourceType'] = $request->resourceType;
-        }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$query['ResourceIds'] = $request->resourceIds;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            @$query['Tags'] = $request->tags;
+            $query['ResourceIds'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceRegionId)) {
-            @$query['ResourceRegionId'] = $request->resourceRegionId;
+            $query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/tag/tags',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTagResourcesResponse::fromMap($this->doROARequest('ListTagResources', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/tag/tags', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5626,14 +6244,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->debugEnable)) {
-            @$query['DebugEnable'] = $request->debugEnable;
+            $query['DebugEnable'] = $request->debugEnable;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListUserDefineRegion',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/user_region_defs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListUserDefineRegionResponse::fromMap($this->doROARequest('ListUserDefineRegion', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/user_region_defs', 'json', $req, $runtime));
+        return ListUserDefineRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5658,8 +6287,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListVpc',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/vpc_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListVpcResponse::fromMap($this->doROARequest('ListVpc', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/vpc_list', 'json', $req, $runtime));
+        return ListVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5687,17 +6327,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->instanceIds)) {
-            @$query['InstanceIds'] = $request->instanceIds;
+            $query['InstanceIds'] = $request->instanceIds;
         }
         if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
+            $query['LogicalRegionId'] = $request->logicalRegionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'MigrateEcu',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/migrate_ecu',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return MigrateEcuResponse::fromMap($this->doROARequest('MigrateEcu', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/migrate_ecu', 'json', $req, $runtime));
+        return MigrateEcuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5724,102 +6375,113 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acceptEULA)) {
+            $query['AcceptEULA'] = $request->acceptEULA;
+        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->inCondition)) {
-            @$query['InCondition'] = $request->inCondition;
-        }
-        if (!Utils::isUnset($request->inEnable)) {
-            @$query['InEnable'] = $request->inEnable;
+            $query['InCondition'] = $request->inCondition;
         }
         if (!Utils::isUnset($request->inCpu)) {
-            @$query['InCpu'] = $request->inCpu;
+            $query['InCpu'] = $request->inCpu;
         }
         if (!Utils::isUnset($request->inDuration)) {
-            @$query['InDuration'] = $request->inDuration;
+            $query['InDuration'] = $request->inDuration;
+        }
+        if (!Utils::isUnset($request->inEnable)) {
+            $query['InEnable'] = $request->inEnable;
         }
         if (!Utils::isUnset($request->inInstanceNum)) {
-            @$query['InInstanceNum'] = $request->inInstanceNum;
+            $query['InInstanceNum'] = $request->inInstanceNum;
         }
         if (!Utils::isUnset($request->inLoad)) {
-            @$query['InLoad'] = $request->inLoad;
+            $query['InLoad'] = $request->inLoad;
         }
         if (!Utils::isUnset($request->inRT)) {
-            @$query['InRT'] = $request->inRT;
+            $query['InRT'] = $request->inRT;
         }
         if (!Utils::isUnset($request->inStep)) {
-            @$query['InStep'] = $request->inStep;
-        }
-        if (!Utils::isUnset($request->outCondition)) {
-            @$query['OutCondition'] = $request->outCondition;
-        }
-        if (!Utils::isUnset($request->outCPU)) {
-            @$query['OutCPU'] = $request->outCPU;
-        }
-        if (!Utils::isUnset($request->outDuration)) {
-            @$query['OutDuration'] = $request->outDuration;
-        }
-        if (!Utils::isUnset($request->outEnable)) {
-            @$query['OutEnable'] = $request->outEnable;
-        }
-        if (!Utils::isUnset($request->outInstanceNum)) {
-            @$query['OutInstanceNum'] = $request->outInstanceNum;
-        }
-        if (!Utils::isUnset($request->outLoad)) {
-            @$query['OutLoad'] = $request->outLoad;
-        }
-        if (!Utils::isUnset($request->outRT)) {
-            @$query['OutRT'] = $request->outRT;
-        }
-        if (!Utils::isUnset($request->outStep)) {
-            @$query['OutStep'] = $request->outStep;
-        }
-        if (!Utils::isUnset($request->resourceFrom)) {
-            @$query['ResourceFrom'] = $request->resourceFrom;
-        }
-        if (!Utils::isUnset($request->multiAzPolicy)) {
-            @$query['MultiAzPolicy'] = $request->multiAzPolicy;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            @$query['VpcId'] = $request->vpcId;
-        }
-        if (!Utils::isUnset($request->vSwitchIds)) {
-            @$query['VSwitchIds'] = $request->vSwitchIds;
-        }
-        if (!Utils::isUnset($request->scalingPolicy)) {
-            @$query['ScalingPolicy'] = $request->scalingPolicy;
-        }
-        if (!Utils::isUnset($request->templateInstanceId)) {
-            @$query['TemplateInstanceId'] = $request->templateInstanceId;
-        }
-        if (!Utils::isUnset($request->templateInstanceName)) {
-            @$query['TemplateInstanceName'] = $request->templateInstanceName;
-        }
-        if (!Utils::isUnset($request->password)) {
-            @$query['Password'] = $request->password;
+            $query['InStep'] = $request->inStep;
         }
         if (!Utils::isUnset($request->keyPairName)) {
-            @$query['KeyPairName'] = $request->keyPairName;
+            $query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->acceptEULA)) {
-            @$query['AcceptEULA'] = $request->acceptEULA;
+        if (!Utils::isUnset($request->multiAzPolicy)) {
+            $query['MultiAzPolicy'] = $request->multiAzPolicy;
+        }
+        if (!Utils::isUnset($request->outCPU)) {
+            $query['OutCPU'] = $request->outCPU;
+        }
+        if (!Utils::isUnset($request->outCondition)) {
+            $query['OutCondition'] = $request->outCondition;
+        }
+        if (!Utils::isUnset($request->outDuration)) {
+            $query['OutDuration'] = $request->outDuration;
+        }
+        if (!Utils::isUnset($request->outEnable)) {
+            $query['OutEnable'] = $request->outEnable;
+        }
+        if (!Utils::isUnset($request->outInstanceNum)) {
+            $query['OutInstanceNum'] = $request->outInstanceNum;
+        }
+        if (!Utils::isUnset($request->outLoad)) {
+            $query['OutLoad'] = $request->outLoad;
+        }
+        if (!Utils::isUnset($request->outRT)) {
+            $query['OutRT'] = $request->outRT;
+        }
+        if (!Utils::isUnset($request->outStep)) {
+            $query['OutStep'] = $request->outStep;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->resourceFrom)) {
+            $query['ResourceFrom'] = $request->resourceFrom;
+        }
+        if (!Utils::isUnset($request->scalingPolicy)) {
+            $query['ScalingPolicy'] = $request->scalingPolicy;
         }
         if (!Utils::isUnset($request->templateId)) {
-            @$query['TemplateId'] = $request->templateId;
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateInstanceId)) {
+            $query['TemplateInstanceId'] = $request->templateInstanceId;
+        }
+        if (!Utils::isUnset($request->templateInstanceName)) {
+            $query['TemplateInstanceName'] = $request->templateInstanceName;
         }
         if (!Utils::isUnset($request->templateVersion)) {
-            @$query['TemplateVersion'] = $request->templateVersion;
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        if (!Utils::isUnset($request->vSwitchIds)) {
+            $query['VSwitchIds'] = $request->vSwitchIds;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyScalingRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/scaling_rules',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyScalingRuleResponse::fromMap($this->doROARequest('ModifyScalingRule', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/scaling_rules', 'json', $req, $runtime));
+        return ModifyScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5847,55 +6509,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return QueryApplicationStatusResponse::fromMap($this->doROARequest('QueryApplicationStatus', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/app/app_status', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryConfigCenterRequest $request
-     *
-     * @return QueryConfigCenterResponse
-     */
-    public function queryConfigCenter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->queryConfigCenterWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param QueryConfigCenterRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return QueryConfigCenterResponse
-     */
-    public function queryConfigCenterWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataId)) {
-            @$query['DataId'] = $request->dataId;
-        }
-        if (!Utils::isUnset($request->group)) {
-            @$query['Group'] = $request->group;
-        }
-        if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'QueryApplicationStatus',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/app_status',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryConfigCenterResponse::fromMap($this->doROARequest('QueryConfigCenter', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/configCenter', 'json', $req, $runtime));
+        return QueryApplicationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5923,49 +6555,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->eccId)) {
-            @$query['EccId'] = $request->eccId;
+            $query['EccId'] = $request->eccId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return QueryEccInfoResponse::fromMap($this->doROARequest('QueryEccInfo', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/ecc', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryK8sClusterLogProjectInfoRequest $request
-     *
-     * @return QueryK8sClusterLogProjectInfoResponse
-     */
-    public function queryK8sClusterLogProjectInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->queryK8sClusterLogProjectInfoWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param QueryK8sClusterLogProjectInfoRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return QueryK8sClusterLogProjectInfoResponse
-     */
-    public function queryK8sClusterLogProjectInfoWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'QueryEccInfo',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/ecc',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryK8sClusterLogProjectInfoResponse::fromMap($this->doROARequest('QueryK8sClusterLogProjectInfo', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/k8s/sls/project', 'json', $req, $runtime));
+        return QueryEccInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5993,14 +6601,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
+            $query['LogicalRegionId'] = $request->logicalRegionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'QueryMigrateEcuList',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/migrate_ecu_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryMigrateEcuListResponse::fromMap($this->doROARequest('QueryMigrateEcuList', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/migrate_ecu_list', 'json', $req, $runtime));
+        return QueryMigrateEcuListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6028,64 +6647,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->logicalRegionId)) {
-            @$query['LogicalRegionId'] = $request->logicalRegionId;
+            $query['LogicalRegionId'] = $request->logicalRegionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return QueryMigrateRegionListResponse::fromMap($this->doROARequest('QueryMigrateRegionList', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/migrate_region_select', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryMonitorInfoRequest $request
-     *
-     * @return QueryMonitorInfoResponse
-     */
-    public function queryMonitorInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->queryMonitorInfoWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param QueryMonitorInfoRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return QueryMonitorInfoResponse
-     */
-    public function queryMonitorInfoWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->start)) {
-            @$query['Start'] = $request->start;
-        }
-        if (!Utils::isUnset($request->end)) {
-            @$query['End'] = $request->end;
-        }
-        if (!Utils::isUnset($request->metric)) {
-            @$query['Metric'] = $request->metric;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            @$query['Tags'] = $request->tags;
-        }
-        if (!Utils::isUnset($request->aggregator)) {
-            @$query['Aggregator'] = $request->aggregator;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            @$query['Interval'] = $request->interval;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'QueryMigrateRegionList',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/migrate_region_select',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMonitorInfoResponse::fromMap($this->doROARequest('QueryMonitorInfo', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/monitor/queryMonitorInfo', 'json', $req, $runtime));
+        return QueryMigrateRegionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6110,70 +6690,19 @@ class Edas extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
-
-        return QueryRegionConfigResponse::fromMap($this->doROARequest('QueryRegionConfig', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/region_config', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryServiceTimeConfigRequest $request
-     *
-     * @return QueryServiceTimeConfigResponse
-     */
-    public function queryServiceTimeConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->queryServiceTimeConfigWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param QueryServiceTimeConfigRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryServiceTimeConfigResponse
-     */
-    public function queryServiceTimeConfigWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->serviceType)) {
-            @$query['ServiceType'] = $request->serviceType;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['ServiceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->serviceVersion)) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
-        }
-        if (!Utils::isUnset($request->serviceGroup)) {
-            @$query['ServiceGroup'] = $request->serviceGroup;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            @$query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->source)) {
-            @$query['Source'] = $request->source;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'QueryRegionConfig',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/region_config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryServiceTimeConfigResponse::fromMap($this->doROARequest('QueryServiceTimeConfig', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/timeout/page', 'json', $req, $runtime));
+        return QueryRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6201,23 +6730,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'QuerySlsLogStoreList',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/sls/query_sls_log_store_list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QuerySlsLogStoreListResponse::fromMap($this->doROARequest('QuerySlsLogStoreList', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/k8s/sls/query_sls_log_store_list', 'json', $req, $runtime));
+        return QuerySlsLogStoreListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6245,14 +6785,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->id)) {
-            @$query['Id'] = $request->id;
+            $query['Id'] = $request->id;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RemoveMockRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mock/removeMockRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RemoveMockRuleResponse::fromMap($this->doROARequest('RemoveMockRule', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/removeMockRule', 'json', $req, $runtime));
+        return RemoveMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6280,17 +6831,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->eccInfo)) {
-            @$query['EccInfo'] = $request->eccInfo;
+            $query['EccInfo'] = $request->eccInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ResetApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_reset',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ResetApplicationResponse::fromMap($this->doROARequest('ResetApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_reset', 'json', $req, $runtime));
+        return ResetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6318,17 +6880,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->eccInfo)) {
-            @$query['EccInfo'] = $request->eccInfo;
+            $query['EccInfo'] = $request->eccInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RestartApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_restart',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RestartApplicationResponse::fromMap($this->doROARequest('RestartApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_restart', 'json', $req, $runtime));
+        return RestartApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6356,17 +6929,77 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->timeout)) {
-            @$query['Timeout'] = $request->timeout;
+            $query['Timeout'] = $request->timeout;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RestartK8sApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/restart_k8s_app',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RestartK8sApplicationResponse::fromMap($this->doROARequest('RestartK8sApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/acs/restart_k8s_app', 'json', $req, $runtime));
+        return RestartK8sApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RetryChangeOrderTaskRequest $request
+     *
+     * @return RetryChangeOrderTaskResponse
+     */
+    public function retryChangeOrderTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->retryChangeOrderTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param RetryChangeOrderTaskRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RetryChangeOrderTaskResponse
+     */
+    public function retryChangeOrderTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->retryStatus)) {
+            $query['RetryStatus'] = $request->retryStatus;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryChangeOrderTask',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/task_retry',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetryChangeOrderTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6394,26 +7027,37 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->historyVersion)) {
-            @$query['HistoryVersion'] = $request->historyVersion;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->batch)) {
-            @$query['Batch'] = $request->batch;
+            $query['Batch'] = $request->batch;
         }
         if (!Utils::isUnset($request->batchWaitTime)) {
-            @$query['BatchWaitTime'] = $request->batchWaitTime;
+            $query['BatchWaitTime'] = $request->batchWaitTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->historyVersion)) {
+            $query['HistoryVersion'] = $request->historyVersion;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RollbackApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_rollback',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RollbackApplicationResponse::fromMap($this->doROARequest('RollbackApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_rollback', 'json', $req, $runtime));
+        return RollbackApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6441,14 +7085,25 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->changeOrderId)) {
-            @$query['ChangeOrderId'] = $request->changeOrderId;
+            $query['ChangeOrderId'] = $request->changeOrderId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RollbackChangeOrder',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/oam/changeorder/rollback',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RollbackChangeOrderResponse::fromMap($this->doROARequest('RollbackChangeOrder', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/oam/changeorder/rollback', 'json', $req, $runtime));
+        return RollbackChangeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6476,20 +7131,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->eccInfo)) {
-            @$query['EccInfo'] = $request->eccInfo;
+            $query['EccInfo'] = $request->eccInfo;
         }
         if (!Utils::isUnset($request->forceStatus)) {
-            @$query['ForceStatus'] = $request->forceStatus;
+            $query['ForceStatus'] = $request->forceStatus;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ScaleInApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_scale_in',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ScaleInApplicationResponse::fromMap($this->doROARequest('ScaleInApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_scale_in', 'json', $req, $runtime));
+        return ScaleInApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6517,20 +7183,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->replicas)) {
-            @$query['Replicas'] = $request->replicas;
+            $query['Replicas'] = $request->replicas;
         }
         if (!Utils::isUnset($request->timeout)) {
-            @$query['Timeout'] = $request->timeout;
+            $query['Timeout'] = $request->timeout;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ScaleK8sApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_apps',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ScaleK8sApplicationResponse::fromMap($this->doROARequest('ScaleK8sApplication', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/k8s/acs/k8s_apps', 'json', $req, $runtime));
+        return ScaleK8sApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6558,20 +7235,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ecuInfo)) {
-            @$query['EcuInfo'] = $request->ecuInfo;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->deployGroup)) {
-            @$query['DeployGroup'] = $request->deployGroup;
+            $query['DeployGroup'] = $request->deployGroup;
+        }
+        if (!Utils::isUnset($request->ecuInfo)) {
+            $query['EcuInfo'] = $request->ecuInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ScaleOutApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_scale_out',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ScaleOutApplicationResponse::fromMap($this->doROARequest('ScaleOutApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_scale_out', 'json', $req, $runtime));
+        return ScaleOutApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6599,50 +7287,61 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->scalingNum)) {
-            @$query['ScalingNum'] = $request->scalingNum;
-        }
-        if (!Utils::isUnset($request->templateId)) {
-            @$query['TemplateId'] = $request->templateId;
-        }
-        if (!Utils::isUnset($request->templateVersion)) {
-            @$query['TemplateVersion'] = $request->templateVersion;
-        }
-        if (!Utils::isUnset($request->scalingPolicy)) {
-            @$query['ScalingPolicy'] = $request->scalingPolicy;
-        }
-        if (!Utils::isUnset($request->templateInstanceId)) {
-            @$query['TemplateInstanceId'] = $request->templateInstanceId;
-        }
-        if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->instanceChargeType)) {
-            @$query['InstanceChargeType'] = $request->instanceChargeType;
-        }
-        if (!Utils::isUnset($request->instanceChargePeriodUnit)) {
-            @$query['InstanceChargePeriodUnit'] = $request->instanceChargePeriodUnit;
-        }
-        if (!Utils::isUnset($request->instanceChargePeriod)) {
-            @$query['InstanceChargePeriod'] = $request->instanceChargePeriod;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->autoRenew)) {
-            @$query['AutoRenew'] = $request->autoRenew;
+            $query['AutoRenew'] = $request->autoRenew;
         }
         if (!Utils::isUnset($request->autoRenewPeriod)) {
-            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceChargePeriod)) {
+            $query['InstanceChargePeriod'] = $request->instanceChargePeriod;
+        }
+        if (!Utils::isUnset($request->instanceChargePeriodUnit)) {
+            $query['InstanceChargePeriodUnit'] = $request->instanceChargePeriodUnit;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->scalingNum)) {
+            $query['ScalingNum'] = $request->scalingNum;
+        }
+        if (!Utils::isUnset($request->scalingPolicy)) {
+            $query['ScalingPolicy'] = $request->scalingPolicy;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateInstanceId)) {
+            $query['TemplateInstanceId'] = $request->templateInstanceId;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ScaleoutApplicationWithNewInstances',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/scaling/scale_out',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ScaleoutApplicationWithNewInstancesResponse::fromMap($this->doROARequest('ScaleoutApplicationWithNewInstances', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/scaling/scale_out', 'json', $req, $runtime));
+        return ScaleoutApplicationWithNewInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6670,17 +7369,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->eccInfo)) {
-            @$query['EccInfo'] = $request->eccInfo;
+            $query['EccInfo'] = $request->eccInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StartApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StartApplicationResponse::fromMap($this->doROARequest('StartApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_start', 'json', $req, $runtime));
+        return StartApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6707,21 +7417,32 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
         if (!Utils::isUnset($request->replicas)) {
-            @$query['Replicas'] = $request->replicas;
+            $query['Replicas'] = $request->replicas;
         }
         if (!Utils::isUnset($request->timeout)) {
-            @$query['Timeout'] = $request->timeout;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['Timeout'] = $request->timeout;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StartK8sApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/start_k8s_app',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StartK8sApplicationResponse::fromMap($this->doROARequest('StartK8sApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/acs/start_k8s_app', 'json', $req, $runtime));
+        return StartK8sApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6749,17 +7470,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->eccInfo)) {
-            @$query['EccInfo'] = $request->eccInfo;
+            $query['EccInfo'] = $request->eccInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StopApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopApplicationResponse::fromMap($this->doROARequest('StopApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_stop', 'json', $req, $runtime));
+        return StopApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6787,17 +7519,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->timeout)) {
-            @$query['Timeout'] = $request->timeout;
+            $query['Timeout'] = $request->timeout;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StopK8sApplication',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/stop_k8s_app',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopK8sApplicationResponse::fromMap($this->doROARequest('StopK8sApplication', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/acs/stop_k8s_app', 'json', $req, $runtime));
+        return StopK8sApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6825,17 +7568,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->enableAdvancedMonitoring)) {
-            @$query['EnableAdvancedMonitoring'] = $request->enableAdvancedMonitoring;
+            $query['EnableAdvancedMonitoring'] = $request->enableAdvancedMonitoring;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'SwitchAdvancedMonitoring',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/monitor/advancedMonitorInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return SwitchAdvancedMonitoringResponse::fromMap($this->doROARequest('SwitchAdvancedMonitoring', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/monitor/advancedMonitorInfo', 'json', $req, $runtime));
+        return SwitchAdvancedMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6862,18 +7616,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
-        }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$query['ResourceIds'] = $request->resourceIds;
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'SynchronizeResource',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/pop_sync_resource',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return SynchronizeResourceResponse::fromMap($this->doROARequest('SynchronizeResource', '2017-08-01', 'HTTPS', 'GET', 'AK', '/pop/v5/resource/pop_sync_resource', 'json', $req, $runtime));
+        return SynchronizeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6900,24 +7665,35 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            @$query['ResourceType'] = $request->resourceType;
-        }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$query['ResourceIds'] = $request->resourceIds;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            @$query['Tags'] = $request->tags;
+            $query['ResourceIds'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceRegionId)) {
-            @$query['ResourceRegionId'] = $request->resourceRegionId;
+            $query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/tag/tags',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return TagResourcesResponse::fromMap($this->doROARequest('TagResources', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/tag/tags', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6945,20 +7721,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->instanceIds)) {
-            @$query['InstanceIds'] = $request->instanceIds;
-        }
-        if (!Utils::isUnset($request->targetClusterId)) {
-            @$query['TargetClusterId'] = $request->targetClusterId;
+            $query['InstanceIds'] = $request->instanceIds;
         }
         if (!Utils::isUnset($request->password)) {
-            @$query['Password'] = $request->password;
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->targetClusterId)) {
+            $query['TargetClusterId'] = $request->targetClusterId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'TransformClusterMember',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/resource/transform_cluster_member',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return TransformClusterMemberResponse::fromMap($this->doROARequest('TransformClusterMember', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/resource/transform_cluster_member', 'json', $req, $runtime));
+        return TransformClusterMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6986,23 +7773,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->slbName)) {
-            @$query['SlbName'] = $request->slbName;
+            $query['SlbName'] = $request->slbName;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UnbindK8sSlb',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_slb_binding',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UnbindK8sSlbResponse::fromMap($this->doROARequest('UnbindK8sSlb', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/k8s/acs/k8s_slb_binding', 'json', $req, $runtime));
+        return UnbindK8sSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7030,20 +7828,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->deleteListener)) {
+            $query['DeleteListener'] = $request->deleteListener;
         }
         if (!Utils::isUnset($request->slbId)) {
-            @$query['SlbId'] = $request->slbId;
+            $query['SlbId'] = $request->slbId;
         }
         if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UnbindSlb',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/app/unbind_slb_json',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UnbindSlbResponse::fromMap($this->doROARequest('UnbindSlb', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/app/unbind_slb_json', 'json', $req, $runtime));
+        return UnbindSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7070,27 +7882,38 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            @$query['ResourceRegionId'] = $request->resourceRegionId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->deleteAll)) {
+            $query['DeleteAll'] = $request->deleteAll;
         }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$query['ResourceIds'] = $request->resourceIds;
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceRegionId)) {
+            $query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->tagKeys)) {
-            @$query['TagKeys'] = $request->tagKeys;
-        }
-        if (!Utils::isUnset($request->deleteAll)) {
-            @$query['DeleteAll'] = $request->deleteAll;
+            $query['TagKeys'] = $request->tagKeys;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/tag/tags',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UntagResourcesResponse::fromMap($this->doROARequest('UntagResources', '2017-08-01', 'HTTPS', 'DELETE', 'AK', '/pop/v5/tag/tags', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7117,21 +7940,32 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->telephone)) {
-            @$query['Telephone'] = $request->telephone;
-        }
-        if (!Utils::isUnset($request->email)) {
-            @$query['Email'] = $request->email;
+            $query['Telephone'] = $request->telephone;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAccountInfo',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/edit_account_info',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAccountInfoResponse::fromMap($this->doROARequest('UpdateAccountInfo', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/edit_account_info', 'json', $req, $runtime));
+        return UpdateAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7159,23 +7993,156 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->appName)) {
-            @$query['AppName'] = $request->appName;
+            $query['AppName'] = $request->appName;
         }
         if (!Utils::isUnset($request->desc)) {
-            @$query['Desc'] = $request->desc;
+            $query['Desc'] = $request->desc;
         }
         if (!Utils::isUnset($request->owner)) {
-            @$query['Owner'] = $request->owner;
+            $query['Owner'] = $request->owner;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateApplicationBaseInfo',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/update_app_info',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateApplicationBaseInfoResponse::fromMap($this->doROARequest('UpdateApplicationBaseInfo', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/update_app_info', 'json', $req, $runtime));
+        return UpdateApplicationBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateApplicationScalingRuleRequest $request
+     *
+     * @return UpdateApplicationScalingRuleResponse
+     */
+    public function updateApplicationScalingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateApplicationScalingRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateApplicationScalingRuleRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateApplicationScalingRuleResponse
+     */
+    public function updateApplicationScalingRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scalingRuleEnable)) {
+            $query['ScalingRuleEnable'] = $request->scalingRuleEnable;
+        }
+        if (!Utils::isUnset($request->scalingRuleMetric)) {
+            $query['ScalingRuleMetric'] = $request->scalingRuleMetric;
+        }
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
+        }
+        if (!Utils::isUnset($request->scalingRuleTimer)) {
+            $query['ScalingRuleTimer'] = $request->scalingRuleTimer;
+        }
+        if (!Utils::isUnset($request->scalingRuleTrigger)) {
+            $query['ScalingRuleTrigger'] = $request->scalingRuleTrigger;
+        }
+        if (!Utils::isUnset($request->scalingRuleType)) {
+            $query['ScalingRuleType'] = $request->scalingRuleType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplicationScalingRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/eam/scale/application_scaling_rule',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateConfigTemplateRequest $request
+     *
+     * @return UpdateConfigTemplateResponse
+     */
+    public function updateConfigTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConfigTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateConfigTemplateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateConfigTemplateResponse
+     */
+    public function updateConfigTemplateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->format)) {
+            $body['Format'] = $request->format;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConfigTemplate',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/config_template',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateConfigTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7203,17 +8170,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->buildPackId)) {
-            @$query['BuildPackId'] = $request->buildPackId;
+            $query['BuildPackId'] = $request->buildPackId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateContainer',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/changeorder/co_update_container',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateContainerResponse::fromMap($this->doROARequest('UpdateContainer', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/changeorder/co_update_container', 'json', $req, $runtime));
+        return UpdateContainerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7241,150 +8219,43 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->contextPath)) {
-            @$query['ContextPath'] = $request->contextPath;
+            $query['ContextPath'] = $request->contextPath;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->httpPort)) {
-            @$query['HttpPort'] = $request->httpPort;
+            $query['HttpPort'] = $request->httpPort;
         }
         if (!Utils::isUnset($request->maxThreads)) {
-            @$query['MaxThreads'] = $request->maxThreads;
+            $query['MaxThreads'] = $request->maxThreads;
         }
         if (!Utils::isUnset($request->URIEncoding)) {
-            @$query['URIEncoding'] = $request->URIEncoding;
+            $query['URIEncoding'] = $request->URIEncoding;
         }
         if (!Utils::isUnset($request->useBodyEncoding)) {
-            @$query['UseBodyEncoding'] = $request->useBodyEncoding;
+            $query['UseBodyEncoding'] = $request->useBodyEncoding;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return UpdateContainerConfigurationResponse::fromMap($this->doROARequest('UpdateContainerConfiguration', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/container_config', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDegradeControlRequest $request
-     *
-     * @return UpdateDegradeControlResponse
-     */
-    public function updateDegradeControl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateDegradeControlWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param UpdateDegradeControlRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateDegradeControlResponse
-     */
-    public function updateDegradeControlWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            @$query['RuleId'] = $request->ruleId;
-        }
-        if (!Utils::isUnset($request->duration)) {
-            @$query['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->methodName)) {
-            @$query['MethodName'] = $request->methodName;
-        }
-        if (!Utils::isUnset($request->rtThreshold)) {
-            @$query['RtThreshold'] = $request->rtThreshold;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['ServiceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->urlVar)) {
-            @$query['UrlVar'] = $request->urlVar;
-        }
-        if (!Utils::isUnset($request->ruleType)) {
-            @$query['RuleType'] = $request->ruleType;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'UpdateContainerConfiguration',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/container_config',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDegradeControlResponse::fromMap($this->doROARequest('UpdateDegradeControl', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/degradeControl', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateFlowControlRequest $request
-     *
-     * @return UpdateFlowControlResponse
-     */
-    public function updateFlowControl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateFlowControlWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param UpdateFlowControlRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateFlowControlResponse
-     */
-    public function updateFlowControlWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            @$query['RuleId'] = $request->ruleId;
-        }
-        if (!Utils::isUnset($request->consumerAppId)) {
-            @$query['ConsumerAppId'] = $request->consumerAppId;
-        }
-        if (!Utils::isUnset($request->granularity)) {
-            @$query['Granularity'] = $request->granularity;
-        }
-        if (!Utils::isUnset($request->methodName)) {
-            @$query['MethodName'] = $request->methodName;
-        }
-        if (!Utils::isUnset($request->ruleType)) {
-            @$query['RuleType'] = $request->ruleType;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            @$query['ServiceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->strategy)) {
-            @$query['Strategy'] = $request->strategy;
-        }
-        if (!Utils::isUnset($request->threshold)) {
-            @$query['Threshold'] = $request->threshold;
-        }
-        if (!Utils::isUnset($request->urlVar)) {
-            @$query['UrlVar'] = $request->urlVar;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return UpdateFlowControlResponse::fromMap($this->doROARequest('UpdateFlowControl', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/flowControl', 'json', $req, $runtime));
+        return UpdateContainerConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7412,17 +8283,28 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->hcURL)) {
-            @$query['hcURL'] = $request->hcURL;
+            $query['hcURL'] = $request->hcURL;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateHealthCheckUrl',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/modify_hc_url',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateHealthCheckUrlResponse::fromMap($this->doROARequest('UpdateHealthCheckUrl', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/modify_hc_url', 'json', $req, $runtime));
+        return UpdateHealthCheckUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7450,20 +8332,31 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->hooks)) {
-            @$query['Hooks'] = $request->hooks;
+            $query['Hooks'] = $request->hooks;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateHookConfiguration',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/app/config_app_hook_json',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateHookConfigurationResponse::fromMap($this->doROARequest('UpdateHookConfiguration', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/app/config_app_hook_json', 'json', $req, $runtime));
+        return UpdateHookConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7491,29 +8384,40 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->options)) {
-            @$query['Options'] = $request->options;
-        }
-        if (!Utils::isUnset($request->minHeapSize)) {
-            @$query['MinHeapSize'] = $request->minHeapSize;
-        }
-        if (!Utils::isUnset($request->maxPermSize)) {
-            @$query['MaxPermSize'] = $request->maxPermSize;
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->maxHeapSize)) {
-            @$query['MaxHeapSize'] = $request->maxHeapSize;
+            $query['MaxHeapSize'] = $request->maxHeapSize;
+        }
+        if (!Utils::isUnset($request->maxPermSize)) {
+            $query['MaxPermSize'] = $request->maxPermSize;
+        }
+        if (!Utils::isUnset($request->minHeapSize)) {
+            $query['MinHeapSize'] = $request->minHeapSize;
+        }
+        if (!Utils::isUnset($request->options)) {
+            $query['Options'] = $request->options;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateJvmConfiguration',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/app/app_jvm_config',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateJvmConfigurationResponse::fromMap($this->doROARequest('UpdateJvmConfiguration', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/app/app_jvm_config', 'json', $req, $runtime));
+        return UpdateJvmConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7541,26 +8445,37 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->owner)) {
-            @$query['Owner'] = $request->owner;
-        }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->email)) {
-            @$query['Email'] = $request->email;
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sApplicationBaseInfo',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/oam/update_app_basic_info',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateK8sApplicationBaseInfoResponse::fromMap($this->doROARequest('UpdateK8sApplicationBaseInfo', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/oam/update_app_basic_info', 'json', $req, $runtime));
+        return UpdateK8sApplicationBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7588,38 +8503,104 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->cpuLimit)) {
-            @$query['CpuLimit'] = $request->cpuLimit;
-        }
-        if (!Utils::isUnset($request->memoryLimit)) {
-            @$query['MemoryLimit'] = $request->memoryLimit;
-        }
-        if (!Utils::isUnset($request->mcpuLimit)) {
-            @$query['McpuLimit'] = $request->mcpuLimit;
+            $query['CpuLimit'] = $request->cpuLimit;
         }
         if (!Utils::isUnset($request->cpuRequest)) {
-            @$query['CpuRequest'] = $request->cpuRequest;
+            $query['CpuRequest'] = $request->cpuRequest;
+        }
+        if (!Utils::isUnset($request->mcpuLimit)) {
+            $query['McpuLimit'] = $request->mcpuLimit;
         }
         if (!Utils::isUnset($request->mcpuRequest)) {
-            @$query['McpuRequest'] = $request->mcpuRequest;
+            $query['McpuRequest'] = $request->mcpuRequest;
+        }
+        if (!Utils::isUnset($request->memoryLimit)) {
+            $query['MemoryLimit'] = $request->memoryLimit;
         }
         if (!Utils::isUnset($request->memoryRequest)) {
-            @$query['MemoryRequest'] = $request->memoryRequest;
+            $query['MemoryRequest'] = $request->memoryRequest;
         }
         if (!Utils::isUnset($request->timeout)) {
-            @$query['Timeout'] = $request->timeout;
+            $query['Timeout'] = $request->timeout;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sApplicationConfig',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_app_configuration',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateK8sApplicationConfigResponse::fromMap($this->doROARequest('UpdateK8sApplicationConfig', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/k8s/acs/k8s_app_configuration', 'json', $req, $runtime));
+        return UpdateK8sApplicationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateK8sConfigMapRequest $request
+     *
+     * @return UpdateK8sConfigMapResponse
+     */
+    public function updateK8sConfigMap($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateK8sConfigMapWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateK8sConfigMapRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateK8sConfigMapResponse
+     */
+    public function updateK8sConfigMapWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sConfigMap',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_config_map',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateK8sConfigMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7647,23 +8628,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+        if (!Utils::isUnset($request->ingressConf)) {
+            $query['IngressConf'] = $request->ingressConf;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->rules)) {
-            @$query['Rules'] = $request->rules;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sIngressRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_ingress',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateK8sIngressRuleResponse::fromMap($this->doROARequest('UpdateK8sIngressRule', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/k8s/acs/k8s_ingress', 'json', $req, $runtime));
+        return UpdateK8sIngressRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7691,20 +8683,98 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$body['ClusterId'] = $request->clusterId;
+            $body['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$body['Namespace_'] = $request->namespace_;
+            $body['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->resourceContent)) {
-            @$body['ResourceContent'] = $request->resourceContent;
+            $body['ResourceContent'] = $request->resourceContent;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sResource',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/oam/update_k8s_resource_config',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateK8sResourceResponse::fromMap($this->doROARequestWithForm('UpdateK8sResource', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/oam/update_k8s_resource_config', 'json', $req, $runtime));
+        return UpdateK8sResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateK8sSecretRequest $request
+     *
+     * @return UpdateK8sSecretResponse
+     */
+    public function updateK8sSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateK8sSecretWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateK8sSecretRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateK8sSecretResponse
+     */
+    public function updateK8sSecretWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->base64Encoded)) {
+            $body['Base64Encoded'] = $request->base64Encoded;
+        }
+        if (!Utils::isUnset($request->certId)) {
+            $body['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certRegionId)) {
+            $body['CertRegionId'] = $request->certRegionId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sSecret',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_secret',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateK8sSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7732,23 +8802,34 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->servicePorts)) {
-            @$query['ServicePorts'] = $request->servicePorts;
+            $query['ServicePorts'] = $request->servicePorts;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sService',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_service',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateK8sServiceResponse::fromMap($this->doROARequest('UpdateK8sService', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/k8s/acs/k8s_service', 'json', $req, $runtime));
+        return UpdateK8sServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7776,41 +8857,55 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['ClusterId'] = $request->clusterId;
+            $query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->slbProtocol)) {
-            @$query['SlbProtocol'] = $request->slbProtocol;
-        }
-        if (!Utils::isUnset($request->targetPort)) {
-            @$query['TargetPort'] = $request->targetPort;
+        if (!Utils::isUnset($request->disableForceOverride)) {
+            $query['DisableForceOverride'] = $request->disableForceOverride;
         }
         if (!Utils::isUnset($request->port)) {
-            @$query['Port'] = $request->port;
-        }
-        if (!Utils::isUnset($request->servicePortInfos)) {
-            @$query['ServicePortInfos'] = $request->servicePortInfos;
-        }
-        if (!Utils::isUnset($request->specification)) {
-            @$query['Specification'] = $request->specification;
+            $query['Port'] = $request->port;
         }
         if (!Utils::isUnset($request->scheduler)) {
-            @$query['Scheduler'] = $request->scheduler;
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->servicePortInfos)) {
+            $query['ServicePortInfos'] = $request->servicePortInfos;
         }
         if (!Utils::isUnset($request->slbName)) {
-            @$query['SlbName'] = $request->slbName;
+            $query['SlbName'] = $request->slbName;
+        }
+        if (!Utils::isUnset($request->slbProtocol)) {
+            $query['SlbProtocol'] = $request->slbProtocol;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
+        if (!Utils::isUnset($request->targetPort)) {
+            $query['TargetPort'] = $request->targetPort;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sSlb',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_slb_binding',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateK8sSlbResponse::fromMap($this->doROARequest('UpdateK8sSlb', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/k8s/acs/k8s_slb_binding', 'json', $req, $runtime));
+        return UpdateK8sSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7837,30 +8932,41 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->dubboMockItemJson)) {
+            $query['DubboMockItemJson'] = $request->dubboMockItemJson;
         }
         if (!Utils::isUnset($request->extraJson)) {
-            @$query['ExtraJson'] = $request->extraJson;
-        }
-        if (!Utils::isUnset($request->scMockItemJson)) {
-            @$query['ScMockItemJson'] = $request->scMockItemJson;
-        }
-        if (!Utils::isUnset($request->dubboMockItemJson)) {
-            @$query['DubboMockItemJson'] = $request->dubboMockItemJson;
+            $query['ExtraJson'] = $request->extraJson;
         }
         if (!Utils::isUnset($request->id)) {
-            @$query['Id'] = $request->id;
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->scMockItemJson)) {
+            $query['ScMockItemJson'] = $request->scMockItemJson;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateMockRule',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/sp/api/mock/updateMockRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateMockRuleResponse::fromMap($this->doROARequest('UpdateMockRule', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/sp/api/mock/updateMockRule', 'json', $req, $runtime));
+        return UpdateMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7887,18 +8993,29 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->roleId)) {
-            @$query['RoleId'] = $request->roleId;
-        }
         if (!Utils::isUnset($request->actionData)) {
-            @$query['ActionData'] = $request->actionData;
+            $query['ActionData'] = $request->actionData;
+        }
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateRole',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/account/edit_role',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateRoleResponse::fromMap($this->doROARequest('UpdateRole', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/account/edit_role', 'json', $req, $runtime));
+        return UpdateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7926,107 +9043,27 @@ class Edas extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->appId)) {
-            @$body['AppId'] = $request->appId;
+            $body['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->configs)) {
-            @$body['Configs'] = $request->configs;
+            $body['Configs'] = $request->configs;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
-
-        return UpdateSlsLogStoreResponse::fromMap($this->doROARequestWithForm('UpdateSlsLogStore', '2017-08-01', 'HTTPS', 'POST', 'AK', '/pop/v5/k8s/sls/update_sls_log_store', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateSwimmingLaneRequest $request
-     *
-     * @return UpdateSwimmingLaneResponse
-     */
-    public function updateSwimmingLane($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateSwimmingLaneWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param UpdateSwimmingLaneRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateSwimmingLaneResponse
-     */
-    public function updateSwimmingLaneWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->laneId)) {
-            @$query['LaneId'] = $request->laneId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->enableRules)) {
-            @$query['EnableRules'] = $request->enableRules;
-        }
-        if (!Utils::isUnset($request->appInfos)) {
-            @$query['AppInfos'] = $request->appInfos;
-        }
-        if (!Utils::isUnset($request->entryRules)) {
-            @$query['EntryRules'] = $request->entryRules;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'UpdateSlsLogStore',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/sls/update_sls_log_store',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSwimmingLaneResponse::fromMap($this->doROARequest('UpdateSwimmingLane', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/trafficmgnt/swimming_lanes', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateSwimmingLaneGroupRequest $request
-     *
-     * @return UpdateSwimmingLaneGroupResponse
-     */
-    public function updateSwimmingLaneGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateSwimmingLaneGroupWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param UpdateSwimmingLaneGroupRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateSwimmingLaneGroupResponse
-     */
-    public function updateSwimmingLaneGroupWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->entryApp)) {
-            @$query['EntryApp'] = $request->entryApp;
-        }
-        if (!Utils::isUnset($request->appIds)) {
-            @$query['AppIds'] = $request->appIds;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return UpdateSwimmingLaneGroupResponse::fromMap($this->doROARequest('UpdateSwimmingLaneGroup', '2017-08-01', 'HTTPS', 'PUT', 'AK', '/pop/v5/trafficmgnt/swimming_lane_groups', 'json', $req, $runtime));
+        return UpdateSlsLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

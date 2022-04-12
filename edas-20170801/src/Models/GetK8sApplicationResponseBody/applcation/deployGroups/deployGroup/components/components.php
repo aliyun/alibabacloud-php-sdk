@@ -11,15 +11,21 @@ class components extends Model
     /**
      * @var string
      */
+    public $componentId;
+
+    /**
+     * @var string
+     */
     public $componentKey;
 
     /**
      * @var string
      */
-    public $componentId;
+    public $type;
     protected $_name = [
-        'componentKey' => 'ComponentKey',
         'componentId'  => 'ComponentId',
+        'componentKey' => 'ComponentKey',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class components extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->componentId) {
+            $res['ComponentId'] = $this->componentId;
+        }
         if (null !== $this->componentKey) {
             $res['ComponentKey'] = $this->componentKey;
         }
-        if (null !== $this->componentId) {
-            $res['ComponentId'] = $this->componentId;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -47,11 +56,14 @@ class components extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComponentId'])) {
+            $model->componentId = $map['ComponentId'];
+        }
         if (isset($map['ComponentKey'])) {
             $model->componentKey = $map['ComponentKey'];
         }
-        if (isset($map['ComponentId'])) {
-            $model->componentId = $map['ComponentId'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

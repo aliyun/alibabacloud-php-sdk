@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InsertOrUpdateRegionRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionTag;
-
-    /**
-     * @var string
-     */
-    public $regionName;
+    public $debugEnable;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class InsertOrUpdateRegionRequest extends Model
     public $id;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $debugEnable;
+    public $regionName;
+
+    /**
+     * @var string
+     */
+    public $regionTag;
     protected $_name = [
-        'regionTag'   => 'RegionTag',
-        'regionName'  => 'RegionName',
+        'debugEnable' => 'DebugEnable',
         'description' => 'Description',
         'id'          => 'Id',
-        'debugEnable' => 'DebugEnable',
+        'regionName'  => 'RegionName',
+        'regionTag'   => 'RegionTag',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class InsertOrUpdateRegionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionTag) {
-            $res['RegionTag'] = $this->regionTag;
-        }
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
+        if (null !== $this->debugEnable) {
+            $res['DebugEnable'] = $this->debugEnable;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -59,8 +56,11 @@ class InsertOrUpdateRegionRequest extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->debugEnable) {
-            $res['DebugEnable'] = $this->debugEnable;
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
+        }
+        if (null !== $this->regionTag) {
+            $res['RegionTag'] = $this->regionTag;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class InsertOrUpdateRegionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionTag'])) {
-            $model->regionTag = $map['RegionTag'];
-        }
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
+        if (isset($map['DebugEnable'])) {
+            $model->debugEnable = $map['DebugEnable'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -86,8 +83,11 @@ class InsertOrUpdateRegionRequest extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['DebugEnable'])) {
-            $model->debugEnable = $map['DebugEnable'];
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
+        }
+        if (isset($map['RegionTag'])) {
+            $model->regionTag = $map['RegionTag'];
         }
 
         return $model;

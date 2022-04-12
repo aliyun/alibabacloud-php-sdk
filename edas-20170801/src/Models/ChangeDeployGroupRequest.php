@@ -19,19 +19,19 @@ class ChangeDeployGroupRequest extends Model
     public $eccInfo;
 
     /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
      * @var bool
      */
     public $forceStatus;
+
+    /**
+     * @var string
+     */
+    public $groupName;
     protected $_name = [
         'appId'       => 'AppId',
         'eccInfo'     => 'EccInfo',
-        'groupName'   => 'GroupName',
         'forceStatus' => 'ForceStatus',
+        'groupName'   => 'GroupName',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class ChangeDeployGroupRequest extends Model
         if (null !== $this->eccInfo) {
             $res['EccInfo'] = $this->eccInfo;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->forceStatus) {
             $res['ForceStatus'] = $this->forceStatus;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class ChangeDeployGroupRequest extends Model
         if (isset($map['EccInfo'])) {
             $model->eccInfo = $map['EccInfo'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['ForceStatus'])) {
             $model->forceStatus = $map['ForceStatus'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
 
         return $model;

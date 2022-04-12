@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
-     * @var bool
-     */
-    public $isDefault;
-
-    /**
      * @var string
      */
     public $adminUserId;
@@ -29,6 +19,16 @@ class role extends Model
     public $createTime;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
      * @var string
      */
     public $name;
@@ -36,14 +36,14 @@ class role extends Model
     /**
      * @var int
      */
-    public $id;
+    public $updateTime;
     protected $_name = [
-        'updateTime'  => 'UpdateTime',
-        'isDefault'   => 'IsDefault',
         'adminUserId' => 'AdminUserId',
         'createTime'  => 'CreateTime',
-        'name'        => 'Name',
         'id'          => 'Id',
+        'isDefault'   => 'IsDefault',
+        'name'        => 'Name',
+        'updateTime'  => 'UpdateTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class role extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
-        }
         if (null !== $this->adminUserId) {
             $res['AdminUserId'] = $this->adminUserId;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class role extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
-        }
         if (isset($map['AdminUserId'])) {
             $model->adminUserId = $map['AdminUserId'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

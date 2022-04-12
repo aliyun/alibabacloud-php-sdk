@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationEcuResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var ecuInfoList
      */
     public $ecuInfoList;
@@ -23,16 +28,11 @@ class ListApplicationEcuResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'        => 'Code',
         'ecuInfoList' => 'EcuInfoList',
         'message'     => 'Message',
         'requestId'   => 'RequestId',
-        'code'        => 'Code',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class ListApplicationEcuResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->ecuInfoList) {
             $res['EcuInfoList'] = null !== $this->ecuInfoList ? $this->ecuInfoList->toMap() : null;
         }
@@ -50,9 +53,6 @@ class ListApplicationEcuResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class ListApplicationEcuResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['EcuInfoList'])) {
             $model->ecuInfoList = ecuInfoList::fromMap($map['EcuInfoList']);
         }
@@ -74,9 +77,6 @@ class ListApplicationEcuResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

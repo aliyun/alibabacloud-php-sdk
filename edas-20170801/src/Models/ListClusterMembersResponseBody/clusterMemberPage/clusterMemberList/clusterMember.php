@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class clusterMember extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $updateTime;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $ecuId;
-
-    /**
-     * @var string
-     */
-    public $ecsId;
+    public $clusterMemberId;
 
     /**
      * @var int
@@ -36,20 +26,30 @@ class clusterMember extends Model
     /**
      * @var string
      */
-    public $clusterMemberId;
+    public $ecsId;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $ecuId;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
     protected $_name = [
+        'clusterId'       => 'ClusterId',
+        'clusterMemberId' => 'ClusterMemberId',
+        'createTime'      => 'CreateTime',
+        'ecsId'           => 'EcsId',
+        'ecuId'           => 'EcuId',
         'status'          => 'Status',
         'updateTime'      => 'UpdateTime',
-        'ecuId'           => 'EcuId',
-        'ecsId'           => 'EcsId',
-        'createTime'      => 'CreateTime',
-        'clusterMemberId' => 'ClusterMemberId',
-        'clusterId'       => 'ClusterId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class clusterMember extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->clusterMemberId) {
+            $res['ClusterMemberId'] = $this->clusterMemberId;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->ecsId) {
+            $res['EcsId'] = $this->ecsId;
+        }
+        if (null !== $this->ecuId) {
+            $res['EcuId'] = $this->ecuId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->ecuId) {
-            $res['EcuId'] = $this->ecuId;
-        }
-        if (null !== $this->ecsId) {
-            $res['EcsId'] = $this->ecsId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->clusterMemberId) {
-            $res['ClusterMemberId'] = $this->clusterMemberId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class clusterMember extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ClusterMemberId'])) {
+            $model->clusterMemberId = $map['ClusterMemberId'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['EcsId'])) {
+            $model->ecsId = $map['EcsId'];
+        }
+        if (isset($map['EcuId'])) {
+            $model->ecuId = $map['EcuId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['EcuId'])) {
-            $model->ecuId = $map['EcuId'];
-        }
-        if (isset($map['EcsId'])) {
-            $model->ecsId = $map['EcsId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ClusterMemberId'])) {
-            $model->clusterMemberId = $map['ClusterMemberId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

@@ -13,12 +13,7 @@ class serviceMethod extends Model
     /**
      * @var string
      */
-    public $methodName;
-
-    /**
-     * @var paramTypes
-     */
-    public $paramTypes;
+    public $appName;
 
     /**
      * @var inputParams
@@ -28,7 +23,7 @@ class serviceMethod extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $methodName;
 
     /**
      * @var string
@@ -36,15 +31,20 @@ class serviceMethod extends Model
     public $output;
 
     /**
+     * @var paramTypes
+     */
+    public $paramTypes;
+
+    /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'methodName'  => 'MethodName',
-        'paramTypes'  => 'ParamTypes',
-        'inputParams' => 'InputParams',
         'appName'     => 'AppName',
+        'inputParams' => 'InputParams',
+        'methodName'  => 'MethodName',
         'output'      => 'Output',
+        'paramTypes'  => 'ParamTypes',
         'serviceName' => 'ServiceName',
     ];
 
@@ -55,20 +55,20 @@ class serviceMethod extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->methodName) {
-            $res['MethodName'] = $this->methodName;
-        }
-        if (null !== $this->paramTypes) {
-            $res['ParamTypes'] = null !== $this->paramTypes ? $this->paramTypes->toMap() : null;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->inputParams) {
             $res['InputParams'] = null !== $this->inputParams ? $this->inputParams->toMap() : null;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->methodName) {
+            $res['MethodName'] = $this->methodName;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
+        }
+        if (null !== $this->paramTypes) {
+            $res['ParamTypes'] = null !== $this->paramTypes ? $this->paramTypes->toMap() : null;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
@@ -85,20 +85,20 @@ class serviceMethod extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MethodName'])) {
-            $model->methodName = $map['MethodName'];
-        }
-        if (isset($map['ParamTypes'])) {
-            $model->paramTypes = paramTypes::fromMap($map['ParamTypes']);
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['InputParams'])) {
             $model->inputParams = inputParams::fromMap($map['InputParams']);
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['MethodName'])) {
+            $model->methodName = $map['MethodName'];
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
+        }
+        if (isset($map['ParamTypes'])) {
+            $model->paramTypes = paramTypes::fromMap($map['ParamTypes']);
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];

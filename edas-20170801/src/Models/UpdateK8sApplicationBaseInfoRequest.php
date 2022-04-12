@@ -21,23 +21,23 @@ class UpdateK8sApplicationBaseInfoRequest extends Model
     /**
      * @var string
      */
+    public $email;
+
+    /**
+     * @var string
+     */
     public $owner;
 
     /**
      * @var string
      */
     public $phoneNumber;
-
-    /**
-     * @var string
-     */
-    public $email;
     protected $_name = [
         'appId'       => 'AppId',
         'description' => 'Description',
+        'email'       => 'Email',
         'owner'       => 'Owner',
         'phoneNumber' => 'PhoneNumber',
-        'email'       => 'Email',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class UpdateK8sApplicationBaseInfoRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class UpdateK8sApplicationBaseInfoRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
         }
 
         return $model;

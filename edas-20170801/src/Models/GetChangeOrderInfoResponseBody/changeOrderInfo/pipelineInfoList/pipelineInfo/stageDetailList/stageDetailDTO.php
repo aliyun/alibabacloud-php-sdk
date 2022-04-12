@@ -15,6 +15,11 @@ class stageDetailDTO extends Model
     public $stageId;
 
     /**
+     * @var string
+     */
+    public $stageName;
+
+    /**
      * @var int
      */
     public $stageStatus;
@@ -23,16 +28,11 @@ class stageDetailDTO extends Model
      * @var taskList
      */
     public $taskList;
-
-    /**
-     * @var string
-     */
-    public $stageName;
     protected $_name = [
         'stageId'     => 'StageId',
+        'stageName'   => 'StageName',
         'stageStatus' => 'StageStatus',
         'taskList'    => 'TaskList',
-        'stageName'   => 'StageName',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class stageDetailDTO extends Model
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
         }
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
+        }
         if (null !== $this->stageStatus) {
             $res['StageStatus'] = $this->stageStatus;
         }
         if (null !== $this->taskList) {
             $res['TaskList'] = null !== $this->taskList ? $this->taskList->toMap() : null;
-        }
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class stageDetailDTO extends Model
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
         }
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
+        }
         if (isset($map['StageStatus'])) {
             $model->stageStatus = $map['StageStatus'];
         }
         if (isset($map['TaskList'])) {
             $model->taskList = taskList::fromMap($map['TaskList']);
-        }
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
         }
 
         return $model;

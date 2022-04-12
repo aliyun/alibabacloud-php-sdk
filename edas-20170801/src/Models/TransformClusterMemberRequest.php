@@ -16,16 +16,16 @@ class TransformClusterMemberRequest extends Model
     /**
      * @var string
      */
-    public $targetClusterId;
+    public $password;
 
     /**
      * @var string
      */
-    public $password;
+    public $targetClusterId;
     protected $_name = [
         'instanceIds'     => 'InstanceIds',
-        'targetClusterId' => 'TargetClusterId',
         'password'        => 'Password',
+        'targetClusterId' => 'TargetClusterId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class TransformClusterMemberRequest extends Model
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
-        if (null !== $this->targetClusterId) {
-            $res['TargetClusterId'] = $this->targetClusterId;
-        }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->targetClusterId) {
+            $res['TargetClusterId'] = $this->targetClusterId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class TransformClusterMemberRequest extends Model
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
-        if (isset($map['TargetClusterId'])) {
-            $model->targetClusterId = $map['TargetClusterId'];
-        }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['TargetClusterId'])) {
+            $model->targetClusterId = $map['TargetClusterId'];
         }
 
         return $model;

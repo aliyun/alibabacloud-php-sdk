@@ -4,11 +4,21 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesResponseBody\ingressConfigs;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class ListK8sIngressRulesResponseBody extends Model
 {
+    /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var data[]
+     */
+    public $data;
+
     /**
      * @var string
      */
@@ -18,21 +28,11 @@ class ListK8sIngressRulesResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var ingressConfigs[]
-     */
-    public $ingressConfigs;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'ingressConfigs' => 'IngressConfigs',
-        'code'           => 'Code',
+        'code'      => 'Code',
+        'data'      => 'Data',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -42,23 +42,23 @@ class ListK8sIngressRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->ingressConfigs) {
-            $res['IngressConfigs'] = [];
-            if (null !== $this->ingressConfigs && \is_array($this->ingressConfigs)) {
-                $n = 0;
-                foreach ($this->ingressConfigs as $item) {
-                    $res['IngressConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -72,23 +72,23 @@ class ListK8sIngressRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['IngressConfigs'])) {
-            if (!empty($map['IngressConfigs'])) {
-                $model->ingressConfigs = [];
-                $n                     = 0;
-                foreach ($map['IngressConfigs'] as $item) {
-                    $model->ingressConfigs[$n++] = null !== $item ? ingressConfigs::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

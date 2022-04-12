@@ -14,9 +14,9 @@ class ImportK8sClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $namespaceId;
+    public $enableAsm;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class ImportK8sClusterRequest extends Model
     public $mode;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enableAsm;
+    public $namespaceId;
     protected $_name = [
         'clusterId'   => 'ClusterId',
-        'namespaceId' => 'NamespaceId',
-        'mode'        => 'Mode',
         'enableAsm'   => 'EnableAsm',
+        'mode'        => 'Mode',
+        'namespaceId' => 'NamespaceId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ImportK8sClusterRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->namespaceId) {
-            $res['NamespaceId'] = $this->namespaceId;
+        if (null !== $this->enableAsm) {
+            $res['EnableAsm'] = $this->enableAsm;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->enableAsm) {
-            $res['EnableAsm'] = $this->enableAsm;
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ImportK8sClusterRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['NamespaceId'])) {
-            $model->namespaceId = $map['NamespaceId'];
+        if (isset($map['EnableAsm'])) {
+            $model->enableAsm = $map['EnableAsm'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['EnableAsm'])) {
-            $model->enableAsm = $map['EnableAsm'];
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
         }
 
         return $model;

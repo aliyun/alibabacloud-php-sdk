@@ -11,11 +11,6 @@ class content extends Model
     /**
      * @var string
      */
-    public $timeout;
-
-    /**
-     * @var string
-     */
     public $ip;
 
     /**
@@ -27,11 +22,16 @@ class content extends Model
      * @var string
      */
     public $serializeType;
+
+    /**
+     * @var string
+     */
+    public $timeout;
     protected $_name = [
-        'timeout'       => 'Timeout',
         'ip'            => 'Ip',
         'port'          => 'Port',
         'serializeType' => 'SerializeType',
+        'timeout'       => 'Timeout',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class content extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
-        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -52,6 +49,9 @@ class content extends Model
         }
         if (null !== $this->serializeType) {
             $res['SerializeType'] = $this->serializeType;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class content extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
-        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
@@ -76,6 +73,9 @@ class content extends Model
         }
         if (isset($map['SerializeType'])) {
             $model->serializeType = $map['SerializeType'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;
