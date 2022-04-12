@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StartDiskReplicaPairRequest extends Model
+class StartDiskReplicaGroupRequest extends Model
 {
     /**
      * @var string
@@ -26,12 +26,12 @@ class StartDiskReplicaPairRequest extends Model
     /**
      * @var string
      */
-    public $replicaPairId;
+    public $replicaGroupId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'oneShot'       => 'OneShot',
-        'regionId'      => 'RegionId',
-        'replicaPairId' => 'ReplicaPairId',
+        'clientToken'    => 'ClientToken',
+        'oneShot'        => 'OneShot',
+        'regionId'       => 'RegionId',
+        'replicaGroupId' => 'ReplicaGroupId',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class StartDiskReplicaPairRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->replicaPairId) {
-            $res['ReplicaPairId'] = $this->replicaPairId;
+        if (null !== $this->replicaGroupId) {
+            $res['ReplicaGroupId'] = $this->replicaGroupId;
         }
 
         return $res;
@@ -60,7 +60,7 @@ class StartDiskReplicaPairRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartDiskReplicaPairRequest
+     * @return StartDiskReplicaGroupRequest
      */
     public static function fromMap($map = [])
     {
@@ -74,8 +74,8 @@ class StartDiskReplicaPairRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ReplicaPairId'])) {
-            $model->replicaPairId = $map['ReplicaPairId'];
+        if (isset($map['ReplicaGroupId'])) {
+            $model->replicaGroupId = $map['ReplicaGroupId'];
         }
 
         return $model;

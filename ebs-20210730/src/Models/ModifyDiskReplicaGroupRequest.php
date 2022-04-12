@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDiskReplicaPairRequest extends Model
+class ModifyDiskReplicaGroupRequest extends Model
 {
-    /**
-     * @var int
-     */
-    public $bandwidth;
-
     /**
      * @var string
      */
@@ -26,7 +21,7 @@ class ModifyDiskReplicaPairRequest extends Model
     /**
      * @var string
      */
-    public $pairName;
+    public $groupName;
 
     /**
      * @var int
@@ -41,15 +36,14 @@ class ModifyDiskReplicaPairRequest extends Model
     /**
      * @var string
      */
-    public $replicaPairId;
+    public $replicaGroupId;
     protected $_name = [
-        'bandwidth'     => 'Bandwidth',
-        'clientToken'   => 'ClientToken',
-        'description'   => 'Description',
-        'pairName'      => 'PairName',
-        'RPO'           => 'RPO',
-        'regionId'      => 'RegionId',
-        'replicaPairId' => 'ReplicaPairId',
+        'clientToken'    => 'ClientToken',
+        'description'    => 'Description',
+        'groupName'      => 'GroupName',
+        'RPO'            => 'RPO',
+        'regionId'       => 'RegionId',
+        'replicaGroupId' => 'ReplicaGroupId',
     ];
 
     public function validate()
@@ -59,17 +53,14 @@ class ModifyDiskReplicaPairRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->pairName) {
-            $res['PairName'] = $this->pairName;
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->RPO) {
             $res['RPO'] = $this->RPO;
@@ -77,8 +68,8 @@ class ModifyDiskReplicaPairRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->replicaPairId) {
-            $res['ReplicaPairId'] = $this->replicaPairId;
+        if (null !== $this->replicaGroupId) {
+            $res['ReplicaGroupId'] = $this->replicaGroupId;
         }
 
         return $res;
@@ -87,22 +78,19 @@ class ModifyDiskReplicaPairRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDiskReplicaPairRequest
+     * @return ModifyDiskReplicaGroupRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['PairName'])) {
-            $model->pairName = $map['PairName'];
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['RPO'])) {
             $model->RPO = $map['RPO'];
@@ -110,8 +98,8 @@ class ModifyDiskReplicaPairRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ReplicaPairId'])) {
-            $model->replicaPairId = $map['ReplicaPairId'];
+        if (isset($map['ReplicaGroupId'])) {
+            $model->replicaGroupId = $map['ReplicaGroupId'];
         }
 
         return $model;

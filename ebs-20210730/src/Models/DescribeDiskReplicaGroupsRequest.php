@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDiskReplicaPairsRequest extends Model
+class DescribeDiskReplicaGroupsRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $groupIds;
+
     /**
      * @var int
      */
@@ -21,17 +26,7 @@ class DescribeDiskReplicaPairsRequest extends Model
     /**
      * @var string
      */
-    public $pairIds;
-
-    /**
-     * @var string
-     */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $replicaGroupId;
 
     /**
      * @description production或backup，表示数据从主或备站点获取，默认为production。
@@ -40,12 +35,11 @@ class DescribeDiskReplicaPairsRequest extends Model
      */
     public $site;
     protected $_name = [
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'pairIds'        => 'PairIds',
-        'regionId'       => 'RegionId',
-        'replicaGroupId' => 'ReplicaGroupId',
-        'site'           => 'Site',
+        'groupIds'   => 'GroupIds',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
+        'regionId'   => 'RegionId',
+        'site'       => 'Site',
     ];
 
     public function validate()
@@ -55,20 +49,17 @@ class DescribeDiskReplicaPairsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupIds) {
+            $res['GroupIds'] = $this->groupIds;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->pairIds) {
-            $res['PairIds'] = $this->pairIds;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->replicaGroupId) {
-            $res['ReplicaGroupId'] = $this->replicaGroupId;
         }
         if (null !== $this->site) {
             $res['Site'] = $this->site;
@@ -80,25 +71,22 @@ class DescribeDiskReplicaPairsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDiskReplicaPairsRequest
+     * @return DescribeDiskReplicaGroupsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupIds'])) {
+            $model->groupIds = $map['GroupIds'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['PairIds'])) {
-            $model->pairIds = $map['PairIds'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ReplicaGroupId'])) {
-            $model->replicaGroupId = $map['ReplicaGroupId'];
         }
         if (isset($map['Site'])) {
             $model->site = $map['Site'];

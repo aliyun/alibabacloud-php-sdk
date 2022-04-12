@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRegionsRequest extends Model
+class FailoverDiskReplicaGroupRequest extends Model
 {
     /**
      * @var string
      */
-    public $acceptLanguage;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $replicaGroupId;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
+        'clientToken'    => 'ClientToken',
         'regionId'       => 'RegionId',
-        'resourceType'   => 'ResourceType',
+        'replicaGroupId' => 'ReplicaGroupId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->acceptLanguage) {
-            $res['AcceptLanguage'] = $this->acceptLanguage;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->replicaGroupId) {
+            $res['ReplicaGroupId'] = $this->replicaGroupId;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class DescribeRegionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRegionsRequest
+     * @return FailoverDiskReplicaGroupRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AcceptLanguage'])) {
-            $model->acceptLanguage = $map['AcceptLanguage'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['ReplicaGroupId'])) {
+            $model->replicaGroupId = $map['ReplicaGroupId'];
         }
 
         return $model;

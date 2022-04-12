@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StartDiskReplicaPairRequest extends Model
+class RemoveDiskReplicaPairRequest extends Model
 {
     /**
      * @var string
      */
     public $clientToken;
-
-    /**
-     * @var bool
-     */
-    public $oneShot;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class StartDiskReplicaPairRequest extends Model
     /**
      * @var string
      */
+    public $replicaGroupId;
+
+    /**
+     * @var string
+     */
     public $replicaPairId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'oneShot'       => 'OneShot',
-        'regionId'      => 'RegionId',
-        'replicaPairId' => 'ReplicaPairId',
+        'clientToken'    => 'ClientToken',
+        'regionId'       => 'RegionId',
+        'replicaGroupId' => 'ReplicaGroupId',
+        'replicaPairId'  => 'ReplicaPairId',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class StartDiskReplicaPairRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->oneShot) {
-            $res['OneShot'] = $this->oneShot;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->replicaGroupId) {
+            $res['ReplicaGroupId'] = $this->replicaGroupId;
         }
         if (null !== $this->replicaPairId) {
             $res['ReplicaPairId'] = $this->replicaPairId;
@@ -60,7 +60,7 @@ class StartDiskReplicaPairRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartDiskReplicaPairRequest
+     * @return RemoveDiskReplicaPairRequest
      */
     public static function fromMap($map = [])
     {
@@ -68,11 +68,11 @@ class StartDiskReplicaPairRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['OneShot'])) {
-            $model->oneShot = $map['OneShot'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReplicaGroupId'])) {
+            $model->replicaGroupId = $map['ReplicaGroupId'];
         }
         if (isset($map['ReplicaPairId'])) {
             $model->replicaPairId = $map['ReplicaPairId'];

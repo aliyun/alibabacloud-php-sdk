@@ -11,12 +11,19 @@ class replicaPairs extends Model
     /**
      * @var int
      */
-    public $asyncCycle;
+    public $bandwidth;
 
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
+     * @description 创建时间。1970年1月1日0点0分以来的毫秒数
+     *
      * @var int
      */
-    public $bandwidth;
+    public $createTime;
 
     /**
      * @var string
@@ -34,9 +41,14 @@ class replicaPairs extends Model
     public $destinationRegion;
 
     /**
+     * @var string
+     */
+    public $destinationZoneId;
+
+    /**
      * @var int
      */
-    public $lastRPO;
+    public $lastRecoverPoint;
 
     /**
      * @var string
@@ -44,9 +56,45 @@ class replicaPairs extends Model
     public $pairName;
 
     /**
+     * @description pair的初始源地域
+     *
+     * @var string
+     */
+    public $primaryRegion;
+
+    /**
+     * @description pair的初始源可用区
+     *
+     * @var string
+     */
+    public $primaryZone;
+
+    /**
+     * @var int
+     */
+    public $RPO;
+
+    /**
+     * @var string
+     */
+    public $replicaGroupId;
+
+    /**
+     * @var string
+     */
+    public $replicaGroupName;
+
+    /**
      * @var string
      */
     public $replicaPairId;
+
+    /**
+     * @description pair信息的后端站点来源，production或backup
+     *
+     * @var string
+     */
+    public $site;
 
     /**
      * @var string
@@ -61,6 +109,25 @@ class replicaPairs extends Model
     /**
      * @var string
      */
+    public $sourceZoneId;
+
+    /**
+     * @description pair的初始目的地域
+     *
+     * @var string
+     */
+    public $standbyRegion;
+
+    /**
+     * @description pair的初始目的可用区
+     *
+     * @var string
+     */
+    public $standbyZone;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -68,16 +135,27 @@ class replicaPairs extends Model
      */
     public $statusMessage;
     protected $_name = [
-        'asyncCycle'        => 'AsyncCycle',
         'bandwidth'         => 'Bandwidth',
+        'chargeType'        => 'ChargeType',
+        'createTime'        => 'CreateTime',
         'description'       => 'Description',
         'destinationDiskId' => 'DestinationDiskId',
         'destinationRegion' => 'DestinationRegion',
-        'lastRPO'           => 'LastRPO',
+        'destinationZoneId' => 'DestinationZoneId',
+        'lastRecoverPoint'  => 'LastRecoverPoint',
         'pairName'          => 'PairName',
+        'primaryRegion'     => 'PrimaryRegion',
+        'primaryZone'       => 'PrimaryZone',
+        'RPO'               => 'RPO',
+        'replicaGroupId'    => 'ReplicaGroupId',
+        'replicaGroupName'  => 'ReplicaGroupName',
         'replicaPairId'     => 'ReplicaPairId',
+        'site'              => 'Site',
         'sourceDiskId'      => 'SourceDiskId',
         'sourceRegion'      => 'SourceRegion',
+        'sourceZoneId'      => 'SourceZoneId',
+        'standbyRegion'     => 'StandbyRegion',
+        'standbyZone'       => 'StandbyZone',
         'status'            => 'Status',
         'statusMessage'     => 'StatusMessage',
     ];
@@ -89,11 +167,14 @@ class replicaPairs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->asyncCycle) {
-            $res['AsyncCycle'] = $this->asyncCycle;
-        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -104,20 +185,50 @@ class replicaPairs extends Model
         if (null !== $this->destinationRegion) {
             $res['DestinationRegion'] = $this->destinationRegion;
         }
-        if (null !== $this->lastRPO) {
-            $res['LastRPO'] = $this->lastRPO;
+        if (null !== $this->destinationZoneId) {
+            $res['DestinationZoneId'] = $this->destinationZoneId;
+        }
+        if (null !== $this->lastRecoverPoint) {
+            $res['LastRecoverPoint'] = $this->lastRecoverPoint;
         }
         if (null !== $this->pairName) {
             $res['PairName'] = $this->pairName;
         }
+        if (null !== $this->primaryRegion) {
+            $res['PrimaryRegion'] = $this->primaryRegion;
+        }
+        if (null !== $this->primaryZone) {
+            $res['PrimaryZone'] = $this->primaryZone;
+        }
+        if (null !== $this->RPO) {
+            $res['RPO'] = $this->RPO;
+        }
+        if (null !== $this->replicaGroupId) {
+            $res['ReplicaGroupId'] = $this->replicaGroupId;
+        }
+        if (null !== $this->replicaGroupName) {
+            $res['ReplicaGroupName'] = $this->replicaGroupName;
+        }
         if (null !== $this->replicaPairId) {
             $res['ReplicaPairId'] = $this->replicaPairId;
+        }
+        if (null !== $this->site) {
+            $res['Site'] = $this->site;
         }
         if (null !== $this->sourceDiskId) {
             $res['SourceDiskId'] = $this->sourceDiskId;
         }
         if (null !== $this->sourceRegion) {
             $res['SourceRegion'] = $this->sourceRegion;
+        }
+        if (null !== $this->sourceZoneId) {
+            $res['SourceZoneId'] = $this->sourceZoneId;
+        }
+        if (null !== $this->standbyRegion) {
+            $res['StandbyRegion'] = $this->standbyRegion;
+        }
+        if (null !== $this->standbyZone) {
+            $res['StandbyZone'] = $this->standbyZone;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -137,11 +248,14 @@ class replicaPairs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AsyncCycle'])) {
-            $model->asyncCycle = $map['AsyncCycle'];
-        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -152,20 +266,50 @@ class replicaPairs extends Model
         if (isset($map['DestinationRegion'])) {
             $model->destinationRegion = $map['DestinationRegion'];
         }
-        if (isset($map['LastRPO'])) {
-            $model->lastRPO = $map['LastRPO'];
+        if (isset($map['DestinationZoneId'])) {
+            $model->destinationZoneId = $map['DestinationZoneId'];
+        }
+        if (isset($map['LastRecoverPoint'])) {
+            $model->lastRecoverPoint = $map['LastRecoverPoint'];
         }
         if (isset($map['PairName'])) {
             $model->pairName = $map['PairName'];
         }
+        if (isset($map['PrimaryRegion'])) {
+            $model->primaryRegion = $map['PrimaryRegion'];
+        }
+        if (isset($map['PrimaryZone'])) {
+            $model->primaryZone = $map['PrimaryZone'];
+        }
+        if (isset($map['RPO'])) {
+            $model->RPO = $map['RPO'];
+        }
+        if (isset($map['ReplicaGroupId'])) {
+            $model->replicaGroupId = $map['ReplicaGroupId'];
+        }
+        if (isset($map['ReplicaGroupName'])) {
+            $model->replicaGroupName = $map['ReplicaGroupName'];
+        }
         if (isset($map['ReplicaPairId'])) {
             $model->replicaPairId = $map['ReplicaPairId'];
+        }
+        if (isset($map['Site'])) {
+            $model->site = $map['Site'];
         }
         if (isset($map['SourceDiskId'])) {
             $model->sourceDiskId = $map['SourceDiskId'];
         }
         if (isset($map['SourceRegion'])) {
             $model->sourceRegion = $map['SourceRegion'];
+        }
+        if (isset($map['SourceZoneId'])) {
+            $model->sourceZoneId = $map['SourceZoneId'];
+        }
+        if (isset($map['StandbyRegion'])) {
+            $model->standbyRegion = $map['StandbyRegion'];
+        }
+        if (isset($map['StandbyZone'])) {
+            $model->standbyZone = $map['StandbyZone'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

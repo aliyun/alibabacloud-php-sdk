@@ -6,22 +6,44 @@ namespace AlibabaCloud\SDK\Ebs\V20210730;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\AddDiskReplicaPairRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\AddDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaGroupsRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaGroupsResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\RemoveDiskReplicaPairRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\RemoveDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaGroupRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaGroupRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaGroupRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaPairResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -64,6 +86,122 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param AddDiskReplicaPairRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddDiskReplicaPairResponse
+     */
+    public function addDiskReplicaPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDiskReplicaPair',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDiskReplicaPairRequest $request
+     *
+     * @return AddDiskReplicaPairResponse
+     */
+    public function addDiskReplicaPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDiskReplicaGroupResponse
+     */
+    public function createDiskReplicaGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destinationRegionId)) {
+            $query['DestinationRegionId'] = $request->destinationRegionId;
+        }
+        if (!Utils::isUnset($request->destinationZoneId)) {
+            $query['DestinationZoneId'] = $request->destinationZoneId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->RPO)) {
+            $query['RPO'] = $request->RPO;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceZoneId)) {
+            $query['SourceZoneId'] = $request->sourceZoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDiskReplicaGroup',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDiskReplicaGroupRequest $request
+     *
+     * @return CreateDiskReplicaGroupResponse
+     */
+    public function createDiskReplicaGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDiskReplicaGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDiskReplicaPairRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -72,23 +210,51 @@ class Ebs extends OpenApiClient
     public function createDiskReplicaPairWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['Bandwidth']           = $request->bandwidth;
-        $query['ChargeType']          = $request->chargeType;
-        $query['ClientToken']         = $request->clientToken;
-        $query['Description']         = $request->description;
-        $query['DestinationDiskId']   = $request->destinationDiskId;
-        $query['DestinationRegionId'] = $request->destinationRegionId;
-        $query['DestinationZoneId']   = $request->destinationZoneId;
-        $query['DiskId']              = $request->diskId;
-        $query['PairName']            = $request->pairName;
-        $query['Period']              = $request->period;
-        $query['PeriodUnit']          = $request->periodUnit;
-        $query['SourceRegionId']      = $request->sourceRegionId;
-        $query['SourceZoneId']        = $request->sourceZoneId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destinationDiskId)) {
+            $query['DestinationDiskId'] = $request->destinationDiskId;
+        }
+        if (!Utils::isUnset($request->destinationRegionId)) {
+            $query['DestinationRegionId'] = $request->destinationRegionId;
+        }
+        if (!Utils::isUnset($request->destinationZoneId)) {
+            $query['DestinationZoneId'] = $request->destinationZoneId;
+        }
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        if (!Utils::isUnset($request->pairName)) {
+            $query['PairName'] = $request->pairName;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->RPO)) {
+            $query['RPO'] = $request->RPO;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceZoneId)) {
+            $query['SourceZoneId'] = $request->sourceZoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDiskReplicaPair',
@@ -98,7 +264,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -118,6 +284,55 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param DeleteDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDiskReplicaGroupResponse
+     */
+    public function deleteDiskReplicaGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDiskReplicaGroup',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDiskReplicaGroupRequest $request
+     *
+     * @return DeleteDiskReplicaGroupResponse
+     */
+    public function deleteDiskReplicaGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDiskReplicaGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDiskReplicaPairRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -126,13 +341,18 @@ class Ebs extends OpenApiClient
     public function deleteDiskReplicaPairWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['RegionId']      = $request->regionId;
-        $query['ReplicaPairId'] = $request->replicaPairId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDiskReplicaPair',
@@ -142,7 +362,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -162,6 +382,107 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param DescribeDiskReplicaGroupsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDiskReplicaGroupsResponse
+     */
+    public function describeDiskReplicaGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupIds)) {
+            $query['GroupIds'] = $request->groupIds;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->site)) {
+            $query['Site'] = $request->site;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiskReplicaGroups',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiskReplicaGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiskReplicaGroupsRequest $request
+     *
+     * @return DescribeDiskReplicaGroupsResponse
+     */
+    public function describeDiskReplicaGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiskReplicaGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiskReplicaPairProgressRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDiskReplicaPairProgressResponse
+     */
+    public function describeDiskReplicaPairProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiskReplicaPairProgress',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiskReplicaPairProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiskReplicaPairProgressRequest $request
+     *
+     * @return DescribeDiskReplicaPairProgressResponse
+     */
+    public function describeDiskReplicaPairProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiskReplicaPairProgressWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDiskReplicaPairsRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -170,14 +491,27 @@ class Ebs extends OpenApiClient
     public function describeDiskReplicaPairsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['PairIds']    = $request->pairIds;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pairIds)) {
+            $query['PairIds'] = $request->pairIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        if (!Utils::isUnset($request->site)) {
+            $query['Site'] = $request->site;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDiskReplicaPairs',
@@ -187,7 +521,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -215,12 +549,18 @@ class Ebs extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AcceptLanguage'] = $request->acceptLanguage;
-        $query['ResourceType']   = $request->resourceType;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -230,7 +570,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -250,6 +590,55 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param FailoverDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FailoverDiskReplicaGroupResponse
+     */
+    public function failoverDiskReplicaGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FailoverDiskReplicaGroup',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FailoverDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FailoverDiskReplicaGroupRequest $request
+     *
+     * @return FailoverDiskReplicaGroupResponse
+     */
+    public function failoverDiskReplicaGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->failoverDiskReplicaGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param FailoverDiskReplicaPairRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -258,13 +647,18 @@ class Ebs extends OpenApiClient
     public function failoverDiskReplicaPairWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['RegionId']      = $request->regionId;
-        $query['ReplicaPairId'] = $request->replicaPairId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'FailoverDiskReplicaPair',
@@ -274,7 +668,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -294,6 +688,64 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param ModifyDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDiskReplicaGroupResponse
+     */
+    public function modifyDiskReplicaGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->RPO)) {
+            $query['RPO'] = $request->RPO;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDiskReplicaGroup',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDiskReplicaGroupRequest $request
+     *
+     * @return ModifyDiskReplicaGroupResponse
+     */
+    public function modifyDiskReplicaGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDiskReplicaGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDiskReplicaPairRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -302,15 +754,30 @@ class Ebs extends OpenApiClient
     public function modifyDiskReplicaPairWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['Description']   = $request->description;
-        $query['PairName']      = $request->pairName;
-        $query['RegionId']      = $request->regionId;
-        $query['ReplicaPairId'] = $request->replicaPairId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->pairName)) {
+            $query['PairName'] = $request->pairName;
+        }
+        if (!Utils::isUnset($request->RPO)) {
+            $query['RPO'] = $request->RPO;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDiskReplicaPair',
@@ -320,7 +787,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -340,6 +807,113 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param RemoveDiskReplicaPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveDiskReplicaPairResponse
+     */
+    public function removeDiskReplicaPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveDiskReplicaPair',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveDiskReplicaPairRequest $request
+     *
+     * @return RemoveDiskReplicaPairResponse
+     */
+    public function removeDiskReplicaPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReprotectDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ReprotectDiskReplicaGroupResponse
+     */
+    public function reprotectDiskReplicaGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        if (!Utils::isUnset($request->sourceRegionId)) {
+            $query['SourceRegionId'] = $request->sourceRegionId;
+        }
+        if (!Utils::isUnset($request->sourceZoneId)) {
+            $query['SourceZoneId'] = $request->sourceZoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReprotectDiskReplicaGroup',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReprotectDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReprotectDiskReplicaGroupRequest $request
+     *
+     * @return ReprotectDiskReplicaGroupResponse
+     */
+    public function reprotectDiskReplicaGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reprotectDiskReplicaGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReprotectDiskReplicaPairRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -348,13 +922,18 @@ class Ebs extends OpenApiClient
     public function reprotectDiskReplicaPairWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['RegionId']      = $request->regionId;
-        $query['ReplicaPairId'] = $request->replicaPairId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReprotectDiskReplicaPair',
@@ -364,7 +943,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -384,6 +963,58 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param StartDiskReplicaGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StartDiskReplicaGroupResponse
+     */
+    public function startDiskReplicaGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->oneShot)) {
+            $query['OneShot'] = $request->oneShot;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDiskReplicaGroup',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartDiskReplicaGroupRequest $request
+     *
+     * @return StartDiskReplicaGroupResponse
+     */
+    public function startDiskReplicaGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDiskReplicaGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartDiskReplicaPairRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -392,13 +1023,21 @@ class Ebs extends OpenApiClient
     public function startDiskReplicaPairWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['RegionId']      = $request->regionId;
-        $query['ReplicaPairId'] = $request->replicaPairId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->oneShot)) {
+            $query['OneShot'] = $request->oneShot;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartDiskReplicaPair',
@@ -408,7 +1047,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -428,6 +1067,55 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param StopDiskReplicaGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopDiskReplicaGroupResponse
+     */
+    public function stopDiskReplicaGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaGroupId)) {
+            $query['ReplicaGroupId'] = $request->replicaGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDiskReplicaGroup',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopDiskReplicaGroupRequest $request
+     *
+     * @return StopDiskReplicaGroupResponse
+     */
+    public function stopDiskReplicaGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDiskReplicaGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopDiskReplicaPairRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -436,13 +1124,18 @@ class Ebs extends OpenApiClient
     public function stopDiskReplicaPairWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['RegionId']      = $request->regionId;
-        $query['ReplicaPairId'] = $request->replicaPairId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicaPairId)) {
+            $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopDiskReplicaPair',
@@ -452,7 +1145,7 @@ class Ebs extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
