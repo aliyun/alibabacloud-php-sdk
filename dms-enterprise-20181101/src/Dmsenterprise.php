@@ -169,6 +169,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDAGVersionsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDAGVersionsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabaseUserPermssionsRequest;
@@ -4095,6 +4097,58 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListDAGVersionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDAGVersionsResponse
+     */
+    public function listDAGVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDAGVersions',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDAGVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDAGVersionsRequest $request
+     *
+     * @return ListDAGVersionsResponse
+     */
+    public function listDAGVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDAGVersionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDBTaskSQLJobRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -5481,12 +5535,6 @@ class Dmsenterprise extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
-        }
-        if (!Utils::isUnset($request->dagInstanceId)) {
-            $query['DagInstanceId'] = $request->dagInstanceId;
-        }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
         }
