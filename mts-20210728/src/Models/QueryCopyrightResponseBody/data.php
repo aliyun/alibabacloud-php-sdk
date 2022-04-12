@@ -72,6 +72,13 @@ class data extends Model
     public $output;
 
     /**
+     * @description 任务结果
+     *
+     * @var string
+     */
+    public $result;
+
+    /**
      * @description 状态
      *
      * @var string
@@ -101,6 +108,7 @@ class data extends Model
         'message'     => 'Message',
         'messageId'   => 'MessageId',
         'output'      => 'Output',
+        'result'      => 'Result',
         'status'      => 'Status',
         'userData'    => 'UserData',
         'userId'      => 'UserId',
@@ -139,6 +147,9 @@ class data extends Model
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -187,6 +198,9 @@ class data extends Model
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
