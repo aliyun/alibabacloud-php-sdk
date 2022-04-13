@@ -15,9 +15,9 @@ class QueryReceiverDetailResponseBody extends Model
     public $dataSchema;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $nextStart;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class QueryReceiverDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var data
      */
     public $data;
-
-    /**
-     * @var string
-     */
-    public $nextStart;
     protected $_name = [
         'dataSchema' => 'DataSchema',
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
-        'data'       => 'data',
         'nextStart'  => 'NextStart',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'data'       => 'data',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class QueryReceiverDetailResponseBody extends Model
         if (null !== $this->dataSchema) {
             $res['DataSchema'] = $this->dataSchema;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->nextStart) {
+            $res['NextStart'] = $this->nextStart;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->data) {
             $res['data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->nextStart) {
-            $res['NextStart'] = $this->nextStart;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class QueryReceiverDetailResponseBody extends Model
         if (isset($map['DataSchema'])) {
             $model->dataSchema = $map['DataSchema'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['NextStart'])) {
+            $model->nextStart = $map['NextStart'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
-        }
-        if (isset($map['NextStart'])) {
-            $model->nextStart = $map['NextStart'];
         }
 
         return $model;

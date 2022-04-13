@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SenderStatisticsDetailByParamResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $nextStart;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class SenderStatisticsDetailByParamResponseBody extends Model
      * @var data
      */
     public $data;
-
-    /**
-     * @var int
-     */
-    public $nextStart;
     protected $_name = [
+        'nextStart' => 'NextStart',
         'requestId' => 'RequestId',
         'data'      => 'data',
-        'nextStart' => 'NextStart',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class SenderStatisticsDetailByParamResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextStart) {
+            $res['NextStart'] = $this->nextStart;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->data) {
             $res['data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->nextStart) {
-            $res['NextStart'] = $this->nextStart;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class SenderStatisticsDetailByParamResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextStart'])) {
+            $model->nextStart = $map['NextStart'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
-        }
-        if (isset($map['NextStart'])) {
-            $model->nextStart = $map['NextStart'];
         }
 
         return $model;

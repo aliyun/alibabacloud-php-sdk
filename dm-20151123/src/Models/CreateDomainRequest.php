@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,16 +27,11 @@ class CreateDomainRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
     protected $_name = [
+        'domainName'           => 'DomainName',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'domainName'           => 'DomainName',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CreateDomainRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -49,9 +52,6 @@ class CreateDomainRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CreateDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -73,9 +76,6 @@ class CreateDomainRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
 
         return $model;

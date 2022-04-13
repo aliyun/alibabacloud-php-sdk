@@ -11,17 +11,7 @@ class stat extends Model
     /**
      * @var string
      */
-    public $unavailablePercent;
-
-    /**
-     * @var string
-     */
     public $createTime;
-
-    /**
-     * @var string
-     */
-    public $succeededPercent;
 
     /**
      * @var string
@@ -31,7 +21,12 @@ class stat extends Model
     /**
      * @var string
      */
-    public $unavailableCount;
+    public $requestCount;
+
+    /**
+     * @var string
+     */
+    public $succeededPercent;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class stat extends Model
     /**
      * @var string
      */
-    public $requestCount;
+    public $unavailableCount;
+
+    /**
+     * @var string
+     */
+    public $unavailablePercent;
     protected $_name = [
-        'unavailablePercent' => 'unavailablePercent',
         'createTime'         => 'CreateTime',
-        'succeededPercent'   => 'succeededPercent',
         'faildCount'         => 'faildCount',
-        'unavailableCount'   => 'unavailableCount',
-        'successCount'       => 'successCount',
         'requestCount'       => 'requestCount',
+        'succeededPercent'   => 'succeededPercent',
+        'successCount'       => 'successCount',
+        'unavailableCount'   => 'unavailableCount',
+        'unavailablePercent' => 'unavailablePercent',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class stat extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->unavailablePercent) {
-            $res['unavailablePercent'] = $this->unavailablePercent;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->succeededPercent) {
-            $res['succeededPercent'] = $this->succeededPercent;
         }
         if (null !== $this->faildCount) {
             $res['faildCount'] = $this->faildCount;
         }
-        if (null !== $this->unavailableCount) {
-            $res['unavailableCount'] = $this->unavailableCount;
+        if (null !== $this->requestCount) {
+            $res['requestCount'] = $this->requestCount;
+        }
+        if (null !== $this->succeededPercent) {
+            $res['succeededPercent'] = $this->succeededPercent;
         }
         if (null !== $this->successCount) {
             $res['successCount'] = $this->successCount;
         }
-        if (null !== $this->requestCount) {
-            $res['requestCount'] = $this->requestCount;
+        if (null !== $this->unavailableCount) {
+            $res['unavailableCount'] = $this->unavailableCount;
+        }
+        if (null !== $this->unavailablePercent) {
+            $res['unavailablePercent'] = $this->unavailablePercent;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class stat extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['unavailablePercent'])) {
-            $model->unavailablePercent = $map['unavailablePercent'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['succeededPercent'])) {
-            $model->succeededPercent = $map['succeededPercent'];
         }
         if (isset($map['faildCount'])) {
             $model->faildCount = $map['faildCount'];
         }
-        if (isset($map['unavailableCount'])) {
-            $model->unavailableCount = $map['unavailableCount'];
+        if (isset($map['requestCount'])) {
+            $model->requestCount = $map['requestCount'];
+        }
+        if (isset($map['succeededPercent'])) {
+            $model->succeededPercent = $map['succeededPercent'];
         }
         if (isset($map['successCount'])) {
             $model->successCount = $map['successCount'];
         }
-        if (isset($map['requestCount'])) {
-            $model->requestCount = $map['requestCount'];
+        if (isset($map['unavailableCount'])) {
+            $model->unavailableCount = $map['unavailableCount'];
+        }
+        if (isset($map['unavailablePercent'])) {
+            $model->unavailablePercent = $map['unavailablePercent'];
         }
 
         return $model;

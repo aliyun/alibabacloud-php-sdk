@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SenderStatisticsDetailByParamRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $length;
+
+    /**
+     * @var string
+     */
+    public $nextStart;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,12 +46,7 @@ class SenderStatisticsDetailByParamRequest extends Model
     /**
      * @var string
      */
-    public $accountName;
-
-    /**
-     * @var string
-     */
-    public $toAddress;
+    public $startTime;
 
     /**
      * @var int
@@ -41,39 +56,24 @@ class SenderStatisticsDetailByParamRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
     public $tagName;
 
     /**
-     * @var int
-     */
-    public $length;
-
-    /**
      * @var string
      */
-    public $nextStart;
+    public $toAddress;
     protected $_name = [
+        'accountName'          => 'AccountName',
+        'endTime'              => 'EndTime',
+        'length'               => 'Length',
+        'nextStart'            => 'NextStart',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'accountName'          => 'AccountName',
-        'toAddress'            => 'ToAddress',
-        'status'               => 'Status',
         'startTime'            => 'StartTime',
-        'endTime'              => 'EndTime',
+        'status'               => 'Status',
         'tagName'              => 'TagName',
-        'length'               => 'Length',
-        'nextStart'            => 'NextStart',
+        'toAddress'            => 'ToAddress',
     ];
 
     public function validate()
@@ -83,6 +83,18 @@ class SenderStatisticsDetailByParamRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->length) {
+            $res['Length'] = $this->length;
+        }
+        if (null !== $this->nextStart) {
+            $res['NextStart'] = $this->nextStart;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -92,29 +104,17 @@ class SenderStatisticsDetailByParamRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->toAddress) {
-            $res['ToAddress'] = $this->toAddress;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
-        if (null !== $this->length) {
-            $res['Length'] = $this->length;
-        }
-        if (null !== $this->nextStart) {
-            $res['NextStart'] = $this->nextStart;
+        if (null !== $this->toAddress) {
+            $res['ToAddress'] = $this->toAddress;
         }
 
         return $res;
@@ -128,6 +128,18 @@ class SenderStatisticsDetailByParamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Length'])) {
+            $model->length = $map['Length'];
+        }
+        if (isset($map['NextStart'])) {
+            $model->nextStart = $map['NextStart'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -137,29 +149,17 @@ class SenderStatisticsDetailByParamRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['ToAddress'])) {
-            $model->toAddress = $map['ToAddress'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
-        if (isset($map['Length'])) {
-            $model->length = $map['Length'];
-        }
-        if (isset($map['NextStart'])) {
-            $model->nextStart = $map['NextStart'];
+        if (isset($map['ToAddress'])) {
+            $model->toAddress = $map['ToAddress'];
         }
 
         return $model;

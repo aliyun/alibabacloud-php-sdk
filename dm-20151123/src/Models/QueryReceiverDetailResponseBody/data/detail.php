@@ -11,6 +11,11 @@ class detail extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $data;
 
     /**
@@ -19,18 +24,13 @@ class detail extends Model
     public $email;
 
     /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
      * @var int
      */
     public $utcCreateTime;
     protected $_name = [
+        'createTime'    => 'CreateTime',
         'data'          => 'Data',
         'email'         => 'Email',
-        'createTime'    => 'CreateTime',
         'utcCreateTime' => 'UtcCreateTime',
     ];
 
@@ -41,14 +41,14 @@ class detail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->utcCreateTime) {
             $res['UtcCreateTime'] = $this->utcCreateTime;
@@ -65,14 +65,14 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['UtcCreateTime'])) {
             $model->utcCreateTime = $map['UtcCreateTime'];

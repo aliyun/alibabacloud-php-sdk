@@ -11,6 +11,11 @@ class CheckDomainRequest extends Model
     /**
      * @var int
      */
+    public $domainId;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -22,16 +27,11 @@ class CheckDomainRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $domainId;
     protected $_name = [
+        'domainId'             => 'DomainId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'domainId'             => 'DomainId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CheckDomainRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainId) {
+            $res['DomainId'] = $this->domainId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -49,9 +52,6 @@ class CheckDomainRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->domainId) {
-            $res['DomainId'] = $this->domainId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CheckDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainId'])) {
+            $model->domainId = $map['DomainId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -73,9 +76,6 @@ class CheckDomainRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DomainId'])) {
-            $model->domainId = $map['DomainId'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetIpfilterListResponse extends Model
+class QueryMailAddressByParamResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetIpfilterListResponse extends Model
     public $headers;
 
     /**
-     * @var GetIpfilterListResponseBody
+     * @var QueryMailAddressByParamResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetIpfilterListResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetIpfilterListResponse
+     * @return QueryMailAddressByParamResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetIpfilterListResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetIpfilterListResponseBody::fromMap($map['body']);
+            $model->body = QueryMailAddressByParamResponseBody::fromMap($map['body']);
         }
 
         return $model;

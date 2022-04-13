@@ -11,15 +11,15 @@ class tag extends Model
     /**
      * @var string
      */
-    public $tagName;
+    public $tagId;
 
     /**
      * @var string
      */
-    public $tagId;
+    public $tagName;
     protected $_name = [
-        'tagName' => 'TagName',
         'tagId'   => 'TagId',
+        'tagName' => 'TagName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class tag extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagName) {
-            $res['TagName'] = $this->tagName;
-        }
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
+        }
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class tag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagName'])) {
-            $model->tagName = $map['TagName'];
-        }
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];
+        }
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
         }
 
         return $model;

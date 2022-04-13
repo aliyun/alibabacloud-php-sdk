@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateReceiverRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $desc;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $receiversAlias;
+
+    /**
+     * @var string
+     */
+    public $receiversName;
 
     /**
      * @var string
@@ -22,28 +37,13 @@ class CreateReceiverRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $receiversName;
-
-    /**
-     * @var string
-     */
-    public $receiversAlias;
-
-    /**
-     * @var string
-     */
-    public $desc;
     protected $_name = [
+        'desc'                 => 'Desc',
         'ownerId'              => 'OwnerId',
+        'receiversAlias'       => 'ReceiversAlias',
+        'receiversName'        => 'ReceiversName',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'receiversName'        => 'ReceiversName',
-        'receiversAlias'       => 'ReceiversAlias',
-        'desc'                 => 'Desc',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateReceiverRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->receiversAlias) {
+            $res['ReceiversAlias'] = $this->receiversAlias;
+        }
+        if (null !== $this->receiversName) {
+            $res['ReceiversName'] = $this->receiversName;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->receiversName) {
-            $res['ReceiversName'] = $this->receiversName;
-        }
-        if (null !== $this->receiversAlias) {
-            $res['ReceiversAlias'] = $this->receiversAlias;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateReceiverRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ReceiversAlias'])) {
+            $model->receiversAlias = $map['ReceiversAlias'];
+        }
+        if (isset($map['ReceiversName'])) {
+            $model->receiversName = $map['ReceiversName'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ReceiversName'])) {
-            $model->receiversName = $map['ReceiversName'];
-        }
-        if (isset($map['ReceiversAlias'])) {
-            $model->receiversAlias = $map['ReceiversAlias'];
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateMailAddressMsgCallBackUrlRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $mailFrom;
+
+    /**
+     * @var string
+     */
+    public $notifyUrl;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +32,12 @@ class UpdateMailAddressMsgCallBackUrlRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $mailFrom;
-
-    /**
-     * @var string
-     */
-    public $notifyUrl;
     protected $_name = [
+        'mailFrom'             => 'MailFrom',
+        'notifyUrl'            => 'NotifyUrl',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'mailFrom'             => 'MailFrom',
-        'notifyUrl'            => 'NotifyUrl',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class UpdateMailAddressMsgCallBackUrlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mailFrom) {
+            $res['MailFrom'] = $this->mailFrom;
+        }
+        if (null !== $this->notifyUrl) {
+            $res['NotifyUrl'] = $this->notifyUrl;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class UpdateMailAddressMsgCallBackUrlRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->mailFrom) {
-            $res['MailFrom'] = $this->mailFrom;
-        }
-        if (null !== $this->notifyUrl) {
-            $res['NotifyUrl'] = $this->notifyUrl;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class UpdateMailAddressMsgCallBackUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MailFrom'])) {
+            $model->mailFrom = $map['MailFrom'];
+        }
+        if (isset($map['NotifyUrl'])) {
+            $model->notifyUrl = $map['NotifyUrl'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class UpdateMailAddressMsgCallBackUrlRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['MailFrom'])) {
-            $model->mailFrom = $map['MailFrom'];
-        }
-        if (isset($map['NotifyUrl'])) {
-            $model->notifyUrl = $map['NotifyUrl'];
         }
 
         return $model;

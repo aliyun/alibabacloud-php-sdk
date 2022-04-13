@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CheckDomainResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $domainStatus;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'domainStatus' => 'DomainStatus',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CheckDomainResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CheckDomainResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

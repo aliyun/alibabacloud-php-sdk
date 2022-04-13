@@ -11,15 +11,15 @@ class regionList extends Model
     /**
      * @var string
      */
-    public $regionDesc;
+    public $region;
 
     /**
      * @var string
      */
-    public $region;
+    public $regionDesc;
     protected $_name = [
-        'regionDesc' => 'RegionDesc',
         'region'     => 'Region',
+        'regionDesc' => 'RegionDesc',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class regionList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionDesc) {
-            $res['RegionDesc'] = $this->regionDesc;
-        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->regionDesc) {
+            $res['RegionDesc'] = $this->regionDesc;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class regionList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionDesc'])) {
-            $model->regionDesc = $map['RegionDesc'];
-        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['RegionDesc'])) {
+            $model->regionDesc = $map['RegionDesc'];
         }
 
         return $model;

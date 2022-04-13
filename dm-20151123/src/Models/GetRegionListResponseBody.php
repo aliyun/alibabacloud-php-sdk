@@ -12,6 +12,11 @@ class GetRegionListResponseBody extends Model
     /**
      * @var int
      */
+    public $pageNo;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -20,25 +25,20 @@ class GetRegionListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
      * @var int
      */
     public $total;
 
     /**
-     * @var int
+     * @var data
      */
-    public $pageNo;
+    public $data;
     protected $_name = [
+        'pageNo'    => 'PageNo',
         'pageSize'  => 'PageSize',
         'requestId' => 'RequestId',
-        'data'      => 'data',
         'total'     => 'Total',
-        'pageNo'    => 'PageNo',
+        'data'      => 'data',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class GetRegionListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class GetRegionListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
-        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
         }
 
         return $model;
