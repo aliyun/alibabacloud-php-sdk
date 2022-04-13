@@ -61,6 +61,13 @@ class SimpleQueryShrinkRequest extends Model
      * @var string
      */
     public $sort;
+
+    /**
+     * @description 仅返回哪些字段
+     *
+     * @var string
+     */
+    public $withFieldsShrink;
     protected $_name = [
         'aggregationsShrink' => 'Aggregations',
         'datasetName'        => 'DatasetName',
@@ -70,6 +77,7 @@ class SimpleQueryShrinkRequest extends Model
         'projectName'        => 'ProjectName',
         'queryShrink'        => 'Query',
         'sort'               => 'Sort',
+        'withFieldsShrink'   => 'WithFields',
     ];
 
     public function validate()
@@ -102,6 +110,9 @@ class SimpleQueryShrinkRequest extends Model
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->withFieldsShrink) {
+            $res['WithFields'] = $this->withFieldsShrink;
         }
 
         return $res;
@@ -138,6 +149,9 @@ class SimpleQueryShrinkRequest extends Model
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
+        }
+        if (isset($map['WithFields'])) {
+            $model->withFieldsShrink = $map['WithFields'];
         }
 
         return $model;

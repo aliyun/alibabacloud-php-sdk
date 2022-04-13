@@ -62,6 +62,13 @@ class SimpleQueryRequest extends Model
      * @var string
      */
     public $sort;
+
+    /**
+     * @description 仅返回哪些字段
+     *
+     * @var string[]
+     */
+    public $withFields;
     protected $_name = [
         'aggregations' => 'Aggregations',
         'datasetName'  => 'DatasetName',
@@ -71,6 +78,7 @@ class SimpleQueryRequest extends Model
         'projectName'  => 'ProjectName',
         'query'        => 'Query',
         'sort'         => 'Sort',
+        'withFields'   => 'WithFields',
     ];
 
     public function validate()
@@ -109,6 +117,9 @@ class SimpleQueryRequest extends Model
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->withFields) {
+            $res['WithFields'] = $this->withFields;
         }
 
         return $res;
@@ -151,6 +162,11 @@ class SimpleQueryRequest extends Model
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
+        }
+        if (isset($map['WithFields'])) {
+            if (!empty($map['WithFields'])) {
+                $model->withFields = $map['WithFields'];
+            }
         }
 
         return $model;

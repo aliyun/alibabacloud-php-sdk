@@ -21,11 +21,18 @@ class Story extends Model
     public $createTime;
 
     /**
-     * @description CustomFields
+     * @description CustomId
      *
      * @var string
      */
-    public $customFields;
+    public $customId;
+
+    /**
+     * @description CustomLabels
+     *
+     * @var mixed[]
+     */
+    public $customLabels;
 
     /**
      * @description DatasetName
@@ -120,7 +127,8 @@ class Story extends Model
     protected $_name = [
         'cover'            => 'Cover',
         'createTime'       => 'CreateTime',
-        'customFields'     => 'CustomFields',
+        'customId'         => 'CustomId',
+        'customLabels'     => 'CustomLabels',
         'datasetName'      => 'DatasetName',
         'figureClusterIds' => 'FigureClusterIds',
         'files'            => 'Files',
@@ -149,8 +157,11 @@ class Story extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->customFields) {
-            $res['CustomFields'] = $this->customFields;
+        if (null !== $this->customId) {
+            $res['CustomId'] = $this->customId;
+        }
+        if (null !== $this->customLabels) {
+            $res['CustomLabels'] = $this->customLabels;
         }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
@@ -215,8 +226,11 @@ class Story extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['CustomFields'])) {
-            $model->customFields = $map['CustomFields'];
+        if (isset($map['CustomId'])) {
+            $model->customId = $map['CustomId'];
+        }
+        if (isset($map['CustomLabels'])) {
+            $model->customLabels = $map['CustomLabels'];
         }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];

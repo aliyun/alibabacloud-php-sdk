@@ -32,6 +32,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteDatasetRequest;
@@ -42,8 +43,12 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageFacesRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageFacesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
@@ -105,6 +110,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryShrinkRequest;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -734,15 +742,26 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateStoryRequest $request
+     * @param CreateStoryRequest $tmpReq
      * @param RuntimeOptions     $runtime
      *
      * @return CreateStoryResponse
      */
-    public function createStoryWithOptions($request, $runtime)
+    public function createStoryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateStoryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customLabels)) {
+            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
+        }
         $body = [];
+        if (!Utils::isUnset($request->customId)) {
+            $body['CustomId'] = $request->customId;
+        }
+        if (!Utils::isUnset($request->customLabelsShrink)) {
+            $body['CustomLabels'] = $request->customLabelsShrink;
+        }
         if (!Utils::isUnset($request->datasetName)) {
             $body['DatasetName'] = $request->datasetName;
         }
@@ -1049,6 +1068,52 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param DetectImageFacesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectImageFacesResponse
+     */
+    public function detectImageFacesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageFaces',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectImageFacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectImageFacesRequest $request
+     *
+     * @return DetectImageFacesResponse
+     */
+    public function detectImageFaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectImageFacesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetectImageLabelsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1095,6 +1160,52 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectImageLabelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectImageScoreRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectImageScoreResponse
+     */
+    public function detectImageScoreWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageScore',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectImageScoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectImageScoreRequest $request
+     *
+     * @return DetectImageScoreResponse
+     */
+    public function detectImageScore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectImageScoreWithOptions($request, $runtime);
     }
 
     /**
@@ -2057,6 +2168,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->createTimeRangeShrink)) {
             $query['CreateTimeRange'] = $request->createTimeRangeShrink;
         }
+        if (!Utils::isUnset($request->customLabels)) {
+            $query['CustomLabels'] = $request->customLabels;
+        }
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
         }
@@ -2089,6 +2203,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->storyType)) {
             $query['StoryType'] = $request->storyType;
+        }
+        if (!Utils::isUnset($request->withEmptyStories)) {
+            $query['WithEmptyStories'] = $request->withEmptyStories;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2298,6 +2415,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->query)) {
             $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->query), 'Query', 'json');
         }
+        if (!Utils::isUnset($tmpReq->withFields)) {
+            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->aggregationsShrink)) {
             $query['Aggregations'] = $request->aggregationsShrink;
@@ -2322,6 +2442,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->withFieldsShrink)) {
+            $query['WithFields'] = $request->withFieldsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2654,5 +2777,68 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateStoryRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateStoryResponse
+     */
+    public function updateStoryWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateStoryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customLabels)) {
+            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->customId)) {
+            $body['CustomId'] = $request->customId;
+        }
+        if (!Utils::isUnset($request->customLabelsShrink)) {
+            $body['CustomLabels'] = $request->customLabelsShrink;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $body['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $body['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->storyName)) {
+            $body['StoryName'] = $request->storyName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStory',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateStoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateStoryRequest $request
+     *
+     * @return UpdateStoryResponse
+     */
+    public function updateStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStoryWithOptions($request, $runtime);
     }
 }

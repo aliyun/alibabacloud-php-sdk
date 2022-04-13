@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateStoryRequest extends Model
+class CreateStoryShrinkRequest extends Model
 {
     /**
      * @var string
@@ -14,9 +14,9 @@ class CreateStoryRequest extends Model
     public $customId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $customLabels;
+    public $customLabelsShrink;
 
     /**
      * @var string
@@ -78,20 +78,20 @@ class CreateStoryRequest extends Model
      */
     public $storyType;
     protected $_name = [
-        'customId'        => 'CustomId',
-        'customLabels'    => 'CustomLabels',
-        'datasetName'     => 'DatasetName',
-        'maxFileCount'    => 'MaxFileCount',
-        'minFileCount'    => 'MinFileCount',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'objectId'        => 'ObjectId',
-        'projectName'     => 'ProjectName',
-        'storyEndTime'    => 'StoryEndTime',
-        'storyName'       => 'StoryName',
-        'storyStartTime'  => 'StoryStartTime',
-        'storySubType'    => 'StorySubType',
-        'storyType'       => 'StoryType',
+        'customId'           => 'CustomId',
+        'customLabelsShrink' => 'CustomLabels',
+        'datasetName'        => 'DatasetName',
+        'maxFileCount'       => 'MaxFileCount',
+        'minFileCount'       => 'MinFileCount',
+        'notifyEndpoint'     => 'NotifyEndpoint',
+        'notifyTopicName'    => 'NotifyTopicName',
+        'objectId'           => 'ObjectId',
+        'projectName'        => 'ProjectName',
+        'storyEndTime'       => 'StoryEndTime',
+        'storyName'          => 'StoryName',
+        'storyStartTime'     => 'StoryStartTime',
+        'storySubType'       => 'StorySubType',
+        'storyType'          => 'StoryType',
     ];
 
     public function validate()
@@ -104,8 +104,8 @@ class CreateStoryRequest extends Model
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
         }
-        if (null !== $this->customLabels) {
-            $res['CustomLabels'] = $this->customLabels;
+        if (null !== $this->customLabelsShrink) {
+            $res['CustomLabels'] = $this->customLabelsShrink;
         }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
@@ -150,7 +150,7 @@ class CreateStoryRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateStoryRequest
+     * @return CreateStoryShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -159,7 +159,7 @@ class CreateStoryRequest extends Model
             $model->customId = $map['CustomId'];
         }
         if (isset($map['CustomLabels'])) {
-            $model->customLabels = $map['CustomLabels'];
+            $model->customLabelsShrink = $map['CustomLabels'];
         }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];

@@ -16,6 +16,11 @@ class QueryStoriesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $customLabels;
+
+    /**
+     * @var string
+     */
     public $datasetName;
 
     /**
@@ -67,8 +72,14 @@ class QueryStoriesShrinkRequest extends Model
      * @var string
      */
     public $storyType;
+
+    /**
+     * @var bool
+     */
+    public $withEmptyStories;
     protected $_name = [
         'createTimeRangeShrink'     => 'CreateTimeRange',
+        'customLabels'              => 'CustomLabels',
         'datasetName'               => 'DatasetName',
         'figureClusterIdsShrink'    => 'FigureClusterIds',
         'maxResults'                => 'MaxResults',
@@ -80,6 +91,7 @@ class QueryStoriesShrinkRequest extends Model
         'storyStartTimeRangeShrink' => 'StoryStartTimeRange',
         'storySubType'              => 'StorySubType',
         'storyType'                 => 'StoryType',
+        'withEmptyStories'          => 'WithEmptyStories',
     ];
 
     public function validate()
@@ -91,6 +103,9 @@ class QueryStoriesShrinkRequest extends Model
         $res = [];
         if (null !== $this->createTimeRangeShrink) {
             $res['CreateTimeRange'] = $this->createTimeRangeShrink;
+        }
+        if (null !== $this->customLabels) {
+            $res['CustomLabels'] = $this->customLabels;
         }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
@@ -125,6 +140,9 @@ class QueryStoriesShrinkRequest extends Model
         if (null !== $this->storyType) {
             $res['StoryType'] = $this->storyType;
         }
+        if (null !== $this->withEmptyStories) {
+            $res['WithEmptyStories'] = $this->withEmptyStories;
+        }
 
         return $res;
     }
@@ -139,6 +157,9 @@ class QueryStoriesShrinkRequest extends Model
         $model = new self();
         if (isset($map['CreateTimeRange'])) {
             $model->createTimeRangeShrink = $map['CreateTimeRange'];
+        }
+        if (isset($map['CustomLabels'])) {
+            $model->customLabels = $map['CustomLabels'];
         }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
@@ -172,6 +193,9 @@ class QueryStoriesShrinkRequest extends Model
         }
         if (isset($map['StoryType'])) {
             $model->storyType = $map['StoryType'];
+        }
+        if (isset($map['WithEmptyStories'])) {
+            $model->withEmptyStories = $map['WithEmptyStories'];
         }
 
         return $model;

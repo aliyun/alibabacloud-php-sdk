@@ -31,7 +31,7 @@ class aggregations extends Model
     public $operation;
 
     /**
-     * @var string
+     * @var float
      */
     public $value;
     protected $_name = [
