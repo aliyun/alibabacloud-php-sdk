@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedMaliciousFilesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -73,6 +78,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      */
     public $repoRegionId;
     protected $_name = [
+        'clusterId'          => 'ClusterId',
         'currentPage'        => 'CurrentPage',
         'fuzzyMaliciousName' => 'FuzzyMaliciousName',
         'imageDigest'        => 'ImageDigest',
@@ -95,6 +101,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -146,6 +155,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

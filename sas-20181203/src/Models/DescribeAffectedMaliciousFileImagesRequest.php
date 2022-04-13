@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAffectedMaliciousFileImagesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -68,6 +73,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      */
     public $repoRegionId;
     protected $_name = [
+        'clusterId'      => 'ClusterId',
         'currentPage'    => 'CurrentPage',
         'imageDigest'    => 'ImageDigest',
         'imageLayer'     => 'ImageLayer',
@@ -89,6 +95,9 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -137,6 +146,9 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

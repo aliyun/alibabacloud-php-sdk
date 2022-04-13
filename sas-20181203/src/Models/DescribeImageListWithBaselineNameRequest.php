@@ -16,6 +16,11 @@ class DescribeImageListWithBaselineNameRequest extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $criteria;
 
     /**
@@ -59,6 +64,7 @@ class DescribeImageListWithBaselineNameRequest extends Model
     public $repoNamespace;
     protected $_name = [
         'baselineNameKey' => 'BaselineNameKey',
+        'clusterId'       => 'ClusterId',
         'criteria'        => 'Criteria',
         'criteriaType'    => 'CriteriaType',
         'currentPage'     => 'CurrentPage',
@@ -79,6 +85,9 @@ class DescribeImageListWithBaselineNameRequest extends Model
         $res = [];
         if (null !== $this->baselineNameKey) {
             $res['BaselineNameKey'] = $this->baselineNameKey;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
@@ -121,6 +130,9 @@ class DescribeImageListWithBaselineNameRequest extends Model
         $model = new self();
         if (isset($map['BaselineNameKey'])) {
             $model->baselineNameKey = $map['BaselineNameKey'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];

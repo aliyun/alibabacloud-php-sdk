@@ -189,6 +189,11 @@ class suspEvents extends Model
     /**
      * @var string
      */
+    public $maliciousRuleStatus;
+
+    /**
+     * @var string
+     */
     public $markMisRules;
 
     /**
@@ -288,6 +293,7 @@ class suspEvents extends Model
         'lastTime'              => 'LastTime',
         'lastTimeStamp'         => 'LastTimeStamp',
         'level'                 => 'Level',
+        'maliciousRuleStatus'   => 'MaliciousRuleStatus',
         'markMisRules'          => 'MarkMisRules',
         'name'                  => 'Name',
         'occurrenceTime'        => 'OccurrenceTime',
@@ -426,6 +432,9 @@ class suspEvents extends Model
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->maliciousRuleStatus) {
+            $res['MaliciousRuleStatus'] = $this->maliciousRuleStatus;
         }
         if (null !== $this->markMisRules) {
             $res['MarkMisRules'] = $this->markMisRules;
@@ -600,6 +609,9 @@ class suspEvents extends Model
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['MaliciousRuleStatus'])) {
+            $model->maliciousRuleStatus = $map['MaliciousRuleStatus'];
         }
         if (isset($map['MarkMisRules'])) {
             $model->markMisRules = $map['MarkMisRules'];

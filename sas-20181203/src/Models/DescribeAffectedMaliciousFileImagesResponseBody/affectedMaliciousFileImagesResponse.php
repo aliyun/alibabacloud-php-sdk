@@ -16,12 +16,22 @@ class affectedMaliciousFileImagesResponse extends Model
     /**
      * @var string
      */
+    public $downloadUrl;
+
+    /**
+     * @var string
+     */
     public $filePath;
 
     /**
      * @var int
      */
     public $firstScanTimestamp;
+
+    /**
+     * @var string
+     */
+    public $highLight;
 
     /**
      * @var string
@@ -89,8 +99,10 @@ class affectedMaliciousFileImagesResponse extends Model
     public $tag;
     protected $_name = [
         'digest'                => 'Digest',
+        'downloadUrl'           => 'DownloadUrl',
         'filePath'              => 'FilePath',
         'firstScanTimestamp'    => 'FirstScanTimestamp',
+        'highLight'             => 'HighLight',
         'imageUuid'             => 'ImageUuid',
         'latestScanTimestamp'   => 'LatestScanTimestamp',
         'latestVerifyTimestamp' => 'LatestVerifyTimestamp',
@@ -116,11 +128,17 @@ class affectedMaliciousFileImagesResponse extends Model
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
         }
+        if (null !== $this->downloadUrl) {
+            $res['DownloadUrl'] = $this->downloadUrl;
+        }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
         if (null !== $this->firstScanTimestamp) {
             $res['FirstScanTimestamp'] = $this->firstScanTimestamp;
+        }
+        if (null !== $this->highLight) {
+            $res['HighLight'] = $this->highLight;
         }
         if (null !== $this->imageUuid) {
             $res['ImageUuid'] = $this->imageUuid;
@@ -176,11 +194,17 @@ class affectedMaliciousFileImagesResponse extends Model
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
         }
+        if (isset($map['DownloadUrl'])) {
+            $model->downloadUrl = $map['DownloadUrl'];
+        }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
         if (isset($map['FirstScanTimestamp'])) {
             $model->firstScanTimestamp = $map['FirstScanTimestamp'];
+        }
+        if (isset($map['HighLight'])) {
+            $model->highLight = $map['HighLight'];
         }
         if (isset($map['ImageUuid'])) {
             $model->imageUuid = $map['ImageUuid'];

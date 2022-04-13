@@ -11,6 +11,11 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $criteria;
 
     /**
@@ -38,6 +43,7 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
      */
     public $riskLevel;
     protected $_name = [
+        'clusterId'    => 'ClusterId',
         'criteria'     => 'Criteria',
         'criteriaType' => 'CriteriaType',
         'currentPage'  => 'CurrentPage',
@@ -53,6 +59,9 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
         }
@@ -83,6 +92,9 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
         }

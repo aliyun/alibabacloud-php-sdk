@@ -11,11 +11,6 @@ class propertys extends Model
     /**
      * @var int
      */
-    public $create;
-
-    /**
-     * @var int
-     */
     public $createTimestamp;
 
     /**
@@ -73,7 +68,6 @@ class propertys extends Model
      */
     public $version;
     protected $_name = [
-        'create'          => 'Create',
         'createTimestamp' => 'CreateTimestamp',
         'installTime'     => 'InstallTime',
         'installTimeDt'   => 'InstallTimeDt',
@@ -95,9 +89,6 @@ class propertys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->create) {
-            $res['Create'] = $this->create;
-        }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
@@ -146,9 +137,6 @@ class propertys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Create'])) {
-            $model->create = $map['Create'];
-        }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
         }

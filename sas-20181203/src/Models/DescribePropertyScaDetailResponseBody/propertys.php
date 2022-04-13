@@ -34,11 +34,6 @@ class propertys extends Model
     public $containerName;
 
     /**
-     * @var string
-     */
-    public $create;
-
-    /**
      * @var int
      */
     public $createTimestamp;
@@ -131,6 +126,11 @@ class propertys extends Model
     /**
      * @var string
      */
+    public $runtimeEnvVersion;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -148,34 +148,34 @@ class propertys extends Model
      */
     public $webPath;
     protected $_name = [
-        'bizType'         => 'BizType',
-        'bizTypeDispaly'  => 'BizTypeDispaly',
-        'cmdline'         => 'Cmdline',
-        'configPath'      => 'ConfigPath',
-        'containerName'   => 'ContainerName',
-        'create'          => 'Create',
-        'createTimestamp' => 'CreateTimestamp',
-        'imageName'       => 'ImageName',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'ip'              => 'Ip',
-        'listenIp'        => 'ListenIp',
-        'listenProtocol'  => 'ListenProtocol',
-        'listenStatus'    => 'ListenStatus',
-        'name'            => 'Name',
-        'path'            => 'Path',
-        'pid'             => 'Pid',
-        'port'            => 'Port',
-        'ppid'            => 'Ppid',
-        'processStarted'  => 'ProcessStarted',
-        'processUser'     => 'ProcessUser',
-        'proof'           => 'Proof',
-        'type'            => 'Type',
-        'uuid'            => 'Uuid',
-        'version'         => 'Version',
-        'webPath'         => 'WebPath',
+        'bizType'           => 'BizType',
+        'bizTypeDispaly'    => 'BizTypeDispaly',
+        'cmdline'           => 'Cmdline',
+        'configPath'        => 'ConfigPath',
+        'containerName'     => 'ContainerName',
+        'createTimestamp'   => 'CreateTimestamp',
+        'imageName'         => 'ImageName',
+        'instanceId'        => 'InstanceId',
+        'instanceName'      => 'InstanceName',
+        'internetIp'        => 'InternetIp',
+        'intranetIp'        => 'IntranetIp',
+        'ip'                => 'Ip',
+        'listenIp'          => 'ListenIp',
+        'listenProtocol'    => 'ListenProtocol',
+        'listenStatus'      => 'ListenStatus',
+        'name'              => 'Name',
+        'path'              => 'Path',
+        'pid'               => 'Pid',
+        'port'              => 'Port',
+        'ppid'              => 'Ppid',
+        'processStarted'    => 'ProcessStarted',
+        'processUser'       => 'ProcessUser',
+        'proof'             => 'Proof',
+        'runtimeEnvVersion' => 'RuntimeEnvVersion',
+        'type'              => 'Type',
+        'uuid'              => 'Uuid',
+        'version'           => 'Version',
+        'webPath'           => 'WebPath',
     ];
 
     public function validate()
@@ -199,9 +199,6 @@ class propertys extends Model
         }
         if (null !== $this->containerName) {
             $res['ContainerName'] = $this->containerName;
-        }
-        if (null !== $this->create) {
-            $res['Create'] = $this->create;
         }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
@@ -257,6 +254,9 @@ class propertys extends Model
         if (null !== $this->proof) {
             $res['Proof'] = $this->proof;
         }
+        if (null !== $this->runtimeEnvVersion) {
+            $res['RuntimeEnvVersion'] = $this->runtimeEnvVersion;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -295,9 +295,6 @@ class propertys extends Model
         }
         if (isset($map['ContainerName'])) {
             $model->containerName = $map['ContainerName'];
-        }
-        if (isset($map['Create'])) {
-            $model->create = $map['Create'];
         }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
@@ -352,6 +349,9 @@ class propertys extends Model
         }
         if (isset($map['Proof'])) {
             $model->proof = $map['Proof'];
+        }
+        if (isset($map['RuntimeEnvVersion'])) {
+            $model->runtimeEnvVersion = $map['RuntimeEnvVersion'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

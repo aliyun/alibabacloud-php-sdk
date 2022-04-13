@@ -14,6 +14,11 @@ class DescribeImageVulListRequest extends Model
     public $aliasName;
 
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -104,6 +109,7 @@ class DescribeImageVulListRequest extends Model
     public $uuids;
     protected $_name = [
         'aliasName'      => 'AliasName',
+        'clusterId'      => 'ClusterId',
         'currentPage'    => 'CurrentPage',
         'dealed'         => 'Dealed',
         'digest'         => 'Digest',
@@ -133,6 +139,9 @@ class DescribeImageVulListRequest extends Model
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -202,6 +211,9 @@ class DescribeImageVulListRequest extends Model
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];

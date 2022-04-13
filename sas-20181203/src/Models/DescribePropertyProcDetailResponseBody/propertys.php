@@ -14,11 +14,6 @@ class propertys extends Model
     public $cmdline;
 
     /**
-     * @var string
-     */
-    public $create;
-
-    /**
      * @var int
      */
     public $createTimestamp;
@@ -104,7 +99,6 @@ class propertys extends Model
     public $uuid;
     protected $_name = [
         'cmdline'         => 'Cmdline',
-        'create'          => 'Create',
         'createTimestamp' => 'CreateTimestamp',
         'euidName'        => 'EuidName',
         'instanceId'      => 'InstanceId',
@@ -133,9 +127,6 @@ class propertys extends Model
         $res = [];
         if (null !== $this->cmdline) {
             $res['Cmdline'] = $this->cmdline;
-        }
-        if (null !== $this->create) {
-            $res['Create'] = $this->create;
         }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
@@ -202,9 +193,6 @@ class propertys extends Model
         $model = new self();
         if (isset($map['Cmdline'])) {
             $model->cmdline = $map['Cmdline'];
-        }
-        if (isset($map['Create'])) {
-            $model->create = $map['Create'];
         }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];

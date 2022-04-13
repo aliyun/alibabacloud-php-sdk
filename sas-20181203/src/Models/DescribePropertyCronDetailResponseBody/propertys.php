@@ -14,11 +14,6 @@ class propertys extends Model
     public $cmd;
 
     /**
-     * @var string
-     */
-    public $create;
-
-    /**
      * @var int
      */
     public $createTimestamp;
@@ -74,7 +69,6 @@ class propertys extends Model
     public $uuid;
     protected $_name = [
         'cmd'             => 'Cmd',
-        'create'          => 'Create',
         'createTimestamp' => 'CreateTimestamp',
         'instanceId'      => 'InstanceId',
         'instanceName'    => 'InstanceName',
@@ -97,9 +91,6 @@ class propertys extends Model
         $res = [];
         if (null !== $this->cmd) {
             $res['Cmd'] = $this->cmd;
-        }
-        if (null !== $this->create) {
-            $res['Create'] = $this->create;
         }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
@@ -148,9 +139,6 @@ class propertys extends Model
         $model = new self();
         if (isset($map['Cmd'])) {
             $model->cmd = $map['Cmd'];
-        }
-        if (isset($map['Create'])) {
-            $model->create = $map['Create'];
         }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];

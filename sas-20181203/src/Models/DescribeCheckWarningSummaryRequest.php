@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningSummaryRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $containerFieldName;
+
+    /**
+     * @var string
+     */
+    public $containerFieldValue;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -51,6 +66,11 @@ class DescribeCheckWarningSummaryRequest extends Model
     /**
      * @var string
      */
+    public $targetType;
+
+    /**
+     * @var string
+     */
     public $typeName;
 
     /**
@@ -58,16 +78,20 @@ class DescribeCheckWarningSummaryRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'riskName'    => 'RiskName',
-        'riskStatus'  => 'RiskStatus',
-        'sourceIp'    => 'SourceIp',
-        'status'      => 'Status',
-        'strategyId'  => 'StrategyId',
-        'typeName'    => 'TypeName',
-        'uuids'       => 'Uuids',
+        'clusterId'           => 'ClusterId',
+        'containerFieldName'  => 'ContainerFieldName',
+        'containerFieldValue' => 'ContainerFieldValue',
+        'currentPage'         => 'CurrentPage',
+        'lang'                => 'Lang',
+        'pageSize'            => 'PageSize',
+        'riskName'            => 'RiskName',
+        'riskStatus'          => 'RiskStatus',
+        'sourceIp'            => 'SourceIp',
+        'status'              => 'Status',
+        'strategyId'          => 'StrategyId',
+        'targetType'          => 'TargetType',
+        'typeName'            => 'TypeName',
+        'uuids'               => 'Uuids',
     ];
 
     public function validate()
@@ -77,6 +101,15 @@ class DescribeCheckWarningSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->containerFieldName) {
+            $res['ContainerFieldName'] = $this->containerFieldName;
+        }
+        if (null !== $this->containerFieldValue) {
+            $res['ContainerFieldValue'] = $this->containerFieldValue;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -101,6 +134,9 @@ class DescribeCheckWarningSummaryRequest extends Model
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
+        }
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
@@ -119,6 +155,15 @@ class DescribeCheckWarningSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ContainerFieldName'])) {
+            $model->containerFieldName = $map['ContainerFieldName'];
+        }
+        if (isset($map['ContainerFieldValue'])) {
+            $model->containerFieldValue = $map['ContainerFieldValue'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -142,6 +187,9 @@ class DescribeCheckWarningSummaryRequest extends Model
         }
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];

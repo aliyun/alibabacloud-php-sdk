@@ -1192,6 +1192,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -2067,6 +2070,15 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->containerFieldName)) {
+            $query['ContainerFieldName'] = $request->containerFieldName;
+        }
+        if (!Utils::isUnset($request->containerFieldValue)) {
+            $query['ContainerFieldValue'] = $request->containerFieldValue;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -2090,6 +2102,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->strategyId)) {
             $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
         }
         if (!Utils::isUnset($request->typeName)) {
             $query['TypeName'] = $request->typeName;
@@ -3133,6 +3148,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -3407,6 +3425,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         if (!Utils::isUnset($request->criteria)) {
             $query['Criteria'] = $request->criteria;
         }
@@ -3523,6 +3544,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->aliasName)) {
             $query['AliasName'] = $request->aliasName;
         }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -3622,6 +3646,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->baselineNameKey)) {
             $query['BaselineNameKey'] = $request->baselineNameKey;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->criteria)) {
             $query['Criteria'] = $request->criteria;
@@ -3758,6 +3785,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->aliasName)) {
             $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
