@@ -47,6 +47,11 @@ class UpdateCustomDomainResponseBody extends Model
      * @var RouteConfig
      */
     public $routeConfig;
+
+    /**
+     * @var TLSConfig
+     */
+    public $tlsConfig;
     protected $_name = [
         'accountId'        => 'accountId',
         'apiVersion'       => 'apiVersion',
@@ -56,6 +61,7 @@ class UpdateCustomDomainResponseBody extends Model
         'lastModifiedTime' => 'lastModifiedTime',
         'protocol'         => 'protocol',
         'routeConfig'      => 'routeConfig',
+        'tlsConfig'        => 'tlsConfig',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class UpdateCustomDomainResponseBody extends Model
         }
         if (null !== $this->routeConfig) {
             $res['routeConfig'] = null !== $this->routeConfig ? $this->routeConfig->toMap() : null;
+        }
+        if (null !== $this->tlsConfig) {
+            $res['tlsConfig'] = null !== $this->tlsConfig ? $this->tlsConfig->toMap() : null;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class UpdateCustomDomainResponseBody extends Model
         }
         if (isset($map['routeConfig'])) {
             $model->routeConfig = RouteConfig::fromMap($map['routeConfig']);
+        }
+        if (isset($map['tlsConfig'])) {
+            $model->tlsConfig = TLSConfig::fromMap($map['tlsConfig']);
         }
 
         return $model;

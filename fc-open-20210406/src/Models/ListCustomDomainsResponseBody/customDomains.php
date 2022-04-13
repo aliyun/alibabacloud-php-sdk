@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406\Models\ListCustomDomainsResponseBody
 
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CertConfig;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\RouteConfig;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\TLSConfig;
 use AlibabaCloud\Tea\Model;
 
 class customDomains extends Model
@@ -49,6 +50,11 @@ class customDomains extends Model
      * @var RouteConfig
      */
     public $routeConfig;
+
+    /**
+     * @var TLSConfig
+     */
+    public $tlsConfig;
     protected $_name = [
         'accountId'        => 'accountId',
         'apiVersion'       => 'apiVersion',
@@ -58,6 +64,7 @@ class customDomains extends Model
         'lastModifiedTime' => 'lastModifiedTime',
         'protocol'         => 'protocol',
         'routeConfig'      => 'routeConfig',
+        'tlsConfig'        => 'tlsConfig',
     ];
 
     public function validate()
@@ -90,6 +97,9 @@ class customDomains extends Model
         }
         if (null !== $this->routeConfig) {
             $res['routeConfig'] = null !== $this->routeConfig ? $this->routeConfig->toMap() : null;
+        }
+        if (null !== $this->tlsConfig) {
+            $res['tlsConfig'] = null !== $this->tlsConfig ? $this->tlsConfig->toMap() : null;
         }
 
         return $res;
@@ -126,6 +136,9 @@ class customDomains extends Model
         }
         if (isset($map['routeConfig'])) {
             $model->routeConfig = RouteConfig::fromMap($map['routeConfig']);
+        }
+        if (isset($map['tlsConfig'])) {
+            $model->tlsConfig = TLSConfig::fromMap($map['tlsConfig']);
         }
 
         return $model;

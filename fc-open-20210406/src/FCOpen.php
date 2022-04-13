@@ -180,15 +180,21 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateTriggerRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateTriggerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayFc\Client as DarabonbaGatewayFcClient;
+use Darabonba\GatewayFc\Models\HttpRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class FCOpen extends OpenApiClient
 {
+    protected $_client;
+
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_client       = new DarabonbaGatewayFcClient();
+        $this->_spi          = $this->_client;
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
             'ap-northeast-1'      => 'account-id.ap-northeast-1.fc.aliyuncs.com',
@@ -308,7 +314,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -347,6 +353,9 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->routeConfig)) {
             $body['routeConfig'] = $request->routeConfig;
         }
+        if (!Utils::isUnset($request->tlsConfig)) {
+            $body['tlsConfig'] = $request->tlsConfig;
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -376,7 +385,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -492,7 +501,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -560,7 +569,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -640,7 +649,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -723,7 +732,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -785,7 +794,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return CreateVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVpcBindingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -845,7 +854,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -899,7 +908,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -959,7 +968,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1024,7 +1033,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFunctionAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1092,7 +1101,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFunctionOnDemandConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1149,7 +1158,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1206,7 +1215,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1263,7 +1272,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteServiceVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1326,7 +1335,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1383,7 +1392,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeleteVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVpcBindingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1451,7 +1460,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return DeregisterEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeregisterEventSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1501,7 +1510,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetAccountSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAccountSettingsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1558,7 +1567,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1612,7 +1621,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1677,7 +1686,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1742,7 +1751,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFunctionAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1807,7 +1816,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetFunctionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFunctionCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1872,7 +1881,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFunctionOnDemandConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1929,7 +1938,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1994,7 +2003,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProvisionConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2053,7 +2062,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2115,7 +2124,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2192,7 +2201,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetStatefulAsyncInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStatefulAsyncInvocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2252,7 +2261,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2327,7 +2336,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'byte',
         ]);
 
-        return InvokeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InvokeFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2398,7 +2407,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAliasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2466,7 +2475,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCustomDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2531,7 +2540,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEventSourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2608,7 +2617,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListFunctionAsyncInvokeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFunctionAsyncInvokeConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2682,7 +2691,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFunctionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2747,7 +2756,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListLayerVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLayerVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2815,7 +2824,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListLayersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLayersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2883,7 +2892,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListOnDemandConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOnDemandConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2951,7 +2960,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListProvisionConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProvisionConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3013,7 +3022,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListReservedCapacitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListReservedCapacitiesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3084,7 +3093,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListServiceVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServiceVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3152,7 +3161,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3214,7 +3223,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListStatefulAsyncInvocationFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStatefulAsyncInvocationFunctionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3312,7 +3321,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListStatefulAsyncInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStatefulAsyncInvocationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3374,7 +3383,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListTaggedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaggedResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3448,7 +3457,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTriggersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3502,7 +3511,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListVpcBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcBindingsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3567,7 +3576,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return PublishServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishServiceVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3646,7 +3655,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return PutFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutFunctionAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3719,7 +3728,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return PutFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutFunctionOnDemandConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3798,7 +3807,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return PutProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutProvisionConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3868,7 +3877,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return RegisterEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterEventSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3936,7 +3945,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return StopStatefulAsyncInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopStatefulAsyncInvocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3998,7 +4007,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return TagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4063,7 +4072,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'none',
         ]);
 
-        return UntagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4137,7 +4146,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4176,6 +4185,9 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->routeConfig)) {
             $body['routeConfig'] = $request->routeConfig;
         }
+        if (!Utils::isUnset($request->tlsConfig)) {
+            $body['tlsConfig'] = $request->tlsConfig;
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -4205,7 +4217,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4324,7 +4336,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4407,7 +4419,7 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4487,6 +4499,19 @@ class FCOpen extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTriggerResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param HttpRequest $request
+     *
+     * @return array
+     */
+    public function signRequest($request)
+    {
+        $cred    = $this->_credential;
+        $gateway = new DarabonbaGatewayFcClient();
+
+        return $gateway->signRequest($request, $cred);
     }
 }
