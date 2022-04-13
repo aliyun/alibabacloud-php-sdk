@@ -24,11 +24,6 @@ class certDetail extends Model
     public $issuer;
 
     /**
-     * @var int
-     */
-    public $keySize;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -41,7 +36,6 @@ class certDetail extends Model
         'domainNames' => 'DomainNames',
         'endTime'     => 'EndTime',
         'issuer'      => 'Issuer',
-        'keySize'     => 'KeySize',
         'startTime'   => 'StartTime',
         'status'      => 'Status',
     ];
@@ -61,9 +55,6 @@ class certDetail extends Model
         }
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
-        }
-        if (null !== $this->keySize) {
-            $res['KeySize'] = $this->keySize;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -93,9 +84,6 @@ class certDetail extends Model
         }
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
-        }
-        if (isset($map['KeySize'])) {
-            $model->keySize = $map['KeySize'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
