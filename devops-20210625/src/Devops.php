@@ -927,6 +927,9 @@ class Devops extends OpenApiClient
         if (!Utils::isUnset($request->fieldValueList)) {
             $body['fieldValueList'] = $request->fieldValueList;
         }
+        if (!Utils::isUnset($request->parent)) {
+            $body['parent'] = $request->parent;
+        }
         if (!Utils::isUnset($request->participant)) {
             $body['participant'] = $request->participant;
         }
@@ -3608,6 +3611,9 @@ class Devops extends OpenApiClient
         $query          = [];
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->conditions)) {
+            $query['conditions'] = $request->conditions;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['maxResults'] = $request->maxResults;

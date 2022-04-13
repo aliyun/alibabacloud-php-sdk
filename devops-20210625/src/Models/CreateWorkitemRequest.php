@@ -45,6 +45,13 @@ class CreateWorkitemRequest extends Model
     public $fieldValueList;
 
     /**
+     * @description 所属父工作项的唯一标识
+     *
+     * @var string
+     */
+    public $parent;
+
+    /**
      * @description 参与人id列表，或者企业名称列表
      *
      * @var string[]
@@ -112,6 +119,7 @@ class CreateWorkitemRequest extends Model
         'description'       => 'description',
         'descriptionFormat' => 'descriptionFormat',
         'fieldValueList'    => 'fieldValueList',
+        'parent'            => 'parent',
         'participant'       => 'participant',
         'space'             => 'space',
         'spaceIdentifier'   => 'spaceIdentifier',
@@ -150,6 +158,9 @@ class CreateWorkitemRequest extends Model
                     $res['fieldValueList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->parent) {
+            $res['parent'] = $this->parent;
         }
         if (null !== $this->participant) {
             $res['participant'] = $this->participant;
@@ -210,6 +221,9 @@ class CreateWorkitemRequest extends Model
                     $model->fieldValueList[$n++] = null !== $item ? fieldValueList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['parent'])) {
+            $model->parent = $map['parent'];
         }
         if (isset($map['participant'])) {
             if (!empty($map['participant'])) {

@@ -16,6 +16,13 @@ class ListWorkitemsRequest extends Model
     public $category;
 
     /**
+     * @description 过滤条件
+     *
+     * @var string
+     */
+    public $conditions;
+
+    /**
      * @description 每页最大返回数量，0-200，默认值20
      *
      * @var string
@@ -44,6 +51,7 @@ class ListWorkitemsRequest extends Model
     public $spaceType;
     protected $_name = [
         'category'        => 'category',
+        'conditions'      => 'conditions',
         'maxResults'      => 'maxResults',
         'nextToken'       => 'nextToken',
         'spaceIdentifier' => 'spaceIdentifier',
@@ -59,6 +67,9 @@ class ListWorkitemsRequest extends Model
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
+        }
+        if (null !== $this->conditions) {
+            $res['conditions'] = $this->conditions;
         }
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
@@ -86,6 +97,9 @@ class ListWorkitemsRequest extends Model
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
+        }
+        if (isset($map['conditions'])) {
+            $model->conditions = $map['conditions'];
         }
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
