@@ -14,6 +14,11 @@ class data extends Model
     public $duration;
 
     /**
+     * @var bool
+     */
+    public $outboundScenario;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -28,10 +33,11 @@ class data extends Model
      */
     public $stateCode;
     protected $_name = [
-        'duration'  => 'Duration',
-        'startTime' => 'StartTime',
-        'state'     => 'State',
-        'stateCode' => 'StateCode',
+        'duration'         => 'Duration',
+        'outboundScenario' => 'OutboundScenario',
+        'startTime'        => 'StartTime',
+        'state'            => 'State',
+        'stateCode'        => 'StateCode',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class data extends Model
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->outboundScenario) {
+            $res['OutboundScenario'] = $this->outboundScenario;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -67,6 +76,9 @@ class data extends Model
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['OutboundScenario'])) {
+            $model->outboundScenario = $map['OutboundScenario'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

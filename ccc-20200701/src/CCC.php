@@ -89,6 +89,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeCampaignStatsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeCampaignStatsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeInstanceStatesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeInstanceStatesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetSkillGroupRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnCredentialsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnCredentialsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnServerListRequest;
@@ -155,6 +157,10 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalSkillGroupReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalSkillGroupReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIvrTrackingDetailsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIvrTrackingDetailsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListMonoRecordingsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListMonoRecordingsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListMultiChannelRecordingsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListMultiChannelRecordingsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListOutboundNumbersOfUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListOutboundNumbersOfUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListPersonalNumbersOfUserRequest;
@@ -2405,6 +2411,52 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param GetSkillGroupRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetSkillGroupResponse
+     */
+    public function getSkillGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->skillGroupId)) {
+            $query['SkillGroupId'] = $request->skillGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSkillGroupRequest $request
+     *
+     * @return GetSkillGroupResponse
+     */
+    public function getSkillGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTurnCredentialsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3191,11 +3243,17 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->contactDisposition)) {
             $query['ContactDisposition'] = $request->contactDisposition;
         }
+        if (!Utils::isUnset($request->contactDispositionList)) {
+            $query['ContactDispositionList'] = $request->contactDispositionList;
+        }
         if (!Utils::isUnset($request->contactId)) {
             $query['ContactId'] = $request->contactId;
         }
         if (!Utils::isUnset($request->contactType)) {
             $query['ContactType'] = $request->contactType;
+        }
+        if (!Utils::isUnset($request->contactTypeList)) {
+            $query['ContactTypeList'] = $request->contactTypeList;
         }
         if (!Utils::isUnset($request->criteria)) {
             $query['Criteria'] = $request->criteria;
@@ -4161,6 +4219,98 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listIvrTrackingDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMonoRecordingsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMonoRecordingsResponse
+     */
+    public function listMonoRecordingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMonoRecordings',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMonoRecordingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMonoRecordingsRequest $request
+     *
+     * @return ListMonoRecordingsResponse
+     */
+    public function listMonoRecordings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMonoRecordingsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMultiChannelRecordingsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListMultiChannelRecordingsResponse
+     */
+    public function listMultiChannelRecordingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMultiChannelRecordings',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMultiChannelRecordingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMultiChannelRecordingsRequest $request
+     *
+     * @return ListMultiChannelRecordingsResponse
+     */
+    public function listMultiChannelRecordings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultiChannelRecordingsWithOptions($request, $runtime);
     }
 
     /**

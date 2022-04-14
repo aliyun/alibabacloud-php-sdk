@@ -43,6 +43,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $casesUncompletedAfterAttempted;
+
+    /**
+     * @var int
+     */
     public $maxAttemptCount;
 
     /**
@@ -105,25 +110,26 @@ class data extends Model
      */
     public $totalCases;
     protected $_name = [
-        'actualEndTime'        => 'ActualEndTime',
-        'actualStartTime'      => 'ActualStartTime',
-        'campaignId'           => 'CampaignId',
-        'casesAborted'         => 'CasesAborted',
-        'casesConnected'       => 'CasesConnected',
-        'casesUncompleted'     => 'CasesUncompleted',
-        'maxAttemptCount'      => 'MaxAttemptCount',
-        'minAttemptInterval'   => 'MinAttemptInterval',
-        'name'                 => 'Name',
-        'planedEndTime'        => 'PlanedEndTime',
-        'planedStartTime'      => 'PlanedStartTime',
-        'queueId'              => 'QueueId',
-        'queueName'            => 'QueueName',
-        'simulation'           => 'Simulation',
-        'simulationParameters' => 'SimulationParameters',
-        'state'                => 'State',
-        'strategyParameters'   => 'StrategyParameters',
-        'strategyType'         => 'StrategyType',
-        'totalCases'           => 'TotalCases',
+        'actualEndTime'                  => 'ActualEndTime',
+        'actualStartTime'                => 'ActualStartTime',
+        'campaignId'                     => 'CampaignId',
+        'casesAborted'                   => 'CasesAborted',
+        'casesConnected'                 => 'CasesConnected',
+        'casesUncompleted'               => 'CasesUncompleted',
+        'casesUncompletedAfterAttempted' => 'CasesUncompletedAfterAttempted',
+        'maxAttemptCount'                => 'MaxAttemptCount',
+        'minAttemptInterval'             => 'MinAttemptInterval',
+        'name'                           => 'Name',
+        'planedEndTime'                  => 'PlanedEndTime',
+        'planedStartTime'                => 'PlanedStartTime',
+        'queueId'                        => 'QueueId',
+        'queueName'                      => 'QueueName',
+        'simulation'                     => 'Simulation',
+        'simulationParameters'           => 'SimulationParameters',
+        'state'                          => 'State',
+        'strategyParameters'             => 'StrategyParameters',
+        'strategyType'                   => 'StrategyType',
+        'totalCases'                     => 'TotalCases',
     ];
 
     public function validate()
@@ -150,6 +156,9 @@ class data extends Model
         }
         if (null !== $this->casesUncompleted) {
             $res['CasesUncompleted'] = $this->casesUncompleted;
+        }
+        if (null !== $this->casesUncompletedAfterAttempted) {
+            $res['CasesUncompletedAfterAttempted'] = $this->casesUncompletedAfterAttempted;
         }
         if (null !== $this->maxAttemptCount) {
             $res['MaxAttemptCount'] = $this->maxAttemptCount;
@@ -219,6 +228,9 @@ class data extends Model
         }
         if (isset($map['CasesUncompleted'])) {
             $model->casesUncompleted = $map['CasesUncompleted'];
+        }
+        if (isset($map['CasesUncompletedAfterAttempted'])) {
+            $model->casesUncompletedAfterAttempted = $map['CasesUncompletedAfterAttempted'];
         }
         if (isset($map['MaxAttemptCount'])) {
             $model->maxAttemptCount = $map['MaxAttemptCount'];

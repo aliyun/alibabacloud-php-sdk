@@ -39,6 +39,11 @@ class list_ extends Model
     public $skillGroupIdList;
 
     /**
+     * @var string[]
+     */
+    public $skillGroupNameList;
+
+    /**
      * @var string
      */
     public $state;
@@ -53,15 +58,16 @@ class list_ extends Model
      */
     public $stateTime;
     protected $_name = [
-        'agentId'          => 'AgentId',
-        'agentName'        => 'AgentName',
-        'counterParty'     => 'CounterParty',
-        'extension'        => 'Extension',
-        'instanceId'       => 'InstanceId',
-        'skillGroupIdList' => 'SkillGroupIdList',
-        'state'            => 'State',
-        'stateCode'        => 'StateCode',
-        'stateTime'        => 'StateTime',
+        'agentId'            => 'AgentId',
+        'agentName'          => 'AgentName',
+        'counterParty'       => 'CounterParty',
+        'extension'          => 'Extension',
+        'instanceId'         => 'InstanceId',
+        'skillGroupIdList'   => 'SkillGroupIdList',
+        'skillGroupNameList' => 'SkillGroupNameList',
+        'state'              => 'State',
+        'stateCode'          => 'StateCode',
+        'stateTime'          => 'StateTime',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class list_ extends Model
         }
         if (null !== $this->skillGroupIdList) {
             $res['SkillGroupIdList'] = $this->skillGroupIdList;
+        }
+        if (null !== $this->skillGroupNameList) {
+            $res['SkillGroupNameList'] = $this->skillGroupNameList;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -128,6 +137,11 @@ class list_ extends Model
         if (isset($map['SkillGroupIdList'])) {
             if (!empty($map['SkillGroupIdList'])) {
                 $model->skillGroupIdList = $map['SkillGroupIdList'];
+            }
+        }
+        if (isset($map['SkillGroupNameList'])) {
+            if (!empty($map['SkillGroupNameList'])) {
+                $model->skillGroupNameList = $map['SkillGroupNameList'];
             }
         }
         if (isset($map['State'])) {

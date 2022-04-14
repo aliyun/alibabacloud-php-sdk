@@ -1,3 +1,6 @@
+2022-04-14 Version: 2.4.0
+- Support to pass variables to authentication IVR.
+
 2022-03-16 Version: 2.3.2
 - Support SIP phone management.
 

@@ -31,12 +31,22 @@ class ListCallDetailRecordsRequest extends Model
     /**
      * @var string
      */
+    public $contactDispositionList;
+
+    /**
+     * @var string
+     */
     public $contactId;
 
     /**
      * @var string
      */
     public $contactType;
+
+    /**
+     * @var string
+     */
+    public $contactTypeList;
 
     /**
      * @var string
@@ -107,8 +117,10 @@ class ListCallDetailRecordsRequest extends Model
         'calledNumber'                => 'CalledNumber',
         'callingNumber'               => 'CallingNumber',
         'contactDisposition'          => 'ContactDisposition',
+        'contactDispositionList'      => 'ContactDispositionList',
         'contactId'                   => 'ContactId',
         'contactType'                 => 'ContactType',
+        'contactTypeList'             => 'ContactTypeList',
         'criteria'                    => 'Criteria',
         'earlyMediaStateList'         => 'EarlyMediaStateList',
         'endTime'                     => 'EndTime',
@@ -143,11 +155,17 @@ class ListCallDetailRecordsRequest extends Model
         if (null !== $this->contactDisposition) {
             $res['ContactDisposition'] = $this->contactDisposition;
         }
+        if (null !== $this->contactDispositionList) {
+            $res['ContactDispositionList'] = $this->contactDispositionList;
+        }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
         if (null !== $this->contactType) {
             $res['ContactType'] = $this->contactType;
+        }
+        if (null !== $this->contactTypeList) {
+            $res['ContactTypeList'] = $this->contactTypeList;
         }
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
@@ -212,11 +230,17 @@ class ListCallDetailRecordsRequest extends Model
         if (isset($map['ContactDisposition'])) {
             $model->contactDisposition = $map['ContactDisposition'];
         }
+        if (isset($map['ContactDispositionList'])) {
+            $model->contactDispositionList = $map['ContactDispositionList'];
+        }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
         if (isset($map['ContactType'])) {
             $model->contactType = $map['ContactType'];
+        }
+        if (isset($map['ContactTypeList'])) {
+            $model->contactTypeList = $map['ContactTypeList'];
         }
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
