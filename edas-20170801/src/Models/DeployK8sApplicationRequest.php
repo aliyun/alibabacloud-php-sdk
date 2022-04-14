@@ -31,6 +31,11 @@ class DeployK8sApplicationRequest extends Model
     /**
      * @var string
      */
+    public $buildPackId;
+
+    /**
+     * @var string
+     */
     public $changeOrderDesc;
 
     /**
@@ -252,6 +257,7 @@ class DeployK8sApplicationRequest extends Model
         'args'                   => 'Args',
         'batchTimeout'           => 'BatchTimeout',
         'batchWaitTime'          => 'BatchWaitTime',
+        'buildPackId'            => 'BuildPackId',
         'changeOrderDesc'        => 'ChangeOrderDesc',
         'command'                => 'Command',
         'configMountDescs'       => 'ConfigMountDescs',
@@ -316,6 +322,9 @@ class DeployK8sApplicationRequest extends Model
         }
         if (null !== $this->batchWaitTime) {
             $res['BatchWaitTime'] = $this->batchWaitTime;
+        }
+        if (null !== $this->buildPackId) {
+            $res['BuildPackId'] = $this->buildPackId;
         }
         if (null !== $this->changeOrderDesc) {
             $res['ChangeOrderDesc'] = $this->changeOrderDesc;
@@ -472,6 +481,9 @@ class DeployK8sApplicationRequest extends Model
         }
         if (isset($map['BatchWaitTime'])) {
             $model->batchWaitTime = $map['BatchWaitTime'];
+        }
+        if (isset($map['BuildPackId'])) {
+            $model->buildPackId = $map['BuildPackId'];
         }
         if (isset($map['ChangeOrderDesc'])) {
             $model->changeOrderDesc = $map['ChangeOrderDesc'];

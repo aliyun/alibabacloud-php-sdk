@@ -2416,6 +2416,9 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->batchWaitTime)) {
             $query['BatchWaitTime'] = $request->batchWaitTime;
         }
+        if (!Utils::isUnset($request->buildPackId)) {
+            $query['BuildPackId'] = $request->buildPackId;
+        }
         if (!Utils::isUnset($request->changeOrderDesc)) {
             $query['ChangeOrderDesc'] = $request->changeOrderDesc;
         }
