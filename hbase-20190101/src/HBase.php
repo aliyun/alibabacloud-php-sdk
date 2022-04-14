@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\AddUserHdfsInfoRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\AddUserHdfsInfoResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\AllocatePublicNetworkAddressRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\AllocatePublicNetworkAddressResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\CancelActiveOperationTasksRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CheckComponentsVersionRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CheckComponentsVersionResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CloseBackupRequest;
@@ -48,6 +50,10 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteServerlessClusterRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteServerlessClusterResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteUserHdfsInfoRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteUserHdfsInfoResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeActiveOperationTasksRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeActiveOperationTasksResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeActiveOperationTaskTypeRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeActiveOperationTaskTypeResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeBackupPlanConfigRequest;
@@ -126,6 +132,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagsRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagsResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyActiveOperationTasksRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyBackupPlanConfigRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyBackupPlanConfigResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyBackupPolicyRequest;
@@ -367,6 +375,64 @@ class HBase extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocatePublicNetworkAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelActiveOperationTasks',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelActiveOperationTasksRequest $request
+     *
+     * @return CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -1466,6 +1532,152 @@ class HBase extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserHdfsInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeActiveOperationTaskTypeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeActiveOperationTaskTypeResponse
+     */
+    public function describeActiveOperationTaskTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveOperationTaskType',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeActiveOperationTaskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeActiveOperationTaskTypeRequest $request
+     *
+     * @return DescribeActiveOperationTaskTypeResponse
+     */
+    public function describeActiveOperationTaskType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTaskTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeActiveOperationTasksRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowCancel)) {
+            $query['AllowCancel'] = $request->allowCancel;
+        }
+        if (!Utils::isUnset($request->allowChange)) {
+            $query['AllowChange'] = $request->allowChange;
+        }
+        if (!Utils::isUnset($request->changeLevel)) {
+            $query['ChangeLevel'] = $request->changeLevel;
+        }
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->insName)) {
+            $query['InsName'] = $request->insName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveOperationTasks',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeActiveOperationTasksRequest $request
+     *
+     * @return DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -3437,6 +3649,70 @@ class HBase extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->immediateStart)) {
+            $query['ImmediateStart'] = $request->immediateStart;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyActiveOperationTasks',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyActiveOperationTasksRequest $request
+     *
+     * @return ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
