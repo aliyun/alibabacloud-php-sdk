@@ -23,6 +23,13 @@ class CheckChatappContactsShrinkRequest extends Model
     public $contactsShrink;
 
     /**
+     * @description ISV客户wabaId
+     *
+     * @var string
+     */
+    public $custWabaId;
+
+    /**
      * @description 发送号码,所选择ChannelType下的Business账号，即在控制台上审核通过的Number
      *
      * @var string
@@ -31,6 +38,7 @@ class CheckChatappContactsShrinkRequest extends Model
     protected $_name = [
         'channelType'    => 'ChannelType',
         'contactsShrink' => 'Contacts',
+        'custWabaId'     => 'CustWabaId',
         'from'           => 'From',
     ];
 
@@ -46,6 +54,9 @@ class CheckChatappContactsShrinkRequest extends Model
         }
         if (null !== $this->contactsShrink) {
             $res['Contacts'] = $this->contactsShrink;
+        }
+        if (null !== $this->custWabaId) {
+            $res['CustWabaId'] = $this->custWabaId;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -67,6 +78,9 @@ class CheckChatappContactsShrinkRequest extends Model
         }
         if (isset($map['Contacts'])) {
             $model->contactsShrink = $map['Contacts'];
+        }
+        if (isset($map['CustWabaId'])) {
+            $model->custWabaId = $map['CustWabaId'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

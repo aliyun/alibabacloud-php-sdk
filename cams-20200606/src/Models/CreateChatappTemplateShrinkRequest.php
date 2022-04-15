@@ -21,6 +21,13 @@ class CreateChatappTemplateShrinkRequest extends Model
     public $componentsShrink;
 
     /**
+     * @description ISV客户WabaId
+     *
+     * @var string
+     */
+    public $custWabaId;
+
+    /**
      * @description 变量，KEY-VALUE结构
      *
      * @var string
@@ -50,6 +57,7 @@ class CreateChatappTemplateShrinkRequest extends Model
     protected $_name = [
         'category'         => 'Category',
         'componentsShrink' => 'Components',
+        'custWabaId'       => 'CustWabaId',
         'exampleShrink'    => 'Example',
         'language'         => 'Language',
         'name'             => 'Name',
@@ -68,6 +76,9 @@ class CreateChatappTemplateShrinkRequest extends Model
         }
         if (null !== $this->componentsShrink) {
             $res['Components'] = $this->componentsShrink;
+        }
+        if (null !== $this->custWabaId) {
+            $res['CustWabaId'] = $this->custWabaId;
         }
         if (null !== $this->exampleShrink) {
             $res['Example'] = $this->exampleShrink;
@@ -98,6 +109,9 @@ class CreateChatappTemplateShrinkRequest extends Model
         }
         if (isset($map['Components'])) {
             $model->componentsShrink = $map['Components'];
+        }
+        if (isset($map['CustWabaId'])) {
+            $model->custWabaId = $map['CustWabaId'];
         }
         if (isset($map['Example'])) {
             $model->exampleShrink = $map['Example'];

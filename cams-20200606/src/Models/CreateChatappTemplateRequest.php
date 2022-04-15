@@ -22,6 +22,13 @@ class CreateChatappTemplateRequest extends Model
     public $components;
 
     /**
+     * @description ISV客户WabaId
+     *
+     * @var string
+     */
+    public $custWabaId;
+
+    /**
      * @description 变量，KEY-VALUE结构
      *
      * @var string[]
@@ -51,6 +58,7 @@ class CreateChatappTemplateRequest extends Model
     protected $_name = [
         'category'     => 'Category',
         'components'   => 'Components',
+        'custWabaId'   => 'CustWabaId',
         'example'      => 'Example',
         'language'     => 'Language',
         'name'         => 'Name',
@@ -75,6 +83,9 @@ class CreateChatappTemplateRequest extends Model
                     $res['Components'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->custWabaId) {
+            $res['CustWabaId'] = $this->custWabaId;
         }
         if (null !== $this->example) {
             $res['Example'] = $this->example;
@@ -111,6 +122,9 @@ class CreateChatappTemplateRequest extends Model
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CustWabaId'])) {
+            $model->custWabaId = $map['CustWabaId'];
         }
         if (isset($map['Example'])) {
             $model->example = $map['Example'];

@@ -87,6 +87,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->contactsShrink)) {
             $body['Contacts'] = $request->contactsShrink;
         }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
+        }
         if (!Utils::isUnset($request->from)) {
             $body['From'] = $request->from;
         }
@@ -204,6 +207,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->componentsShrink)) {
             $body['Components'] = $request->componentsShrink;
         }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
+        }
         if (!Utils::isUnset($request->exampleShrink)) {
             $body['Example'] = $request->exampleShrink;
         }
@@ -256,6 +262,9 @@ class Cams extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
+        }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
         }
@@ -299,11 +308,11 @@ class Cams extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
+        }
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
@@ -355,6 +364,9 @@ class Cams extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->auditStatus)) {
             $query['AuditStatus'] = $request->auditStatus;
+        }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
         }
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
@@ -422,6 +434,9 @@ class Cams extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->channelType)) {
             $body['ChannelType'] = $request->channelType;
+        }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
         }
         if (!Utils::isUnset($request->from)) {
             $body['From'] = $request->from;

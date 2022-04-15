@@ -23,6 +23,13 @@ class SendChatappMessageRequest extends Model
     public $content;
 
     /**
+     * @description ISV客户wabaId
+     *
+     * @var string
+     */
+    public $custWabaId;
+
+    /**
      * @description 发送方
      *
      * @var string
@@ -76,6 +83,7 @@ class SendChatappMessageRequest extends Model
     protected $_name = [
         'channelType'    => 'ChannelType',
         'content'        => 'Content',
+        'custWabaId'     => 'CustWabaId',
         'from'           => 'From',
         'language'       => 'Language',
         'messageType'    => 'MessageType',
@@ -98,6 +106,9 @@ class SendChatappMessageRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->custWabaId) {
+            $res['CustWabaId'] = $this->custWabaId;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -140,6 +151,9 @@ class SendChatappMessageRequest extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['CustWabaId'])) {
+            $model->custWabaId = $map['CustWabaId'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

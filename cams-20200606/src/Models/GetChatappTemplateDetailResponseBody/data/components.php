@@ -17,6 +17,20 @@ class components extends Model
     public $buttons;
 
     /**
+     * @description 描述，当Type为Header，且Format为IMGAGE/DOCUMENT/VIDEO 可以增加描述
+     *
+     * @var string
+     */
+    public $caption;
+
+    /**
+     * @description 文件名称，当Type为Header，且Format为DOCUMENT时可以给文件指定名称
+     *
+     * @var string
+     */
+    public $fileName;
+
+    /**
      * @description 所发送消息的文本
      *
      * @var string
@@ -37,10 +51,12 @@ class components extends Model
      */
     public $url;
     protected $_name = [
-        'buttons' => 'Buttons',
-        'text'    => 'Text',
-        'type'    => 'Type',
-        'url'     => 'Url',
+        'buttons'  => 'Buttons',
+        'caption'  => 'Caption',
+        'fileName' => 'FileName',
+        'text'     => 'Text',
+        'type'     => 'Type',
+        'url'      => 'Url',
     ];
 
     public function validate()
@@ -58,6 +74,12 @@ class components extends Model
                     $res['Buttons'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->caption) {
+            $res['Caption'] = $this->caption;
+        }
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
@@ -88,6 +110,12 @@ class components extends Model
                     $model->buttons[$n++] = null !== $item ? buttons::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Caption'])) {
+            $model->caption = $map['Caption'];
+        }
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];

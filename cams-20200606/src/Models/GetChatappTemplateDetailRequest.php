@@ -9,16 +9,18 @@ use AlibabaCloud\Tea\Model;
 class GetChatappTemplateDetailRequest extends Model
 {
     /**
+     * @description ISV客户WabaId
+     *
+     * @var string
+     */
+    public $custWabaId;
+
+    /**
      * @description 语言
      *
      * @var string
      */
     public $language;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
 
     /**
      * @description 模板分类
@@ -27,8 +29,8 @@ class GetChatappTemplateDetailRequest extends Model
      */
     public $templateCode;
     protected $_name = [
+        'custWabaId'   => 'CustWabaId',
         'language'     => 'Language',
-        'ownerId'      => 'OwnerId',
         'templateCode' => 'TemplateCode',
     ];
 
@@ -39,11 +41,11 @@ class GetChatappTemplateDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->custWabaId) {
+            $res['CustWabaId'] = $this->custWabaId;
+        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -60,11 +62,11 @@ class GetChatappTemplateDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustWabaId'])) {
+            $model->custWabaId = $map['CustWabaId'];
+        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

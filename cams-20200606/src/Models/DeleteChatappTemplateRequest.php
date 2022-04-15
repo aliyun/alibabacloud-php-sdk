@@ -9,12 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteChatappTemplateRequest extends Model
 {
     /**
+     * @description ISV客户wabaId
+     *
+     * @var string
+     */
+    public $custWabaId;
+
+    /**
      * @description 模板编码
      *
      * @var string
      */
     public $templateCode;
     protected $_name = [
+        'custWabaId'   => 'CustWabaId',
         'templateCode' => 'TemplateCode',
     ];
 
@@ -25,6 +33,9 @@ class DeleteChatappTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->custWabaId) {
+            $res['CustWabaId'] = $this->custWabaId;
+        }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
@@ -40,6 +51,9 @@ class DeleteChatappTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustWabaId'])) {
+            $model->custWabaId = $map['CustWabaId'];
+        }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
