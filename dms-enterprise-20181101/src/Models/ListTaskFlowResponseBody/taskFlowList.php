@@ -4,17 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponseBody;
 
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponseBody\taskFlowList\DAGInstance;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponseBody\taskFlowList\taskFlow;
 use AlibabaCloud\Tea\Model;
 
 class taskFlowList extends Model
 {
     /**
-     * @var DAGInstance[]
+     * @var taskFlow[]
      */
-    public $DAGInstance;
+    public $taskFlow;
     protected $_name = [
-        'DAGInstance' => 'DAGInstance',
+        'taskFlow' => 'TaskFlow',
     ];
 
     public function validate()
@@ -24,12 +24,12 @@ class taskFlowList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DAGInstance) {
-            $res['DAGInstance'] = [];
-            if (null !== $this->DAGInstance && \is_array($this->DAGInstance)) {
+        if (null !== $this->taskFlow) {
+            $res['TaskFlow'] = [];
+            if (null !== $this->taskFlow && \is_array($this->taskFlow)) {
                 $n = 0;
-                foreach ($this->DAGInstance as $item) {
-                    $res['DAGInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->taskFlow as $item) {
+                    $res['TaskFlow'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -45,12 +45,12 @@ class taskFlowList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DAGInstance'])) {
-            if (!empty($map['DAGInstance'])) {
-                $model->DAGInstance = [];
-                $n                  = 0;
-                foreach ($map['DAGInstance'] as $item) {
-                    $model->DAGInstance[$n++] = null !== $item ? DAGInstance::fromMap($item) : $item;
+        if (isset($map['TaskFlow'])) {
+            if (!empty($map['TaskFlow'])) {
+                $model->taskFlow = [];
+                $n               = 0;
+                foreach ($map['TaskFlow'] as $item) {
+                    $model->taskFlow[$n++] = null !== $item ? taskFlow::fromMap($item) : $item;
                 }
             }
         }

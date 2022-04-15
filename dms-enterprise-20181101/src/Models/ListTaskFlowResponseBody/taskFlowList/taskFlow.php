@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponseBo
 
 use AlibabaCloud\Tea\Model;
 
-class DAGInstance extends Model
+class taskFlow extends Model
 {
     /**
      * @var string
@@ -96,7 +96,7 @@ class DAGInstance extends Model
     /**
      * @param array $map
      *
-     * @return DAGInstance
+     * @return taskFlow
      */
     public static function fromMap($map = [])
     {
