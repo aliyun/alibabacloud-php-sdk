@@ -7818,6 +7818,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
+        if (!Utils::isUnset($request->vpcTargetHostName)) {
+            $query['VpcTargetHostName'] = $request->vpcTargetHostName;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

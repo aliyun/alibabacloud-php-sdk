@@ -63,15 +63,21 @@ class vpcAccessAttribute extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vpcTargetHostName;
     protected $_name = [
-        'createdTime' => 'CreatedTime',
-        'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'port'        => 'Port',
-        'regionId'    => 'RegionId',
-        'vpcAccessId' => 'VpcAccessId',
-        'vpcId'       => 'VpcId',
+        'createdTime'       => 'CreatedTime',
+        'description'       => 'Description',
+        'instanceId'        => 'InstanceId',
+        'name'              => 'Name',
+        'port'              => 'Port',
+        'regionId'          => 'RegionId',
+        'vpcAccessId'       => 'VpcAccessId',
+        'vpcId'             => 'VpcId',
+        'vpcTargetHostName' => 'VpcTargetHostName',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class vpcAccessAttribute extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vpcTargetHostName) {
+            $res['VpcTargetHostName'] = $this->vpcTargetHostName;
         }
 
         return $res;
@@ -140,6 +149,9 @@ class vpcAccessAttribute extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VpcTargetHostName'])) {
+            $model->vpcTargetHostName = $map['VpcTargetHostName'];
         }
 
         return $model;
