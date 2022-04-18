@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
     public $x;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $y;
     protected $_name = [
@@ -48,10 +48,14 @@ class data extends Model
     {
         $model = new self();
         if (isset($map['X'])) {
-            $model->x = $map['X'];
+            if (!empty($map['X'])) {
+                $model->x = $map['X'];
+            }
         }
         if (isset($map['Y'])) {
-            $model->y = $map['Y'];
+            if (!empty($map['Y'])) {
+                $model->y = $map['Y'];
+            }
         }
 
         return $model;

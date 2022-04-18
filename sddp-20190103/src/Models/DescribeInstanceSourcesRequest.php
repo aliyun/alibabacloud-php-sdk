@@ -11,6 +11,16 @@ class DescribeInstanceSourcesRequest extends Model
     /**
      * @var int
      */
+    public $auditStatus;
+
+    /**
+     * @var int
+     */
+    public $authStatus;
+
+    /**
+     * @var int
+     */
     public $currentPage;
 
     /**
@@ -34,6 +44,11 @@ class DescribeInstanceSourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $productCode;
+
+    /**
      * @var int
      */
     public $productId;
@@ -41,14 +56,29 @@ class DescribeInstanceSourcesRequest extends Model
     /**
      * @var string
      */
+    public $searchKey;
+
+    /**
+     * @var string
+     */
+    public $searchType;
+
+    /**
+     * @var string
+     */
     public $serviceRegionId;
     protected $_name = [
+        'auditStatus'     => 'AuditStatus',
+        'authStatus'      => 'AuthStatus',
         'currentPage'     => 'CurrentPage',
         'engineType'      => 'EngineType',
         'instanceId'      => 'InstanceId',
         'lang'            => 'Lang',
         'pageSize'        => 'PageSize',
+        'productCode'     => 'ProductCode',
         'productId'       => 'ProductId',
+        'searchKey'       => 'SearchKey',
+        'searchType'      => 'SearchType',
         'serviceRegionId' => 'ServiceRegionId',
     ];
 
@@ -59,6 +89,12 @@ class DescribeInstanceSourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->auditStatus) {
+            $res['AuditStatus'] = $this->auditStatus;
+        }
+        if (null !== $this->authStatus) {
+            $res['AuthStatus'] = $this->authStatus;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -74,8 +110,17 @@ class DescribeInstanceSourcesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
+        }
+        if (null !== $this->searchKey) {
+            $res['SearchKey'] = $this->searchKey;
+        }
+        if (null !== $this->searchType) {
+            $res['SearchType'] = $this->searchType;
         }
         if (null !== $this->serviceRegionId) {
             $res['ServiceRegionId'] = $this->serviceRegionId;
@@ -92,6 +137,12 @@ class DescribeInstanceSourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuditStatus'])) {
+            $model->auditStatus = $map['AuditStatus'];
+        }
+        if (isset($map['AuthStatus'])) {
+            $model->authStatus = $map['AuthStatus'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -107,8 +158,17 @@ class DescribeInstanceSourcesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
+        }
+        if (isset($map['SearchKey'])) {
+            $model->searchKey = $map['SearchKey'];
+        }
+        if (isset($map['SearchType'])) {
+            $model->searchType = $map['SearchType'];
         }
         if (isset($map['ServiceRegionId'])) {
             $model->serviceRegionId = $map['ServiceRegionId'];

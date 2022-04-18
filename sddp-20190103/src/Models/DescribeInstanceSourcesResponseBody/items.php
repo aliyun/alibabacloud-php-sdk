@@ -24,6 +24,16 @@ class items extends Model
     public $canModifyUserName;
 
     /**
+     * @var int
+     */
+    public $checkStatus;
+
+    /**
+     * @var int
+     */
+    public $datamaskStatus;
+
+    /**
      * @var string
      */
     public $dbName;
@@ -37,6 +47,11 @@ class items extends Model
      * @var string
      */
     public $engineType;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var int
@@ -99,6 +114,11 @@ class items extends Model
     public $regionName;
 
     /**
+     * @var int
+     */
+    public $samplingSize;
+
+    /**
      * @var string
      */
     public $tenantId;
@@ -116,9 +136,12 @@ class items extends Model
         'auditStatus'         => 'AuditStatus',
         'autoScan'            => 'AutoScan',
         'canModifyUserName'   => 'CanModifyUserName',
+        'checkStatus'         => 'CheckStatus',
+        'datamaskStatus'      => 'DatamaskStatus',
         'dbName'              => 'DbName',
         'enable'              => 'Enable',
         'engineType'          => 'EngineType',
+        'errorMessage'        => 'ErrorMessage',
         'gmtCreate'           => 'GmtCreate',
         'id'                  => 'Id',
         'instanceDescription' => 'InstanceDescription',
@@ -131,6 +154,7 @@ class items extends Model
         'productId'           => 'ProductId',
         'regionId'            => 'RegionId',
         'regionName'          => 'RegionName',
+        'samplingSize'        => 'SamplingSize',
         'tenantId'            => 'TenantId',
         'tenantName'          => 'TenantName',
         'userName'            => 'UserName',
@@ -152,6 +176,12 @@ class items extends Model
         if (null !== $this->canModifyUserName) {
             $res['CanModifyUserName'] = $this->canModifyUserName;
         }
+        if (null !== $this->checkStatus) {
+            $res['CheckStatus'] = $this->checkStatus;
+        }
+        if (null !== $this->datamaskStatus) {
+            $res['DatamaskStatus'] = $this->datamaskStatus;
+        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
@@ -160,6 +190,9 @@ class items extends Model
         }
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -197,6 +230,9 @@ class items extends Model
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
+        if (null !== $this->samplingSize) {
+            $res['SamplingSize'] = $this->samplingSize;
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -227,6 +263,12 @@ class items extends Model
         if (isset($map['CanModifyUserName'])) {
             $model->canModifyUserName = $map['CanModifyUserName'];
         }
+        if (isset($map['CheckStatus'])) {
+            $model->checkStatus = $map['CheckStatus'];
+        }
+        if (isset($map['DatamaskStatus'])) {
+            $model->datamaskStatus = $map['DatamaskStatus'];
+        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
@@ -235,6 +277,9 @@ class items extends Model
         }
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
@@ -271,6 +316,9 @@ class items extends Model
         }
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
+        }
+        if (isset($map['SamplingSize'])) {
+            $model->samplingSize = $map['SamplingSize'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

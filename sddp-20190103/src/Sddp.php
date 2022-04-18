@@ -1289,6 +1289,12 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->auditStatus)) {
+            $query['AuditStatus'] = $request->auditStatus;
+        }
+        if (!Utils::isUnset($request->authStatus)) {
+            $query['AuthStatus'] = $request->authStatus;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -1304,8 +1310,17 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
         if (!Utils::isUnset($request->productId)) {
             $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->searchType)) {
+            $query['SearchType'] = $request->searchType;
         }
         if (!Utils::isUnset($request->serviceRegionId)) {
             $query['ServiceRegionId'] = $request->serviceRegionId;
