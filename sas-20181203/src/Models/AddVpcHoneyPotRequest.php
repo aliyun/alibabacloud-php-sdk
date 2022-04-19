@@ -12,14 +12,8 @@ class AddVpcHoneyPotRequest extends Model
      * @var string
      */
     public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vpcSwitchId;
     protected $_name = [
-        'vpcId'       => 'VpcId',
-        'vpcSwitchId' => 'VpcSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class AddVpcHoneyPotRequest extends Model
         $res = [];
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vpcSwitchId) {
-            $res['VpcSwitchId'] = $this->vpcSwitchId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class AddVpcHoneyPotRequest extends Model
         $model = new self();
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VpcSwitchId'])) {
-            $model->vpcSwitchId = $map['VpcSwitchId'];
         }
 
         return $model;

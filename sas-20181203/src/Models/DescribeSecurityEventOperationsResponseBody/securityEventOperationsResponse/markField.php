@@ -32,12 +32,20 @@ class markField extends Model
      * @var string[]
      */
     public $supportedMisType;
+
+    /**
+     * @description 资产uuid
+     *
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'filedAliasName'   => 'FiledAliasName',
         'filedName'        => 'FiledName',
         'markMisType'      => 'MarkMisType',
         'markMisValue'     => 'MarkMisValue',
         'supportedMisType' => 'SupportedMisType',
+        'uuid'             => 'Uuid',
     ];
 
     public function validate()
@@ -61,6 +69,9 @@ class markField extends Model
         }
         if (null !== $this->supportedMisType) {
             $res['SupportedMisType'] = $this->supportedMisType;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -90,6 +101,9 @@ class markField extends Model
             if (!empty($map['SupportedMisType'])) {
                 $model->supportedMisType = $map['SupportedMisType'];
             }
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

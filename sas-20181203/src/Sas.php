@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyRequest;
@@ -326,6 +328,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsRequest;
@@ -458,9 +462,6 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
-        }
-        if (!Utils::isUnset($request->vpcSwitchId)) {
-            $query['VpcSwitchId'] = $request->vpcSwitchId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -794,6 +795,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSimilarSecurityEventsQueryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVulAutoRepairConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateVulAutoRepairConfigResponse
+     */
+    public function createVulAutoRepairConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->vulAutoRepairConfigList)) {
+            $query['VulAutoRepairConfigList'] = $request->vulAutoRepairConfigList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVulAutoRepairConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVulAutoRepairConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVulAutoRepairConfigRequest $request
+     *
+     * @return CreateVulAutoRepairConfigResponse
+     */
+    public function createVulAutoRepairConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVulAutoRepairConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -9352,6 +9402,72 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryGroupIdByGroupNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryGroupedSecurityEventMarkMissListRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return QueryGroupedSecurityEventMarkMissListResponse
+     */
+    public function queryGroupedSecurityEventMarkMissListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $body['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $body['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $body['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->maxId)) {
+            $body['MaxId'] = $request->maxId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $body['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGroupedSecurityEventMarkMissList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGroupedSecurityEventMarkMissListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryGroupedSecurityEventMarkMissListRequest $request
+     *
+     * @return QueryGroupedSecurityEventMarkMissListResponse
+     */
+    public function queryGroupedSecurityEventMarkMissList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGroupedSecurityEventMarkMissListWithOptions($request, $runtime);
     }
 
     /**
