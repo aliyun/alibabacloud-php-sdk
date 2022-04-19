@@ -81,11 +81,6 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $hiddenZoneId;
-
-    /**
-     * @var string
-     */
     public $networkType;
 
     /**
@@ -141,11 +136,6 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $secondaryZoneId;
-
-    /**
-     * @var string
-     */
     public $securityIPList;
 
     /**
@@ -192,7 +182,6 @@ class CreateDBInstanceRequest extends Model
         'databaseNames'         => 'DatabaseNames',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
-        'hiddenZoneId'          => 'HiddenZoneId',
         'networkType'           => 'NetworkType',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
@@ -204,7 +193,6 @@ class CreateDBInstanceRequest extends Model
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'restoreTime'           => 'RestoreTime',
-        'secondaryZoneId'       => 'SecondaryZoneId',
         'securityIPList'        => 'SecurityIPList',
         'securityToken'         => 'SecurityToken',
         'srcDBInstanceId'       => 'SrcDBInstanceId',
@@ -263,9 +251,6 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->hiddenZoneId) {
-            $res['HiddenZoneId'] = $this->hiddenZoneId;
-        }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
@@ -298,9 +283,6 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
-        }
-        if (null !== $this->secondaryZoneId) {
-            $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
@@ -377,9 +359,6 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['HiddenZoneId'])) {
-            $model->hiddenZoneId = $map['HiddenZoneId'];
-        }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
@@ -412,9 +391,6 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
-        }
-        if (isset($map['SecondaryZoneId'])) {
-            $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];

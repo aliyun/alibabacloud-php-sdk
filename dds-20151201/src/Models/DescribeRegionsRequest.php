@@ -11,6 +11,11 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -38,6 +43,7 @@ class DescribeRegionsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
+        'acceptLanguage'       => 'AcceptLanguage',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -53,6 +59,9 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -83,6 +92,9 @@ class DescribeRegionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

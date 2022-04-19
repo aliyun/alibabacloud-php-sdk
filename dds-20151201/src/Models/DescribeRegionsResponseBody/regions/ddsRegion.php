@@ -15,12 +15,18 @@ class ddsRegion extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $regionName;
+
+    /**
      * @var zones
      */
     public $zones;
     protected $_name = [
-        'regionId' => 'RegionId',
-        'zones'    => 'Zones',
+        'regionId'   => 'RegionId',
+        'regionName' => 'RegionName',
+        'zones'      => 'Zones',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class ddsRegion extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
         }
         if (null !== $this->zones) {
             $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
@@ -50,6 +59,9 @@ class ddsRegion extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
         }
         if (isset($map['Zones'])) {
             $model->zones = zones::fromMap($map['Zones']);

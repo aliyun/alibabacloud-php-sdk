@@ -22,8 +22,6 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeBatchRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeBatchResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeResponse;
-use AlibabaCloud\SDK\Dds\V20151201\Models\CreateRecommendationTaskRequest;
-use AlibabaCloud\SDK\Dds\V20151201\Models\CreateRecommendationTaskResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateServerlessDBInstanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateServerlessDBInstanceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest;
@@ -38,8 +36,6 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskCountReques
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskCountResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskTypeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskTypeResponse;
-use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditFilesRequest;
-use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditFilesResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditLogFilterRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditLogFilterResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditPolicyRequest;
@@ -50,8 +46,6 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableEngineVersionRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableEngineVersionResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponse;
-use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableTimeRangeRequest;
-use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableTimeRangeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupDBsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupDBsResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupPolicyRequest;
@@ -663,9 +657,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->hiddenZoneId)) {
-            $query['HiddenZoneId'] = $request->hiddenZoneId;
-        }
         if (!Utils::isUnset($request->networkType)) {
             $query['NetworkType'] = $request->networkType;
         }
@@ -698,9 +689,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
-        }
-        if (!Utils::isUnset($request->secondaryZoneId)) {
-            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
@@ -909,73 +897,6 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNodeBatchWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateRecommendationTaskRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateRecommendationTaskResponse
-     */
-    public function createRecommendationTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateRecommendationTask',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateRecommendationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateRecommendationTaskRequest $request
-     *
-     * @return CreateRecommendationTaskResponse
-     */
-    public function createRecommendationTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRecommendationTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1511,73 +1432,6 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuditFilesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeAuditFilesResponse
-     */
-    public function describeAuditFilesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAuditFiles',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAuditFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAuditFilesRequest $request
-     *
-     * @return DescribeAuditFilesResponse
-     */
-    public function describeAuditFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAuditFilesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeAuditLogFilterRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1910,67 +1764,6 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAvailableTimeRangeRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeAvailableTimeRangeResponse
-     */
-    public function describeAvailableTimeRangeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableTimeRange',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAvailableTimeRangeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableTimeRangeRequest $request
-     *
-     * @return DescribeAvailableTimeRangeResponse
-     */
-    public function describeAvailableTimeRange($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableTimeRangeWithOptions($request, $runtime);
     }
 
     /**
@@ -3410,6 +3203,9 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
