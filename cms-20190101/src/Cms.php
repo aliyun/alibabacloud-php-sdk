@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\AddTagsRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\AddTagsResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateOnceSiteMonitorRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateOnceSiteMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsOrderRequest;
@@ -440,6 +442,49 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyMetricRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchCreateOnceSiteMonitorRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BatchCreateOnceSiteMonitorResponse
+     */
+    public function batchCreateOnceSiteMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskList)) {
+            $query['TaskList'] = $request->taskList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCreateOnceSiteMonitor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchCreateOnceSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchCreateOnceSiteMonitorRequest $request
+     *
+     * @return BatchCreateOnceSiteMonitorResponse
+     */
+    public function batchCreateOnceSiteMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateOnceSiteMonitorWithOptions($request, $runtime);
     }
 
     /**
@@ -2349,8 +2394,11 @@ class Cms extends OpenApiClient
     public function describeActiveMetricRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2358,7 +2406,7 @@ class Cms extends OpenApiClient
             'version'     => '2019-01-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -7247,6 +7295,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
         if (!Utils::isUnset($request->metricName)) {
             $query['MetricName'] = $request->metricName;
         }
@@ -7493,6 +7544,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupRules)) {
             $query['GroupRules'] = $request->groupRules;
+        }
+        if (!Utils::isUnset($request->isAsync)) {
+            $query['IsAsync'] = $request->isAsync;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -20,12 +20,18 @@ class PutMonitorGroupDynamicRuleRequest extends Model
     public $groupRules;
 
     /**
+     * @var bool
+     */
+    public $isAsync;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'groupId'    => 'GroupId',
         'groupRules' => 'GroupRules',
+        'isAsync'    => 'IsAsync',
         'regionId'   => 'RegionId',
     ];
 
@@ -47,6 +53,9 @@ class PutMonitorGroupDynamicRuleRequest extends Model
                     $res['GroupRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isAsync) {
+            $res['IsAsync'] = $this->isAsync;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -74,6 +83,9 @@ class PutMonitorGroupDynamicRuleRequest extends Model
                     $model->groupRules[$n++] = null !== $item ? groupRules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IsAsync'])) {
+            $model->isAsync = $map['IsAsync'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

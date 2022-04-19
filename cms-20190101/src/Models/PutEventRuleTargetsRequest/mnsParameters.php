@@ -22,10 +22,16 @@ class mnsParameters extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $topic;
     protected $_name = [
         'id'     => 'Id',
         'queue'  => 'Queue',
         'region' => 'Region',
+        'topic'  => 'Topic',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class mnsParameters extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class mnsParameters extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

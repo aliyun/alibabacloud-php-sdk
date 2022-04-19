@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest;
 
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest\rules\escalations;
+use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest\rules\labels;
 use AlibabaCloud\Tea\Model;
 
 class rules extends Model
@@ -33,6 +34,11 @@ class rules extends Model
      * @var string
      */
     public $interval;
+
+    /**
+     * @var labels[]
+     */
+    public $labels;
 
     /**
      * @var string
@@ -89,6 +95,7 @@ class rules extends Model
         'effectiveInterval'   => 'EffectiveInterval',
         'emailSubject'        => 'EmailSubject',
         'interval'            => 'Interval',
+        'labels'              => 'Labels',
         'metricName'          => 'MetricName',
         'namespace'           => 'Namespace',
         'noDataPolicy'        => 'NoDataPolicy',
@@ -123,6 +130,15 @@ class rules extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
@@ -180,6 +196,15 @@ class rules extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
