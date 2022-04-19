@@ -24,6 +24,11 @@ class UpgradeDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $instanceSpec;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -37,13 +42,38 @@ class UpgradeDBInstanceRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $segNodeNum;
+
+    /**
+     * @var string
+     */
+    public $storageSize;
+
+    /**
+     * @var string
+     */
+    public $masterNodeNum;
+
+    /**
+     * @var int
+     */
+    public $upgradeType;
     protected $_name = [
         'DBInstanceClass'      => 'DBInstanceClass',
         'DBInstanceGroupCount' => 'DBInstanceGroupCount',
         'DBInstanceId'         => 'DBInstanceId',
+        'instanceSpec'         => 'InstanceSpec',
         'ownerId'              => 'OwnerId',
         'payType'              => 'PayType',
         'regionId'             => 'RegionId',
+        'segNodeNum'           => 'SegNodeNum',
+        'storageSize'          => 'StorageSize',
+        'masterNodeNum'        => 'masterNodeNum',
+        'upgradeType'          => 'upgradeType',
     ];
 
     public function validate()
@@ -62,6 +92,9 @@ class UpgradeDBInstanceRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -70,6 +103,18 @@ class UpgradeDBInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->segNodeNum) {
+            $res['SegNodeNum'] = $this->segNodeNum;
+        }
+        if (null !== $this->storageSize) {
+            $res['StorageSize'] = $this->storageSize;
+        }
+        if (null !== $this->masterNodeNum) {
+            $res['masterNodeNum'] = $this->masterNodeNum;
+        }
+        if (null !== $this->upgradeType) {
+            $res['upgradeType'] = $this->upgradeType;
         }
 
         return $res;
@@ -92,6 +137,9 @@ class UpgradeDBInstanceRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,6 +148,18 @@ class UpgradeDBInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SegNodeNum'])) {
+            $model->segNodeNum = $map['SegNodeNum'];
+        }
+        if (isset($map['StorageSize'])) {
+            $model->storageSize = $map['StorageSize'];
+        }
+        if (isset($map['masterNodeNum'])) {
+            $model->masterNodeNum = $map['masterNodeNum'];
+        }
+        if (isset($map['upgradeType'])) {
+            $model->upgradeType = $map['upgradeType'];
         }
 
         return $model;

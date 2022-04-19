@@ -25,6 +25,11 @@ class DBInstanceAttribute extends Model
     public $connectionString;
 
     /**
+     * @var string
+     */
+    public $coreVersion;
+
+    /**
      * @var int
      */
     public $cpuCores;
@@ -272,6 +277,7 @@ class DBInstanceAttribute extends Model
         'availabilityValue'     => 'AvailabilityValue',
         'connectionMode'        => 'ConnectionMode',
         'connectionString'      => 'ConnectionString',
+        'coreVersion'           => 'CoreVersion',
         'cpuCores'              => 'CpuCores',
         'cpuCoresPerNode'       => 'CpuCoresPerNode',
         'creationTime'          => 'CreationTime',
@@ -338,6 +344,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->coreVersion) {
+            $res['CoreVersion'] = $this->coreVersion;
         }
         if (null !== $this->cpuCores) {
             $res['CpuCores'] = $this->cpuCores;
@@ -506,6 +515,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['CoreVersion'])) {
+            $model->coreVersion = $map['CoreVersion'];
         }
         if (isset($map['CpuCores'])) {
             $model->cpuCores = $map['CpuCores'];

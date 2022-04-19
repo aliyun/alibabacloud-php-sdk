@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataBackupsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataShareInstancesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataShareInstancesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataSharePerformanceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataSharePerformanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterNodeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterNodeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterPerformanceRequest;
@@ -1560,6 +1562,58 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDataShareInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataSharePerformanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDataSharePerformanceResponse
+     */
+    public function describeDataSharePerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataSharePerformance',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataSharePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataSharePerformanceRequest $request
+     *
+     * @return DescribeDataSharePerformanceResponse
+     */
+    public function describeDataSharePerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataSharePerformanceWithOptions($request, $runtime);
     }
 
     /**
@@ -3725,6 +3779,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
@@ -3733,6 +3790,18 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->segNodeNum)) {
+            $query['SegNodeNum'] = $request->segNodeNum;
+        }
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
+        }
+        if (!Utils::isUnset($request->masterNodeNum)) {
+            $query['masterNodeNum'] = $request->masterNodeNum;
+        }
+        if (!Utils::isUnset($request->upgradeType)) {
+            $query['upgradeType'] = $request->upgradeType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
