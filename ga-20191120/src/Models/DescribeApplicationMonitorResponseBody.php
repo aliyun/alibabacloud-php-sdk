@@ -20,9 +20,19 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $address;
 
     /**
-     * @var string
+     * @var bool
+     */
+    public $detectEnable;
+
+    /**
+     * @var int
      */
     public $detectThreshold;
+
+    /**
+     * @var int
+     */
+    public $detectTimes;
 
     /**
      * @var ispCityList[]
@@ -50,6 +60,11 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $silenceTime;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -61,12 +76,15 @@ class DescribeApplicationMonitorResponseBody extends Model
     protected $_name = [
         'acceleratorId'   => 'AcceleratorId',
         'address'         => 'Address',
+        'detectEnable'    => 'DetectEnable',
         'detectThreshold' => 'DetectThreshold',
+        'detectTimes'     => 'DetectTimes',
         'ispCityList'     => 'IspCityList',
         'listenerId'      => 'ListenerId',
         'optionsJson'     => 'OptionsJson',
         'regionId'        => 'RegionId',
         'requestId'       => 'RequestId',
+        'silenceTime'     => 'SilenceTime',
         'taskId'          => 'TaskId',
         'taskName'        => 'TaskName',
     ];
@@ -84,8 +102,14 @@ class DescribeApplicationMonitorResponseBody extends Model
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+        if (null !== $this->detectEnable) {
+            $res['DetectEnable'] = $this->detectEnable;
+        }
         if (null !== $this->detectThreshold) {
             $res['DetectThreshold'] = $this->detectThreshold;
+        }
+        if (null !== $this->detectTimes) {
+            $res['DetectTimes'] = $this->detectTimes;
         }
         if (null !== $this->ispCityList) {
             $res['IspCityList'] = [];
@@ -107,6 +131,9 @@ class DescribeApplicationMonitorResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->silenceTime) {
+            $res['SilenceTime'] = $this->silenceTime;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -132,8 +159,14 @@ class DescribeApplicationMonitorResponseBody extends Model
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+        if (isset($map['DetectEnable'])) {
+            $model->detectEnable = $map['DetectEnable'];
+        }
         if (isset($map['DetectThreshold'])) {
             $model->detectThreshold = $map['DetectThreshold'];
+        }
+        if (isset($map['DetectTimes'])) {
+            $model->detectTimes = $map['DetectTimes'];
         }
         if (isset($map['IspCityList'])) {
             if (!empty($map['IspCityList'])) {
@@ -155,6 +188,9 @@ class DescribeApplicationMonitorResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SilenceTime'])) {
+            $model->silenceTime = $map['SilenceTime'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

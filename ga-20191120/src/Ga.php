@@ -823,8 +823,14 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->detectEnable)) {
+            $query['DetectEnable'] = $request->detectEnable;
+        }
         if (!Utils::isUnset($request->detectThreshold)) {
             $query['DetectThreshold'] = $request->detectThreshold;
+        }
+        if (!Utils::isUnset($request->detectTimes)) {
+            $query['DetectTimes'] = $request->detectTimes;
         }
         if (!Utils::isUnset($request->listenerId)) {
             $query['ListenerId'] = $request->listenerId;
@@ -834,6 +840,9 @@ class Ga extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->silenceTime)) {
+            $query['SilenceTime'] = $request->silenceTime;
         }
         if (!Utils::isUnset($request->taskName)) {
             $query['TaskName'] = $request->taskName;
@@ -4538,8 +4547,14 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->detectEnable)) {
+            $query['DetectEnable'] = $request->detectEnable;
+        }
         if (!Utils::isUnset($request->detectThreshold)) {
             $query['DetectThreshold'] = $request->detectThreshold;
+        }
+        if (!Utils::isUnset($request->detectTimes)) {
+            $query['DetectTimes'] = $request->detectTimes;
         }
         if (!Utils::isUnset($request->listenerId)) {
             $query['ListenerId'] = $request->listenerId;
@@ -4549,6 +4564,9 @@ class Ga extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->silenceTime)) {
+            $query['SilenceTime'] = $request->silenceTime;
         }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;

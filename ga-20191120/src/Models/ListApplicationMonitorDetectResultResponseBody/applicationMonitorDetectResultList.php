@@ -16,7 +16,17 @@ class applicationMonitorDetectResultList extends Model
     /**
      * @var string
      */
+    public $content;
+
+    /**
+     * @var string
+     */
     public $detail;
+
+    /**
+     * @var string
+     */
+    public $detectTime;
 
     /**
      * @var string
@@ -41,14 +51,22 @@ class applicationMonitorDetectResultList extends Model
     /**
      * @var string
      */
+    public $statusCode;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
         'acceleratorId' => 'AcceleratorId',
+        'content'       => 'Content',
         'detail'        => 'Detail',
+        'detectTime'    => 'DetectTime',
         'diagStatus'    => 'DiagStatus',
         'listenerId'    => 'ListenerId',
         'port'          => 'Port',
         'protocol'      => 'Protocol',
+        'statusCode'    => 'StatusCode',
         'taskId'        => 'TaskId',
     ];
 
@@ -62,8 +80,14 @@ class applicationMonitorDetectResultList extends Model
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->detectTime) {
+            $res['DetectTime'] = $this->detectTime;
         }
         if (null !== $this->diagStatus) {
             $res['DiagStatus'] = $this->diagStatus;
@@ -76,6 +100,9 @@ class applicationMonitorDetectResultList extends Model
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -95,8 +122,14 @@ class applicationMonitorDetectResultList extends Model
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['DetectTime'])) {
+            $model->detectTime = $map['DetectTime'];
         }
         if (isset($map['DiagStatus'])) {
             $model->diagStatus = $map['DiagStatus'];
@@ -109,6 +142,9 @@ class applicationMonitorDetectResultList extends Model
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

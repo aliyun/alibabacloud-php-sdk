@@ -19,9 +19,19 @@ class UpdateApplicationMonitorRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $detectEnable;
+
+    /**
      * @var int
      */
     public $detectThreshold;
+
+    /**
+     * @var int
+     */
+    public $detectTimes;
 
     /**
      * @var string
@@ -39,6 +49,11 @@ class UpdateApplicationMonitorRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $silenceTime;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -50,10 +65,13 @@ class UpdateApplicationMonitorRequest extends Model
     protected $_name = [
         'address'         => 'Address',
         'clientToken'     => 'ClientToken',
+        'detectEnable'    => 'DetectEnable',
         'detectThreshold' => 'DetectThreshold',
+        'detectTimes'     => 'DetectTimes',
         'listenerId'      => 'ListenerId',
         'optionsJson'     => 'OptionsJson',
         'regionId'        => 'RegionId',
+        'silenceTime'     => 'SilenceTime',
         'taskId'          => 'TaskId',
         'taskName'        => 'TaskName',
     ];
@@ -71,8 +89,14 @@ class UpdateApplicationMonitorRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->detectEnable) {
+            $res['DetectEnable'] = $this->detectEnable;
+        }
         if (null !== $this->detectThreshold) {
             $res['DetectThreshold'] = $this->detectThreshold;
+        }
+        if (null !== $this->detectTimes) {
+            $res['DetectTimes'] = $this->detectTimes;
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
@@ -82,6 +106,9 @@ class UpdateApplicationMonitorRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->silenceTime) {
+            $res['SilenceTime'] = $this->silenceTime;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -107,8 +134,14 @@ class UpdateApplicationMonitorRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['DetectEnable'])) {
+            $model->detectEnable = $map['DetectEnable'];
+        }
         if (isset($map['DetectThreshold'])) {
             $model->detectThreshold = $map['DetectThreshold'];
+        }
+        if (isset($map['DetectTimes'])) {
+            $model->detectTimes = $map['DetectTimes'];
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
@@ -118,6 +151,9 @@ class UpdateApplicationMonitorRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SilenceTime'])) {
+            $model->silenceTime = $map['SilenceTime'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
