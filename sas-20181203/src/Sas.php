@@ -3326,6 +3326,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->aliasName)) {
             $query['AliasName'] = $request->aliasName;
         }
+        if (!Utils::isUnset($request->attachTypes)) {
+            $query['AttachTypes'] = $request->attachTypes;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }

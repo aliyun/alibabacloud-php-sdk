@@ -14,6 +14,11 @@ class DescribeGroupedVulRequest extends Model
     public $aliasName;
 
     /**
+     * @var string
+     */
+    public $attachTypes;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -59,6 +64,7 @@ class DescribeGroupedVulRequest extends Model
     public $uuids;
     protected $_name = [
         'aliasName'   => 'AliasName',
+        'attachTypes' => 'AttachTypes',
         'currentPage' => 'CurrentPage',
         'dealed'      => 'Dealed',
         'groupId'     => 'GroupId',
@@ -79,6 +85,9 @@ class DescribeGroupedVulRequest extends Model
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->attachTypes) {
+            $res['AttachTypes'] = $this->attachTypes;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -121,6 +130,9 @@ class DescribeGroupedVulRequest extends Model
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['AttachTypes'])) {
+            $model->attachTypes = $map['AttachTypes'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
