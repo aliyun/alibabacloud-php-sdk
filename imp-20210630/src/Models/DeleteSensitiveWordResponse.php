@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListRoomLivesResponse extends Model
+class DeleteSensitiveWordResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ListRoomLivesResponse extends Model
     public $headers;
 
     /**
-     * @var ListRoomLivesResponseBody
+     * @var DeleteSensitiveWordResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ListRoomLivesResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListRoomLivesResponse
+     * @return DeleteSensitiveWordResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ListRoomLivesResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ListRoomLivesResponseBody::fromMap($map['body']);
+            $model->body = DeleteSensitiveWordResponseBody::fromMap($map['body']);
         }
 
         return $model;

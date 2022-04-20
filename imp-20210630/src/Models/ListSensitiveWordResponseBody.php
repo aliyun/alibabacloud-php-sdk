@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesResponseBody\result;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListSensitiveWordResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class ListRoomLivesResponseBody extends Model
+class ListSensitiveWordResponseBody extends Model
 {
     /**
      * @description 请求ID。
@@ -17,7 +17,7 @@ class ListRoomLivesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description API请求的返回结果结构体。
+     * @description 调用发送直播间弹幕的返回结果。
      *
      * @var result
      */
@@ -47,7 +47,7 @@ class ListRoomLivesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListRoomLivesResponseBody
+     * @return ListSensitiveWordResponseBody
      */
     public static function fromMap($map = [])
     {

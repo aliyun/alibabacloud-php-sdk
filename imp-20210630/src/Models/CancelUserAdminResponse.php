@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetImpProductStatusResponse extends Model
+class CancelUserAdminResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetImpProductStatusResponse extends Model
     public $headers;
 
     /**
-     * @var GetImpProductStatusResponseBody
+     * @var CancelUserAdminResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetImpProductStatusResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetImpProductStatusResponse
+     * @return CancelUserAdminResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetImpProductStatusResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetImpProductStatusResponseBody::fromMap($map['body']);
+            $model->body = CancelUserAdminResponseBody::fromMap($map['body']);
         }
 
         return $model;

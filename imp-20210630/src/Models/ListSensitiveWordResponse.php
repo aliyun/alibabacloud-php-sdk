@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AttachStandardRoomHttpsCertificateResponse extends Model
+class ListSensitiveWordResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class AttachStandardRoomHttpsCertificateResponse extends Model
     public $headers;
 
     /**
-     * @var AttachStandardRoomHttpsCertificateResponseBody
+     * @var ListSensitiveWordResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class AttachStandardRoomHttpsCertificateResponse extends Model
     /**
      * @param array $map
      *
-     * @return AttachStandardRoomHttpsCertificateResponse
+     * @return ListSensitiveWordResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class AttachStandardRoomHttpsCertificateResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = AttachStandardRoomHttpsCertificateResponseBody::fromMap($map['body']);
+            $model->body = ListSensitiveWordResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -4,21 +4,22 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateSensitiveWordResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class GetImpProductStatusResponseBody extends Model
+class CreateSensitiveWordResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @description 请求ID。
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 开通状态
+     * @description 调用发送直播间弹幕的返回结果。
      *
-     * @var bool
+     * @var result
      */
     public $result;
     protected $_name = [
@@ -37,7 +38,7 @@ class GetImpProductStatusResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -46,7 +47,7 @@ class GetImpProductStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetImpProductStatusResponseBody
+     * @return CreateSensitiveWordResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -55,7 +56,7 @@ class GetImpProductStatusResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+            $model->result = result::fromMap($map['Result']);
         }
 
         return $model;

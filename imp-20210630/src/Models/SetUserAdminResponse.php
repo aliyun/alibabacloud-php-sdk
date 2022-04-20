@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeMeterImpWatchTimeResponse extends Model
+class SetUserAdminResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeMeterImpWatchTimeResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeMeterImpWatchTimeResponseBody
+     * @var SetUserAdminResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeMeterImpWatchTimeResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeMeterImpWatchTimeResponse
+     * @return SetUserAdminResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeMeterImpWatchTimeResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeMeterImpWatchTimeResponseBody::fromMap($map['body']);
+            $model->body = SetUserAdminResponseBody::fromMap($map['body']);
         }
 
         return $model;

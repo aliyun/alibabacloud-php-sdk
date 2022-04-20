@@ -6,32 +6,32 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetCnameDetailRequest extends Model
+class CancelUserAdminRequest extends Model
 {
     /**
-     * @description 应用id
+     * @description 应用唯一标识，由6位小写字母、数字组成。
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 域名的名称
+     * @description 房间唯一标识，由字母、数字、符号.和-组成，最大长度36位。
      *
      * @var string
      */
-    public $domainName;
+    public $roomId;
 
     /**
-     * @description 云产品code
+     * @description 用户ID
      *
      * @var string
      */
-    public $productCode;
+    public $userId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'domainName'  => 'DomainName',
-        'productCode' => 'ProductCode',
+        'appId'  => 'AppId',
+        'roomId' => 'RoomId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class GetCnameDetailRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
         }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -57,7 +57,7 @@ class GetCnameDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetCnameDetailRequest
+     * @return CancelUserAdminRequest
      */
     public static function fromMap($map = [])
     {
@@ -65,11 +65,11 @@ class GetCnameDetailRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
         }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

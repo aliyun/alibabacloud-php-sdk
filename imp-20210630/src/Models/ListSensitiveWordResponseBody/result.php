@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imp\V20210630\Models;
+namespace AlibabaCloud\SDK\Imp\V20210630\Models\ListSensitiveWordResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class GetUserInfoRequest extends Model
+class result extends Model
 {
     /**
-     * @description 云账号id
-     *
-     * @var string
+     * @var string[]
      */
-    public $cloudUid;
+    public $wordList;
     protected $_name = [
-        'cloudUid' => 'CloudUid',
+        'wordList' => 'WordList',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class GetUserInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cloudUid) {
-            $res['CloudUid'] = $this->cloudUid;
+        if (null !== $this->wordList) {
+            $res['WordList'] = $this->wordList;
         }
 
         return $res;
@@ -35,13 +33,15 @@ class GetUserInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetUserInfoRequest
+     * @return result
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CloudUid'])) {
-            $model->cloudUid = $map['CloudUid'];
+        if (isset($map['WordList'])) {
+            if (!empty($map['WordList'])) {
+                $model->wordList = $map['WordList'];
+            }
         }
 
         return $model;

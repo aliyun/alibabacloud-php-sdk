@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imp\V20210630\Models;
+namespace AlibabaCloud\SDK\Imp\V20210630\Models\CreateSensitiveWordResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPageConfigRequest extends Model
+class result extends Model
 {
     /**
-     * @description 云账号id
-     *
-     * @var string
+     * @var bool
      */
-    public $cloudUid;
+    public $success;
     protected $_name = [
-        'cloudUid' => 'CloudUid',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class GetPageConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cloudUid) {
-            $res['CloudUid'] = $this->cloudUid;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class GetPageConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPageConfigRequest
+     * @return result
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CloudUid'])) {
-            $model->cloudUid = $map['CloudUid'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPageConfigResponse extends Model
+class CreateSensitiveWordResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetPageConfigResponse extends Model
     public $headers;
 
     /**
-     * @var GetPageConfigResponseBody
+     * @var CreateSensitiveWordResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetPageConfigResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetPageConfigResponse
+     * @return CreateSensitiveWordResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetPageConfigResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetPageConfigResponseBody::fromMap($map['body']);
+            $model->body = CreateSensitiveWordResponseBody::fromMap($map['body']);
         }
 
         return $model;

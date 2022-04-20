@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class roomInfo extends Model
 {
     /**
+     * @description 管理员ID列表。
+     *
+     * @var string[]
+     */
+    public $adminIdList;
+
+    /**
      * @description 应用唯一标识，由6位小写字母、数字组成。
      *
      * @var string
@@ -93,6 +100,7 @@ class roomInfo extends Model
      */
     public $uv;
     protected $_name = [
+        'adminIdList'            => 'AdminIdList',
         'appId'                  => 'AppId',
         'createTime'             => 'CreateTime',
         'extension'              => 'Extension',
@@ -114,6 +122,9 @@ class roomInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adminIdList) {
+            $res['AdminIdList'] = $this->adminIdList;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -168,6 +179,11 @@ class roomInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdminIdList'])) {
+            if (!empty($map['AdminIdList'])) {
+                $model->adminIdList = $map['AdminIdList'];
+            }
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

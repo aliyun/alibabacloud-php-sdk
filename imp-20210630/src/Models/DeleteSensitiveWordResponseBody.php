@@ -4,20 +4,20 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetCnameDetailResponseBody\result;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteSensitiveWordResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class GetCnameDetailResponseBody extends Model
+class DeleteSensitiveWordResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @description 请求ID。
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 返回结果
+     * @description 调用发送直播间弹幕的返回结果。
      *
      * @var result
      */
@@ -47,7 +47,7 @@ class GetCnameDetailResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetCnameDetailResponseBody
+     * @return DeleteSensitiveWordResponseBody
      */
     public static function fromMap($map = [])
     {

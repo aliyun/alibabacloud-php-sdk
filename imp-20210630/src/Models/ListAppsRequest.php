@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListAppsRequest extends Model
 {
     /**
+     * @description 过滤的应用id列表
+     *
+     * @var string
+     */
+    public $appIds;
+
+    /**
      * @description 集成方式：- 一体化SDK：paasSDK - 样板间：standardRoom
      *
      * @var string
@@ -36,6 +43,7 @@ class ListAppsRequest extends Model
      */
     public $status;
     protected $_name = [
+        'appIds'          => 'AppIds',
         'integrationMode' => 'IntegrationMode',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
@@ -49,6 +57,9 @@ class ListAppsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appIds) {
+            $res['AppIds'] = $this->appIds;
+        }
         if (null !== $this->integrationMode) {
             $res['IntegrationMode'] = $this->integrationMode;
         }
@@ -73,6 +84,9 @@ class ListAppsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppIds'])) {
+            $model->appIds = $map['AppIds'];
+        }
         if (isset($map['IntegrationMode'])) {
             $model->integrationMode = $map['IntegrationMode'];
         }
