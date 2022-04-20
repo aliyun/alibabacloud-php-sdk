@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CancelCallRequest extends Model
+class StopCallInConfigRequest extends Model
 {
     /**
      * @var string
      */
-    public $callId;
+    public $number;
 
     /**
      * @var int
@@ -28,7 +28,7 @@ class CancelCallRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'callId'               => 'CallId',
+        'number'               => 'Number',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -41,8 +41,8 @@ class CancelCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
+        if (null !== $this->number) {
+            $res['Number'] = $this->number;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -60,13 +60,13 @@ class CancelCallRequest extends Model
     /**
      * @param array $map
      *
-     * @return CancelCallRequest
+     * @return StopCallInConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
+        if (isset($map['Number'])) {
+            $model->number = $map['Number'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

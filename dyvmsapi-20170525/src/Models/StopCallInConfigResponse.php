@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ClickToDialResponse extends Model
+class StopCallInConfigResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ClickToDialResponse extends Model
     public $headers;
 
     /**
-     * @var ClickToDialResponseBody
+     * @var StopCallInConfigResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ClickToDialResponse extends Model
     /**
      * @param array $map
      *
-     * @return ClickToDialResponse
+     * @return StopCallInConfigResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ClickToDialResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ClickToDialResponseBody::fromMap($map['body']);
+            $model->body = StopCallInConfigResponseBody::fromMap($map['body']);
         }
 
         return $model;

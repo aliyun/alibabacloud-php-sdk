@@ -12,14 +12,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelCallRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelCallResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelOrderRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelOrderRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClickToDialRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClickToDialResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskRequest;
@@ -74,6 +70,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RecoverCallInConfigRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RecoverCallInConfigResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationRequest;
@@ -90,6 +88,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StartRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StartRobotTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopCallInConfigRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopCallInConfigResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SubmitHotlineTransferRegisterRequest;
@@ -334,58 +334,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CancelCallRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CancelCallResponse
-     */
-    public function cancelCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelCall',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CancelCallResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CancelCallRequest $request
-     *
-     * @return CancelCallResponse
-     */
-    public function cancelCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelCallWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CancelOrderRobotTaskRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -487,82 +435,6 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelRobotTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ClickToDialRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ClickToDialResponse
-     */
-    public function clickToDialWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asrFlag)) {
-            $query['AsrFlag'] = $request->asrFlag;
-        }
-        if (!Utils::isUnset($request->asrModelId)) {
-            $query['AsrModelId'] = $request->asrModelId;
-        }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
-        }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
-        }
-        if (!Utils::isUnset($request->callerNumber)) {
-            $query['CallerNumber'] = $request->callerNumber;
-        }
-        if (!Utils::isUnset($request->callerShowNumber)) {
-            $query['CallerShowNumber'] = $request->callerShowNumber;
-        }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->recordFlag)) {
-            $query['RecordFlag'] = $request->recordFlag;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->sessionTimeout)) {
-            $query['SessionTimeout'] = $request->sessionTimeout;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ClickToDial',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ClickToDialResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ClickToDialRequest $request
-     *
-     * @return ClickToDialResponse
-     */
-    public function clickToDial($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->clickToDialWithOptions($request, $runtime);
     }
 
     /**
@@ -2213,6 +2085,58 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param RecoverCallInConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecoverCallInConfigResponse
+     */
+    public function recoverCallInConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->number)) {
+            $query['Number'] = $request->number;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecoverCallInConfig',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecoverCallInConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecoverCallInConfigRequest $request
+     *
+     * @return RecoverCallInConfigResponse
+     */
+    public function recoverCallInConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoverCallInConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RefreshMqttTokenRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2764,6 +2688,58 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startRobotTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopCallInConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopCallInConfigResponse
+     */
+    public function stopCallInConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->number)) {
+            $query['Number'] = $request->number;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopCallInConfig',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopCallInConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopCallInConfigRequest $request
+     *
+     * @return StopCallInConfigResponse
+     */
+    public function stopCallInConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopCallInConfigWithOptions($request, $runtime);
     }
 
     /**

@@ -6,12 +6,17 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CancelCallResponseBody extends Model
+class StopCallInConfigResponseBody extends Model
 {
     /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var bool
+     */
+    public $data;
 
     /**
      * @var string
@@ -22,16 +27,11 @@ class CancelCallResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $status;
     protected $_name = [
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class CancelCallResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -60,7 +60,7 @@ class CancelCallResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CancelCallResponseBody
+     * @return StopCallInConfigResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +68,14 @@ class CancelCallResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
 
         return $model;

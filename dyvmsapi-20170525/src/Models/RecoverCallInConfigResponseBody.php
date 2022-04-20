@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ClickToDialResponseBody extends Model
+class RecoverCallInConfigResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $callId;
+    public $code;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $code;
+    public $data;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class ClickToDialResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'callId'    => 'CallId',
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
@@ -41,11 +41,11 @@ class ClickToDialResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -60,16 +60,16 @@ class ClickToDialResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ClickToDialResponseBody
+     * @return RecoverCallInConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
