@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\preStop\HTTPGet;
+namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\preStop\httpGet;
 
 use AlibabaCloud\Tea\Model;
 
-class HTTPHeaders extends Model
+class httpHeaders extends Model
 {
     /**
      * @var string
@@ -18,8 +18,8 @@ class HTTPHeaders extends Model
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
-        'value' => 'Value',
+        'name'  => 'name',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -30,10 +30,10 @@ class HTTPHeaders extends Model
     {
         $res = [];
         if (null !== $this->name) {
-            $res['Name'] = $this->name;
+            $res['name'] = $this->name;
         }
         if (null !== $this->value) {
-            $res['Value'] = $this->value;
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class HTTPHeaders extends Model
     /**
      * @param array $map
      *
-     * @return HTTPHeaders
+     * @return httpHeaders
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

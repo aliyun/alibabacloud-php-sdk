@@ -27,6 +27,16 @@ class serviceMeshes extends Model
     public $endpoints;
 
     /**
+     * @var string
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $ownerType;
+
+    /**
      * @var serviceMeshInfo
      */
     public $serviceMeshInfo;
@@ -39,6 +49,8 @@ class serviceMeshes extends Model
         'clusterSpec'     => 'ClusterSpec',
         'clusters'        => 'Clusters',
         'endpoints'       => 'Endpoints',
+        'ownerId'         => 'OwnerId',
+        'ownerType'       => 'OwnerType',
         'serviceMeshInfo' => 'ServiceMeshInfo',
         'spec'            => 'Spec',
     ];
@@ -58,6 +70,12 @@ class serviceMeshes extends Model
         }
         if (null !== $this->endpoints) {
             $res['Endpoints'] = null !== $this->endpoints ? $this->endpoints->toMap() : null;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->ownerType) {
+            $res['OwnerType'] = $this->ownerType;
         }
         if (null !== $this->serviceMeshInfo) {
             $res['ServiceMeshInfo'] = null !== $this->serviceMeshInfo ? $this->serviceMeshInfo->toMap() : null;
@@ -87,6 +105,12 @@ class serviceMeshes extends Model
         }
         if (isset($map['Endpoints'])) {
             $model->endpoints = endpoints::fromMap($map['Endpoints']);
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['OwnerType'])) {
+            $model->ownerType = $map['OwnerType'];
         }
         if (isset($map['ServiceMeshInfo'])) {
             $model->serviceMeshInfo = serviceMeshInfo::fromMap($map['ServiceMeshInfo']);

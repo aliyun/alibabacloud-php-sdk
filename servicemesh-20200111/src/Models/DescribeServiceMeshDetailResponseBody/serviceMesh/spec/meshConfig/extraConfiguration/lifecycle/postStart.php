@@ -5,8 +5,8 @@
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle;
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart\exec;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart\HTTPGet;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart\TCPSocket;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart\httpGet;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart\tcpSocket;
 use AlibabaCloud\Tea\Model;
 
 class postStart extends Model
@@ -17,18 +17,18 @@ class postStart extends Model
     public $exec;
 
     /**
-     * @var HTTPGet
+     * @var httpGet
      */
-    public $HTTPGet;
+    public $httpGet;
 
     /**
-     * @var TCPSocket
+     * @var tcpSocket
      */
-    public $TCPSocket;
+    public $tcpSocket;
     protected $_name = [
-        'exec'      => 'Exec',
-        'HTTPGet'   => 'HTTPGet',
-        'TCPSocket' => 'TCPSocket',
+        'exec'      => 'exec',
+        'httpGet'   => 'httpGet',
+        'tcpSocket' => 'tcpSocket',
     ];
 
     public function validate()
@@ -39,13 +39,13 @@ class postStart extends Model
     {
         $res = [];
         if (null !== $this->exec) {
-            $res['Exec'] = null !== $this->exec ? $this->exec->toMap() : null;
+            $res['exec'] = null !== $this->exec ? $this->exec->toMap() : null;
         }
-        if (null !== $this->HTTPGet) {
-            $res['HTTPGet'] = null !== $this->HTTPGet ? $this->HTTPGet->toMap() : null;
+        if (null !== $this->httpGet) {
+            $res['httpGet'] = null !== $this->httpGet ? $this->httpGet->toMap() : null;
         }
-        if (null !== $this->TCPSocket) {
-            $res['TCPSocket'] = null !== $this->TCPSocket ? $this->TCPSocket->toMap() : null;
+        if (null !== $this->tcpSocket) {
+            $res['tcpSocket'] = null !== $this->tcpSocket ? $this->tcpSocket->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class postStart extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Exec'])) {
-            $model->exec = exec::fromMap($map['Exec']);
+        if (isset($map['exec'])) {
+            $model->exec = exec::fromMap($map['exec']);
         }
-        if (isset($map['HTTPGet'])) {
-            $model->HTTPGet = HTTPGet::fromMap($map['HTTPGet']);
+        if (isset($map['httpGet'])) {
+            $model->httpGet = httpGet::fromMap($map['httpGet']);
         }
-        if (isset($map['TCPSocket'])) {
-            $model->TCPSocket = TCPSocket::fromMap($map['TCPSocket']);
+        if (isset($map['tcpSocket'])) {
+            $model->tcpSocket = tcpSocket::fromMap($map['tcpSocket']);
         }
 
         return $model;

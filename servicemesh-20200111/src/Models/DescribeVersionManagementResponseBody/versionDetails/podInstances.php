@@ -32,12 +32,24 @@ class podInstances extends Model
      * @var string
      */
     public $podName;
+
+    /**
+     * @var int
+     */
+    public $restartTime;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'createTime' => 'CreateTime',
-        'namespace'  => 'Namespace',
-        'nodeIp'     => 'NodeIp',
-        'podIP'      => 'PodIP',
-        'podName'    => 'PodName',
+        'createTime'  => 'CreateTime',
+        'namespace'   => 'Namespace',
+        'nodeIp'      => 'NodeIp',
+        'podIP'       => 'PodIP',
+        'podName'     => 'PodName',
+        'restartTime' => 'RestartTime',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -61,6 +73,12 @@ class podInstances extends Model
         }
         if (null !== $this->podName) {
             $res['PodName'] = $this->podName;
+        }
+        if (null !== $this->restartTime) {
+            $res['RestartTime'] = $this->restartTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -88,6 +106,12 @@ class podInstances extends Model
         }
         if (isset($map['PodName'])) {
             $model->podName = $map['PodName'];
+        }
+        if (isset($map['RestartTime'])) {
+            $model->restartTime = $map['RestartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

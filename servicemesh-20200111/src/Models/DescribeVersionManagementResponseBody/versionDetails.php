@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVersionManagementResponseBody;
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVersionManagementResponseBody\versionDetails\podInstances;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVersionManagementResponseBody\versionDetails\resource;
 use AlibabaCloud\Tea\Model;
 
 class versionDetails extends Model
@@ -45,6 +46,11 @@ class versionDetails extends Model
     public $replicas;
 
     /**
+     * @var resource
+     */
+    public $resource;
+
+    /**
      * @var string
      */
     public $version;
@@ -56,6 +62,7 @@ class versionDetails extends Model
         'podInstances'   => 'PodInstances',
         'readyReplicas'  => 'ReadyReplicas',
         'replicas'       => 'Replicas',
+        'resource'       => 'Resource',
         'version'        => 'Version',
     ];
 
@@ -92,6 +99,9 @@ class versionDetails extends Model
         }
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
+        }
+        if (null !== $this->resource) {
+            $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -136,6 +146,9 @@ class versionDetails extends Model
         }
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
+        }
+        if (isset($map['Resource'])) {
+            $model->resource = resource::fromMap($map['Resource']);
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

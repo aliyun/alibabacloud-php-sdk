@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetai
 
 use AlibabaCloud\Tea\Model;
 
-class TCPSocket extends Model
+class tcpSocket extends Model
 {
     /**
      * @var string
@@ -18,8 +18,8 @@ class TCPSocket extends Model
      */
     public $port;
     protected $_name = [
-        'host' => 'Host',
-        'port' => 'Port',
+        'host' => 'host',
+        'port' => 'port',
     ];
 
     public function validate()
@@ -30,10 +30,10 @@ class TCPSocket extends Model
     {
         $res = [];
         if (null !== $this->host) {
-            $res['Host'] = $this->host;
+            $res['host'] = $this->host;
         }
         if (null !== $this->port) {
-            $res['Port'] = $this->port;
+            $res['port'] = $this->port;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class TCPSocket extends Model
     /**
      * @param array $map
      *
-     * @return TCPSocket
+     * @return tcpSocket
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
+        if (isset($map['host'])) {
+            $model->host = $map['host'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['port'])) {
+            $model->port = $map['port'];
         }
 
         return $model;

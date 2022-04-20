@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeManagedServicesResponseBody;
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeManagedServicesResponseBody\managedServiceInfo\deploymentInstances;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeManagedServicesResponseBody\managedServiceInfo\sidecarResource;
 use AlibabaCloud\Tea\Model;
 
 class managedServiceInfo extends Model
@@ -38,6 +39,11 @@ class managedServiceInfo extends Model
      * @var string
      */
     public $sidecarInjectStatus;
+
+    /**
+     * @var sidecarResource
+     */
+    public $sidecarResource;
     protected $_name = [
         'createTime'          => 'CreateTime',
         'deploymentInstances' => 'DeploymentInstances',
@@ -45,6 +51,7 @@ class managedServiceInfo extends Model
         'selector'            => 'Selector',
         'serviceName'         => 'ServiceName',
         'sidecarInjectStatus' => 'SidecarInjectStatus',
+        'sidecarResource'     => 'SidecarResource',
     ];
 
     public function validate()
@@ -77,6 +84,9 @@ class managedServiceInfo extends Model
         }
         if (null !== $this->sidecarInjectStatus) {
             $res['SidecarInjectStatus'] = $this->sidecarInjectStatus;
+        }
+        if (null !== $this->sidecarResource) {
+            $res['SidecarResource'] = null !== $this->sidecarResource ? $this->sidecarResource->toMap() : null;
         }
 
         return $res;
@@ -113,6 +123,9 @@ class managedServiceInfo extends Model
         }
         if (isset($map['SidecarInjectStatus'])) {
             $model->sidecarInjectStatus = $map['SidecarInjectStatus'];
+        }
+        if (isset($map['SidecarResource'])) {
+            $model->sidecarResource = sidecarResource::fromMap($map['SidecarResource']);
         }
 
         return $model;

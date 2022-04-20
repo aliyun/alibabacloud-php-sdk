@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateNamespaceScopeSidecarConfigRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $concurrency;
+
+    /**
      * @var string
      */
     public $excludeIPRanges;
@@ -22,6 +27,11 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
      * @var string
      */
     public $excludeOutboundPorts;
+
+    /**
+     * @var bool
+     */
+    public $holdApplicationUntilProxyStarts;
 
     /**
      * @var string
@@ -51,7 +61,22 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     /**
      * @var string
      */
+    public $logLevel;
+
+    /**
+     * @var string
+     */
     public $namespace;
+
+    /**
+     * @var string
+     */
+    public $postStart;
+
+    /**
+     * @var string
+     */
+    public $preStop;
 
     /**
      * @var string
@@ -72,6 +97,11 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
      * @var string
      */
     public $proxyInitMemoryResourceRequest;
+
+    /**
+     * @var string
+     */
+    public $proxyStatsMatcher;
 
     /**
      * @var string
@@ -103,19 +133,25 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
      */
     public $terminationDrainDuration;
     protected $_name = [
+        'concurrency'                       => 'Concurrency',
         'excludeIPRanges'                   => 'ExcludeIPRanges',
         'excludeInboundPorts'               => 'ExcludeInboundPorts',
         'excludeOutboundPorts'              => 'ExcludeOutboundPorts',
+        'holdApplicationUntilProxyStarts'   => 'HoldApplicationUntilProxyStarts',
         'includeIPRanges'                   => 'IncludeIPRanges',
         'includeInboundPorts'               => 'IncludeInboundPorts',
         'includeOutboundPorts'              => 'IncludeOutboundPorts',
         'istioDNSProxyEnabled'              => 'IstioDNSProxyEnabled',
         'lifecycle'                         => 'Lifecycle',
+        'logLevel'                          => 'LogLevel',
         'namespace'                         => 'Namespace',
+        'postStart'                         => 'PostStart',
+        'preStop'                           => 'PreStop',
         'proxyInitCPUResourceLimit'         => 'ProxyInitCPUResourceLimit',
         'proxyInitCPUResourceRequest'       => 'ProxyInitCPUResourceRequest',
         'proxyInitMemoryResourceLimit'      => 'ProxyInitMemoryResourceLimit',
         'proxyInitMemoryResourceRequest'    => 'ProxyInitMemoryResourceRequest',
+        'proxyStatsMatcher'                 => 'ProxyStatsMatcher',
         'serviceMeshId'                     => 'ServiceMeshId',
         'sidecarProxyCPUResourceLimit'      => 'SidecarProxyCPUResourceLimit',
         'sidecarProxyCPUResourceRequest'    => 'SidecarProxyCPUResourceRequest',
@@ -131,6 +167,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->concurrency) {
+            $res['Concurrency'] = $this->concurrency;
+        }
         if (null !== $this->excludeIPRanges) {
             $res['ExcludeIPRanges'] = $this->excludeIPRanges;
         }
@@ -139,6 +178,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (null !== $this->excludeOutboundPorts) {
             $res['ExcludeOutboundPorts'] = $this->excludeOutboundPorts;
+        }
+        if (null !== $this->holdApplicationUntilProxyStarts) {
+            $res['HoldApplicationUntilProxyStarts'] = $this->holdApplicationUntilProxyStarts;
         }
         if (null !== $this->includeIPRanges) {
             $res['IncludeIPRanges'] = $this->includeIPRanges;
@@ -155,8 +197,17 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         if (null !== $this->lifecycle) {
             $res['Lifecycle'] = $this->lifecycle;
         }
+        if (null !== $this->logLevel) {
+            $res['LogLevel'] = $this->logLevel;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->postStart) {
+            $res['PostStart'] = $this->postStart;
+        }
+        if (null !== $this->preStop) {
+            $res['PreStop'] = $this->preStop;
         }
         if (null !== $this->proxyInitCPUResourceLimit) {
             $res['ProxyInitCPUResourceLimit'] = $this->proxyInitCPUResourceLimit;
@@ -169,6 +220,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (null !== $this->proxyInitMemoryResourceRequest) {
             $res['ProxyInitMemoryResourceRequest'] = $this->proxyInitMemoryResourceRequest;
+        }
+        if (null !== $this->proxyStatsMatcher) {
+            $res['ProxyStatsMatcher'] = $this->proxyStatsMatcher;
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
@@ -200,6 +254,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Concurrency'])) {
+            $model->concurrency = $map['Concurrency'];
+        }
         if (isset($map['ExcludeIPRanges'])) {
             $model->excludeIPRanges = $map['ExcludeIPRanges'];
         }
@@ -208,6 +265,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (isset($map['ExcludeOutboundPorts'])) {
             $model->excludeOutboundPorts = $map['ExcludeOutboundPorts'];
+        }
+        if (isset($map['HoldApplicationUntilProxyStarts'])) {
+            $model->holdApplicationUntilProxyStarts = $map['HoldApplicationUntilProxyStarts'];
         }
         if (isset($map['IncludeIPRanges'])) {
             $model->includeIPRanges = $map['IncludeIPRanges'];
@@ -224,8 +284,17 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         if (isset($map['Lifecycle'])) {
             $model->lifecycle = $map['Lifecycle'];
         }
+        if (isset($map['LogLevel'])) {
+            $model->logLevel = $map['LogLevel'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['PostStart'])) {
+            $model->postStart = $map['PostStart'];
+        }
+        if (isset($map['PreStop'])) {
+            $model->preStop = $map['PreStop'];
         }
         if (isset($map['ProxyInitCPUResourceLimit'])) {
             $model->proxyInitCPUResourceLimit = $map['ProxyInitCPUResourceLimit'];
@@ -238,6 +307,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (isset($map['ProxyInitMemoryResourceRequest'])) {
             $model->proxyInitMemoryResourceRequest = $map['ProxyInitMemoryResourceRequest'];
+        }
+        if (isset($map['ProxyStatsMatcher'])) {
+            $model->proxyStatsMatcher = $map['ProxyStatsMatcher'];
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];

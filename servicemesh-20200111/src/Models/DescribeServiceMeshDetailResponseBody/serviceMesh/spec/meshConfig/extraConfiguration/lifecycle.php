@@ -20,8 +20,8 @@ class lifecycle extends Model
      */
     public $preStop;
     protected $_name = [
-        'postStart' => 'PostStart',
-        'preStop'   => 'PreStop',
+        'postStart' => 'postStart',
+        'preStop'   => 'preStop',
     ];
 
     public function validate()
@@ -32,10 +32,10 @@ class lifecycle extends Model
     {
         $res = [];
         if (null !== $this->postStart) {
-            $res['PostStart'] = null !== $this->postStart ? $this->postStart->toMap() : null;
+            $res['postStart'] = null !== $this->postStart ? $this->postStart->toMap() : null;
         }
         if (null !== $this->preStop) {
-            $res['PreStop'] = null !== $this->preStop ? $this->preStop->toMap() : null;
+            $res['preStop'] = null !== $this->preStop ? $this->preStop->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class lifecycle extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PostStart'])) {
-            $model->postStart = postStart::fromMap($map['PostStart']);
+        if (isset($map['postStart'])) {
+            $model->postStart = postStart::fromMap($map['postStart']);
         }
-        if (isset($map['PreStop'])) {
-            $model->preStop = preStop::fromMap($map['PreStop']);
+        if (isset($map['preStop'])) {
+            $model->preStop = preStop::fromMap($map['preStop']);
         }
 
         return $model;

@@ -13,7 +13,7 @@ class exec extends Model
      */
     public $command;
     protected $_name = [
-        'command' => 'Command',
+        'command' => 'command',
     ];
 
     public function validate()
@@ -24,7 +24,7 @@ class exec extends Model
     {
         $res = [];
         if (null !== $this->command) {
-            $res['Command'] = $this->command;
+            $res['command'] = $this->command;
         }
 
         return $res;
@@ -38,9 +38,9 @@ class exec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Command'])) {
-            if (!empty($map['Command'])) {
-                $model->command = $map['Command'];
+        if (isset($map['command'])) {
+            if (!empty($map['command'])) {
+                $model->command = $map['command'];
             }
         }
 

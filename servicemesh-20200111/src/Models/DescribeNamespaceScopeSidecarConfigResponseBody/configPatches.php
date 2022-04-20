@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\proxyStatsMatcher;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyInitResourceLimit;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyInitResourceRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyResourceLimit;
@@ -12,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 
 class configPatches extends Model
 {
+    /**
+     * @var int
+     */
+    public $concurrency;
+
     /**
      * @var string
      */
@@ -26,6 +32,11 @@ class configPatches extends Model
      * @var string
      */
     public $excludeOutboundPorts;
+
+    /**
+     * @var bool
+     */
+    public $holdApplicationUntilProxyStarts;
 
     /**
      * @var string
@@ -53,6 +64,16 @@ class configPatches extends Model
     public $lifecycleStr;
 
     /**
+     * @var string
+     */
+    public $logLevel;
+
+    /**
+     * @var proxyStatsMatcher
+     */
+    public $proxyStatsMatcher;
+
+    /**
      * @var sidecarProxyInitResourceLimit
      */
     public $sidecarProxyInitResourceLimit;
@@ -77,14 +98,18 @@ class configPatches extends Model
      */
     public $terminationDrainDuration;
     protected $_name = [
+        'concurrency'                     => 'Concurrency',
         'excludeInboundPorts'             => 'ExcludeInboundPorts',
         'excludeOutboundIPRanges'         => 'ExcludeOutboundIPRanges',
         'excludeOutboundPorts'            => 'ExcludeOutboundPorts',
+        'holdApplicationUntilProxyStarts' => 'HoldApplicationUntilProxyStarts',
         'includeInboundPorts'             => 'IncludeInboundPorts',
         'includeOutboundIPRanges'         => 'IncludeOutboundIPRanges',
         'includeOutboundPorts'            => 'IncludeOutboundPorts',
         'istioDNSProxyEnabled'            => 'IstioDNSProxyEnabled',
         'lifecycleStr'                    => 'LifecycleStr',
+        'logLevel'                        => 'LogLevel',
+        'proxyStatsMatcher'               => 'ProxyStatsMatcher',
         'sidecarProxyInitResourceLimit'   => 'SidecarProxyInitResourceLimit',
         'sidecarProxyInitResourceRequest' => 'SidecarProxyInitResourceRequest',
         'sidecarProxyResourceLimit'       => 'SidecarProxyResourceLimit',
@@ -99,6 +124,9 @@ class configPatches extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->concurrency) {
+            $res['Concurrency'] = $this->concurrency;
+        }
         if (null !== $this->excludeInboundPorts) {
             $res['ExcludeInboundPorts'] = $this->excludeInboundPorts;
         }
@@ -107,6 +135,9 @@ class configPatches extends Model
         }
         if (null !== $this->excludeOutboundPorts) {
             $res['ExcludeOutboundPorts'] = $this->excludeOutboundPorts;
+        }
+        if (null !== $this->holdApplicationUntilProxyStarts) {
+            $res['HoldApplicationUntilProxyStarts'] = $this->holdApplicationUntilProxyStarts;
         }
         if (null !== $this->includeInboundPorts) {
             $res['IncludeInboundPorts'] = $this->includeInboundPorts;
@@ -122,6 +153,12 @@ class configPatches extends Model
         }
         if (null !== $this->lifecycleStr) {
             $res['LifecycleStr'] = $this->lifecycleStr;
+        }
+        if (null !== $this->logLevel) {
+            $res['LogLevel'] = $this->logLevel;
+        }
+        if (null !== $this->proxyStatsMatcher) {
+            $res['ProxyStatsMatcher'] = null !== $this->proxyStatsMatcher ? $this->proxyStatsMatcher->toMap() : null;
         }
         if (null !== $this->sidecarProxyInitResourceLimit) {
             $res['SidecarProxyInitResourceLimit'] = null !== $this->sidecarProxyInitResourceLimit ? $this->sidecarProxyInitResourceLimit->toMap() : null;
@@ -150,6 +187,9 @@ class configPatches extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Concurrency'])) {
+            $model->concurrency = $map['Concurrency'];
+        }
         if (isset($map['ExcludeInboundPorts'])) {
             $model->excludeInboundPorts = $map['ExcludeInboundPorts'];
         }
@@ -158,6 +198,9 @@ class configPatches extends Model
         }
         if (isset($map['ExcludeOutboundPorts'])) {
             $model->excludeOutboundPorts = $map['ExcludeOutboundPorts'];
+        }
+        if (isset($map['HoldApplicationUntilProxyStarts'])) {
+            $model->holdApplicationUntilProxyStarts = $map['HoldApplicationUntilProxyStarts'];
         }
         if (isset($map['IncludeInboundPorts'])) {
             $model->includeInboundPorts = $map['IncludeInboundPorts'];
@@ -173,6 +216,12 @@ class configPatches extends Model
         }
         if (isset($map['LifecycleStr'])) {
             $model->lifecycleStr = $map['LifecycleStr'];
+        }
+        if (isset($map['LogLevel'])) {
+            $model->logLevel = $map['LogLevel'];
+        }
+        if (isset($map['ProxyStatsMatcher'])) {
+            $model->proxyStatsMatcher = proxyStatsMatcher::fromMap($map['ProxyStatsMatcher']);
         }
         if (isset($map['SidecarProxyInitResourceLimit'])) {
             $model->sidecarProxyInitResourceLimit = sidecarProxyInitResourceLimit::fromMap($map['SidecarProxyInitResourceLimit']);
