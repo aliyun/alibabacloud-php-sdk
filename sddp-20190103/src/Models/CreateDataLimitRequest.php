@@ -19,6 +19,11 @@ class CreateDataLimitRequest extends Model
     public $autoScan;
 
     /**
+     * @var int
+     */
+    public $enable;
+
+    /**
      * @var string
      */
     public $engineType;
@@ -75,6 +80,7 @@ class CreateDataLimitRequest extends Model
     protected $_name = [
         'auditStatus'     => 'AuditStatus',
         'autoScan'        => 'AutoScan',
+        'enable'          => 'Enable',
         'engineType'      => 'EngineType',
         'eventStatus'     => 'EventStatus',
         'lang'            => 'Lang',
@@ -100,6 +106,9 @@ class CreateDataLimitRequest extends Model
         }
         if (null !== $this->autoScan) {
             $res['AutoScan'] = $this->autoScan;
+        }
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
@@ -151,6 +160,9 @@ class CreateDataLimitRequest extends Model
         }
         if (isset($map['AutoScan'])) {
             $model->autoScan = $map['AutoScan'];
+        }
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];

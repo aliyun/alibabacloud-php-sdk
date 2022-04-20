@@ -194,6 +194,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->autoScan)) {
             $query['AutoScan'] = $request->autoScan;
         }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
         if (!Utils::isUnset($request->engineType)) {
             $query['EngineType'] = $request->engineType;
         }
