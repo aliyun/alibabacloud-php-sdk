@@ -37,12 +37,18 @@ use AlibabaCloud\SDK\Dplus\V20201216\Models\RemoveWordsResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\ReplaceBackgroundAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\ReplaceBackgroundRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\ReplaceBackgroundResponse;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\SeleteCommodityByBToBRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\SeleteCommodityByBToBResponse;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\SeleteCommodityRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\SeleteCommodityResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPredictCategoryAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPredictCategoryRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPredictCategoryResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPropRecAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPropRecRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPropRecResponse;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\TransferUrlByBtoBRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\TransferUrlByBtoBResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
@@ -1244,6 +1250,110 @@ class Dplus extends OpenApiClient
     }
 
     /**
+     * @param SeleteCommodityRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SeleteCommodityResponse
+     */
+    public function seleteCommodityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->num)) {
+            $query['Num'] = $request->num;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SeleteCommodity',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SeleteCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SeleteCommodityRequest $request
+     *
+     * @return SeleteCommodityResponse
+     */
+    public function seleteCommodity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->seleteCommodityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SeleteCommodityByBToBRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SeleteCommodityByBToBResponse
+     */
+    public function seleteCommodityByBToBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->num)) {
+            $query['Num'] = $request->num;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SeleteCommodityByBToB',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SeleteCommodityByBToBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SeleteCommodityByBToBRequest $request
+     *
+     * @return SeleteCommodityByBToBResponse
+     */
+    public function seleteCommodityByBToB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->seleteCommodityByBToBWithOptions($request, $runtime);
+    }
+
+    /**
      * @param TbPredictCategoryRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1483,5 +1593,51 @@ class Dplus extends OpenApiClient
         }
 
         return $this->tbPropRecWithOptions($tbPropRecReq, $runtime);
+    }
+
+    /**
+     * @param TransferUrlByBtoBRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TransferUrlByBtoBResponse
+     */
+    public function transferUrlByBtoBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->offerId)) {
+            $query['OfferId'] = $request->offerId;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransferUrlByBtoB',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransferUrlByBtoBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TransferUrlByBtoBRequest $request
+     *
+     * @return TransferUrlByBtoBResponse
+     */
+    public function transferUrlByBtoB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transferUrlByBtoBWithOptions($request, $runtime);
     }
 }
