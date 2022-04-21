@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupAuthorizationRulesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupAuthorizationRulesResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupDNSServiceRulesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupDNSServiceRulesResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAccessSessionLogsRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAccessSessionLogsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAvailableZonesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAvailableZonesResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorGroupsRequest;
@@ -2525,6 +2527,70 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGroupDNSServiceRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIoTCloudConnectorAccessSessionLogsRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListIoTCloudConnectorAccessSessionLogsResponse
+     */
+    public function listIoTCloudConnectorAccessSessionLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinations)) {
+            $query['Destinations'] = $request->destinations;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceIps)) {
+            $query['SourceIps'] = $request->sourceIps;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIoTCloudConnectorAccessSessionLogs',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIoTCloudConnectorAccessSessionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIoTCloudConnectorAccessSessionLogsRequest $request
+     *
+     * @return ListIoTCloudConnectorAccessSessionLogsResponse
+     */
+    public function listIoTCloudConnectorAccessSessionLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIoTCloudConnectorAccessSessionLogsWithOptions($request, $runtime);
     }
 
     /**
