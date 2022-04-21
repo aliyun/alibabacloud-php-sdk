@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SenderStatisticsDetailByParamResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $nextStart;
 

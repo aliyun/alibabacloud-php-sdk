@@ -36,8 +36,6 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescDomainResponse;
-use AlibabaCloud\SDK\Dm\V20151123\Models\GetRegionListRequest;
-use AlibabaCloud\SDK\Dm\V20151123\Models\GetRegionListResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListRequest;
@@ -930,73 +928,6 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->descDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetRegionListRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetRegionListResponse
-     */
-    public function getRegionListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
-        }
-        if (!Utils::isUnset($request->offsetCreateTime)) {
-            $query['OffsetCreateTime'] = $request->offsetCreateTime;
-        }
-        if (!Utils::isUnset($request->offsetCreateTimeDesc)) {
-            $query['OffsetCreateTimeDesc'] = $request->offsetCreateTimeDesc;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->total)) {
-            $query['Total'] = $request->total;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRegionList',
-            'version'     => '2015-11-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetRegionListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetRegionListRequest $request
-     *
-     * @return GetRegionListResponse
-     */
-    public function getRegionList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRegionListWithOptions($request, $runtime);
     }
 
     /**
