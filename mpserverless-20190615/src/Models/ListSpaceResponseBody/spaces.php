@@ -19,6 +19,11 @@ class spaces extends Model
     public $gmtCreate;
 
     /**
+     * @var int
+     */
+    public $gmtLastAccess;
+
+    /**
      * @var string
      */
     public $name;
@@ -33,11 +38,12 @@ class spaces extends Model
      */
     public $status;
     protected $_name = [
-        'desc'      => 'Desc',
-        'gmtCreate' => 'GmtCreate',
-        'name'      => 'Name',
-        'spaceId'   => 'SpaceId',
-        'status'    => 'Status',
+        'desc'          => 'Desc',
+        'gmtCreate'     => 'GmtCreate',
+        'gmtLastAccess' => 'GmtLastAccess',
+        'name'          => 'Name',
+        'spaceId'       => 'SpaceId',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class spaces extends Model
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtLastAccess) {
+            $res['GmtLastAccess'] = $this->gmtLastAccess;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -79,6 +88,9 @@ class spaces extends Model
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtLastAccess'])) {
+            $model->gmtLastAccess = $map['GmtLastAccess'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

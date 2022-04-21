@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\MPServerless\V20190615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListSpaceRequest extends Model
+class ListSpaceShrinkRequest extends Model
 {
     /**
      * @var int
@@ -19,13 +19,13 @@ class ListSpaceRequest extends Model
     public $pageSize;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $spaceIds;
+    public $spaceIdsShrink;
     protected $_name = [
-        'pageNum'  => 'PageNum',
-        'pageSize' => 'PageSize',
-        'spaceIds' => 'SpaceIds',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'spaceIdsShrink' => 'SpaceIds',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ListSpaceRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->spaceIds) {
-            $res['SpaceIds'] = $this->spaceIds;
+        if (null !== $this->spaceIdsShrink) {
+            $res['SpaceIds'] = $this->spaceIdsShrink;
         }
 
         return $res;
@@ -51,7 +51,7 @@ class ListSpaceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListSpaceRequest
+     * @return ListSpaceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -63,9 +63,7 @@ class ListSpaceRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['SpaceIds'])) {
-            if (!empty($map['SpaceIds'])) {
-                $model->spaceIds = $map['SpaceIds'];
-            }
+            $model->spaceIdsShrink = $map['SpaceIds'];
         }
 
         return $model;

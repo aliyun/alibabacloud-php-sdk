@@ -101,6 +101,7 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListOpenPlatformConfigRequest
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListOpenPlatformConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSpaceRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSpaceResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSpaceShrinkRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListWebHostingCustomDomainsRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListWebHostingCustomDomainsResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListWebHostingFilesRequest;
@@ -2427,20 +2428,28 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param ListSpaceRequest $request
+     * @param ListSpaceRequest $tmpReq
      * @param RuntimeOptions   $runtime
      *
      * @return ListSpaceResponse
      */
-    public function listSpaceWithOptions($request, $runtime)
+    public function listSpaceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListSpaceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->spaceIds)) {
+            $request->spaceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->spaceIds, 'SpaceIds', 'simple');
+        }
         $body = [];
         if (!Utils::isUnset($request->pageNum)) {
             $body['PageNum'] = $request->pageNum;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->spaceIdsShrink)) {
+            $body['SpaceIds'] = $request->spaceIdsShrink;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
