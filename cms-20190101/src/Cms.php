@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\AddTagsRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\AddTagsResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateIntantSiteMonitorRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateIntantSiteMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateOnceSiteMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateOnceSiteMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderRequest;
@@ -442,6 +444,49 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyMetricRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchCreateIntantSiteMonitorRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchCreateIntantSiteMonitorResponse
+     */
+    public function batchCreateIntantSiteMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskList)) {
+            $query['TaskList'] = $request->taskList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCreateIntantSiteMonitor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchCreateIntantSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchCreateIntantSiteMonitorRequest $request
+     *
+     * @return BatchCreateIntantSiteMonitorResponse
+     */
+    public function batchCreateIntantSiteMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateIntantSiteMonitorWithOptions($request, $runtime);
     }
 
     /**
