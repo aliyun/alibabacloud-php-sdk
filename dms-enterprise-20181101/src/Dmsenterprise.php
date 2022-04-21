@@ -238,6 +238,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesRequest
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReDeployLhDagVersionRequest;
@@ -5939,6 +5941,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDataCorrectExecSQLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OfflineTaskFlowRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OfflineTaskFlowResponse
+     */
+    public function offlineTaskFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OfflineTaskFlow',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OfflineTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OfflineTaskFlowRequest $request
+     *
+     * @return OfflineTaskFlowResponse
+     */
+    public function offlineTaskFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->offlineTaskFlowWithOptions($request, $runtime);
     }
 
     /**
