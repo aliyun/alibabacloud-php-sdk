@@ -18,6 +18,10 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PvrCallbackFCUResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -395,6 +399,122 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePhoneNumberStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InvalidPhoneNumberFilterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return InvalidPhoneNumberFilterResponse
+     */
+    public function invalidPhoneNumberFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InvalidPhoneNumberFilter',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InvalidPhoneNumberFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InvalidPhoneNumberFilterRequest $request
+     *
+     * @return InvalidPhoneNumberFilterResponse
+     */
+    public function invalidPhoneNumberFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->invalidPhoneNumberFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PhoneNumberEncryptRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PhoneNumberEncryptResponse
+     */
+    public function phoneNumberEncryptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PhoneNumberEncrypt',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PhoneNumberEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PhoneNumberEncryptRequest $request
+     *
+     * @return PhoneNumberEncryptResponse
+     */
+    public function phoneNumberEncrypt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->phoneNumberEncryptWithOptions($request, $runtime);
     }
 
     /**
