@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class userStatisticsList extends Model
 {
     /**
+     * @var int
+     */
+    public $commentCount;
+
+    /**
+     * @var int
+     */
+    public $likeCount;
+
+    /**
      * @description 用户ID。
      *
      * @var string
@@ -22,6 +32,8 @@ class userStatisticsList extends Model
      */
     public $watchLiveTime;
     protected $_name = [
+        'commentCount'  => 'CommentCount',
+        'likeCount'     => 'LikeCount',
         'userId'        => 'UserId',
         'watchLiveTime' => 'WatchLiveTime',
     ];
@@ -33,6 +45,12 @@ class userStatisticsList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commentCount) {
+            $res['CommentCount'] = $this->commentCount;
+        }
+        if (null !== $this->likeCount) {
+            $res['LikeCount'] = $this->likeCount;
+        }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -51,6 +69,12 @@ class userStatisticsList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommentCount'])) {
+            $model->commentCount = $map['CommentCount'];
+        }
+        if (isset($map['LikeCount'])) {
+            $model->likeCount = $map['LikeCount'];
+        }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
