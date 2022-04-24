@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBNodeHotReplicaModeRequest extends Model
+class DescribeDBNodesParametersRequest extends Model
 {
     /**
      * @var string
@@ -14,14 +14,11 @@ class ModifyDBNodeHotReplicaModeRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description 查询指定节点的参数列表
+     *
      * @var string
      */
-    public $DBNodeId;
-
-    /**
-     * @var string
-     */
-    public $hotReplicaMode;
+    public $DBNodeIds;
 
     /**
      * @var string
@@ -44,8 +41,7 @@ class ModifyDBNodeHotReplicaModeRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
-        'DBNodeId'             => 'DBNodeId',
-        'hotReplicaMode'       => 'HotReplicaMode',
+        'DBNodeIds'            => 'DBNodeIds',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -62,11 +58,8 @@ class ModifyDBNodeHotReplicaModeRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->DBNodeId) {
-            $res['DBNodeId'] = $this->DBNodeId;
-        }
-        if (null !== $this->hotReplicaMode) {
-            $res['HotReplicaMode'] = $this->hotReplicaMode;
+        if (null !== $this->DBNodeIds) {
+            $res['DBNodeIds'] = $this->DBNodeIds;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -87,7 +80,7 @@ class ModifyDBNodeHotReplicaModeRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBNodeHotReplicaModeRequest
+     * @return DescribeDBNodesParametersRequest
      */
     public static function fromMap($map = [])
     {
@@ -95,11 +88,8 @@ class ModifyDBNodeHotReplicaModeRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['DBNodeId'])) {
-            $model->DBNodeId = $map['DBNodeId'];
-        }
-        if (isset($map['HotReplicaMode'])) {
-            $model->hotReplicaMode = $map['HotReplicaMode'];
+        if (isset($map['DBNodeIds'])) {
+            $model->DBNodeIds = $map['DBNodeIds'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

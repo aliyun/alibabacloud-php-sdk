@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBNodeHotReplicaModeResponseBody extends Model
+class ModifyDBNodesClassResponseBody extends Model
 {
     /**
      * @var string
@@ -51,7 +51,7 @@ class ModifyDBNodeHotReplicaModeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBNodeHotReplicaModeResponseBody
+     * @return ModifyDBNodesClassResponseBody
      */
     public static function fromMap($map = [])
     {

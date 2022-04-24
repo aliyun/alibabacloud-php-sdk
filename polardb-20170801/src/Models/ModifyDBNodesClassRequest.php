@@ -4,19 +4,30 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesClassRequest\DBNode;
 use AlibabaCloud\Tea\Model;
 
-class RefreshProxyLevelRequest extends Model
+class ModifyDBNodesClassRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $clientToken;
+
     /**
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @var bool
+     * @var DBNode[]
      */
-    public $fromTimeService;
+    public $DBNode;
+
+    /**
+     * @var string
+     */
+    public $modifyType;
 
     /**
      * @var string
@@ -41,27 +52,29 @@ class RefreshProxyLevelRequest extends Model
     /**
      * @var string
      */
-    public $proxyTargetClass;
-
-    /**
-     * @var string
-     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $subCategory;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
         'DBClusterId'          => 'DBClusterId',
-        'fromTimeService'      => 'FromTimeService',
+        'DBNode'               => 'DBNode',
+        'modifyType'           => 'ModifyType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'plannedEndTime'       => 'PlannedEndTime',
         'plannedStartTime'     => 'PlannedStartTime',
-        'proxyTargetClass'     => 'ProxyTargetClass',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'subCategory'          => 'SubCategory',
     ];
 
     public function validate()
@@ -71,11 +84,23 @@ class RefreshProxyLevelRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->fromTimeService) {
-            $res['FromTimeService'] = $this->fromTimeService;
+        if (null !== $this->DBNode) {
+            $res['DBNode'] = [];
+            if (null !== $this->DBNode && \is_array($this->DBNode)) {
+                $n = 0;
+                foreach ($this->DBNode as $item) {
+                    $res['DBNode'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->modifyType) {
+            $res['ModifyType'] = $this->modifyType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -89,14 +114,14 @@ class RefreshProxyLevelRequest extends Model
         if (null !== $this->plannedStartTime) {
             $res['PlannedStartTime'] = $this->plannedStartTime;
         }
-        if (null !== $this->proxyTargetClass) {
-            $res['ProxyTargetClass'] = $this->proxyTargetClass;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->subCategory) {
+            $res['SubCategory'] = $this->subCategory;
         }
 
         return $res;
@@ -105,16 +130,28 @@ class RefreshProxyLevelRequest extends Model
     /**
      * @param array $map
      *
-     * @return RefreshProxyLevelRequest
+     * @return ModifyDBNodesClassRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['FromTimeService'])) {
-            $model->fromTimeService = $map['FromTimeService'];
+        if (isset($map['DBNode'])) {
+            if (!empty($map['DBNode'])) {
+                $model->DBNode = [];
+                $n             = 0;
+                foreach ($map['DBNode'] as $item) {
+                    $model->DBNode[$n++] = null !== $item ? DBNode::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ModifyType'])) {
+            $model->modifyType = $map['ModifyType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -128,14 +165,14 @@ class RefreshProxyLevelRequest extends Model
         if (isset($map['PlannedStartTime'])) {
             $model->plannedStartTime = $map['PlannedStartTime'];
         }
-        if (isset($map['ProxyTargetClass'])) {
-            $model->proxyTargetClass = $map['ProxyTargetClass'];
-        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SubCategory'])) {
+            $model->subCategory = $map['SubCategory'];
         }
 
         return $model;

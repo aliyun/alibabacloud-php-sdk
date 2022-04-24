@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeParameterTemplatesResponseBody\parameters;
+namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBNodesParametersResponseBody\DBNodeIds;
 
 use AlibabaCloud\Tea\Model;
 
-class templateRecord extends Model
+class runningParameters extends Model
 {
     /**
      * @var string
@@ -16,12 +16,22 @@ class templateRecord extends Model
     /**
      * @var string
      */
-    public $forceModify;
+    public $dataType;
 
     /**
      * @var string
      */
+    public $defaultParameterValue;
+
+    /**
+     * @var bool
+     */
     public $forceRestart;
+
+    /**
+     * @var bool
+     */
+    public $isModifiable;
 
     /**
      * @var string
@@ -46,16 +56,24 @@ class templateRecord extends Model
     /**
      * @var string
      */
+    public $parameterStatus;
+
+    /**
+     * @var string
+     */
     public $parameterValue;
     protected $_name = [
-        'checkingCode'         => 'CheckingCode',
-        'forceModify'          => 'ForceModify',
-        'forceRestart'         => 'ForceRestart',
-        'isNodeAvailable'      => 'IsNodeAvailable',
-        'paramRelyRule'        => 'ParamRelyRule',
-        'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
-        'parameterValue'       => 'ParameterValue',
+        'checkingCode'          => 'CheckingCode',
+        'dataType'              => 'DataType',
+        'defaultParameterValue' => 'DefaultParameterValue',
+        'forceRestart'          => 'ForceRestart',
+        'isModifiable'          => 'IsModifiable',
+        'isNodeAvailable'       => 'IsNodeAvailable',
+        'paramRelyRule'         => 'ParamRelyRule',
+        'parameterDescription'  => 'ParameterDescription',
+        'parameterName'         => 'ParameterName',
+        'parameterStatus'       => 'ParameterStatus',
+        'parameterValue'        => 'ParameterValue',
     ];
 
     public function validate()
@@ -68,11 +86,17 @@ class templateRecord extends Model
         if (null !== $this->checkingCode) {
             $res['CheckingCode'] = $this->checkingCode;
         }
-        if (null !== $this->forceModify) {
-            $res['ForceModify'] = $this->forceModify;
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
+        }
+        if (null !== $this->defaultParameterValue) {
+            $res['DefaultParameterValue'] = $this->defaultParameterValue;
         }
         if (null !== $this->forceRestart) {
             $res['ForceRestart'] = $this->forceRestart;
+        }
+        if (null !== $this->isModifiable) {
+            $res['IsModifiable'] = $this->isModifiable;
         }
         if (null !== $this->isNodeAvailable) {
             $res['IsNodeAvailable'] = $this->isNodeAvailable;
@@ -86,6 +110,9 @@ class templateRecord extends Model
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
+        if (null !== $this->parameterStatus) {
+            $res['ParameterStatus'] = $this->parameterStatus;
+        }
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
         }
@@ -96,7 +123,7 @@ class templateRecord extends Model
     /**
      * @param array $map
      *
-     * @return templateRecord
+     * @return runningParameters
      */
     public static function fromMap($map = [])
     {
@@ -104,11 +131,17 @@ class templateRecord extends Model
         if (isset($map['CheckingCode'])) {
             $model->checkingCode = $map['CheckingCode'];
         }
-        if (isset($map['ForceModify'])) {
-            $model->forceModify = $map['ForceModify'];
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
+        }
+        if (isset($map['DefaultParameterValue'])) {
+            $model->defaultParameterValue = $map['DefaultParameterValue'];
         }
         if (isset($map['ForceRestart'])) {
             $model->forceRestart = $map['ForceRestart'];
+        }
+        if (isset($map['IsModifiable'])) {
+            $model->isModifiable = $map['IsModifiable'];
         }
         if (isset($map['IsNodeAvailable'])) {
             $model->isNodeAvailable = $map['IsNodeAvailable'];
@@ -121,6 +154,9 @@ class templateRecord extends Model
         }
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
+        }
+        if (isset($map['ParameterStatus'])) {
+            $model->parameterStatus = $map['ParameterStatus'];
         }
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];

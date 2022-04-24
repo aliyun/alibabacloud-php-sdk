@@ -118,6 +118,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $proxyStandardCpuCores;
+
+    /**
+     * @var string
+     */
     public $proxyStatus;
 
     /**
@@ -206,6 +211,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'maintainTime'              => 'MaintainTime',
         'payType'                   => 'PayType',
         'proxyCpuCores'             => 'ProxyCpuCores',
+        'proxyStandardCpuCores'     => 'ProxyStandardCpuCores',
         'proxyStatus'               => 'ProxyStatus',
         'proxyType'                 => 'ProxyType',
         'regionId'                  => 'RegionId',
@@ -297,6 +303,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->proxyCpuCores) {
             $res['ProxyCpuCores'] = $this->proxyCpuCores;
+        }
+        if (null !== $this->proxyStandardCpuCores) {
+            $res['ProxyStandardCpuCores'] = $this->proxyStandardCpuCores;
         }
         if (null !== $this->proxyStatus) {
             $res['ProxyStatus'] = $this->proxyStatus;
@@ -426,6 +435,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['ProxyCpuCores'])) {
             $model->proxyCpuCores = $map['ProxyCpuCores'];
+        }
+        if (isset($map['ProxyStandardCpuCores'])) {
+            $model->proxyStandardCpuCores = $map['ProxyStandardCpuCores'];
         }
         if (isset($map['ProxyStatus'])) {
             $model->proxyStatus = $map['ProxyStatus'];

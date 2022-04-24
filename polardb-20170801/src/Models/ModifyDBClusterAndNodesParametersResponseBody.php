@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RefreshProxyLevelResponseBody extends Model
+class ModifyDBClusterAndNodesParametersResponseBody extends Model
 {
     /**
      * @var string
@@ -33,7 +33,7 @@ class RefreshProxyLevelResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RefreshProxyLevelResponseBody
+     * @return ModifyDBClusterAndNodesParametersResponseBody
      */
     public static function fromMap($map = [])
     {

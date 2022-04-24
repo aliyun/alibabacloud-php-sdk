@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListTagResourcesForRegionResponse extends Model
+class ModifyDBNodesClassResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ListTagResourcesForRegionResponse extends Model
     public $headers;
 
     /**
-     * @var ListTagResourcesForRegionResponseBody
+     * @var ModifyDBNodesClassResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ListTagResourcesForRegionResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListTagResourcesForRegionResponse
+     * @return ModifyDBNodesClassResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ListTagResourcesForRegionResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ListTagResourcesForRegionResponseBody::fromMap($map['body']);
+            $model->body = ModifyDBNodesClassResponseBody::fromMap($map['body']);
         }
 
         return $model;

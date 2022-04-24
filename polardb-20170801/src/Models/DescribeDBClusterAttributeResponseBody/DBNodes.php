@@ -11,6 +11,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $addedCpuCores;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
@@ -49,6 +54,11 @@ class DBNodes extends Model
     public $imciSwitch;
 
     /**
+     * @var string
+     */
+    public $masterId;
+
+    /**
      * @var int
      */
     public $maxConnections;
@@ -63,6 +73,7 @@ class DBNodes extends Model
      */
     public $zoneId;
     protected $_name = [
+        'addedCpuCores'    => 'AddedCpuCores',
         'creationTime'     => 'CreationTime',
         'DBNodeClass'      => 'DBNodeClass',
         'DBNodeId'         => 'DBNodeId',
@@ -71,6 +82,7 @@ class DBNodes extends Model
         'failoverPriority' => 'FailoverPriority',
         'hotReplicaMode'   => 'HotReplicaMode',
         'imciSwitch'       => 'ImciSwitch',
+        'masterId'         => 'MasterId',
         'maxConnections'   => 'MaxConnections',
         'maxIOPS'          => 'MaxIOPS',
         'zoneId'           => 'ZoneId',
@@ -83,6 +95,9 @@ class DBNodes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addedCpuCores) {
+            $res['AddedCpuCores'] = $this->addedCpuCores;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
@@ -107,6 +122,9 @@ class DBNodes extends Model
         if (null !== $this->imciSwitch) {
             $res['ImciSwitch'] = $this->imciSwitch;
         }
+        if (null !== $this->masterId) {
+            $res['MasterId'] = $this->masterId;
+        }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
         }
@@ -128,6 +146,9 @@ class DBNodes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddedCpuCores'])) {
+            $model->addedCpuCores = $map['AddedCpuCores'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
@@ -151,6 +172,9 @@ class DBNodes extends Model
         }
         if (isset($map['ImciSwitch'])) {
             $model->imciSwitch = $map['ImciSwitch'];
+        }
+        if (isset($map['MasterId'])) {
+            $model->masterId = $map['MasterId'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];

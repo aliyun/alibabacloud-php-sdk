@@ -36,6 +36,16 @@ class parameter extends Model
     /**
      * @var string
      */
+    public $isNodeAvailable;
+
+    /**
+     * @var string
+     */
+    public $paramRelyRule;
+
+    /**
+     * @var string
+     */
     public $parameterDescription;
 
     /**
@@ -58,6 +68,8 @@ class parameter extends Model
         'defaultParameterValue' => 'DefaultParameterValue',
         'forceRestart'          => 'ForceRestart',
         'isModifiable'          => 'IsModifiable',
+        'isNodeAvailable'       => 'IsNodeAvailable',
+        'paramRelyRule'         => 'ParamRelyRule',
         'parameterDescription'  => 'ParameterDescription',
         'parameterName'         => 'ParameterName',
         'parameterStatus'       => 'ParameterStatus',
@@ -85,6 +97,12 @@ class parameter extends Model
         }
         if (null !== $this->isModifiable) {
             $res['IsModifiable'] = $this->isModifiable;
+        }
+        if (null !== $this->isNodeAvailable) {
+            $res['IsNodeAvailable'] = $this->isNodeAvailable;
+        }
+        if (null !== $this->paramRelyRule) {
+            $res['ParamRelyRule'] = $this->paramRelyRule;
         }
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
@@ -124,6 +142,12 @@ class parameter extends Model
         }
         if (isset($map['IsModifiable'])) {
             $model->isModifiable = $map['IsModifiable'];
+        }
+        if (isset($map['IsNodeAvailable'])) {
+            $model->isNodeAvailable = $map['IsNodeAvailable'];
+        }
+        if (isset($map['ParamRelyRule'])) {
+            $model->paramRelyRule = $map['ParamRelyRule'];
         }
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
