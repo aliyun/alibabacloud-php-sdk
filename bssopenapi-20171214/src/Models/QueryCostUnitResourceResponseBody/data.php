@@ -12,6 +12,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var costUnit
+     */
+    public $costUnit;
+
+    /**
+     * @var costUnitStatisInfo
+     */
+    public $costUnitStatisInfo;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -22,31 +32,21 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var resourceInstanceDtoList[]
      */
     public $resourceInstanceDtoList;
 
     /**
-     * @var costUnit
+     * @var int
      */
-    public $costUnit;
-
-    /**
-     * @var costUnitStatisInfo
-     */
-    public $costUnitStatisInfo;
+    public $totalCount;
     protected $_name = [
-        'pageNum'                 => 'PageNum',
-        'pageSize'                => 'PageSize',
-        'totalCount'              => 'TotalCount',
-        'resourceInstanceDtoList' => 'ResourceInstanceDtoList',
         'costUnit'                => 'CostUnit',
         'costUnitStatisInfo'      => 'CostUnitStatisInfo',
+        'pageNum'                 => 'PageNum',
+        'pageSize'                => 'PageSize',
+        'resourceInstanceDtoList' => 'ResourceInstanceDtoList',
+        'totalCount'              => 'TotalCount',
     ];
 
     public function validate()
@@ -56,14 +56,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->costUnit) {
+            $res['CostUnit'] = null !== $this->costUnit ? $this->costUnit->toMap() : null;
+        }
+        if (null !== $this->costUnitStatisInfo) {
+            $res['CostUnitStatisInfo'] = null !== $this->costUnitStatisInfo ? $this->costUnitStatisInfo->toMap() : null;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->resourceInstanceDtoList) {
             $res['ResourceInstanceDtoList'] = [];
@@ -74,11 +77,8 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->costUnit) {
-            $res['CostUnit'] = null !== $this->costUnit ? $this->costUnit->toMap() : null;
-        }
-        if (null !== $this->costUnitStatisInfo) {
-            $res['CostUnitStatisInfo'] = null !== $this->costUnitStatisInfo ? $this->costUnitStatisInfo->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CostUnit'])) {
+            $model->costUnit = costUnit::fromMap($map['CostUnit']);
+        }
+        if (isset($map['CostUnitStatisInfo'])) {
+            $model->costUnitStatisInfo = costUnitStatisInfo::fromMap($map['CostUnitStatisInfo']);
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['ResourceInstanceDtoList'])) {
             if (!empty($map['ResourceInstanceDtoList'])) {
@@ -110,11 +113,8 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['CostUnit'])) {
-            $model->costUnit = costUnit::fromMap($map['CostUnit']);
-        }
-        if (isset($map['CostUnitStatisInfo'])) {
-            $model->costUnitStatisInfo = costUnitStatisInfo::fromMap($map['CostUnitStatisInfo']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

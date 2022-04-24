@@ -16,12 +16,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $creditAmount;
+    public $availableCashAmount;
 
     /**
      * @var string
      */
-    public $mybankCreditAmount;
+    public $creditAmount;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class data extends Model
     /**
      * @var string
      */
-    public $availableCashAmount;
+    public $mybankCreditAmount;
     protected $_name = [
         'availableAmount'     => 'AvailableAmount',
-        'creditAmount'        => 'CreditAmount',
-        'mybankCreditAmount'  => 'MybankCreditAmount',
-        'currency'            => 'Currency',
         'availableCashAmount' => 'AvailableCashAmount',
+        'creditAmount'        => 'CreditAmount',
+        'currency'            => 'Currency',
+        'mybankCreditAmount'  => 'MybankCreditAmount',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class data extends Model
         if (null !== $this->availableAmount) {
             $res['AvailableAmount'] = $this->availableAmount;
         }
+        if (null !== $this->availableCashAmount) {
+            $res['AvailableCashAmount'] = $this->availableCashAmount;
+        }
         if (null !== $this->creditAmount) {
             $res['CreditAmount'] = $this->creditAmount;
-        }
-        if (null !== $this->mybankCreditAmount) {
-            $res['MybankCreditAmount'] = $this->mybankCreditAmount;
         }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
-        if (null !== $this->availableCashAmount) {
-            $res['AvailableCashAmount'] = $this->availableCashAmount;
+        if (null !== $this->mybankCreditAmount) {
+            $res['MybankCreditAmount'] = $this->mybankCreditAmount;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class data extends Model
         if (isset($map['AvailableAmount'])) {
             $model->availableAmount = $map['AvailableAmount'];
         }
+        if (isset($map['AvailableCashAmount'])) {
+            $model->availableCashAmount = $map['AvailableCashAmount'];
+        }
         if (isset($map['CreditAmount'])) {
             $model->creditAmount = $map['CreditAmount'];
-        }
-        if (isset($map['MybankCreditAmount'])) {
-            $model->mybankCreditAmount = $map['MybankCreditAmount'];
         }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
-        if (isset($map['AvailableCashAmount'])) {
-            $model->availableCashAmount = $map['AvailableCashAmount'];
+        if (isset($map['MybankCreditAmount'])) {
+            $model->mybankCreditAmount = $map['MybankCreditAmount'];
         }
 
         return $model;

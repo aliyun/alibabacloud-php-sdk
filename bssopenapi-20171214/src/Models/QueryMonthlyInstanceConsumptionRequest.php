@@ -11,7 +11,7 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
     /**
      * @var string
      */
-    public $productCode;
+    public $billingCycle;
 
     /**
      * @var int
@@ -31,7 +31,7 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
     /**
      * @var string
      */
-    public $billingCycle;
+    public $productCode;
 
     /**
      * @var string
@@ -43,11 +43,11 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
      */
     public $subscriptionType;
     protected $_name = [
-        'productCode'      => 'ProductCode',
+        'billingCycle'     => 'BillingCycle',
         'ownerId'          => 'OwnerId',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
-        'billingCycle'     => 'BillingCycle',
+        'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
     ];
@@ -59,8 +59,8 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
+        if (null !== $this->billingCycle) {
+            $res['BillingCycle'] = $this->billingCycle;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -71,8 +71,8 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->billingCycle) {
-            $res['BillingCycle'] = $this->billingCycle;
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
@@ -92,8 +92,8 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
+        if (isset($map['BillingCycle'])) {
+            $model->billingCycle = $map['BillingCycle'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -104,8 +104,8 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['BillingCycle'])) {
-            $model->billingCycle = $map['BillingCycle'];
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];

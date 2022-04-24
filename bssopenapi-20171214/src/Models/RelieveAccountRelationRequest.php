@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RelieveAccountRelationRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $relationType;
+    public $childUserId;
 
     /**
      * @var int
@@ -21,16 +21,22 @@ class RelieveAccountRelationRequest extends Model
     /**
      * @var int
      */
-    public $childUserId;
+    public $relationId;
+
+    /**
+     * @var string
+     */
+    public $relationType;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'relationType' => 'RelationType',
-        'parentUserId' => 'ParentUserId',
         'childUserId'  => 'ChildUserId',
+        'parentUserId' => 'ParentUserId',
+        'relationId'   => 'RelationId',
+        'relationType' => 'RelationType',
         'requestId'    => 'RequestId',
     ];
 
@@ -41,14 +47,17 @@ class RelieveAccountRelationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->relationType) {
-            $res['RelationType'] = $this->relationType;
+        if (null !== $this->childUserId) {
+            $res['ChildUserId'] = $this->childUserId;
         }
         if (null !== $this->parentUserId) {
             $res['ParentUserId'] = $this->parentUserId;
         }
-        if (null !== $this->childUserId) {
-            $res['ChildUserId'] = $this->childUserId;
+        if (null !== $this->relationId) {
+            $res['RelationId'] = $this->relationId;
+        }
+        if (null !== $this->relationType) {
+            $res['RelationType'] = $this->relationType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -65,14 +74,17 @@ class RelieveAccountRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RelationType'])) {
-            $model->relationType = $map['RelationType'];
+        if (isset($map['ChildUserId'])) {
+            $model->childUserId = $map['ChildUserId'];
         }
         if (isset($map['ParentUserId'])) {
             $model->parentUserId = $map['ParentUserId'];
         }
-        if (isset($map['ChildUserId'])) {
-            $model->childUserId = $map['ChildUserId'];
+        if (isset($map['RelationId'])) {
+            $model->relationId = $map['RelationId'];
+        }
+        if (isset($map['RelationType'])) {
+            $model->relationType = $map['RelationType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

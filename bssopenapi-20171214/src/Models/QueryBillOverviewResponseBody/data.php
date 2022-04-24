@@ -12,11 +12,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $billingCycle;
-
-    /**
-     * @var string
-     */
     public $accountID;
 
     /**
@@ -25,13 +20,18 @@ class data extends Model
     public $accountName;
 
     /**
+     * @var string
+     */
+    public $billingCycle;
+
+    /**
      * @var items
      */
     public $items;
     protected $_name = [
-        'billingCycle' => 'BillingCycle',
         'accountID'    => 'AccountID',
         'accountName'  => 'AccountName',
+        'billingCycle' => 'BillingCycle',
         'items'        => 'Items',
     ];
 
@@ -42,14 +42,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->billingCycle) {
-            $res['BillingCycle'] = $this->billingCycle;
-        }
         if (null !== $this->accountID) {
             $res['AccountID'] = $this->accountID;
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->billingCycle) {
+            $res['BillingCycle'] = $this->billingCycle;
         }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
@@ -66,14 +66,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BillingCycle'])) {
-            $model->billingCycle = $map['BillingCycle'];
-        }
         if (isset($map['AccountID'])) {
             $model->accountID = $map['AccountID'];
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['BillingCycle'])) {
+            $model->billingCycle = $map['BillingCycle'];
         }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);

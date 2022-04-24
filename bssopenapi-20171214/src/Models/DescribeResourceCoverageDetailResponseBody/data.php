@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var items[]
+     */
+    public $items;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -18,21 +28,11 @@ class data extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var items[]
-     */
-    public $items;
     protected $_name = [
+        'items'      => 'Items',
+        'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'totalCount' => 'TotalCount',
-        'maxResults' => 'MaxResults',
-        'items'      => 'Items',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -59,6 +50,15 @@ class data extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
@@ -89,6 +80,15 @@ class data extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

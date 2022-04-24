@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansInstanceRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -25,9 +30,9 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $pageNum;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
+    public $pageSize;
 
     /**
      * @var string
@@ -35,21 +40,16 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $startTime;
 
     /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'pageSize'   => 'PageSize',
+        'endTime'    => 'EndTime',
+        'instanceId' => 'InstanceId',
         'locale'     => 'Locale',
         'pageNum'    => 'PageNum',
-        'instanceId' => 'InstanceId',
+        'pageSize'   => 'PageSize',
         'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
         'tag'        => 'Tag',
     ];
 
@@ -60,8 +60,11 @@ class QuerySavingsPlansInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->locale) {
             $res['Locale'] = $this->locale;
@@ -69,14 +72,11 @@ class QuerySavingsPlansInstanceRequest extends Model
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -99,8 +99,11 @@ class QuerySavingsPlansInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Locale'])) {
             $model->locale = $map['Locale'];
@@ -108,14 +111,11 @@ class QuerySavingsPlansInstanceRequest extends Model
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

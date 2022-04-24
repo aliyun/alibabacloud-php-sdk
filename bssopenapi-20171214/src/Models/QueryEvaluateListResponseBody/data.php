@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
+     * @var evaluateList
      */
-    public $pageNum;
+    public $evaluateList;
+
+    /**
+     * @var string
+     */
+    public $hostId;
 
     /**
      * @var int
      */
-    public $totalUnAppliedInvoiceAmount;
+    public $pageNum;
 
     /**
      * @var int
@@ -35,22 +40,17 @@ class data extends Model
     public $totalInvoiceAmount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $hostId;
-
-    /**
-     * @var evaluateList
-     */
-    public $evaluateList;
+    public $totalUnAppliedInvoiceAmount;
     protected $_name = [
+        'evaluateList'                => 'EvaluateList',
+        'hostId'                      => 'HostId',
         'pageNum'                     => 'PageNum',
-        'totalUnAppliedInvoiceAmount' => 'TotalUnAppliedInvoiceAmount',
         'pageSize'                    => 'PageSize',
         'totalCount'                  => 'TotalCount',
         'totalInvoiceAmount'          => 'TotalInvoiceAmount',
-        'hostId'                      => 'HostId',
-        'evaluateList'                => 'EvaluateList',
+        'totalUnAppliedInvoiceAmount' => 'TotalUnAppliedInvoiceAmount',
     ];
 
     public function validate()
@@ -60,11 +60,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->evaluateList) {
+            $res['EvaluateList'] = null !== $this->evaluateList ? $this->evaluateList->toMap() : null;
+        }
+        if (null !== $this->hostId) {
+            $res['HostId'] = $this->hostId;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->totalUnAppliedInvoiceAmount) {
-            $res['TotalUnAppliedInvoiceAmount'] = $this->totalUnAppliedInvoiceAmount;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -75,11 +78,8 @@ class data extends Model
         if (null !== $this->totalInvoiceAmount) {
             $res['TotalInvoiceAmount'] = $this->totalInvoiceAmount;
         }
-        if (null !== $this->hostId) {
-            $res['HostId'] = $this->hostId;
-        }
-        if (null !== $this->evaluateList) {
-            $res['EvaluateList'] = null !== $this->evaluateList ? $this->evaluateList->toMap() : null;
+        if (null !== $this->totalUnAppliedInvoiceAmount) {
+            $res['TotalUnAppliedInvoiceAmount'] = $this->totalUnAppliedInvoiceAmount;
         }
 
         return $res;
@@ -93,11 +93,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EvaluateList'])) {
+            $model->evaluateList = evaluateList::fromMap($map['EvaluateList']);
+        }
+        if (isset($map['HostId'])) {
+            $model->hostId = $map['HostId'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['TotalUnAppliedInvoiceAmount'])) {
-            $model->totalUnAppliedInvoiceAmount = $map['TotalUnAppliedInvoiceAmount'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -108,11 +111,8 @@ class data extends Model
         if (isset($map['TotalInvoiceAmount'])) {
             $model->totalInvoiceAmount = $map['TotalInvoiceAmount'];
         }
-        if (isset($map['HostId'])) {
-            $model->hostId = $map['HostId'];
-        }
-        if (isset($map['EvaluateList'])) {
-            $model->evaluateList = evaluateList::fromMap($map['EvaluateList']);
+        if (isset($map['TotalUnAppliedInvoiceAmount'])) {
+            $model->totalUnAppliedInvoiceAmount = $map['TotalUnAppliedInvoiceAmount'];
         }
 
         return $model;

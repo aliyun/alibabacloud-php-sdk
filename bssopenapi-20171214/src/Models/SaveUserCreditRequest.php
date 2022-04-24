@@ -16,22 +16,7 @@ class SaveUserCreditRequest extends Model
     /**
      * @var bool
      */
-    public $avoidPrepaidNotification;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var bool
-     */
     public $avoidNotification;
-
-    /**
-     * @var string
-     */
-    public $creditValue;
 
     /**
      * @var bool
@@ -39,23 +24,38 @@ class SaveUserCreditRequest extends Model
     public $avoidPrepaidExpiration;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $operator;
+    public $avoidPrepaidNotification;
 
     /**
      * @var string
      */
     public $creditType;
+
+    /**
+     * @var string
+     */
+    public $creditValue;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $operator;
     protected $_name = [
         'avoidExpiration'          => 'AvoidExpiration',
-        'avoidPrepaidNotification' => 'AvoidPrepaidNotification',
-        'description'              => 'Description',
         'avoidNotification'        => 'AvoidNotification',
-        'creditValue'              => 'CreditValue',
         'avoidPrepaidExpiration'   => 'AvoidPrepaidExpiration',
-        'operator'                 => 'Operator',
+        'avoidPrepaidNotification' => 'AvoidPrepaidNotification',
         'creditType'               => 'CreditType',
+        'creditValue'              => 'CreditValue',
+        'description'              => 'Description',
+        'operator'                 => 'Operator',
     ];
 
     public function validate()
@@ -68,26 +68,26 @@ class SaveUserCreditRequest extends Model
         if (null !== $this->avoidExpiration) {
             $res['AvoidExpiration'] = $this->avoidExpiration;
         }
-        if (null !== $this->avoidPrepaidNotification) {
-            $res['AvoidPrepaidNotification'] = $this->avoidPrepaidNotification;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->avoidNotification) {
             $res['AvoidNotification'] = $this->avoidNotification;
-        }
-        if (null !== $this->creditValue) {
-            $res['CreditValue'] = $this->creditValue;
         }
         if (null !== $this->avoidPrepaidExpiration) {
             $res['AvoidPrepaidExpiration'] = $this->avoidPrepaidExpiration;
         }
-        if (null !== $this->operator) {
-            $res['Operator'] = $this->operator;
+        if (null !== $this->avoidPrepaidNotification) {
+            $res['AvoidPrepaidNotification'] = $this->avoidPrepaidNotification;
         }
         if (null !== $this->creditType) {
             $res['CreditType'] = $this->creditType;
+        }
+        if (null !== $this->creditValue) {
+            $res['CreditValue'] = $this->creditValue;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->operator) {
+            $res['Operator'] = $this->operator;
         }
 
         return $res;
@@ -104,26 +104,26 @@ class SaveUserCreditRequest extends Model
         if (isset($map['AvoidExpiration'])) {
             $model->avoidExpiration = $map['AvoidExpiration'];
         }
-        if (isset($map['AvoidPrepaidNotification'])) {
-            $model->avoidPrepaidNotification = $map['AvoidPrepaidNotification'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['AvoidNotification'])) {
             $model->avoidNotification = $map['AvoidNotification'];
-        }
-        if (isset($map['CreditValue'])) {
-            $model->creditValue = $map['CreditValue'];
         }
         if (isset($map['AvoidPrepaidExpiration'])) {
             $model->avoidPrepaidExpiration = $map['AvoidPrepaidExpiration'];
         }
-        if (isset($map['Operator'])) {
-            $model->operator = $map['Operator'];
+        if (isset($map['AvoidPrepaidNotification'])) {
+            $model->avoidPrepaidNotification = $map['AvoidPrepaidNotification'];
         }
         if (isset($map['CreditType'])) {
             $model->creditType = $map['CreditType'];
+        }
+        if (isset($map['CreditValue'])) {
+            $model->creditValue = $map['CreditValue'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Operator'])) {
+            $model->operator = $map['Operator'];
         }
 
         return $model;

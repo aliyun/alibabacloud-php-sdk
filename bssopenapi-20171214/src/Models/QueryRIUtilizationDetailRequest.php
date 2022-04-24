@@ -11,32 +11,17 @@ class QueryRIUtilizationDetailRequest extends Model
     /**
      * @var string
      */
-    public $RIInstanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceSpec;
-
-    /**
-     * @var string
-     */
-    public $RICommodityCode;
-
-    /**
-     * @var string
-     */
     public $deductedInstanceId;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $instanceSpec;
 
     /**
      * @var int
@@ -47,15 +32,30 @@ class QueryRIUtilizationDetailRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $RICommodityCode;
+
+    /**
+     * @var string
+     */
+    public $RIInstanceId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'RIInstanceId'       => 'RIInstanceId',
-        'instanceSpec'       => 'InstanceSpec',
-        'RICommodityCode'    => 'RICommodityCode',
         'deductedInstanceId' => 'DeductedInstanceId',
-        'startTime'          => 'StartTime',
         'endTime'            => 'EndTime',
+        'instanceSpec'       => 'InstanceSpec',
         'pageNum'            => 'PageNum',
         'pageSize'           => 'PageSize',
+        'RICommodityCode'    => 'RICommodityCode',
+        'RIInstanceId'       => 'RIInstanceId',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class QueryRIUtilizationDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->RIInstanceId) {
-            $res['RIInstanceId'] = $this->RIInstanceId;
-        }
-        if (null !== $this->instanceSpec) {
-            $res['InstanceSpec'] = $this->instanceSpec;
-        }
-        if (null !== $this->RICommodityCode) {
-            $res['RICommodityCode'] = $this->RICommodityCode;
-        }
         if (null !== $this->deductedInstanceId) {
             $res['DeductedInstanceId'] = $this->deductedInstanceId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->RICommodityCode) {
+            $res['RICommodityCode'] = $this->RICommodityCode;
+        }
+        if (null !== $this->RIInstanceId) {
+            $res['RIInstanceId'] = $this->RIInstanceId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class QueryRIUtilizationDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RIInstanceId'])) {
-            $model->RIInstanceId = $map['RIInstanceId'];
-        }
-        if (isset($map['InstanceSpec'])) {
-            $model->instanceSpec = $map['InstanceSpec'];
-        }
-        if (isset($map['RICommodityCode'])) {
-            $model->RICommodityCode = $map['RICommodityCode'];
-        }
         if (isset($map['DeductedInstanceId'])) {
             $model->deductedInstanceId = $map['DeductedInstanceId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RICommodityCode'])) {
+            $model->RICommodityCode = $map['RICommodityCode'];
+        }
+        if (isset($map['RIInstanceId'])) {
+            $model->RIInstanceId = $map['RIInstanceId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

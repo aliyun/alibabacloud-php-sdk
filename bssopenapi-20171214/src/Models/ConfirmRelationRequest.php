@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConfirmRelationRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $relationType;
-
-    /**
      * @var int
      */
-    public $parentUserId;
+    public $childUserId;
 
     /**
      * @var string
@@ -26,24 +21,35 @@ class ConfirmRelationRequest extends Model
     /**
      * @var int
      */
-    public $childUserId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $parentUserId;
 
     /**
      * @var string[]
      */
     public $permissionCodes;
+
+    /**
+     * @var int
+     */
+    public $relationId;
+
+    /**
+     * @var string
+     */
+    public $relationType;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'relationType'    => 'RelationType',
-        'parentUserId'    => 'ParentUserId',
-        'confirmCode'     => 'ConfirmCode',
         'childUserId'     => 'ChildUserId',
-        'requestId'       => 'RequestId',
+        'confirmCode'     => 'ConfirmCode',
+        'parentUserId'    => 'ParentUserId',
         'permissionCodes' => 'PermissionCodes',
+        'relationId'      => 'RelationId',
+        'relationType'    => 'RelationType',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -53,23 +59,26 @@ class ConfirmRelationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->relationType) {
-            $res['RelationType'] = $this->relationType;
-        }
-        if (null !== $this->parentUserId) {
-            $res['ParentUserId'] = $this->parentUserId;
+        if (null !== $this->childUserId) {
+            $res['ChildUserId'] = $this->childUserId;
         }
         if (null !== $this->confirmCode) {
             $res['ConfirmCode'] = $this->confirmCode;
         }
-        if (null !== $this->childUserId) {
-            $res['ChildUserId'] = $this->childUserId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->parentUserId) {
+            $res['ParentUserId'] = $this->parentUserId;
         }
         if (null !== $this->permissionCodes) {
             $res['PermissionCodes'] = $this->permissionCodes;
+        }
+        if (null !== $this->relationId) {
+            $res['RelationId'] = $this->relationId;
+        }
+        if (null !== $this->relationType) {
+            $res['RelationType'] = $this->relationType;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -83,25 +92,28 @@ class ConfirmRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RelationType'])) {
-            $model->relationType = $map['RelationType'];
-        }
-        if (isset($map['ParentUserId'])) {
-            $model->parentUserId = $map['ParentUserId'];
+        if (isset($map['ChildUserId'])) {
+            $model->childUserId = $map['ChildUserId'];
         }
         if (isset($map['ConfirmCode'])) {
             $model->confirmCode = $map['ConfirmCode'];
         }
-        if (isset($map['ChildUserId'])) {
-            $model->childUserId = $map['ChildUserId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ParentUserId'])) {
+            $model->parentUserId = $map['ParentUserId'];
         }
         if (isset($map['PermissionCodes'])) {
             if (!empty($map['PermissionCodes'])) {
                 $model->permissionCodes = $map['PermissionCodes'];
             }
+        }
+        if (isset($map['RelationId'])) {
+            $model->relationId = $map['RelationId'];
+        }
+        if (isset($map['RelationType'])) {
+            $model->relationType = $map['RelationType'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

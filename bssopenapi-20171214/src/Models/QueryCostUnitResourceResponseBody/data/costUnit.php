@@ -11,12 +11,12 @@ class costUnit extends Model
     /**
      * @var int
      */
-    public $parentUnitId;
+    public $ownerUid;
 
     /**
-     * @var string
+     * @var int
      */
-    public $unitName;
+    public $parentUnitId;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class costUnit extends Model
     public $unitId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownerUid;
+    public $unitName;
     protected $_name = [
-        'parentUnitId' => 'ParentUnitId',
-        'unitName'     => 'UnitName',
-        'unitId'       => 'UnitId',
         'ownerUid'     => 'OwnerUid',
+        'parentUnitId' => 'ParentUnitId',
+        'unitId'       => 'UnitId',
+        'unitName'     => 'UnitName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class costUnit extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerUid) {
+            $res['OwnerUid'] = $this->ownerUid;
+        }
         if (null !== $this->parentUnitId) {
             $res['ParentUnitId'] = $this->parentUnitId;
-        }
-        if (null !== $this->unitName) {
-            $res['UnitName'] = $this->unitName;
         }
         if (null !== $this->unitId) {
             $res['UnitId'] = $this->unitId;
         }
-        if (null !== $this->ownerUid) {
-            $res['OwnerUid'] = $this->ownerUid;
+        if (null !== $this->unitName) {
+            $res['UnitName'] = $this->unitName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class costUnit extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerUid'])) {
+            $model->ownerUid = $map['OwnerUid'];
+        }
         if (isset($map['ParentUnitId'])) {
             $model->parentUnitId = $map['ParentUnitId'];
-        }
-        if (isset($map['UnitName'])) {
-            $model->unitName = $map['UnitName'];
         }
         if (isset($map['UnitId'])) {
             $model->unitId = $map['UnitId'];
         }
-        if (isset($map['OwnerUid'])) {
-            $model->ownerUid = $map['OwnerUid'];
+        if (isset($map['UnitName'])) {
+            $model->unitName = $map['UnitName'];
         }
 
         return $model;

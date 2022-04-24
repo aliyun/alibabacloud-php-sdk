@@ -11,12 +11,12 @@ class ApplyInvoiceRequest extends Model
     /**
      * @var int
      */
-    public $invoiceAmount;
+    public $addressId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $applyUserNick;
 
     /**
      * @var int
@@ -26,7 +26,12 @@ class ApplyInvoiceRequest extends Model
     /**
      * @var int
      */
-    public $addressId;
+    public $invoiceAmount;
+
+    /**
+     * @var bool
+     */
+    public $invoiceByAmount;
 
     /**
      * @var int
@@ -36,38 +41,33 @@ class ApplyInvoiceRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $processWay;
-
-    /**
-     * @var string
-     */
-    public $applyUserNick;
-
-    /**
-     * @var bool
-     */
-    public $invoiceByAmount;
-
-    /**
-     * @var string
-     */
-    public $userRemark;
 
     /**
      * @var int[]
      */
     public $selectedIds;
+
+    /**
+     * @var string
+     */
+    public $userRemark;
     protected $_name = [
-        'invoiceAmount'   => 'InvoiceAmount',
-        'ownerId'         => 'OwnerId',
-        'customerId'      => 'CustomerId',
         'addressId'       => 'AddressId',
-        'invoicingType'   => 'InvoicingType',
-        'processWay'      => 'ProcessWay',
         'applyUserNick'   => 'ApplyUserNick',
+        'customerId'      => 'CustomerId',
+        'invoiceAmount'   => 'InvoiceAmount',
         'invoiceByAmount' => 'InvoiceByAmount',
-        'userRemark'      => 'UserRemark',
+        'invoicingType'   => 'InvoicingType',
+        'ownerId'         => 'OwnerId',
+        'processWay'      => 'ProcessWay',
         'selectedIds'     => 'SelectedIds',
+        'userRemark'      => 'UserRemark',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class ApplyInvoiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->invoiceAmount) {
-            $res['InvoiceAmount'] = $this->invoiceAmount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->customerId) {
-            $res['CustomerId'] = $this->customerId;
-        }
         if (null !== $this->addressId) {
             $res['AddressId'] = $this->addressId;
-        }
-        if (null !== $this->invoicingType) {
-            $res['InvoicingType'] = $this->invoicingType;
-        }
-        if (null !== $this->processWay) {
-            $res['ProcessWay'] = $this->processWay;
         }
         if (null !== $this->applyUserNick) {
             $res['ApplyUserNick'] = $this->applyUserNick;
         }
+        if (null !== $this->customerId) {
+            $res['CustomerId'] = $this->customerId;
+        }
+        if (null !== $this->invoiceAmount) {
+            $res['InvoiceAmount'] = $this->invoiceAmount;
+        }
         if (null !== $this->invoiceByAmount) {
             $res['InvoiceByAmount'] = $this->invoiceByAmount;
         }
-        if (null !== $this->userRemark) {
-            $res['UserRemark'] = $this->userRemark;
+        if (null !== $this->invoicingType) {
+            $res['InvoicingType'] = $this->invoicingType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->processWay) {
+            $res['ProcessWay'] = $this->processWay;
         }
         if (null !== $this->selectedIds) {
             $res['SelectedIds'] = $this->selectedIds;
+        }
+        if (null !== $this->userRemark) {
+            $res['UserRemark'] = $this->userRemark;
         }
 
         return $res;
@@ -119,37 +119,37 @@ class ApplyInvoiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InvoiceAmount'])) {
-            $model->invoiceAmount = $map['InvoiceAmount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['CustomerId'])) {
-            $model->customerId = $map['CustomerId'];
-        }
         if (isset($map['AddressId'])) {
             $model->addressId = $map['AddressId'];
-        }
-        if (isset($map['InvoicingType'])) {
-            $model->invoicingType = $map['InvoicingType'];
-        }
-        if (isset($map['ProcessWay'])) {
-            $model->processWay = $map['ProcessWay'];
         }
         if (isset($map['ApplyUserNick'])) {
             $model->applyUserNick = $map['ApplyUserNick'];
         }
+        if (isset($map['CustomerId'])) {
+            $model->customerId = $map['CustomerId'];
+        }
+        if (isset($map['InvoiceAmount'])) {
+            $model->invoiceAmount = $map['InvoiceAmount'];
+        }
         if (isset($map['InvoiceByAmount'])) {
             $model->invoiceByAmount = $map['InvoiceByAmount'];
         }
-        if (isset($map['UserRemark'])) {
-            $model->userRemark = $map['UserRemark'];
+        if (isset($map['InvoicingType'])) {
+            $model->invoicingType = $map['InvoicingType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProcessWay'])) {
+            $model->processWay = $map['ProcessWay'];
         }
         if (isset($map['SelectedIds'])) {
             if (!empty($map['SelectedIds'])) {
                 $model->selectedIds = $map['SelectedIds'];
             }
+        }
+        if (isset($map['UserRemark'])) {
+            $model->userRemark = $map['UserRemark'];
         }
 
         return $model;

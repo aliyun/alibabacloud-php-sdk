@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class EnableBillGenerationRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $productCode;
-
-    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $productCode;
     protected $_name = [
-        'productCode' => 'ProductCode',
         'ownerId'     => 'OwnerId',
+        'productCode' => 'ProductCode',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class EnableBillGenerationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class EnableBillGenerationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
 
         return $model;

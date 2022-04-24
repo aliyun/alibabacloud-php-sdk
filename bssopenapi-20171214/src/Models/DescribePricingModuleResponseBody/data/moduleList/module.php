@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
-     * @var string
+     * @var configList
      */
-    public $moduleName;
-
-    /**
-     * @var string
-     */
-    public $priceType;
+    public $configList;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class module extends Model
     public $moduleCode;
 
     /**
-     * @var configList
+     * @var string
      */
-    public $configList;
+    public $moduleName;
+
+    /**
+     * @var string
+     */
+    public $priceType;
     protected $_name = [
-        'moduleName' => 'ModuleName',
-        'priceType'  => 'PriceType',
+        'configList' => 'ConfigList',
         'currency'   => 'Currency',
         'moduleCode' => 'ModuleCode',
-        'configList' => 'ConfigList',
+        'moduleName' => 'ModuleName',
+        'priceType'  => 'PriceType',
     ];
 
     public function validate()
@@ -48,11 +48,8 @@ class module extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->moduleName) {
-            $res['ModuleName'] = $this->moduleName;
-        }
-        if (null !== $this->priceType) {
-            $res['PriceType'] = $this->priceType;
+        if (null !== $this->configList) {
+            $res['ConfigList'] = null !== $this->configList ? $this->configList->toMap() : null;
         }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
@@ -60,8 +57,11 @@ class module extends Model
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
-        if (null !== $this->configList) {
-            $res['ConfigList'] = null !== $this->configList ? $this->configList->toMap() : null;
+        if (null !== $this->moduleName) {
+            $res['ModuleName'] = $this->moduleName;
+        }
+        if (null !== $this->priceType) {
+            $res['PriceType'] = $this->priceType;
         }
 
         return $res;
@@ -75,11 +75,8 @@ class module extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModuleName'])) {
-            $model->moduleName = $map['ModuleName'];
-        }
-        if (isset($map['PriceType'])) {
-            $model->priceType = $map['PriceType'];
+        if (isset($map['ConfigList'])) {
+            $model->configList = configList::fromMap($map['ConfigList']);
         }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
@@ -87,8 +84,11 @@ class module extends Model
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
-        if (isset($map['ConfigList'])) {
-            $model->configList = configList::fromMap($map['ConfigList']);
+        if (isset($map['ModuleName'])) {
+            $model->moduleName = $map['ModuleName'];
+        }
+        if (isset($map['PriceType'])) {
+            $model->priceType = $map['PriceType'];
         }
 
         return $model;

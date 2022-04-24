@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryRedeemRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $expiryTimeStart;
+    public $effectiveOrNot;
 
     /**
      * @var string
@@ -19,9 +19,9 @@ class QueryRedeemRequest extends Model
     public $expiryTimeEnd;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $effectiveOrNot;
+    public $expiryTimeStart;
 
     /**
      * @var int
@@ -33,9 +33,9 @@ class QueryRedeemRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'expiryTimeStart' => 'ExpiryTimeStart',
-        'expiryTimeEnd'   => 'ExpiryTimeEnd',
         'effectiveOrNot'  => 'EffectiveOrNot',
+        'expiryTimeEnd'   => 'ExpiryTimeEnd',
+        'expiryTimeStart' => 'ExpiryTimeStart',
         'pageNum'         => 'PageNum',
         'pageSize'        => 'PageSize',
     ];
@@ -47,14 +47,14 @@ class QueryRedeemRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->expiryTimeStart) {
-            $res['ExpiryTimeStart'] = $this->expiryTimeStart;
+        if (null !== $this->effectiveOrNot) {
+            $res['EffectiveOrNot'] = $this->effectiveOrNot;
         }
         if (null !== $this->expiryTimeEnd) {
             $res['ExpiryTimeEnd'] = $this->expiryTimeEnd;
         }
-        if (null !== $this->effectiveOrNot) {
-            $res['EffectiveOrNot'] = $this->effectiveOrNot;
+        if (null !== $this->expiryTimeStart) {
+            $res['ExpiryTimeStart'] = $this->expiryTimeStart;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -74,14 +74,14 @@ class QueryRedeemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExpiryTimeStart'])) {
-            $model->expiryTimeStart = $map['ExpiryTimeStart'];
+        if (isset($map['EffectiveOrNot'])) {
+            $model->effectiveOrNot = $map['EffectiveOrNot'];
         }
         if (isset($map['ExpiryTimeEnd'])) {
             $model->expiryTimeEnd = $map['ExpiryTimeEnd'];
         }
-        if (isset($map['EffectiveOrNot'])) {
-            $model->effectiveOrNot = $map['EffectiveOrNot'];
+        if (isset($map['ExpiryTimeStart'])) {
+            $model->expiryTimeStart = $map['ExpiryTimeStart'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

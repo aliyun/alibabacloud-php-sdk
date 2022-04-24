@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateResellerUserQuotaRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $amount;
@@ -27,11 +22,16 @@ class CreateResellerUserQuotaRequest extends Model
      * @var string
      */
     public $outBizId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'amount'   => 'Amount',
         'currency' => 'Currency',
         'outBizId' => 'OutBizId',
+        'ownerId'  => 'OwnerId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CreateResellerUserQuotaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
@@ -52,6 +49,9 @@ class CreateResellerUserQuotaRequest extends Model
         }
         if (null !== $this->outBizId) {
             $res['OutBizId'] = $this->outBizId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CreateResellerUserQuotaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
@@ -76,6 +73,9 @@ class CreateResellerUserQuotaRequest extends Model
         }
         if (isset($map['OutBizId'])) {
             $model->outBizId = $map['OutBizId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

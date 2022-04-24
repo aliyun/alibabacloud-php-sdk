@@ -10,9 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeSplitItemBillRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $billOwnerId;
+
+    /**
      * @var string
      */
     public $billingCycle;
+
+    /**
+     * @var string
+     */
+    public $billingDate;
+
+    /**
+     * @var string
+     */
+    public $granularity;
+
+    /**
+     * @var string
+     */
+    public $instanceID;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -27,65 +62,30 @@ class DescribeSplitItemBillRequest extends Model
     /**
      * @var string
      */
-    public $subscriptionType;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var int
-     */
-    public $billOwnerId;
-
-    /**
-     * @var string
-     */
-    public $instanceID;
-
-    /**
-     * @var string
-     */
     public $splitItemID;
 
     /**
      * @var string
      */
-    public $granularity;
-
-    /**
-     * @var string
-     */
-    public $billingDate;
+    public $subscriptionType;
 
     /**
      * @var tagFilter[]
      */
     public $tagFilter;
     protected $_name = [
+        'billOwnerId'      => 'BillOwnerId',
         'billingCycle'     => 'BillingCycle',
+        'billingDate'      => 'BillingDate',
+        'granularity'      => 'Granularity',
+        'instanceID'       => 'InstanceID',
+        'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
+        'ownerId'          => 'OwnerId',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
-        'subscriptionType' => 'SubscriptionType',
-        'ownerId'          => 'OwnerId',
-        'nextToken'        => 'NextToken',
-        'maxResults'       => 'MaxResults',
-        'billOwnerId'      => 'BillOwnerId',
-        'instanceID'       => 'InstanceID',
         'splitItemID'      => 'SplitItemID',
-        'granularity'      => 'Granularity',
-        'billingDate'      => 'BillingDate',
+        'subscriptionType' => 'SubscriptionType',
         'tagFilter'        => 'TagFilter',
     ];
 
@@ -96,8 +96,29 @@ class DescribeSplitItemBillRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->billOwnerId) {
+            $res['BillOwnerId'] = $this->billOwnerId;
+        }
         if (null !== $this->billingCycle) {
             $res['BillingCycle'] = $this->billingCycle;
+        }
+        if (null !== $this->billingDate) {
+            $res['BillingDate'] = $this->billingDate;
+        }
+        if (null !== $this->granularity) {
+            $res['Granularity'] = $this->granularity;
+        }
+        if (null !== $this->instanceID) {
+            $res['InstanceID'] = $this->instanceID;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -105,32 +126,11 @@ class DescribeSplitItemBillRequest extends Model
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
-        if (null !== $this->subscriptionType) {
-            $res['SubscriptionType'] = $this->subscriptionType;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->billOwnerId) {
-            $res['BillOwnerId'] = $this->billOwnerId;
-        }
-        if (null !== $this->instanceID) {
-            $res['InstanceID'] = $this->instanceID;
-        }
         if (null !== $this->splitItemID) {
             $res['SplitItemID'] = $this->splitItemID;
         }
-        if (null !== $this->granularity) {
-            $res['Granularity'] = $this->granularity;
-        }
-        if (null !== $this->billingDate) {
-            $res['BillingDate'] = $this->billingDate;
+        if (null !== $this->subscriptionType) {
+            $res['SubscriptionType'] = $this->subscriptionType;
         }
         if (null !== $this->tagFilter) {
             $res['TagFilter'] = [];
@@ -153,8 +153,29 @@ class DescribeSplitItemBillRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BillOwnerId'])) {
+            $model->billOwnerId = $map['BillOwnerId'];
+        }
         if (isset($map['BillingCycle'])) {
             $model->billingCycle = $map['BillingCycle'];
+        }
+        if (isset($map['BillingDate'])) {
+            $model->billingDate = $map['BillingDate'];
+        }
+        if (isset($map['Granularity'])) {
+            $model->granularity = $map['Granularity'];
+        }
+        if (isset($map['InstanceID'])) {
+            $model->instanceID = $map['InstanceID'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
@@ -162,32 +183,11 @@ class DescribeSplitItemBillRequest extends Model
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
-        if (isset($map['SubscriptionType'])) {
-            $model->subscriptionType = $map['SubscriptionType'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['BillOwnerId'])) {
-            $model->billOwnerId = $map['BillOwnerId'];
-        }
-        if (isset($map['InstanceID'])) {
-            $model->instanceID = $map['InstanceID'];
-        }
         if (isset($map['SplitItemID'])) {
             $model->splitItemID = $map['SplitItemID'];
         }
-        if (isset($map['Granularity'])) {
-            $model->granularity = $map['Granularity'];
-        }
-        if (isset($map['BillingDate'])) {
-            $model->billingDate = $map['BillingDate'];
+        if (isset($map['SubscriptionType'])) {
+            $model->subscriptionType = $map['SubscriptionType'];
         }
         if (isset($map['TagFilter'])) {
             if (!empty($map['TagFilter'])) {

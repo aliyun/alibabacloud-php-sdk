@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var moduleList
-     */
-    public $moduleList;
-
-    /**
      * @var attributeList
      */
     public $attributeList;
+
+    /**
+     * @var moduleList
+     */
+    public $moduleList;
     protected $_name = [
-        'moduleList'    => 'ModuleList',
         'attributeList' => 'AttributeList',
+        'moduleList'    => 'ModuleList',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->moduleList) {
-            $res['ModuleList'] = null !== $this->moduleList ? $this->moduleList->toMap() : null;
-        }
         if (null !== $this->attributeList) {
             $res['AttributeList'] = null !== $this->attributeList ? $this->attributeList->toMap() : null;
+        }
+        if (null !== $this->moduleList) {
+            $res['ModuleList'] = null !== $this->moduleList ? $this->moduleList->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModuleList'])) {
-            $model->moduleList = moduleList::fromMap($map['ModuleList']);
-        }
         if (isset($map['AttributeList'])) {
             $model->attributeList = attributeList::fromMap($map['AttributeList']);
+        }
+        if (isset($map['ModuleList'])) {
+            $model->moduleList = moduleList::fromMap($map['ModuleList']);
         }
 
         return $model;

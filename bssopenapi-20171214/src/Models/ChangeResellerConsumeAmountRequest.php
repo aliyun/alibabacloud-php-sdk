@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ChangeResellerConsumeAmountRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $adjustType;
@@ -26,17 +21,17 @@ class ChangeResellerConsumeAmountRequest extends Model
     /**
      * @var string
      */
-    public $currency;
-
-    /**
-     * @var string
-     */
     public $businessType;
 
     /**
      * @var string
      */
-    public $source;
+    public $currency;
+
+    /**
+     * @var string
+     */
+    public $extendMap;
 
     /**
      * @var string
@@ -44,18 +39,23 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $outBizId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $extendMap;
+    public $source;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
         'adjustType'   => 'AdjustType',
         'amount'       => 'Amount',
-        'currency'     => 'Currency',
         'businessType' => 'BusinessType',
-        'source'       => 'Source',
-        'outBizId'     => 'OutBizId',
+        'currency'     => 'Currency',
         'extendMap'    => 'ExtendMap',
+        'outBizId'     => 'OutBizId',
+        'ownerId'      => 'OwnerId',
+        'source'       => 'Source',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class ChangeResellerConsumeAmountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->adjustType) {
             $res['AdjustType'] = $this->adjustType;
         }
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
-        if (null !== $this->currency) {
-            $res['Currency'] = $this->currency;
-        }
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
+        }
+        if (null !== $this->extendMap) {
+            $res['ExtendMap'] = $this->extendMap;
         }
         if (null !== $this->outBizId) {
             $res['OutBizId'] = $this->outBizId;
         }
-        if (null !== $this->extendMap) {
-            $res['ExtendMap'] = $this->extendMap;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class ChangeResellerConsumeAmountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['AdjustType'])) {
             $model->adjustType = $map['AdjustType'];
         }
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
-        if (isset($map['Currency'])) {
-            $model->currency = $map['Currency'];
-        }
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
+        }
+        if (isset($map['ExtendMap'])) {
+            $model->extendMap = $map['ExtendMap'];
         }
         if (isset($map['OutBizId'])) {
             $model->outBizId = $map['OutBizId'];
         }
-        if (isset($map['ExtendMap'])) {
-            $model->extendMap = $map['ExtendMap'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

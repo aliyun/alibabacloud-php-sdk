@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class specification extends Model
 {
     /**
+     * @var availableDurations
+     */
+    public $availableDurations;
+
+    /**
      * @var string
      */
     public $name;
@@ -18,15 +23,10 @@ class specification extends Model
      * @var string
      */
     public $value;
-
-    /**
-     * @var availableDurations
-     */
-    public $availableDurations;
     protected $_name = [
+        'availableDurations' => 'AvailableDurations',
         'name'               => 'Name',
         'value'              => 'Value',
-        'availableDurations' => 'AvailableDurations',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class specification extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->availableDurations) {
+            $res['AvailableDurations'] = null !== $this->availableDurations ? $this->availableDurations->toMap() : null;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
-        }
-        if (null !== $this->availableDurations) {
-            $res['AvailableDurations'] = null !== $this->availableDurations ? $this->availableDurations->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class specification extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableDurations'])) {
+            $model->availableDurations = availableDurations::fromMap($map['AvailableDurations']);
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
-        }
-        if (isset($map['AvailableDurations'])) {
-            $model->availableDurations = availableDurations::fromMap($map['AvailableDurations']);
         }
 
         return $model;

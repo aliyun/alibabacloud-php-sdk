@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryProductListRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $queryTotalCount;
-
-    /**
      * @var int
      */
     public $pageNum;
@@ -22,10 +17,15 @@ class QueryProductListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var bool
+     */
+    public $queryTotalCount;
     protected $_name = [
-        'queryTotalCount' => 'QueryTotalCount',
         'pageNum'         => 'PageNum',
         'pageSize'        => 'PageSize',
+        'queryTotalCount' => 'QueryTotalCount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryProductListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queryTotalCount) {
-            $res['QueryTotalCount'] = $this->queryTotalCount;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queryTotalCount) {
+            $res['QueryTotalCount'] = $this->queryTotalCount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryProductListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QueryTotalCount'])) {
-            $model->queryTotalCount = $map['QueryTotalCount'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueryTotalCount'])) {
+            $model->queryTotalCount = $map['QueryTotalCount'];
         }
 
         return $model;

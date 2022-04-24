@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryResourcePackageInstancesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $productCode;
+    public $expiryTimeEnd;
 
     /**
      * @var string
@@ -24,9 +19,14 @@ class QueryResourcePackageInstancesRequest extends Model
     public $expiryTimeStart;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $expiryTimeEnd;
+    public $includePartner;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -37,13 +37,19 @@ class QueryResourcePackageInstancesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $productCode;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
-        'productCode'     => 'ProductCode',
-        'expiryTimeStart' => 'ExpiryTimeStart',
         'expiryTimeEnd'   => 'ExpiryTimeEnd',
+        'expiryTimeStart' => 'ExpiryTimeStart',
+        'includePartner'  => 'IncludePartner',
+        'ownerId'         => 'OwnerId',
         'pageNum'         => 'PageNum',
         'pageSize'        => 'PageSize',
+        'productCode'     => 'ProductCode',
     ];
 
     public function validate()
@@ -53,23 +59,26 @@ class QueryResourcePackageInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
+        if (null !== $this->expiryTimeEnd) {
+            $res['ExpiryTimeEnd'] = $this->expiryTimeEnd;
         }
         if (null !== $this->expiryTimeStart) {
             $res['ExpiryTimeStart'] = $this->expiryTimeStart;
         }
-        if (null !== $this->expiryTimeEnd) {
-            $res['ExpiryTimeEnd'] = $this->expiryTimeEnd;
+        if (null !== $this->includePartner) {
+            $res['IncludePartner'] = $this->includePartner;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
 
         return $res;
@@ -83,23 +92,26 @@ class QueryResourcePackageInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
+        if (isset($map['ExpiryTimeEnd'])) {
+            $model->expiryTimeEnd = $map['ExpiryTimeEnd'];
         }
         if (isset($map['ExpiryTimeStart'])) {
             $model->expiryTimeStart = $map['ExpiryTimeStart'];
         }
-        if (isset($map['ExpiryTimeEnd'])) {
-            $model->expiryTimeEnd = $map['ExpiryTimeEnd'];
+        if (isset($map['IncludePartner'])) {
+            $model->includePartner = $map['IncludePartner'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceCoverageTotalRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $startPeriod;
+    public $billOwnerId;
 
     /**
      * @var string
@@ -24,20 +24,20 @@ class DescribeResourceCoverageTotalRequest extends Model
     public $periodType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $billOwnerId;
+    public $resourceType;
 
     /**
      * @var string
      */
-    public $resourceType;
+    public $startPeriod;
     protected $_name = [
-        'startPeriod'  => 'StartPeriod',
+        'billOwnerId'  => 'BillOwnerId',
         'endPeriod'    => 'EndPeriod',
         'periodType'   => 'PeriodType',
-        'billOwnerId'  => 'BillOwnerId',
         'resourceType' => 'ResourceType',
+        'startPeriod'  => 'StartPeriod',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class DescribeResourceCoverageTotalRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startPeriod) {
-            $res['StartPeriod'] = $this->startPeriod;
+        if (null !== $this->billOwnerId) {
+            $res['BillOwnerId'] = $this->billOwnerId;
         }
         if (null !== $this->endPeriod) {
             $res['EndPeriod'] = $this->endPeriod;
@@ -56,11 +56,11 @@ class DescribeResourceCoverageTotalRequest extends Model
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
         }
-        if (null !== $this->billOwnerId) {
-            $res['BillOwnerId'] = $this->billOwnerId;
-        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->startPeriod) {
+            $res['StartPeriod'] = $this->startPeriod;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class DescribeResourceCoverageTotalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartPeriod'])) {
-            $model->startPeriod = $map['StartPeriod'];
+        if (isset($map['BillOwnerId'])) {
+            $model->billOwnerId = $map['BillOwnerId'];
         }
         if (isset($map['EndPeriod'])) {
             $model->endPeriod = $map['EndPeriod'];
@@ -83,11 +83,11 @@ class DescribeResourceCoverageTotalRequest extends Model
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
         }
-        if (isset($map['BillOwnerId'])) {
-            $model->billOwnerId = $map['BillOwnerId'];
-        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['StartPeriod'])) {
+            $model->startPeriod = $map['StartPeriod'];
         }
 
         return $model;

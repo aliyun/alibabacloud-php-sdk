@@ -9,14 +9,39 @@ use AlibabaCloud\Tea\Model;
 class QuerySettleBillRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $billOwnerId;
+
+    /**
      * @var string
      */
     public $billingCycle;
 
     /**
+     * @var bool
+     */
+    public $isDisplayLocalCurrency;
+
+    /**
+     * @var bool
+     */
+    public $isHideZeroCharge;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
-    public $type;
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -31,55 +56,30 @@ class QuerySettleBillRequest extends Model
     /**
      * @var string
      */
+    public $recordID;
+
+    /**
+     * @var string
+     */
     public $subscriptionType;
 
     /**
-     * @var bool
-     */
-    public $isHideZeroCharge;
-
-    /**
-     * @var bool
-     */
-    public $isDisplayLocalCurrency;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var int
-     */
-    public $billOwnerId;
-
-    /**
-     * @var string
-     */
-    public $recordID;
+    public $type;
     protected $_name = [
+        'billOwnerId'            => 'BillOwnerId',
         'billingCycle'           => 'BillingCycle',
-        'type'                   => 'Type',
+        'isDisplayLocalCurrency' => 'IsDisplayLocalCurrency',
+        'isHideZeroCharge'       => 'IsHideZeroCharge',
+        'maxResults'             => 'MaxResults',
+        'nextToken'              => 'NextToken',
+        'ownerId'                => 'OwnerId',
         'productCode'            => 'ProductCode',
         'productType'            => 'ProductType',
-        'subscriptionType'       => 'SubscriptionType',
-        'isHideZeroCharge'       => 'IsHideZeroCharge',
-        'isDisplayLocalCurrency' => 'IsDisplayLocalCurrency',
-        'ownerId'                => 'OwnerId',
-        'nextToken'              => 'NextToken',
-        'maxResults'             => 'MaxResults',
-        'billOwnerId'            => 'BillOwnerId',
         'recordID'               => 'RecordID',
+        'subscriptionType'       => 'SubscriptionType',
+        'type'                   => 'Type',
     ];
 
     public function validate()
@@ -89,11 +89,26 @@ class QuerySettleBillRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->billOwnerId) {
+            $res['BillOwnerId'] = $this->billOwnerId;
+        }
         if (null !== $this->billingCycle) {
             $res['BillingCycle'] = $this->billingCycle;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->isDisplayLocalCurrency) {
+            $res['IsDisplayLocalCurrency'] = $this->isDisplayLocalCurrency;
+        }
+        if (null !== $this->isHideZeroCharge) {
+            $res['IsHideZeroCharge'] = $this->isHideZeroCharge;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -101,29 +116,14 @@ class QuerySettleBillRequest extends Model
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+        if (null !== $this->recordID) {
+            $res['RecordID'] = $this->recordID;
+        }
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
         }
-        if (null !== $this->isHideZeroCharge) {
-            $res['IsHideZeroCharge'] = $this->isHideZeroCharge;
-        }
-        if (null !== $this->isDisplayLocalCurrency) {
-            $res['IsDisplayLocalCurrency'] = $this->isDisplayLocalCurrency;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->billOwnerId) {
-            $res['BillOwnerId'] = $this->billOwnerId;
-        }
-        if (null !== $this->recordID) {
-            $res['RecordID'] = $this->recordID;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -137,11 +137,26 @@ class QuerySettleBillRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BillOwnerId'])) {
+            $model->billOwnerId = $map['BillOwnerId'];
+        }
         if (isset($map['BillingCycle'])) {
             $model->billingCycle = $map['BillingCycle'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['IsDisplayLocalCurrency'])) {
+            $model->isDisplayLocalCurrency = $map['IsDisplayLocalCurrency'];
+        }
+        if (isset($map['IsHideZeroCharge'])) {
+            $model->isHideZeroCharge = $map['IsHideZeroCharge'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
@@ -149,29 +164,14 @@ class QuerySettleBillRequest extends Model
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+        if (isset($map['RecordID'])) {
+            $model->recordID = $map['RecordID'];
+        }
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
         }
-        if (isset($map['IsHideZeroCharge'])) {
-            $model->isHideZeroCharge = $map['IsHideZeroCharge'];
-        }
-        if (isset($map['IsDisplayLocalCurrency'])) {
-            $model->isDisplayLocalCurrency = $map['IsDisplayLocalCurrency'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['BillOwnerId'])) {
-            $model->billOwnerId = $map['BillOwnerId'];
-        }
-        if (isset($map['RecordID'])) {
-            $model->recordID = $map['RecordID'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

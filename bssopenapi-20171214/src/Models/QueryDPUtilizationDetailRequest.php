@@ -11,16 +11,6 @@ class QueryDPUtilizationDetailRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceSpec;
-
-    /**
-     * @var string
-     */
     public $commodityCode;
 
     /**
@@ -31,12 +21,22 @@ class QueryDPUtilizationDetailRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
+
+    /**
+     * @var bool
+     */
+    public $includeShare;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceSpec;
 
     /**
      * @var string
@@ -49,25 +49,25 @@ class QueryDPUtilizationDetailRequest extends Model
     public $limit;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $includeShare;
+    public $prodCode;
 
     /**
      * @var string
      */
-    public $prodCode;
+    public $startTime;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
-        'instanceSpec'       => 'InstanceSpec',
         'commodityCode'      => 'CommodityCode',
         'deductedInstanceId' => 'DeductedInstanceId',
-        'startTime'          => 'StartTime',
         'endTime'            => 'EndTime',
+        'includeShare'       => 'IncludeShare',
+        'instanceId'         => 'InstanceId',
+        'instanceSpec'       => 'InstanceSpec',
         'lastToken'          => 'LastToken',
         'limit'              => 'Limit',
-        'includeShare'       => 'IncludeShare',
         'prodCode'           => 'ProdCode',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -77,23 +77,23 @@ class QueryDPUtilizationDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceSpec) {
-            $res['InstanceSpec'] = $this->instanceSpec;
-        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
         if (null !== $this->deductedInstanceId) {
             $res['DeductedInstanceId'] = $this->deductedInstanceId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->includeShare) {
+            $res['IncludeShare'] = $this->includeShare;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
         }
         if (null !== $this->lastToken) {
             $res['LastToken'] = $this->lastToken;
@@ -101,11 +101,11 @@ class QueryDPUtilizationDetailRequest extends Model
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
-        if (null !== $this->includeShare) {
-            $res['IncludeShare'] = $this->includeShare;
-        }
         if (null !== $this->prodCode) {
             $res['ProdCode'] = $this->prodCode;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -119,23 +119,23 @@ class QueryDPUtilizationDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceSpec'])) {
-            $model->instanceSpec = $map['InstanceSpec'];
-        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
         if (isset($map['DeductedInstanceId'])) {
             $model->deductedInstanceId = $map['DeductedInstanceId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['IncludeShare'])) {
+            $model->includeShare = $map['IncludeShare'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
         }
         if (isset($map['LastToken'])) {
             $model->lastToken = $map['LastToken'];
@@ -143,11 +143,11 @@ class QueryDPUtilizationDetailRequest extends Model
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
-        if (isset($map['IncludeShare'])) {
-            $model->includeShare = $map['IncludeShare'];
-        }
         if (isset($map['ProdCode'])) {
             $model->prodCode = $map['ProdCode'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

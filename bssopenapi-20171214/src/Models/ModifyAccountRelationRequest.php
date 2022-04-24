@@ -11,12 +11,12 @@ class ModifyAccountRelationRequest extends Model
     /**
      * @var string
      */
-    public $relationType;
+    public $childNick;
 
     /**
-     * @var string
+     * @var int
      */
-    public $relationOperation;
+    public $childUserId;
 
     /**
      * @var int
@@ -24,14 +24,24 @@ class ModifyAccountRelationRequest extends Model
     public $parentUserId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $childNick;
+    public $permissionCodes;
 
     /**
      * @var int
      */
-    public $childUserId;
+    public $relationId;
+
+    /**
+     * @var string
+     */
+    public $relationOperation;
+
+    /**
+     * @var string
+     */
+    public $relationType;
 
     /**
      * @var string
@@ -42,20 +52,16 @@ class ModifyAccountRelationRequest extends Model
      * @var string[]
      */
     public $roleCodes;
-
-    /**
-     * @var string[]
-     */
-    public $permissionCodes;
     protected $_name = [
-        'relationType'      => 'RelationType',
-        'relationOperation' => 'RelationOperation',
-        'parentUserId'      => 'ParentUserId',
         'childNick'         => 'ChildNick',
         'childUserId'       => 'ChildUserId',
+        'parentUserId'      => 'ParentUserId',
+        'permissionCodes'   => 'PermissionCodes',
+        'relationId'        => 'RelationId',
+        'relationOperation' => 'RelationOperation',
+        'relationType'      => 'RelationType',
         'requestId'         => 'RequestId',
         'roleCodes'         => 'RoleCodes',
-        'permissionCodes'   => 'PermissionCodes',
     ];
 
     public function validate()
@@ -65,29 +71,32 @@ class ModifyAccountRelationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->relationType) {
-            $res['RelationType'] = $this->relationType;
-        }
-        if (null !== $this->relationOperation) {
-            $res['RelationOperation'] = $this->relationOperation;
-        }
-        if (null !== $this->parentUserId) {
-            $res['ParentUserId'] = $this->parentUserId;
-        }
         if (null !== $this->childNick) {
             $res['ChildNick'] = $this->childNick;
         }
         if (null !== $this->childUserId) {
             $res['ChildUserId'] = $this->childUserId;
         }
+        if (null !== $this->parentUserId) {
+            $res['ParentUserId'] = $this->parentUserId;
+        }
+        if (null !== $this->permissionCodes) {
+            $res['PermissionCodes'] = $this->permissionCodes;
+        }
+        if (null !== $this->relationId) {
+            $res['RelationId'] = $this->relationId;
+        }
+        if (null !== $this->relationOperation) {
+            $res['RelationOperation'] = $this->relationOperation;
+        }
+        if (null !== $this->relationType) {
+            $res['RelationType'] = $this->relationType;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleCodes) {
             $res['RoleCodes'] = $this->roleCodes;
-        }
-        if (null !== $this->permissionCodes) {
-            $res['PermissionCodes'] = $this->permissionCodes;
         }
 
         return $res;
@@ -101,20 +110,28 @@ class ModifyAccountRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RelationType'])) {
-            $model->relationType = $map['RelationType'];
-        }
-        if (isset($map['RelationOperation'])) {
-            $model->relationOperation = $map['RelationOperation'];
-        }
-        if (isset($map['ParentUserId'])) {
-            $model->parentUserId = $map['ParentUserId'];
-        }
         if (isset($map['ChildNick'])) {
             $model->childNick = $map['ChildNick'];
         }
         if (isset($map['ChildUserId'])) {
             $model->childUserId = $map['ChildUserId'];
+        }
+        if (isset($map['ParentUserId'])) {
+            $model->parentUserId = $map['ParentUserId'];
+        }
+        if (isset($map['PermissionCodes'])) {
+            if (!empty($map['PermissionCodes'])) {
+                $model->permissionCodes = $map['PermissionCodes'];
+            }
+        }
+        if (isset($map['RelationId'])) {
+            $model->relationId = $map['RelationId'];
+        }
+        if (isset($map['RelationOperation'])) {
+            $model->relationOperation = $map['RelationOperation'];
+        }
+        if (isset($map['RelationType'])) {
+            $model->relationType = $map['RelationType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -122,11 +139,6 @@ class ModifyAccountRelationRequest extends Model
         if (isset($map['RoleCodes'])) {
             if (!empty($map['RoleCodes'])) {
                 $model->roleCodes = $map['RoleCodes'];
-            }
-        }
-        if (isset($map['PermissionCodes'])) {
-            if (!empty($map['PermissionCodes'])) {
-                $model->permissionCodes = $map['PermissionCodes'];
             }
         }
 

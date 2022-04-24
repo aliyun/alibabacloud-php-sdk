@@ -16,22 +16,22 @@ class QueryCostUnitResourceRequest extends Model
     /**
      * @var int
      */
-    public $unitId;
-
-    /**
-     * @var int
-     */
     public $pageNum;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $unitId;
     protected $_name = [
         'ownerUid' => 'OwnerUid',
-        'unitId'   => 'UnitId',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
+        'unitId'   => 'UnitId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryCostUnitResourceRequest extends Model
         if (null !== $this->ownerUid) {
             $res['OwnerUid'] = $this->ownerUid;
         }
-        if (null !== $this->unitId) {
-            $res['UnitId'] = $this->unitId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->unitId) {
+            $res['UnitId'] = $this->unitId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QueryCostUnitResourceRequest extends Model
         if (isset($map['OwnerUid'])) {
             $model->ownerUid = $map['OwnerUid'];
         }
-        if (isset($map['UnitId'])) {
-            $model->unitId = $map['UnitId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['UnitId'])) {
+            $model->unitId = $map['UnitId'];
         }
 
         return $model;

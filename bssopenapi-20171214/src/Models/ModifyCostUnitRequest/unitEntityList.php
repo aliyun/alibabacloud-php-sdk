@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class unitEntityList extends Model
 {
     /**
-     * @var int
-     */
-    public $unitId;
-
-    /**
      * @var string
      */
     public $newUnitName;
@@ -22,10 +17,15 @@ class unitEntityList extends Model
      * @var int
      */
     public $ownerUid;
+
+    /**
+     * @var int
+     */
+    public $unitId;
     protected $_name = [
-        'unitId'      => 'UnitId',
         'newUnitName' => 'NewUnitName',
         'ownerUid'    => 'OwnerUid',
+        'unitId'      => 'UnitId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class unitEntityList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->unitId) {
-            $res['UnitId'] = $this->unitId;
-        }
         if (null !== $this->newUnitName) {
             $res['NewUnitName'] = $this->newUnitName;
         }
         if (null !== $this->ownerUid) {
             $res['OwnerUid'] = $this->ownerUid;
+        }
+        if (null !== $this->unitId) {
+            $res['UnitId'] = $this->unitId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class unitEntityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UnitId'])) {
-            $model->unitId = $map['UnitId'];
-        }
         if (isset($map['NewUnitName'])) {
             $model->newUnitName = $map['NewUnitName'];
         }
         if (isset($map['OwnerUid'])) {
             $model->ownerUid = $map['OwnerUid'];
+        }
+        if (isset($map['UnitId'])) {
+            $model->unitId = $map['UnitId'];
         }
 
         return $model;

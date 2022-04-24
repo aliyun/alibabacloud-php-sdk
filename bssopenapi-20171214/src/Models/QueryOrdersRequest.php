@@ -14,6 +14,21 @@ class QueryOrdersRequest extends Model
     public $createTimeEnd;
 
     /**
+     * @var string
+     */
+    public $createTimeStart;
+
+    /**
+     * @var string
+     */
+    public $orderType;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -22,6 +37,11 @@ class QueryOrdersRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $paymentStatus;
 
     /**
      * @var string
@@ -37,37 +57,17 @@ class QueryOrdersRequest extends Model
      * @var string
      */
     public $subscriptionType;
-
-    /**
-     * @var string
-     */
-    public $orderType;
-
-    /**
-     * @var string
-     */
-    public $paymentStatus;
-
-    /**
-     * @var string
-     */
-    public $createTimeStart;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'createTimeEnd'    => 'CreateTimeEnd',
+        'createTimeStart'  => 'CreateTimeStart',
+        'orderType'        => 'OrderType',
+        'ownerId'          => 'OwnerId',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
+        'paymentStatus'    => 'PaymentStatus',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
-        'orderType'        => 'OrderType',
-        'paymentStatus'    => 'PaymentStatus',
-        'createTimeStart'  => 'CreateTimeStart',
-        'ownerId'          => 'OwnerId',
     ];
 
     public function validate()
@@ -80,11 +80,23 @@ class QueryOrdersRequest extends Model
         if (null !== $this->createTimeEnd) {
             $res['CreateTimeEnd'] = $this->createTimeEnd;
         }
+        if (null !== $this->createTimeStart) {
+            $res['CreateTimeStart'] = $this->createTimeStart;
+        }
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->paymentStatus) {
+            $res['PaymentStatus'] = $this->paymentStatus;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -94,18 +106,6 @@ class QueryOrdersRequest extends Model
         }
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
-        }
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
-        }
-        if (null !== $this->paymentStatus) {
-            $res['PaymentStatus'] = $this->paymentStatus;
-        }
-        if (null !== $this->createTimeStart) {
-            $res['CreateTimeStart'] = $this->createTimeStart;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -122,11 +122,23 @@ class QueryOrdersRequest extends Model
         if (isset($map['CreateTimeEnd'])) {
             $model->createTimeEnd = $map['CreateTimeEnd'];
         }
+        if (isset($map['CreateTimeStart'])) {
+            $model->createTimeStart = $map['CreateTimeStart'];
+        }
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PaymentStatus'])) {
+            $model->paymentStatus = $map['PaymentStatus'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
@@ -136,18 +148,6 @@ class QueryOrdersRequest extends Model
         }
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
-        }
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
-        }
-        if (isset($map['PaymentStatus'])) {
-            $model->paymentStatus = $map['PaymentStatus'];
-        }
-        if (isset($map['CreateTimeStart'])) {
-            $model->createTimeStart = $map['CreateTimeStart'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

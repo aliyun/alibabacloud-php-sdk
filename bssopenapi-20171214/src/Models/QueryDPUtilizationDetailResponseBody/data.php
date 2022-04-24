@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var detailList
      */
     public $detailList;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
-        'nextToken'  => 'NextToken',
         'detailList' => 'DetailList',
+        'nextToken'  => 'NextToken',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->detailList) {
             $res['DetailList'] = null !== $this->detailList ? $this->detailList->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['DetailList'])) {
             $model->detailList = detailList::fromMap($map['DetailList']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

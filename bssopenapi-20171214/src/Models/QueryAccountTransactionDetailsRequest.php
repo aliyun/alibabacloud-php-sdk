@@ -11,7 +11,22 @@ class QueryAccountTransactionDetailsRequest extends Model
     /**
      * @var string
      */
-    public $transactionNumber;
+    public $createTimeEnd;
+
+    /**
+     * @var string
+     */
+    public $createTimeStart;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -21,47 +36,32 @@ class QueryAccountTransactionDetailsRequest extends Model
     /**
      * @var string
      */
-    public $transactionChannelSN;
-
-    /**
-     * @var string
-     */
-    public $createTimeStart;
-
-    /**
-     * @var string
-     */
-    public $createTimeEnd;
-
-    /**
-     * @var string
-     */
-    public $transactionType;
-
-    /**
-     * @var string
-     */
     public $transactionChannel;
 
     /**
      * @var string
      */
-    public $nextToken;
+    public $transactionChannelSN;
 
     /**
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $transactionNumber;
+
+    /**
+     * @var string
+     */
+    public $transactionType;
     protected $_name = [
-        'transactionNumber'    => 'TransactionNumber',
-        'recordID'             => 'RecordID',
-        'transactionChannelSN' => 'TransactionChannelSN',
-        'createTimeStart'      => 'CreateTimeStart',
         'createTimeEnd'        => 'CreateTimeEnd',
-        'transactionType'      => 'TransactionType',
-        'transactionChannel'   => 'TransactionChannel',
-        'nextToken'            => 'NextToken',
+        'createTimeStart'      => 'CreateTimeStart',
         'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
+        'recordID'             => 'RecordID',
+        'transactionChannel'   => 'TransactionChannel',
+        'transactionChannelSN' => 'TransactionChannelSN',
+        'transactionNumber'    => 'TransactionNumber',
+        'transactionType'      => 'TransactionType',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class QueryAccountTransactionDetailsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->transactionNumber) {
-            $res['TransactionNumber'] = $this->transactionNumber;
-        }
-        if (null !== $this->recordID) {
-            $res['RecordID'] = $this->recordID;
-        }
-        if (null !== $this->transactionChannelSN) {
-            $res['TransactionChannelSN'] = $this->transactionChannelSN;
+        if (null !== $this->createTimeEnd) {
+            $res['CreateTimeEnd'] = $this->createTimeEnd;
         }
         if (null !== $this->createTimeStart) {
             $res['CreateTimeStart'] = $this->createTimeStart;
         }
-        if (null !== $this->createTimeEnd) {
-            $res['CreateTimeEnd'] = $this->createTimeEnd;
-        }
-        if (null !== $this->transactionType) {
-            $res['TransactionType'] = $this->transactionType;
-        }
-        if (null !== $this->transactionChannel) {
-            $res['TransactionChannel'] = $this->transactionChannel;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->recordID) {
+            $res['RecordID'] = $this->recordID;
+        }
+        if (null !== $this->transactionChannel) {
+            $res['TransactionChannel'] = $this->transactionChannel;
+        }
+        if (null !== $this->transactionChannelSN) {
+            $res['TransactionChannelSN'] = $this->transactionChannelSN;
+        }
+        if (null !== $this->transactionNumber) {
+            $res['TransactionNumber'] = $this->transactionNumber;
+        }
+        if (null !== $this->transactionType) {
+            $res['TransactionType'] = $this->transactionType;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class QueryAccountTransactionDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TransactionNumber'])) {
-            $model->transactionNumber = $map['TransactionNumber'];
-        }
-        if (isset($map['RecordID'])) {
-            $model->recordID = $map['RecordID'];
-        }
-        if (isset($map['TransactionChannelSN'])) {
-            $model->transactionChannelSN = $map['TransactionChannelSN'];
+        if (isset($map['CreateTimeEnd'])) {
+            $model->createTimeEnd = $map['CreateTimeEnd'];
         }
         if (isset($map['CreateTimeStart'])) {
             $model->createTimeStart = $map['CreateTimeStart'];
         }
-        if (isset($map['CreateTimeEnd'])) {
-            $model->createTimeEnd = $map['CreateTimeEnd'];
-        }
-        if (isset($map['TransactionType'])) {
-            $model->transactionType = $map['TransactionType'];
-        }
-        if (isset($map['TransactionChannel'])) {
-            $model->transactionChannel = $map['TransactionChannel'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['RecordID'])) {
+            $model->recordID = $map['RecordID'];
+        }
+        if (isset($map['TransactionChannel'])) {
+            $model->transactionChannel = $map['TransactionChannel'];
+        }
+        if (isset($map['TransactionChannelSN'])) {
+            $model->transactionChannelSN = $map['TransactionChannelSN'];
+        }
+        if (isset($map['TransactionNumber'])) {
+            $model->transactionNumber = $map['TransactionNumber'];
+        }
+        if (isset($map['TransactionType'])) {
+            $model->transactionType = $map['TransactionType'];
         }
 
         return $model;

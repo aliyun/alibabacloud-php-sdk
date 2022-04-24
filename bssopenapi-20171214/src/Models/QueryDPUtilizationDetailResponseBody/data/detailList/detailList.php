@@ -11,12 +11,12 @@ class detailList extends Model
     /**
      * @var string
      */
-    public $deductedInstanceId;
+    public $deductDate;
 
     /**
-     * @var string
+     * @var float
      */
-    public $instanceId;
+    public $deductFactorTotal;
 
     /**
      * @var float
@@ -24,19 +24,14 @@ class detailList extends Model
     public $deductHours;
 
     /**
-     * @var int
+     * @var float
      */
-    public $shareUid;
+    public $deductMeasure;
 
     /**
-     * @var string
+     * @var float
      */
-    public $deductDate;
-
-    /**
-     * @var string
-     */
-    public $instanceSpec;
+    public $deductQuantity;
 
     /**
      * @var string
@@ -46,27 +41,27 @@ class detailList extends Model
     /**
      * @var string
      */
+    public $deductedInstanceId;
+
+    /**
+     * @var string
+     */
     public $deductedProductDetail;
 
     /**
-     * @var float
+     * @var string
      */
-    public $deductMeasure;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceSpec;
 
     /**
      * @var string
      */
     public $region;
-
-    /**
-     * @var float
-     */
-    public $deductQuantity;
-
-    /**
-     * @var float
-     */
-    public $deductFactorTotal;
 
     /**
      * @var string
@@ -76,21 +71,26 @@ class detailList extends Model
     /**
      * @var int
      */
+    public $shareUid;
+
+    /**
+     * @var int
+     */
     public $uid;
     protected $_name = [
-        'deductedInstanceId'    => 'DeductedInstanceId',
-        'instanceId'            => 'InstanceId',
-        'deductHours'           => 'DeductHours',
-        'shareUid'              => 'ShareUid',
         'deductDate'            => 'DeductDate',
-        'instanceSpec'          => 'InstanceSpec',
-        'deductedCommodityCode' => 'DeductedCommodityCode',
-        'deductedProductDetail' => 'DeductedProductDetail',
-        'deductMeasure'         => 'DeductMeasure',
-        'region'                => 'Region',
-        'deductQuantity'        => 'DeductQuantity',
         'deductFactorTotal'     => 'DeductFactorTotal',
+        'deductHours'           => 'DeductHours',
+        'deductMeasure'         => 'DeductMeasure',
+        'deductQuantity'        => 'DeductQuantity',
+        'deductedCommodityCode' => 'DeductedCommodityCode',
+        'deductedInstanceId'    => 'DeductedInstanceId',
+        'deductedProductDetail' => 'DeductedProductDetail',
+        'instanceId'            => 'InstanceId',
+        'instanceSpec'          => 'InstanceSpec',
+        'region'                => 'Region',
         'resCode'               => 'ResCode',
+        'shareUid'              => 'ShareUid',
         'uid'                   => 'Uid',
     ];
 
@@ -101,44 +101,44 @@ class detailList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deductedInstanceId) {
-            $res['DeductedInstanceId'] = $this->deductedInstanceId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->deductHours) {
-            $res['DeductHours'] = $this->deductHours;
-        }
-        if (null !== $this->shareUid) {
-            $res['ShareUid'] = $this->shareUid;
-        }
         if (null !== $this->deductDate) {
             $res['DeductDate'] = $this->deductDate;
-        }
-        if (null !== $this->instanceSpec) {
-            $res['InstanceSpec'] = $this->instanceSpec;
-        }
-        if (null !== $this->deductedCommodityCode) {
-            $res['DeductedCommodityCode'] = $this->deductedCommodityCode;
-        }
-        if (null !== $this->deductedProductDetail) {
-            $res['DeductedProductDetail'] = $this->deductedProductDetail;
-        }
-        if (null !== $this->deductMeasure) {
-            $res['DeductMeasure'] = $this->deductMeasure;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->deductQuantity) {
-            $res['DeductQuantity'] = $this->deductQuantity;
         }
         if (null !== $this->deductFactorTotal) {
             $res['DeductFactorTotal'] = $this->deductFactorTotal;
         }
+        if (null !== $this->deductHours) {
+            $res['DeductHours'] = $this->deductHours;
+        }
+        if (null !== $this->deductMeasure) {
+            $res['DeductMeasure'] = $this->deductMeasure;
+        }
+        if (null !== $this->deductQuantity) {
+            $res['DeductQuantity'] = $this->deductQuantity;
+        }
+        if (null !== $this->deductedCommodityCode) {
+            $res['DeductedCommodityCode'] = $this->deductedCommodityCode;
+        }
+        if (null !== $this->deductedInstanceId) {
+            $res['DeductedInstanceId'] = $this->deductedInstanceId;
+        }
+        if (null !== $this->deductedProductDetail) {
+            $res['DeductedProductDetail'] = $this->deductedProductDetail;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
         if (null !== $this->resCode) {
             $res['ResCode'] = $this->resCode;
+        }
+        if (null !== $this->shareUid) {
+            $res['ShareUid'] = $this->shareUid;
         }
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
@@ -155,44 +155,44 @@ class detailList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeductedInstanceId'])) {
-            $model->deductedInstanceId = $map['DeductedInstanceId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['DeductHours'])) {
-            $model->deductHours = $map['DeductHours'];
-        }
-        if (isset($map['ShareUid'])) {
-            $model->shareUid = $map['ShareUid'];
-        }
         if (isset($map['DeductDate'])) {
             $model->deductDate = $map['DeductDate'];
-        }
-        if (isset($map['InstanceSpec'])) {
-            $model->instanceSpec = $map['InstanceSpec'];
-        }
-        if (isset($map['DeductedCommodityCode'])) {
-            $model->deductedCommodityCode = $map['DeductedCommodityCode'];
-        }
-        if (isset($map['DeductedProductDetail'])) {
-            $model->deductedProductDetail = $map['DeductedProductDetail'];
-        }
-        if (isset($map['DeductMeasure'])) {
-            $model->deductMeasure = $map['DeductMeasure'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['DeductQuantity'])) {
-            $model->deductQuantity = $map['DeductQuantity'];
         }
         if (isset($map['DeductFactorTotal'])) {
             $model->deductFactorTotal = $map['DeductFactorTotal'];
         }
+        if (isset($map['DeductHours'])) {
+            $model->deductHours = $map['DeductHours'];
+        }
+        if (isset($map['DeductMeasure'])) {
+            $model->deductMeasure = $map['DeductMeasure'];
+        }
+        if (isset($map['DeductQuantity'])) {
+            $model->deductQuantity = $map['DeductQuantity'];
+        }
+        if (isset($map['DeductedCommodityCode'])) {
+            $model->deductedCommodityCode = $map['DeductedCommodityCode'];
+        }
+        if (isset($map['DeductedInstanceId'])) {
+            $model->deductedInstanceId = $map['DeductedInstanceId'];
+        }
+        if (isset($map['DeductedProductDetail'])) {
+            $model->deductedProductDetail = $map['DeductedProductDetail'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
         if (isset($map['ResCode'])) {
             $model->resCode = $map['ResCode'];
+        }
+        if (isset($map['ShareUid'])) {
+            $model->shareUid = $map['ShareUid'];
         }
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];

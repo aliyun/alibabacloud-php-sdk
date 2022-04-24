@@ -12,12 +12,12 @@ class resourcePackage extends Model
     /**
      * @var string
      */
-    public $productType;
+    public $name;
 
     /**
-     * @var string
+     * @var packageTypes
      */
-    public $name;
+    public $packageTypes;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class resourcePackage extends Model
     public $productCode;
 
     /**
-     * @var packageTypes
+     * @var string
      */
-    public $packageTypes;
+    public $productType;
     protected $_name = [
-        'productType'  => 'ProductType',
         'name'         => 'Name',
-        'productCode'  => 'ProductCode',
         'packageTypes' => 'PackageTypes',
+        'productCode'  => 'ProductCode',
+        'productType'  => 'ProductType',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class resourcePackage extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->packageTypes) {
+            $res['PackageTypes'] = null !== $this->packageTypes ? $this->packageTypes->toMap() : null;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
-        if (null !== $this->packageTypes) {
-            $res['PackageTypes'] = null !== $this->packageTypes ? $this->packageTypes->toMap() : null;
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class resourcePackage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PackageTypes'])) {
+            $model->packageTypes = packageTypes::fromMap($map['PackageTypes']);
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
-        if (isset($map['PackageTypes'])) {
-            $model->packageTypes = packageTypes::fromMap($map['PackageTypes']);
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
 
         return $model;

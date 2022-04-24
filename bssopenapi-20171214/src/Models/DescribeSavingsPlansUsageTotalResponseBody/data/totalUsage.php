@@ -11,6 +11,11 @@ class totalUsage extends Model
     /**
      * @var float
      */
+    public $poolValue;
+
+    /**
+     * @var float
+     */
     public $postpaidCost;
 
     /**
@@ -22,16 +27,11 @@ class totalUsage extends Model
      * @var float
      */
     public $usagePercentage;
-
-    /**
-     * @var float
-     */
-    public $poolValue;
     protected $_name = [
+        'poolValue'       => 'PoolValue',
         'postpaidCost'    => 'PostpaidCost',
         'savedCost'       => 'SavedCost',
         'usagePercentage' => 'UsagePercentage',
-        'poolValue'       => 'PoolValue',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class totalUsage extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->poolValue) {
+            $res['PoolValue'] = $this->poolValue;
+        }
         if (null !== $this->postpaidCost) {
             $res['PostpaidCost'] = $this->postpaidCost;
         }
@@ -49,9 +52,6 @@ class totalUsage extends Model
         }
         if (null !== $this->usagePercentage) {
             $res['UsagePercentage'] = $this->usagePercentage;
-        }
-        if (null !== $this->poolValue) {
-            $res['PoolValue'] = $this->poolValue;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class totalUsage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PoolValue'])) {
+            $model->poolValue = $map['PoolValue'];
+        }
         if (isset($map['PostpaidCost'])) {
             $model->postpaidCost = $map['PostpaidCost'];
         }
@@ -73,9 +76,6 @@ class totalUsage extends Model
         }
         if (isset($map['UsagePercentage'])) {
             $model->usagePercentage = $map['UsagePercentage'];
-        }
-        if (isset($map['PoolValue'])) {
-            $model->poolValue = $map['PoolValue'];
         }
 
         return $model;

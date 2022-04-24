@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSavingsPlansUsageTotalRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $startPeriod;
+    public $billOwnerId;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class DescribeSavingsPlansUsageTotalRequest extends Model
     public $periodType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $billOwnerId;
+    public $startPeriod;
     protected $_name = [
-        'startPeriod' => 'StartPeriod',
+        'billOwnerId' => 'BillOwnerId',
         'endPeriod'   => 'EndPeriod',
         'periodType'  => 'PeriodType',
-        'billOwnerId' => 'BillOwnerId',
+        'startPeriod' => 'StartPeriod',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class DescribeSavingsPlansUsageTotalRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startPeriod) {
-            $res['StartPeriod'] = $this->startPeriod;
+        if (null !== $this->billOwnerId) {
+            $res['BillOwnerId'] = $this->billOwnerId;
         }
         if (null !== $this->endPeriod) {
             $res['EndPeriod'] = $this->endPeriod;
@@ -50,8 +50,8 @@ class DescribeSavingsPlansUsageTotalRequest extends Model
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
         }
-        if (null !== $this->billOwnerId) {
-            $res['BillOwnerId'] = $this->billOwnerId;
+        if (null !== $this->startPeriod) {
+            $res['StartPeriod'] = $this->startPeriod;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class DescribeSavingsPlansUsageTotalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartPeriod'])) {
-            $model->startPeriod = $map['StartPeriod'];
+        if (isset($map['BillOwnerId'])) {
+            $model->billOwnerId = $map['BillOwnerId'];
         }
         if (isset($map['EndPeriod'])) {
             $model->endPeriod = $map['EndPeriod'];
@@ -74,8 +74,8 @@ class DescribeSavingsPlansUsageTotalRequest extends Model
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
         }
-        if (isset($map['BillOwnerId'])) {
-            $model->billOwnerId = $map['BillOwnerId'];
+        if (isset($map['StartPeriod'])) {
+            $model->startPeriod = $map['StartPeriod'];
         }
 
         return $model;

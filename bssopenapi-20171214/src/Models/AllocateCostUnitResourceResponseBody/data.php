@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $toUnitUserId;
-
-    /**
      * @var bool
      */
     public $isSuccess;
@@ -22,10 +17,15 @@ class data extends Model
      * @var int
      */
     public $toUnitId;
+
+    /**
+     * @var int
+     */
+    public $toUnitUserId;
     protected $_name = [
-        'toUnitUserId' => 'ToUnitUserId',
         'isSuccess'    => 'IsSuccess',
         'toUnitId'     => 'ToUnitId',
+        'toUnitUserId' => 'ToUnitUserId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->toUnitUserId) {
-            $res['ToUnitUserId'] = $this->toUnitUserId;
-        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
         if (null !== $this->toUnitId) {
             $res['ToUnitId'] = $this->toUnitId;
+        }
+        if (null !== $this->toUnitUserId) {
+            $res['ToUnitUserId'] = $this->toUnitUserId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ToUnitUserId'])) {
-            $model->toUnitUserId = $map['ToUnitUserId'];
-        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
         if (isset($map['ToUnitId'])) {
             $model->toUnitId = $map['ToUnitId'];
+        }
+        if (isset($map['ToUnitUserId'])) {
+            $model->toUnitUserId = $map['ToUnitUserId'];
         }
 
         return $model;

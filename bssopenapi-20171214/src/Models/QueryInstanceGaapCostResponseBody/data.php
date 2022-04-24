@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $hostId;
+
+    /**
+     * @var modules
+     */
+    public $modules;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -23,22 +33,12 @@ class data extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $hostId;
-
-    /**
-     * @var modules
-     */
-    public $modules;
     protected $_name = [
+        'hostId'     => 'HostId',
+        'modules'    => 'Modules',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'totalCount' => 'TotalCount',
-        'hostId'     => 'HostId',
-        'modules'    => 'Modules',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostId) {
+            $res['HostId'] = $this->hostId;
+        }
+        if (null !== $this->modules) {
+            $res['Modules'] = null !== $this->modules ? $this->modules->toMap() : null;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -56,12 +62,6 @@ class data extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->hostId) {
-            $res['HostId'] = $this->hostId;
-        }
-        if (null !== $this->modules) {
-            $res['Modules'] = null !== $this->modules ? $this->modules->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostId'])) {
+            $model->hostId = $map['HostId'];
+        }
+        if (isset($map['Modules'])) {
+            $model->modules = modules::fromMap($map['Modules']);
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -83,12 +89,6 @@ class data extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['HostId'])) {
-            $model->hostId = $map['HostId'];
-        }
-        if (isset($map['Modules'])) {
-            $model->modules = modules::fromMap($map['Modules']);
         }
 
         return $model;

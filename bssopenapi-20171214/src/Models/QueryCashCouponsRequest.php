@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryCashCouponsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $effectiveOrNot;
+
+    /**
      * @var string
      */
     public $expiryTimeEnd;
@@ -17,15 +22,10 @@ class QueryCashCouponsRequest extends Model
      * @var string
      */
     public $expiryTimeStart;
-
-    /**
-     * @var bool
-     */
-    public $effectiveOrNot;
     protected $_name = [
+        'effectiveOrNot'  => 'EffectiveOrNot',
         'expiryTimeEnd'   => 'ExpiryTimeEnd',
         'expiryTimeStart' => 'ExpiryTimeStart',
-        'effectiveOrNot'  => 'EffectiveOrNot',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryCashCouponsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->effectiveOrNot) {
+            $res['EffectiveOrNot'] = $this->effectiveOrNot;
+        }
         if (null !== $this->expiryTimeEnd) {
             $res['ExpiryTimeEnd'] = $this->expiryTimeEnd;
         }
         if (null !== $this->expiryTimeStart) {
             $res['ExpiryTimeStart'] = $this->expiryTimeStart;
-        }
-        if (null !== $this->effectiveOrNot) {
-            $res['EffectiveOrNot'] = $this->effectiveOrNot;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryCashCouponsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectiveOrNot'])) {
+            $model->effectiveOrNot = $map['EffectiveOrNot'];
+        }
         if (isset($map['ExpiryTimeEnd'])) {
             $model->expiryTimeEnd = $map['ExpiryTimeEnd'];
         }
         if (isset($map['ExpiryTimeStart'])) {
             $model->expiryTimeStart = $map['ExpiryTimeStart'];
-        }
-        if (isset($map['EffectiveOrNot'])) {
-            $model->effectiveOrNot = $map['EffectiveOrNot'];
         }
 
         return $model;

@@ -11,6 +11,21 @@ class redeem extends Model
     /**
      * @var string
      */
+    public $applicableProducts;
+
+    /**
+     * @var string
+     */
+    public $balance;
+
+    /**
+     * @var string
+     */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
     public $expiryTime;
 
     /**
@@ -21,22 +36,7 @@ class redeem extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $specification;
-
-    /**
-     * @var string
-     */
     public $nominalValue;
-
-    /**
-     * @var string
-     */
-    public $effectiveTime;
 
     /**
      * @var string
@@ -51,23 +51,23 @@ class redeem extends Model
     /**
      * @var string
      */
-    public $applicableProducts;
+    public $specification;
 
     /**
      * @var string
      */
-    public $balance;
+    public $status;
     protected $_name = [
-        'expiryTime'         => 'ExpiryTime',
-        'grantedTime'        => 'GrantedTime',
-        'status'             => 'Status',
-        'specification'      => 'Specification',
-        'nominalValue'       => 'NominalValue',
-        'effectiveTime'      => 'EffectiveTime',
-        'redeemId'           => 'RedeemId',
-        'redeemNo'           => 'RedeemNo',
         'applicableProducts' => 'ApplicableProducts',
         'balance'            => 'Balance',
+        'effectiveTime'      => 'EffectiveTime',
+        'expiryTime'         => 'ExpiryTime',
+        'grantedTime'        => 'GrantedTime',
+        'nominalValue'       => 'NominalValue',
+        'redeemId'           => 'RedeemId',
+        'redeemNo'           => 'RedeemNo',
+        'specification'      => 'Specification',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -77,23 +77,23 @@ class redeem extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applicableProducts) {
+            $res['ApplicableProducts'] = $this->applicableProducts;
+        }
+        if (null !== $this->balance) {
+            $res['Balance'] = $this->balance;
+        }
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
         if (null !== $this->expiryTime) {
             $res['ExpiryTime'] = $this->expiryTime;
         }
         if (null !== $this->grantedTime) {
             $res['GrantedTime'] = $this->grantedTime;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->specification) {
-            $res['Specification'] = $this->specification;
-        }
         if (null !== $this->nominalValue) {
             $res['NominalValue'] = $this->nominalValue;
-        }
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
         }
         if (null !== $this->redeemId) {
             $res['RedeemId'] = $this->redeemId;
@@ -101,11 +101,11 @@ class redeem extends Model
         if (null !== $this->redeemNo) {
             $res['RedeemNo'] = $this->redeemNo;
         }
-        if (null !== $this->applicableProducts) {
-            $res['ApplicableProducts'] = $this->applicableProducts;
+        if (null !== $this->specification) {
+            $res['Specification'] = $this->specification;
         }
-        if (null !== $this->balance) {
-            $res['Balance'] = $this->balance;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -119,23 +119,23 @@ class redeem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicableProducts'])) {
+            $model->applicableProducts = $map['ApplicableProducts'];
+        }
+        if (isset($map['Balance'])) {
+            $model->balance = $map['Balance'];
+        }
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
         if (isset($map['ExpiryTime'])) {
             $model->expiryTime = $map['ExpiryTime'];
         }
         if (isset($map['GrantedTime'])) {
             $model->grantedTime = $map['GrantedTime'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Specification'])) {
-            $model->specification = $map['Specification'];
-        }
         if (isset($map['NominalValue'])) {
             $model->nominalValue = $map['NominalValue'];
-        }
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
         }
         if (isset($map['RedeemId'])) {
             $model->redeemId = $map['RedeemId'];
@@ -143,11 +143,11 @@ class redeem extends Model
         if (isset($map['RedeemNo'])) {
             $model->redeemNo = $map['RedeemNo'];
         }
-        if (isset($map['ApplicableProducts'])) {
-            $model->applicableProducts = $map['ApplicableProducts'];
+        if (isset($map['Specification'])) {
+            $model->specification = $map['Specification'];
         }
-        if (isset($map['Balance'])) {
-            $model->balance = $map['Balance'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

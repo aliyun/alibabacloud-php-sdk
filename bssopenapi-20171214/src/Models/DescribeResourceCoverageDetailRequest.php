@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceCoverageDetailRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $startPeriod;
+    public $billOwnerId;
 
     /**
      * @var string
      */
     public $endPeriod;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -26,30 +36,20 @@ class DescribeResourceCoverageDetailRequest extends Model
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var int
-     */
-    public $billOwnerId;
+    public $resourceType;
 
     /**
      * @var string
      */
-    public $resourceType;
+    public $startPeriod;
     protected $_name = [
-        'startPeriod'  => 'StartPeriod',
-        'endPeriod'    => 'EndPeriod',
-        'periodType'   => 'PeriodType',
-        'nextToken'    => 'NextToken',
-        'maxResults'   => 'MaxResults',
         'billOwnerId'  => 'BillOwnerId',
+        'endPeriod'    => 'EndPeriod',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'periodType'   => 'PeriodType',
         'resourceType' => 'ResourceType',
+        'startPeriod'  => 'StartPeriod',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeResourceCoverageDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startPeriod) {
-            $res['StartPeriod'] = $this->startPeriod;
+        if (null !== $this->billOwnerId) {
+            $res['BillOwnerId'] = $this->billOwnerId;
         }
         if (null !== $this->endPeriod) {
             $res['EndPeriod'] = $this->endPeriod;
         }
-        if (null !== $this->periodType) {
-            $res['PeriodType'] = $this->periodType;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->billOwnerId) {
-            $res['BillOwnerId'] = $this->billOwnerId;
+        if (null !== $this->periodType) {
+            $res['PeriodType'] = $this->periodType;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->startPeriod) {
+            $res['StartPeriod'] = $this->startPeriod;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeResourceCoverageDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartPeriod'])) {
-            $model->startPeriod = $map['StartPeriod'];
+        if (isset($map['BillOwnerId'])) {
+            $model->billOwnerId = $map['BillOwnerId'];
         }
         if (isset($map['EndPeriod'])) {
             $model->endPeriod = $map['EndPeriod'];
         }
-        if (isset($map['PeriodType'])) {
-            $model->periodType = $map['PeriodType'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['BillOwnerId'])) {
-            $model->billOwnerId = $map['BillOwnerId'];
+        if (isset($map['PeriodType'])) {
+            $model->periodType = $map['PeriodType'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['StartPeriod'])) {
+            $model->startPeriod = $map['StartPeriod'];
         }
 
         return $model;

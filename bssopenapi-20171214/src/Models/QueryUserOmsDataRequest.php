@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryUserOmsDataRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $table;
-
-    /**
      * @var string
      */
     public $dataType;
-
-    /**
-     * @var string
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -41,15 +26,30 @@ class QueryUserOmsDataRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $table;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
-        'table'     => 'Table',
         'dataType'  => 'DataType',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
         'marker'    => 'Marker',
+        'ownerId'   => 'OwnerId',
         'pageSize'  => 'PageSize',
+        'startTime' => 'StartTime',
+        'table'     => 'Table',
     ];
 
     public function validate()
@@ -59,17 +59,8 @@ class QueryUserOmsDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->table) {
-            $res['Table'] = $this->table;
-        }
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -77,8 +68,17 @@ class QueryUserOmsDataRequest extends Model
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->table) {
+            $res['Table'] = $this->table;
         }
 
         return $res;
@@ -92,17 +92,8 @@ class QueryUserOmsDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Table'])) {
-            $model->table = $map['Table'];
-        }
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -110,8 +101,17 @@ class QueryUserOmsDataRequest extends Model
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Table'])) {
+            $model->table = $map['Table'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class attributeValue extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $value;
+    public $name;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class attributeValue extends Model
     /**
      * @var string
      */
-    public $name;
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
+        'name'   => 'Name',
+        'remark' => 'Remark',
         'type'   => 'Type',
         'value'  => 'Value',
-        'remark' => 'Remark',
-        'name'   => 'Name',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class attributeValue extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class attributeValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

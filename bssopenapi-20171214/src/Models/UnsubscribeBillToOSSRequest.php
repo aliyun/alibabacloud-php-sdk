@@ -11,15 +11,15 @@ class UnsubscribeBillToOSSRequest extends Model
     /**
      * @var string
      */
-    public $subscribeType;
+    public $multAccountRelSubscribe;
 
     /**
      * @var string
      */
-    public $multAccountRelSubscribe;
+    public $subscribeType;
     protected $_name = [
-        'subscribeType'           => 'SubscribeType',
         'multAccountRelSubscribe' => 'MultAccountRelSubscribe',
+        'subscribeType'           => 'SubscribeType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UnsubscribeBillToOSSRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subscribeType) {
-            $res['SubscribeType'] = $this->subscribeType;
-        }
         if (null !== $this->multAccountRelSubscribe) {
             $res['MultAccountRelSubscribe'] = $this->multAccountRelSubscribe;
+        }
+        if (null !== $this->subscribeType) {
+            $res['SubscribeType'] = $this->subscribeType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UnsubscribeBillToOSSRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubscribeType'])) {
-            $model->subscribeType = $map['SubscribeType'];
-        }
         if (isset($map['MultAccountRelSubscribe'])) {
             $model->multAccountRelSubscribe = $map['MultAccountRelSubscribe'];
+        }
+        if (isset($map['SubscribeType'])) {
+            $model->subscribeType = $map['SubscribeType'];
         }
 
         return $model;

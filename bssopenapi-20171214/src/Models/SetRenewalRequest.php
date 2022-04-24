@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetRenewalRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $renewalPeriod;
-
-    /**
      * @var string
      */
     public $instanceIDs;
@@ -34,9 +29,9 @@ class SetRenewalRequest extends Model
     public $productType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $subscriptionType;
+    public $renewalPeriod;
 
     /**
      * @var string
@@ -47,15 +42,20 @@ class SetRenewalRequest extends Model
      * @var string
      */
     public $renewalStatus;
+
+    /**
+     * @var string
+     */
+    public $subscriptionType;
     protected $_name = [
-        'renewalPeriod'     => 'RenewalPeriod',
         'instanceIDs'       => 'InstanceIDs',
         'ownerId'           => 'OwnerId',
         'productCode'       => 'ProductCode',
         'productType'       => 'ProductType',
-        'subscriptionType'  => 'SubscriptionType',
+        'renewalPeriod'     => 'RenewalPeriod',
         'renewalPeriodUnit' => 'RenewalPeriodUnit',
         'renewalStatus'     => 'RenewalStatus',
+        'subscriptionType'  => 'SubscriptionType',
     ];
 
     public function validate()
@@ -65,9 +65,6 @@ class SetRenewalRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->renewalPeriod) {
-            $res['RenewalPeriod'] = $this->renewalPeriod;
-        }
         if (null !== $this->instanceIDs) {
             $res['InstanceIDs'] = $this->instanceIDs;
         }
@@ -80,14 +77,17 @@ class SetRenewalRequest extends Model
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
-        if (null !== $this->subscriptionType) {
-            $res['SubscriptionType'] = $this->subscriptionType;
+        if (null !== $this->renewalPeriod) {
+            $res['RenewalPeriod'] = $this->renewalPeriod;
         }
         if (null !== $this->renewalPeriodUnit) {
             $res['RenewalPeriodUnit'] = $this->renewalPeriodUnit;
         }
         if (null !== $this->renewalStatus) {
             $res['RenewalStatus'] = $this->renewalStatus;
+        }
+        if (null !== $this->subscriptionType) {
+            $res['SubscriptionType'] = $this->subscriptionType;
         }
 
         return $res;
@@ -101,9 +101,6 @@ class SetRenewalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RenewalPeriod'])) {
-            $model->renewalPeriod = $map['RenewalPeriod'];
-        }
         if (isset($map['InstanceIDs'])) {
             $model->instanceIDs = $map['InstanceIDs'];
         }
@@ -116,14 +113,17 @@ class SetRenewalRequest extends Model
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
-        if (isset($map['SubscriptionType'])) {
-            $model->subscriptionType = $map['SubscriptionType'];
+        if (isset($map['RenewalPeriod'])) {
+            $model->renewalPeriod = $map['RenewalPeriod'];
         }
         if (isset($map['RenewalPeriodUnit'])) {
             $model->renewalPeriodUnit = $map['RenewalPeriodUnit'];
         }
         if (isset($map['RenewalStatus'])) {
             $model->renewalStatus = $map['RenewalStatus'];
+        }
+        if (isset($map['SubscriptionType'])) {
+            $model->subscriptionType = $map['SubscriptionType'];
         }
 
         return $model;

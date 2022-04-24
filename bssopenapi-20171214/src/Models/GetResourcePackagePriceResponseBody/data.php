@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var float
-     */
-    public $originalPrice;
-
-    /**
-     * @var float
-     */
-    public $discountPrice;
-
-    /**
      * @var string
      */
     public $currency;
@@ -27,18 +17,28 @@ class data extends Model
     /**
      * @var float
      */
-    public $tradePrice;
+    public $discountPrice;
+
+    /**
+     * @var float
+     */
+    public $originalPrice;
 
     /**
      * @var promotions
      */
     public $promotions;
+
+    /**
+     * @var float
+     */
+    public $tradePrice;
     protected $_name = [
-        'originalPrice' => 'OriginalPrice',
-        'discountPrice' => 'DiscountPrice',
         'currency'      => 'Currency',
-        'tradePrice'    => 'TradePrice',
+        'discountPrice' => 'DiscountPrice',
+        'originalPrice' => 'OriginalPrice',
         'promotions'    => 'Promotions',
+        'tradePrice'    => 'TradePrice',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
         }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
-        if (null !== $this->currency) {
-            $res['Currency'] = $this->currency;
-        }
-        if (null !== $this->tradePrice) {
-            $res['TradePrice'] = $this->tradePrice;
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
         }
         if (null !== $this->promotions) {
             $res['Promotions'] = null !== $this->promotions ? $this->promotions->toMap() : null;
+        }
+        if (null !== $this->tradePrice) {
+            $res['TradePrice'] = $this->tradePrice;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
         }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
-        if (isset($map['Currency'])) {
-            $model->currency = $map['Currency'];
-        }
-        if (isset($map['TradePrice'])) {
-            $model->tradePrice = $map['TradePrice'];
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
         }
         if (isset($map['Promotions'])) {
             $model->promotions = promotions::fromMap($map['Promotions']);
+        }
+        if (isset($map['TradePrice'])) {
+            $model->tradePrice = $map['TradePrice'];
         }
 
         return $model;

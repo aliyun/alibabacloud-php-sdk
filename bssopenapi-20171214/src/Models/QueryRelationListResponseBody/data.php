@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var financialRelationInfoList[]
+     */
+    public $financialRelationInfoList;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -23,16 +28,11 @@ class data extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var financialRelationInfoList[]
-     */
-    public $financialRelationInfoList;
     protected $_name = [
+        'financialRelationInfoList' => 'FinancialRelationInfoList',
         'pageNum'                   => 'PageNum',
         'pageSize'                  => 'PageSize',
         'totalCount'                => 'TotalCount',
-        'financialRelationInfoList' => 'FinancialRelationInfoList',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->financialRelationInfoList) {
             $res['FinancialRelationInfoList'] = [];
             if (null !== $this->financialRelationInfoList && \is_array($this->financialRelationInfoList)) {
@@ -59,6 +50,15 @@ class data extends Model
                     $res['FinancialRelationInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['FinancialRelationInfoList'])) {
             if (!empty($map['FinancialRelationInfoList'])) {
                 $model->financialRelationInfoList = [];
@@ -89,6 +80,15 @@ class data extends Model
                     $model->financialRelationInfoList[$n++] = null !== $item ? financialRelationInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceGaapCostRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $billingCycle;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -17,11 +22,6 @@ class QueryInstanceGaapCostRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $billingCycle;
 
     /**
      * @var string
@@ -38,9 +38,9 @@ class QueryInstanceGaapCostRequest extends Model
      */
     public $subscriptionType;
     protected $_name = [
+        'billingCycle'     => 'BillingCycle',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
-        'billingCycle'     => 'BillingCycle',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
@@ -53,14 +53,14 @@ class QueryInstanceGaapCostRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->billingCycle) {
+            $res['BillingCycle'] = $this->billingCycle;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->billingCycle) {
-            $res['BillingCycle'] = $this->billingCycle;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -83,14 +83,14 @@ class QueryInstanceGaapCostRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BillingCycle'])) {
+            $model->billingCycle = $map['BillingCycle'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['BillingCycle'])) {
-            $model->billingCycle = $map['BillingCycle'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];

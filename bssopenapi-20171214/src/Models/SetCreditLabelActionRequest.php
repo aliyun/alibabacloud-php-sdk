@@ -16,11 +16,6 @@ class SetCreditLabelActionRequest extends Model
     /**
      * @var string
      */
-    public $uid;
-
-    /**
-     * @var string
-     */
     public $clearCycle;
 
     /**
@@ -92,9 +87,13 @@ class SetCreditLabelActionRequest extends Model
      * @var string
      */
     public $source;
+
+    /**
+     * @var string
+     */
+    public $uid;
     protected $_name = [
         'actionType'                => 'ActionType',
-        'uid'                       => 'Uid',
         'clearCycle'                => 'ClearCycle',
         'creditAmount'              => 'CreditAmount',
         'currencyCode'              => 'CurrencyCode',
@@ -110,6 +109,7 @@ class SetCreditLabelActionRequest extends Model
         'requestId'                 => 'RequestId',
         'siteCode'                  => 'SiteCode',
         'source'                    => 'Source',
+        'uid'                       => 'Uid',
     ];
 
     public function validate()
@@ -121,9 +121,6 @@ class SetCreditLabelActionRequest extends Model
         $res = [];
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
-        }
-        if (null !== $this->uid) {
-            $res['Uid'] = $this->uid;
         }
         if (null !== $this->clearCycle) {
             $res['ClearCycle'] = $this->clearCycle;
@@ -170,6 +167,9 @@ class SetCreditLabelActionRequest extends Model
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+        if (null !== $this->uid) {
+            $res['Uid'] = $this->uid;
+        }
 
         return $res;
     }
@@ -184,9 +184,6 @@ class SetCreditLabelActionRequest extends Model
         $model = new self();
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
-        }
-        if (isset($map['Uid'])) {
-            $model->uid = $map['Uid'];
         }
         if (isset($map['ClearCycle'])) {
             $model->clearCycle = $map['ClearCycle'];
@@ -232,6 +229,9 @@ class SetCreditLabelActionRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['Uid'])) {
+            $model->uid = $map['Uid'];
         }
 
         return $model;

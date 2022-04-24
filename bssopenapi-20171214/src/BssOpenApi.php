@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateResellerUserQuotaRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateResellerUserQuotaResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateResourcePackageRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateResourcePackageResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateSavingsPlansInstanceRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateSavingsPlansInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillRequest;
@@ -58,6 +60,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\EnableBillGenerationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\EnableBillGenerationResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetAccountRelationRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetAccountRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetCustomerAccountInfoRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetCustomerAccountInfoResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetCustomerListResponse;
@@ -69,6 +73,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetResourcePackagePriceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetResourcePackagePriceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetSubscriptionPriceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetSubscriptionPriceResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\InquiryPriceRefundInstanceRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\InquiryPriceRefundInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyAccountRelationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyAccountRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyCostUnitRequest;
@@ -145,6 +151,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySplitItemBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySplitItemBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryUserOmsDataRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryUserOmsDataResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RefundInstanceRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RefundInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RelieveAccountRelationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RelieveAccountRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewInstanceRequest;
@@ -178,6 +186,7 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UpgradeResourcePackageResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class BssOpenApi extends OpenApiClient
@@ -278,11 +287,44 @@ class BssOpenApi extends OpenApiClient
     public function addAccountRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->childNick)) {
+            $query['ChildNick'] = $request->childNick;
+        }
+        if (!Utils::isUnset($request->childUserId)) {
+            $query['ChildUserId'] = $request->childUserId;
+        }
+        if (!Utils::isUnset($request->parentUserId)) {
+            $query['ParentUserId'] = $request->parentUserId;
+        }
+        if (!Utils::isUnset($request->permissionCodes)) {
+            $query['PermissionCodes'] = $request->permissionCodes;
+        }
+        if (!Utils::isUnset($request->relationType)) {
+            $query['RelationType'] = $request->relationType;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->roleCodes)) {
+            $query['RoleCodes'] = $request->roleCodes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAccountRelation',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddAccountRelationResponse::fromMap($this->doRPCRequest('AddAccountRelation', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAccountRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -306,11 +348,38 @@ class BssOpenApi extends OpenApiClient
     public function allocateCostUnitResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromUnitId)) {
+            $query['FromUnitId'] = $request->fromUnitId;
+        }
+        if (!Utils::isUnset($request->fromUnitUserId)) {
+            $query['FromUnitUserId'] = $request->fromUnitUserId;
+        }
+        if (!Utils::isUnset($request->resourceInstanceList)) {
+            $query['ResourceInstanceList'] = $request->resourceInstanceList;
+        }
+        if (!Utils::isUnset($request->toUnitId)) {
+            $query['ToUnitId'] = $request->toUnitId;
+        }
+        if (!Utils::isUnset($request->toUnitUserId)) {
+            $query['ToUnitUserId'] = $request->toUnitUserId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AllocateCostUnitResource',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AllocateCostUnitResourceResponse::fromMap($this->doRPCRequest('AllocateCostUnitResource', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AllocateCostUnitResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -334,11 +403,53 @@ class BssOpenApi extends OpenApiClient
     public function applyInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->applyUserNick)) {
+            $query['ApplyUserNick'] = $request->applyUserNick;
+        }
+        if (!Utils::isUnset($request->customerId)) {
+            $query['CustomerId'] = $request->customerId;
+        }
+        if (!Utils::isUnset($request->invoiceAmount)) {
+            $query['InvoiceAmount'] = $request->invoiceAmount;
+        }
+        if (!Utils::isUnset($request->invoiceByAmount)) {
+            $query['InvoiceByAmount'] = $request->invoiceByAmount;
+        }
+        if (!Utils::isUnset($request->invoicingType)) {
+            $query['InvoicingType'] = $request->invoicingType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->processWay)) {
+            $query['ProcessWay'] = $request->processWay;
+        }
+        if (!Utils::isUnset($request->selectedIds)) {
+            $query['SelectedIds'] = $request->selectedIds;
+        }
+        if (!Utils::isUnset($request->userRemark)) {
+            $query['UserRemark'] = $request->userRemark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyInvoice',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ApplyInvoiceResponse::fromMap($this->doRPCRequest('ApplyInvoice', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ApplyInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -362,11 +473,29 @@ class BssOpenApi extends OpenApiClient
     public function cancelOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOrder',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelOrderResponse::fromMap($this->doRPCRequest('CancelOrder', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -390,11 +519,47 @@ class BssOpenApi extends OpenApiClient
     public function changeResellerConsumeAmountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->adjustType)) {
+            $query['AdjustType'] = $request->adjustType;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->currency)) {
+            $query['Currency'] = $request->currency;
+        }
+        if (!Utils::isUnset($request->extendMap)) {
+            $query['ExtendMap'] = $request->extendMap;
+        }
+        if (!Utils::isUnset($request->outBizId)) {
+            $query['OutBizId'] = $request->outBizId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResellerConsumeAmount',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeResellerConsumeAmountResponse::fromMap($this->doRPCRequest('ChangeResellerConsumeAmount', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangeResellerConsumeAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -418,11 +583,44 @@ class BssOpenApi extends OpenApiClient
     public function confirmRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->childUserId)) {
+            $query['ChildUserId'] = $request->childUserId;
+        }
+        if (!Utils::isUnset($request->confirmCode)) {
+            $query['ConfirmCode'] = $request->confirmCode;
+        }
+        if (!Utils::isUnset($request->parentUserId)) {
+            $query['ParentUserId'] = $request->parentUserId;
+        }
+        if (!Utils::isUnset($request->permissionCodes)) {
+            $query['PermissionCodes'] = $request->permissionCodes;
+        }
+        if (!Utils::isUnset($request->relationId)) {
+            $query['RelationId'] = $request->relationId;
+        }
+        if (!Utils::isUnset($request->relationType)) {
+            $query['RelationType'] = $request->relationType;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfirmRelation',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfirmRelationResponse::fromMap($this->doRPCRequest('ConfirmRelation', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfirmRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -446,11 +644,41 @@ class BssOpenApi extends OpenApiClient
     public function convertChargeTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConvertChargeType',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConvertChargeTypeResponse::fromMap($this->doRPCRequest('ConvertChargeType', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConvertChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -474,11 +702,50 @@ class BssOpenApi extends OpenApiClient
     public function createAgAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountAttr)) {
+            $query['AccountAttr'] = $request->accountAttr;
+        }
+        if (!Utils::isUnset($request->cityName)) {
+            $query['CityName'] = $request->cityName;
+        }
+        if (!Utils::isUnset($request->enterpriseName)) {
+            $query['EnterpriseName'] = $request->enterpriseName;
+        }
+        if (!Utils::isUnset($request->firstName)) {
+            $query['FirstName'] = $request->firstName;
+        }
+        if (!Utils::isUnset($request->lastName)) {
+            $query['LastName'] = $request->lastName;
+        }
+        if (!Utils::isUnset($request->loginEmail)) {
+            $query['LoginEmail'] = $request->loginEmail;
+        }
+        if (!Utils::isUnset($request->nationCode)) {
+            $query['NationCode'] = $request->nationCode;
+        }
+        if (!Utils::isUnset($request->postcode)) {
+            $query['Postcode'] = $request->postcode;
+        }
+        if (!Utils::isUnset($request->provinceName)) {
+            $query['ProvinceName'] = $request->provinceName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAgAccount',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAgAccountResponse::fromMap($this->doRPCRequest('CreateAgAccount', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAgAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -502,11 +769,26 @@ class BssOpenApi extends OpenApiClient
     public function createCostUnitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->unitEntityList)) {
+            $query['UnitEntityList'] = $request->unitEntityList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCostUnit',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCostUnitResponse::fromMap($this->doRPCRequest('CreateCostUnit', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCostUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -530,11 +812,53 @@ class BssOpenApi extends OpenApiClient
     public function createInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->logistics)) {
+            $query['Logistics'] = $request->logistics;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameter)) {
+            $query['Parameter'] = $request->parameter;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->renewPeriod)) {
+            $query['RenewPeriod'] = $request->renewPeriod;
+        }
+        if (!Utils::isUnset($request->renewalStatus)) {
+            $query['RenewalStatus'] = $request->renewalStatus;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateInstanceResponse::fromMap($this->doRPCRequest('CreateInstance', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -558,11 +882,35 @@ class BssOpenApi extends OpenApiClient
     public function createResellerUserQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->currency)) {
+            $query['Currency'] = $request->currency;
+        }
+        if (!Utils::isUnset($request->outBizId)) {
+            $query['OutBizId'] = $request->outBizId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResellerUserQuota',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateResellerUserQuotaResponse::fromMap($this->doRPCRequest('CreateResellerUserQuota', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateResellerUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,11 +934,44 @@ class BssOpenApi extends OpenApiClient
     public function createResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->effectiveDate)) {
+            $query['EffectiveDate'] = $request->effectiveDate;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->packageType)) {
+            $query['PackageType'] = $request->packageType;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourcePackage',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateResourcePackageResponse::fromMap($this->doRPCRequest('CreateResourcePackage', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -606,6 +987,76 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param CreateSavingsPlansInstanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateSavingsPlansInstanceResponse
+     */
+    public function createSavingsPlansInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->effectiveDate)) {
+            $query['EffectiveDate'] = $request->effectiveDate;
+        }
+        if (!Utils::isUnset($request->payMode)) {
+            $query['PayMode'] = $request->payMode;
+        }
+        if (!Utils::isUnset($request->poolValue)) {
+            $query['PoolValue'] = $request->poolValue;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->specType)) {
+            $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSavingsPlansInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSavingsPlansInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSavingsPlansInstanceRequest $request
+     *
+     * @return CreateSavingsPlansInstanceResponse
+     */
+    public function createSavingsPlansInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSavingsPlansInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCostUnitRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -614,11 +1065,29 @@ class BssOpenApi extends OpenApiClient
     public function deleteCostUnitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerUid)) {
+            $query['OwnerUid'] = $request->ownerUid;
+        }
+        if (!Utils::isUnset($request->unitId)) {
+            $query['UnitId'] = $request->unitId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCostUnit',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCostUnitResponse::fromMap($this->doRPCRequest('DeleteCostUnit', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCostUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -642,11 +1111,62 @@ class BssOpenApi extends OpenApiClient
     public function describeInstanceBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->billingDate)) {
+            $query['BillingDate'] = $request->billingDate;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->instanceID)) {
+            $query['InstanceID'] = $request->instanceID;
+        }
+        if (!Utils::isUnset($request->isBillingItem)) {
+            $query['IsBillingItem'] = $request->isBillingItem;
+        }
+        if (!Utils::isUnset($request->isHideZeroCharge)) {
+            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceBillResponse::fromMap($this->doRPCRequest('DescribeInstanceBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -670,11 +1190,35 @@ class BssOpenApi extends OpenApiClient
     public function describePricingModuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePricingModule',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePricingModuleResponse::fromMap($this->doRPCRequest('DescribePricingModule', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePricingModuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -698,11 +1242,44 @@ class BssOpenApi extends OpenApiClient
     public function describeResourceCoverageDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->endPeriod)) {
+            $query['EndPeriod'] = $request->endPeriod;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->startPeriod)) {
+            $query['StartPeriod'] = $request->startPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceCoverageDetail',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeResourceCoverageDetailResponse::fromMap($this->doRPCRequest('DescribeResourceCoverageDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeResourceCoverageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -726,11 +1303,38 @@ class BssOpenApi extends OpenApiClient
     public function describeResourceCoverageTotalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->endPeriod)) {
+            $query['EndPeriod'] = $request->endPeriod;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->startPeriod)) {
+            $query['StartPeriod'] = $request->startPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceCoverageTotal',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeResourceCoverageTotalResponse::fromMap($this->doRPCRequest('DescribeResourceCoverageTotal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeResourceCoverageTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -754,11 +1358,26 @@ class BssOpenApi extends OpenApiClient
     public function describeResourcePackageProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourcePackageProduct',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeResourcePackageProductResponse::fromMap($this->doRPCRequest('DescribeResourcePackageProduct', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeResourcePackageProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -782,11 +1401,44 @@ class BssOpenApi extends OpenApiClient
     public function describeResourceUsageDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->endPeriod)) {
+            $query['EndPeriod'] = $request->endPeriod;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->startPeriod)) {
+            $query['StartPeriod'] = $request->startPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceUsageDetail',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeResourceUsageDetailResponse::fromMap($this->doRPCRequest('DescribeResourceUsageDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeResourceUsageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -810,11 +1462,38 @@ class BssOpenApi extends OpenApiClient
     public function describeResourceUsageTotalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->endPeriod)) {
+            $query['EndPeriod'] = $request->endPeriod;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->startPeriod)) {
+            $query['StartPeriod'] = $request->startPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceUsageTotal',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeResourceUsageTotalResponse::fromMap($this->doRPCRequest('DescribeResourceUsageTotal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeResourceUsageTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -838,11 +1517,41 @@ class BssOpenApi extends OpenApiClient
     public function describeSavingsPlansCoverageDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->endPeriod)) {
+            $query['EndPeriod'] = $request->endPeriod;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->startPeriod)) {
+            $query['StartPeriod'] = $request->startPeriod;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSavingsPlansCoverageDetail',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSavingsPlansCoverageDetailResponse::fromMap($this->doRPCRequest('DescribeSavingsPlansCoverageDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSavingsPlansCoverageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -866,11 +1575,35 @@ class BssOpenApi extends OpenApiClient
     public function describeSavingsPlansCoverageTotalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->endPeriod)) {
+            $query['EndPeriod'] = $request->endPeriod;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->startPeriod)) {
+            $query['StartPeriod'] = $request->startPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSavingsPlansCoverageTotal',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSavingsPlansCoverageTotalResponse::fromMap($this->doRPCRequest('DescribeSavingsPlansCoverageTotal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSavingsPlansCoverageTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -894,11 +1627,41 @@ class BssOpenApi extends OpenApiClient
     public function describeSavingsPlansUsageDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->endPeriod)) {
+            $query['EndPeriod'] = $request->endPeriod;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->startPeriod)) {
+            $query['StartPeriod'] = $request->startPeriod;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSavingsPlansUsageDetail',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSavingsPlansUsageDetailResponse::fromMap($this->doRPCRequest('DescribeSavingsPlansUsageDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSavingsPlansUsageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -922,11 +1685,35 @@ class BssOpenApi extends OpenApiClient
     public function describeSavingsPlansUsageTotalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->endPeriod)) {
+            $query['EndPeriod'] = $request->endPeriod;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->startPeriod)) {
+            $query['StartPeriod'] = $request->startPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSavingsPlansUsageTotal',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSavingsPlansUsageTotalResponse::fromMap($this->doRPCRequest('DescribeSavingsPlansUsageTotal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSavingsPlansUsageTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -950,11 +1737,62 @@ class BssOpenApi extends OpenApiClient
     public function describeSplitItemBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->billingDate)) {
+            $query['BillingDate'] = $request->billingDate;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->instanceID)) {
+            $query['InstanceID'] = $request->instanceID;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->splitItemID)) {
+            $query['SplitItemID'] = $request->splitItemID;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
+        if (!Utils::isUnset($request->tagFilter)) {
+            $query['TagFilter'] = $request->tagFilter;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSplitItemBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSplitItemBillResponse::fromMap($this->doRPCRequest('DescribeSplitItemBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSplitItemBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -978,11 +1816,29 @@ class BssOpenApi extends OpenApiClient
     public function enableBillGenerationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableBillGeneration',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableBillGenerationResponse::fromMap($this->doRPCRequest('EnableBillGeneration', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableBillGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,6 +1854,46 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param GetAccountRelationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAccountRelationResponse
+     */
+    public function getAccountRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountRelation',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccountRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccountRelationRequest $request
+     *
+     * @return GetAccountRelationResponse
+     */
+    public function getAccountRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountRelationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetCustomerAccountInfoRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1006,11 +1902,26 @@ class BssOpenApi extends OpenApiClient
     public function getCustomerAccountInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomerAccountInfo',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCustomerAccountInfoResponse::fromMap($this->doRPCRequest('GetCustomerAccountInfo', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCustomerAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1032,9 +1943,20 @@ class BssOpenApi extends OpenApiClient
      */
     public function getCustomerListWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetCustomerList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetCustomerListResponse::fromMap($this->doRPCRequest('GetCustomerList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCustomerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1056,11 +1978,29 @@ class BssOpenApi extends OpenApiClient
     public function getOrderDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOrderDetail',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOrderDetailResponse::fromMap($this->doRPCRequest('GetOrderDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1084,11 +2024,41 @@ class BssOpenApi extends OpenApiClient
     public function getPayAsYouGoPriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->moduleList)) {
+            $query['ModuleList'] = $request->moduleList;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPayAsYouGoPrice',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPayAsYouGoPriceResponse::fromMap($this->doRPCRequest('GetPayAsYouGoPrice', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPayAsYouGoPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1112,11 +2082,50 @@ class BssOpenApi extends OpenApiClient
     public function getResourcePackagePriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->effectiveDate)) {
+            $query['EffectiveDate'] = $request->effectiveDate;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->packageType)) {
+            $query['PackageType'] = $request->packageType;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourcePackagePrice',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourcePackagePriceResponse::fromMap($this->doRPCRequest('GetResourcePackagePrice', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetResourcePackagePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1140,11 +2149,56 @@ class BssOpenApi extends OpenApiClient
     public function getSubscriptionPriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleList)) {
+            $query['ModuleList'] = $request->moduleList;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->quantity)) {
+            $query['Quantity'] = $request->quantity;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->servicePeriodQuantity)) {
+            $query['ServicePeriodQuantity'] = $request->servicePeriodQuantity;
+        }
+        if (!Utils::isUnset($request->servicePeriodUnit)) {
+            $query['ServicePeriodUnit'] = $request->servicePeriodUnit;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSubscriptionPrice',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSubscriptionPriceResponse::fromMap($this->doRPCRequest('GetSubscriptionPrice', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSubscriptionPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1160,6 +2214,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param InquiryPriceRefundInstanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return InquiryPriceRefundInstanceResponse
+     */
+    public function inquiryPriceRefundInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InquiryPriceRefundInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InquiryPriceRefundInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InquiryPriceRefundInstanceRequest $request
+     *
+     * @return InquiryPriceRefundInstanceResponse
+     */
+    public function inquiryPriceRefundInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->inquiryPriceRefundInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyAccountRelationRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1168,11 +2274,50 @@ class BssOpenApi extends OpenApiClient
     public function modifyAccountRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->childNick)) {
+            $query['ChildNick'] = $request->childNick;
+        }
+        if (!Utils::isUnset($request->childUserId)) {
+            $query['ChildUserId'] = $request->childUserId;
+        }
+        if (!Utils::isUnset($request->parentUserId)) {
+            $query['ParentUserId'] = $request->parentUserId;
+        }
+        if (!Utils::isUnset($request->permissionCodes)) {
+            $query['PermissionCodes'] = $request->permissionCodes;
+        }
+        if (!Utils::isUnset($request->relationId)) {
+            $query['RelationId'] = $request->relationId;
+        }
+        if (!Utils::isUnset($request->relationOperation)) {
+            $query['RelationOperation'] = $request->relationOperation;
+        }
+        if (!Utils::isUnset($request->relationType)) {
+            $query['RelationType'] = $request->relationType;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->roleCodes)) {
+            $query['RoleCodes'] = $request->roleCodes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountRelation',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAccountRelationResponse::fromMap($this->doRPCRequest('ModifyAccountRelation', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAccountRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1196,11 +2341,26 @@ class BssOpenApi extends OpenApiClient
     public function modifyCostUnitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->unitEntityList)) {
+            $query['UnitEntityList'] = $request->unitEntityList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCostUnit',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyCostUnitResponse::fromMap($this->doRPCRequest('ModifyCostUnit', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyCostUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1224,11 +2384,47 @@ class BssOpenApi extends OpenApiClient
     public function modifyInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->modifyType)) {
+            $query['ModifyType'] = $request->modifyType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameter)) {
+            $query['Parameter'] = $request->parameter;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceResponse::fromMap($this->doRPCRequest('ModifyInstance', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1250,9 +2446,20 @@ class BssOpenApi extends OpenApiClient
      */
     public function queryAccountBalanceWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryAccountBalance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryAccountBalanceResponse::fromMap($this->doRPCRequest('QueryAccountBalance', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAccountBalanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1274,11 +2481,50 @@ class BssOpenApi extends OpenApiClient
     public function queryAccountBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->billingDate)) {
+            $query['BillingDate'] = $request->billingDate;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->isGroupByProduct)) {
+            $query['IsGroupByProduct'] = $request->isGroupByProduct;
+        }
+        if (!Utils::isUnset($request->ownerID)) {
+            $query['OwnerID'] = $request->ownerID;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAccountBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAccountBillResponse::fromMap($this->doRPCRequest('QueryAccountBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAccountBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1302,11 +2548,50 @@ class BssOpenApi extends OpenApiClient
     public function queryAccountTransactionDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->recordID)) {
+            $query['RecordID'] = $request->recordID;
+        }
+        if (!Utils::isUnset($request->transactionChannel)) {
+            $query['TransactionChannel'] = $request->transactionChannel;
+        }
+        if (!Utils::isUnset($request->transactionChannelSN)) {
+            $query['TransactionChannelSN'] = $request->transactionChannelSN;
+        }
+        if (!Utils::isUnset($request->transactionNumber)) {
+            $query['TransactionNumber'] = $request->transactionNumber;
+        }
+        if (!Utils::isUnset($request->transactionType)) {
+            $query['TransactionType'] = $request->transactionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAccountTransactionDetails',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAccountTransactionDetailsResponse::fromMap($this->doRPCRequest('QueryAccountTransactionDetails', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAccountTransactionDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1330,11 +2615,53 @@ class BssOpenApi extends OpenApiClient
     public function queryAccountTransactionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->recordID)) {
+            $query['RecordID'] = $request->recordID;
+        }
+        if (!Utils::isUnset($request->transactionChannel)) {
+            $query['TransactionChannel'] = $request->transactionChannel;
+        }
+        if (!Utils::isUnset($request->transactionChannelSN)) {
+            $query['TransactionChannelSN'] = $request->transactionChannelSN;
+        }
+        if (!Utils::isUnset($request->transactionFlow)) {
+            $query['TransactionFlow'] = $request->transactionFlow;
+        }
+        if (!Utils::isUnset($request->transactionNumber)) {
+            $query['TransactionNumber'] = $request->transactionNumber;
+        }
+        if (!Utils::isUnset($request->transactionType)) {
+            $query['TransactionType'] = $request->transactionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAccountTransactions',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAccountTransactionsResponse::fromMap($this->doRPCRequest('QueryAccountTransactions', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAccountTransactionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1358,11 +2685,62 @@ class BssOpenApi extends OpenApiClient
     public function queryAvailableInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->endTimeEnd)) {
+            $query['EndTimeEnd'] = $request->endTimeEnd;
+        }
+        if (!Utils::isUnset($request->endTimeStart)) {
+            $query['EndTimeStart'] = $request->endTimeStart;
+        }
+        if (!Utils::isUnset($request->instanceIDs)) {
+            $query['InstanceIDs'] = $request->instanceIDs;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->renewStatus)) {
+            $query['RenewStatus'] = $request->renewStatus;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAvailableInstances',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAvailableInstancesResponse::fromMap($this->doRPCRequest('QueryAvailableInstances', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAvailableInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1386,11 +2764,56 @@ class BssOpenApi extends OpenApiClient
     public function queryBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->isDisplayLocalCurrency)) {
+            $query['IsDisplayLocalCurrency'] = $request->isDisplayLocalCurrency;
+        }
+        if (!Utils::isUnset($request->isHideZeroCharge)) {
+            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBillResponse::fromMap($this->doRPCRequest('QueryBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1414,11 +2837,38 @@ class BssOpenApi extends OpenApiClient
     public function queryBillOverviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBillOverview',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBillOverviewResponse::fromMap($this->doRPCRequest('QueryBillOverview', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBillOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1440,9 +2890,20 @@ class BssOpenApi extends OpenApiClient
      */
     public function queryBillToOSSSubscriptionWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryBillToOSSSubscription',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryBillToOSSSubscriptionResponse::fromMap($this->doRPCRequest('QueryBillToOSSSubscription', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBillToOSSSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1464,11 +2925,32 @@ class BssOpenApi extends OpenApiClient
     public function queryCashCouponsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectiveOrNot)) {
+            $query['EffectiveOrNot'] = $request->effectiveOrNot;
+        }
+        if (!Utils::isUnset($request->expiryTimeEnd)) {
+            $query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
+        }
+        if (!Utils::isUnset($request->expiryTimeStart)) {
+            $query['ExpiryTimeStart'] = $request->expiryTimeStart;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCashCoupons',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCashCouponsResponse::fromMap($this->doRPCRequest('QueryCashCoupons', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCashCouponsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1492,11 +2974,35 @@ class BssOpenApi extends OpenApiClient
     public function queryCostUnitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerUid)) {
+            $query['OwnerUid'] = $request->ownerUid;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentUnitId)) {
+            $query['ParentUnitId'] = $request->parentUnitId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCostUnit',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCostUnitResponse::fromMap($this->doRPCRequest('QueryCostUnit', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCostUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1520,11 +3026,35 @@ class BssOpenApi extends OpenApiClient
     public function queryCostUnitResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerUid)) {
+            $query['OwnerUid'] = $request->ownerUid;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->unitId)) {
+            $query['UnitId'] = $request->unitId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCostUnitResource',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCostUnitResourceResponse::fromMap($this->doRPCRequest('QueryCostUnitResource', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCostUnitResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1548,11 +3078,26 @@ class BssOpenApi extends OpenApiClient
     public function queryCustomerAddressListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCustomerAddressList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCustomerAddressListResponse::fromMap($this->doRPCRequest('QueryCustomerAddressList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCustomerAddressListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1576,11 +3121,53 @@ class BssOpenApi extends OpenApiClient
     public function queryDPUtilizationDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->deductedInstanceId)) {
+            $query['DeductedInstanceId'] = $request->deductedInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->includeShare)) {
+            $query['IncludeShare'] = $request->includeShare;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
+        }
+        if (!Utils::isUnset($request->lastToken)) {
+            $query['LastToken'] = $request->lastToken;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDPUtilizationDetail',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDPUtilizationDetailResponse::fromMap($this->doRPCRequest('QueryDPUtilizationDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDPUtilizationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1604,11 +3191,65 @@ class BssOpenApi extends OpenApiClient
     public function queryEvaluateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billCycle)) {
+            $query['BillCycle'] = $request->billCycle;
+        }
+        if (!Utils::isUnset($request->bizTypeList)) {
+            $query['BizTypeList'] = $request->bizTypeList;
+        }
+        if (!Utils::isUnset($request->endAmount)) {
+            $query['EndAmount'] = $request->endAmount;
+        }
+        if (!Utils::isUnset($request->endBizTime)) {
+            $query['EndBizTime'] = $request->endBizTime;
+        }
+        if (!Utils::isUnset($request->endSearchTime)) {
+            $query['EndSearchTime'] = $request->endSearchTime;
+        }
+        if (!Utils::isUnset($request->outBizId)) {
+            $query['OutBizId'] = $request->outBizId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
+        }
+        if (!Utils::isUnset($request->startAmount)) {
+            $query['StartAmount'] = $request->startAmount;
+        }
+        if (!Utils::isUnset($request->startBizTime)) {
+            $query['StartBizTime'] = $request->startBizTime;
+        }
+        if (!Utils::isUnset($request->startSearchTime)) {
+            $query['StartSearchTime'] = $request->startSearchTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEvaluateList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEvaluateListResponse::fromMap($this->doRPCRequest('QueryEvaluateList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEvaluateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1632,11 +3273,26 @@ class BssOpenApi extends OpenApiClient
     public function queryFinancialAccountInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFinancialAccountInfo',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryFinancialAccountInfoResponse::fromMap($this->doRPCRequest('QueryFinancialAccountInfo', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryFinancialAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1660,11 +3316,59 @@ class BssOpenApi extends OpenApiClient
     public function queryInstanceBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->billingDate)) {
+            $query['BillingDate'] = $request->billingDate;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->isBillingItem)) {
+            $query['IsBillingItem'] = $request->isBillingItem;
+        }
+        if (!Utils::isUnset($request->isHideZeroCharge)) {
+            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInstanceBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryInstanceBillResponse::fromMap($this->doRPCRequest('QueryInstanceBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryInstanceBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1688,11 +3392,32 @@ class BssOpenApi extends OpenApiClient
     public function queryInstanceByTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInstanceByTag',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryInstanceByTagResponse::fromMap($this->doRPCRequest('QueryInstanceByTag', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryInstanceByTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1716,11 +3441,41 @@ class BssOpenApi extends OpenApiClient
     public function queryInstanceGaapCostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInstanceGaapCost',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryInstanceGaapCostResponse::fromMap($this->doRPCRequest('QueryInstanceGaapCost', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryInstanceGaapCostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1744,11 +3499,26 @@ class BssOpenApi extends OpenApiClient
     public function queryInvoicingCustomerListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInvoicingCustomerList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryInvoicingCustomerListResponse::fromMap($this->doRPCRequest('QueryInvoicingCustomerList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryInvoicingCustomerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1772,11 +3542,26 @@ class BssOpenApi extends OpenApiClient
     public function queryMonthlyBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMonthlyBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMonthlyBillResponse::fromMap($this->doRPCRequest('QueryMonthlyBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMonthlyBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1800,11 +3585,44 @@ class BssOpenApi extends OpenApiClient
     public function queryMonthlyInstanceConsumptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMonthlyInstanceConsumption',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMonthlyInstanceConsumptionResponse::fromMap($this->doRPCRequest('QueryMonthlyInstanceConsumption', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMonthlyInstanceConsumptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1828,11 +3646,53 @@ class BssOpenApi extends OpenApiClient
     public function queryOrdersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->paymentStatus)) {
+            $query['PaymentStatus'] = $request->paymentStatus;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrders',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrdersResponse::fromMap($this->doRPCRequest('QueryOrders', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1856,11 +3716,26 @@ class BssOpenApi extends OpenApiClient
     public function queryPermissionListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->relationId)) {
+            $query['RelationId'] = $request->relationId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPermissionList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPermissionListResponse::fromMap($this->doRPCRequest('QueryPermissionList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPermissionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1884,11 +3759,32 @@ class BssOpenApi extends OpenApiClient
     public function queryPrepaidCardsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectiveOrNot)) {
+            $query['EffectiveOrNot'] = $request->effectiveOrNot;
+        }
+        if (!Utils::isUnset($request->expiryTimeEnd)) {
+            $query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
+        }
+        if (!Utils::isUnset($request->expiryTimeStart)) {
+            $query['ExpiryTimeStart'] = $request->expiryTimeStart;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPrepaidCards',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPrepaidCardsResponse::fromMap($this->doRPCRequest('QueryPrepaidCards', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPrepaidCardsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1912,11 +3808,32 @@ class BssOpenApi extends OpenApiClient
     public function queryProductListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryTotalCount)) {
+            $query['QueryTotalCount'] = $request->queryTotalCount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryProductList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryProductListResponse::fromMap($this->doRPCRequest('QueryProductList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryProductListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1932,6 +3849,70 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param QueryRIUtilizationDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryRIUtilizationDetailResponse
+     */
+    public function queryRIUtilizationDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deductedInstanceId)) {
+            $query['DeductedInstanceId'] = $request->deductedInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->RICommodityCode)) {
+            $query['RICommodityCode'] = $request->RICommodityCode;
+        }
+        if (!Utils::isUnset($request->RIInstanceId)) {
+            $query['RIInstanceId'] = $request->RIInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRIUtilizationDetail',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRIUtilizationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRIUtilizationDetailRequest $request
+     *
+     * @return QueryRIUtilizationDetailResponse
+     */
+    public function queryRIUtilizationDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRIUtilizationDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryRedeemRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1942,10 +3923,21 @@ class BssOpenApi extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRedeem',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRedeemResponse::fromMap($this->doRPCRequest('QueryRedeem', '2017-12-14', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryRedeemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1969,11 +3961,35 @@ class BssOpenApi extends OpenApiClient
     public function queryRelationListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRelationList',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRelationListResponse::fromMap($this->doRPCRequest('QueryRelationList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryRelationListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1997,11 +4013,29 @@ class BssOpenApi extends OpenApiClient
     public function queryResellerAvailableQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->itemCodes)) {
+            $query['ItemCodes'] = $request->itemCodes;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryResellerAvailableQuota',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryResellerAvailableQuotaResponse::fromMap($this->doRPCRequest('QueryResellerAvailableQuota', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryResellerAvailableQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2025,11 +4059,44 @@ class BssOpenApi extends OpenApiClient
     public function queryResourcePackageInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expiryTimeEnd)) {
+            $query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
+        }
+        if (!Utils::isUnset($request->expiryTimeStart)) {
+            $query['ExpiryTimeStart'] = $request->expiryTimeStart;
+        }
+        if (!Utils::isUnset($request->includePartner)) {
+            $query['IncludePartner'] = $request->includePartner;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryResourcePackageInstances',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryResourcePackageInstancesResponse::fromMap($this->doRPCRequest('QueryResourcePackageInstances', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryResourcePackageInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2045,34 +4112,6 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QueryRIUtilizationDetailRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryRIUtilizationDetailResponse
-     */
-    public function queryRIUtilizationDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryRIUtilizationDetailResponse::fromMap($this->doRPCRequest('QueryRIUtilizationDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryRIUtilizationDetailRequest $request
-     *
-     * @return QueryRIUtilizationDetailResponse
-     */
-    public function queryRIUtilizationDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryRIUtilizationDetailWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QuerySavingsPlansDeductLogRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -2081,11 +4120,44 @@ class BssOpenApi extends OpenApiClient
     public function querySavingsPlansDeductLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->locale)) {
+            $query['Locale'] = $request->locale;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySavingsPlansDeductLog',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySavingsPlansDeductLogResponse::fromMap($this->doRPCRequest('QuerySavingsPlansDeductLog', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySavingsPlansDeductLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2109,11 +4181,44 @@ class BssOpenApi extends OpenApiClient
     public function querySavingsPlansInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->locale)) {
+            $query['Locale'] = $request->locale;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySavingsPlansInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySavingsPlansInstanceResponse::fromMap($this->doRPCRequest('QuerySavingsPlansInstance', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySavingsPlansInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2137,11 +4242,59 @@ class BssOpenApi extends OpenApiClient
     public function querySettleBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->isDisplayLocalCurrency)) {
+            $query['IsDisplayLocalCurrency'] = $request->isDisplayLocalCurrency;
+        }
+        if (!Utils::isUnset($request->isHideZeroCharge)) {
+            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->recordID)) {
+            $query['RecordID'] = $request->recordID;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySettleBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySettleBillResponse::fromMap($this->doRPCRequest('QuerySettleBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySettleBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2165,11 +4318,56 @@ class BssOpenApi extends OpenApiClient
     public function querySettlementBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->isHideZeroCharge)) {
+            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySettlementBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySettlementBillResponse::fromMap($this->doRPCRequest('QuerySettlementBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySettlementBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2193,11 +4391,47 @@ class BssOpenApi extends OpenApiClient
     public function querySplitItemBillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwnerId)) {
+            $query['BillOwnerId'] = $request->billOwnerId;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySplitItemBill',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySplitItemBillResponse::fromMap($this->doRPCRequest('QuerySplitItemBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySplitItemBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2221,11 +4455,44 @@ class BssOpenApi extends OpenApiClient
     public function queryUserOmsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->table)) {
+            $query['Table'] = $request->table;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUserOmsData',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryUserOmsDataResponse::fromMap($this->doRPCRequest('QueryUserOmsData', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryUserOmsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2241,6 +4508,61 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param RefundInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RefundInstanceResponse
+     */
+    public function refundInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->immediatelyRelease)) {
+            $query['ImmediatelyRelease'] = $request->immediatelyRelease;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefundInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefundInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefundInstanceRequest $request
+     *
+     * @return RefundInstanceResponse
+     */
+    public function refundInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refundInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RelieveAccountRelationRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2249,11 +4571,38 @@ class BssOpenApi extends OpenApiClient
     public function relieveAccountRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->childUserId)) {
+            $query['ChildUserId'] = $request->childUserId;
+        }
+        if (!Utils::isUnset($request->parentUserId)) {
+            $query['ParentUserId'] = $request->parentUserId;
+        }
+        if (!Utils::isUnset($request->relationId)) {
+            $query['RelationId'] = $request->relationId;
+        }
+        if (!Utils::isUnset($request->relationType)) {
+            $query['RelationType'] = $request->relationType;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RelieveAccountRelation',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RelieveAccountRelationResponse::fromMap($this->doRPCRequest('RelieveAccountRelation', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RelieveAccountRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2277,11 +4626,41 @@ class BssOpenApi extends OpenApiClient
     public function renewInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->renewPeriod)) {
+            $query['RenewPeriod'] = $request->renewPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RenewInstanceResponse::fromMap($this->doRPCRequest('RenewInstance', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2305,11 +4684,38 @@ class BssOpenApi extends OpenApiClient
     public function renewResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->effectiveDate)) {
+            $query['EffectiveDate'] = $request->effectiveDate;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewResourcePackage',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RenewResourcePackageResponse::fromMap($this->doRPCRequest('RenewResourcePackage', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenewResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2333,11 +4739,47 @@ class BssOpenApi extends OpenApiClient
     public function saveUserCreditWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->avoidExpiration)) {
+            $query['AvoidExpiration'] = $request->avoidExpiration;
+        }
+        if (!Utils::isUnset($request->avoidNotification)) {
+            $query['AvoidNotification'] = $request->avoidNotification;
+        }
+        if (!Utils::isUnset($request->avoidPrepaidExpiration)) {
+            $query['AvoidPrepaidExpiration'] = $request->avoidPrepaidExpiration;
+        }
+        if (!Utils::isUnset($request->avoidPrepaidNotification)) {
+            $query['AvoidPrepaidNotification'] = $request->avoidPrepaidNotification;
+        }
+        if (!Utils::isUnset($request->creditType)) {
+            $query['CreditType'] = $request->creditType;
+        }
+        if (!Utils::isUnset($request->creditValue)) {
+            $query['CreditValue'] = $request->creditValue;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $query['Operator'] = $request->operator;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveUserCredit',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveUserCreditResponse::fromMap($this->doRPCRequest('SaveUserCredit', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SaveUserCreditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2361,11 +4803,29 @@ class BssOpenApi extends OpenApiClient
     public function setAllExpirationDayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->unifyExpireDay)) {
+            $query['UnifyExpireDay'] = $request->unifyExpireDay;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAllExpirationDay',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetAllExpirationDayResponse::fromMap($this->doRPCRequest('SetAllExpirationDay', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetAllExpirationDayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2389,11 +4849,74 @@ class BssOpenApi extends OpenApiClient
     public function setCreditLabelActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
+        }
+        if (!Utils::isUnset($request->clearCycle)) {
+            $query['ClearCycle'] = $request->clearCycle;
+        }
+        if (!Utils::isUnset($request->creditAmount)) {
+            $query['CreditAmount'] = $request->creditAmount;
+        }
+        if (!Utils::isUnset($request->currencyCode)) {
+            $query['CurrencyCode'] = $request->currencyCode;
+        }
+        if (!Utils::isUnset($request->dailyCycle)) {
+            $query['DailyCycle'] = $request->dailyCycle;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->isNeedAddSettleLabel)) {
+            $query['IsNeedAddSettleLabel'] = $request->isNeedAddSettleLabel;
+        }
+        if (!Utils::isUnset($request->isNeedAdjustCreditAccount)) {
+            $query['IsNeedAdjustCreditAccount'] = $request->isNeedAdjustCreditAccount;
+        }
+        if (!Utils::isUnset($request->isNeedSaveNotifyRule)) {
+            $query['IsNeedSaveNotifyRule'] = $request->isNeedSaveNotifyRule;
+        }
+        if (!Utils::isUnset($request->isNeedSetCreditAmount)) {
+            $query['IsNeedSetCreditAmount'] = $request->isNeedSetCreditAmount;
+        }
+        if (!Utils::isUnset($request->needNotice)) {
+            $query['NeedNotice'] = $request->needNotice;
+        }
+        if (!Utils::isUnset($request->newCreateMode)) {
+            $query['NewCreateMode'] = $request->newCreateMode;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $query['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->siteCode)) {
+            $query['SiteCode'] = $request->siteCode;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCreditLabelAction',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetCreditLabelActionResponse::fromMap($this->doRPCRequest('SetCreditLabelAction', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetCreditLabelActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2417,11 +4940,47 @@ class BssOpenApi extends OpenApiClient
     public function setRenewalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIDs)) {
+            $query['InstanceIDs'] = $request->instanceIDs;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->renewalPeriod)) {
+            $query['RenewalPeriod'] = $request->renewalPeriod;
+        }
+        if (!Utils::isUnset($request->renewalPeriodUnit)) {
+            $query['RenewalPeriodUnit'] = $request->renewalPeriodUnit;
+        }
+        if (!Utils::isUnset($request->renewalStatus)) {
+            $query['RenewalStatus'] = $request->renewalStatus;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetRenewal',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetRenewalResponse::fromMap($this->doRPCRequest('SetRenewal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetRenewalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2445,11 +5004,32 @@ class BssOpenApi extends OpenApiClient
     public function setResellerUserAlarmThresholdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmThresholds)) {
+            $query['AlarmThresholds'] = $request->alarmThresholds;
+        }
+        if (!Utils::isUnset($request->alarmType)) {
+            $query['AlarmType'] = $request->alarmType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetResellerUserAlarmThreshold',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetResellerUserAlarmThresholdResponse::fromMap($this->doRPCRequest('SetResellerUserAlarmThreshold', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetResellerUserAlarmThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2473,11 +5053,35 @@ class BssOpenApi extends OpenApiClient
     public function setResellerUserQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->currency)) {
+            $query['Currency'] = $request->currency;
+        }
+        if (!Utils::isUnset($request->outBizId)) {
+            $query['OutBizId'] = $request->outBizId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetResellerUserQuota',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetResellerUserQuotaResponse::fromMap($this->doRPCRequest('SetResellerUserQuota', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetResellerUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2501,11 +5105,32 @@ class BssOpenApi extends OpenApiClient
     public function setResellerUserStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetResellerUserStatus',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetResellerUserStatusResponse::fromMap($this->doRPCRequest('SetResellerUserStatus', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetResellerUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2529,11 +5154,38 @@ class BssOpenApi extends OpenApiClient
     public function subscribeBillToOSSWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginBillingCycle)) {
+            $query['BeginBillingCycle'] = $request->beginBillingCycle;
+        }
+        if (!Utils::isUnset($request->bucketOwnerId)) {
+            $query['BucketOwnerId'] = $request->bucketOwnerId;
+        }
+        if (!Utils::isUnset($request->multAccountRelSubscribe)) {
+            $query['MultAccountRelSubscribe'] = $request->multAccountRelSubscribe;
+        }
+        if (!Utils::isUnset($request->subscribeBucket)) {
+            $query['SubscribeBucket'] = $request->subscribeBucket;
+        }
+        if (!Utils::isUnset($request->subscribeType)) {
+            $query['SubscribeType'] = $request->subscribeType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubscribeBillToOSS',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SubscribeBillToOSSResponse::fromMap($this->doRPCRequest('SubscribeBillToOSS', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubscribeBillToOSSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2557,11 +5209,32 @@ class BssOpenApi extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2585,11 +5258,29 @@ class BssOpenApi extends OpenApiClient
     public function unsubscribeBillToOSSWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->multAccountRelSubscribe)) {
+            $query['MultAccountRelSubscribe'] = $request->multAccountRelSubscribe;
+        }
+        if (!Utils::isUnset($request->subscribeType)) {
+            $query['SubscribeType'] = $request->subscribeType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnsubscribeBillToOSS',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnsubscribeBillToOSSResponse::fromMap($this->doRPCRequest('UnsubscribeBillToOSS', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnsubscribeBillToOSSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2613,11 +5304,35 @@ class BssOpenApi extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2641,11 +5356,35 @@ class BssOpenApi extends OpenApiClient
     public function upgradeResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectiveDate)) {
+            $query['EffectiveDate'] = $request->effectiveDate;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeResourcePackage',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeResourcePackageResponse::fromMap($this->doRPCRequest('UpgradeResourcePackage', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

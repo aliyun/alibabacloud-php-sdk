@@ -11,12 +11,17 @@ class CreateResourcePackageRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $duration;
 
     /**
      * @var string
      */
-    public $productCode;
+    public $effectiveDate;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -26,30 +31,25 @@ class CreateResourcePackageRequest extends Model
     /**
      * @var string
      */
-    public $effectiveDate;
+    public $pricingCycle;
+
+    /**
+     * @var string
+     */
+    public $productCode;
 
     /**
      * @var string
      */
     public $specification;
-
-    /**
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @var string
-     */
-    public $pricingCycle;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'productCode'   => 'ProductCode',
-        'packageType'   => 'PackageType',
-        'effectiveDate' => 'EffectiveDate',
-        'specification' => 'Specification',
         'duration'      => 'Duration',
+        'effectiveDate' => 'EffectiveDate',
+        'ownerId'       => 'OwnerId',
+        'packageType'   => 'PackageType',
         'pricingCycle'  => 'PricingCycle',
+        'productCode'   => 'ProductCode',
+        'specification' => 'Specification',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class CreateResourcePackageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->packageType) {
-            $res['PackageType'] = $this->packageType;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->effectiveDate) {
             $res['EffectiveDate'] = $this->effectiveDate;
         }
-        if (null !== $this->specification) {
-            $res['Specification'] = $this->specification;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->packageType) {
+            $res['PackageType'] = $this->packageType;
         }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->specification) {
+            $res['Specification'] = $this->specification;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class CreateResourcePackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['PackageType'])) {
-            $model->packageType = $map['PackageType'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['EffectiveDate'])) {
             $model->effectiveDate = $map['EffectiveDate'];
         }
-        if (isset($map['Specification'])) {
-            $model->specification = $map['Specification'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['PackageType'])) {
+            $model->packageType = $map['PackageType'];
         }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['Specification'])) {
+            $model->specification = $map['Specification'];
         }
 
         return $model;

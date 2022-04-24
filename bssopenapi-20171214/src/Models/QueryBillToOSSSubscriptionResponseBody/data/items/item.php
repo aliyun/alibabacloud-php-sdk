@@ -16,12 +16,12 @@ class item extends Model
     /**
      * @var string
      */
-    public $subscribeType;
+    public $subscribeBucket;
 
     /**
      * @var string
      */
-    public $subscribeBucket;
+    public $subscribeLanguage;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class item extends Model
     /**
      * @var string
      */
-    public $subscribeLanguage;
+    public $subscribeType;
     protected $_name = [
         'bucketOwnerId'     => 'BucketOwnerId',
-        'subscribeType'     => 'SubscribeType',
         'subscribeBucket'   => 'SubscribeBucket',
-        'subscribeTime'     => 'SubscribeTime',
         'subscribeLanguage' => 'SubscribeLanguage',
+        'subscribeTime'     => 'SubscribeTime',
+        'subscribeType'     => 'SubscribeType',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class item extends Model
         if (null !== $this->bucketOwnerId) {
             $res['BucketOwnerId'] = $this->bucketOwnerId;
         }
-        if (null !== $this->subscribeType) {
-            $res['SubscribeType'] = $this->subscribeType;
-        }
         if (null !== $this->subscribeBucket) {
             $res['SubscribeBucket'] = $this->subscribeBucket;
+        }
+        if (null !== $this->subscribeLanguage) {
+            $res['SubscribeLanguage'] = $this->subscribeLanguage;
         }
         if (null !== $this->subscribeTime) {
             $res['SubscribeTime'] = $this->subscribeTime;
         }
-        if (null !== $this->subscribeLanguage) {
-            $res['SubscribeLanguage'] = $this->subscribeLanguage;
+        if (null !== $this->subscribeType) {
+            $res['SubscribeType'] = $this->subscribeType;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class item extends Model
         if (isset($map['BucketOwnerId'])) {
             $model->bucketOwnerId = $map['BucketOwnerId'];
         }
-        if (isset($map['SubscribeType'])) {
-            $model->subscribeType = $map['SubscribeType'];
-        }
         if (isset($map['SubscribeBucket'])) {
             $model->subscribeBucket = $map['SubscribeBucket'];
+        }
+        if (isset($map['SubscribeLanguage'])) {
+            $model->subscribeLanguage = $map['SubscribeLanguage'];
         }
         if (isset($map['SubscribeTime'])) {
             $model->subscribeTime = $map['SubscribeTime'];
         }
-        if (isset($map['SubscribeLanguage'])) {
-            $model->subscribeLanguage = $map['SubscribeLanguage'];
+        if (isset($map['SubscribeType'])) {
+            $model->subscribeType = $map['SubscribeType'];
         }
 
         return $model;

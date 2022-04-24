@@ -12,8 +12,14 @@ class data extends Model
      * @var string
      */
     public $hostId;
+
+    /**
+     * @var int
+     */
+    public $relationId;
     protected $_name = [
-        'hostId' => 'HostId',
+        'hostId'     => 'HostId',
+        'relationId' => 'RelationId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class data extends Model
         $res = [];
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
+        }
+        if (null !== $this->relationId) {
+            $res['RelationId'] = $this->relationId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class data extends Model
         $model = new self();
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
+        }
+        if (isset($map['RelationId'])) {
+            $model->relationId = $map['RelationId'];
         }
 
         return $model;

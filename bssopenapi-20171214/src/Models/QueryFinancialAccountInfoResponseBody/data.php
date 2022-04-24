@@ -11,12 +11,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $memberNickName;
+    public $accountType;
 
     /**
      * @var bool
      */
     public $isFinancialAccount;
+
+    /**
+     * @var int
+     */
+    public $memberGroupId;
 
     /**
      * @var string
@@ -26,24 +31,19 @@ class data extends Model
     /**
      * @var string
      */
-    public $userName;
+    public $memberNickName;
 
     /**
      * @var string
      */
-    public $accountType;
-
-    /**
-     * @var int
-     */
-    public $memberGroupId;
+    public $userName;
     protected $_name = [
-        'memberNickName'     => 'MemberNickName',
-        'isFinancialAccount' => 'IsFinancialAccount',
-        'memberGroupName'    => 'MemberGroupName',
-        'userName'           => 'UserName',
         'accountType'        => 'AccountType',
+        'isFinancialAccount' => 'IsFinancialAccount',
         'memberGroupId'      => 'MemberGroupId',
+        'memberGroupName'    => 'MemberGroupName',
+        'memberNickName'     => 'MemberNickName',
+        'userName'           => 'UserName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->memberNickName) {
-            $res['MemberNickName'] = $this->memberNickName;
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
         }
         if (null !== $this->isFinancialAccount) {
             $res['IsFinancialAccount'] = $this->isFinancialAccount;
         }
+        if (null !== $this->memberGroupId) {
+            $res['MemberGroupId'] = $this->memberGroupId;
+        }
         if (null !== $this->memberGroupName) {
             $res['MemberGroupName'] = $this->memberGroupName;
         }
+        if (null !== $this->memberNickName) {
+            $res['MemberNickName'] = $this->memberNickName;
+        }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
-        }
-        if (null !== $this->memberGroupId) {
-            $res['MemberGroupId'] = $this->memberGroupId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MemberNickName'])) {
-            $model->memberNickName = $map['MemberNickName'];
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
         }
         if (isset($map['IsFinancialAccount'])) {
             $model->isFinancialAccount = $map['IsFinancialAccount'];
         }
+        if (isset($map['MemberGroupId'])) {
+            $model->memberGroupId = $map['MemberGroupId'];
+        }
         if (isset($map['MemberGroupName'])) {
             $model->memberGroupName = $map['MemberGroupName'];
         }
+        if (isset($map['MemberNickName'])) {
+            $model->memberNickName = $map['MemberNickName'];
+        }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
-        }
-        if (isset($map['MemberGroupId'])) {
-            $model->memberGroupId = $map['MemberGroupId'];
         }
 
         return $model;

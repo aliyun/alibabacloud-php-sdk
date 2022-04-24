@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $accountName;
+
+    /**
+     * @var accountTransactionsList
+     */
+    public $accountTransactionsList;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -23,22 +33,12 @@ class data extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $accountName;
-
-    /**
-     * @var accountTransactionsList
-     */
-    public $accountTransactionsList;
     protected $_name = [
+        'accountName'             => 'AccountName',
+        'accountTransactionsList' => 'AccountTransactionsList',
         'pageNum'                 => 'PageNum',
         'pageSize'                => 'PageSize',
         'totalCount'              => 'TotalCount',
-        'accountName'             => 'AccountName',
-        'accountTransactionsList' => 'AccountTransactionsList',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountTransactionsList) {
+            $res['AccountTransactionsList'] = null !== $this->accountTransactionsList ? $this->accountTransactionsList->toMap() : null;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -56,12 +62,6 @@ class data extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->accountTransactionsList) {
-            $res['AccountTransactionsList'] = null !== $this->accountTransactionsList ? $this->accountTransactionsList->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountTransactionsList'])) {
+            $model->accountTransactionsList = accountTransactionsList::fromMap($map['AccountTransactionsList']);
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -83,12 +89,6 @@ class data extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['AccountTransactionsList'])) {
-            $model->accountTransactionsList = accountTransactionsList::fromMap($map['AccountTransactionsList']);
         }
 
         return $model;

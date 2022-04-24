@@ -11,7 +11,12 @@ class AddAccountRelationRequest extends Model
     /**
      * @var string
      */
-    public $relationType;
+    public $childNick;
+
+    /**
+     * @var int
+     */
+    public $childUserId;
 
     /**
      * @var int
@@ -19,14 +24,14 @@ class AddAccountRelationRequest extends Model
     public $parentUserId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $childNick;
+    public $permissionCodes;
 
     /**
-     * @var int
+     * @var string
      */
-    public $childUserId;
+    public $relationType;
 
     /**
      * @var string
@@ -36,19 +41,14 @@ class AddAccountRelationRequest extends Model
     /**
      * @var string[]
      */
-    public $permissionCodes;
-
-    /**
-     * @var string[]
-     */
     public $roleCodes;
     protected $_name = [
-        'relationType'    => 'RelationType',
-        'parentUserId'    => 'ParentUserId',
         'childNick'       => 'ChildNick',
         'childUserId'     => 'ChildUserId',
-        'requestId'       => 'RequestId',
+        'parentUserId'    => 'ParentUserId',
         'permissionCodes' => 'PermissionCodes',
+        'relationType'    => 'RelationType',
+        'requestId'       => 'RequestId',
         'roleCodes'       => 'RoleCodes',
     ];
 
@@ -59,23 +59,23 @@ class AddAccountRelationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->relationType) {
-            $res['RelationType'] = $this->relationType;
-        }
-        if (null !== $this->parentUserId) {
-            $res['ParentUserId'] = $this->parentUserId;
-        }
         if (null !== $this->childNick) {
             $res['ChildNick'] = $this->childNick;
         }
         if (null !== $this->childUserId) {
             $res['ChildUserId'] = $this->childUserId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->parentUserId) {
+            $res['ParentUserId'] = $this->parentUserId;
         }
         if (null !== $this->permissionCodes) {
             $res['PermissionCodes'] = $this->permissionCodes;
+        }
+        if (null !== $this->relationType) {
+            $res['RelationType'] = $this->relationType;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleCodes) {
             $res['RoleCodes'] = $this->roleCodes;
@@ -92,25 +92,25 @@ class AddAccountRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RelationType'])) {
-            $model->relationType = $map['RelationType'];
-        }
-        if (isset($map['ParentUserId'])) {
-            $model->parentUserId = $map['ParentUserId'];
-        }
         if (isset($map['ChildNick'])) {
             $model->childNick = $map['ChildNick'];
         }
         if (isset($map['ChildUserId'])) {
             $model->childUserId = $map['ChildUserId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ParentUserId'])) {
+            $model->parentUserId = $map['ParentUserId'];
         }
         if (isset($map['PermissionCodes'])) {
             if (!empty($map['PermissionCodes'])) {
                 $model->permissionCodes = $map['PermissionCodes'];
             }
+        }
+        if (isset($map['RelationType'])) {
+            $model->relationType = $map['RelationType'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RoleCodes'])) {
             if (!empty($map['RoleCodes'])) {

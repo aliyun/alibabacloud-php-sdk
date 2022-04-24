@@ -11,17 +11,7 @@ class item extends Model
     /**
      * @var float
      */
-    public $pretaxAmount;
-
-    /**
-     * @var string
-     */
-    public $solutionCode;
-
-    /**
-     * @var string
-     */
-    public $item;
+    public $afterTaxAmount;
 
     /**
      * @var string
@@ -34,14 +24,9 @@ class item extends Model
     public $deductedByCashCoupons;
 
     /**
-     * @var string
+     * @var float
      */
-    public $subscriptionType;
-
-    /**
-     * @var string
-     */
-    public $paymentCurrency;
+    public $deductedByCoupons;
 
     /**
      * @var float
@@ -51,22 +36,12 @@ class item extends Model
     /**
      * @var float
      */
-    public $deductedByCoupons;
-
-    /**
-     * @var float
-     */
-    public $paymentAmount;
-
-    /**
-     * @var float
-     */
     public $invoiceDiscount;
 
     /**
      * @var string
      */
-    public $productType;
+    public $item;
 
     /**
      * @var float
@@ -76,7 +51,22 @@ class item extends Model
     /**
      * @var float
      */
-    public $afterTaxAmount;
+    public $paymentAmount;
+
+    /**
+     * @var string
+     */
+    public $paymentCurrency;
+
+    /**
+     * @var float
+     */
+    public $pretaxAmount;
+
+    /**
+     * @var float
+     */
+    public $pretaxAmountLocal;
 
     /**
      * @var float
@@ -86,42 +76,52 @@ class item extends Model
     /**
      * @var string
      */
+    public $productCode;
+
+    /**
+     * @var string
+     */
+    public $productType;
+
+    /**
+     * @var string
+     */
+    public $solutionCode;
+
+    /**
+     * @var string
+     */
     public $solutionName;
+
+    /**
+     * @var string
+     */
+    public $subscriptionType;
 
     /**
      * @var float
      */
     public $tax;
-
-    /**
-     * @var float
-     */
-    public $pretaxAmountLocal;
-
-    /**
-     * @var string
-     */
-    public $productCode;
     protected $_name = [
-        'pretaxAmount'          => 'PretaxAmount',
-        'solutionCode'          => 'SolutionCode',
-        'item'                  => 'Item',
+        'afterTaxAmount'        => 'AfterTaxAmount',
         'currency'              => 'Currency',
         'deductedByCashCoupons' => 'DeductedByCashCoupons',
-        'subscriptionType'      => 'SubscriptionType',
-        'paymentCurrency'       => 'PaymentCurrency',
-        'deductedByPrepaidCard' => 'DeductedByPrepaidCard',
         'deductedByCoupons'     => 'DeductedByCoupons',
-        'paymentAmount'         => 'PaymentAmount',
+        'deductedByPrepaidCard' => 'DeductedByPrepaidCard',
         'invoiceDiscount'       => 'InvoiceDiscount',
-        'productType'           => 'ProductType',
+        'item'                  => 'Item',
         'outstandingAmount'     => 'OutstandingAmount',
-        'afterTaxAmount'        => 'AfterTaxAmount',
-        'pretaxGrossAmount'     => 'PretaxGrossAmount',
-        'solutionName'          => 'SolutionName',
-        'tax'                   => 'Tax',
+        'paymentAmount'         => 'PaymentAmount',
+        'paymentCurrency'       => 'PaymentCurrency',
+        'pretaxAmount'          => 'PretaxAmount',
         'pretaxAmountLocal'     => 'PretaxAmountLocal',
+        'pretaxGrossAmount'     => 'PretaxGrossAmount',
         'productCode'           => 'ProductCode',
+        'productType'           => 'ProductType',
+        'solutionCode'          => 'SolutionCode',
+        'solutionName'          => 'SolutionName',
+        'subscriptionType'      => 'SubscriptionType',
+        'tax'                   => 'Tax',
     ];
 
     public function validate()
@@ -131,14 +131,8 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pretaxAmount) {
-            $res['PretaxAmount'] = $this->pretaxAmount;
-        }
-        if (null !== $this->solutionCode) {
-            $res['SolutionCode'] = $this->solutionCode;
-        }
-        if (null !== $this->item) {
-            $res['Item'] = $this->item;
+        if (null !== $this->afterTaxAmount) {
+            $res['AfterTaxAmount'] = $this->afterTaxAmount;
         }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
@@ -146,47 +140,53 @@ class item extends Model
         if (null !== $this->deductedByCashCoupons) {
             $res['DeductedByCashCoupons'] = $this->deductedByCashCoupons;
         }
-        if (null !== $this->subscriptionType) {
-            $res['SubscriptionType'] = $this->subscriptionType;
-        }
-        if (null !== $this->paymentCurrency) {
-            $res['PaymentCurrency'] = $this->paymentCurrency;
+        if (null !== $this->deductedByCoupons) {
+            $res['DeductedByCoupons'] = $this->deductedByCoupons;
         }
         if (null !== $this->deductedByPrepaidCard) {
             $res['DeductedByPrepaidCard'] = $this->deductedByPrepaidCard;
         }
-        if (null !== $this->deductedByCoupons) {
-            $res['DeductedByCoupons'] = $this->deductedByCoupons;
-        }
-        if (null !== $this->paymentAmount) {
-            $res['PaymentAmount'] = $this->paymentAmount;
-        }
         if (null !== $this->invoiceDiscount) {
             $res['InvoiceDiscount'] = $this->invoiceDiscount;
         }
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
+        if (null !== $this->item) {
+            $res['Item'] = $this->item;
         }
         if (null !== $this->outstandingAmount) {
             $res['OutstandingAmount'] = $this->outstandingAmount;
         }
-        if (null !== $this->afterTaxAmount) {
-            $res['AfterTaxAmount'] = $this->afterTaxAmount;
+        if (null !== $this->paymentAmount) {
+            $res['PaymentAmount'] = $this->paymentAmount;
         }
-        if (null !== $this->pretaxGrossAmount) {
-            $res['PretaxGrossAmount'] = $this->pretaxGrossAmount;
+        if (null !== $this->paymentCurrency) {
+            $res['PaymentCurrency'] = $this->paymentCurrency;
         }
-        if (null !== $this->solutionName) {
-            $res['SolutionName'] = $this->solutionName;
-        }
-        if (null !== $this->tax) {
-            $res['Tax'] = $this->tax;
+        if (null !== $this->pretaxAmount) {
+            $res['PretaxAmount'] = $this->pretaxAmount;
         }
         if (null !== $this->pretaxAmountLocal) {
             $res['PretaxAmountLocal'] = $this->pretaxAmountLocal;
         }
+        if (null !== $this->pretaxGrossAmount) {
+            $res['PretaxGrossAmount'] = $this->pretaxGrossAmount;
+        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->solutionCode) {
+            $res['SolutionCode'] = $this->solutionCode;
+        }
+        if (null !== $this->solutionName) {
+            $res['SolutionName'] = $this->solutionName;
+        }
+        if (null !== $this->subscriptionType) {
+            $res['SubscriptionType'] = $this->subscriptionType;
+        }
+        if (null !== $this->tax) {
+            $res['Tax'] = $this->tax;
         }
 
         return $res;
@@ -200,14 +200,8 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PretaxAmount'])) {
-            $model->pretaxAmount = $map['PretaxAmount'];
-        }
-        if (isset($map['SolutionCode'])) {
-            $model->solutionCode = $map['SolutionCode'];
-        }
-        if (isset($map['Item'])) {
-            $model->item = $map['Item'];
+        if (isset($map['AfterTaxAmount'])) {
+            $model->afterTaxAmount = $map['AfterTaxAmount'];
         }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
@@ -215,47 +209,53 @@ class item extends Model
         if (isset($map['DeductedByCashCoupons'])) {
             $model->deductedByCashCoupons = $map['DeductedByCashCoupons'];
         }
-        if (isset($map['SubscriptionType'])) {
-            $model->subscriptionType = $map['SubscriptionType'];
-        }
-        if (isset($map['PaymentCurrency'])) {
-            $model->paymentCurrency = $map['PaymentCurrency'];
+        if (isset($map['DeductedByCoupons'])) {
+            $model->deductedByCoupons = $map['DeductedByCoupons'];
         }
         if (isset($map['DeductedByPrepaidCard'])) {
             $model->deductedByPrepaidCard = $map['DeductedByPrepaidCard'];
         }
-        if (isset($map['DeductedByCoupons'])) {
-            $model->deductedByCoupons = $map['DeductedByCoupons'];
-        }
-        if (isset($map['PaymentAmount'])) {
-            $model->paymentAmount = $map['PaymentAmount'];
-        }
         if (isset($map['InvoiceDiscount'])) {
             $model->invoiceDiscount = $map['InvoiceDiscount'];
         }
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
+        if (isset($map['Item'])) {
+            $model->item = $map['Item'];
         }
         if (isset($map['OutstandingAmount'])) {
             $model->outstandingAmount = $map['OutstandingAmount'];
         }
-        if (isset($map['AfterTaxAmount'])) {
-            $model->afterTaxAmount = $map['AfterTaxAmount'];
+        if (isset($map['PaymentAmount'])) {
+            $model->paymentAmount = $map['PaymentAmount'];
         }
-        if (isset($map['PretaxGrossAmount'])) {
-            $model->pretaxGrossAmount = $map['PretaxGrossAmount'];
+        if (isset($map['PaymentCurrency'])) {
+            $model->paymentCurrency = $map['PaymentCurrency'];
         }
-        if (isset($map['SolutionName'])) {
-            $model->solutionName = $map['SolutionName'];
-        }
-        if (isset($map['Tax'])) {
-            $model->tax = $map['Tax'];
+        if (isset($map['PretaxAmount'])) {
+            $model->pretaxAmount = $map['PretaxAmount'];
         }
         if (isset($map['PretaxAmountLocal'])) {
             $model->pretaxAmountLocal = $map['PretaxAmountLocal'];
         }
+        if (isset($map['PretaxGrossAmount'])) {
+            $model->pretaxGrossAmount = $map['PretaxGrossAmount'];
+        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+        if (isset($map['SolutionCode'])) {
+            $model->solutionCode = $map['SolutionCode'];
+        }
+        if (isset($map['SolutionName'])) {
+            $model->solutionName = $map['SolutionName'];
+        }
+        if (isset($map['SubscriptionType'])) {
+            $model->subscriptionType = $map['SubscriptionType'];
+        }
+        if (isset($map['Tax'])) {
+            $model->tax = $map['Tax'];
         }
 
         return $model;

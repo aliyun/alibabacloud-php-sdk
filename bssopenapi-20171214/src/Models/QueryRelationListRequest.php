@@ -11,11 +11,6 @@ class QueryRelationListRequest extends Model
     /**
      * @var int
      */
-    public $userId;
-
-    /**
-     * @var int
-     */
     public $pageNum;
 
     /**
@@ -27,11 +22,16 @@ class QueryRelationListRequest extends Model
      * @var string[]
      */
     public $statusList;
+
+    /**
+     * @var int
+     */
+    public $userId;
     protected $_name = [
-        'userId'     => 'UserId',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'statusList' => 'StatusList',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class QueryRelationListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -52,6 +49,9 @@ class QueryRelationListRequest extends Model
         }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class QueryRelationListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -78,6 +75,9 @@ class QueryRelationListRequest extends Model
             if (!empty($map['StatusList'])) {
                 $model->statusList = $map['StatusList'];
             }
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

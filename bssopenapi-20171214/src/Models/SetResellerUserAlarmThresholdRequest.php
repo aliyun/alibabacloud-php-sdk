@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserAlarmThresholdRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $alarmThresholds;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class SetResellerUserAlarmThresholdRequest extends Model
     public $alarmType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $alarmThresholds;
+    public $ownerId;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
-        'alarmType'       => 'AlarmType',
         'alarmThresholds' => 'AlarmThresholds',
+        'alarmType'       => 'AlarmType',
+        'ownerId'         => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SetResellerUserAlarmThresholdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->alarmThresholds) {
+            $res['AlarmThresholds'] = $this->alarmThresholds;
         }
         if (null !== $this->alarmType) {
             $res['AlarmType'] = $this->alarmType;
         }
-        if (null !== $this->alarmThresholds) {
-            $res['AlarmThresholds'] = $this->alarmThresholds;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SetResellerUserAlarmThresholdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AlarmThresholds'])) {
+            $model->alarmThresholds = $map['AlarmThresholds'];
         }
         if (isset($map['AlarmType'])) {
             $model->alarmType = $map['AlarmType'];
         }
-        if (isset($map['AlarmThresholds'])) {
-            $model->alarmThresholds = $map['AlarmThresholds'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

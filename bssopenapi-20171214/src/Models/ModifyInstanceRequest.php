@@ -12,12 +12,32 @@ class ModifyInstanceRequest extends Model
     /**
      * @var string
      */
-    public $productCode;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $modifyType;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var parameter[]
+     */
+    public $parameter;
+
+    /**
+     * @var string
+     */
+    public $productCode;
 
     /**
      * @var string
@@ -28,35 +48,15 @@ class ModifyInstanceRequest extends Model
      * @var string
      */
     public $subscriptionType;
-
-    /**
-     * @var string
-     */
-    public $modifyType;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var parameter[]
-     */
-    public $parameter;
     protected $_name = [
-        'productCode'      => 'ProductCode',
+        'clientToken'      => 'ClientToken',
+        'instanceId'       => 'InstanceId',
+        'modifyType'       => 'ModifyType',
         'ownerId'          => 'OwnerId',
+        'parameter'        => 'Parameter',
+        'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
-        'modifyType'       => 'ModifyType',
-        'instanceId'       => 'InstanceId',
-        'clientToken'      => 'ClientToken',
-        'parameter'        => 'Parameter',
     ];
 
     public function validate()
@@ -66,26 +66,17 @@ class ModifyInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
-        }
-        if (null !== $this->subscriptionType) {
-            $res['SubscriptionType'] = $this->subscriptionType;
-        }
-        if (null !== $this->modifyType) {
-            $res['ModifyType'] = $this->modifyType;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->modifyType) {
+            $res['ModifyType'] = $this->modifyType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->parameter) {
             $res['Parameter'] = [];
@@ -95,6 +86,15 @@ class ModifyInstanceRequest extends Model
                     $res['Parameter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->subscriptionType) {
+            $res['SubscriptionType'] = $this->subscriptionType;
         }
 
         return $res;
@@ -108,26 +108,17 @@ class ModifyInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
-        }
-        if (isset($map['SubscriptionType'])) {
-            $model->subscriptionType = $map['SubscriptionType'];
-        }
-        if (isset($map['ModifyType'])) {
-            $model->modifyType = $map['ModifyType'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['ModifyType'])) {
+            $model->modifyType = $map['ModifyType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Parameter'])) {
             if (!empty($map['Parameter'])) {
@@ -137,6 +128,15 @@ class ModifyInstanceRequest extends Model
                     $model->parameter[$n++] = null !== $item ? parameter::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+        if (isset($map['SubscriptionType'])) {
+            $model->subscriptionType = $map['SubscriptionType'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryBillOverviewRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $billOwnerId;
+
+    /**
      * @var string
      */
     public $billingCycle;
@@ -27,17 +32,12 @@ class QueryBillOverviewRequest extends Model
      * @var string
      */
     public $subscriptionType;
-
-    /**
-     * @var int
-     */
-    public $billOwnerId;
     protected $_name = [
+        'billOwnerId'      => 'BillOwnerId',
         'billingCycle'     => 'BillingCycle',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
-        'billOwnerId'      => 'BillOwnerId',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class QueryBillOverviewRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->billOwnerId) {
+            $res['BillOwnerId'] = $this->billOwnerId;
+        }
         if (null !== $this->billingCycle) {
             $res['BillingCycle'] = $this->billingCycle;
         }
@@ -58,9 +61,6 @@ class QueryBillOverviewRequest extends Model
         }
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
-        }
-        if (null !== $this->billOwnerId) {
-            $res['BillOwnerId'] = $this->billOwnerId;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class QueryBillOverviewRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BillOwnerId'])) {
+            $model->billOwnerId = $map['BillOwnerId'];
+        }
         if (isset($map['BillingCycle'])) {
             $model->billingCycle = $map['BillingCycle'];
         }
@@ -85,9 +88,6 @@ class QueryBillOverviewRequest extends Model
         }
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
-        }
-        if (isset($map['BillOwnerId'])) {
-            $model->billOwnerId = $map['BillOwnerId'];
         }
 
         return $model;

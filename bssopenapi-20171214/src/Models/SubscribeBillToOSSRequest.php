@@ -11,17 +11,7 @@ class SubscribeBillToOSSRequest extends Model
     /**
      * @var string
      */
-    public $subscribeBucket;
-
-    /**
-     * @var string
-     */
-    public $subscribeType;
-
-    /**
-     * @var string
-     */
-    public $multAccountRelSubscribe;
+    public $beginBillingCycle;
 
     /**
      * @var int
@@ -31,13 +21,23 @@ class SubscribeBillToOSSRequest extends Model
     /**
      * @var string
      */
-    public $beginBillingCycle;
+    public $multAccountRelSubscribe;
+
+    /**
+     * @var string
+     */
+    public $subscribeBucket;
+
+    /**
+     * @var string
+     */
+    public $subscribeType;
     protected $_name = [
+        'beginBillingCycle'       => 'BeginBillingCycle',
+        'bucketOwnerId'           => 'BucketOwnerId',
+        'multAccountRelSubscribe' => 'MultAccountRelSubscribe',
         'subscribeBucket'         => 'SubscribeBucket',
         'subscribeType'           => 'SubscribeType',
-        'multAccountRelSubscribe' => 'MultAccountRelSubscribe',
-        'bucketOwnerId'           => 'BucketOwnerId',
-        'beginBillingCycle'       => 'BeginBillingCycle',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SubscribeBillToOSSRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->beginBillingCycle) {
+            $res['BeginBillingCycle'] = $this->beginBillingCycle;
+        }
+        if (null !== $this->bucketOwnerId) {
+            $res['BucketOwnerId'] = $this->bucketOwnerId;
+        }
+        if (null !== $this->multAccountRelSubscribe) {
+            $res['MultAccountRelSubscribe'] = $this->multAccountRelSubscribe;
+        }
         if (null !== $this->subscribeBucket) {
             $res['SubscribeBucket'] = $this->subscribeBucket;
         }
         if (null !== $this->subscribeType) {
             $res['SubscribeType'] = $this->subscribeType;
-        }
-        if (null !== $this->multAccountRelSubscribe) {
-            $res['MultAccountRelSubscribe'] = $this->multAccountRelSubscribe;
-        }
-        if (null !== $this->bucketOwnerId) {
-            $res['BucketOwnerId'] = $this->bucketOwnerId;
-        }
-        if (null !== $this->beginBillingCycle) {
-            $res['BeginBillingCycle'] = $this->beginBillingCycle;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SubscribeBillToOSSRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BeginBillingCycle'])) {
+            $model->beginBillingCycle = $map['BeginBillingCycle'];
+        }
+        if (isset($map['BucketOwnerId'])) {
+            $model->bucketOwnerId = $map['BucketOwnerId'];
+        }
+        if (isset($map['MultAccountRelSubscribe'])) {
+            $model->multAccountRelSubscribe = $map['MultAccountRelSubscribe'];
+        }
         if (isset($map['SubscribeBucket'])) {
             $model->subscribeBucket = $map['SubscribeBucket'];
         }
         if (isset($map['SubscribeType'])) {
             $model->subscribeType = $map['SubscribeType'];
-        }
-        if (isset($map['MultAccountRelSubscribe'])) {
-            $model->multAccountRelSubscribe = $map['MultAccountRelSubscribe'];
-        }
-        if (isset($map['BucketOwnerId'])) {
-            $model->bucketOwnerId = $map['BucketOwnerId'];
-        }
-        if (isset($map['BeginBillingCycle'])) {
-            $model->beginBillingCycle = $map['BeginBillingCycle'];
         }
 
         return $model;

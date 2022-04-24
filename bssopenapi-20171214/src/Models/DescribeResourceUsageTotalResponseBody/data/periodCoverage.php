@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class periodCoverage extends Model
 {
     /**
-     * @var float
-     */
-    public $usagePercentage;
-
-    /**
      * @var string
      */
     public $period;
+
+    /**
+     * @var float
+     */
+    public $usagePercentage;
     protected $_name = [
-        'usagePercentage' => 'UsagePercentage',
         'period'          => 'Period',
+        'usagePercentage' => 'UsagePercentage',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class periodCoverage extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->usagePercentage) {
-            $res['UsagePercentage'] = $this->usagePercentage;
-        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->usagePercentage) {
+            $res['UsagePercentage'] = $this->usagePercentage;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class periodCoverage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UsagePercentage'])) {
-            $model->usagePercentage = $map['UsagePercentage'];
-        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['UsagePercentage'])) {
+            $model->usagePercentage = $map['UsagePercentage'];
         }
 
         return $model;

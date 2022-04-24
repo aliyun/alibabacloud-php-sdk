@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryEvaluateListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $billCycle;
+
+    /**
+     * @var string[]
+     */
+    public $bizTypeList;
+
+    /**
      * @var int
      */
-    public $type;
+    public $endAmount;
+
+    /**
+     * @var string
+     */
+    public $endBizTime;
+
+    /**
+     * @var string
+     */
+    public $endSearchTime;
 
     /**
      * @var string
@@ -36,12 +56,12 @@ class QueryEvaluateListRequest extends Model
     /**
      * @var int
      */
-    public $startAmount;
+    public $sortType;
 
     /**
      * @var int
      */
-    public $endAmount;
+    public $startAmount;
 
     /**
      * @var string
@@ -51,47 +71,27 @@ class QueryEvaluateListRequest extends Model
     /**
      * @var string
      */
-    public $endBizTime;
+    public $startSearchTime;
 
     /**
      * @var int
      */
-    public $sortType;
-
-    /**
-     * @var string
-     */
-    public $startSearchTime;
-
-    /**
-     * @var string
-     */
-    public $endSearchTime;
-
-    /**
-     * @var string
-     */
-    public $billCycle;
-
-    /**
-     * @var string[]
-     */
-    public $bizTypeList;
+    public $type;
     protected $_name = [
-        'type'            => 'Type',
+        'billCycle'       => 'BillCycle',
+        'bizTypeList'     => 'BizTypeList',
+        'endAmount'       => 'EndAmount',
+        'endBizTime'      => 'EndBizTime',
+        'endSearchTime'   => 'EndSearchTime',
         'outBizId'        => 'OutBizId',
         'ownerId'         => 'OwnerId',
         'pageNum'         => 'PageNum',
         'pageSize'        => 'PageSize',
-        'startAmount'     => 'StartAmount',
-        'endAmount'       => 'EndAmount',
-        'startBizTime'    => 'StartBizTime',
-        'endBizTime'      => 'EndBizTime',
         'sortType'        => 'SortType',
+        'startAmount'     => 'StartAmount',
+        'startBizTime'    => 'StartBizTime',
         'startSearchTime' => 'StartSearchTime',
-        'endSearchTime'   => 'EndSearchTime',
-        'billCycle'       => 'BillCycle',
-        'bizTypeList'     => 'BizTypeList',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -101,8 +101,20 @@ class QueryEvaluateListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->billCycle) {
+            $res['BillCycle'] = $this->billCycle;
+        }
+        if (null !== $this->bizTypeList) {
+            $res['BizTypeList'] = $this->bizTypeList;
+        }
+        if (null !== $this->endAmount) {
+            $res['EndAmount'] = $this->endAmount;
+        }
+        if (null !== $this->endBizTime) {
+            $res['EndBizTime'] = $this->endBizTime;
+        }
+        if (null !== $this->endSearchTime) {
+            $res['EndSearchTime'] = $this->endSearchTime;
         }
         if (null !== $this->outBizId) {
             $res['OutBizId'] = $this->outBizId;
@@ -116,32 +128,20 @@ class QueryEvaluateListRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
+        }
         if (null !== $this->startAmount) {
             $res['StartAmount'] = $this->startAmount;
-        }
-        if (null !== $this->endAmount) {
-            $res['EndAmount'] = $this->endAmount;
         }
         if (null !== $this->startBizTime) {
             $res['StartBizTime'] = $this->startBizTime;
         }
-        if (null !== $this->endBizTime) {
-            $res['EndBizTime'] = $this->endBizTime;
-        }
-        if (null !== $this->sortType) {
-            $res['SortType'] = $this->sortType;
-        }
         if (null !== $this->startSearchTime) {
             $res['StartSearchTime'] = $this->startSearchTime;
         }
-        if (null !== $this->endSearchTime) {
-            $res['EndSearchTime'] = $this->endSearchTime;
-        }
-        if (null !== $this->billCycle) {
-            $res['BillCycle'] = $this->billCycle;
-        }
-        if (null !== $this->bizTypeList) {
-            $res['BizTypeList'] = $this->bizTypeList;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -155,8 +155,22 @@ class QueryEvaluateListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['BillCycle'])) {
+            $model->billCycle = $map['BillCycle'];
+        }
+        if (isset($map['BizTypeList'])) {
+            if (!empty($map['BizTypeList'])) {
+                $model->bizTypeList = $map['BizTypeList'];
+            }
+        }
+        if (isset($map['EndAmount'])) {
+            $model->endAmount = $map['EndAmount'];
+        }
+        if (isset($map['EndBizTime'])) {
+            $model->endBizTime = $map['EndBizTime'];
+        }
+        if (isset($map['EndSearchTime'])) {
+            $model->endSearchTime = $map['EndSearchTime'];
         }
         if (isset($map['OutBizId'])) {
             $model->outBizId = $map['OutBizId'];
@@ -170,34 +184,20 @@ class QueryEvaluateListRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
+        }
         if (isset($map['StartAmount'])) {
             $model->startAmount = $map['StartAmount'];
-        }
-        if (isset($map['EndAmount'])) {
-            $model->endAmount = $map['EndAmount'];
         }
         if (isset($map['StartBizTime'])) {
             $model->startBizTime = $map['StartBizTime'];
         }
-        if (isset($map['EndBizTime'])) {
-            $model->endBizTime = $map['EndBizTime'];
-        }
-        if (isset($map['SortType'])) {
-            $model->sortType = $map['SortType'];
-        }
         if (isset($map['StartSearchTime'])) {
             $model->startSearchTime = $map['StartSearchTime'];
         }
-        if (isset($map['EndSearchTime'])) {
-            $model->endSearchTime = $map['EndSearchTime'];
-        }
-        if (isset($map['BillCycle'])) {
-            $model->billCycle = $map['BillCycle'];
-        }
-        if (isset($map['BizTypeList'])) {
-            if (!empty($map['BizTypeList'])) {
-                $model->bizTypeList = $map['BizTypeList'];
-            }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

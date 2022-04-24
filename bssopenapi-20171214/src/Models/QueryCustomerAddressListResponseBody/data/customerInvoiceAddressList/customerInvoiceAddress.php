@@ -16,12 +16,7 @@ class customerInvoiceAddress extends Model
     /**
      * @var string
      */
-    public $postalCode;
-
-    /**
-     * @var int
-     */
-    public $userId;
+    public $bizType;
 
     /**
      * @var string
@@ -31,27 +26,7 @@ class customerInvoiceAddress extends Model
     /**
      * @var string
      */
-    public $userNick;
-
-    /**
-     * @var string
-     */
-    public $street;
-
-    /**
-     * @var string
-     */
-    public $phone;
-
-    /**
-     * @var string
-     */
     public $county;
-
-    /**
-     * @var string
-     */
-    public $bizType;
 
     /**
      * @var string
@@ -66,20 +41,45 @@ class customerInvoiceAddress extends Model
     /**
      * @var string
      */
+    public $phone;
+
+    /**
+     * @var string
+     */
+    public $postalCode;
+
+    /**
+     * @var string
+     */
     public $province;
+
+    /**
+     * @var string
+     */
+    public $street;
+
+    /**
+     * @var int
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $userNick;
     protected $_name = [
         'addressee'       => 'Addressee',
-        'postalCode'      => 'PostalCode',
-        'userId'          => 'UserId',
-        'city'            => 'City',
-        'userNick'        => 'UserNick',
-        'street'          => 'Street',
-        'phone'           => 'Phone',
-        'county'          => 'County',
         'bizType'         => 'BizType',
+        'city'            => 'City',
+        'county'          => 'County',
         'deliveryAddress' => 'DeliveryAddress',
         'id'              => 'Id',
+        'phone'           => 'Phone',
+        'postalCode'      => 'PostalCode',
         'province'        => 'Province',
+        'street'          => 'Street',
+        'userId'          => 'UserId',
+        'userNick'        => 'UserNick',
     ];
 
     public function validate()
@@ -92,29 +92,14 @@ class customerInvoiceAddress extends Model
         if (null !== $this->addressee) {
             $res['Addressee'] = $this->addressee;
         }
-        if (null !== $this->postalCode) {
-            $res['PostalCode'] = $this->postalCode;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
-        if (null !== $this->userNick) {
-            $res['UserNick'] = $this->userNick;
-        }
-        if (null !== $this->street) {
-            $res['Street'] = $this->street;
-        }
-        if (null !== $this->phone) {
-            $res['Phone'] = $this->phone;
-        }
         if (null !== $this->county) {
             $res['County'] = $this->county;
-        }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->deliveryAddress) {
             $res['DeliveryAddress'] = $this->deliveryAddress;
@@ -122,8 +107,23 @@ class customerInvoiceAddress extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->phone) {
+            $res['Phone'] = $this->phone;
+        }
+        if (null !== $this->postalCode) {
+            $res['PostalCode'] = $this->postalCode;
+        }
         if (null !== $this->province) {
             $res['Province'] = $this->province;
+        }
+        if (null !== $this->street) {
+            $res['Street'] = $this->street;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userNick) {
+            $res['UserNick'] = $this->userNick;
         }
 
         return $res;
@@ -140,29 +140,14 @@ class customerInvoiceAddress extends Model
         if (isset($map['Addressee'])) {
             $model->addressee = $map['Addressee'];
         }
-        if (isset($map['PostalCode'])) {
-            $model->postalCode = $map['PostalCode'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
         }
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
-        if (isset($map['UserNick'])) {
-            $model->userNick = $map['UserNick'];
-        }
-        if (isset($map['Street'])) {
-            $model->street = $map['Street'];
-        }
-        if (isset($map['Phone'])) {
-            $model->phone = $map['Phone'];
-        }
         if (isset($map['County'])) {
             $model->county = $map['County'];
-        }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
         }
         if (isset($map['DeliveryAddress'])) {
             $model->deliveryAddress = $map['DeliveryAddress'];
@@ -170,8 +155,23 @@ class customerInvoiceAddress extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['Phone'])) {
+            $model->phone = $map['Phone'];
+        }
+        if (isset($map['PostalCode'])) {
+            $model->postalCode = $map['PostalCode'];
+        }
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
+        }
+        if (isset($map['Street'])) {
+            $model->street = $map['Street'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserNick'])) {
+            $model->userNick = $map['UserNick'];
         }
 
         return $model;

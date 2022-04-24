@@ -16,22 +16,22 @@ class QueryCostUnitRequest extends Model
     /**
      * @var int
      */
-    public $parentUnitId;
-
-    /**
-     * @var int
-     */
     public $pageNum;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $parentUnitId;
     protected $_name = [
         'ownerUid'     => 'OwnerUid',
-        'parentUnitId' => 'ParentUnitId',
         'pageNum'      => 'PageNum',
         'pageSize'     => 'PageSize',
+        'parentUnitId' => 'ParentUnitId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryCostUnitRequest extends Model
         if (null !== $this->ownerUid) {
             $res['OwnerUid'] = $this->ownerUid;
         }
-        if (null !== $this->parentUnitId) {
-            $res['ParentUnitId'] = $this->parentUnitId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentUnitId) {
+            $res['ParentUnitId'] = $this->parentUnitId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QueryCostUnitRequest extends Model
         if (isset($map['OwnerUid'])) {
             $model->ownerUid = $map['OwnerUid'];
         }
-        if (isset($map['ParentUnitId'])) {
-            $model->parentUnitId = $map['ParentUnitId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentUnitId'])) {
+            $model->parentUnitId = $map['ParentUnitId'];
         }
 
         return $model;

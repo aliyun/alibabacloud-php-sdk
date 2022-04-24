@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetPayAsYouGoPriceRequest extends Model
 {
     /**
+     * @var moduleList[]
+     */
+    public $moduleList;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -27,24 +32,19 @@ class GetPayAsYouGoPriceRequest extends Model
     /**
      * @var string
      */
-    public $subscriptionType;
+    public $region;
 
     /**
      * @var string
      */
-    public $region;
-
-    /**
-     * @var moduleList[]
-     */
-    public $moduleList;
+    public $subscriptionType;
     protected $_name = [
+        'moduleList'       => 'ModuleList',
         'ownerId'          => 'OwnerId',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
-        'subscriptionType' => 'SubscriptionType',
         'region'           => 'Region',
-        'moduleList'       => 'ModuleList',
+        'subscriptionType' => 'SubscriptionType',
     ];
 
     public function validate()
@@ -54,6 +54,15 @@ class GetPayAsYouGoPriceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->moduleList) {
+            $res['ModuleList'] = [];
+            if (null !== $this->moduleList && \is_array($this->moduleList)) {
+                $n = 0;
+                foreach ($this->moduleList as $item) {
+                    $res['ModuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -63,20 +72,11 @@ class GetPayAsYouGoPriceRequest extends Model
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
-        if (null !== $this->subscriptionType) {
-            $res['SubscriptionType'] = $this->subscriptionType;
-        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->moduleList) {
-            $res['ModuleList'] = [];
-            if (null !== $this->moduleList && \is_array($this->moduleList)) {
-                $n = 0;
-                foreach ($this->moduleList as $item) {
-                    $res['ModuleList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->subscriptionType) {
+            $res['SubscriptionType'] = $this->subscriptionType;
         }
 
         return $res;
@@ -90,6 +90,15 @@ class GetPayAsYouGoPriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ModuleList'])) {
+            if (!empty($map['ModuleList'])) {
+                $model->moduleList = [];
+                $n                 = 0;
+                foreach ($map['ModuleList'] as $item) {
+                    $model->moduleList[$n++] = null !== $item ? moduleList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -99,20 +108,11 @@ class GetPayAsYouGoPriceRequest extends Model
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
-        if (isset($map['SubscriptionType'])) {
-            $model->subscriptionType = $map['SubscriptionType'];
-        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['ModuleList'])) {
-            if (!empty($map['ModuleList'])) {
-                $model->moduleList = [];
-                $n                 = 0;
-                foreach ($map['ModuleList'] as $item) {
-                    $model->moduleList[$n++] = null !== $item ? moduleList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['SubscriptionType'])) {
+            $model->subscriptionType = $map['SubscriptionType'];
         }
 
         return $model;

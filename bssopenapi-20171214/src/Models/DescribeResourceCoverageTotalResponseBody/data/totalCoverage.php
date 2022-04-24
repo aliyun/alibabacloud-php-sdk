@@ -16,12 +16,12 @@ class totalCoverage extends Model
     /**
      * @var float
      */
-    public $deductQuantity;
+    public $coveragePercentage;
 
     /**
      * @var float
      */
-    public $coveragePercentage;
+    public $deductQuantity;
 
     /**
      * @var float
@@ -29,8 +29,8 @@ class totalCoverage extends Model
     public $totalQuantity;
     protected $_name = [
         'capacityUnit'       => 'CapacityUnit',
-        'deductQuantity'     => 'DeductQuantity',
         'coveragePercentage' => 'CoveragePercentage',
+        'deductQuantity'     => 'DeductQuantity',
         'totalQuantity'      => 'TotalQuantity',
     ];
 
@@ -44,11 +44,11 @@ class totalCoverage extends Model
         if (null !== $this->capacityUnit) {
             $res['CapacityUnit'] = $this->capacityUnit;
         }
-        if (null !== $this->deductQuantity) {
-            $res['DeductQuantity'] = $this->deductQuantity;
-        }
         if (null !== $this->coveragePercentage) {
             $res['CoveragePercentage'] = $this->coveragePercentage;
+        }
+        if (null !== $this->deductQuantity) {
+            $res['DeductQuantity'] = $this->deductQuantity;
         }
         if (null !== $this->totalQuantity) {
             $res['TotalQuantity'] = $this->totalQuantity;
@@ -68,11 +68,11 @@ class totalCoverage extends Model
         if (isset($map['CapacityUnit'])) {
             $model->capacityUnit = $map['CapacityUnit'];
         }
-        if (isset($map['DeductQuantity'])) {
-            $model->deductQuantity = $map['DeductQuantity'];
-        }
         if (isset($map['CoveragePercentage'])) {
             $model->coveragePercentage = $map['CoveragePercentage'];
+        }
+        if (isset($map['DeductQuantity'])) {
+            $model->deductQuantity = $map['DeductQuantity'];
         }
         if (isset($map['TotalQuantity'])) {
             $model->totalQuantity = $map['TotalQuantity'];

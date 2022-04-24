@@ -16,28 +16,28 @@ class totalUsage extends Model
     /**
      * @var float
      */
-    public $savedCost;
-
-    /**
-     * @var float
-     */
-    public $usagePercentage;
-
-    /**
-     * @var float
-     */
     public $potentialSavedCost;
 
     /**
      * @var float
      */
     public $reservationCost;
+
+    /**
+     * @var float
+     */
+    public $savedCost;
+
+    /**
+     * @var float
+     */
+    public $usagePercentage;
     protected $_name = [
         'postpaidCost'       => 'PostpaidCost',
-        'savedCost'          => 'SavedCost',
-        'usagePercentage'    => 'UsagePercentage',
         'potentialSavedCost' => 'PotentialSavedCost',
         'reservationCost'    => 'ReservationCost',
+        'savedCost'          => 'SavedCost',
+        'usagePercentage'    => 'UsagePercentage',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class totalUsage extends Model
         if (null !== $this->postpaidCost) {
             $res['PostpaidCost'] = $this->postpaidCost;
         }
-        if (null !== $this->savedCost) {
-            $res['SavedCost'] = $this->savedCost;
-        }
-        if (null !== $this->usagePercentage) {
-            $res['UsagePercentage'] = $this->usagePercentage;
-        }
         if (null !== $this->potentialSavedCost) {
             $res['PotentialSavedCost'] = $this->potentialSavedCost;
         }
         if (null !== $this->reservationCost) {
             $res['ReservationCost'] = $this->reservationCost;
+        }
+        if (null !== $this->savedCost) {
+            $res['SavedCost'] = $this->savedCost;
+        }
+        if (null !== $this->usagePercentage) {
+            $res['UsagePercentage'] = $this->usagePercentage;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class totalUsage extends Model
         if (isset($map['PostpaidCost'])) {
             $model->postpaidCost = $map['PostpaidCost'];
         }
-        if (isset($map['SavedCost'])) {
-            $model->savedCost = $map['SavedCost'];
-        }
-        if (isset($map['UsagePercentage'])) {
-            $model->usagePercentage = $map['UsagePercentage'];
-        }
         if (isset($map['PotentialSavedCost'])) {
             $model->potentialSavedCost = $map['PotentialSavedCost'];
         }
         if (isset($map['ReservationCost'])) {
             $model->reservationCost = $map['ReservationCost'];
+        }
+        if (isset($map['SavedCost'])) {
+            $model->savedCost = $map['SavedCost'];
+        }
+        if (isset($map['UsagePercentage'])) {
+            $model->usagePercentage = $map['UsagePercentage'];
         }
 
         return $model;

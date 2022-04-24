@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
+     * @var items[]
      */
-    public $totalCount;
+    public $items;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class data extends Model
     public $nextToken;
 
     /**
-     * @var items[]
+     * @var int
      */
-    public $items;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'nextToken'  => 'NextToken',
         'items'      => 'Items',
+        'nextToken'  => 'NextToken',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -50,6 +44,12 @@ class data extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
@@ -77,6 +71,12 @@ class data extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
