@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListResponseBody;
 
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListResponseBody\instanceList\tags;
 use AlibabaCloud\Tea\Model;
 
 class instanceList extends Model
@@ -22,6 +23,11 @@ class instanceList extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $enableStream;
 
     /**
      * @var string
@@ -79,6 +85,11 @@ class instanceList extends Model
     public $serviceType;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -91,6 +102,7 @@ class instanceList extends Model
         'aliUid'              => 'AliUid',
         'createMilliseconds'  => 'CreateMilliseconds',
         'createTime'          => 'CreateTime',
+        'enableStream'        => 'EnableStream',
         'engineType'          => 'EngineType',
         'expireTime'          => 'ExpireTime',
         'expiredMilliseconds' => 'ExpiredMilliseconds',
@@ -102,6 +114,7 @@ class instanceList extends Model
         'payType'             => 'PayType',
         'regionId'            => 'RegionId',
         'serviceType'         => 'ServiceType',
+        'tags'                => 'Tags',
         'vpcId'               => 'VpcId',
         'zoneId'              => 'ZoneId',
     ];
@@ -121,6 +134,9 @@ class instanceList extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->enableStream) {
+            $res['EnableStream'] = $this->enableStream;
         }
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
@@ -155,6 +171,15 @@ class instanceList extends Model
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
         }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -181,6 +206,9 @@ class instanceList extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['EnableStream'])) {
+            $model->enableStream = $map['EnableStream'];
         }
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
@@ -214,6 +242,15 @@ class instanceList extends Model
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

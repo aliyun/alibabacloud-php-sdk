@@ -18,8 +18,14 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceIpWhiteListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceRequest;
@@ -121,33 +127,83 @@ class Hitsdb extends OpenApiClient
     public function createLindormInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ColdStorage']          = $request->coldStorage;
-        $query['CoreSpec']             = $request->coreSpec;
-        $query['DiskCategory']         = $request->diskCategory;
-        $query['Duration']             = $request->duration;
-        $query['FilestoreNum']         = $request->filestoreNum;
-        $query['FilestoreSpec']        = $request->filestoreSpec;
-        $query['InstanceAlias']        = $request->instanceAlias;
-        $query['InstanceStorage']      = $request->instanceStorage;
-        $query['LindormNum']           = $request->lindormNum;
-        $query['LindormSpec']          = $request->lindormSpec;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PayType']              = $request->payType;
-        $query['PricingCycle']         = $request->pricingCycle;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $query['SolrNum']              = $request->solrNum;
-        $query['SolrSpec']             = $request->solrSpec;
-        $query['TsdbNum']              = $request->tsdbNum;
-        $query['TsdbSpec']             = $request->tsdbSpec;
-        $query['VPCId']                = $request->VPCId;
-        $query['VSwitchId']            = $request->vSwitchId;
-        $query['ZoneId']               = $request->zoneId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->coldStorage)) {
+            $query['ColdStorage'] = $request->coldStorage;
+        }
+        if (!Utils::isUnset($request->coreSpec)) {
+            $query['CoreSpec'] = $request->coreSpec;
+        }
+        if (!Utils::isUnset($request->diskCategory)) {
+            $query['DiskCategory'] = $request->diskCategory;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->filestoreNum)) {
+            $query['FilestoreNum'] = $request->filestoreNum;
+        }
+        if (!Utils::isUnset($request->filestoreSpec)) {
+            $query['FilestoreSpec'] = $request->filestoreSpec;
+        }
+        if (!Utils::isUnset($request->instanceAlias)) {
+            $query['InstanceAlias'] = $request->instanceAlias;
+        }
+        if (!Utils::isUnset($request->instanceStorage)) {
+            $query['InstanceStorage'] = $request->instanceStorage;
+        }
+        if (!Utils::isUnset($request->lindormNum)) {
+            $query['LindormNum'] = $request->lindormNum;
+        }
+        if (!Utils::isUnset($request->lindormSpec)) {
+            $query['LindormSpec'] = $request->lindormSpec;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->solrNum)) {
+            $query['SolrNum'] = $request->solrNum;
+        }
+        if (!Utils::isUnset($request->solrSpec)) {
+            $query['SolrSpec'] = $request->solrSpec;
+        }
+        if (!Utils::isUnset($request->tsdbNum)) {
+            $query['TsdbNum'] = $request->tsdbNum;
+        }
+        if (!Utils::isUnset($request->tsdbSpec)) {
+            $query['TsdbSpec'] = $request->tsdbSpec;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -186,14 +242,26 @@ class Hitsdb extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AcceptLanguage']       = $request->acceptLanguage;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -232,15 +300,29 @@ class Hitsdb extends OpenApiClient
     public function getInstanceIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['GroupName']            = $request->groupName;
-        $query['InstanceId']           = $request->instanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -279,15 +361,29 @@ class Hitsdb extends OpenApiClient
     public function getLindormInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['InstanceId']           = $request->instanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -326,15 +422,29 @@ class Hitsdb extends OpenApiClient
     public function getLindormInstanceEngineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['InstanceId']           = $request->instanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -373,19 +483,44 @@ class Hitsdb extends OpenApiClient
     public function getLindormInstanceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['QueryStr']             = $request->queryStr;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $query['ServiceType']          = $request->serviceType;
-        $query['SupportEngine']        = $request->supportEngine;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryStr)) {
+            $query['QueryStr'] = $request->queryStr;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->supportEngine)) {
+            $query['SupportEngine'] = $request->supportEngine;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -416,6 +551,76 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReleaseLindormInstanceRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -424,14 +629,26 @@ class Hitsdb extends OpenApiClient
     public function releaseLindormInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['InstanceId']           = $request->instanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -462,6 +679,137 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateInstanceIpWhiteListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -470,16 +818,32 @@ class Hitsdb extends OpenApiClient
     public function updateInstanceIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['GroupName']            = $request->groupName;
-        $query['InstanceId']           = $request->instanceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityIpList']       = $request->securityIpList;
-        $query['SecurityToken']        = $request->securityToken;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityIpList)) {
+            $query['SecurityIpList'] = $request->securityIpList;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -518,33 +882,83 @@ class Hitsdb extends OpenApiClient
     public function upgradeLindormInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ClusterStorage']       = $request->clusterStorage;
-        $query['ColdStorage']          = $request->coldStorage;
-        $query['CoreNum']              = $request->coreNum;
-        $query['CoreSpec']             = $request->coreSpec;
-        $query['FilestoreNum']         = $request->filestoreNum;
-        $query['FilestoreSpec']        = $request->filestoreSpec;
-        $query['InstanceId']           = $request->instanceId;
-        $query['LindormNum']           = $request->lindormNum;
-        $query['LindormSpec']          = $request->lindormSpec;
-        $query['LtsCoreNum']           = $request->ltsCoreNum;
-        $query['LtsCoreSpec']          = $request->ltsCoreSpec;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoenixCoreNum']       = $request->phoenixCoreNum;
-        $query['PhoenixCoreSpec']      = $request->phoenixCoreSpec;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SecurityToken']        = $request->securityToken;
-        $query['SolrNum']              = $request->solrNum;
-        $query['SolrSpec']             = $request->solrSpec;
-        $query['TsdbNum']              = $request->tsdbNum;
-        $query['TsdbSpec']             = $request->tsdbSpec;
-        $query['UpgradeType']          = $request->upgradeType;
-        $query['ZoneId']               = $request->zoneId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterStorage)) {
+            $query['ClusterStorage'] = $request->clusterStorage;
+        }
+        if (!Utils::isUnset($request->coldStorage)) {
+            $query['ColdStorage'] = $request->coldStorage;
+        }
+        if (!Utils::isUnset($request->coreNum)) {
+            $query['CoreNum'] = $request->coreNum;
+        }
+        if (!Utils::isUnset($request->coreSpec)) {
+            $query['CoreSpec'] = $request->coreSpec;
+        }
+        if (!Utils::isUnset($request->filestoreNum)) {
+            $query['FilestoreNum'] = $request->filestoreNum;
+        }
+        if (!Utils::isUnset($request->filestoreSpec)) {
+            $query['FilestoreSpec'] = $request->filestoreSpec;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lindormNum)) {
+            $query['LindormNum'] = $request->lindormNum;
+        }
+        if (!Utils::isUnset($request->lindormSpec)) {
+            $query['LindormSpec'] = $request->lindormSpec;
+        }
+        if (!Utils::isUnset($request->ltsCoreNum)) {
+            $query['LtsCoreNum'] = $request->ltsCoreNum;
+        }
+        if (!Utils::isUnset($request->ltsCoreSpec)) {
+            $query['LtsCoreSpec'] = $request->ltsCoreSpec;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoenixCoreNum)) {
+            $query['PhoenixCoreNum'] = $request->phoenixCoreNum;
+        }
+        if (!Utils::isUnset($request->phoenixCoreSpec)) {
+            $query['PhoenixCoreSpec'] = $request->phoenixCoreSpec;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->solrNum)) {
+            $query['SolrNum'] = $request->solrNum;
+        }
+        if (!Utils::isUnset($request->solrSpec)) {
+            $query['SolrSpec'] = $request->solrSpec;
+        }
+        if (!Utils::isUnset($request->tsdbNum)) {
+            $query['TsdbNum'] = $request->tsdbNum;
+        }
+        if (!Utils::isUnset($request->tsdbSpec)) {
+            $query['TsdbSpec'] = $request->tsdbSpec;
+        }
+        if (!Utils::isUnset($request->upgradeType)) {
+            $query['UpgradeType'] = $request->upgradeType;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

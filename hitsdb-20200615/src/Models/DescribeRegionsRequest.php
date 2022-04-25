@@ -26,11 +26,6 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $resourceOwnerAccount;
 
     /**
@@ -42,20 +37,13 @@ class DescribeRegionsRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
     protected $_name = [
         'acceptLanguage'       => 'AcceptLanguage',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
-        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -74,9 +62,6 @@ class DescribeRegionsRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -85,9 +70,6 @@ class DescribeRegionsRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -110,9 +92,6 @@ class DescribeRegionsRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -121,9 +100,6 @@ class DescribeRegionsRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

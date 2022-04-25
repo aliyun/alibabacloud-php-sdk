@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReleaseLindormInstanceRequest extends Model
+class UntagResourcesRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $instanceId;
+    public $all;
 
     /**
      * @var string
@@ -22,6 +22,11 @@ class ReleaseLindormInstanceRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string[]
+     */
+    public $resourceId;
 
     /**
      * @var string
@@ -36,14 +41,27 @@ class ReleaseLindormInstanceRequest extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $securityToken;
+
+    /**
+     * @var string[]
+     */
+    public $tagKey;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
+        'all'                  => 'All',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'resourceId'           => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceType'         => 'ResourceType',
         'securityToken'        => 'SecurityToken',
+        'tagKey'               => 'TagKey',
     ];
 
     public function validate()
@@ -53,8 +71,8 @@ class ReleaseLindormInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -62,14 +80,23 @@ class ReleaseLindormInstanceRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
         }
 
         return $res;
@@ -78,13 +105,13 @@ class ReleaseLindormInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ReleaseLindormInstanceRequest
+     * @return UntagResourcesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -92,14 +119,27 @@ class ReleaseLindormInstanceRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['TagKey'])) {
+            if (!empty($map['TagKey'])) {
+                $model->tagKey = $map['TagKey'];
+            }
         }
 
         return $model;

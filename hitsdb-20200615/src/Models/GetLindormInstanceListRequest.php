@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class GetLindormInstanceListRequest extends Model
@@ -62,6 +63,11 @@ class GetLindormInstanceListRequest extends Model
      * @var int
      */
     public $supportEngine;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -74,6 +80,7 @@ class GetLindormInstanceListRequest extends Model
         'securityToken'        => 'SecurityToken',
         'serviceType'          => 'ServiceType',
         'supportEngine'        => 'SupportEngine',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -115,6 +122,15 @@ class GetLindormInstanceListRequest extends Model
         }
         if (null !== $this->supportEngine) {
             $res['SupportEngine'] = $this->supportEngine;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -160,6 +176,15 @@ class GetLindormInstanceListRequest extends Model
         }
         if (isset($map['SupportEngine'])) {
             $model->supportEngine = $map['SupportEngine'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

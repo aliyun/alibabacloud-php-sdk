@@ -57,12 +57,32 @@ class GetLindormInstanceResponseBody extends Model
     /**
      * @var bool
      */
+    public $enableCdc;
+
+    /**
+     * @var bool
+     */
     public $enableCompute;
 
     /**
      * @var bool
      */
     public $enableKms;
+
+    /**
+     * @var bool
+     */
+    public $enableSSL;
+
+    /**
+     * @var bool
+     */
+    public $enableShs;
+
+    /**
+     * @var bool
+     */
+    public $enableStream;
 
     /**
      * @var engineList[]
@@ -103,6 +123,16 @@ class GetLindormInstanceResponseBody extends Model
      * @var string
      */
     public $instanceStorage;
+
+    /**
+     * @var string
+     */
+    public $maintainEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintainStartTime;
 
     /**
      * @var string
@@ -153,8 +183,12 @@ class GetLindormInstanceResponseBody extends Model
         'diskCategory'        => 'DiskCategory',
         'diskThreshold'       => 'DiskThreshold',
         'diskUsage'           => 'DiskUsage',
+        'enableCdc'           => 'EnableCdc',
         'enableCompute'       => 'EnableCompute',
         'enableKms'           => 'EnableKms',
+        'enableSSL'           => 'EnableSSL',
+        'enableShs'           => 'EnableShs',
+        'enableStream'        => 'EnableStream',
         'engineList'          => 'EngineList',
         'engineType'          => 'EngineType',
         'expireTime'          => 'ExpireTime',
@@ -163,6 +197,8 @@ class GetLindormInstanceResponseBody extends Model
         'instanceId'          => 'InstanceId',
         'instanceStatus'      => 'InstanceStatus',
         'instanceStorage'     => 'InstanceStorage',
+        'maintainEndTime'     => 'MaintainEndTime',
+        'maintainStartTime'   => 'MaintainStartTime',
         'networkType'         => 'NetworkType',
         'payType'             => 'PayType',
         'regionId'            => 'RegionId',
@@ -207,11 +243,23 @@ class GetLindormInstanceResponseBody extends Model
         if (null !== $this->diskUsage) {
             $res['DiskUsage'] = $this->diskUsage;
         }
+        if (null !== $this->enableCdc) {
+            $res['EnableCdc'] = $this->enableCdc;
+        }
         if (null !== $this->enableCompute) {
             $res['EnableCompute'] = $this->enableCompute;
         }
         if (null !== $this->enableKms) {
             $res['EnableKms'] = $this->enableKms;
+        }
+        if (null !== $this->enableSSL) {
+            $res['EnableSSL'] = $this->enableSSL;
+        }
+        if (null !== $this->enableShs) {
+            $res['EnableShs'] = $this->enableShs;
+        }
+        if (null !== $this->enableStream) {
+            $res['EnableStream'] = $this->enableStream;
         }
         if (null !== $this->engineList) {
             $res['EngineList'] = [];
@@ -242,6 +290,12 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (null !== $this->instanceStorage) {
             $res['InstanceStorage'] = $this->instanceStorage;
+        }
+        if (null !== $this->maintainEndTime) {
+            $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
@@ -306,11 +360,23 @@ class GetLindormInstanceResponseBody extends Model
         if (isset($map['DiskUsage'])) {
             $model->diskUsage = $map['DiskUsage'];
         }
+        if (isset($map['EnableCdc'])) {
+            $model->enableCdc = $map['EnableCdc'];
+        }
         if (isset($map['EnableCompute'])) {
             $model->enableCompute = $map['EnableCompute'];
         }
         if (isset($map['EnableKms'])) {
             $model->enableKms = $map['EnableKms'];
+        }
+        if (isset($map['EnableSSL'])) {
+            $model->enableSSL = $map['EnableSSL'];
+        }
+        if (isset($map['EnableShs'])) {
+            $model->enableShs = $map['EnableShs'];
+        }
+        if (isset($map['EnableStream'])) {
+            $model->enableStream = $map['EnableStream'];
         }
         if (isset($map['EngineList'])) {
             if (!empty($map['EngineList'])) {
@@ -341,6 +407,12 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (isset($map['InstanceStorage'])) {
             $model->instanceStorage = $map['InstanceStorage'];
+        }
+        if (isset($map['MaintainEndTime'])) {
+            $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
