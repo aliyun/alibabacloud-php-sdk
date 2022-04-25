@@ -12,12 +12,16 @@ use AlibabaCloud\SDK\EduCloud\V20220202\Models\DescribeCourseRequest;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\DescribeCourseResponse;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\DescribeLabRequest;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\DescribeLabResponse;
+use AlibabaCloud\SDK\EduCloud\V20220202\Models\DescribeLabTokenRequest;
+use AlibabaCloud\SDK\EduCloud\V20220202\Models\DescribeLabTokenResponse;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\GetLabTokenRequest;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\GetLabTokenResponse;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\ListCoursesRequest;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\ListCoursesResponse;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\ListLabsRequest;
 use AlibabaCloud\SDK\EduCloud\V20220202\Models\ListLabsResponse;
+use AlibabaCloud\SDK\EduCloud\V20220202\Models\ListLabTokensRequest;
+use AlibabaCloud\SDK\EduCloud\V20220202\Models\ListLabTokensResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -178,6 +182,46 @@ class EduCloud extends OpenApiClient
     }
 
     /**
+     * @param DescribeLabTokenRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeLabTokenResponse
+     */
+    public function describeLabTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLabToken',
+            'version'     => '2022-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLabTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLabTokenRequest $request
+     *
+     * @return DescribeLabTokenResponse
+     */
+    public function describeLabToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLabTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetLabTokenRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -255,6 +299,46 @@ class EduCloud extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCoursesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLabTokensRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListLabTokensResponse
+     */
+    public function listLabTokensWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLabTokens',
+            'version'     => '2022-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLabTokensResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLabTokensRequest $request
+     *
+     * @return ListLabTokensResponse
+     */
+    public function listLabTokens($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLabTokensWithOptions($request, $runtime);
     }
 
     /**
