@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddSceneRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $customerUid;
+
+    /**
      * @description 场景名称
      *
      * @var string
@@ -29,9 +34,10 @@ class AddSceneRequest extends Model
      */
     public $type;
     protected $_name = [
-        'name'      => 'Name',
-        'projectId' => 'ProjectId',
-        'type'      => 'Type',
+        'customerUid' => 'CustomerUid',
+        'name'        => 'Name',
+        'projectId'   => 'ProjectId',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class AddSceneRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customerUid) {
+            $res['CustomerUid'] = $this->customerUid;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -62,6 +71,9 @@ class AddSceneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomerUid'])) {
+            $model->customerUid = $map['CustomerUid'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

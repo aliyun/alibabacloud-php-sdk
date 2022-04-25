@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewInfoRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewInfoResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewResourceRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewResourceResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSingleConnDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSingleConnDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSubSceneTaskStatusRequest;
@@ -345,6 +347,9 @@ class Tdsr extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->customerUid)) {
+            $query['CustomerUid'] = $request->customerUid;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -1250,6 +1255,49 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getScenePreviewInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetScenePreviewResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetScenePreviewResourceResponse
+     */
+    public function getScenePreviewResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->previewToken)) {
+            $query['PreviewToken'] = $request->previewToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetScenePreviewResource',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetScenePreviewResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetScenePreviewResourceRequest $request
+     *
+     * @return GetScenePreviewResourceResponse
+     */
+    public function getScenePreviewResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getScenePreviewResourceWithOptions($request, $runtime);
     }
 
     /**
