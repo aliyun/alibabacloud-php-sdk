@@ -3904,6 +3904,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->replacementOption)) {
             $query['ReplacementOption'] = $request->replacementOption;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->stackId)) {
             $query['StackId'] = $request->stackId;
         }

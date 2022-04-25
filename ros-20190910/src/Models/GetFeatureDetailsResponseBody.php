@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateScratch;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform;
 use AlibabaCloud\Tea\Model;
 
@@ -15,12 +16,18 @@ class GetFeatureDetailsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var templateScratch
+     */
+    public $templateScratch;
+
+    /**
      * @var terraform
      */
     public $terraform;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'terraform' => 'Terraform',
+        'requestId'       => 'RequestId',
+        'templateScratch' => 'TemplateScratch',
+        'terraform'       => 'Terraform',
     ];
 
     public function validate()
@@ -32,6 +39,9 @@ class GetFeatureDetailsResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->templateScratch) {
+            $res['TemplateScratch'] = null !== $this->templateScratch ? $this->templateScratch->toMap() : null;
         }
         if (null !== $this->terraform) {
             $res['Terraform'] = null !== $this->terraform ? $this->terraform->toMap() : null;
@@ -50,6 +60,9 @@ class GetFeatureDetailsResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TemplateScratch'])) {
+            $model->templateScratch = templateScratch::fromMap($map['TemplateScratch']);
         }
         if (isset($map['Terraform'])) {
             $model->terraform = terraform::fromMap($map['Terraform']);

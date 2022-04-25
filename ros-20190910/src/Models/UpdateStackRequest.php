@@ -48,6 +48,11 @@ class UpdateStackRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $stackId;
 
     /**
@@ -112,6 +117,7 @@ class UpdateStackRequest extends Model
         'ramRoleName'                 => 'RamRoleName',
         'regionId'                    => 'RegionId',
         'replacementOption'           => 'ReplacementOption',
+        'resourceGroupId'             => 'ResourceGroupId',
         'stackId'                     => 'StackId',
         'stackPolicyBody'             => 'StackPolicyBody',
         'stackPolicyDuringUpdateBody' => 'StackPolicyDuringUpdateBody',
@@ -159,6 +165,9 @@ class UpdateStackRequest extends Model
         }
         if (null !== $this->replacementOption) {
             $res['ReplacementOption'] = $this->replacementOption;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
@@ -240,6 +249,9 @@ class UpdateStackRequest extends Model
         }
         if (isset($map['ReplacementOption'])) {
             $model->replacementOption = $map['ReplacementOption'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
