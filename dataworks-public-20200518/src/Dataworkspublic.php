@@ -1617,6 +1617,12 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->inputList)) {
             $body['InputList'] = $request->inputList;
         }
+        if (!Utils::isUnset($request->inputParameters)) {
+            $body['InputParameters'] = $request->inputParameters;
+        }
+        if (!Utils::isUnset($request->outputParameters)) {
+            $body['OutputParameters'] = $request->outputParameters;
+        }
         if (!Utils::isUnset($request->owner)) {
             $body['Owner'] = $request->owner;
         }
@@ -11343,8 +11349,14 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->inputList)) {
             $body['InputList'] = $request->inputList;
         }
+        if (!Utils::isUnset($request->inputParameters)) {
+            $body['InputParameters'] = $request->inputParameters;
+        }
         if (!Utils::isUnset($request->outputList)) {
             $body['OutputList'] = $request->outputList;
+        }
+        if (!Utils::isUnset($request->outputParameters)) {
+            $body['OutputParameters'] = $request->outputParameters;
         }
         if (!Utils::isUnset($request->owner)) {
             $body['Owner'] = $request->owner;

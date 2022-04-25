@@ -91,6 +91,16 @@ class CreateFileRequest extends Model
     /**
      * @var string
      */
+    public $inputParameters;
+
+    /**
+     * @var string
+     */
+    public $outputParameters;
+
+    /**
+     * @var string
+     */
     public $owner;
 
     /**
@@ -159,6 +169,8 @@ class CreateFileRequest extends Model
         'fileName'                => 'FileName',
         'fileType'                => 'FileType',
         'inputList'               => 'InputList',
+        'inputParameters'         => 'InputParameters',
+        'outputParameters'        => 'OutputParameters',
         'owner'                   => 'Owner',
         'paraValue'               => 'ParaValue',
         'projectId'               => 'ProjectId',
@@ -226,6 +238,12 @@ class CreateFileRequest extends Model
         }
         if (null !== $this->inputList) {
             $res['InputList'] = $this->inputList;
+        }
+        if (null !== $this->inputParameters) {
+            $res['InputParameters'] = $this->inputParameters;
+        }
+        if (null !== $this->outputParameters) {
+            $res['OutputParameters'] = $this->outputParameters;
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
@@ -319,6 +337,12 @@ class CreateFileRequest extends Model
         }
         if (isset($map['InputList'])) {
             $model->inputList = $map['InputList'];
+        }
+        if (isset($map['InputParameters'])) {
+            $model->inputParameters = $map['InputParameters'];
+        }
+        if (isset($map['OutputParameters'])) {
+            $model->outputParameters = $map['OutputParameters'];
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];

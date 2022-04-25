@@ -5,7 +5,9 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody\data;
 
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody\data\nodeConfiguration\inputList;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody\data\nodeConfiguration\inputParameters;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody\data\nodeConfiguration\outputList;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody\data\nodeConfiguration\outputParameters;
 use AlibabaCloud\Tea\Model;
 
 class nodeConfiguration extends Model
@@ -51,9 +53,19 @@ class nodeConfiguration extends Model
     public $inputList;
 
     /**
+     * @var inputParameters[]
+     */
+    public $inputParameters;
+
+    /**
      * @var outputList[]
      */
     public $outputList;
+
+    /**
+     * @var outputParameters[]
+     */
+    public $outputParameters;
 
     /**
      * @var string
@@ -98,7 +110,9 @@ class nodeConfiguration extends Model
         'dependentType'           => 'DependentType',
         'endEffectDate'           => 'EndEffectDate',
         'inputList'               => 'InputList',
+        'inputParameters'         => 'InputParameters',
         'outputList'              => 'OutputList',
+        'outputParameters'        => 'OutputParameters',
         'paraValue'               => 'ParaValue',
         'rerunMode'               => 'RerunMode',
         'resourceGroupId'         => 'ResourceGroupId',
@@ -145,12 +159,30 @@ class nodeConfiguration extends Model
                 }
             }
         }
+        if (null !== $this->inputParameters) {
+            $res['InputParameters'] = [];
+            if (null !== $this->inputParameters && \is_array($this->inputParameters)) {
+                $n = 0;
+                foreach ($this->inputParameters as $item) {
+                    $res['InputParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->outputList) {
             $res['OutputList'] = [];
             if (null !== $this->outputList && \is_array($this->outputList)) {
                 $n = 0;
                 foreach ($this->outputList as $item) {
                     $res['OutputList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->outputParameters) {
+            $res['OutputParameters'] = [];
+            if (null !== $this->outputParameters && \is_array($this->outputParameters)) {
+                $n = 0;
+                foreach ($this->outputParameters as $item) {
+                    $res['OutputParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -217,12 +249,30 @@ class nodeConfiguration extends Model
                 }
             }
         }
+        if (isset($map['InputParameters'])) {
+            if (!empty($map['InputParameters'])) {
+                $model->inputParameters = [];
+                $n                      = 0;
+                foreach ($map['InputParameters'] as $item) {
+                    $model->inputParameters[$n++] = null !== $item ? inputParameters::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OutputList'])) {
             if (!empty($map['OutputList'])) {
                 $model->outputList = [];
                 $n                 = 0;
                 foreach ($map['OutputList'] as $item) {
                     $model->outputList[$n++] = null !== $item ? outputList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OutputParameters'])) {
+            if (!empty($map['OutputParameters'])) {
+                $model->outputParameters = [];
+                $n                       = 0;
+                foreach ($map['OutputParameters'] as $item) {
+                    $model->outputParameters[$n++] = null !== $item ? outputParameters::fromMap($item) : $item;
                 }
             }
         }
