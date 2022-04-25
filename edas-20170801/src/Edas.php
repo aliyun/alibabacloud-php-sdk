@@ -4234,6 +4234,9 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->reservedPortStr)) {
             $query['ReservedPortStr'] = $request->reservedPortStr;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->webContainer)) {
             $query['WebContainer'] = $request->webContainer;
         }
@@ -4600,6 +4603,9 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->requestsmCpu)) {
             $query['RequestsmCpu'] = $request->requestsmCpu;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->runtimeClassName)) {
             $query['RuntimeClassName'] = $request->runtimeClassName;

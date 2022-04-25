@@ -116,6 +116,11 @@ class InsertApplicationRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $webContainer;
     protected $_name = [
         'applicationName' => 'ApplicationName',
@@ -139,6 +144,7 @@ class InsertApplicationRequest extends Model
         'minHeapSize'     => 'MinHeapSize',
         'packageType'     => 'PackageType',
         'reservedPortStr' => 'ReservedPortStr',
+        'resourceGroupId' => 'ResourceGroupId',
         'webContainer'    => 'WebContainer',
     ];
 
@@ -211,6 +217,9 @@ class InsertApplicationRequest extends Model
         }
         if (null !== $this->reservedPortStr) {
             $res['ReservedPortStr'] = $this->reservedPortStr;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->webContainer) {
             $res['WebContainer'] = $this->webContainer;
@@ -289,6 +298,9 @@ class InsertApplicationRequest extends Model
         }
         if (isset($map['ReservedPortStr'])) {
             $model->reservedPortStr = $map['ReservedPortStr'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['WebContainer'])) {
             $model->webContainer = $map['WebContainer'];

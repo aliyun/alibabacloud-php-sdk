@@ -266,6 +266,11 @@ class InsertK8sApplicationRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $runtimeClassName;
 
     /**
@@ -354,6 +359,7 @@ class InsertK8sApplicationRequest extends Model
         'requestsCpu'            => 'RequestsCpu',
         'requestsMem'            => 'RequestsMem',
         'requestsmCpu'           => 'RequestsmCpu',
+        'resourceGroupId'        => 'ResourceGroupId',
         'runtimeClassName'       => 'RuntimeClassName',
         'slsConfigs'             => 'SlsConfigs',
         'storageType'            => 'StorageType',
@@ -523,6 +529,9 @@ class InsertK8sApplicationRequest extends Model
         }
         if (null !== $this->requestsmCpu) {
             $res['RequestsmCpu'] = $this->requestsmCpu;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->runtimeClassName) {
             $res['RuntimeClassName'] = $this->runtimeClassName;
@@ -712,6 +721,9 @@ class InsertK8sApplicationRequest extends Model
         }
         if (isset($map['RequestsmCpu'])) {
             $model->requestsmCpu = $map['RequestsmCpu'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RuntimeClassName'])) {
             $model->runtimeClassName = $map['RuntimeClassName'];
