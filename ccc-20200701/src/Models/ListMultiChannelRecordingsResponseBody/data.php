@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $agentChannelId;
+
+    /**
+     * @var string
+     */
     public $agentId;
 
     /**
@@ -53,15 +58,16 @@ class data extends Model
      */
     public $startTime;
     protected $_name = [
-        'agentId'      => 'AgentId',
-        'agentName'    => 'AgentName',
-        'contactId'    => 'ContactId',
-        'duration'     => 'Duration',
-        'fileName'     => 'FileName',
-        'fileUrl'      => 'FileUrl',
-        'ramId'        => 'RamId',
-        'skillGroupId' => 'SkillGroupId',
-        'startTime'    => 'StartTime',
+        'agentChannelId' => 'AgentChannelId',
+        'agentId'        => 'AgentId',
+        'agentName'      => 'AgentName',
+        'contactId'      => 'ContactId',
+        'duration'       => 'Duration',
+        'fileName'       => 'FileName',
+        'fileUrl'        => 'FileUrl',
+        'ramId'          => 'RamId',
+        'skillGroupId'   => 'SkillGroupId',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentChannelId) {
+            $res['AgentChannelId'] = $this->agentChannelId;
+        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
@@ -110,6 +119,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentChannelId'])) {
+            $model->agentChannelId = $map['AgentChannelId'];
+        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }

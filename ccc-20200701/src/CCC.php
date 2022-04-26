@@ -99,6 +99,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportDoNotCallNumbersRequest;
@@ -2653,6 +2655,52 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ImportAdminsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ImportAdminsResponse
+     */
+    public function importAdminsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ramIdList)) {
+            $query['RamIdList'] = $request->ramIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportAdmins',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportAdminsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportAdminsRequest $request
+     *
+     * @return ImportAdminsResponse
+     */
+    public function importAdmins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importAdminsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ImportCustomCallTaggingRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2882,6 +2930,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->contactFlowId)) {
             $query['ContactFlowId'] = $request->contactFlowId;
         }
+        if (!Utils::isUnset($request->contactFlowVariables)) {
+            $query['ContactFlowVariables'] = $request->contactFlowVariables;
+        }
         if (!Utils::isUnset($request->deviceId)) {
             $query['DeviceId'] = $request->deviceId;
         }
@@ -2937,6 +2988,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->contactFlowId)) {
             $query['ContactFlowId'] = $request->contactFlowId;
         }
+        if (!Utils::isUnset($request->contactFlowVariables)) {
+            $query['ContactFlowVariables'] = $request->contactFlowVariables;
+        }
         if (!Utils::isUnset($request->deviceId)) {
             $query['DeviceId'] = $request->deviceId;
         }
@@ -2945,6 +2999,12 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->smsMetadataId)) {
+            $query['SmsMetadataId'] = $request->smsMetadataId;
+        }
+        if (!Utils::isUnset($request->surveyChannel)) {
+            $query['SurveyChannel'] = $request->surveyChannel;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;

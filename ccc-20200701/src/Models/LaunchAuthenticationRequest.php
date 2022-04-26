@@ -16,6 +16,11 @@ class LaunchAuthenticationRequest extends Model
     /**
      * @var string
      */
+    public $contactFlowVariables;
+
+    /**
+     * @var string
+     */
     public $deviceId;
 
     /**
@@ -33,11 +38,12 @@ class LaunchAuthenticationRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'contactFlowId' => 'ContactFlowId',
-        'deviceId'      => 'DeviceId',
-        'instanceId'    => 'InstanceId',
-        'jobId'         => 'JobId',
-        'userId'        => 'UserId',
+        'contactFlowId'        => 'ContactFlowId',
+        'contactFlowVariables' => 'ContactFlowVariables',
+        'deviceId'             => 'DeviceId',
+        'instanceId'           => 'InstanceId',
+        'jobId'                => 'JobId',
+        'userId'               => 'UserId',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class LaunchAuthenticationRequest extends Model
         $res = [];
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
+        }
+        if (null !== $this->contactFlowVariables) {
+            $res['ContactFlowVariables'] = $this->contactFlowVariables;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
@@ -76,6 +85,9 @@ class LaunchAuthenticationRequest extends Model
         $model = new self();
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
+        }
+        if (isset($map['ContactFlowVariables'])) {
+            $model->contactFlowVariables = $map['ContactFlowVariables'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];

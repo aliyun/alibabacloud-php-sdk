@@ -16,6 +16,11 @@ class LaunchSurveyRequest extends Model
     /**
      * @var string
      */
+    public $contactFlowVariables;
+
+    /**
+     * @var string
+     */
     public $deviceId;
 
     /**
@@ -31,13 +36,26 @@ class LaunchSurveyRequest extends Model
     /**
      * @var string
      */
+    public $smsMetadataId;
+
+    /**
+     * @var string
+     */
+    public $surveyChannel;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
-        'contactFlowId' => 'ContactFlowId',
-        'deviceId'      => 'DeviceId',
-        'instanceId'    => 'InstanceId',
-        'jobId'         => 'JobId',
-        'userId'        => 'UserId',
+        'contactFlowId'        => 'ContactFlowId',
+        'contactFlowVariables' => 'ContactFlowVariables',
+        'deviceId'             => 'DeviceId',
+        'instanceId'           => 'InstanceId',
+        'jobId'                => 'JobId',
+        'smsMetadataId'        => 'SmsMetadataId',
+        'surveyChannel'        => 'SurveyChannel',
+        'userId'               => 'UserId',
     ];
 
     public function validate()
@@ -50,6 +68,9 @@ class LaunchSurveyRequest extends Model
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
+        if (null !== $this->contactFlowVariables) {
+            $res['ContactFlowVariables'] = $this->contactFlowVariables;
+        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
@@ -58,6 +79,12 @@ class LaunchSurveyRequest extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->smsMetadataId) {
+            $res['SmsMetadataId'] = $this->smsMetadataId;
+        }
+        if (null !== $this->surveyChannel) {
+            $res['SurveyChannel'] = $this->surveyChannel;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -77,6 +104,9 @@ class LaunchSurveyRequest extends Model
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
+        if (isset($map['ContactFlowVariables'])) {
+            $model->contactFlowVariables = $map['ContactFlowVariables'];
+        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
@@ -85,6 +115,12 @@ class LaunchSurveyRequest extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['SmsMetadataId'])) {
+            $model->smsMetadataId = $map['SmsMetadataId'];
+        }
+        if (isset($map['SurveyChannel'])) {
+            $model->surveyChannel = $map['SurveyChannel'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
