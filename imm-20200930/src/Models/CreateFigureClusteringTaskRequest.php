@@ -29,6 +29,11 @@ class CreateFigureClusteringTaskRequest extends Model
     public $projectName;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $userData;
@@ -37,6 +42,7 @@ class CreateFigureClusteringTaskRequest extends Model
         'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
+        'tags'            => 'Tags',
         'userData'        => 'UserData',
     ];
 
@@ -58,6 +64,9 @@ class CreateFigureClusteringTaskRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -85,6 +94,9 @@ class CreateFigureClusteringTaskRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

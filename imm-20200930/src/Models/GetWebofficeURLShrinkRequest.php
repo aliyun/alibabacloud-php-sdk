@@ -16,6 +16,13 @@ class GetWebofficeURLShrinkRequest extends Model
     public $assumeRoleChainShrink;
 
     /**
+     * @description 缓存预览标识
+     *
+     * @var bool
+     */
+    public $cachePreview;
+
+    /**
      * @description 是否支持外部上传
      *
      * @var bool
@@ -114,6 +121,7 @@ class GetWebofficeURLShrinkRequest extends Model
     public $watermarkShrink;
     protected $_name = [
         'assumeRoleChainShrink' => 'AssumeRoleChain',
+        'cachePreview'          => 'CachePreview',
         'externalUploaded'      => 'ExternalUploaded',
         'filename'              => 'Filename',
         'hidecmb'               => 'Hidecmb',
@@ -139,6 +147,9 @@ class GetWebofficeURLShrinkRequest extends Model
         $res = [];
         if (null !== $this->assumeRoleChainShrink) {
             $res['AssumeRoleChain'] = $this->assumeRoleChainShrink;
+        }
+        if (null !== $this->cachePreview) {
+            $res['CachePreview'] = $this->cachePreview;
         }
         if (null !== $this->externalUploaded) {
             $res['ExternalUploaded'] = $this->externalUploaded;
@@ -196,6 +207,9 @@ class GetWebofficeURLShrinkRequest extends Model
         $model = new self();
         if (isset($map['AssumeRoleChain'])) {
             $model->assumeRoleChainShrink = $map['AssumeRoleChain'];
+        }
+        if (isset($map['CachePreview'])) {
+            $model->cachePreview = $map['CachePreview'];
         }
         if (isset($map['ExternalUploaded'])) {
             $model->externalUploaded = $map['ExternalUploaded'];

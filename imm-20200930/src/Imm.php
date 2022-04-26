@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Imm\V20200930;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Imm\V20200930\Models\AttachOSSBucketRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\AttachOSSBucketResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchDeleteFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchDeleteFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchDeleteFileMetaShrinkRequest;
@@ -24,10 +26,19 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryRequest;
@@ -43,6 +54,10 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetachOSSBucketRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetachOSSBucketResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCroppingRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCroppingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageFacesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageFacesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsRequest;
@@ -61,6 +76,10 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetMediaMetaRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetMediaMetaResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetOSSBucketAttachmentRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetOSSBucketAttachmentResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetStoryRequest;
@@ -81,6 +100,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersRequest;
@@ -154,6 +174,52 @@ class Imm extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AttachOSSBucketRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AttachOSSBucketResponse
+     */
+    public function attachOSSBucketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->OSSBucket)) {
+            $query['OSSBucket'] = $request->OSSBucket;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachOSSBucket',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachOSSBucketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AttachOSSBucketRequest $request
+     *
+     * @return AttachOSSBucketResponse
+     */
+    public function attachOSSBucket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachOSSBucketWithOptions($request, $runtime);
     }
 
     /**
@@ -495,14 +561,19 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateDetectVideoLabelsTaskRequest $request
+     * @param CreateDetectVideoLabelsTaskRequest $tmpReq
      * @param RuntimeOptions                     $runtime
      *
      * @return CreateDetectVideoLabelsTaskResponse
      */
-    public function createDetectVideoLabelsTaskWithOptions($request, $runtime)
+    public function createDetectVideoLabelsTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDetectVideoLabelsTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->notifyEndpoint)) {
             $query['NotifyEndpoint'] = $request->notifyEndpoint;
@@ -515,6 +586,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceURI)) {
             $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         if (!Utils::isUnset($request->userData)) {
             $query['UserData'] = $request->userData;
@@ -550,14 +624,19 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFigureClusteringTaskRequest $request
+     * @param CreateFigureClusteringTaskRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
      * @return CreateFigureClusteringTaskResponse
      */
-    public function createFigureClusteringTaskWithOptions($request, $runtime)
+    public function createFigureClusteringTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateFigureClusteringTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
@@ -570,6 +649,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         if (!Utils::isUnset($request->userData)) {
             $query['UserData'] = $request->userData;
@@ -605,14 +687,19 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFigureClustersMergingTaskRequest $request
+     * @param CreateFigureClustersMergingTaskRequest $tmpReq
      * @param RuntimeOptions                         $runtime
      *
      * @return CreateFigureClustersMergingTaskResponse
      */
-    public function createFigureClustersMergingTaskWithOptions($request, $runtime)
+    public function createFigureClustersMergingTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateFigureClustersMergingTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
@@ -628,6 +715,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         if (!Utils::isUnset($request->to)) {
             $query['To'] = $request->to;
@@ -663,6 +753,219 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFigureClustersMergingTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateMediaConvertTaskRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateMediaConvertTaskResponse
+     */
+    public function createMediaConvertTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateMediaConvertTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sources)) {
+            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->targets)) {
+            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourcesShrink)) {
+            $query['Sources'] = $request->sourcesShrink;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->targetsShrink)) {
+            $query['Targets'] = $request->targetsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMediaConvertTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMediaConvertTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMediaConvertTaskRequest $request
+     *
+     * @return CreateMediaConvertTaskResponse
+     */
+    public function createMediaConvertTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMediaConvertTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOfficeConversionTaskRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateOfficeConversionTaskResponse
+     */
+    public function createOfficeConversionTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateOfficeConversionTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->assumeRoleChain)) {
+            $request->assumeRoleChainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->assumeRoleChain), 'AssumeRoleChain', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->trimPolicy)) {
+            $request->trimPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->trimPolicy), 'TrimPolicy', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->assumeRoleChainShrink)) {
+            $query['AssumeRoleChain'] = $request->assumeRoleChainShrink;
+        }
+        if (!Utils::isUnset($request->endPage)) {
+            $query['EndPage'] = $request->endPage;
+        }
+        if (!Utils::isUnset($request->firstPage)) {
+            $query['FirstPage'] = $request->firstPage;
+        }
+        if (!Utils::isUnset($request->fitToHeight)) {
+            $query['FitToHeight'] = $request->fitToHeight;
+        }
+        if (!Utils::isUnset($request->fitToWidth)) {
+            $query['FitToWidth'] = $request->fitToWidth;
+        }
+        if (!Utils::isUnset($request->holdLineFeed)) {
+            $query['HoldLineFeed'] = $request->holdLineFeed;
+        }
+        if (!Utils::isUnset($request->longPicture)) {
+            $query['LongPicture'] = $request->longPicture;
+        }
+        if (!Utils::isUnset($request->longText)) {
+            $query['LongText'] = $request->longText;
+        }
+        if (!Utils::isUnset($request->maxSheetColumn)) {
+            $query['MaxSheetColumn'] = $request->maxSheetColumn;
+        }
+        if (!Utils::isUnset($request->maxSheetRow)) {
+            $query['MaxSheetRow'] = $request->maxSheetRow;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->paperHorizontal)) {
+            $query['PaperHorizontal'] = $request->paperHorizontal;
+        }
+        if (!Utils::isUnset($request->paperSize)) {
+            $query['PaperSize'] = $request->paperSize;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->quality)) {
+            $query['Quality'] = $request->quality;
+        }
+        if (!Utils::isUnset($request->scalePercentage)) {
+            $query['ScalePercentage'] = $request->scalePercentage;
+        }
+        if (!Utils::isUnset($request->sheetCount)) {
+            $query['SheetCount'] = $request->sheetCount;
+        }
+        if (!Utils::isUnset($request->sheetIndex)) {
+            $query['SheetIndex'] = $request->sheetIndex;
+        }
+        if (!Utils::isUnset($request->showComments)) {
+            $query['ShowComments'] = $request->showComments;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->startPage)) {
+            $query['StartPage'] = $request->startPage;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->targetURIPrefix)) {
+            $query['TargetURIPrefix'] = $request->targetURIPrefix;
+        }
+        if (!Utils::isUnset($request->trimPolicyShrink)) {
+            $query['TrimPolicy'] = $request->trimPolicyShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOfficeConversionTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOfficeConversionTaskRequest $request
+     *
+     * @return CreateOfficeConversionTaskResponse
+     */
+    public function createOfficeConversionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOfficeConversionTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -755,6 +1058,16 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->customLabels)) {
             $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
         $body = [];
         if (!Utils::isUnset($request->customId)) {
             $body['CustomId'] = $request->customId;
@@ -799,7 +1112,8 @@ class Imm extends OpenApiClient
             $body['StoryType'] = $request->storyType;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateStory',
@@ -1065,6 +1379,98 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteStoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachOSSBucketRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DetachOSSBucketResponse
+     */
+    public function detachOSSBucketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->OSSBucket)) {
+            $query['OSSBucket'] = $request->OSSBucket;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachOSSBucket',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachOSSBucketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachOSSBucketRequest $request
+     *
+     * @return DetachOSSBucketResponse
+     */
+    public function detachOSSBucket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachOSSBucketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectImageCroppingRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DetectImageCroppingResponse
+     */
+    public function detectImageCroppingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aspectRatios)) {
+            $query['AspectRatios'] = $request->aspectRatios;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageCropping',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectImageCroppingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectImageCroppingRequest $request
+     *
+     * @return DetectImageCroppingResponse
+     */
+    public function detectImageCropping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectImageCroppingWithOptions($request, $runtime);
     }
 
     /**
@@ -1509,6 +1915,95 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param GetMediaMetaRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetMediaMetaResponse
+     */
+    public function getMediaMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaMeta',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMediaMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaMetaRequest $request
+     *
+     * @return GetMediaMetaResponse
+     */
+    public function getMediaMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOSSBucketAttachmentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetOSSBucketAttachmentResponse
+     */
+    public function getOSSBucketAttachmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->OSSBucket)) {
+            $query['OSSBucket'] = $request->OSSBucket;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOSSBucketAttachment',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOSSBucketAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOSSBucketAttachmentRequest $request
+     *
+     * @return GetOSSBucketAttachmentResponse
+     */
+    public function getOSSBucketAttachment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOSSBucketAttachmentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetProjectRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1678,6 +2173,9 @@ class Imm extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->assumeRoleChainShrink)) {
             $query['AssumeRoleChain'] = $request->assumeRoleChainShrink;
+        }
+        if (!Utils::isUnset($request->cachePreview)) {
+            $query['CachePreview'] = $request->cachePreview;
         }
         if (!Utils::isUnset($request->externalUploaded)) {
             $query['ExternalUploaded'] = $request->externalUploaded;
@@ -1965,14 +2463,19 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListTasksRequest $request
+     * @param ListTasksRequest $tmpReq
      * @param RuntimeOptions   $runtime
      *
      * @return ListTasksResponse
      */
-    public function listTasksWithOptions($request, $runtime)
+    public function listTasksWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListTasksShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskTypes)) {
+            $request->taskTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskTypes, 'TaskTypes', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -1980,11 +2483,20 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->tagSelector)) {
+            $query['TagSelector'] = $request->tagSelector;
+        }
+        if (!Utils::isUnset($request->taskTypesShrink)) {
+            $query['TaskTypes'] = $request->taskTypesShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2186,8 +2698,14 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->objectId)) {
             $query['ObjectId'] = $request->objectId;
         }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
         if (!Utils::isUnset($request->storyEndTimeRangeShrink)) {
             $query['StoryEndTimeRange'] = $request->storyEndTimeRangeShrink;

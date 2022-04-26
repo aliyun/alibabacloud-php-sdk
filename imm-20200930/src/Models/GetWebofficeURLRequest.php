@@ -16,6 +16,13 @@ class GetWebofficeURLRequest extends Model
     public $assumeRoleChain;
 
     /**
+     * @description 缓存预览标识
+     *
+     * @var bool
+     */
+    public $cachePreview;
+
+    /**
      * @description 是否支持外部上传
      *
      * @var bool
@@ -114,6 +121,7 @@ class GetWebofficeURLRequest extends Model
     public $watermark;
     protected $_name = [
         'assumeRoleChain'  => 'AssumeRoleChain',
+        'cachePreview'     => 'CachePreview',
         'externalUploaded' => 'ExternalUploaded',
         'filename'         => 'Filename',
         'hidecmb'          => 'Hidecmb',
@@ -139,6 +147,9 @@ class GetWebofficeURLRequest extends Model
         $res = [];
         if (null !== $this->assumeRoleChain) {
             $res['AssumeRoleChain'] = null !== $this->assumeRoleChain ? $this->assumeRoleChain->toMap() : null;
+        }
+        if (null !== $this->cachePreview) {
+            $res['CachePreview'] = $this->cachePreview;
         }
         if (null !== $this->externalUploaded) {
             $res['ExternalUploaded'] = $this->externalUploaded;
@@ -196,6 +207,9 @@ class GetWebofficeURLRequest extends Model
         $model = new self();
         if (isset($map['AssumeRoleChain'])) {
             $model->assumeRoleChain = AssumeRoleChain::fromMap($map['AssumeRoleChain']);
+        }
+        if (isset($map['CachePreview'])) {
+            $model->cachePreview = $map['CachePreview'];
         }
         if (isset($map['ExternalUploaded'])) {
             $model->externalUploaded = $map['ExternalUploaded'];

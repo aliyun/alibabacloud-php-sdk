@@ -65,6 +65,11 @@ class GetTaskResponseBody extends Model
     public $status;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
      * @description 任务唯一ID
      *
      * @var string
@@ -93,6 +98,7 @@ class GetTaskResponseBody extends Model
         'requestId'   => 'RequestId',
         'startTime'   => 'StartTime',
         'status'      => 'Status',
+        'tags'        => 'Tags',
         'taskId'      => 'TaskId',
         'taskType'    => 'TaskType',
         'userData'    => 'UserData',
@@ -128,6 +134,9 @@ class GetTaskResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -173,6 +182,9 @@ class GetTaskResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

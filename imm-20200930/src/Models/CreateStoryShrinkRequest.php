@@ -77,6 +77,16 @@ class CreateStoryShrinkRequest extends Model
      * @var string
      */
     public $storyType;
+
+    /**
+     * @var string
+     */
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'customId'           => 'CustomId',
         'customLabelsShrink' => 'CustomLabels',
@@ -92,6 +102,8 @@ class CreateStoryShrinkRequest extends Model
         'storyStartTime'     => 'StoryStartTime',
         'storySubType'       => 'StorySubType',
         'storyType'          => 'StoryType',
+        'tagsShrink'         => 'Tags',
+        'userData'           => 'UserData',
     ];
 
     public function validate()
@@ -142,6 +154,12 @@ class CreateStoryShrinkRequest extends Model
         }
         if (null !== $this->storyType) {
             $res['StoryType'] = $this->storyType;
+        }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -196,6 +214,12 @@ class CreateStoryShrinkRequest extends Model
         }
         if (isset($map['StoryType'])) {
             $model->storyType = $map['StoryType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

@@ -77,6 +77,16 @@ class CreateStoryRequest extends Model
      * @var string
      */
     public $storyType;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'customId'        => 'CustomId',
         'customLabels'    => 'CustomLabels',
@@ -92,6 +102,8 @@ class CreateStoryRequest extends Model
         'storyStartTime'  => 'StoryStartTime',
         'storySubType'    => 'StorySubType',
         'storyType'       => 'StoryType',
+        'tags'            => 'Tags',
+        'userData'        => 'UserData',
     ];
 
     public function validate()
@@ -142,6 +154,12 @@ class CreateStoryRequest extends Model
         }
         if (null !== $this->storyType) {
             $res['StoryType'] = $this->storyType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -196,6 +214,12 @@ class CreateStoryRequest extends Model
         }
         if (isset($map['StoryType'])) {
             $model->storyType = $map['StoryType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

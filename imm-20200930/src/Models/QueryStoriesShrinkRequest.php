@@ -46,7 +46,17 @@ class QueryStoriesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $order;
+
+    /**
+     * @var string
+     */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $sort;
 
     /**
      * @var string
@@ -85,7 +95,9 @@ class QueryStoriesShrinkRequest extends Model
         'maxResults'                => 'MaxResults',
         'nextToken'                 => 'NextToken',
         'objectId'                  => 'ObjectId',
+        'order'                     => 'Order',
         'projectName'               => 'ProjectName',
+        'sort'                      => 'Sort',
         'storyEndTimeRangeShrink'   => 'StoryEndTimeRange',
         'storyName'                 => 'StoryName',
         'storyStartTimeRangeShrink' => 'StoryStartTimeRange',
@@ -122,8 +134,14 @@ class QueryStoriesShrinkRequest extends Model
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
         }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
         }
         if (null !== $this->storyEndTimeRangeShrink) {
             $res['StoryEndTimeRange'] = $this->storyEndTimeRangeShrink;
@@ -176,8 +194,14 @@ class QueryStoriesShrinkRequest extends Model
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
         }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
         }
         if (isset($map['StoryEndTimeRange'])) {
             $model->storyEndTimeRangeShrink = $map['StoryEndTimeRange'];

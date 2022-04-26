@@ -16,6 +16,13 @@ class VideoStream extends Model
     public $averageFrameRate;
 
     /**
+     * @description BitDepth
+     *
+     * @var int
+     */
+    public $bitDepth;
+
+    /**
      * @description Bitrate
      *
      * @var int
@@ -56,6 +63,34 @@ class VideoStream extends Model
      * @var string
      */
     public $codecTimeBase;
+
+    /**
+     * @description ColorPrimaries
+     *
+     * @var string
+     */
+    public $colorPrimaries;
+
+    /**
+     * @description ColorRange
+     *
+     * @var string
+     */
+    public $colorRange;
+
+    /**
+     * @description ColorSpace
+     *
+     * @var string
+     */
+    public $colorSpace;
+
+    /**
+     * @description ColorTransfer
+     *
+     * @var string
+     */
+    public $colorTransfer;
 
     /**
      * @description DisplayAspectRatio
@@ -170,12 +205,17 @@ class VideoStream extends Model
     public $width;
     protected $_name = [
         'averageFrameRate'   => 'AverageFrameRate',
+        'bitDepth'           => 'BitDepth',
         'bitrate'            => 'Bitrate',
         'codecLongName'      => 'CodecLongName',
         'codecName'          => 'CodecName',
         'codecTag'           => 'CodecTag',
         'codecTagString'     => 'CodecTagString',
         'codecTimeBase'      => 'CodecTimeBase',
+        'colorPrimaries'     => 'ColorPrimaries',
+        'colorRange'         => 'ColorRange',
+        'colorSpace'         => 'ColorSpace',
+        'colorTransfer'      => 'ColorTransfer',
         'displayAspectRatio' => 'DisplayAspectRatio',
         'duration'           => 'Duration',
         'frameCount'         => 'FrameCount',
@@ -204,6 +244,9 @@ class VideoStream extends Model
         if (null !== $this->averageFrameRate) {
             $res['AverageFrameRate'] = $this->averageFrameRate;
         }
+        if (null !== $this->bitDepth) {
+            $res['BitDepth'] = $this->bitDepth;
+        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
@@ -221,6 +264,18 @@ class VideoStream extends Model
         }
         if (null !== $this->codecTimeBase) {
             $res['CodecTimeBase'] = $this->codecTimeBase;
+        }
+        if (null !== $this->colorPrimaries) {
+            $res['ColorPrimaries'] = $this->colorPrimaries;
+        }
+        if (null !== $this->colorRange) {
+            $res['ColorRange'] = $this->colorRange;
+        }
+        if (null !== $this->colorSpace) {
+            $res['ColorSpace'] = $this->colorSpace;
+        }
+        if (null !== $this->colorTransfer) {
+            $res['ColorTransfer'] = $this->colorTransfer;
         }
         if (null !== $this->displayAspectRatio) {
             $res['DisplayAspectRatio'] = $this->displayAspectRatio;
@@ -285,6 +340,9 @@ class VideoStream extends Model
         if (isset($map['AverageFrameRate'])) {
             $model->averageFrameRate = $map['AverageFrameRate'];
         }
+        if (isset($map['BitDepth'])) {
+            $model->bitDepth = $map['BitDepth'];
+        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
@@ -302,6 +360,18 @@ class VideoStream extends Model
         }
         if (isset($map['CodecTimeBase'])) {
             $model->codecTimeBase = $map['CodecTimeBase'];
+        }
+        if (isset($map['ColorPrimaries'])) {
+            $model->colorPrimaries = $map['ColorPrimaries'];
+        }
+        if (isset($map['ColorRange'])) {
+            $model->colorRange = $map['ColorRange'];
+        }
+        if (isset($map['ColorSpace'])) {
+            $model->colorSpace = $map['ColorSpace'];
+        }
+        if (isset($map['ColorTransfer'])) {
+            $model->colorTransfer = $map['ColorTransfer'];
         }
         if (isset($map['DisplayAspectRatio'])) {
             $model->displayAspectRatio = $map['DisplayAspectRatio'];

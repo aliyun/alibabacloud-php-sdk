@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\sources;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets;
 use AlibabaCloud\Tea\Model;
 
-class CreateFigureClustersMergingTaskRequest extends Model
+class CreateMediaConvertTaskRequest extends Model
 {
     /**
      * @var string
      */
     public $datasetName;
-
-    /**
-     * @description 源cluster
-     *
-     * @var string
-     */
-    public $from;
 
     /**
      * @var string
@@ -36,16 +31,19 @@ class CreateFigureClustersMergingTaskRequest extends Model
     public $projectName;
 
     /**
+     * @var sources[]
+     */
+    public $sources;
+
+    /**
      * @var mixed[]
      */
     public $tags;
 
     /**
-     * @description 目的cluster
-     *
-     * @var string
+     * @var targets[]
      */
-    public $to;
+    public $targets;
 
     /**
      * @var string
@@ -53,12 +51,12 @@ class CreateFigureClustersMergingTaskRequest extends Model
     public $userData;
     protected $_name = [
         'datasetName'     => 'DatasetName',
-        'from'            => 'From',
         'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
+        'sources'         => 'Sources',
         'tags'            => 'Tags',
-        'to'              => 'To',
+        'targets'         => 'Targets',
         'userData'        => 'UserData',
     ];
 
@@ -72,9 +70,6 @@ class CreateFigureClustersMergingTaskRequest extends Model
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
-        }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
@@ -84,11 +79,26 @@ class CreateFigureClustersMergingTaskRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+        if (null !== $this->sources) {
+            $res['Sources'] = [];
+            if (null !== $this->sources && \is_array($this->sources)) {
+                $n = 0;
+                foreach ($this->sources as $item) {
+                    $res['Sources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->to) {
-            $res['To'] = $this->to;
+        if (null !== $this->targets) {
+            $res['Targets'] = [];
+            if (null !== $this->targets && \is_array($this->targets)) {
+                $n = 0;
+                foreach ($this->targets as $item) {
+                    $res['Targets'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -100,16 +110,13 @@ class CreateFigureClustersMergingTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateFigureClustersMergingTaskRequest
+     * @return CreateMediaConvertTaskRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
-        }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
@@ -120,11 +127,26 @@ class CreateFigureClustersMergingTaskRequest extends Model
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+        if (isset($map['Sources'])) {
+            if (!empty($map['Sources'])) {
+                $model->sources = [];
+                $n              = 0;
+                foreach ($map['Sources'] as $item) {
+                    $model->sources[$n++] = null !== $item ? sources::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['To'])) {
-            $model->to = $map['To'];
+        if (isset($map['Targets'])) {
+            if (!empty($map['Targets'])) {
+                $model->targets = [];
+                $n              = 0;
+                foreach ($map['Targets'] as $item) {
+                    $model->targets[$n++] = null !== $item ? targets::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

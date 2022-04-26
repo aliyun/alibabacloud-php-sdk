@@ -37,6 +37,11 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     public $sourceURI;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
      * @description UserData
      *
      * @var string
@@ -47,6 +52,7 @@ class CreateDetectVideoLabelsTaskRequest extends Model
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
         'sourceURI'       => 'SourceURI',
+        'tags'            => 'Tags',
         'userData'        => 'UserData',
     ];
 
@@ -68,6 +74,9 @@ class CreateDetectVideoLabelsTaskRequest extends Model
         }
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -95,6 +104,9 @@ class CreateDetectVideoLabelsTaskRequest extends Model
         }
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

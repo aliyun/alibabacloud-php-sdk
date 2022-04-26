@@ -72,6 +72,13 @@ class AudioStream extends Model
     public $duration;
 
     /**
+     * @description FrameCount
+     *
+     * @var int
+     */
+    public $frameCount;
+
+    /**
      * @description Index
      *
      * @var int
@@ -129,6 +136,7 @@ class AudioStream extends Model
         'codecTagString' => 'CodecTagString',
         'codecTimeBase'  => 'CodecTimeBase',
         'duration'       => 'Duration',
+        'frameCount'     => 'FrameCount',
         'index'          => 'Index',
         'language'       => 'Language',
         'lyric'          => 'Lyric',
@@ -171,6 +179,9 @@ class AudioStream extends Model
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->frameCount) {
+            $res['FrameCount'] = $this->frameCount;
         }
         if (null !== $this->index) {
             $res['Index'] = $this->index;
@@ -231,6 +242,9 @@ class AudioStream extends Model
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['FrameCount'])) {
+            $model->frameCount = $map['FrameCount'];
         }
         if (isset($map['Index'])) {
             $model->index = $map['Index'];

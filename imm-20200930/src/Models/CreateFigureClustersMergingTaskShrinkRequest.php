@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateFigureClustersMergingTaskRequest extends Model
+class CreateFigureClustersMergingTaskShrinkRequest extends Model
 {
     /**
      * @var string
@@ -36,9 +36,9 @@ class CreateFigureClustersMergingTaskRequest extends Model
     public $projectName;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
 
     /**
      * @description 目的cluster
@@ -57,7 +57,7 @@ class CreateFigureClustersMergingTaskRequest extends Model
         'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
-        'tags'            => 'Tags',
+        'tagsShrink'      => 'Tags',
         'to'              => 'To',
         'userData'        => 'UserData',
     ];
@@ -84,8 +84,8 @@ class CreateFigureClustersMergingTaskRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
         if (null !== $this->to) {
             $res['To'] = $this->to;
@@ -100,7 +100,7 @@ class CreateFigureClustersMergingTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateFigureClustersMergingTaskRequest
+     * @return CreateFigureClustersMergingTaskShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -121,7 +121,7 @@ class CreateFigureClustersMergingTaskRequest extends Model
             $model->projectName = $map['ProjectName'];
         }
         if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+            $model->tagsShrink = $map['Tags'];
         }
         if (isset($map['To'])) {
             $model->to = $map['To'];

@@ -6,19 +6,12 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateFigureClustersMergingTaskRequest extends Model
+class CreateMediaConvertTaskShrinkRequest extends Model
 {
     /**
      * @var string
      */
     public $datasetName;
-
-    /**
-     * @description 源cluster
-     *
-     * @var string
-     */
-    public $from;
 
     /**
      * @var string
@@ -36,16 +29,19 @@ class CreateFigureClustersMergingTaskRequest extends Model
     public $projectName;
 
     /**
-     * @var mixed[]
-     */
-    public $tags;
-
-    /**
-     * @description 目的cluster
-     *
      * @var string
      */
-    public $to;
+    public $sourcesShrink;
+
+    /**
+     * @var string
+     */
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
+    public $targetsShrink;
 
     /**
      * @var string
@@ -53,12 +49,12 @@ class CreateFigureClustersMergingTaskRequest extends Model
     public $userData;
     protected $_name = [
         'datasetName'     => 'DatasetName',
-        'from'            => 'From',
         'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
-        'tags'            => 'Tags',
-        'to'              => 'To',
+        'sourcesShrink'   => 'Sources',
+        'tagsShrink'      => 'Tags',
+        'targetsShrink'   => 'Targets',
         'userData'        => 'UserData',
     ];
 
@@ -72,9 +68,6 @@ class CreateFigureClustersMergingTaskRequest extends Model
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
-        }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
@@ -84,11 +77,14 @@ class CreateFigureClustersMergingTaskRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->sourcesShrink) {
+            $res['Sources'] = $this->sourcesShrink;
         }
-        if (null !== $this->to) {
-            $res['To'] = $this->to;
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
+        }
+        if (null !== $this->targetsShrink) {
+            $res['Targets'] = $this->targetsShrink;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -100,16 +96,13 @@ class CreateFigureClustersMergingTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateFigureClustersMergingTaskRequest
+     * @return CreateMediaConvertTaskShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
-        }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
@@ -120,11 +113,14 @@ class CreateFigureClustersMergingTaskRequest extends Model
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+        if (isset($map['Sources'])) {
+            $model->sourcesShrink = $map['Sources'];
         }
-        if (isset($map['To'])) {
-            $model->to = $map['To'];
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
+        }
+        if (isset($map['Targets'])) {
+            $model->targetsShrink = $map['Targets'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
