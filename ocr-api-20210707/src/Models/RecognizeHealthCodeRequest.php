@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecognizeBusinessLicenseRequest extends Model
+class RecognizeHealthCodeRequest extends Model
 {
     /**
      * @description 图片链接（长度不超 2048，不支持 base64）
@@ -47,7 +47,7 @@ class RecognizeBusinessLicenseRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeBusinessLicenseRequest
+     * @return RecognizeHealthCodeRequest
      */
     public static function fromMap($map = [])
     {

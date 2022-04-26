@@ -24,11 +24,6 @@ class RecognizeIdcardRequest extends Model
     public $url;
 
     /**
-     * @var string
-     */
-    public $workflowOp;
-
-    /**
      * @description 图片二进制字节流，最大10MB
      *
      * @var Stream
@@ -37,7 +32,6 @@ class RecognizeIdcardRequest extends Model
     protected $_name = [
         'outputFigure' => 'OutputFigure',
         'url'          => 'Url',
-        'workflowOp'   => 'WorkflowOp',
         'body'         => 'body',
     ];
 
@@ -53,9 +47,6 @@ class RecognizeIdcardRequest extends Model
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
-        }
-        if (null !== $this->workflowOp) {
-            $res['WorkflowOp'] = $this->workflowOp;
         }
         if (null !== $this->body) {
             $res['body'] = $this->body;
@@ -77,9 +68,6 @@ class RecognizeIdcardRequest extends Model
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
-        }
-        if (isset($map['WorkflowOp'])) {
-            $model->workflowOp = $map['WorkflowOp'];
         }
         if (isset($map['body'])) {
             $model->body = $map['body'];
