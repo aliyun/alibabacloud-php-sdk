@@ -20,6 +20,20 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteWirelessCloudConnectorRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteWirelessCloudConnectorResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DetachVpcFromNetLinkRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DetachVpcFromNetLinkResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\GetWirelessCloudConnectorRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\GetWirelessCloudConnectorResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDataPackagesRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDataPackagesResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListOrdersRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListOrdersResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListRegionsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListWirelessCloudConnectorsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListWirelessCloudConnectorsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListZonesRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListZonesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\OpenCc5gServiceRequest;
@@ -475,6 +489,286 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachVpcFromNetLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetWirelessCloudConnectorRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetWirelessCloudConnectorResponse
+     */
+    public function getWirelessCloudConnectorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWirelessCloudConnector',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWirelessCloudConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWirelessCloudConnectorRequest $request
+     *
+     * @return GetWirelessCloudConnectorResponse
+     */
+    public function getWirelessCloudConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWirelessCloudConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAuthorizationRulesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAuthorizationRulesResponse
+     */
+    public function listAuthorizationRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthorizationRules',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAuthorizationRulesRequest $request
+     *
+     * @return ListAuthorizationRulesResponse
+     */
+    public function listAuthorizationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizationRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCardsRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListCardsResponse
+     */
+    public function listCardsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCards',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCardsRequest $request
+     *
+     * @return ListCardsResponse
+     */
+    public function listCards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCardsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataPackagesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDataPackagesResponse
+     */
+    public function listDataPackagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataPackages',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataPackagesRequest $request
+     *
+     * @return ListDataPackagesResponse
+     */
+    public function listDataPackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataPackagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOrdersRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListOrdersResponse
+     */
+    public function listOrdersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOrders',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOrdersRequest $request
+     *
+     * @return ListOrdersResponse
+     */
+    public function listOrders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOrdersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRegionsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRegions',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRegionsRequest $request
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListWirelessCloudConnectorsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListWirelessCloudConnectorsResponse
+     */
+    public function listWirelessCloudConnectorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWirelessCloudConnectors',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWirelessCloudConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWirelessCloudConnectorsRequest $request
+     *
+     * @return ListWirelessCloudConnectorsResponse
+     */
+    public function listWirelessCloudConnectors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWirelessCloudConnectorsWithOptions($request, $runtime);
     }
 
     /**
