@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\BatchDispatchGameSlotRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\BatchDispatchGameSlotResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\BatchStopGameSessionsRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\BatchStopGameSessionsResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CancelGameHangRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CancelGameHangResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CloseOrderResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CreateGameDeployWorkflowRequest;
@@ -72,6 +74,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListHistoryContainerStatusReq
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListHistoryContainerStatusResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryGameHangRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryGameHangResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryGameRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryGameResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryItemsRequest;
@@ -86,6 +90,10 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryTenantRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryTenantResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\RemoveGameFromProjectRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\RemoveGameFromProjectResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameAliveRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameAliveResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameHangRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameHangResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SkipTrialPolicyRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SkipTrialPolicyResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StopGameSessionRequest;
@@ -148,11 +156,17 @@ class CloudGameAPI extends OpenApiClient
     public function adaptGameVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['FrameRate']  = $request->frameRate;
-        $query['Resolution'] = $request->resolution;
-        $query['VersionId']  = $request->versionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->frameRate)) {
+            $query['FrameRate'] = $request->frameRate;
+        }
+        if (!Utils::isUnset($request->resolution)) {
+            $query['Resolution'] = $request->resolution;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -191,10 +205,14 @@ class CloudGameAPI extends OpenApiClient
     public function addGameToProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['GameId']    = $request->gameId;
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -276,14 +294,26 @@ class CloudGameAPI extends OpenApiClient
     public function batchStopGameSessionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['GameId']    = $request->gameId;
-        $query['ProjectId'] = $request->projectId;
-        $query['Reason']    = $request->reason;
-        $query['Tags']      = $request->tags;
-        $query['Token']     = $request->token;
-        $query['TrackInfo'] = $request->trackInfo;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->trackInfo)) {
+            $query['TrackInfo'] = $request->trackInfo;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -314,6 +344,52 @@ class CloudGameAPI extends OpenApiClient
     }
 
     /**
+     * @param CancelGameHangRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CancelGameHangResponse
+     */
+    public function cancelGameHangWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $body['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->gameSession)) {
+            $body['GameSession'] = $request->gameSession;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelGameHang',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelGameHangResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelGameHangRequest $request
+     *
+     * @return CancelGameHangResponse
+     */
+    public function cancelGameHang($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelGameHangWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CloseOrderRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -322,11 +398,17 @@ class CloudGameAPI extends OpenApiClient
     public function closeOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AccountDomain']  = $request->accountDomain;
-        $query['BuyerAccountId'] = $request->buyerAccountId;
-        $query['OrderId']        = $request->orderId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDomain)) {
+            $query['AccountDomain'] = $request->accountDomain;
+        }
+        if (!Utils::isUnset($request->buyerAccountId)) {
+            $query['BuyerAccountId'] = $request->buyerAccountId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -365,11 +447,17 @@ class CloudGameAPI extends OpenApiClient
     public function createGameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ClientToken']  = $request->clientToken;
-        $query['GameName']     = $request->gameName;
-        $query['PlatformType'] = $request->platformType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->gameName)) {
+            $query['GameName'] = $request->gameName;
+        }
+        if (!Utils::isUnset($request->platformType)) {
+            $query['PlatformType'] = $request->platformType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -408,18 +496,38 @@ class CloudGameAPI extends OpenApiClient
     public function createGameDeployWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DownloadType'] = $request->downloadType;
-        $query['FileType']     = $request->fileType;
-        $query['FrameRate']    = $request->frameRate;
-        $query['GameId']       = $request->gameId;
-        $query['GameVersion']  = $request->gameVersion;
-        $query['Hash']         = $request->hash;
-        $query['Instance']     = $request->instance;
-        $query['ProjectId']    = $request->projectId;
-        $query['Resolution']   = $request->resolution;
-        $query['VersionName']  = $request->versionName;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->downloadType)) {
+            $query['DownloadType'] = $request->downloadType;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $query['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->frameRate)) {
+            $query['FrameRate'] = $request->frameRate;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->gameVersion)) {
+            $query['GameVersion'] = $request->gameVersion;
+        }
+        if (!Utils::isUnset($request->hash)) {
+            $query['Hash'] = $request->hash;
+        }
+        if (!Utils::isUnset($request->instance)) {
+            $query['Instance'] = $request->instance;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resolution)) {
+            $query['Resolution'] = $request->resolution;
+        }
+        if (!Utils::isUnset($request->versionName)) {
+            $query['VersionName'] = $request->versionName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -458,16 +566,32 @@ class CloudGameAPI extends OpenApiClient
     public function createOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AccountDomain']   = $request->accountDomain;
-        $query['Amount']          = $request->amount;
-        $query['BuyerAccountId']  = $request->buyerAccountId;
-        $query['IdempotentCode']  = $request->idempotentCode;
-        $query['ItemId']          = $request->itemId;
-        $query['OriginPrice']     = $request->originPrice;
-        $query['SettlementPrice'] = $request->settlementPrice;
-        $query['SkuId']           = $request->skuId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDomain)) {
+            $query['AccountDomain'] = $request->accountDomain;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->buyerAccountId)) {
+            $query['BuyerAccountId'] = $request->buyerAccountId;
+        }
+        if (!Utils::isUnset($request->idempotentCode)) {
+            $query['IdempotentCode'] = $request->idempotentCode;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->originPrice)) {
+            $query['OriginPrice'] = $request->originPrice;
+        }
+        if (!Utils::isUnset($request->settlementPrice)) {
+            $query['SettlementPrice'] = $request->settlementPrice;
+        }
+        if (!Utils::isUnset($request->skuId)) {
+            $query['SkuId'] = $request->skuId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -506,10 +630,14 @@ class CloudGameAPI extends OpenApiClient
     public function createProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['ProjectName'] = $request->projectName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -548,11 +676,17 @@ class CloudGameAPI extends OpenApiClient
     public function createTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ClientToken']  = $request->clientToken;
-        $query['CurrentToken'] = $request->currentToken;
-        $query['Session']      = $request->session;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->currentToken)) {
+            $query['CurrentToken'] = $request->currentToken;
+        }
+        if (!Utils::isUnset($request->session)) {
+            $query['Session'] = $request->session;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -591,9 +725,11 @@ class CloudGameAPI extends OpenApiClient
     public function deleteGameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['GameId'] = $request->gameId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -632,9 +768,11 @@ class CloudGameAPI extends OpenApiClient
     public function deleteGameVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['VersionId'] = $request->versionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -673,9 +811,11 @@ class CloudGameAPI extends OpenApiClient
     public function deleteProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -714,11 +854,17 @@ class CloudGameAPI extends OpenApiClient
     public function deliveryOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AccountDomain']  = $request->accountDomain;
-        $query['BuyerAccountId'] = $request->buyerAccountId;
-        $query['OrderId']        = $request->orderId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDomain)) {
+            $query['AccountDomain'] = $request->accountDomain;
+        }
+        if (!Utils::isUnset($request->buyerAccountId)) {
+            $query['BuyerAccountId'] = $request->buyerAccountId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -839,11 +985,17 @@ class CloudGameAPI extends OpenApiClient
     public function getGameCcuWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['AccessKey']  = $request->accessKey;
-        $query['GameId']     = $request->gameId;
-        $query['RegionName'] = $request->regionName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->regionName)) {
+            $query['RegionName'] = $request->regionName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -882,9 +1034,11 @@ class CloudGameAPI extends OpenApiClient
     public function getGameStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['GameSession'] = $request->gameSession;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameSession)) {
+            $query['GameSession'] = $request->gameSession;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -923,11 +1077,17 @@ class CloudGameAPI extends OpenApiClient
     public function getGameStockWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AccessKey'] = $request->accessKey;
-        $query['GameId']    = $request->gameId;
-        $query['UserLevel'] = $request->userLevel;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->userLevel)) {
+            $query['UserLevel'] = $request->userLevel;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -966,11 +1126,17 @@ class CloudGameAPI extends OpenApiClient
     public function getGameTrialSurplusDurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AccountId'] = $request->accountId;
-        $query['GameId']    = $request->gameId;
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1009,9 +1175,11 @@ class CloudGameAPI extends OpenApiClient
     public function getGameVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['VersionId'] = $request->versionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1050,9 +1218,11 @@ class CloudGameAPI extends OpenApiClient
     public function getGameVersionProgressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['TaskId'] = $request->taskId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1091,9 +1261,11 @@ class CloudGameAPI extends OpenApiClient
     public function getItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['ItemId'] = $request->itemId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1132,11 +1304,17 @@ class CloudGameAPI extends OpenApiClient
     public function getOutAccountBindDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AccountDomain']  = $request->accountDomain;
-        $query['AccountId']      = $request->accountId;
-        $query['OutAccountType'] = $request->outAccountType;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDomain)) {
+            $query['AccountDomain'] = $request->accountDomain;
+        }
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->outAccountType)) {
+            $query['OutAccountType'] = $request->outAccountType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1175,9 +1353,11 @@ class CloudGameAPI extends OpenApiClient
     public function getSessionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['Token'] = $request->token;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1216,10 +1396,14 @@ class CloudGameAPI extends OpenApiClient
     public function getStopGameTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AccessKey'] = $request->accessKey;
-        $query['GameId']    = $request->gameId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1258,10 +1442,14 @@ class CloudGameAPI extends OpenApiClient
     public function kickPlayerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['GameSession']     = $request->gameSession;
-        $query['KickedAccountId'] = $request->kickedAccountId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameSession)) {
+            $query['GameSession'] = $request->gameSession;
+        }
+        if (!Utils::isUnset($request->kickedAccountId)) {
+            $query['KickedAccountId'] = $request->kickedAccountId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1300,12 +1488,20 @@ class CloudGameAPI extends OpenApiClient
     public function listBoughtGamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AccountDomain'] = $request->accountDomain;
-        $query['AccountId']     = $request->accountId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDomain)) {
+            $query['AccountDomain'] = $request->accountDomain;
+        }
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1344,9 +1540,11 @@ class CloudGameAPI extends OpenApiClient
     public function listContainerStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['GameSessionIdList'] = $request->gameSessionIdList;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameSessionIdList)) {
+            $query['GameSessionIdList'] = $request->gameSessionIdList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1385,12 +1583,20 @@ class CloudGameAPI extends OpenApiClient
     public function listDeployableInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ProjectId']  = $request->projectId;
-        $query['VersionId']  = $request->versionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1429,11 +1635,17 @@ class CloudGameAPI extends OpenApiClient
     public function listGameVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['GameId']     = $request->gameId;
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1472,10 +1684,14 @@ class CloudGameAPI extends OpenApiClient
     public function listGamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1514,13 +1730,23 @@ class CloudGameAPI extends OpenApiClient
     public function listHistoryContainerStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['EndTime']           = $request->endTime;
-        $query['LastGameSessionId'] = $request->lastGameSessionId;
-        $query['PageSize']          = $request->pageSize;
-        $query['ProjectId']         = $request->projectId;
-        $query['StartTime']         = $request->startTime;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lastGameSessionId)) {
+            $query['LastGameSessionId'] = $request->lastGameSessionId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1559,10 +1785,14 @@ class CloudGameAPI extends OpenApiClient
     public function listProjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1601,12 +1831,20 @@ class CloudGameAPI extends OpenApiClient
     public function queryGameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['PageNo']    = $request->pageNo;
-        $query['PageSize']  = $request->pageSize;
-        $query['ProjectId'] = $request->projectId;
-        $query['TenantId']  = $request->tenantId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1637,6 +1875,52 @@ class CloudGameAPI extends OpenApiClient
     }
 
     /**
+     * @param QueryGameHangRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryGameHangResponse
+     */
+    public function queryGameHangWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $body['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->gameSession)) {
+            $body['GameSession'] = $request->gameSession;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGameHang',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGameHangResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryGameHangRequest $request
+     *
+     * @return QueryGameHangResponse
+     */
+    public function queryGameHang($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGameHangWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryItemsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1645,10 +1929,14 @@ class CloudGameAPI extends OpenApiClient
     public function queryItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1687,11 +1975,17 @@ class CloudGameAPI extends OpenApiClient
     public function queryOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AccountDomain']  = $request->accountDomain;
-        $query['BuyerAccountId'] = $request->buyerAccountId;
-        $query['OrderId']        = $request->orderId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDomain)) {
+            $query['AccountDomain'] = $request->accountDomain;
+        }
+        if (!Utils::isUnset($request->buyerAccountId)) {
+            $query['BuyerAccountId'] = $request->buyerAccountId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1730,11 +2024,17 @@ class CloudGameAPI extends OpenApiClient
     public function queryOutAccountBindStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AccountDomain'] = $request->accountDomain;
-        $query['AccountId']     = $request->accountId;
-        $query['GameId']        = $request->gameId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDomain)) {
+            $query['AccountDomain'] = $request->accountDomain;
+        }
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1773,12 +2073,20 @@ class CloudGameAPI extends OpenApiClient
     public function queryProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['PageNo']    = $request->pageNo;
-        $query['PageSize']  = $request->pageSize;
-        $query['ProjectId'] = $request->projectId;
-        $query['TenantId']  = $request->tenantId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1817,11 +2125,17 @@ class CloudGameAPI extends OpenApiClient
     public function queryTenantWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['PageNo']   = $request->pageNo;
-        $query['PageSize'] = $request->pageSize;
-        $query['Param']    = $request->param;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->param)) {
+            $query['Param'] = $request->param;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1860,10 +2174,14 @@ class CloudGameAPI extends OpenApiClient
     public function removeGameFromProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['GameId']    = $request->gameId;
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1894,6 +2212,104 @@ class CloudGameAPI extends OpenApiClient
     }
 
     /**
+     * @param SetGameAliveRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SetGameAliveResponse
+     */
+    public function setGameAliveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $body['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->gameSession)) {
+            $body['GameSession'] = $request->gameSession;
+        }
+        if (!Utils::isUnset($request->keepAlive)) {
+            $body['KeepAlive'] = $request->keepAlive;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetGameAlive',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetGameAliveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetGameAliveRequest $request
+     *
+     * @return SetGameAliveResponse
+     */
+    public function setGameAlive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setGameAliveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetGameHangRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SetGameHangResponse
+     */
+    public function setGameHangWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $body['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $body['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->gameSession)) {
+            $body['GameSession'] = $request->gameSession;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetGameHang',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetGameHangResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetGameHangRequest $request
+     *
+     * @return SetGameHangResponse
+     */
+    public function setGameHang($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setGameHangWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SkipTrialPolicyRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1902,9 +2318,11 @@ class CloudGameAPI extends OpenApiClient
     public function skipTrialPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GameSessionId'] = $request->gameSessionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gameSessionId)) {
+            $query['GameSessionId'] = $request->gameSessionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2001,13 +2419,23 @@ class CloudGameAPI extends OpenApiClient
     public function submitDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CloudGameInstanceIds'] = $request->cloudGameInstanceIds;
-        $query['GameId']               = $request->gameId;
-        $query['OperationType']        = $request->operationType;
-        $query['ProjectId']            = $request->projectId;
-        $query['VersionId']            = $request->versionId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cloudGameInstanceIds)) {
+            $query['CloudGameInstanceIds'] = $request->cloudGameInstanceIds;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2046,27 +2474,65 @@ class CloudGameAPI extends OpenApiClient
     public function submitInternalPurchaseChargeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                     = [];
-        $query['ActiveUserRetentionRateOneDay']    = $request->activeUserRetentionRateOneDay;
-        $query['ActiveUserRetentionRateSevenDay']  = $request->activeUserRetentionRateSevenDay;
-        $query['ActiveUserRetentionRateThirtyDay'] = $request->activeUserRetentionRateThirtyDay;
-        $query['Arpu']                             = $request->arpu;
-        $query['ChargeDate']                       = $request->chargeDate;
-        $query['Dau']                              = $request->dau;
-        $query['GameId']                           = $request->gameId;
-        $query['Mau']                              = $request->mau;
-        $query['NewUserRetentionRateOneDay']       = $request->newUserRetentionRateOneDay;
-        $query['NewUserRetentionRateSevenDay']     = $request->newUserRetentionRateSevenDay;
-        $query['NewUserRetentionRateThirtyDay']    = $request->newUserRetentionRateThirtyDay;
-        $query['PaymentConversionRate']            = $request->paymentConversionRate;
-        $query['PlayTimeAverageOneDay']            = $request->playTimeAverageOneDay;
-        $query['PlayTimeAverageThirtyDay']         = $request->playTimeAverageThirtyDay;
-        $query['PlayTimeNinetyPointsOneDay']       = $request->playTimeNinetyPointsOneDay;
-        $query['PlayTimeNinetyPointsThirtyDay']    = $request->playTimeNinetyPointsThirtyDay;
-        $query['PlayTimeRangeOneDay']              = $request->playTimeRangeOneDay;
-        $query['PlayTimeRangeThirtyDay']           = $request->playTimeRangeThirtyDay;
-        $query['UserActivationRate']               = $request->userActivationRate;
-        $req                                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->activeUserRetentionRateOneDay)) {
+            $query['ActiveUserRetentionRateOneDay'] = $request->activeUserRetentionRateOneDay;
+        }
+        if (!Utils::isUnset($request->activeUserRetentionRateSevenDay)) {
+            $query['ActiveUserRetentionRateSevenDay'] = $request->activeUserRetentionRateSevenDay;
+        }
+        if (!Utils::isUnset($request->activeUserRetentionRateThirtyDay)) {
+            $query['ActiveUserRetentionRateThirtyDay'] = $request->activeUserRetentionRateThirtyDay;
+        }
+        if (!Utils::isUnset($request->arpu)) {
+            $query['Arpu'] = $request->arpu;
+        }
+        if (!Utils::isUnset($request->chargeDate)) {
+            $query['ChargeDate'] = $request->chargeDate;
+        }
+        if (!Utils::isUnset($request->dau)) {
+            $query['Dau'] = $request->dau;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->mau)) {
+            $query['Mau'] = $request->mau;
+        }
+        if (!Utils::isUnset($request->newUserRetentionRateOneDay)) {
+            $query['NewUserRetentionRateOneDay'] = $request->newUserRetentionRateOneDay;
+        }
+        if (!Utils::isUnset($request->newUserRetentionRateSevenDay)) {
+            $query['NewUserRetentionRateSevenDay'] = $request->newUserRetentionRateSevenDay;
+        }
+        if (!Utils::isUnset($request->newUserRetentionRateThirtyDay)) {
+            $query['NewUserRetentionRateThirtyDay'] = $request->newUserRetentionRateThirtyDay;
+        }
+        if (!Utils::isUnset($request->paymentConversionRate)) {
+            $query['PaymentConversionRate'] = $request->paymentConversionRate;
+        }
+        if (!Utils::isUnset($request->playTimeAverageOneDay)) {
+            $query['PlayTimeAverageOneDay'] = $request->playTimeAverageOneDay;
+        }
+        if (!Utils::isUnset($request->playTimeAverageThirtyDay)) {
+            $query['PlayTimeAverageThirtyDay'] = $request->playTimeAverageThirtyDay;
+        }
+        if (!Utils::isUnset($request->playTimeNinetyPointsOneDay)) {
+            $query['PlayTimeNinetyPointsOneDay'] = $request->playTimeNinetyPointsOneDay;
+        }
+        if (!Utils::isUnset($request->playTimeNinetyPointsThirtyDay)) {
+            $query['PlayTimeNinetyPointsThirtyDay'] = $request->playTimeNinetyPointsThirtyDay;
+        }
+        if (!Utils::isUnset($request->playTimeRangeOneDay)) {
+            $query['PlayTimeRangeOneDay'] = $request->playTimeRangeOneDay;
+        }
+        if (!Utils::isUnset($request->playTimeRangeThirtyDay)) {
+            $query['PlayTimeRangeThirtyDay'] = $request->playTimeRangeThirtyDay;
+        }
+        if (!Utils::isUnset($request->userActivationRate)) {
+            $query['UserActivationRate'] = $request->userActivationRate;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2105,9 +2571,11 @@ class CloudGameAPI extends OpenApiClient
     public function submitInternalPurchaseOrdersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['OrderList'] = $request->orderList;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderList)) {
+            $query['OrderList'] = $request->orderList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2146,13 +2614,23 @@ class CloudGameAPI extends OpenApiClient
     public function submitInternalPurchaseReadyFlagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['BatchInfoList']   = $request->batchInfoList;
-        $query['ChargeDate']      = $request->chargeDate;
-        $query['GameId']          = $request->gameId;
-        $query['OrderTotalCount'] = $request->orderTotalCount;
-        $query['Status']          = $request->status;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->batchInfoList)) {
+            $query['BatchInfoList'] = $request->batchInfoList;
+        }
+        if (!Utils::isUnset($request->chargeDate)) {
+            $query['ChargeDate'] = $request->chargeDate;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->orderTotalCount)) {
+            $query['OrderTotalCount'] = $request->orderTotalCount;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2191,14 +2669,26 @@ class CloudGameAPI extends OpenApiClient
     public function uploadGameVersionByDownloadWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DownloadType'] = $request->downloadType;
-        $query['FileType']     = $request->fileType;
-        $query['GameId']       = $request->gameId;
-        $query['GameVersion']  = $request->gameVersion;
-        $query['Hash']         = $request->hash;
-        $query['VersionName']  = $request->versionName;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->downloadType)) {
+            $query['DownloadType'] = $request->downloadType;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $query['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->gameVersion)) {
+            $query['GameVersion'] = $request->gameVersion;
+        }
+        if (!Utils::isUnset($request->hash)) {
+            $query['Hash'] = $request->hash;
+        }
+        if (!Utils::isUnset($request->versionName)) {
+            $query['VersionName'] = $request->versionName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
