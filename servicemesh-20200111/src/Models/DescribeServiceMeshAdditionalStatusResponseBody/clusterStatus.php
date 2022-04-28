@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody;
 
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ClusterStatusLogtailStatusRecordValue;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody\clusterStatus\apiServerLoadBalancerStatus;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody\clusterStatus\pilotLoadBalancerStatus;
 use AlibabaCloud\Tea\Model;
@@ -37,7 +36,7 @@ class clusterStatus extends Model
     public $controlPlaneProjectStatus;
 
     /**
-     * @var ClusterStatusLogtailStatusRecordValue[]
+     * @var mixed[]
      */
     public $logtailStatusRecord;
 
@@ -84,12 +83,7 @@ class clusterStatus extends Model
             $res['ControlPlaneProjectStatus'] = $this->controlPlaneProjectStatus;
         }
         if (null !== $this->logtailStatusRecord) {
-            $res['LogtailStatusRecord'] = [];
-            if (null !== $this->logtailStatusRecord && \is_array($this->logtailStatusRecord)) {
-                foreach ($this->logtailStatusRecord as $key => $val) {
-                    $res['LogtailStatusRecord'][$key] = null !== $val ? $val->toMap() : $val;
-                }
-            }
+            $res['LogtailStatusRecord'] = $this->logtailStatusRecord;
         }
         if (null !== $this->pilotLoadBalancerStatus) {
             $res['PilotLoadBalancerStatus'] = null !== $this->pilotLoadBalancerStatus ? $this->pilotLoadBalancerStatus->toMap() : null;

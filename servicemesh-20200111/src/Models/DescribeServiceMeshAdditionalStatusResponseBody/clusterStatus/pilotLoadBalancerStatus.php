@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class pilotLoadBalancerStatus extends Model
 {
     /**
+     * @var bool
+     */
+    public $locked;
+
+    /**
      * @var string
      */
     public $payType;
@@ -28,6 +33,7 @@ class pilotLoadBalancerStatus extends Model
      */
     public $SLBExistStatus;
     protected $_name = [
+        'locked'                    => 'Locked',
         'payType'                   => 'PayType',
         'reused'                    => 'Reused',
         'SLBBackEndServerNumStatus' => 'SLBBackEndServerNumStatus',
@@ -41,6 +47,9 @@ class pilotLoadBalancerStatus extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->locked) {
+            $res['Locked'] = $this->locked;
+        }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -65,6 +74,9 @@ class pilotLoadBalancerStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Locked'])) {
+            $model->locked = $map['Locked'];
+        }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }

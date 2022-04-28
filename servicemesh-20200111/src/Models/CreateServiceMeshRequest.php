@@ -74,11 +74,6 @@ class CreateServiceMeshRequest extends Model
     public $CRAggregationEnabled;
 
     /**
-     * @var bool
-     */
-    public $canaryUpgradeEnabled;
-
-    /**
      * @var string
      */
     public $chargeType;
@@ -356,7 +351,6 @@ class CreateServiceMeshRequest extends Model
         'autoRenew'                  => 'AutoRenew',
         'autoRenewPeriod'            => 'AutoRenewPeriod',
         'CRAggregationEnabled'       => 'CRAggregationEnabled',
-        'canaryUpgradeEnabled'       => 'CanaryUpgradeEnabled',
         'chargeType'                 => 'ChargeType',
         'clusterSpec'                => 'ClusterSpec',
         'configSourceEnabled'        => 'ConfigSourceEnabled',
@@ -457,9 +451,6 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->CRAggregationEnabled) {
             $res['CRAggregationEnabled'] = $this->CRAggregationEnabled;
-        }
-        if (null !== $this->canaryUpgradeEnabled) {
-            $res['CanaryUpgradeEnabled'] = $this->canaryUpgradeEnabled;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -670,9 +661,6 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['CRAggregationEnabled'])) {
             $model->CRAggregationEnabled = $map['CRAggregationEnabled'];
-        }
-        if (isset($map['CanaryUpgradeEnabled'])) {
-            $model->canaryUpgradeEnabled = $map['CanaryUpgradeEnabled'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
