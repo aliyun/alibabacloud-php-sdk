@@ -208,6 +208,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupVpcWhitelistRequest;
@@ -5882,6 +5884,154 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyApiConfigurationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyApiConfigurationResponse
+     */
+    public function modifyApiConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowSignatureMethod)) {
+            $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
+        }
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->appCodeAuthType)) {
+            $query['AppCodeAuthType'] = $request->appCodeAuthType;
+        }
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
+        }
+        if (!Utils::isUnset($request->bodyFormat)) {
+            $query['BodyFormat'] = $request->bodyFormat;
+        }
+        if (!Utils::isUnset($request->bodyModel)) {
+            $query['BodyModel'] = $request->bodyModel;
+        }
+        if (!Utils::isUnset($request->contentTypeCategory)) {
+            $query['ContentTypeCategory'] = $request->contentTypeCategory;
+        }
+        if (!Utils::isUnset($request->contentTypeValue)) {
+            $query['ContentTypeValue'] = $request->contentTypeValue;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->disableInternet)) {
+            $query['DisableInternet'] = $request->disableInternet;
+        }
+        if (!Utils::isUnset($request->errorCodeSamples)) {
+            $query['ErrorCodeSamples'] = $request->errorCodeSamples;
+        }
+        if (!Utils::isUnset($request->failResultSample)) {
+            $query['FailResultSample'] = $request->failResultSample;
+        }
+        if (!Utils::isUnset($request->forceNonceCheck)) {
+            $query['ForceNonceCheck'] = $request->forceNonceCheck;
+        }
+        if (!Utils::isUnset($request->functionComputeConfig)) {
+            $query['FunctionComputeConfig'] = $request->functionComputeConfig;
+        }
+        if (!Utils::isUnset($request->httpConfig)) {
+            $query['HttpConfig'] = $request->httpConfig;
+        }
+        if (!Utils::isUnset($request->mockConfig)) {
+            $query['MockConfig'] = $request->mockConfig;
+        }
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
+        }
+        if (!Utils::isUnset($request->ossConfig)) {
+            $query['OssConfig'] = $request->ossConfig;
+        }
+        if (!Utils::isUnset($request->postBodyDescription)) {
+            $query['PostBodyDescription'] = $request->postBodyDescription;
+        }
+        if (!Utils::isUnset($request->requestHttpMethod)) {
+            $query['RequestHttpMethod'] = $request->requestHttpMethod;
+        }
+        if (!Utils::isUnset($request->requestMode)) {
+            $query['RequestMode'] = $request->requestMode;
+        }
+        if (!Utils::isUnset($request->requestParameters)) {
+            $query['RequestParameters'] = $request->requestParameters;
+        }
+        if (!Utils::isUnset($request->requestPath)) {
+            $query['RequestPath'] = $request->requestPath;
+        }
+        if (!Utils::isUnset($request->requestProtocol)) {
+            $query['RequestProtocol'] = $request->requestProtocol;
+        }
+        if (!Utils::isUnset($request->resultSample)) {
+            $query['ResultSample'] = $request->resultSample;
+        }
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $query['ServiceParameters'] = $request->serviceParameters;
+        }
+        if (!Utils::isUnset($request->serviceParametersMap)) {
+            $query['ServiceParametersMap'] = $request->serviceParametersMap;
+        }
+        if (!Utils::isUnset($request->serviceProtocol)) {
+            $query['ServiceProtocol'] = $request->serviceProtocol;
+        }
+        if (!Utils::isUnset($request->serviceTimeout)) {
+            $query['ServiceTimeout'] = $request->serviceTimeout;
+        }
+        if (!Utils::isUnset($request->useBackendService)) {
+            $query['UseBackendService'] = $request->useBackendService;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
+        }
+        if (!Utils::isUnset($request->vpcConfig)) {
+            $query['VpcConfig'] = $request->vpcConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApiConfiguration',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApiConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyApiConfigurationRequest $request
+     *
+     * @return ModifyApiConfigurationResponse
+     */
+    public function modifyApiConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApiConfigurationWithOptions($request, $runtime);
     }
 
     /**
