@@ -23,6 +23,20 @@ class ListWorkitemsRequest extends Model
     public $conditions;
 
     /**
+     * @description 额外条件
+     *
+     * @var string
+     */
+    public $extraConditions;
+
+    /**
+     * @description 分组条件
+     *
+     * @var string
+     */
+    public $groupCondition;
+
+    /**
      * @description 每页最大返回数量，0-200，默认值20
      *
      * @var string
@@ -35,6 +49,13 @@ class ListWorkitemsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @description 排序顺序
+     *
+     * @var string
+     */
+    public $orderBy;
 
     /**
      * @description 项目id
@@ -52,8 +73,11 @@ class ListWorkitemsRequest extends Model
     protected $_name = [
         'category'        => 'category',
         'conditions'      => 'conditions',
+        'extraConditions' => 'extraConditions',
+        'groupCondition'  => 'groupCondition',
         'maxResults'      => 'maxResults',
         'nextToken'       => 'nextToken',
+        'orderBy'         => 'orderBy',
         'spaceIdentifier' => 'spaceIdentifier',
         'spaceType'       => 'spaceType',
     ];
@@ -71,11 +95,20 @@ class ListWorkitemsRequest extends Model
         if (null !== $this->conditions) {
             $res['conditions'] = $this->conditions;
         }
+        if (null !== $this->extraConditions) {
+            $res['extraConditions'] = $this->extraConditions;
+        }
+        if (null !== $this->groupCondition) {
+            $res['groupCondition'] = $this->groupCondition;
+        }
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+        if (null !== $this->orderBy) {
+            $res['orderBy'] = $this->orderBy;
         }
         if (null !== $this->spaceIdentifier) {
             $res['spaceIdentifier'] = $this->spaceIdentifier;
@@ -101,11 +134,20 @@ class ListWorkitemsRequest extends Model
         if (isset($map['conditions'])) {
             $model->conditions = $map['conditions'];
         }
+        if (isset($map['extraConditions'])) {
+            $model->extraConditions = $map['extraConditions'];
+        }
+        if (isset($map['groupCondition'])) {
+            $model->groupCondition = $map['groupCondition'];
+        }
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+        if (isset($map['orderBy'])) {
+            $model->orderBy = $map['orderBy'];
         }
         if (isset($map['spaceIdentifier'])) {
             $model->spaceIdentifier = $map['spaceIdentifier'];
