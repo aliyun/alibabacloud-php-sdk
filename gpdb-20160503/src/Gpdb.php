@@ -3782,6 +3782,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->instanceSpec)) {
             $query['InstanceSpec'] = $request->instanceSpec;
         }
+        if (!Utils::isUnset($request->masterNodeNum)) {
+            $query['MasterNodeNum'] = $request->masterNodeNum;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
@@ -3797,11 +3800,8 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->storageSize)) {
             $query['StorageSize'] = $request->storageSize;
         }
-        if (!Utils::isUnset($request->masterNodeNum)) {
-            $query['masterNodeNum'] = $request->masterNodeNum;
-        }
         if (!Utils::isUnset($request->upgradeType)) {
-            $query['upgradeType'] = $request->upgradeType;
+            $query['UpgradeType'] = $request->upgradeType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
