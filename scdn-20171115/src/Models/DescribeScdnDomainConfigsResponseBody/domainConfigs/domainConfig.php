@@ -25,6 +25,11 @@ class domainConfig extends Model
     public $functionName;
 
     /**
+     * @var int
+     */
+    public $parentId;
+
+    /**
      * @var string
      */
     public $status;
@@ -32,6 +37,7 @@ class domainConfig extends Model
         'configId'     => 'ConfigId',
         'functionArgs' => 'FunctionArgs',
         'functionName' => 'FunctionName',
+        'parentId'     => 'ParentId',
         'status'       => 'Status',
     ];
 
@@ -50,6 +56,9 @@ class domainConfig extends Model
         }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -74,6 +83,9 @@ class domainConfig extends Model
         }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserProtectInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserProtectInfoResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserQuotaRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserQuotaResponse;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnVerifyContentRequest;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnVerifyContentResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\OpenScdnServiceRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\OpenScdnServiceResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\PreloadScdnObjectCachesRequest;
@@ -128,6 +130,8 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\StopScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\StopScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\UpdateScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\UpdateScdnDomainResponse;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\VerifyScdnDomainOwnerRequest;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\VerifyScdnDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2767,6 +2771,52 @@ class Scdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeScdnVerifyContentRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeScdnVerifyContentResponse
+     */
+    public function describeScdnVerifyContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScdnVerifyContent',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeScdnVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeScdnVerifyContentRequest $request
+     *
+     * @return DescribeScdnVerifyContentResponse
+     */
+    public function describeScdnVerifyContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScdnVerifyContentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param OpenScdnServiceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3324,5 +3374,54 @@ class Scdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateScdnDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyScdnDomainOwnerRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VerifyScdnDomainOwnerResponse
+     */
+    public function verifyScdnDomainOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->verifyType)) {
+            $query['VerifyType'] = $request->verifyType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyScdnDomainOwner',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyScdnDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyScdnDomainOwnerRequest $request
+     *
+     * @return VerifyScdnDomainOwnerResponse
+     */
+    public function verifyScdnDomainOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyScdnDomainOwnerWithOptions($request, $runtime);
     }
 }
