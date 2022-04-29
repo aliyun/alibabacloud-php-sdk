@@ -5,14 +5,11 @@
 namespace AlibabaCloud\SDK\Xtrace\V20190808;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagValRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagValResponse;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTokenRequest;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTokenResponse;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceAnalysisRequest;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceAnalysisResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListIpOrHostsRequest;
@@ -28,6 +25,7 @@ use AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Xtrace extends OpenApiClient
@@ -72,11 +70,38 @@ class Xtrace extends OpenApiClient
     public function getTagKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->spanName)) {
+            $query['SpanName'] = $request->spanName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTagKey',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTagKeyResponse::fromMap($this->doRPCRequest('GetTagKey', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTagKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -100,11 +125,41 @@ class Xtrace extends OpenApiClient
     public function getTagValWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->spanName)) {
+            $query['SpanName'] = $request->spanName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTagVal',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTagValResponse::fromMap($this->doRPCRequest('GetTagVal', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTagValResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -120,34 +175,6 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param GetTokenRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return GetTokenResponse
-     */
-    public function getTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetTokenResponse::fromMap($this->doRPCRequest('GetToken', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetTokenRequest $request
-     *
-     * @return GetTokenResponse
-     */
-    public function getToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTokenWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetTraceRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -156,11 +183,32 @@ class Xtrace extends OpenApiClient
     public function getTraceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->traceID)) {
+            $query['TraceID'] = $request->traceID;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrace',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTraceResponse::fromMap($this->doRPCRequest('GetTrace', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTraceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -176,34 +224,6 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param GetTraceAnalysisRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetTraceAnalysisResponse
-     */
-    public function getTraceAnalysisWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetTraceAnalysisResponse::fromMap($this->doRPCRequest('GetTraceAnalysis', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetTraceAnalysisRequest $request
-     *
-     * @return GetTraceAnalysisResponse
-     */
-    public function getTraceAnalysis($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTraceAnalysisWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListIpOrHostsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -212,11 +232,35 @@ class Xtrace extends OpenApiClient
     public function listIpOrHostsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIpOrHosts',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListIpOrHostsResponse::fromMap($this->doRPCRequest('ListIpOrHosts', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListIpOrHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -240,11 +284,29 @@ class Xtrace extends OpenApiClient
     public function listServicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServices',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListServicesResponse::fromMap($this->doRPCRequest('ListServices', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -268,11 +330,35 @@ class Xtrace extends OpenApiClient
     public function listSpanNamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSpanNames',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSpanNamesResponse::fromMap($this->doRPCRequest('ListSpanNames', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSpanNamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -296,11 +382,56 @@ class Xtrace extends OpenApiClient
     public function queryMetricWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
+        }
+        if (!Utils::isUnset($request->intervalInSec)) {
+            $query['IntervalInSec'] = $request->intervalInSec;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->measures)) {
+            $query['Measures'] = $request->measures;
+        }
+        if (!Utils::isUnset($request->metric)) {
+            $query['Metric'] = $request->metric;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->proxyUserId)) {
+            $query['ProxyUserId'] = $request->proxyUserId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMetric',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMetricResponse::fromMap($this->doRPCRequest('QueryMetric', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -324,11 +455,59 @@ class Xtrace extends OpenApiClient
     public function searchTracesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->minDuration)) {
+            $query['MinDuration'] = $request->minDuration;
+        }
+        if (!Utils::isUnset($request->operationName)) {
+            $query['OperationName'] = $request->operationName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $query['Reverse'] = $request->reverse;
+        }
+        if (!Utils::isUnset($request->serviceIp)) {
+            $query['ServiceIp'] = $request->serviceIp;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchTraces',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchTracesResponse::fromMap($this->doRPCRequest('SearchTraces', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchTracesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

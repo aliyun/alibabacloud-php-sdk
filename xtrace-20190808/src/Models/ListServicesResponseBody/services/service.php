@@ -16,16 +16,16 @@ class service extends Model
     /**
      * @var string
      */
-    public $serviceName;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $serviceName;
     protected $_name = [
         'pid'         => 'Pid',
-        'serviceName' => 'ServiceName',
         'regionId'    => 'RegionId',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class service extends Model
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class service extends Model
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

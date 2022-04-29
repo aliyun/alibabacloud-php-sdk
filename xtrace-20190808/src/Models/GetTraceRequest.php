@@ -11,21 +11,21 @@ class GetTraceRequest extends Model
     /**
      * @var string
      */
-    public $traceID;
-
-    /**
-     * @var string
-     */
     public $appType;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $traceID;
     protected $_name = [
-        'traceID'  => 'TraceID',
         'appType'  => 'AppType',
         'regionId' => 'RegionId',
+        'traceID'  => 'TraceID',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetTraceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->traceID) {
-            $res['TraceID'] = $this->traceID;
-        }
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->traceID) {
+            $res['TraceID'] = $this->traceID;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetTraceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TraceID'])) {
-            $model->traceID = $map['TraceID'];
-        }
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TraceID'])) {
+            $model->traceID = $map['TraceID'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
-     * @var traceInfos
+     * @var int
      */
-    public $traceInfos;
+    public $pageNumber;
 
     /**
      * @var int
@@ -22,17 +22,17 @@ class pageBean extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
 
     /**
-     * @var int
+     * @var traceInfos
      */
-    public $totalCount;
+    public $traceInfos;
     protected $_name = [
-        'traceInfos' => 'TraceInfos',
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
         'totalCount' => 'TotalCount',
+        'traceInfos' => 'TraceInfos',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class pageBean extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->traceInfos) {
-            $res['TraceInfos'] = null !== $this->traceInfos ? $this->traceInfos->toMap() : null;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->traceInfos) {
+            $res['TraceInfos'] = null !== $this->traceInfos ? $this->traceInfos->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class pageBean extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TraceInfos'])) {
-            $model->traceInfos = traceInfos::fromMap($map['TraceInfos']);
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['TraceInfos'])) {
+            $model->traceInfos = traceInfos::fromMap($map['TraceInfos']);
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListSpanNamesResponseBody extends Model
 {
     /**
-     * @var spanNames
-     */
-    public $spanNames;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var spanNames
+     */
+    public $spanNames;
     protected $_name = [
-        'spanNames' => 'SpanNames',
         'requestId' => 'RequestId',
+        'spanNames' => 'SpanNames',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListSpanNamesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spanNames) {
-            $res['SpanNames'] = null !== $this->spanNames ? $this->spanNames->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->spanNames) {
+            $res['SpanNames'] = null !== $this->spanNames ? $this->spanNames->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListSpanNamesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpanNames'])) {
-            $model->spanNames = spanNames::fromMap($map['SpanNames']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SpanNames'])) {
+            $model->spanNames = spanNames::fromMap($map['SpanNames']);
         }
 
         return $model;

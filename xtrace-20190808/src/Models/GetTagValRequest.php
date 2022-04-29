@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetTagValRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -24,26 +29,21 @@ class GetTagValRequest extends Model
     public $spanName;
 
     /**
-     * @var string
-     */
-    public $tagKey;
-
-    /**
      * @var int
      */
     public $startTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $endTime;
+    public $tagKey;
     protected $_name = [
+        'endTime'     => 'EndTime',
         'regionId'    => 'RegionId',
         'serviceName' => 'ServiceName',
         'spanName'    => 'SpanName',
-        'tagKey'      => 'TagKey',
         'startTime'   => 'StartTime',
-        'endTime'     => 'EndTime',
+        'tagKey'      => 'TagKey',
     ];
 
     public function validate()
@@ -53,6 +53,9 @@ class GetTagValRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -62,14 +65,11 @@ class GetTagValRequest extends Model
         if (null !== $this->spanName) {
             $res['SpanName'] = $this->spanName;
         }
-        if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
         }
 
         return $res;
@@ -83,6 +83,9 @@ class GetTagValRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -92,14 +95,11 @@ class GetTagValRequest extends Model
         if (isset($map['SpanName'])) {
             $model->spanName = $map['SpanName'];
         }
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['TagKey'])) {
+            $model->tagKey = $map['TagKey'];
         }
 
         return $model;

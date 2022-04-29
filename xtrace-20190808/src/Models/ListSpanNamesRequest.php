@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListSpanNamesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -22,16 +27,11 @@ class ListSpanNamesRequest extends Model
      * @var int
      */
     public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
     protected $_name = [
+        'endTime'     => 'EndTime',
         'regionId'    => 'RegionId',
         'serviceName' => 'ServiceName',
         'startTime'   => 'StartTime',
-        'endTime'     => 'EndTime',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class ListSpanNamesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,9 +52,6 @@ class ListSpanNamesRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class ListSpanNamesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -73,9 +76,6 @@ class ListSpanNamesRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;
