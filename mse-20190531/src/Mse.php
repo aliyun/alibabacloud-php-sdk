@@ -92,6 +92,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListRequest;
@@ -2871,6 +2873,76 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppMessageQueueRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetApplicationListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetApplicationListResponse
+     */
+    public function getApplicationListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sentinelEnable)) {
+            $query['SentinelEnable'] = $request->sentinelEnable;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->switchEnable)) {
+            $query['SwitchEnable'] = $request->switchEnable;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplicationList',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApplicationListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetApplicationListRequest $request
+     *
+     * @return GetApplicationListResponse
+     */
+    public function getApplicationList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationListWithOptions($request, $runtime);
     }
 
     /**

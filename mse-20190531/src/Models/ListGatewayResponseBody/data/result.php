@@ -17,6 +17,11 @@ class result extends Model
     public $ahasOn;
 
     /**
+     * @var string
+     */
+    public $appVersion;
+
+    /**
      * @var bool
      */
     public $armsOn;
@@ -127,6 +132,11 @@ class result extends Model
     public $statusDesc;
 
     /**
+     * @var bool
+     */
+    public $supportWasm;
+
+    /**
      * @var string
      */
     public $tag;
@@ -142,6 +152,7 @@ class result extends Model
     public $vswitch2;
     protected $_name = [
         'ahasOn'          => 'AhasOn',
+        'appVersion'      => 'AppVersion',
         'armsOn'          => 'ArmsOn',
         'chargeType'      => 'ChargeType',
         'currentVersion'  => 'CurrentVersion',
@@ -164,6 +175,7 @@ class result extends Model
         'spec'            => 'Spec',
         'status'          => 'Status',
         'statusDesc'      => 'StatusDesc',
+        'supportWasm'     => 'SupportWasm',
         'tag'             => 'Tag',
         'upgrade'         => 'Upgrade',
         'vswitch2'        => 'Vswitch2',
@@ -178,6 +190,9 @@ class result extends Model
         $res = [];
         if (null !== $this->ahasOn) {
             $res['AhasOn'] = $this->ahasOn;
+        }
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
         if (null !== $this->armsOn) {
             $res['ArmsOn'] = $this->armsOn;
@@ -257,6 +272,9 @@ class result extends Model
         if (null !== $this->statusDesc) {
             $res['StatusDesc'] = $this->statusDesc;
         }
+        if (null !== $this->supportWasm) {
+            $res['SupportWasm'] = $this->supportWasm;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -280,6 +298,9 @@ class result extends Model
         $model = new self();
         if (isset($map['AhasOn'])) {
             $model->ahasOn = $map['AhasOn'];
+        }
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
         if (isset($map['ArmsOn'])) {
             $model->armsOn = $map['ArmsOn'];
@@ -358,6 +379,9 @@ class result extends Model
         }
         if (isset($map['StatusDesc'])) {
             $model->statusDesc = $map['StatusDesc'];
+        }
+        if (isset($map['SupportWasm'])) {
+            $model->supportWasm = $map['SupportWasm'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
