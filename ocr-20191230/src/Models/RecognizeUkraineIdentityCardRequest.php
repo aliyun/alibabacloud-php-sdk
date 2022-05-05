@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RecognizeStructuredTaxiInvoicesRequest extends Model
+class RecognizeUkraineIdentityCardRequest extends Model
 {
     /**
      * @var string
      */
-    public $imageURL;
+    public $imageUrl;
     protected $_name = [
-        'imageURL' => 'ImageURL',
+        'imageUrl' => 'ImageUrl',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class RecognizeStructuredTaxiInvoicesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class RecognizeStructuredTaxiInvoicesRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeStructuredTaxiInvoicesRequest
+     * @return RecognizeUkraineIdentityCardRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
 
         return $model;

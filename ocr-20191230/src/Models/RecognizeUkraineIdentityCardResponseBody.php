@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeStructuredTaxiInvoicesResponseBody\data;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeUkraineIdentityCardResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class RecognizeStructuredTaxiInvoicesResponseBody extends Model
+class RecognizeUkraineIdentityCardResponseBody extends Model
 {
     /**
      * @var data
@@ -15,6 +15,8 @@ class RecognizeStructuredTaxiInvoicesResponseBody extends Model
     public $data;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
@@ -43,7 +45,7 @@ class RecognizeStructuredTaxiInvoicesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeStructuredTaxiInvoicesResponseBody
+     * @return RecognizeUkraineIdentityCardResponseBody
      */
     public static function fromMap($map = [])
     {

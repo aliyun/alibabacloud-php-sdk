@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RecognizeStructuredTaxiInvoicesResponse extends Model
+class RecognizeUkraineIdentityCardResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class RecognizeStructuredTaxiInvoicesResponse extends Model
     public $headers;
 
     /**
-     * @var RecognizeStructuredTaxiInvoicesResponseBody
+     * @var RecognizeUkraineIdentityCardResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class RecognizeStructuredTaxiInvoicesResponse extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeStructuredTaxiInvoicesResponse
+     * @return RecognizeUkraineIdentityCardResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class RecognizeStructuredTaxiInvoicesResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = RecognizeStructuredTaxiInvoicesResponseBody::fromMap($map['body']);
+            $model->body = RecognizeUkraineIdentityCardResponseBody::fromMap($map['body']);
         }
 
         return $model;
