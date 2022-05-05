@@ -2473,10 +2473,19 @@ class Imm extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ListTasksShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->endTimeRange)) {
+            $request->endTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->endTimeRange), 'EndTimeRange', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->startTimeRange)) {
+            $request->startTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->startTimeRange), 'StartTimeRange', 'json');
+        }
         if (!Utils::isUnset($tmpReq->taskTypes)) {
             $request->taskTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskTypes, 'TaskTypes', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->endTimeRangeShrink)) {
+            $query['EndTimeRange'] = $request->endTimeRangeShrink;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -2491,6 +2500,12 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->startTimeRangeShrink)) {
+            $query['StartTimeRange'] = $request->startTimeRangeShrink;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         if (!Utils::isUnset($request->tagSelector)) {
             $query['TagSelector'] = $request->tagSelector;

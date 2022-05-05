@@ -56,6 +56,13 @@ class Story extends Model
     public $files;
 
     /**
+     * @description MIILCustomFields
+     *
+     * @var mixed[][]
+     */
+    public $MIILCustomFields;
+
+    /**
      * @description ObjectId
      *
      * @var string
@@ -132,6 +139,7 @@ class Story extends Model
         'datasetName'      => 'DatasetName',
         'figureClusterIds' => 'FigureClusterIds',
         'files'            => 'Files',
+        'MIILCustomFields' => 'MIILCustomFields',
         'objectId'         => 'ObjectId',
         'objectType'       => 'ObjectType',
         'ownerId'          => 'OwnerId',
@@ -177,6 +185,9 @@ class Story extends Model
                     $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->MIILCustomFields) {
+            $res['MIILCustomFields'] = $this->MIILCustomFields;
         }
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
@@ -247,6 +258,11 @@ class Story extends Model
                 foreach ($map['Files'] as $item) {
                     $model->files[$n++] = null !== $item ? File::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['MIILCustomFields'])) {
+            if (!empty($map['MIILCustomFields'])) {
+                $model->MIILCustomFields = $map['MIILCustomFields'];
             }
         }
         if (isset($map['ObjectId'])) {

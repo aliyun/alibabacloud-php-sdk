@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListTasksRequest extends Model
 {
     /**
+     * @var TimeRange
+     */
+    public $endTimeRange;
+
+    /**
      * @description MaxResults
      *
      * @var int
@@ -40,6 +45,16 @@ class ListTasksRequest extends Model
     public $sort;
 
     /**
+     * @var TimeRange
+     */
+    public $startTimeRange;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $tagSelector;
@@ -49,13 +64,16 @@ class ListTasksRequest extends Model
      */
     public $taskTypes;
     protected $_name = [
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'order'       => 'Order',
-        'projectName' => 'ProjectName',
-        'sort'        => 'Sort',
-        'tagSelector' => 'TagSelector',
-        'taskTypes'   => 'TaskTypes',
+        'endTimeRange'   => 'EndTimeRange',
+        'maxResults'     => 'MaxResults',
+        'nextToken'      => 'NextToken',
+        'order'          => 'Order',
+        'projectName'    => 'ProjectName',
+        'sort'           => 'Sort',
+        'startTimeRange' => 'StartTimeRange',
+        'status'         => 'Status',
+        'tagSelector'    => 'TagSelector',
+        'taskTypes'      => 'TaskTypes',
     ];
 
     public function validate()
@@ -65,6 +83,9 @@ class ListTasksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTimeRange) {
+            $res['EndTimeRange'] = null !== $this->endTimeRange ? $this->endTimeRange->toMap() : null;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -79,6 +100,12 @@ class ListTasksRequest extends Model
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->startTimeRange) {
+            $res['StartTimeRange'] = null !== $this->startTimeRange ? $this->startTimeRange->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tagSelector) {
             $res['TagSelector'] = $this->tagSelector;
@@ -98,6 +125,9 @@ class ListTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTimeRange'])) {
+            $model->endTimeRange = TimeRange::fromMap($map['EndTimeRange']);
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -112,6 +142,12 @@ class ListTasksRequest extends Model
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
+        }
+        if (isset($map['StartTimeRange'])) {
+            $model->startTimeRange = TimeRange::fromMap($map['StartTimeRange']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TagSelector'])) {
             $model->tagSelector = $map['TagSelector'];

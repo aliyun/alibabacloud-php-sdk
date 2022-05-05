@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListTasksShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endTimeRangeShrink;
+
+    /**
      * @description MaxResults
      *
      * @var int
@@ -42,6 +47,16 @@ class ListTasksShrinkRequest extends Model
     /**
      * @var string
      */
+    public $startTimeRangeShrink;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $tagSelector;
 
     /**
@@ -49,13 +64,16 @@ class ListTasksShrinkRequest extends Model
      */
     public $taskTypesShrink;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'order'           => 'Order',
-        'projectName'     => 'ProjectName',
-        'sort'            => 'Sort',
-        'tagSelector'     => 'TagSelector',
-        'taskTypesShrink' => 'TaskTypes',
+        'endTimeRangeShrink'   => 'EndTimeRange',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
+        'order'                => 'Order',
+        'projectName'          => 'ProjectName',
+        'sort'                 => 'Sort',
+        'startTimeRangeShrink' => 'StartTimeRange',
+        'status'               => 'Status',
+        'tagSelector'          => 'TagSelector',
+        'taskTypesShrink'      => 'TaskTypes',
     ];
 
     public function validate()
@@ -65,6 +83,9 @@ class ListTasksShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTimeRangeShrink) {
+            $res['EndTimeRange'] = $this->endTimeRangeShrink;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -79,6 +100,12 @@ class ListTasksShrinkRequest extends Model
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->startTimeRangeShrink) {
+            $res['StartTimeRange'] = $this->startTimeRangeShrink;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tagSelector) {
             $res['TagSelector'] = $this->tagSelector;
@@ -98,6 +125,9 @@ class ListTasksShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTimeRange'])) {
+            $model->endTimeRangeShrink = $map['EndTimeRange'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -112,6 +142,12 @@ class ListTasksShrinkRequest extends Model
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
+        }
+        if (isset($map['StartTimeRange'])) {
+            $model->startTimeRangeShrink = $map['StartTimeRange'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TagSelector'])) {
             $model->tagSelector = $map['TagSelector'];
