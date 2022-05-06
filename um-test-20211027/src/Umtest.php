@@ -8,6 +8,7 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Umtest\V20211027\Models\GetOssUploadParamRequest;
 use AlibabaCloud\SDK\Umtest\V20211027\Models\GetOssUploadParamResponse;
+use AlibabaCloud\SDK\Umtest\V20211027\Models\UploadNotaryResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -85,5 +86,38 @@ class Umtest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOssUploadParamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return UploadNotaryResponse
+     */
+    public function uploadNotaryWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'UploadNotary',
+            'version'     => '2021-10-27',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadNotaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return UploadNotaryResponse
+     */
+    public function uploadNotary()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadNotaryWithOptions($runtime);
     }
 }
