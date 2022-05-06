@@ -11,12 +11,17 @@ class backupJob extends Model
     /**
      * @var string
      */
-    public $process;
+    public $backupId;
 
     /**
      * @var string
      */
     public $backupJobId;
+
+    /**
+     * @var string
+     */
+    public $backupProgressStatus;
 
     /**
      * @var string
@@ -31,24 +36,19 @@ class backupJob extends Model
     /**
      * @var string
      */
-    public $backupProgressStatus;
-
-    /**
-     * @var string
-     */
-    public $backupId;
+    public $process;
 
     /**
      * @var string
      */
     public $taskAction;
     protected $_name = [
-        'process'              => 'Process',
+        'backupId'             => 'BackupId',
         'backupJobId'          => 'BackupJobId',
+        'backupProgressStatus' => 'BackupProgressStatus',
         'backupStatus'         => 'BackupStatus',
         'jobMode'              => 'JobMode',
-        'backupProgressStatus' => 'BackupProgressStatus',
-        'backupId'             => 'BackupId',
+        'process'              => 'Process',
         'taskAction'           => 'TaskAction',
     ];
 
@@ -59,11 +59,14 @@ class backupJob extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->process) {
-            $res['Process'] = $this->process;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
         }
         if (null !== $this->backupJobId) {
             $res['BackupJobId'] = $this->backupJobId;
+        }
+        if (null !== $this->backupProgressStatus) {
+            $res['BackupProgressStatus'] = $this->backupProgressStatus;
         }
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
@@ -71,11 +74,8 @@ class backupJob extends Model
         if (null !== $this->jobMode) {
             $res['JobMode'] = $this->jobMode;
         }
-        if (null !== $this->backupProgressStatus) {
-            $res['BackupProgressStatus'] = $this->backupProgressStatus;
-        }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
+        if (null !== $this->process) {
+            $res['Process'] = $this->process;
         }
         if (null !== $this->taskAction) {
             $res['TaskAction'] = $this->taskAction;
@@ -92,11 +92,14 @@ class backupJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Process'])) {
-            $model->process = $map['Process'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
         }
         if (isset($map['BackupJobId'])) {
             $model->backupJobId = $map['BackupJobId'];
+        }
+        if (isset($map['BackupProgressStatus'])) {
+            $model->backupProgressStatus = $map['BackupProgressStatus'];
         }
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
@@ -104,11 +107,8 @@ class backupJob extends Model
         if (isset($map['JobMode'])) {
             $model->jobMode = $map['JobMode'];
         }
-        if (isset($map['BackupProgressStatus'])) {
-            $model->backupProgressStatus = $map['BackupProgressStatus'];
-        }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
+        if (isset($map['Process'])) {
+            $model->process = $map['Process'];
         }
         if (isset($map['TaskAction'])) {
             $model->taskAction = $map['TaskAction'];

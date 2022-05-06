@@ -11,27 +11,12 @@ class nodeInfo extends Model
     /**
      * @var string
      */
-    public $logSyncTime;
-
-    /**
-     * @var string
-     */
-    public $nodeType;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $syncStatus;
-
-    /**
-     * @var string
-     */
     public $dataSyncTime;
+
+    /**
+     * @var string
+     */
+    public $logSyncTime;
 
     /**
      * @var string
@@ -41,15 +26,30 @@ class nodeInfo extends Model
     /**
      * @var string
      */
+    public $nodeType;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $syncStatus;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'logSyncTime'  => 'LogSyncTime',
-        'nodeType'     => 'NodeType',
-        'zoneId'       => 'ZoneId',
-        'syncStatus'   => 'SyncStatus',
         'dataSyncTime' => 'DataSyncTime',
+        'logSyncTime'  => 'LogSyncTime',
         'nodeId'       => 'NodeId',
+        'nodeType'     => 'NodeType',
         'regionId'     => 'RegionId',
+        'syncStatus'   => 'SyncStatus',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class nodeInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logSyncTime) {
-            $res['LogSyncTime'] = $this->logSyncTime;
-        }
-        if (null !== $this->nodeType) {
-            $res['NodeType'] = $this->nodeType;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->syncStatus) {
-            $res['SyncStatus'] = $this->syncStatus;
-        }
         if (null !== $this->dataSyncTime) {
             $res['DataSyncTime'] = $this->dataSyncTime;
+        }
+        if (null !== $this->logSyncTime) {
+            $res['LogSyncTime'] = $this->logSyncTime;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->syncStatus) {
+            $res['SyncStatus'] = $this->syncStatus;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class nodeInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogSyncTime'])) {
-            $model->logSyncTime = $map['LogSyncTime'];
-        }
-        if (isset($map['NodeType'])) {
-            $model->nodeType = $map['NodeType'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['SyncStatus'])) {
-            $model->syncStatus = $map['SyncStatus'];
-        }
         if (isset($map['DataSyncTime'])) {
             $model->dataSyncTime = $map['DataSyncTime'];
+        }
+        if (isset($map['LogSyncTime'])) {
+            $model->logSyncTime = $map['LogSyncTime'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SyncStatus'])) {
+            $model->syncStatus = $map['SyncStatus'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

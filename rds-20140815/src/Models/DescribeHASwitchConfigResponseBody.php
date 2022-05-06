@@ -11,7 +11,7 @@ class DescribeHASwitchConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $HAConfig;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeHASwitchConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $HAConfig;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'manualHATime' => 'ManualHATime',
         'HAConfig'     => 'HAConfig',
+        'manualHATime' => 'ManualHATime',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeHASwitchConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->HAConfig) {
+            $res['HAConfig'] = $this->HAConfig;
         }
         if (null !== $this->manualHATime) {
             $res['ManualHATime'] = $this->manualHATime;
         }
-        if (null !== $this->HAConfig) {
-            $res['HAConfig'] = $this->HAConfig;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeHASwitchConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['HAConfig'])) {
+            $model->HAConfig = $map['HAConfig'];
         }
         if (isset($map['ManualHATime'])) {
             $model->manualHATime = $map['ManualHATime'];
         }
-        if (isset($map['HAConfig'])) {
-            $model->HAConfig = $map['HAConfig'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

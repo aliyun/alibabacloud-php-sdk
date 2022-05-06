@@ -14,18 +14,18 @@ class ModifyDBInstanceSpecResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'requestId'    => 'RequestId',
         'orderId'      => 'OrderId',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyDBInstanceSpecResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ModifyDBInstanceSpecResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

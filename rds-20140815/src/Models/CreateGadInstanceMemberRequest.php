@@ -12,22 +12,7 @@ class CreateGadInstanceMemberRequest extends Model
     /**
      * @var string
      */
-    public $centralRegionId;
-
-    /**
-     * @var string
-     */
     public $centralDBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $gadInstanceId;
-
-    /**
-     * @var unitNode[]
-     */
-    public $unitNode;
 
     /**
      * @var string
@@ -42,15 +27,30 @@ class CreateGadInstanceMemberRequest extends Model
     /**
      * @var string
      */
+    public $centralRegionId;
+
+    /**
+     * @var string
+     */
     public $DBList;
+
+    /**
+     * @var string
+     */
+    public $gadInstanceId;
+
+    /**
+     * @var unitNode[]
+     */
+    public $unitNode;
     protected $_name = [
-        'centralRegionId'            => 'CentralRegionId',
         'centralDBInstanceId'        => 'CentralDBInstanceId',
-        'gadInstanceId'              => 'GadInstanceId',
-        'unitNode'                   => 'UnitNode',
         'centralRdsDtsAdminAccount'  => 'CentralRdsDtsAdminAccount',
         'centralRdsDtsAdminPassword' => 'CentralRdsDtsAdminPassword',
+        'centralRegionId'            => 'CentralRegionId',
         'DBList'                     => 'DBList',
+        'gadInstanceId'              => 'GadInstanceId',
+        'unitNode'                   => 'UnitNode',
     ];
 
     public function validate()
@@ -60,11 +60,20 @@ class CreateGadInstanceMemberRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->centralDBInstanceId) {
+            $res['CentralDBInstanceId'] = $this->centralDBInstanceId;
+        }
+        if (null !== $this->centralRdsDtsAdminAccount) {
+            $res['CentralRdsDtsAdminAccount'] = $this->centralRdsDtsAdminAccount;
+        }
+        if (null !== $this->centralRdsDtsAdminPassword) {
+            $res['CentralRdsDtsAdminPassword'] = $this->centralRdsDtsAdminPassword;
+        }
         if (null !== $this->centralRegionId) {
             $res['CentralRegionId'] = $this->centralRegionId;
         }
-        if (null !== $this->centralDBInstanceId) {
-            $res['CentralDBInstanceId'] = $this->centralDBInstanceId;
+        if (null !== $this->DBList) {
+            $res['DBList'] = $this->DBList;
         }
         if (null !== $this->gadInstanceId) {
             $res['GadInstanceId'] = $this->gadInstanceId;
@@ -78,15 +87,6 @@ class CreateGadInstanceMemberRequest extends Model
                 }
             }
         }
-        if (null !== $this->centralRdsDtsAdminAccount) {
-            $res['CentralRdsDtsAdminAccount'] = $this->centralRdsDtsAdminAccount;
-        }
-        if (null !== $this->centralRdsDtsAdminPassword) {
-            $res['CentralRdsDtsAdminPassword'] = $this->centralRdsDtsAdminPassword;
-        }
-        if (null !== $this->DBList) {
-            $res['DBList'] = $this->DBList;
-        }
 
         return $res;
     }
@@ -99,11 +99,20 @@ class CreateGadInstanceMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CentralDBInstanceId'])) {
+            $model->centralDBInstanceId = $map['CentralDBInstanceId'];
+        }
+        if (isset($map['CentralRdsDtsAdminAccount'])) {
+            $model->centralRdsDtsAdminAccount = $map['CentralRdsDtsAdminAccount'];
+        }
+        if (isset($map['CentralRdsDtsAdminPassword'])) {
+            $model->centralRdsDtsAdminPassword = $map['CentralRdsDtsAdminPassword'];
+        }
         if (isset($map['CentralRegionId'])) {
             $model->centralRegionId = $map['CentralRegionId'];
         }
-        if (isset($map['CentralDBInstanceId'])) {
-            $model->centralDBInstanceId = $map['CentralDBInstanceId'];
+        if (isset($map['DBList'])) {
+            $model->DBList = $map['DBList'];
         }
         if (isset($map['GadInstanceId'])) {
             $model->gadInstanceId = $map['GadInstanceId'];
@@ -116,15 +125,6 @@ class CreateGadInstanceMemberRequest extends Model
                     $model->unitNode[$n++] = null !== $item ? unitNode::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['CentralRdsDtsAdminAccount'])) {
-            $model->centralRdsDtsAdminAccount = $map['CentralRdsDtsAdminAccount'];
-        }
-        if (isset($map['CentralRdsDtsAdminPassword'])) {
-            $model->centralRdsDtsAdminPassword = $map['CentralRdsDtsAdminPassword'];
-        }
-        if (isset($map['DBList'])) {
-            $model->DBList = $map['DBList'];
         }
 
         return $model;

@@ -15,14 +15,14 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $delayTime;
+
+    /**
+     * @var items
+     */
+    public $items;
 
     /**
      * @var string
@@ -30,15 +30,15 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
     public $readDBInstanceId;
 
     /**
-     * @var items
+     * @var string
      */
-    public $items;
+    public $requestId;
     protected $_name = [
         'DBInstanceId'     => 'DBInstanceId',
-        'requestId'        => 'RequestId',
         'delayTime'        => 'DelayTime',
-        'readDBInstanceId' => 'ReadDBInstanceId',
         'items'            => 'Items',
+        'readDBInstanceId' => 'ReadDBInstanceId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->delayTime) {
             $res['DelayTime'] = $this->delayTime;
+        }
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->readDBInstanceId) {
             $res['ReadDBInstanceId'] = $this->readDBInstanceId;
         }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DelayTime'])) {
             $model->delayTime = $map['DelayTime'];
+        }
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['ReadDBInstanceId'])) {
             $model->readDBInstanceId = $map['ReadDBInstanceId'];
         }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

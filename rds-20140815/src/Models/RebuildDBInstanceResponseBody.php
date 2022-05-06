@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RebuildDBInstanceResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $migrationId;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class RebuildDBInstanceResponseBody extends Model
      * @var int
      */
     public $taskId;
-
-    /**
-     * @var int
-     */
-    public $migrationId;
     protected $_name = [
+        'migrationId' => 'MigrationId',
         'requestId'   => 'RequestId',
         'taskId'      => 'TaskId',
-        'migrationId' => 'MigrationId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RebuildDBInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->migrationId) {
+            $res['MigrationId'] = $this->migrationId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->migrationId) {
-            $res['MigrationId'] = $this->migrationId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RebuildDBInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MigrationId'])) {
+            $model->migrationId = $map['MigrationId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['MigrationId'])) {
-            $model->migrationId = $map['MigrationId'];
         }
 
         return $model;

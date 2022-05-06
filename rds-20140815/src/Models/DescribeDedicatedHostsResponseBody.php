@@ -15,18 +15,18 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var dedicatedHosts
      */
     public $dedicatedHosts;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'requestId'            => 'RequestId',
         'dedicatedHosts'       => 'DedicatedHosts',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribeDedicatedHostsResponseBody extends Model
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dedicatedHosts) {
             $res['DedicatedHosts'] = null !== $this->dedicatedHosts ? $this->dedicatedHosts->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribeDedicatedHostsResponseBody extends Model
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DedicatedHosts'])) {
             $model->dedicatedHosts = dedicatedHosts::fromMap($map['DedicatedHosts']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

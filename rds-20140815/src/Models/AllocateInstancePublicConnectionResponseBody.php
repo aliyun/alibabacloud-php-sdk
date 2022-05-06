@@ -11,21 +11,21 @@ class AllocateInstancePublicConnectionResponseBody extends Model
     /**
      * @var string
      */
+    public $connectionString;
+
+    /**
+     * @var string
+     */
     public $dbInstanceName;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $connectionString;
     protected $_name = [
+        'connectionString' => 'ConnectionString',
         'dbInstanceName'   => 'DbInstanceName',
         'requestId'        => 'RequestId',
-        'connectionString' => 'ConnectionString',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AllocateInstancePublicConnectionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
         if (null !== $this->dbInstanceName) {
             $res['DbInstanceName'] = $this->dbInstanceName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AllocateInstancePublicConnectionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
         if (isset($map['DbInstanceName'])) {
             $model->dbInstanceName = $map['DbInstanceName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
         }
 
         return $model;

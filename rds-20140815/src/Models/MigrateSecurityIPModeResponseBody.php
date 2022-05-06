@@ -11,21 +11,21 @@ class MigrateSecurityIPModeResponseBody extends Model
     /**
      * @var string
      */
-    public $securityIPMode;
-
-    /**
-     * @var string
-     */
     public $DBInstanceId;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $securityIPMode;
     protected $_name = [
-        'securityIPMode' => 'SecurityIPMode',
         'DBInstanceId'   => 'DBInstanceId',
         'requestId'      => 'RequestId',
+        'securityIPMode' => 'SecurityIPMode',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class MigrateSecurityIPModeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityIPMode) {
-            $res['SecurityIPMode'] = $this->securityIPMode;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->securityIPMode) {
+            $res['SecurityIPMode'] = $this->securityIPMode;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class MigrateSecurityIPModeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityIPMode'])) {
-            $model->securityIPMode = $map['SecurityIPMode'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SecurityIPMode'])) {
+            $model->securityIPMode = $map['SecurityIPMode'];
         }
 
         return $model;

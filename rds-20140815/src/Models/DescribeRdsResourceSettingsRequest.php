@@ -16,22 +16,22 @@ class DescribeRdsResourceSettingsRequest extends Model
     /**
      * @var string
      */
+    public $resourceNiche;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $resourceNiche;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'resourceNiche'        => 'ResourceNiche',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceNiche'        => 'ResourceNiche',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DescribeRdsResourceSettingsRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->resourceNiche) {
+            $res['ResourceNiche'] = $this->resourceNiche;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->resourceNiche) {
-            $res['ResourceNiche'] = $this->resourceNiche;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DescribeRdsResourceSettingsRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['ResourceNiche'])) {
+            $model->resourceNiche = $map['ResourceNiche'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ResourceNiche'])) {
-            $model->resourceNiche = $map['ResourceNiche'];
         }
 
         return $model;

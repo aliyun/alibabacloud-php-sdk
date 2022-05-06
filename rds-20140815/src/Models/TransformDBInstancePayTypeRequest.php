@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class TransformDBInstancePayTypeRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $autoRenew;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $businessInfo;
 
     /**
      * @var string
@@ -31,17 +26,17 @@ class TransformDBInstancePayTypeRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $ownerAccount;
 
     /**
      * @var int
      */
-    public $usedTime;
+    public $ownerId;
 
     /**
      * @var string
@@ -56,18 +51,29 @@ class TransformDBInstancePayTypeRequest extends Model
     /**
      * @var string
      */
-    public $businessInfo;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $usedTime;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'autoRenew'            => 'AutoRenew',
+        'businessInfo'         => 'BusinessInfo',
         'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
         'DBInstanceId'         => 'DBInstanceId',
-        'usedTime'             => 'UsedTime',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'payType'              => 'PayType',
         'period'               => 'Period',
-        'businessInfo'         => 'BusinessInfo',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'usedTime'             => 'UsedTime',
     ];
 
     public function validate()
@@ -77,26 +83,23 @@ class TransformDBInstancePayTypeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->businessInfo) {
+            $res['BusinessInfo'] = $this->businessInfo;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->usedTime) {
-            $res['UsedTime'] = $this->usedTime;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -104,8 +107,14 @@ class TransformDBInstancePayTypeRequest extends Model
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->businessInfo) {
-            $res['BusinessInfo'] = $this->businessInfo;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->usedTime) {
+            $res['UsedTime'] = $this->usedTime;
         }
 
         return $res;
@@ -119,26 +128,23 @@ class TransformDBInstancePayTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['BusinessInfo'])) {
+            $model->businessInfo = $map['BusinessInfo'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['UsedTime'])) {
-            $model->usedTime = $map['UsedTime'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
@@ -146,8 +152,14 @@ class TransformDBInstancePayTypeRequest extends Model
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfo = $map['BusinessInfo'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['UsedTime'])) {
+            $model->usedTime = $map['UsedTime'];
         }
 
         return $model;

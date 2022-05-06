@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDescriptionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceDescription;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,28 +37,13 @@ class ModifyDBInstanceDescriptionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceDescription;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId'          => 'DBInstanceId',
+        'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'ownerAccount'          => 'OwnerAccount',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceDescription) {
+            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -61,15 +70,6 @@ class ModifyDBInstanceDescriptionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->DBInstanceDescription) {
-            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceDescription'])) {
+            $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -91,15 +100,6 @@ class ModifyDBInstanceDescriptionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['DBInstanceDescription'])) {
-            $model->DBInstanceDescription = $map['DBInstanceDescription'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

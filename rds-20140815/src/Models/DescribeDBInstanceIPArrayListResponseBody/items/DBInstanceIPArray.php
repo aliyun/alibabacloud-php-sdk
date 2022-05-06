@@ -21,17 +21,17 @@ class DBInstanceIPArray extends Model
     /**
      * @var string
      */
-    public $securityIPType;
+    public $securityIPList;
 
     /**
      * @var string
      */
-    public $securityIPList;
+    public $securityIPType;
     protected $_name = [
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
         'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
-        'securityIPType'             => 'SecurityIPType',
         'securityIPList'             => 'SecurityIPList',
+        'securityIPType'             => 'SecurityIPType',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class DBInstanceIPArray extends Model
         if (null !== $this->DBInstanceIPArrayName) {
             $res['DBInstanceIPArrayName'] = $this->DBInstanceIPArrayName;
         }
-        if (null !== $this->securityIPType) {
-            $res['SecurityIPType'] = $this->securityIPType;
-        }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
+        }
+        if (null !== $this->securityIPType) {
+            $res['SecurityIPType'] = $this->securityIPType;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class DBInstanceIPArray extends Model
         if (isset($map['DBInstanceIPArrayName'])) {
             $model->DBInstanceIPArrayName = $map['DBInstanceIPArrayName'];
         }
-        if (isset($map['SecurityIPType'])) {
-            $model->securityIPType = $map['SecurityIPType'];
-        }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
+        }
+        if (isset($map['SecurityIPType'])) {
+            $model->securityIPType = $map['SecurityIPType'];
         }
 
         return $model;

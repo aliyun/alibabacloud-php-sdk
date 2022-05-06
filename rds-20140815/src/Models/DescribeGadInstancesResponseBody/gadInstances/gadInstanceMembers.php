@@ -16,6 +16,11 @@ class gadInstanceMembers extends Model
     /**
      * @var string
      */
+    public $dtsInstance;
+
+    /**
+     * @var string
+     */
     public $engine;
 
     /**
@@ -37,19 +42,14 @@ class gadInstanceMembers extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $dtsInstance;
     protected $_name = [
         'DBInstanceID'  => 'DBInstanceID',
+        'dtsInstance'   => 'DtsInstance',
         'engine'        => 'Engine',
         'engineVersion' => 'EngineVersion',
         'regionId'      => 'RegionId',
         'role'          => 'Role',
         'status'        => 'Status',
-        'dtsInstance'   => 'DtsInstance',
     ];
 
     public function validate()
@@ -61,6 +61,9 @@ class gadInstanceMembers extends Model
         $res = [];
         if (null !== $this->DBInstanceID) {
             $res['DBInstanceID'] = $this->DBInstanceID;
+        }
+        if (null !== $this->dtsInstance) {
+            $res['DtsInstance'] = $this->dtsInstance;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -77,9 +80,6 @@ class gadInstanceMembers extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->dtsInstance) {
-            $res['DtsInstance'] = $this->dtsInstance;
-        }
 
         return $res;
     }
@@ -95,6 +95,9 @@ class gadInstanceMembers extends Model
         if (isset($map['DBInstanceID'])) {
             $model->DBInstanceID = $map['DBInstanceID'];
         }
+        if (isset($map['DtsInstance'])) {
+            $model->dtsInstance = $map['DtsInstance'];
+        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
@@ -109,9 +112,6 @@ class gadInstanceMembers extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['DtsInstance'])) {
-            $model->dtsInstance = $map['DtsInstance'];
         }
 
         return $model;

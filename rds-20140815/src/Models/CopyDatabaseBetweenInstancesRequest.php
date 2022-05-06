@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CopyDatabaseBetweenInstancesRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $backupId;
 
     /**
      * @var string
@@ -21,17 +21,12 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     /**
      * @var string
      */
-    public $targetDBInstanceId;
-
-    /**
-     * @var string
-     */
     public $dbNames;
 
     /**
-     * @var string
+     * @var int
      */
-    public $backupId;
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -42,14 +37,19 @@ class CopyDatabaseBetweenInstancesRequest extends Model
      * @var string
      */
     public $syncUserPrivilege;
+
+    /**
+     * @var string
+     */
+    public $targetDBInstanceId;
     protected $_name = [
-        'resourceOwnerId'    => 'ResourceOwnerId',
-        'DBInstanceId'       => 'DBInstanceId',
-        'targetDBInstanceId' => 'TargetDBInstanceId',
-        'dbNames'            => 'DbNames',
         'backupId'           => 'BackupId',
+        'DBInstanceId'       => 'DBInstanceId',
+        'dbNames'            => 'DbNames',
+        'resourceOwnerId'    => 'ResourceOwnerId',
         'restoreTime'        => 'RestoreTime',
         'syncUserPrivilege'  => 'SyncUserPrivilege',
+        'targetDBInstanceId' => 'TargetDBInstanceId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->targetDBInstanceId) {
-            $res['TargetDBInstanceId'] = $this->targetDBInstanceId;
-        }
         if (null !== $this->dbNames) {
             $res['DbNames'] = $this->dbNames;
         }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
         }
         if (null !== $this->syncUserPrivilege) {
             $res['SyncUserPrivilege'] = $this->syncUserPrivilege;
+        }
+        if (null !== $this->targetDBInstanceId) {
+            $res['TargetDBInstanceId'] = $this->targetDBInstanceId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['TargetDBInstanceId'])) {
-            $model->targetDBInstanceId = $map['TargetDBInstanceId'];
-        }
         if (isset($map['DbNames'])) {
             $model->dbNames = $map['DbNames'];
         }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
         }
         if (isset($map['SyncUserPrivilege'])) {
             $model->syncUserPrivilege = $map['SyncUserPrivilege'];
+        }
+        if (isset($map['TargetDBInstanceId'])) {
+            $model->targetDBInstanceId = $map['TargetDBInstanceId'];
         }
 
         return $model;

@@ -11,7 +11,22 @@ class binLogFile extends Model
     /**
      * @var string
      */
-    public $remoteStatus;
+    public $checksum;
+
+    /**
+     * @var string
+     */
+    public $downloadLink;
+
+    /**
+     * @var int
+     */
+    public $fileSize;
+
+    /**
+     * @var string
+     */
+    public $hostInstanceID;
 
     /**
      * @var string
@@ -21,27 +36,12 @@ class binLogFile extends Model
     /**
      * @var string
      */
-    public $logBeginTime;
-
-    /**
-     * @var string
-     */
     public $linkExpiredTime;
 
     /**
      * @var string
      */
-    public $downloadLink;
-
-    /**
-     * @var string
-     */
-    public $logFileName;
-
-    /**
-     * @var string
-     */
-    public $checksum;
+    public $logBeginTime;
 
     /**
      * @var string
@@ -51,23 +51,23 @@ class binLogFile extends Model
     /**
      * @var string
      */
-    public $hostInstanceID;
+    public $logFileName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $fileSize;
+    public $remoteStatus;
     protected $_name = [
-        'remoteStatus'         => 'RemoteStatus',
-        'intranetDownloadLink' => 'IntranetDownloadLink',
-        'logBeginTime'         => 'LogBeginTime',
-        'linkExpiredTime'      => 'LinkExpiredTime',
-        'downloadLink'         => 'DownloadLink',
-        'logFileName'          => 'LogFileName',
         'checksum'             => 'Checksum',
-        'logEndTime'           => 'LogEndTime',
-        'hostInstanceID'       => 'HostInstanceID',
+        'downloadLink'         => 'DownloadLink',
         'fileSize'             => 'FileSize',
+        'hostInstanceID'       => 'HostInstanceID',
+        'intranetDownloadLink' => 'IntranetDownloadLink',
+        'linkExpiredTime'      => 'LinkExpiredTime',
+        'logBeginTime'         => 'LogBeginTime',
+        'logEndTime'           => 'LogEndTime',
+        'logFileName'          => 'LogFileName',
+        'remoteStatus'         => 'RemoteStatus',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class binLogFile extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remoteStatus) {
-            $res['RemoteStatus'] = $this->remoteStatus;
-        }
-        if (null !== $this->intranetDownloadLink) {
-            $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
-        }
-        if (null !== $this->logBeginTime) {
-            $res['LogBeginTime'] = $this->logBeginTime;
-        }
-        if (null !== $this->linkExpiredTime) {
-            $res['LinkExpiredTime'] = $this->linkExpiredTime;
+        if (null !== $this->checksum) {
+            $res['Checksum'] = $this->checksum;
         }
         if (null !== $this->downloadLink) {
             $res['DownloadLink'] = $this->downloadLink;
         }
-        if (null !== $this->logFileName) {
-            $res['LogFileName'] = $this->logFileName;
-        }
-        if (null !== $this->checksum) {
-            $res['Checksum'] = $this->checksum;
-        }
-        if (null !== $this->logEndTime) {
-            $res['LogEndTime'] = $this->logEndTime;
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
         }
         if (null !== $this->hostInstanceID) {
             $res['HostInstanceID'] = $this->hostInstanceID;
         }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
+        if (null !== $this->intranetDownloadLink) {
+            $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
+        }
+        if (null !== $this->linkExpiredTime) {
+            $res['LinkExpiredTime'] = $this->linkExpiredTime;
+        }
+        if (null !== $this->logBeginTime) {
+            $res['LogBeginTime'] = $this->logBeginTime;
+        }
+        if (null !== $this->logEndTime) {
+            $res['LogEndTime'] = $this->logEndTime;
+        }
+        if (null !== $this->logFileName) {
+            $res['LogFileName'] = $this->logFileName;
+        }
+        if (null !== $this->remoteStatus) {
+            $res['RemoteStatus'] = $this->remoteStatus;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class binLogFile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RemoteStatus'])) {
-            $model->remoteStatus = $map['RemoteStatus'];
-        }
-        if (isset($map['IntranetDownloadLink'])) {
-            $model->intranetDownloadLink = $map['IntranetDownloadLink'];
-        }
-        if (isset($map['LogBeginTime'])) {
-            $model->logBeginTime = $map['LogBeginTime'];
-        }
-        if (isset($map['LinkExpiredTime'])) {
-            $model->linkExpiredTime = $map['LinkExpiredTime'];
+        if (isset($map['Checksum'])) {
+            $model->checksum = $map['Checksum'];
         }
         if (isset($map['DownloadLink'])) {
             $model->downloadLink = $map['DownloadLink'];
         }
-        if (isset($map['LogFileName'])) {
-            $model->logFileName = $map['LogFileName'];
-        }
-        if (isset($map['Checksum'])) {
-            $model->checksum = $map['Checksum'];
-        }
-        if (isset($map['LogEndTime'])) {
-            $model->logEndTime = $map['LogEndTime'];
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
         }
         if (isset($map['HostInstanceID'])) {
             $model->hostInstanceID = $map['HostInstanceID'];
         }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
+        if (isset($map['IntranetDownloadLink'])) {
+            $model->intranetDownloadLink = $map['IntranetDownloadLink'];
+        }
+        if (isset($map['LinkExpiredTime'])) {
+            $model->linkExpiredTime = $map['LinkExpiredTime'];
+        }
+        if (isset($map['LogBeginTime'])) {
+            $model->logBeginTime = $map['LogBeginTime'];
+        }
+        if (isset($map['LogEndTime'])) {
+            $model->logEndTime = $map['LogEndTime'];
+        }
+        if (isset($map['LogFileName'])) {
+            $model->logFileName = $map['LogFileName'];
+        }
+        if (isset($map['RemoteStatus'])) {
+            $model->remoteStatus = $map['RemoteStatus'];
         }
 
         return $model;

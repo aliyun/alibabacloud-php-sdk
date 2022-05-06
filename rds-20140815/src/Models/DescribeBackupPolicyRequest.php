@@ -9,9 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $backupPolicyMode;
+
+    /**
+     * @var string
+     */
+    public $compressType;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $releasedKeepPolicy;
 
     /**
      * @var string
@@ -22,40 +47,15 @@ class DescribeBackupPolicyRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $backupPolicyMode;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $compressType;
-
-    /**
-     * @var string
-     */
-    public $releasedKeepPolicy;
     protected $_name = [
+        'backupPolicyMode'     => 'BackupPolicyMode',
+        'compressType'         => 'CompressType',
+        'DBInstanceId'         => 'DBInstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'releasedKeepPolicy'   => 'ReleasedKeepPolicy',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'backupPolicyMode'     => 'BackupPolicyMode',
-        'ownerAccount'         => 'OwnerAccount',
-        'compressType'         => 'CompressType',
-        'releasedKeepPolicy'   => 'ReleasedKeepPolicy',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class DescribeBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupPolicyMode) {
+            $res['BackupPolicyMode'] = $this->backupPolicyMode;
+        }
+        if (null !== $this->compressType) {
+            $res['CompressType'] = $this->compressType;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->releasedKeepPolicy) {
+            $res['ReleasedKeepPolicy'] = $this->releasedKeepPolicy;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->backupPolicyMode) {
-            $res['BackupPolicyMode'] = $this->backupPolicyMode;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->compressType) {
-            $res['CompressType'] = $this->compressType;
-        }
-        if (null !== $this->releasedKeepPolicy) {
-            $res['ReleasedKeepPolicy'] = $this->releasedKeepPolicy;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class DescribeBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupPolicyMode'])) {
+            $model->backupPolicyMode = $map['BackupPolicyMode'];
+        }
+        if (isset($map['CompressType'])) {
+            $model->compressType = $map['CompressType'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ReleasedKeepPolicy'])) {
+            $model->releasedKeepPolicy = $map['ReleasedKeepPolicy'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['BackupPolicyMode'])) {
-            $model->backupPolicyMode = $map['BackupPolicyMode'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['CompressType'])) {
-            $model->compressType = $map['CompressType'];
-        }
-        if (isset($map['ReleasedKeepPolicy'])) {
-            $model->releasedKeepPolicy = $map['ReleasedKeepPolicy'];
         }
 
         return $model;

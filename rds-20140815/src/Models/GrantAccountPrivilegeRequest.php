@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GrantAccountPrivilegeRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $accountPrivilege;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @var string
      */
-    public $accountName;
-
-    /**
-     * @var string
-     */
     public $DBName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $accountPrivilege;
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId'  => 'ResourceOwnerId',
-        'DBInstanceId'     => 'DBInstanceId',
         'accountName'      => 'AccountName',
-        'DBName'           => 'DBName',
         'accountPrivilege' => 'AccountPrivilege',
+        'DBInstanceId'     => 'DBInstanceId',
+        'DBName'           => 'DBName',
+        'resourceOwnerId'  => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GrantAccountPrivilegeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountPrivilege) {
+            $res['AccountPrivilege'] = $this->accountPrivilege;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
-        if (null !== $this->accountPrivilege) {
-            $res['AccountPrivilege'] = $this->accountPrivilege;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GrantAccountPrivilegeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountPrivilege'])) {
+            $model->accountPrivilege = $map['AccountPrivilege'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
-        if (isset($map['AccountPrivilege'])) {
-            $model->accountPrivilege = $map['AccountPrivilege'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

@@ -11,6 +11,26 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
     /**
      * @var int
      */
+    public $classicExpiredDays;
+
+    /**
+     * @var string
+     */
+    public $connectionString;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -22,34 +42,14 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $connectionString;
-
-    /**
-     * @var int
-     */
-    public $classicExpiredDays;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'classicExpiredDays'   => 'ClassicExpiredDays',
+        'connectionString'     => 'ConnectionString',
+        'DBInstanceId'         => 'DBInstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'connectionString'     => 'ConnectionString',
-        'classicExpiredDays'   => 'ClassicExpiredDays',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,6 +59,18 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->classicExpiredDays) {
+            $res['ClassicExpiredDays'] = $this->classicExpiredDays;
+        }
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -67,18 +79,6 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
-        }
-        if (null !== $this->classicExpiredDays) {
-            $res['ClassicExpiredDays'] = $this->classicExpiredDays;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,6 +92,18 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClassicExpiredDays'])) {
+            $model->classicExpiredDays = $map['ClassicExpiredDays'];
+        }
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,18 +112,6 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
-        }
-        if (isset($map['ClassicExpiredDays'])) {
-            $model->classicExpiredDays = $map['ClassicExpiredDays'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

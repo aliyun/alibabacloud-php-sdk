@@ -9,6 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceNetRWSplitType;
+
+    /**
+     * @var int
+     */
+    public $flag;
+
+    /**
+     * @var string
+     */
+    public $generalGroupName;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,40 +52,16 @@ class DescribeDBInstanceNetInfoRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var int
-     */
-    public $flag;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceNetRWSplitType;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'clientToken'              => 'ClientToken',
+        'DBInstanceId'             => 'DBInstanceId',
+        'DBInstanceNetRWSplitType' => 'DBInstanceNetRWSplitType',
+        'flag'                     => 'Flag',
+        'generalGroupName'         => 'GeneralGroupName',
+        'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
-        'clientToken'              => 'ClientToken',
-        'DBInstanceId'             => 'DBInstanceId',
-        'flag'                     => 'Flag',
-        'DBInstanceNetRWSplitType' => 'DBInstanceNetRWSplitType',
-        'ownerAccount'             => 'OwnerAccount',
     ];
 
     public function validate()
@@ -65,6 +71,24 @@ class DescribeDBInstanceNetInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBInstanceNetRWSplitType) {
+            $res['DBInstanceNetRWSplitType'] = $this->DBInstanceNetRWSplitType;
+        }
+        if (null !== $this->flag) {
+            $res['Flag'] = $this->flag;
+        }
+        if (null !== $this->generalGroupName) {
+            $res['GeneralGroupName'] = $this->generalGroupName;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -73,21 +97,6 @@ class DescribeDBInstanceNetInfoRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->flag) {
-            $res['Flag'] = $this->flag;
-        }
-        if (null !== $this->DBInstanceNetRWSplitType) {
-            $res['DBInstanceNetRWSplitType'] = $this->DBInstanceNetRWSplitType;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -101,6 +110,24 @@ class DescribeDBInstanceNetInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBInstanceNetRWSplitType'])) {
+            $model->DBInstanceNetRWSplitType = $map['DBInstanceNetRWSplitType'];
+        }
+        if (isset($map['Flag'])) {
+            $model->flag = $map['Flag'];
+        }
+        if (isset($map['GeneralGroupName'])) {
+            $model->generalGroupName = $map['GeneralGroupName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -109,21 +136,6 @@ class DescribeDBInstanceNetInfoRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['Flag'])) {
-            $model->flag = $map['Flag'];
-        }
-        if (isset($map['DBInstanceNetRWSplitType'])) {
-            $model->DBInstanceNetRWSplitType = $map['DBInstanceNetRWSplitType'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

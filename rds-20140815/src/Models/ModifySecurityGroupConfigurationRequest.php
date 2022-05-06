@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupConfigurationRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,17 +31,12 @@ class ModifySecurityGroupConfigurationRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
     public $securityGroupId;
     protected $_name = [
+        'DBInstanceId'         => 'DBInstanceId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
         'securityGroupId'      => 'SecurityGroupId',
     ];
 
@@ -47,6 +47,9 @@ class ModifySecurityGroupConfigurationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,9 +58,6 @@ class ModifySecurityGroupConfigurationRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -74,6 +74,9 @@ class ModifySecurityGroupConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,9 +85,6 @@ class ModifySecurityGroupConfigurationRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

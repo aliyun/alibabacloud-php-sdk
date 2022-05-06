@@ -17,9 +17,9 @@ class items extends Model
     public $DBInstanceId;
 
     /**
-     * @var readonlyInstanceDelay
+     * @var readDBInstanceNames
      */
-    public $readonlyInstanceDelay;
+    public $readDBInstanceNames;
 
     /**
      * @var readDelayTimes
@@ -27,14 +27,14 @@ class items extends Model
     public $readDelayTimes;
 
     /**
-     * @var readDBInstanceNames
+     * @var readonlyInstanceDelay
      */
-    public $readDBInstanceNames;
+    public $readonlyInstanceDelay;
     protected $_name = [
         'DBInstanceId'          => 'DBInstanceId',
-        'readonlyInstanceDelay' => 'ReadonlyInstanceDelay',
-        'readDelayTimes'        => 'ReadDelayTimes',
         'readDBInstanceNames'   => 'ReadDBInstanceNames',
+        'readDelayTimes'        => 'ReadDelayTimes',
+        'readonlyInstanceDelay' => 'ReadonlyInstanceDelay',
     ];
 
     public function validate()
@@ -47,14 +47,14 @@ class items extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->readonlyInstanceDelay) {
-            $res['ReadonlyInstanceDelay'] = null !== $this->readonlyInstanceDelay ? $this->readonlyInstanceDelay->toMap() : null;
+        if (null !== $this->readDBInstanceNames) {
+            $res['ReadDBInstanceNames'] = null !== $this->readDBInstanceNames ? $this->readDBInstanceNames->toMap() : null;
         }
         if (null !== $this->readDelayTimes) {
             $res['ReadDelayTimes'] = null !== $this->readDelayTimes ? $this->readDelayTimes->toMap() : null;
         }
-        if (null !== $this->readDBInstanceNames) {
-            $res['ReadDBInstanceNames'] = null !== $this->readDBInstanceNames ? $this->readDBInstanceNames->toMap() : null;
+        if (null !== $this->readonlyInstanceDelay) {
+            $res['ReadonlyInstanceDelay'] = null !== $this->readonlyInstanceDelay ? $this->readonlyInstanceDelay->toMap() : null;
         }
 
         return $res;
@@ -71,14 +71,14 @@ class items extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['ReadonlyInstanceDelay'])) {
-            $model->readonlyInstanceDelay = readonlyInstanceDelay::fromMap($map['ReadonlyInstanceDelay']);
+        if (isset($map['ReadDBInstanceNames'])) {
+            $model->readDBInstanceNames = readDBInstanceNames::fromMap($map['ReadDBInstanceNames']);
         }
         if (isset($map['ReadDelayTimes'])) {
             $model->readDelayTimes = readDelayTimes::fromMap($map['ReadDelayTimes']);
         }
-        if (isset($map['ReadDBInstanceNames'])) {
-            $model->readDBInstanceNames = readDBInstanceNames::fromMap($map['ReadDBInstanceNames']);
+        if (isset($map['ReadonlyInstanceDelay'])) {
+            $model->readonlyInstanceDelay = readonlyInstanceDelay::fromMap($map['ReadonlyInstanceDelay']);
         }
 
         return $model;

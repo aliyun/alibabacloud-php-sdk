@@ -9,9 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyPerformanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBProxyInstanceType;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $metricsName;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -26,42 +51,17 @@ class DescribeDBProxyPerformanceRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $DBProxyInstanceType;
-
-    /**
-     * @var string
-     */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $metricsName;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'DBInstanceId'         => 'DBInstanceId',
         'DBProxyInstanceType'  => 'DBProxyInstanceType',
-        'startTime'            => 'StartTime',
         'endTime'              => 'EndTime',
-        'regionId'             => 'RegionId',
         'metricsName'          => 'MetricsName',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'startTime'            => 'StartTime',
     ];
 
     public function validate()
@@ -71,8 +71,23 @@ class DescribeDBProxyPerformanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBProxyInstanceType) {
+            $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->metricsName) {
+            $res['MetricsName'] = $this->metricsName;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -80,23 +95,8 @@ class DescribeDBProxyPerformanceRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->DBProxyInstanceType) {
-            $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->metricsName) {
-            $res['MetricsName'] = $this->metricsName;
         }
 
         return $res;
@@ -110,8 +110,23 @@ class DescribeDBProxyPerformanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBProxyInstanceType'])) {
+            $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['MetricsName'])) {
+            $model->metricsName = $map['MetricsName'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -119,23 +134,8 @@ class DescribeDBProxyPerformanceRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['DBProxyInstanceType'])) {
-            $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['MetricsName'])) {
-            $model->metricsName = $map['MetricsName'];
         }
 
         return $model;

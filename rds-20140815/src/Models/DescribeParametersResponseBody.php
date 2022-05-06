@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersResponseBody extends Model
 {
     /**
-     * @var string
+     * @var configParameters
      */
-    public $requestId;
+    public $configParameters;
 
     /**
      * @var string
@@ -26,19 +26,19 @@ class DescribeParametersResponseBody extends Model
     public $engineVersion;
 
     /**
-     * @var configParameters
+     * @var string
      */
-    public $configParameters;
+    public $requestId;
 
     /**
      * @var runningParameters
      */
     public $runningParameters;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'configParameters'  => 'ConfigParameters',
         'engine'            => 'Engine',
         'engineVersion'     => 'EngineVersion',
-        'configParameters'  => 'ConfigParameters',
+        'requestId'         => 'RequestId',
         'runningParameters' => 'RunningParameters',
     ];
 
@@ -49,8 +49,8 @@ class DescribeParametersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->configParameters) {
+            $res['ConfigParameters'] = null !== $this->configParameters ? $this->configParameters->toMap() : null;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -58,8 +58,8 @@ class DescribeParametersResponseBody extends Model
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->configParameters) {
-            $res['ConfigParameters'] = null !== $this->configParameters ? $this->configParameters->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->runningParameters) {
             $res['RunningParameters'] = null !== $this->runningParameters ? $this->runningParameters->toMap() : null;
@@ -76,8 +76,8 @@ class DescribeParametersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ConfigParameters'])) {
+            $model->configParameters = configParameters::fromMap($map['ConfigParameters']);
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -85,8 +85,8 @@ class DescribeParametersResponseBody extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['ConfigParameters'])) {
-            $model->configParameters = configParameters::fromMap($map['ConfigParameters']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RunningParameters'])) {
             $model->runningParameters = runningParameters::fromMap($map['RunningParameters']);

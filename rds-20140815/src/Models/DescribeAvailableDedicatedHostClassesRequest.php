@@ -16,6 +16,11 @@ class DescribeAvailableDedicatedHostClassesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -26,24 +31,19 @@ class DescribeAvailableDedicatedHostClassesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $storageType;
 
     /**
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $storageType;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'zoneId'               => 'ZoneId',
         'storageType'          => 'StorageType',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class DescribeAvailableDedicatedHostClassesRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class DescribeAvailableDedicatedHostClassesRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
         }
 
         return $model;

@@ -11,6 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyResponseBody extends Model
 {
     /**
+     * @var DBProxyConnectStringItems
+     */
+    public $DBProxyConnectStringItems;
+
+    /**
+     * @var string
+     */
+    public $DBProxyInstanceCurrentMinorVersion;
+
+    /**
      * @var string
      */
     public $DBProxyInstanceLatestMinorVersion;
@@ -18,12 +28,7 @@ class DescribeDBProxyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $DBProxyInstanceCurrentMinorVersion;
+    public $DBProxyInstanceName;
 
     /**
      * @var int
@@ -33,7 +38,7 @@ class DescribeDBProxyResponseBody extends Model
     /**
      * @var string
      */
-    public $DBProxyInstanceType;
+    public $DBProxyInstanceSize;
 
     /**
      * @var string
@@ -43,33 +48,34 @@ class DescribeDBProxyResponseBody extends Model
     /**
      * @var string
      */
-    public $DBProxyServiceStatus;
+    public $DBProxyInstanceType;
 
     /**
      * @var string
      */
-    public $DBProxyInstanceName;
-
-    /**
-     * @var DBProxyConnectStringItems
-     */
-    public $DBProxyConnectStringItems;
+    public $DBProxyServiceStatus;
 
     /**
      * @var dbProxyEndpointItems
      */
     public $dbProxyEndpointItems;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'DBProxyInstanceLatestMinorVersion'  => 'DBProxyInstanceLatestMinorVersion',
-        'requestId'                          => 'RequestId',
-        'DBProxyInstanceCurrentMinorVersion' => 'DBProxyInstanceCurrentMinorVersion',
-        'DBProxyInstanceNum'                 => 'DBProxyInstanceNum',
-        'DBProxyInstanceType'                => 'DBProxyInstanceType',
-        'DBProxyInstanceStatus'              => 'DBProxyInstanceStatus',
-        'DBProxyServiceStatus'               => 'DBProxyServiceStatus',
-        'DBProxyInstanceName'                => 'DBProxyInstanceName',
         'DBProxyConnectStringItems'          => 'DBProxyConnectStringItems',
+        'DBProxyInstanceCurrentMinorVersion' => 'DBProxyInstanceCurrentMinorVersion',
+        'DBProxyInstanceLatestMinorVersion'  => 'DBProxyInstanceLatestMinorVersion',
+        'DBProxyInstanceName'                => 'DBProxyInstanceName',
+        'DBProxyInstanceNum'                 => 'DBProxyInstanceNum',
+        'DBProxyInstanceSize'                => 'DBProxyInstanceSize',
+        'DBProxyInstanceStatus'              => 'DBProxyInstanceStatus',
+        'DBProxyInstanceType'                => 'DBProxyInstanceType',
+        'DBProxyServiceStatus'               => 'DBProxyServiceStatus',
         'dbProxyEndpointItems'               => 'DbProxyEndpointItems',
+        'requestId'                          => 'RequestId',
     ];
 
     public function validate()
@@ -79,35 +85,38 @@ class DescribeDBProxyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBProxyInstanceLatestMinorVersion) {
-            $res['DBProxyInstanceLatestMinorVersion'] = $this->DBProxyInstanceLatestMinorVersion;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->DBProxyConnectStringItems) {
+            $res['DBProxyConnectStringItems'] = null !== $this->DBProxyConnectStringItems ? $this->DBProxyConnectStringItems->toMap() : null;
         }
         if (null !== $this->DBProxyInstanceCurrentMinorVersion) {
             $res['DBProxyInstanceCurrentMinorVersion'] = $this->DBProxyInstanceCurrentMinorVersion;
         }
-        if (null !== $this->DBProxyInstanceNum) {
-            $res['DBProxyInstanceNum'] = $this->DBProxyInstanceNum;
-        }
-        if (null !== $this->DBProxyInstanceType) {
-            $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
-        }
-        if (null !== $this->DBProxyInstanceStatus) {
-            $res['DBProxyInstanceStatus'] = $this->DBProxyInstanceStatus;
-        }
-        if (null !== $this->DBProxyServiceStatus) {
-            $res['DBProxyServiceStatus'] = $this->DBProxyServiceStatus;
+        if (null !== $this->DBProxyInstanceLatestMinorVersion) {
+            $res['DBProxyInstanceLatestMinorVersion'] = $this->DBProxyInstanceLatestMinorVersion;
         }
         if (null !== $this->DBProxyInstanceName) {
             $res['DBProxyInstanceName'] = $this->DBProxyInstanceName;
         }
-        if (null !== $this->DBProxyConnectStringItems) {
-            $res['DBProxyConnectStringItems'] = null !== $this->DBProxyConnectStringItems ? $this->DBProxyConnectStringItems->toMap() : null;
+        if (null !== $this->DBProxyInstanceNum) {
+            $res['DBProxyInstanceNum'] = $this->DBProxyInstanceNum;
+        }
+        if (null !== $this->DBProxyInstanceSize) {
+            $res['DBProxyInstanceSize'] = $this->DBProxyInstanceSize;
+        }
+        if (null !== $this->DBProxyInstanceStatus) {
+            $res['DBProxyInstanceStatus'] = $this->DBProxyInstanceStatus;
+        }
+        if (null !== $this->DBProxyInstanceType) {
+            $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
+        }
+        if (null !== $this->DBProxyServiceStatus) {
+            $res['DBProxyServiceStatus'] = $this->DBProxyServiceStatus;
         }
         if (null !== $this->dbProxyEndpointItems) {
             $res['DbProxyEndpointItems'] = null !== $this->dbProxyEndpointItems ? $this->dbProxyEndpointItems->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -121,35 +130,38 @@ class DescribeDBProxyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBProxyInstanceLatestMinorVersion'])) {
-            $model->DBProxyInstanceLatestMinorVersion = $map['DBProxyInstanceLatestMinorVersion'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DBProxyConnectStringItems'])) {
+            $model->DBProxyConnectStringItems = DBProxyConnectStringItems::fromMap($map['DBProxyConnectStringItems']);
         }
         if (isset($map['DBProxyInstanceCurrentMinorVersion'])) {
             $model->DBProxyInstanceCurrentMinorVersion = $map['DBProxyInstanceCurrentMinorVersion'];
         }
-        if (isset($map['DBProxyInstanceNum'])) {
-            $model->DBProxyInstanceNum = $map['DBProxyInstanceNum'];
-        }
-        if (isset($map['DBProxyInstanceType'])) {
-            $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
-        }
-        if (isset($map['DBProxyInstanceStatus'])) {
-            $model->DBProxyInstanceStatus = $map['DBProxyInstanceStatus'];
-        }
-        if (isset($map['DBProxyServiceStatus'])) {
-            $model->DBProxyServiceStatus = $map['DBProxyServiceStatus'];
+        if (isset($map['DBProxyInstanceLatestMinorVersion'])) {
+            $model->DBProxyInstanceLatestMinorVersion = $map['DBProxyInstanceLatestMinorVersion'];
         }
         if (isset($map['DBProxyInstanceName'])) {
             $model->DBProxyInstanceName = $map['DBProxyInstanceName'];
         }
-        if (isset($map['DBProxyConnectStringItems'])) {
-            $model->DBProxyConnectStringItems = DBProxyConnectStringItems::fromMap($map['DBProxyConnectStringItems']);
+        if (isset($map['DBProxyInstanceNum'])) {
+            $model->DBProxyInstanceNum = $map['DBProxyInstanceNum'];
+        }
+        if (isset($map['DBProxyInstanceSize'])) {
+            $model->DBProxyInstanceSize = $map['DBProxyInstanceSize'];
+        }
+        if (isset($map['DBProxyInstanceStatus'])) {
+            $model->DBProxyInstanceStatus = $map['DBProxyInstanceStatus'];
+        }
+        if (isset($map['DBProxyInstanceType'])) {
+            $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
+        }
+        if (isset($map['DBProxyServiceStatus'])) {
+            $model->DBProxyServiceStatus = $map['DBProxyServiceStatus'];
         }
         if (isset($map['DbProxyEndpointItems'])) {
             $model->dbProxyEndpointItems = dbProxyEndpointItems::fromMap($map['DbProxyEndpointItems']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

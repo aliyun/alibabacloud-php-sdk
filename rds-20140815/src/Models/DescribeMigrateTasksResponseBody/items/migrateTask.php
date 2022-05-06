@@ -11,17 +11,7 @@ class migrateTask extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $backupMode;
 
     /**
      * @var string
@@ -36,7 +26,17 @@ class migrateTask extends Model
     /**
      * @var string
      */
-    public $backupMode;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $isDBReplaced;
 
     /**
      * @var string
@@ -46,16 +46,16 @@ class migrateTask extends Model
     /**
      * @var string
      */
-    public $isDBReplaced;
+    public $status;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'status'        => 'Status',
-        'description'   => 'Description',
+        'backupMode'    => 'BackupMode',
         'createTime'    => 'CreateTime',
         'DBName'        => 'DBName',
-        'backupMode'    => 'BackupMode',
-        'migrateTaskId' => 'MigrateTaskId',
+        'description'   => 'Description',
+        'endTime'       => 'EndTime',
         'isDBReplaced'  => 'IsDBReplaced',
+        'migrateTaskId' => 'MigrateTaskId',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -65,14 +65,8 @@ class migrateTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->backupMode) {
+            $res['BackupMode'] = $this->backupMode;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -80,14 +74,20 @@ class migrateTask extends Model
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
-        if (null !== $this->backupMode) {
-            $res['BackupMode'] = $this->backupMode;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->isDBReplaced) {
+            $res['IsDBReplaced'] = $this->isDBReplaced;
         }
         if (null !== $this->migrateTaskId) {
             $res['MigrateTaskId'] = $this->migrateTaskId;
         }
-        if (null !== $this->isDBReplaced) {
-            $res['IsDBReplaced'] = $this->isDBReplaced;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -101,14 +101,8 @@ class migrateTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['BackupMode'])) {
+            $model->backupMode = $map['BackupMode'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -116,14 +110,20 @@ class migrateTask extends Model
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
-        if (isset($map['BackupMode'])) {
-            $model->backupMode = $map['BackupMode'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['IsDBReplaced'])) {
+            $model->isDBReplaced = $map['IsDBReplaced'];
         }
         if (isset($map['MigrateTaskId'])) {
             $model->migrateTaskId = $map['MigrateTaskId'];
         }
-        if (isset($map['IsDBReplaced'])) {
-            $model->isDBReplaced = $map['IsDBReplaced'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

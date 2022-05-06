@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class latencyTopNItem extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $SQLText;
+    public $avgLatency;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class latencyTopNItem extends Model
     public $SQLExecuteTimes;
 
     /**
-     * @var int
+     * @var string
      */
-    public $avgLatency;
+    public $SQLText;
     protected $_name = [
-        'SQLText'         => 'SQLText',
-        'SQLExecuteTimes' => 'SQLExecuteTimes',
         'avgLatency'      => 'AvgLatency',
+        'SQLExecuteTimes' => 'SQLExecuteTimes',
+        'SQLText'         => 'SQLText',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class latencyTopNItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SQLText) {
-            $res['SQLText'] = $this->SQLText;
+        if (null !== $this->avgLatency) {
+            $res['AvgLatency'] = $this->avgLatency;
         }
         if (null !== $this->SQLExecuteTimes) {
             $res['SQLExecuteTimes'] = $this->SQLExecuteTimes;
         }
-        if (null !== $this->avgLatency) {
-            $res['AvgLatency'] = $this->avgLatency;
+        if (null !== $this->SQLText) {
+            $res['SQLText'] = $this->SQLText;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class latencyTopNItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SQLText'])) {
-            $model->SQLText = $map['SQLText'];
+        if (isset($map['AvgLatency'])) {
+            $model->avgLatency = $map['AvgLatency'];
         }
         if (isset($map['SQLExecuteTimes'])) {
             $model->SQLExecuteTimes = $map['SQLExecuteTimes'];
         }
-        if (isset($map['AvgLatency'])) {
-            $model->avgLatency = $map['AvgLatency'];
+        if (isset($map['SQLText'])) {
+            $model->SQLText = $map['SQLText'];
         }
 
         return $model;

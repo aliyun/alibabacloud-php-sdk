@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class tagInfos extends Model
 {
     /**
-     * @var string
+     * @var DBInstanceIds
      */
-    public $tagValue;
+    public $DBInstanceIds;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class tagInfos extends Model
     public $tagKey;
 
     /**
-     * @var DBInstanceIds
+     * @var string
      */
-    public $DBInstanceIds;
+    public $tagValue;
     protected $_name = [
-        'tagValue'      => 'TagValue',
-        'tagKey'        => 'TagKey',
         'DBInstanceIds' => 'DBInstanceIds',
+        'tagKey'        => 'TagKey',
+        'tagValue'      => 'TagValue',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class tagInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
+        if (null !== $this->DBInstanceIds) {
+            $res['DBInstanceIds'] = null !== $this->DBInstanceIds ? $this->DBInstanceIds->toMap() : null;
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
-        if (null !== $this->DBInstanceIds) {
-            $res['DBInstanceIds'] = null !== $this->DBInstanceIds ? $this->DBInstanceIds->toMap() : null;
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class tagInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
+        if (isset($map['DBInstanceIds'])) {
+            $model->DBInstanceIds = DBInstanceIds::fromMap($map['DBInstanceIds']);
         }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
-        if (isset($map['DBInstanceIds'])) {
-            $model->DBInstanceIds = DBInstanceIds::fromMap($map['DBInstanceIds']);
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
 
         return $model;

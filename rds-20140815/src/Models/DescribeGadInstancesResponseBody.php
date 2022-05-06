@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGadInstancesResponseBody extends Model
 {
     /**
+     * @var gadInstances[]
+     */
+    public $gadInstances;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var gadInstances[]
-     */
-    public $gadInstances;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'gadInstances' => 'GadInstances',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -32,9 +32,6 @@ class DescribeGadInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->gadInstances) {
             $res['GadInstances'] = [];
             if (null !== $this->gadInstances && \is_array($this->gadInstances)) {
@@ -43,6 +40,9 @@ class DescribeGadInstancesResponseBody extends Model
                     $res['GadInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class DescribeGadInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['GadInstances'])) {
             if (!empty($map['GadInstances'])) {
                 $model->gadInstances = [];
@@ -67,6 +64,9 @@ class DescribeGadInstancesResponseBody extends Model
                     $model->gadInstances[$n++] = null !== $item ? gadInstances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeOssDownloadsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $migrateTaskId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +32,12 @@ class DescribeOssDownloadsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $migrateTaskId;
     protected $_name = [
+        'DBInstanceId'         => 'DBInstanceId',
+        'migrateTaskId'        => 'MigrateTaskId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'migrateTaskId'        => 'MigrateTaskId',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class DescribeOssDownloadsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->migrateTaskId) {
+            $res['MigrateTaskId'] = $this->migrateTaskId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class DescribeOssDownloadsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->migrateTaskId) {
-            $res['MigrateTaskId'] = $this->migrateTaskId;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class DescribeOssDownloadsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['MigrateTaskId'])) {
+            $model->migrateTaskId = $map['MigrateTaskId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class DescribeOssDownloadsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['MigrateTaskId'])) {
-            $model->migrateTaskId = $map['MigrateTaskId'];
         }
 
         return $model;

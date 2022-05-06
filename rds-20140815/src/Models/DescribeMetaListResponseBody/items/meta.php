@@ -11,21 +11,21 @@ class meta extends Model
     /**
      * @var string
      */
-    public $tables;
-
-    /**
-     * @var string
-     */
     public $database;
 
     /**
      * @var string
      */
     public $size;
+
+    /**
+     * @var string
+     */
+    public $tables;
     protected $_name = [
-        'tables'   => 'Tables',
         'database' => 'Database',
         'size'     => 'Size',
+        'tables'   => 'Tables',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class meta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tables) {
-            $res['Tables'] = $this->tables;
-        }
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->tables) {
+            $res['Tables'] = $this->tables;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class meta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tables'])) {
-            $model->tables = $map['Tables'];
-        }
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['Tables'])) {
+            $model->tables = $map['Tables'];
         }
 
         return $model;

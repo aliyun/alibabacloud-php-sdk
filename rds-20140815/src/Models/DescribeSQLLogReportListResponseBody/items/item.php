@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @var string
-     */
-    public $reportTime;
-
-    /**
      * @var latencyTopNItems
      */
     public $latencyTopNItems;
@@ -24,10 +19,15 @@ class item extends Model
      * @var QPSTopNItems
      */
     public $QPSTopNItems;
+
+    /**
+     * @var string
+     */
+    public $reportTime;
     protected $_name = [
-        'reportTime'       => 'ReportTime',
         'latencyTopNItems' => 'LatencyTopNItems',
         'QPSTopNItems'     => 'QPSTopNItems',
+        'reportTime'       => 'ReportTime',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reportTime) {
-            $res['ReportTime'] = $this->reportTime;
-        }
         if (null !== $this->latencyTopNItems) {
             $res['LatencyTopNItems'] = null !== $this->latencyTopNItems ? $this->latencyTopNItems->toMap() : null;
         }
         if (null !== $this->QPSTopNItems) {
             $res['QPSTopNItems'] = null !== $this->QPSTopNItems ? $this->QPSTopNItems->toMap() : null;
+        }
+        if (null !== $this->reportTime) {
+            $res['ReportTime'] = $this->reportTime;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReportTime'])) {
-            $model->reportTime = $map['ReportTime'];
-        }
         if (isset($map['LatencyTopNItems'])) {
             $model->latencyTopNItems = latencyTopNItems::fromMap($map['LatencyTopNItems']);
         }
         if (isset($map['QPSTopNItems'])) {
             $model->QPSTopNItems = QPSTopNItems::fromMap($map['QPSTopNItems']);
+        }
+        if (isset($map['ReportTime'])) {
+            $model->reportTime = $map['ReportTime'];
         }
 
         return $model;

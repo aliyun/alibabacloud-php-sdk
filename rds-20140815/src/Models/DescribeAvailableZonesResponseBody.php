@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableZonesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var availableZones[]
      */
     public $availableZones;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'availableZones' => 'AvailableZones',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeAvailableZonesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->availableZones) {
             $res['AvailableZones'] = [];
             if (null !== $this->availableZones && \is_array($this->availableZones)) {
@@ -41,6 +38,9 @@ class DescribeAvailableZonesResponseBody extends Model
                     $res['AvailableZones'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeAvailableZonesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AvailableZones'])) {
             if (!empty($map['AvailableZones'])) {
                 $model->availableZones = [];
@@ -65,6 +62,9 @@ class DescribeAvailableZonesResponseBody extends Model
                     $model->availableZones[$n++] = null !== $item ? availableZones::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

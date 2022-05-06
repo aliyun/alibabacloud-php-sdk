@@ -16,12 +16,7 @@ class DeleteParameterGroupRequest extends Model
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $parameterGroupId;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class DeleteParameterGroupRequest extends Model
     /**
      * @var string
      */
-    public $parameterGroupId;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'parameterGroupId'     => 'ParameterGroupId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'parameterGroupId'     => 'ParameterGroupId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class DeleteParameterGroupRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->parameterGroupId) {
+            $res['ParameterGroupId'] = $this->parameterGroupId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->parameterGroupId) {
-            $res['ParameterGroupId'] = $this->parameterGroupId;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class DeleteParameterGroupRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['ParameterGroupId'])) {
+            $model->parameterGroupId = $map['ParameterGroupId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ParameterGroupId'])) {
-            $model->parameterGroupId = $map['ParameterGroupId'];
         }
 
         return $model;

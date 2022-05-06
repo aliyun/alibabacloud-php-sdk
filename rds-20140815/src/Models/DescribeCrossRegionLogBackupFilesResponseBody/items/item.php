@@ -11,12 +11,12 @@ class item extends Model
     /**
      * @var string
      */
-    public $logBeginTime;
+    public $crossBackupRegion;
 
     /**
      * @var string
      */
-    public $linkExpiredTime;
+    public $crossDownloadLink;
 
     /**
      * @var string
@@ -24,19 +24,9 @@ class item extends Model
     public $crossIntranetDownloadLink;
 
     /**
-     * @var string
+     * @var int
      */
-    public $logFileName;
-
-    /**
-     * @var string
-     */
-    public $crossBackupRegion;
-
-    /**
-     * @var string
-     */
-    public $crossDownloadLink;
+    public $crossLogBackupId;
 
     /**
      * @var int
@@ -49,25 +39,35 @@ class item extends Model
     public $instanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $crossLogBackupId;
+    public $linkExpiredTime;
+
+    /**
+     * @var string
+     */
+    public $logBeginTime;
 
     /**
      * @var string
      */
     public $logEndTime;
+
+    /**
+     * @var string
+     */
+    public $logFileName;
     protected $_name = [
-        'logBeginTime'              => 'LogBeginTime',
-        'linkExpiredTime'           => 'LinkExpiredTime',
-        'crossIntranetDownloadLink' => 'CrossIntranetDownloadLink',
-        'logFileName'               => 'LogFileName',
         'crossBackupRegion'         => 'CrossBackupRegion',
         'crossDownloadLink'         => 'CrossDownloadLink',
+        'crossIntranetDownloadLink' => 'CrossIntranetDownloadLink',
+        'crossLogBackupId'          => 'CrossLogBackupId',
         'crossLogBackupSize'        => 'CrossLogBackupSize',
         'instanceId'                => 'InstanceId',
-        'crossLogBackupId'          => 'CrossLogBackupId',
+        'linkExpiredTime'           => 'LinkExpiredTime',
+        'logBeginTime'              => 'LogBeginTime',
         'logEndTime'                => 'LogEndTime',
+        'logFileName'               => 'LogFileName',
     ];
 
     public function validate()
@@ -77,23 +77,17 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logBeginTime) {
-            $res['LogBeginTime'] = $this->logBeginTime;
-        }
-        if (null !== $this->linkExpiredTime) {
-            $res['LinkExpiredTime'] = $this->linkExpiredTime;
-        }
-        if (null !== $this->crossIntranetDownloadLink) {
-            $res['CrossIntranetDownloadLink'] = $this->crossIntranetDownloadLink;
-        }
-        if (null !== $this->logFileName) {
-            $res['LogFileName'] = $this->logFileName;
-        }
         if (null !== $this->crossBackupRegion) {
             $res['CrossBackupRegion'] = $this->crossBackupRegion;
         }
         if (null !== $this->crossDownloadLink) {
             $res['CrossDownloadLink'] = $this->crossDownloadLink;
+        }
+        if (null !== $this->crossIntranetDownloadLink) {
+            $res['CrossIntranetDownloadLink'] = $this->crossIntranetDownloadLink;
+        }
+        if (null !== $this->crossLogBackupId) {
+            $res['CrossLogBackupId'] = $this->crossLogBackupId;
         }
         if (null !== $this->crossLogBackupSize) {
             $res['CrossLogBackupSize'] = $this->crossLogBackupSize;
@@ -101,11 +95,17 @@ class item extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->crossLogBackupId) {
-            $res['CrossLogBackupId'] = $this->crossLogBackupId;
+        if (null !== $this->linkExpiredTime) {
+            $res['LinkExpiredTime'] = $this->linkExpiredTime;
+        }
+        if (null !== $this->logBeginTime) {
+            $res['LogBeginTime'] = $this->logBeginTime;
         }
         if (null !== $this->logEndTime) {
             $res['LogEndTime'] = $this->logEndTime;
+        }
+        if (null !== $this->logFileName) {
+            $res['LogFileName'] = $this->logFileName;
         }
 
         return $res;
@@ -119,23 +119,17 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogBeginTime'])) {
-            $model->logBeginTime = $map['LogBeginTime'];
-        }
-        if (isset($map['LinkExpiredTime'])) {
-            $model->linkExpiredTime = $map['LinkExpiredTime'];
-        }
-        if (isset($map['CrossIntranetDownloadLink'])) {
-            $model->crossIntranetDownloadLink = $map['CrossIntranetDownloadLink'];
-        }
-        if (isset($map['LogFileName'])) {
-            $model->logFileName = $map['LogFileName'];
-        }
         if (isset($map['CrossBackupRegion'])) {
             $model->crossBackupRegion = $map['CrossBackupRegion'];
         }
         if (isset($map['CrossDownloadLink'])) {
             $model->crossDownloadLink = $map['CrossDownloadLink'];
+        }
+        if (isset($map['CrossIntranetDownloadLink'])) {
+            $model->crossIntranetDownloadLink = $map['CrossIntranetDownloadLink'];
+        }
+        if (isset($map['CrossLogBackupId'])) {
+            $model->crossLogBackupId = $map['CrossLogBackupId'];
         }
         if (isset($map['CrossLogBackupSize'])) {
             $model->crossLogBackupSize = $map['CrossLogBackupSize'];
@@ -143,11 +137,17 @@ class item extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['CrossLogBackupId'])) {
-            $model->crossLogBackupId = $map['CrossLogBackupId'];
+        if (isset($map['LinkExpiredTime'])) {
+            $model->linkExpiredTime = $map['LinkExpiredTime'];
+        }
+        if (isset($map['LogBeginTime'])) {
+            $model->logBeginTime = $map['LogBeginTime'];
         }
         if (isset($map['LogEndTime'])) {
             $model->logEndTime = $map['LogEndTime'];
+        }
+        if (isset($map['LogFileName'])) {
+            $model->logFileName = $map['LogFileName'];
         }
 
         return $model;

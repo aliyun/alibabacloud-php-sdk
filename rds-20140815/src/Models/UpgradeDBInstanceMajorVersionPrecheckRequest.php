@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceMajorVersionPrecheckRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -16,15 +21,10 @@ class UpgradeDBInstanceMajorVersionPrecheckRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
     public $targetMajorVersion;
     protected $_name = [
-        'resourceOwnerId'    => 'ResourceOwnerId',
         'DBInstanceId'       => 'DBInstanceId',
+        'resourceOwnerId'    => 'ResourceOwnerId',
         'targetMajorVersion' => 'TargetMajorVersion',
     ];
 
@@ -35,11 +35,11 @@ class UpgradeDBInstanceMajorVersionPrecheckRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->targetMajorVersion) {
             $res['TargetMajorVersion'] = $this->targetMajorVersion;
@@ -56,11 +56,11 @@ class UpgradeDBInstanceMajorVersionPrecheckRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['TargetMajorVersion'])) {
             $model->targetMajorVersion = $map['TargetMajorVersion'];

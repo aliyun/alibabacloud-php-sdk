@@ -11,7 +11,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $connectionStringPrefix;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class CreateDBProxyEndpointAddressRequest extends Model
     /**
      * @var string
      */
-    public $DBProxyEndpointId;
+    public $DBProxyConnectStringNetType;
 
     /**
      * @var string
      */
-    public $connectionStringPrefix;
+    public $DBProxyEndpointId;
 
     /**
      * @var string
@@ -36,7 +36,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     /**
      * @var string
      */
-    public $DBProxyConnectStringNetType;
+    public $regionId;
 
     /**
      * @var string
@@ -48,12 +48,12 @@ class CreateDBProxyEndpointAddressRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'regionId'                    => 'RegionId',
-        'DBInstanceId'                => 'DBInstanceId',
-        'DBProxyEndpointId'           => 'DBProxyEndpointId',
         'connectionStringPrefix'      => 'ConnectionStringPrefix',
-        'DBProxyNewConnectStringPort' => 'DBProxyNewConnectStringPort',
+        'DBInstanceId'                => 'DBInstanceId',
         'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
+        'DBProxyEndpointId'           => 'DBProxyEndpointId',
+        'DBProxyNewConnectStringPort' => 'DBProxyNewConnectStringPort',
+        'regionId'                    => 'RegionId',
         'VPCId'                       => 'VPCId',
         'vSwitchId'                   => 'VSwitchId',
     ];
@@ -65,23 +65,23 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->connectionStringPrefix) {
+            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->DBProxyConnectStringNetType) {
+            $res['DBProxyConnectStringNetType'] = $this->DBProxyConnectStringNetType;
+        }
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
-        }
-        if (null !== $this->connectionStringPrefix) {
-            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
         if (null !== $this->DBProxyNewConnectStringPort) {
             $res['DBProxyNewConnectStringPort'] = $this->DBProxyNewConnectStringPort;
         }
-        if (null !== $this->DBProxyConnectStringNetType) {
-            $res['DBProxyConnectStringNetType'] = $this->DBProxyConnectStringNetType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
@@ -101,23 +101,23 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ConnectionStringPrefix'])) {
+            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['DBProxyConnectStringNetType'])) {
+            $model->DBProxyConnectStringNetType = $map['DBProxyConnectStringNetType'];
+        }
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
-        }
-        if (isset($map['ConnectionStringPrefix'])) {
-            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
         if (isset($map['DBProxyNewConnectStringPort'])) {
             $model->DBProxyNewConnectStringPort = $map['DBProxyNewConnectStringPort'];
         }
-        if (isset($map['DBProxyConnectStringNetType'])) {
-            $model->DBProxyConnectStringNetType = $map['DBProxyConnectStringNetType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];

@@ -16,16 +16,16 @@ class DescribeActionEventPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $requestId;
     protected $_name = [
         'enableEventLog' => 'EnableEventLog',
-        'requestId'      => 'RequestId',
         'regionId'       => 'RegionId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeActionEventPolicyResponseBody extends Model
         if (null !== $this->enableEventLog) {
             $res['EnableEventLog'] = $this->enableEventLog;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeActionEventPolicyResponseBody extends Model
         if (isset($map['EnableEventLog'])) {
             $model->enableEventLog = $map['EnableEventLog'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

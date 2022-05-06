@@ -11,15 +11,21 @@ class result extends Model
     /**
      * @var string
      */
+    public $createMemberCount;
+
+    /**
+     * @var string
+     */
     public $gadInstanceName;
 
     /**
      * @var string
      */
-    public $createCount;
+    public $taskID;
     protected $_name = [
-        'gadInstanceName' => 'GadInstanceName',
-        'createCount'     => 'CreateCount',
+        'createMemberCount' => 'CreateMemberCount',
+        'gadInstanceName'   => 'GadInstanceName',
+        'taskID'            => 'TaskID',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createMemberCount) {
+            $res['CreateMemberCount'] = $this->createMemberCount;
+        }
         if (null !== $this->gadInstanceName) {
             $res['GadInstanceName'] = $this->gadInstanceName;
         }
-        if (null !== $this->createCount) {
-            $res['CreateCount'] = $this->createCount;
+        if (null !== $this->taskID) {
+            $res['TaskID'] = $this->taskID;
         }
 
         return $res;
@@ -47,11 +56,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateMemberCount'])) {
+            $model->createMemberCount = $map['CreateMemberCount'];
+        }
         if (isset($map['GadInstanceName'])) {
             $model->gadInstanceName = $map['GadInstanceName'];
         }
-        if (isset($map['CreateCount'])) {
-            $model->createCount = $map['CreateCount'];
+        if (isset($map['TaskID'])) {
+            $model->taskID = $map['TaskID'];
         }
 
         return $model;

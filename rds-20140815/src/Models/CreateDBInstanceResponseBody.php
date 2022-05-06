@@ -9,24 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $dryRunResult;
-
-    /**
-     * @var bool
-     */
-    public $tagResult;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $connectionString;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
+    public $dryRunResult;
 
     /**
      * @var string
@@ -36,7 +36,7 @@ class CreateDBInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $orderId;
 
     /**
      * @var string
@@ -46,28 +46,28 @@ class CreateDBInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $requestId;
 
     /**
      * @var bool
      */
-    public $dryRun;
+    public $tagResult;
 
     /**
      * @var string
      */
-    public $orderId;
+    public $taskId;
     protected $_name = [
-        'dryRunResult'     => 'DryRunResult',
-        'tagResult'        => 'TagResult',
-        'requestId'        => 'RequestId',
         'connectionString' => 'ConnectionString',
-        'message'          => 'Message',
         'DBInstanceId'     => 'DBInstanceId',
-        'port'             => 'Port',
-        'taskId'           => 'TaskId',
         'dryRun'           => 'DryRun',
+        'dryRunResult'     => 'DryRunResult',
+        'message'          => 'Message',
         'orderId'          => 'OrderId',
+        'port'             => 'Port',
+        'requestId'        => 'RequestId',
+        'tagResult'        => 'TagResult',
+        'taskId'           => 'TaskId',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class CreateDBInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dryRunResult) {
-            $res['DryRunResult'] = $this->dryRunResult;
-        }
-        if (null !== $this->tagResult) {
-            $res['TagResult'] = $this->tagResult;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+        if (null !== $this->dryRunResult) {
+            $res['DryRunResult'] = $this->dryRunResult;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->tagResult) {
+            $res['TagResult'] = $this->tagResult;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class CreateDBInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DryRunResult'])) {
-            $model->dryRunResult = $map['DryRunResult'];
-        }
-        if (isset($map['TagResult'])) {
-            $model->tagResult = $map['TagResult'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+        if (isset($map['DryRunResult'])) {
+            $model->dryRunResult = $map['DryRunResult'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TagResult'])) {
+            $model->tagResult = $map['TagResult'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

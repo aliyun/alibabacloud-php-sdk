@@ -16,16 +16,16 @@ class DetachGadInstanceMemberRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $memberInstanceName;
 
     /**
      * @var string
      */
-    public $memberInstanceName;
+    public $regionId;
     protected $_name = [
         'gadInstanceName'    => 'GadInstanceName',
-        'regionId'           => 'RegionId',
         'memberInstanceName' => 'MemberInstanceName',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DetachGadInstanceMemberRequest extends Model
         if (null !== $this->gadInstanceName) {
             $res['GadInstanceName'] = $this->gadInstanceName;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->memberInstanceName) {
             $res['MemberInstanceName'] = $this->memberInstanceName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DetachGadInstanceMemberRequest extends Model
         if (isset($map['GadInstanceName'])) {
             $model->gadInstanceName = $map['GadInstanceName'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['MemberInstanceName'])) {
             $model->memberInstanceName = $map['MemberInstanceName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

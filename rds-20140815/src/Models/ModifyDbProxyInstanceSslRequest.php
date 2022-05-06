@@ -11,17 +11,7 @@ class ModifyDbProxyInstanceSslRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $dbInstanceId;
-
-    /**
-     * @var string
-     */
-    public $dbProxyEndpointId;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class ModifyDbProxyInstanceSslRequest extends Model
     /**
      * @var string
      */
+    public $dbProxyEndpointId;
+
+    /**
+     * @var string
+     */
     public $dbProxySslEnabled;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'             => 'RegionId',
         'dbInstanceId'         => 'DbInstanceId',
-        'dbProxyEndpointId'    => 'DbProxyEndpointId',
         'dbProxyConnectString' => 'DbProxyConnectString',
+        'dbProxyEndpointId'    => 'DbProxyEndpointId',
         'dbProxySslEnabled'    => 'DbProxySslEnabled',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ModifyDbProxyInstanceSslRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
-        }
-        if (null !== $this->dbProxyEndpointId) {
-            $res['DbProxyEndpointId'] = $this->dbProxyEndpointId;
         }
         if (null !== $this->dbProxyConnectString) {
             $res['DbProxyConnectString'] = $this->dbProxyConnectString;
         }
+        if (null !== $this->dbProxyEndpointId) {
+            $res['DbProxyEndpointId'] = $this->dbProxyEndpointId;
+        }
         if (null !== $this->dbProxySslEnabled) {
             $res['DbProxySslEnabled'] = $this->dbProxySslEnabled;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ModifyDbProxyInstanceSslRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
-        }
-        if (isset($map['DbProxyEndpointId'])) {
-            $model->dbProxyEndpointId = $map['DbProxyEndpointId'];
         }
         if (isset($map['DbProxyConnectString'])) {
             $model->dbProxyConnectString = $map['DbProxyConnectString'];
         }
+        if (isset($map['DbProxyEndpointId'])) {
+            $model->dbProxyEndpointId = $map['DbProxyEndpointId'];
+        }
         if (isset($map['DbProxySslEnabled'])) {
             $model->dbProxySslEnabled = $map['DbProxySslEnabled'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

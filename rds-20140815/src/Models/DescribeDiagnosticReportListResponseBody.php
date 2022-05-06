@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosticReportListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var reportList[]
      */
     public $reportList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'reportList' => 'ReportList',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeDiagnosticReportListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->reportList) {
             $res['ReportList'] = [];
             if (null !== $this->reportList && \is_array($this->reportList)) {
@@ -41,6 +38,9 @@ class DescribeDiagnosticReportListResponseBody extends Model
                     $res['ReportList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeDiagnosticReportListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ReportList'])) {
             if (!empty($map['ReportList'])) {
                 $model->reportList = [];
@@ -65,6 +62,9 @@ class DescribeDiagnosticReportListResponseBody extends Model
                     $model->reportList[$n++] = null !== $item ? reportList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

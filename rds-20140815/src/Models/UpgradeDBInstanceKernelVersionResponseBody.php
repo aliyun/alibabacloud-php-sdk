@@ -16,12 +16,12 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $targetMinorVersion;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $targetMinorVersion;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
     public $taskId;
     protected $_name = [
         'DBInstanceName'     => 'DBInstanceName',
-        'targetMinorVersion' => 'TargetMinorVersion',
         'requestId'          => 'RequestId',
+        'targetMinorVersion' => 'TargetMinorVersion',
         'taskId'             => 'TaskId',
     ];
 
@@ -44,11 +44,11 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-        if (null !== $this->targetMinorVersion) {
-            $res['TargetMinorVersion'] = $this->targetMinorVersion;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->targetMinorVersion) {
+            $res['TargetMinorVersion'] = $this->targetMinorVersion;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -68,11 +68,11 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-        if (isset($map['TargetMinorVersion'])) {
-            $model->targetMinorVersion = $map['TargetMinorVersion'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TargetMinorVersion'])) {
+            $model->targetMinorVersion = $map['TargetMinorVersion'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

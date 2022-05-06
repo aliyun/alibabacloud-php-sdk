@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDetachedBackupsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
      * @var string
      */
     public $backupId;
-
-    /**
-     * @var string
-     */
-    public $backupStatus;
 
     /**
      * @var string
@@ -36,7 +21,12 @@ class DescribeDetachedBackupsRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $backupStatus;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
 
     /**
      * @var string
@@ -46,28 +36,38 @@ class DescribeDetachedBackupsRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNumber;
 
     /**
      * @var int
      */
-    public $pageNumber;
+    public $pageSize;
 
     /**
      * @var string
      */
     public $region;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'DBInstanceId'    => 'DBInstanceId',
         'backupId'        => 'BackupId',
-        'backupStatus'    => 'BackupStatus',
         'backupMode'      => 'BackupMode',
-        'startTime'       => 'StartTime',
+        'backupStatus'    => 'BackupStatus',
+        'DBInstanceId'    => 'DBInstanceId',
         'endTime'         => 'EndTime',
-        'pageSize'        => 'PageSize',
         'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
         'region'          => 'Region',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class DescribeDetachedBackupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
-        }
-        if (null !== $this->backupStatus) {
-            $res['BackupStatus'] = $this->backupStatus;
         }
         if (null !== $this->backupMode) {
             $res['BackupMode'] = $this->backupMode;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->backupStatus) {
+            $res['BackupStatus'] = $this->backupStatus;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class DescribeDetachedBackupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
-        }
-        if (isset($map['BackupStatus'])) {
-            $model->backupStatus = $map['BackupStatus'];
         }
         if (isset($map['BackupMode'])) {
             $model->backupMode = $map['BackupMode'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['BackupStatus'])) {
+            $model->backupStatus = $map['BackupStatus'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

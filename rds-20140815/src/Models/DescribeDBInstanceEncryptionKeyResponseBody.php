@@ -11,12 +11,12 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     /**
      * @var string
      */
-    public $deleteDate;
+    public $creator;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $deleteDate;
 
     /**
      * @var string
@@ -26,12 +26,7 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     /**
      * @var string
      */
-    public $origin;
-
-    /**
-     * @var string
-     */
-    public $materialExpireTime;
+    public $encryptionKey;
 
     /**
      * @var string
@@ -46,22 +41,27 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     /**
      * @var string
      */
-    public $encryptionKey;
+    public $materialExpireTime;
 
     /**
      * @var string
      */
-    public $creator;
+    public $origin;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
+        'creator'             => 'Creator',
         'deleteDate'          => 'DeleteDate',
-        'requestId'           => 'RequestId',
         'description'         => 'Description',
-        'origin'              => 'Origin',
-        'materialExpireTime'  => 'MaterialExpireTime',
+        'encryptionKey'       => 'EncryptionKey',
         'encryptionKeyStatus' => 'EncryptionKeyStatus',
         'keyUsage'            => 'KeyUsage',
-        'encryptionKey'       => 'EncryptionKey',
-        'creator'             => 'Creator',
+        'materialExpireTime'  => 'MaterialExpireTime',
+        'origin'              => 'Origin',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -71,20 +71,17 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creator) {
+            $res['Creator'] = $this->creator;
+        }
         if (null !== $this->deleteDate) {
             $res['DeleteDate'] = $this->deleteDate;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->origin) {
-            $res['Origin'] = $this->origin;
-        }
-        if (null !== $this->materialExpireTime) {
-            $res['MaterialExpireTime'] = $this->materialExpireTime;
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
         }
         if (null !== $this->encryptionKeyStatus) {
             $res['EncryptionKeyStatus'] = $this->encryptionKeyStatus;
@@ -92,11 +89,14 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
         if (null !== $this->keyUsage) {
             $res['KeyUsage'] = $this->keyUsage;
         }
-        if (null !== $this->encryptionKey) {
-            $res['EncryptionKey'] = $this->encryptionKey;
+        if (null !== $this->materialExpireTime) {
+            $res['MaterialExpireTime'] = $this->materialExpireTime;
         }
-        if (null !== $this->creator) {
-            $res['Creator'] = $this->creator;
+        if (null !== $this->origin) {
+            $res['Origin'] = $this->origin;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -110,20 +110,17 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Creator'])) {
+            $model->creator = $map['Creator'];
+        }
         if (isset($map['DeleteDate'])) {
             $model->deleteDate = $map['DeleteDate'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Origin'])) {
-            $model->origin = $map['Origin'];
-        }
-        if (isset($map['MaterialExpireTime'])) {
-            $model->materialExpireTime = $map['MaterialExpireTime'];
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
         }
         if (isset($map['EncryptionKeyStatus'])) {
             $model->encryptionKeyStatus = $map['EncryptionKeyStatus'];
@@ -131,11 +128,14 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
         if (isset($map['KeyUsage'])) {
             $model->keyUsage = $map['KeyUsage'];
         }
-        if (isset($map['EncryptionKey'])) {
-            $model->encryptionKey = $map['EncryptionKey'];
+        if (isset($map['MaterialExpireTime'])) {
+            $model->materialExpireTime = $map['MaterialExpireTime'];
         }
-        if (isset($map['Creator'])) {
-            $model->creator = $map['Creator'];
+        if (isset($map['Origin'])) {
+            $model->origin = $map['Origin'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

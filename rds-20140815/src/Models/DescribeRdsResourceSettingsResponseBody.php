@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsResourceSettingsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var rdsInstanceResourceSettings
      */
     public $rdsInstanceResourceSettings;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                   => 'RequestId',
         'rdsInstanceResourceSettings' => 'RdsInstanceResourceSettings',
+        'requestId'                   => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeRdsResourceSettingsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->rdsInstanceResourceSettings) {
             $res['RdsInstanceResourceSettings'] = null !== $this->rdsInstanceResourceSettings ? $this->rdsInstanceResourceSettings->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeRdsResourceSettingsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RdsInstanceResourceSettings'])) {
             $model->rdsInstanceResourceSettings = rdsInstanceResourceSettings::fromMap($map['RdsInstanceResourceSettings']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

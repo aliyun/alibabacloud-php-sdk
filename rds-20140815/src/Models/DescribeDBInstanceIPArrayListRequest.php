@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIPArrayListRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
     public $DBInstanceId;
@@ -24,13 +19,18 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public $ownerAccount;
 
     /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $whitelistNetworkType;
     protected $_name = [
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'whitelistNetworkType' => 'WhitelistNetworkType',
     ];
 
@@ -41,14 +41,14 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->whitelistNetworkType) {
             $res['WhitelistNetworkType'] = $this->whitelistNetworkType;
@@ -65,14 +65,14 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['WhitelistNetworkType'])) {
             $model->whitelistNetworkType = $map['WhitelistNetworkType'];

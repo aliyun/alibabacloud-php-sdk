@@ -11,6 +11,11 @@ class dbProxyCertListItems extends Model
     /**
      * @var string
      */
+    public $certCommonName;
+
+    /**
+     * @var string
+     */
     public $dbInstanceName;
 
     /**
@@ -27,17 +32,12 @@ class dbProxyCertListItems extends Model
      * @var string
      */
     public $sslExpiredTime;
-
-    /**
-     * @var string
-     */
-    public $certCommonName;
     protected $_name = [
+        'certCommonName' => 'CertCommonName',
         'dbInstanceName' => 'DbInstanceName',
         'endpointName'   => 'EndpointName',
         'endpointType'   => 'EndpointType',
         'sslExpiredTime' => 'SslExpiredTime',
-        'certCommonName' => 'CertCommonName',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class dbProxyCertListItems extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certCommonName) {
+            $res['CertCommonName'] = $this->certCommonName;
+        }
         if (null !== $this->dbInstanceName) {
             $res['DbInstanceName'] = $this->dbInstanceName;
         }
@@ -58,9 +61,6 @@ class dbProxyCertListItems extends Model
         }
         if (null !== $this->sslExpiredTime) {
             $res['SslExpiredTime'] = $this->sslExpiredTime;
-        }
-        if (null !== $this->certCommonName) {
-            $res['CertCommonName'] = $this->certCommonName;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class dbProxyCertListItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertCommonName'])) {
+            $model->certCommonName = $map['CertCommonName'];
+        }
         if (isset($map['DbInstanceName'])) {
             $model->dbInstanceName = $map['DbInstanceName'];
         }
@@ -85,9 +88,6 @@ class dbProxyCertListItems extends Model
         }
         if (isset($map['SslExpiredTime'])) {
             $model->sslExpiredTime = $map['SslExpiredTime'];
-        }
-        if (isset($map['CertCommonName'])) {
-            $model->certCommonName = $map['CertCommonName'];
         }
 
         return $model;

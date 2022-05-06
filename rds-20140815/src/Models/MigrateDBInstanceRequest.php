@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class MigrateDBInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $dedicatedHostGroupId;
+
+    /**
+     * @var string
+     */
+    public $effectiveTime;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -26,17 +46,7 @@ class MigrateDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $dedicatedHostGroupId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
+    public $specifiedTime;
 
     /**
      * @var string
@@ -51,35 +61,25 @@ class MigrateDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $effectiveTime;
-
-    /**
-     * @var string
-     */
-    public $specifiedTime;
+    public $zoneIdForFollower;
 
     /**
      * @var string
      */
     public $zoneIdForLog;
-
-    /**
-     * @var string
-     */
-    public $zoneIdForFollower;
     protected $_name = [
+        'DBInstanceId'                   => 'DBInstanceId',
+        'dedicatedHostGroupId'           => 'DedicatedHostGroupId',
+        'effectiveTime'                  => 'EffectiveTime',
         'ownerId'                        => 'OwnerId',
+        'regionId'                       => 'RegionId',
         'resourceOwnerAccount'           => 'ResourceOwnerAccount',
         'resourceOwnerId'                => 'ResourceOwnerId',
-        'regionId'                       => 'RegionId',
-        'dedicatedHostGroupId'           => 'DedicatedHostGroupId',
-        'DBInstanceId'                   => 'DBInstanceId',
+        'specifiedTime'                  => 'SpecifiedTime',
         'targetDedicatedHostIdForMaster' => 'TargetDedicatedHostIdForMaster',
         'targetDedicatedHostIdForSlave'  => 'TargetDedicatedHostIdForSlave',
-        'effectiveTime'                  => 'EffectiveTime',
-        'specifiedTime'                  => 'SpecifiedTime',
-        'zoneIdForLog'                   => 'ZoneIdForLog',
         'zoneIdForFollower'              => 'ZoneIdForFollower',
+        'zoneIdForLog'                   => 'ZoneIdForLog',
     ];
 
     public function validate()
@@ -89,8 +89,20 @@ class MigrateDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->dedicatedHostGroupId) {
+            $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
+        }
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -98,14 +110,8 @@ class MigrateDBInstanceRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->dedicatedHostGroupId) {
-            $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->specifiedTime) {
+            $res['SpecifiedTime'] = $this->specifiedTime;
         }
         if (null !== $this->targetDedicatedHostIdForMaster) {
             $res['TargetDedicatedHostIdForMaster'] = $this->targetDedicatedHostIdForMaster;
@@ -113,17 +119,11 @@ class MigrateDBInstanceRequest extends Model
         if (null !== $this->targetDedicatedHostIdForSlave) {
             $res['TargetDedicatedHostIdForSlave'] = $this->targetDedicatedHostIdForSlave;
         }
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
-        }
-        if (null !== $this->specifiedTime) {
-            $res['SpecifiedTime'] = $this->specifiedTime;
+        if (null !== $this->zoneIdForFollower) {
+            $res['ZoneIdForFollower'] = $this->zoneIdForFollower;
         }
         if (null !== $this->zoneIdForLog) {
             $res['ZoneIdForLog'] = $this->zoneIdForLog;
-        }
-        if (null !== $this->zoneIdForFollower) {
-            $res['ZoneIdForFollower'] = $this->zoneIdForFollower;
         }
 
         return $res;
@@ -137,8 +137,20 @@ class MigrateDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DedicatedHostGroupId'])) {
+            $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
+        }
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -146,14 +158,8 @@ class MigrateDBInstanceRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DedicatedHostGroupId'])) {
-            $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['SpecifiedTime'])) {
+            $model->specifiedTime = $map['SpecifiedTime'];
         }
         if (isset($map['TargetDedicatedHostIdForMaster'])) {
             $model->targetDedicatedHostIdForMaster = $map['TargetDedicatedHostIdForMaster'];
@@ -161,17 +167,11 @@ class MigrateDBInstanceRequest extends Model
         if (isset($map['TargetDedicatedHostIdForSlave'])) {
             $model->targetDedicatedHostIdForSlave = $map['TargetDedicatedHostIdForSlave'];
         }
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
-        }
-        if (isset($map['SpecifiedTime'])) {
-            $model->specifiedTime = $map['SpecifiedTime'];
+        if (isset($map['ZoneIdForFollower'])) {
+            $model->zoneIdForFollower = $map['ZoneIdForFollower'];
         }
         if (isset($map['ZoneIdForLog'])) {
             $model->zoneIdForLog = $map['ZoneIdForLog'];
-        }
-        if (isset($map['ZoneIdForFollower'])) {
-            $model->zoneIdForFollower = $map['ZoneIdForFollower'];
         }
 
         return $model;

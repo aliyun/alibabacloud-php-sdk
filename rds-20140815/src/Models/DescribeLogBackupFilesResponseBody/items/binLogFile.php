@@ -11,7 +11,12 @@ class binLogFile extends Model
     /**
      * @var string
      */
-    public $logBeginTime;
+    public $downloadLink;
+
+    /**
+     * @var int
+     */
+    public $fileSize;
 
     /**
      * @var string
@@ -26,24 +31,19 @@ class binLogFile extends Model
     /**
      * @var string
      */
-    public $downloadLink;
+    public $logBeginTime;
 
     /**
      * @var string
      */
     public $logEndTime;
-
-    /**
-     * @var int
-     */
-    public $fileSize;
     protected $_name = [
-        'logBeginTime'         => 'LogBeginTime',
+        'downloadLink'         => 'DownloadLink',
+        'fileSize'             => 'FileSize',
         'intranetDownloadLink' => 'IntranetDownloadLink',
         'linkExpiredTime'      => 'LinkExpiredTime',
-        'downloadLink'         => 'DownloadLink',
+        'logBeginTime'         => 'LogBeginTime',
         'logEndTime'           => 'LogEndTime',
-        'fileSize'             => 'FileSize',
     ];
 
     public function validate()
@@ -53,8 +53,11 @@ class binLogFile extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logBeginTime) {
-            $res['LogBeginTime'] = $this->logBeginTime;
+        if (null !== $this->downloadLink) {
+            $res['DownloadLink'] = $this->downloadLink;
+        }
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
         }
         if (null !== $this->intranetDownloadLink) {
             $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
@@ -62,14 +65,11 @@ class binLogFile extends Model
         if (null !== $this->linkExpiredTime) {
             $res['LinkExpiredTime'] = $this->linkExpiredTime;
         }
-        if (null !== $this->downloadLink) {
-            $res['DownloadLink'] = $this->downloadLink;
+        if (null !== $this->logBeginTime) {
+            $res['LogBeginTime'] = $this->logBeginTime;
         }
         if (null !== $this->logEndTime) {
             $res['LogEndTime'] = $this->logEndTime;
-        }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
         }
 
         return $res;
@@ -83,8 +83,11 @@ class binLogFile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogBeginTime'])) {
-            $model->logBeginTime = $map['LogBeginTime'];
+        if (isset($map['DownloadLink'])) {
+            $model->downloadLink = $map['DownloadLink'];
+        }
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
         }
         if (isset($map['IntranetDownloadLink'])) {
             $model->intranetDownloadLink = $map['IntranetDownloadLink'];
@@ -92,14 +95,11 @@ class binLogFile extends Model
         if (isset($map['LinkExpiredTime'])) {
             $model->linkExpiredTime = $map['LinkExpiredTime'];
         }
-        if (isset($map['DownloadLink'])) {
-            $model->downloadLink = $map['DownloadLink'];
+        if (isset($map['LogBeginTime'])) {
+            $model->logBeginTime = $map['LogBeginTime'];
         }
         if (isset($map['LogEndTime'])) {
             $model->logEndTime = $map['LogEndTime'];
-        }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
         }
 
         return $model;

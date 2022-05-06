@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpgradeMajorVersionTasksResponseBody extends Model
 {
     /**
-     * @var string
+     * @var items[]
      */
-    public $requestId;
+    public $items;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeUpgradeMajorVersionTasksResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalRecordCount;
-
-    /**
-     * @var items[]
-     */
-    public $items;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'items'            => 'Items',
         'pageNumber'       => 'PageNumber',
         'pageRecordCount'  => 'PageRecordCount',
+        'requestId'        => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
-        'items'            => 'Items',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class DescribeUpgradeMajorVersionTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageRecordCount) {
-            $res['PageRecordCount'] = $this->pageRecordCount;
-        }
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
-        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -68,6 +56,18 @@ class DescribeUpgradeMajorVersionTasksResponseBody extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageRecordCount) {
+            $res['PageRecordCount'] = $this->pageRecordCount;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class DescribeUpgradeMajorVersionTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageRecordCount'])) {
-            $model->pageRecordCount = $map['PageRecordCount'];
-        }
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
-        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
@@ -101,6 +89,18 @@ class DescribeUpgradeMajorVersionTasksResponseBody extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageRecordCount'])) {
+            $model->pageRecordCount = $map['PageRecordCount'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

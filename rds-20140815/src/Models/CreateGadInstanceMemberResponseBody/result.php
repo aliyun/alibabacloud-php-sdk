@@ -11,15 +11,15 @@ class result extends Model
     /**
      * @var string
      */
-    public $gadInstanceName;
+    public $createCount;
 
     /**
      * @var string
      */
-    public $createCount;
+    public $gadInstanceName;
     protected $_name = [
-        'gadInstanceName' => 'GadInstanceName',
         'createCount'     => 'CreateCount',
+        'gadInstanceName' => 'GadInstanceName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gadInstanceName) {
-            $res['GadInstanceName'] = $this->gadInstanceName;
-        }
         if (null !== $this->createCount) {
             $res['CreateCount'] = $this->createCount;
+        }
+        if (null !== $this->gadInstanceName) {
+            $res['GadInstanceName'] = $this->gadInstanceName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GadInstanceName'])) {
-            $model->gadInstanceName = $map['GadInstanceName'];
-        }
         if (isset($map['CreateCount'])) {
             $model->createCount = $map['CreateCount'];
+        }
+        if (isset($map['GadInstanceName'])) {
+            $model->gadInstanceName = $map['GadInstanceName'];
         }
 
         return $model;

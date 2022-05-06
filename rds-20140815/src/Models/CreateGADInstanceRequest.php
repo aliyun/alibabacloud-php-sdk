@@ -12,12 +12,22 @@ class CreateGADInstanceRequest extends Model
     /**
      * @var string
      */
-    public $centralRegionId;
+    public $centralDBInstanceId;
 
     /**
      * @var string
      */
-    public $centralDBInstanceId;
+    public $centralRdsDtsAdminAccount;
+
+    /**
+     * @var string
+     */
+    public $centralRdsDtsAdminPassword;
+
+    /**
+     * @var string
+     */
+    public $centralRegionId;
 
     /**
      * @var string
@@ -33,24 +43,14 @@ class CreateGADInstanceRequest extends Model
      * @var unitNode[]
      */
     public $unitNode;
-
-    /**
-     * @var string
-     */
-    public $centralRdsDtsAdminAccount;
-
-    /**
-     * @var string
-     */
-    public $centralRdsDtsAdminPassword;
     protected $_name = [
-        'centralRegionId'            => 'CentralRegionId',
         'centralDBInstanceId'        => 'CentralDBInstanceId',
+        'centralRdsDtsAdminAccount'  => 'CentralRdsDtsAdminAccount',
+        'centralRdsDtsAdminPassword' => 'CentralRdsDtsAdminPassword',
+        'centralRegionId'            => 'CentralRegionId',
         'DBList'                     => 'DBList',
         'description'                => 'Description',
         'unitNode'                   => 'UnitNode',
-        'centralRdsDtsAdminAccount'  => 'CentralRdsDtsAdminAccount',
-        'centralRdsDtsAdminPassword' => 'CentralRdsDtsAdminPassword',
     ];
 
     public function validate()
@@ -60,11 +60,17 @@ class CreateGADInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->centralRegionId) {
-            $res['CentralRegionId'] = $this->centralRegionId;
-        }
         if (null !== $this->centralDBInstanceId) {
             $res['CentralDBInstanceId'] = $this->centralDBInstanceId;
+        }
+        if (null !== $this->centralRdsDtsAdminAccount) {
+            $res['CentralRdsDtsAdminAccount'] = $this->centralRdsDtsAdminAccount;
+        }
+        if (null !== $this->centralRdsDtsAdminPassword) {
+            $res['CentralRdsDtsAdminPassword'] = $this->centralRdsDtsAdminPassword;
+        }
+        if (null !== $this->centralRegionId) {
+            $res['CentralRegionId'] = $this->centralRegionId;
         }
         if (null !== $this->DBList) {
             $res['DBList'] = $this->DBList;
@@ -81,12 +87,6 @@ class CreateGADInstanceRequest extends Model
                 }
             }
         }
-        if (null !== $this->centralRdsDtsAdminAccount) {
-            $res['CentralRdsDtsAdminAccount'] = $this->centralRdsDtsAdminAccount;
-        }
-        if (null !== $this->centralRdsDtsAdminPassword) {
-            $res['CentralRdsDtsAdminPassword'] = $this->centralRdsDtsAdminPassword;
-        }
 
         return $res;
     }
@@ -99,11 +99,17 @@ class CreateGADInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CentralRegionId'])) {
-            $model->centralRegionId = $map['CentralRegionId'];
-        }
         if (isset($map['CentralDBInstanceId'])) {
             $model->centralDBInstanceId = $map['CentralDBInstanceId'];
+        }
+        if (isset($map['CentralRdsDtsAdminAccount'])) {
+            $model->centralRdsDtsAdminAccount = $map['CentralRdsDtsAdminAccount'];
+        }
+        if (isset($map['CentralRdsDtsAdminPassword'])) {
+            $model->centralRdsDtsAdminPassword = $map['CentralRdsDtsAdminPassword'];
+        }
+        if (isset($map['CentralRegionId'])) {
+            $model->centralRegionId = $map['CentralRegionId'];
         }
         if (isset($map['DBList'])) {
             $model->DBList = $map['DBList'];
@@ -119,12 +125,6 @@ class CreateGADInstanceRequest extends Model
                     $model->unitNode[$n++] = null !== $item ? unitNode::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['CentralRdsDtsAdminAccount'])) {
-            $model->centralRdsDtsAdminAccount = $map['CentralRdsDtsAdminAccount'];
-        }
-        if (isset($map['CentralRdsDtsAdminPassword'])) {
-            $model->centralRdsDtsAdminPassword = $map['CentralRdsDtsAdminPassword'];
         }
 
         return $model;

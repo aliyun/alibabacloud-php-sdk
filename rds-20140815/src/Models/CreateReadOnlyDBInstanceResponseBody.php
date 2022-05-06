@@ -11,12 +11,17 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $connectionString;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $orderId;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $connectionString;
-
-    /**
-     * @var string
-     */
-    public $orderId;
+    public $requestId;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'requestId'        => 'RequestId',
-        'port'             => 'Port',
         'connectionString' => 'ConnectionString',
+        'DBInstanceId'     => 'DBInstanceId',
         'orderId'          => 'OrderId',
+        'port'             => 'Port',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
-        }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

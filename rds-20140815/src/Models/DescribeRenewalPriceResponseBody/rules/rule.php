@@ -11,20 +11,20 @@ class rule extends Model
     /**
      * @var string
      */
-    public $name;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $name;
 
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'name'        => 'Name',
         'description' => 'Description',
+        'name'        => 'Name',
         'ruleId'      => 'RuleId',
     ];
 
@@ -35,11 +35,11 @@ class rule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -56,11 +56,11 @@ class rule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];

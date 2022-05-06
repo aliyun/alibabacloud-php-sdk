@@ -16,22 +16,22 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     /**
      * @var string
      */
+    public $DTCSetResult;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
     public $taskId;
-
-    /**
-     * @var string
-     */
-    public $DTCSetResult;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
+        'DTCSetResult' => 'DTCSetResult',
         'requestId'    => 'RequestId',
         'taskId'       => 'TaskId',
-        'DTCSetResult' => 'DTCSetResult',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->DTCSetResult) {
+            $res['DTCSetResult'] = $this->DTCSetResult;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->DTCSetResult) {
-            $res['DTCSetResult'] = $this->DTCSetResult;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['DTCSetResult'])) {
+            $model->DTCSetResult = $map['DTCSetResult'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['DTCSetResult'])) {
-            $model->DTCSetResult = $map['DTCSetResult'];
         }
 
         return $model;

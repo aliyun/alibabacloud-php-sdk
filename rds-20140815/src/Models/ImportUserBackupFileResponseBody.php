@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ImportUserBackupFileResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $status;
+    public $backupId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class ImportUserBackupFileResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $backupId;
+    public $status;
     protected $_name = [
-        'status'    => 'Status',
-        'requestId' => 'RequestId',
         'backupId'  => 'BackupId',
+        'requestId' => 'RequestId',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ImportUserBackupFileResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ImportUserBackupFileResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

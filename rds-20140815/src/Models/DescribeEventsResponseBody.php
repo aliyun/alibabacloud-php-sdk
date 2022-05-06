@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsResponseBody extends Model
 {
     /**
+     * @var eventItems
+     */
+    public $eventItems;
+
+    /**
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -22,23 +32,13 @@ class DescribeEventsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $totalRecordCount;
-
-    /**
-     * @var eventItems
-     */
-    public $eventItems;
     protected $_name = [
-        'pageNumber'       => 'PageNumber',
-        'requestId'        => 'RequestId',
-        'pageSize'         => 'PageSize',
-        'totalRecordCount' => 'TotalRecordCount',
         'eventItems'       => 'EventItems',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'requestId'        => 'RequestId',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eventItems) {
+            $res['EventItems'] = null !== $this->eventItems ? $this->eventItems->toMap() : null;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
-        }
-        if (null !== $this->eventItems) {
-            $res['EventItems'] = null !== $this->eventItems ? $this->eventItems->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EventItems'])) {
+            $model->eventItems = eventItems::fromMap($map['EventItems']);
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
-        }
-        if (isset($map['EventItems'])) {
-            $model->eventItems = eventItems::fromMap($map['EventItems']);
         }
 
         return $model;

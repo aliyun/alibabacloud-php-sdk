@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceVpcRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $privateIpAddress;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -27,17 +32,12 @@ class SwitchDBInstanceVpcRequest extends Model
      * @var string
      */
     public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $privateIpAddress;
     protected $_name = [
-        'resourceOwnerId'  => 'ResourceOwnerId',
         'DBInstanceId'     => 'DBInstanceId',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'resourceOwnerId'  => 'ResourceOwnerId',
         'VPCId'            => 'VPCId',
         'vSwitchId'        => 'VSwitchId',
-        'privateIpAddress' => 'PrivateIpAddress',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SwitchDBInstanceVpcRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SwitchDBInstanceVpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
 
         return $model;

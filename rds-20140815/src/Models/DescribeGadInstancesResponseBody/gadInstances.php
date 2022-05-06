@@ -12,27 +12,12 @@ class gadInstances extends Model
     /**
      * @var string
      */
-    public $gadInstanceName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $creationTime;
 
     /**
      * @var string
      */
-    public $modificationTime;
+    public $description;
 
     /**
      * @var gadInstanceMembers[]
@@ -42,15 +27,30 @@ class gadInstances extends Model
     /**
      * @var string
      */
+    public $gadInstanceName;
+
+    /**
+     * @var string
+     */
+    public $modificationTime;
+
+    /**
+     * @var string
+     */
     public $service;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'gadInstanceName'    => 'GadInstanceName',
-        'description'        => 'Description',
-        'status'             => 'Status',
         'creationTime'       => 'CreationTime',
-        'modificationTime'   => 'ModificationTime',
+        'description'        => 'Description',
         'gadInstanceMembers' => 'GadInstanceMembers',
+        'gadInstanceName'    => 'GadInstanceName',
+        'modificationTime'   => 'ModificationTime',
         'service'            => 'Service',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -60,20 +60,11 @@ class gadInstances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gadInstanceName) {
-            $res['GadInstanceName'] = $this->gadInstanceName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->modificationTime) {
-            $res['ModificationTime'] = $this->modificationTime;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->gadInstanceMembers) {
             $res['GadInstanceMembers'] = [];
@@ -84,8 +75,17 @@ class gadInstances extends Model
                 }
             }
         }
+        if (null !== $this->gadInstanceName) {
+            $res['GadInstanceName'] = $this->gadInstanceName;
+        }
+        if (null !== $this->modificationTime) {
+            $res['ModificationTime'] = $this->modificationTime;
+        }
         if (null !== $this->service) {
             $res['Service'] = $this->service;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -99,20 +99,11 @@ class gadInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GadInstanceName'])) {
-            $model->gadInstanceName = $map['GadInstanceName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['ModificationTime'])) {
-            $model->modificationTime = $map['ModificationTime'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['GadInstanceMembers'])) {
             if (!empty($map['GadInstanceMembers'])) {
@@ -123,8 +114,17 @@ class gadInstances extends Model
                 }
             }
         }
+        if (isset($map['GadInstanceName'])) {
+            $model->gadInstanceName = $map['GadInstanceName'];
+        }
+        if (isset($map['ModificationTime'])) {
+            $model->modificationTime = $map['ModificationTime'];
+        }
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

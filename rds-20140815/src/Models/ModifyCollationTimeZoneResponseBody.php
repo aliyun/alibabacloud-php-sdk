@@ -26,18 +26,18 @@ class ModifyCollationTimeZoneResponseBody extends Model
     /**
      * @var string
      */
-    public $timezone;
+    public $taskId;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $timezone;
     protected $_name = [
         'collation'    => 'Collation',
         'DBInstanceId' => 'DBInstanceId',
         'requestId'    => 'RequestId',
-        'timezone'     => 'Timezone',
         'taskId'       => 'TaskId',
+        'timezone'     => 'Timezone',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class ModifyCollationTimeZoneResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->timezone) {
-            $res['Timezone'] = $this->timezone;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->timezone) {
+            $res['Timezone'] = $this->timezone;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class ModifyCollationTimeZoneResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Timezone'])) {
-            $model->timezone = $map['Timezone'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['Timezone'])) {
+            $model->timezone = $map['Timezone'];
         }
 
         return $model;

@@ -15,9 +15,9 @@ class DescribeOssDownloadsResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @var string
+     * @var items
      */
-    public $requestId;
+    public $items;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribeOssDownloadsResponseBody extends Model
     public $migrateTaskId;
 
     /**
-     * @var items
+     * @var string
      */
-    public $items;
+    public $requestId;
     protected $_name = [
         'DBInstanceId'  => 'DBInstanceId',
-        'requestId'     => 'RequestId',
-        'migrateTaskId' => 'MigrateTaskId',
         'items'         => 'Items',
+        'migrateTaskId' => 'MigrateTaskId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class DescribeOssDownloadsResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->migrateTaskId) {
             $res['MigrateTaskId'] = $this->migrateTaskId;
         }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class DescribeOssDownloadsResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['MigrateTaskId'])) {
             $model->migrateTaskId = $map['MigrateTaskId'];
         }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

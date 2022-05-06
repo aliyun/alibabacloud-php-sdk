@@ -17,22 +17,22 @@ class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $ipHostPairNum;
 
     /**
      * @var items
      */
     public $items;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'DBInstanceId'  => 'DBInstanceId',
-        'requestId'     => 'RequestId',
         'ipHostPairNum' => 'IpHostPairNum',
         'items'         => 'Items',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ipHostPairNum) {
             $res['IpHostPairNum'] = $this->ipHostPairNum;
         }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IpHostPairNum'])) {
             $model->ipHostPairNum = $map['IpHostPairNum'];
         }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

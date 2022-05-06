@@ -16,16 +16,16 @@ class DescribeDBInstanceIpHostnameResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $ipHostnameInfos;
 
     /**
      * @var string
      */
-    public $ipHostnameInfos;
+    public $requestId;
     protected $_name = [
         'DBInstanceId'    => 'DBInstanceId',
-        'requestId'       => 'RequestId',
         'ipHostnameInfos' => 'IpHostnameInfos',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeDBInstanceIpHostnameResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ipHostnameInfos) {
             $res['IpHostnameInfos'] = $this->ipHostnameInfos;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeDBInstanceIpHostnameResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IpHostnameInfos'])) {
             $model->ipHostnameInfos = $map['IpHostnameInfos'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

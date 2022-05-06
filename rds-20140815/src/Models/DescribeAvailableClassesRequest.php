@@ -9,24 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableClassesRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $category;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $commodityCode;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $instanceChargeType;
+    public $DBInstanceStorageType;
 
     /**
      * @var string
@@ -41,7 +41,7 @@ class DescribeAvailableClassesRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $instanceChargeType;
 
     /**
      * @var string
@@ -51,29 +51,29 @@ class DescribeAvailableClassesRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceStorageType;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
-    public $category;
-
-    /**
-     * @var string
-     */
-    public $commodityCode;
+    public $zoneId;
     protected $_name = [
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'regionId'              => 'RegionId',
-        'zoneId'                => 'ZoneId',
-        'instanceChargeType'    => 'InstanceChargeType',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'DBInstanceId'          => 'DBInstanceId',
-        'orderType'             => 'OrderType',
-        'DBInstanceStorageType' => 'DBInstanceStorageType',
         'category'              => 'Category',
         'commodityCode'         => 'CommodityCode',
+        'DBInstanceId'          => 'DBInstanceId',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'engine'                => 'Engine',
+        'engineVersion'         => 'EngineVersion',
+        'instanceChargeType'    => 'InstanceChargeType',
+        'orderType'             => 'OrderType',
+        'regionId'              => 'RegionId',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'zoneId'                => 'ZoneId',
     ];
 
     public function validate()
@@ -83,17 +83,17 @@ class DescribeAvailableClassesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
+        if (null !== $this->DBInstanceStorageType) {
+            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -101,20 +101,20 @@ class DescribeAvailableClassesRequest extends Model
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
-        if (null !== $this->DBInstanceStorageType) {
-            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->commodityCode) {
-            $res['CommodityCode'] = $this->commodityCode;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -128,17 +128,17 @@ class DescribeAvailableClassesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
+        if (isset($map['DBInstanceStorageType'])) {
+            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -146,20 +146,20 @@ class DescribeAvailableClassesRequest extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
-        if (isset($map['DBInstanceStorageType'])) {
-            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['CommodityCode'])) {
-            $model->commodityCode = $map['CommodityCode'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

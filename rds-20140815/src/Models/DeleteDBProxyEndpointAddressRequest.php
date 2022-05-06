@@ -11,12 +11,12 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $DBProxyConnectStringNetType;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     /**
      * @var string
      */
-    public $DBProxyConnectStringNetType;
+    public $regionId;
     protected $_name = [
-        'regionId'                    => 'RegionId',
         'DBInstanceId'                => 'DBInstanceId',
-        'DBProxyEndpointId'           => 'DBProxyEndpointId',
         'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
+        'DBProxyEndpointId'           => 'DBProxyEndpointId',
+        'regionId'                    => 'RegionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBProxyConnectStringNetType) {
+            $res['DBProxyConnectStringNetType'] = $this->DBProxyConnectStringNetType;
         }
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
         }
-        if (null !== $this->DBProxyConnectStringNetType) {
-            $res['DBProxyConnectStringNetType'] = $this->DBProxyConnectStringNetType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBProxyConnectStringNetType'])) {
+            $model->DBProxyConnectStringNetType = $map['DBProxyConnectStringNetType'];
         }
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
         }
-        if (isset($map['DBProxyConnectStringNetType'])) {
-            $model->DBProxyConnectStringNetType = $map['DBProxyConnectStringNetType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedEngineVersions extends Model
 {
     /**
-     * @var string
-     */
-    public $version;
-
-    /**
      * @var supportedCategorys[]
      */
     public $supportedCategorys;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'            => 'Version',
         'supportedCategorys' => 'SupportedCategorys',
+        'version'            => 'Version',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class supportedEngineVersions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->supportedCategorys) {
             $res['SupportedCategorys'] = [];
             if (null !== $this->supportedCategorys && \is_array($this->supportedCategorys)) {
@@ -41,6 +38,9 @@ class supportedEngineVersions extends Model
                     $res['SupportedCategorys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class supportedEngineVersions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['SupportedCategorys'])) {
             if (!empty($map['SupportedCategorys'])) {
                 $model->supportedCategorys = [];
@@ -65,6 +62,9 @@ class supportedEngineVersions extends Model
                     $model->supportedCategorys[$n++] = null !== $item ? supportedCategorys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

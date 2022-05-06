@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoUpgradeMinorVersion;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,28 +37,13 @@ class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $autoUpgradeMinorVersion;
     protected $_name = [
+        'autoUpgradeMinorVersion' => 'AutoUpgradeMinorVersion',
+        'clientToken'             => 'ClientToken',
+        'DBInstanceId'            => 'DBInstanceId',
         'ownerId'                 => 'OwnerId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
-        'clientToken'             => 'ClientToken',
-        'DBInstanceId'            => 'DBInstanceId',
-        'autoUpgradeMinorVersion' => 'AutoUpgradeMinorVersion',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoUpgradeMinorVersion) {
+            $res['AutoUpgradeMinorVersion'] = $this->autoUpgradeMinorVersion;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -61,15 +70,6 @@ class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->autoUpgradeMinorVersion) {
-            $res['AutoUpgradeMinorVersion'] = $this->autoUpgradeMinorVersion;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUpgradeMinorVersion'])) {
+            $model->autoUpgradeMinorVersion = $map['AutoUpgradeMinorVersion'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -91,15 +100,6 @@ class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['AutoUpgradeMinorVersion'])) {
-            $model->autoUpgradeMinorVersion = $map['AutoUpgradeMinorVersion'];
         }
 
         return $model;

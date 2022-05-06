@@ -9,34 +9,9 @@ use AlibabaCloud\Tea\Model;
 class eventItems extends Model
 {
     /**
-     * @var string
-     */
-    public $eventName;
-
-    /**
-     * @var string
-     */
-    public $eventTime;
-
-    /**
-     * @var string
-     */
-    public $eventUserType;
-
-    /**
-     * @var string
-     */
-    public $eventRecordTime;
-
-    /**
      * @var int
      */
     public $callerUid;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var int
@@ -46,12 +21,7 @@ class eventItems extends Model
     /**
      * @var string
      */
-    public $eventType;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
+    public $eventName;
 
     /**
      * @var string
@@ -66,20 +36,50 @@ class eventItems extends Model
     /**
      * @var string
      */
+    public $eventRecordTime;
+
+    /**
+     * @var string
+     */
+    public $eventTime;
+
+    /**
+     * @var string
+     */
+    public $eventType;
+
+    /**
+     * @var string
+     */
+    public $eventUserType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceName;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'eventName'       => 'EventName',
-        'eventTime'       => 'EventTime',
-        'eventUserType'   => 'EventUserType',
-        'eventRecordTime' => 'EventRecordTime',
         'callerUid'       => 'CallerUid',
-        'regionId'        => 'RegionId',
         'eventId'         => 'EventId',
-        'eventType'       => 'EventType',
-        'resourceType'    => 'ResourceType',
+        'eventName'       => 'EventName',
         'eventPayload'    => 'EventPayload',
         'eventReason'     => 'EventReason',
+        'eventRecordTime' => 'EventRecordTime',
+        'eventTime'       => 'EventTime',
+        'eventType'       => 'EventType',
+        'eventUserType'   => 'EventUserType',
+        'regionId'        => 'RegionId',
         'resourceName'    => 'ResourceName',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -89,32 +89,14 @@ class eventItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventName) {
-            $res['EventName'] = $this->eventName;
-        }
-        if (null !== $this->eventTime) {
-            $res['EventTime'] = $this->eventTime;
-        }
-        if (null !== $this->eventUserType) {
-            $res['EventUserType'] = $this->eventUserType;
-        }
-        if (null !== $this->eventRecordTime) {
-            $res['EventRecordTime'] = $this->eventRecordTime;
-        }
         if (null !== $this->callerUid) {
             $res['CallerUid'] = $this->callerUid;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
-        if (null !== $this->eventType) {
-            $res['EventType'] = $this->eventType;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->eventName) {
+            $res['EventName'] = $this->eventName;
         }
         if (null !== $this->eventPayload) {
             $res['EventPayload'] = $this->eventPayload;
@@ -122,8 +104,26 @@ class eventItems extends Model
         if (null !== $this->eventReason) {
             $res['EventReason'] = $this->eventReason;
         }
+        if (null !== $this->eventRecordTime) {
+            $res['EventRecordTime'] = $this->eventRecordTime;
+        }
+        if (null !== $this->eventTime) {
+            $res['EventTime'] = $this->eventTime;
+        }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
+        }
+        if (null !== $this->eventUserType) {
+            $res['EventUserType'] = $this->eventUserType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -137,32 +137,14 @@ class eventItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventName'])) {
-            $model->eventName = $map['EventName'];
-        }
-        if (isset($map['EventTime'])) {
-            $model->eventTime = $map['EventTime'];
-        }
-        if (isset($map['EventUserType'])) {
-            $model->eventUserType = $map['EventUserType'];
-        }
-        if (isset($map['EventRecordTime'])) {
-            $model->eventRecordTime = $map['EventRecordTime'];
-        }
         if (isset($map['CallerUid'])) {
             $model->callerUid = $map['CallerUid'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
-        if (isset($map['EventType'])) {
-            $model->eventType = $map['EventType'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['EventName'])) {
+            $model->eventName = $map['EventName'];
         }
         if (isset($map['EventPayload'])) {
             $model->eventPayload = $map['EventPayload'];
@@ -170,8 +152,26 @@ class eventItems extends Model
         if (isset($map['EventReason'])) {
             $model->eventReason = $map['EventReason'];
         }
+        if (isset($map['EventRecordTime'])) {
+            $model->eventRecordTime = $map['EventRecordTime'];
+        }
+        if (isset($map['EventTime'])) {
+            $model->eventTime = $map['EventTime'];
+        }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
+        if (isset($map['EventUserType'])) {
+            $model->eventUserType = $map['EventUserType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

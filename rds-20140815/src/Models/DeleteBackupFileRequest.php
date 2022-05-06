@@ -9,9 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupFileRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $backupId;
+
+    /**
+     * @var string
+     */
+    public $backupTime;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBName;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -22,40 +47,15 @@ class DeleteBackupFileRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $backupId;
-
-    /**
-     * @var string
-     */
-    public $DBName;
-
-    /**
-     * @var string
-     */
-    public $backupTime;
     protected $_name = [
+        'backupId'             => 'BackupId',
+        'backupTime'           => 'BackupTime',
+        'DBInstanceId'         => 'DBInstanceId',
+        'DBName'               => 'DBName',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'backupId'             => 'BackupId',
-        'DBName'               => 'DBName',
-        'backupTime'           => 'BackupTime',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class DeleteBackupFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->backupTime) {
+            $res['BackupTime'] = $this->backupTime;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
-        }
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
-        }
-        if (null !== $this->backupTime) {
-            $res['BackupTime'] = $this->backupTime;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class DeleteBackupFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['BackupTime'])) {
+            $model->backupTime = $map['BackupTime'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
-        }
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
-        }
-        if (isset($map['BackupTime'])) {
-            $model->backupTime = $map['BackupTime'];
         }
 
         return $model;

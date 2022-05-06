@@ -11,7 +11,7 @@ class DBInstanceStorageRange extends Model
     /**
      * @var int
      */
-    public $step;
+    public $maxValue;
 
     /**
      * @var int
@@ -21,11 +21,11 @@ class DBInstanceStorageRange extends Model
     /**
      * @var int
      */
-    public $maxValue;
+    public $step;
     protected $_name = [
-        'step'     => 'Step',
-        'minValue' => 'MinValue',
         'maxValue' => 'MaxValue',
+        'minValue' => 'MinValue',
+        'step'     => 'Step',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DBInstanceStorageRange extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->step) {
-            $res['Step'] = $this->step;
+        if (null !== $this->maxValue) {
+            $res['MaxValue'] = $this->maxValue;
         }
         if (null !== $this->minValue) {
             $res['MinValue'] = $this->minValue;
         }
-        if (null !== $this->maxValue) {
-            $res['MaxValue'] = $this->maxValue;
+        if (null !== $this->step) {
+            $res['Step'] = $this->step;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DBInstanceStorageRange extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Step'])) {
-            $model->step = $map['Step'];
+        if (isset($map['MaxValue'])) {
+            $model->maxValue = $map['MaxValue'];
         }
         if (isset($map['MinValue'])) {
             $model->minValue = $map['MinValue'];
         }
-        if (isset($map['MaxValue'])) {
-            $model->maxValue = $map['MaxValue'];
+        if (isset($map['Step'])) {
+            $model->step = $map['Step'];
         }
 
         return $model;

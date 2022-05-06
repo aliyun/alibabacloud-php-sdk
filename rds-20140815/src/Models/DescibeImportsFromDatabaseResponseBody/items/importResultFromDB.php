@@ -11,7 +11,17 @@ class importResultFromDB extends Model
     /**
      * @var string
      */
-    public $incrementalImportingTime;
+    public $importDataStatus;
+
+    /**
+     * @var string
+     */
+    public $importDataStatusDescription;
+
+    /**
+     * @var string
+     */
+    public $importDataType;
 
     /**
      * @var int
@@ -21,23 +31,13 @@ class importResultFromDB extends Model
     /**
      * @var string
      */
-    public $importDataStatus;
-
-    /**
-     * @var string
-     */
-    public $importDataType;
-
-    /**
-     * @var string
-     */
-    public $importDataStatusDescription;
+    public $incrementalImportingTime;
     protected $_name = [
-        'incrementalImportingTime'    => 'IncrementalImportingTime',
-        'importId'                    => 'ImportId',
         'importDataStatus'            => 'ImportDataStatus',
-        'importDataType'              => 'ImportDataType',
         'importDataStatusDescription' => 'ImportDataStatusDescription',
+        'importDataType'              => 'ImportDataType',
+        'importId'                    => 'ImportId',
+        'incrementalImportingTime'    => 'IncrementalImportingTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class importResultFromDB extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->incrementalImportingTime) {
-            $res['IncrementalImportingTime'] = $this->incrementalImportingTime;
-        }
-        if (null !== $this->importId) {
-            $res['ImportId'] = $this->importId;
-        }
         if (null !== $this->importDataStatus) {
             $res['ImportDataStatus'] = $this->importDataStatus;
+        }
+        if (null !== $this->importDataStatusDescription) {
+            $res['ImportDataStatusDescription'] = $this->importDataStatusDescription;
         }
         if (null !== $this->importDataType) {
             $res['ImportDataType'] = $this->importDataType;
         }
-        if (null !== $this->importDataStatusDescription) {
-            $res['ImportDataStatusDescription'] = $this->importDataStatusDescription;
+        if (null !== $this->importId) {
+            $res['ImportId'] = $this->importId;
+        }
+        if (null !== $this->incrementalImportingTime) {
+            $res['IncrementalImportingTime'] = $this->incrementalImportingTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class importResultFromDB extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IncrementalImportingTime'])) {
-            $model->incrementalImportingTime = $map['IncrementalImportingTime'];
-        }
-        if (isset($map['ImportId'])) {
-            $model->importId = $map['ImportId'];
-        }
         if (isset($map['ImportDataStatus'])) {
             $model->importDataStatus = $map['ImportDataStatus'];
+        }
+        if (isset($map['ImportDataStatusDescription'])) {
+            $model->importDataStatusDescription = $map['ImportDataStatusDescription'];
         }
         if (isset($map['ImportDataType'])) {
             $model->importDataType = $map['ImportDataType'];
         }
-        if (isset($map['ImportDataStatusDescription'])) {
-            $model->importDataStatusDescription = $map['ImportDataStatusDescription'];
+        if (isset($map['ImportId'])) {
+            $model->importId = $map['ImportId'];
+        }
+        if (isset($map['IncrementalImportingTime'])) {
+            $model->incrementalImportingTime = $map['IncrementalImportingTime'];
         }
 
         return $model;

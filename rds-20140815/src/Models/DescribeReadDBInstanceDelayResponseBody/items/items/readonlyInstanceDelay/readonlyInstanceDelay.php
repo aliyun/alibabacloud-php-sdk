@@ -11,7 +11,7 @@ class readonlyInstanceDelay extends Model
     /**
      * @var string
      */
-    public $writeLatency;
+    public $flushLag;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class readonlyInstanceDelay extends Model
     /**
      * @var string
      */
-    public $writeLag;
+    public $replayLag;
 
     /**
      * @var string
      */
-    public $flushLag;
+    public $replayLatency;
 
     /**
      * @var string
@@ -41,21 +41,21 @@ class readonlyInstanceDelay extends Model
     /**
      * @var string
      */
-    public $replayLag;
+    public $writeLag;
 
     /**
      * @var string
      */
-    public $replayLatency;
+    public $writeLatency;
     protected $_name = [
-        'writeLatency'       => 'WriteLatency',
+        'flushLag'           => 'FlushLag',
         'flushLatency'       => 'FlushLatency',
         'readDBInstanceName' => 'ReadDBInstanceName',
-        'writeLag'           => 'WriteLag',
-        'flushLag'           => 'FlushLag',
-        'sendLatency'        => 'SendLatency',
         'replayLag'          => 'ReplayLag',
         'replayLatency'      => 'ReplayLatency',
+        'sendLatency'        => 'SendLatency',
+        'writeLag'           => 'WriteLag',
+        'writeLatency'       => 'WriteLatency',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class readonlyInstanceDelay extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->writeLatency) {
-            $res['WriteLatency'] = $this->writeLatency;
+        if (null !== $this->flushLag) {
+            $res['FlushLag'] = $this->flushLag;
         }
         if (null !== $this->flushLatency) {
             $res['FlushLatency'] = $this->flushLatency;
@@ -74,20 +74,20 @@ class readonlyInstanceDelay extends Model
         if (null !== $this->readDBInstanceName) {
             $res['ReadDBInstanceName'] = $this->readDBInstanceName;
         }
-        if (null !== $this->writeLag) {
-            $res['WriteLag'] = $this->writeLag;
-        }
-        if (null !== $this->flushLag) {
-            $res['FlushLag'] = $this->flushLag;
-        }
-        if (null !== $this->sendLatency) {
-            $res['SendLatency'] = $this->sendLatency;
-        }
         if (null !== $this->replayLag) {
             $res['ReplayLag'] = $this->replayLag;
         }
         if (null !== $this->replayLatency) {
             $res['ReplayLatency'] = $this->replayLatency;
+        }
+        if (null !== $this->sendLatency) {
+            $res['SendLatency'] = $this->sendLatency;
+        }
+        if (null !== $this->writeLag) {
+            $res['WriteLag'] = $this->writeLag;
+        }
+        if (null !== $this->writeLatency) {
+            $res['WriteLatency'] = $this->writeLatency;
         }
 
         return $res;
@@ -101,8 +101,8 @@ class readonlyInstanceDelay extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WriteLatency'])) {
-            $model->writeLatency = $map['WriteLatency'];
+        if (isset($map['FlushLag'])) {
+            $model->flushLag = $map['FlushLag'];
         }
         if (isset($map['FlushLatency'])) {
             $model->flushLatency = $map['FlushLatency'];
@@ -110,20 +110,20 @@ class readonlyInstanceDelay extends Model
         if (isset($map['ReadDBInstanceName'])) {
             $model->readDBInstanceName = $map['ReadDBInstanceName'];
         }
-        if (isset($map['WriteLag'])) {
-            $model->writeLag = $map['WriteLag'];
-        }
-        if (isset($map['FlushLag'])) {
-            $model->flushLag = $map['FlushLag'];
-        }
-        if (isset($map['SendLatency'])) {
-            $model->sendLatency = $map['SendLatency'];
-        }
         if (isset($map['ReplayLag'])) {
             $model->replayLag = $map['ReplayLag'];
         }
         if (isset($map['ReplayLatency'])) {
             $model->replayLatency = $map['ReplayLatency'];
+        }
+        if (isset($map['SendLatency'])) {
+            $model->sendLatency = $map['SendLatency'];
+        }
+        if (isset($map['WriteLag'])) {
+            $model->writeLag = $map['WriteLag'];
+        }
+        if (isset($map['WriteLatency'])) {
+            $model->writeLatency = $map['WriteLatency'];
         }
 
         return $model;

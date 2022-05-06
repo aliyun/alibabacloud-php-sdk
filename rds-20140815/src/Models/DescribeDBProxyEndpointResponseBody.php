@@ -12,7 +12,22 @@ class DescribeDBProxyEndpointResponseBody extends Model
     /**
      * @var string
      */
+    public $DBProxyConnectString;
+
+    /**
+     * @var string
+     */
     public $DBProxyConnectStringNetType;
+
+    /**
+     * @var string
+     */
+    public $DBProxyConnectStringPort;
+
+    /**
+     * @var string
+     */
+    public $DBProxyEndpointId;
 
     /**
      * @var string
@@ -22,12 +37,17 @@ class DescribeDBProxyEndpointResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $dbProxyEndpointAliases;
 
     /**
      * @var string
      */
-    public $readOnlyInstanceWeight;
+    public $dbProxyEndpointReadWriteMode;
+
+    /**
+     * @var endpointConnectItems
+     */
+    public $endpointConnectItems;
 
     /**
      * @var string
@@ -42,45 +62,25 @@ class DescribeDBProxyEndpointResponseBody extends Model
     /**
      * @var string
      */
-    public $dbProxyEndpointReadWriteMode;
+    public $readOnlyInstanceWeight;
 
     /**
      * @var string
      */
-    public $dbProxyEndpointAliases;
-
-    /**
-     * @var string
-     */
-    public $DBProxyEndpointId;
-
-    /**
-     * @var string
-     */
-    public $DBProxyConnectStringPort;
-
-    /**
-     * @var string
-     */
-    public $DBProxyConnectString;
-
-    /**
-     * @var endpointConnectItems
-     */
-    public $endpointConnectItems;
+    public $requestId;
     protected $_name = [
+        'DBProxyConnectString'             => 'DBProxyConnectString',
         'DBProxyConnectStringNetType'      => 'DBProxyConnectStringNetType',
+        'DBProxyConnectStringPort'         => 'DBProxyConnectStringPort',
+        'DBProxyEndpointId'                => 'DBProxyEndpointId',
         'DBProxyFeatures'                  => 'DBProxyFeatures',
-        'requestId'                        => 'RequestId',
-        'readOnlyInstanceWeight'           => 'ReadOnlyInstanceWeight',
+        'dbProxyEndpointAliases'           => 'DbProxyEndpointAliases',
+        'dbProxyEndpointReadWriteMode'     => 'DbProxyEndpointReadWriteMode',
+        'endpointConnectItems'             => 'EndpointConnectItems',
         'readOnlyInstanceDistributionType' => 'ReadOnlyInstanceDistributionType',
         'readOnlyInstanceMaxDelayTime'     => 'ReadOnlyInstanceMaxDelayTime',
-        'dbProxyEndpointReadWriteMode'     => 'DbProxyEndpointReadWriteMode',
-        'dbProxyEndpointAliases'           => 'DbProxyEndpointAliases',
-        'DBProxyEndpointId'                => 'DBProxyEndpointId',
-        'DBProxyConnectStringPort'         => 'DBProxyConnectStringPort',
-        'DBProxyConnectString'             => 'DBProxyConnectString',
-        'endpointConnectItems'             => 'EndpointConnectItems',
+        'readOnlyInstanceWeight'           => 'ReadOnlyInstanceWeight',
+        'requestId'                        => 'RequestId',
     ];
 
     public function validate()
@@ -90,17 +90,29 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBProxyConnectString) {
+            $res['DBProxyConnectString'] = $this->DBProxyConnectString;
+        }
         if (null !== $this->DBProxyConnectStringNetType) {
             $res['DBProxyConnectStringNetType'] = $this->DBProxyConnectStringNetType;
+        }
+        if (null !== $this->DBProxyConnectStringPort) {
+            $res['DBProxyConnectStringPort'] = $this->DBProxyConnectStringPort;
+        }
+        if (null !== $this->DBProxyEndpointId) {
+            $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
         }
         if (null !== $this->DBProxyFeatures) {
             $res['DBProxyFeatures'] = $this->DBProxyFeatures;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->dbProxyEndpointAliases) {
+            $res['DbProxyEndpointAliases'] = $this->dbProxyEndpointAliases;
         }
-        if (null !== $this->readOnlyInstanceWeight) {
-            $res['ReadOnlyInstanceWeight'] = $this->readOnlyInstanceWeight;
+        if (null !== $this->dbProxyEndpointReadWriteMode) {
+            $res['DbProxyEndpointReadWriteMode'] = $this->dbProxyEndpointReadWriteMode;
+        }
+        if (null !== $this->endpointConnectItems) {
+            $res['EndpointConnectItems'] = null !== $this->endpointConnectItems ? $this->endpointConnectItems->toMap() : null;
         }
         if (null !== $this->readOnlyInstanceDistributionType) {
             $res['ReadOnlyInstanceDistributionType'] = $this->readOnlyInstanceDistributionType;
@@ -108,23 +120,11 @@ class DescribeDBProxyEndpointResponseBody extends Model
         if (null !== $this->readOnlyInstanceMaxDelayTime) {
             $res['ReadOnlyInstanceMaxDelayTime'] = $this->readOnlyInstanceMaxDelayTime;
         }
-        if (null !== $this->dbProxyEndpointReadWriteMode) {
-            $res['DbProxyEndpointReadWriteMode'] = $this->dbProxyEndpointReadWriteMode;
+        if (null !== $this->readOnlyInstanceWeight) {
+            $res['ReadOnlyInstanceWeight'] = $this->readOnlyInstanceWeight;
         }
-        if (null !== $this->dbProxyEndpointAliases) {
-            $res['DbProxyEndpointAliases'] = $this->dbProxyEndpointAliases;
-        }
-        if (null !== $this->DBProxyEndpointId) {
-            $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
-        }
-        if (null !== $this->DBProxyConnectStringPort) {
-            $res['DBProxyConnectStringPort'] = $this->DBProxyConnectStringPort;
-        }
-        if (null !== $this->DBProxyConnectString) {
-            $res['DBProxyConnectString'] = $this->DBProxyConnectString;
-        }
-        if (null !== $this->endpointConnectItems) {
-            $res['EndpointConnectItems'] = null !== $this->endpointConnectItems ? $this->endpointConnectItems->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -138,17 +138,29 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBProxyConnectString'])) {
+            $model->DBProxyConnectString = $map['DBProxyConnectString'];
+        }
         if (isset($map['DBProxyConnectStringNetType'])) {
             $model->DBProxyConnectStringNetType = $map['DBProxyConnectStringNetType'];
+        }
+        if (isset($map['DBProxyConnectStringPort'])) {
+            $model->DBProxyConnectStringPort = $map['DBProxyConnectStringPort'];
+        }
+        if (isset($map['DBProxyEndpointId'])) {
+            $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
         }
         if (isset($map['DBProxyFeatures'])) {
             $model->DBProxyFeatures = $map['DBProxyFeatures'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DbProxyEndpointAliases'])) {
+            $model->dbProxyEndpointAliases = $map['DbProxyEndpointAliases'];
         }
-        if (isset($map['ReadOnlyInstanceWeight'])) {
-            $model->readOnlyInstanceWeight = $map['ReadOnlyInstanceWeight'];
+        if (isset($map['DbProxyEndpointReadWriteMode'])) {
+            $model->dbProxyEndpointReadWriteMode = $map['DbProxyEndpointReadWriteMode'];
+        }
+        if (isset($map['EndpointConnectItems'])) {
+            $model->endpointConnectItems = endpointConnectItems::fromMap($map['EndpointConnectItems']);
         }
         if (isset($map['ReadOnlyInstanceDistributionType'])) {
             $model->readOnlyInstanceDistributionType = $map['ReadOnlyInstanceDistributionType'];
@@ -156,23 +168,11 @@ class DescribeDBProxyEndpointResponseBody extends Model
         if (isset($map['ReadOnlyInstanceMaxDelayTime'])) {
             $model->readOnlyInstanceMaxDelayTime = $map['ReadOnlyInstanceMaxDelayTime'];
         }
-        if (isset($map['DbProxyEndpointReadWriteMode'])) {
-            $model->dbProxyEndpointReadWriteMode = $map['DbProxyEndpointReadWriteMode'];
+        if (isset($map['ReadOnlyInstanceWeight'])) {
+            $model->readOnlyInstanceWeight = $map['ReadOnlyInstanceWeight'];
         }
-        if (isset($map['DbProxyEndpointAliases'])) {
-            $model->dbProxyEndpointAliases = $map['DbProxyEndpointAliases'];
-        }
-        if (isset($map['DBProxyEndpointId'])) {
-            $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
-        }
-        if (isset($map['DBProxyConnectStringPort'])) {
-            $model->DBProxyConnectStringPort = $map['DBProxyConnectStringPort'];
-        }
-        if (isset($map['DBProxyConnectString'])) {
-            $model->DBProxyConnectString = $map['DBProxyConnectString'];
-        }
-        if (isset($map['EndpointConnectItems'])) {
-            $model->endpointConnectItems = endpointConnectItems::fromMap($map['EndpointConnectItems']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

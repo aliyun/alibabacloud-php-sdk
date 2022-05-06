@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ImportDatabaseBetweenInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInfo;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,30 +41,15 @@ class ImportDatabaseBetweenInstancesRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
     public $sourceDBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $DBInfo;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'DBInfo'               => 'DBInfo',
+        'DBInstanceId'         => 'DBInstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
         'sourceDBInstanceId'   => 'SourceDBInstanceId',
-        'DBInfo'               => 'DBInfo',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,6 +59,15 @@ class ImportDatabaseBetweenInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInfo) {
+            $res['DBInfo'] = $this->DBInfo;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -68,17 +77,8 @@ class ImportDatabaseBetweenInstancesRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
         if (null !== $this->sourceDBInstanceId) {
             $res['SourceDBInstanceId'] = $this->sourceDBInstanceId;
-        }
-        if (null !== $this->DBInfo) {
-            $res['DBInfo'] = $this->DBInfo;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,6 +92,15 @@ class ImportDatabaseBetweenInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInfo'])) {
+            $model->DBInfo = $map['DBInfo'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -101,17 +110,8 @@ class ImportDatabaseBetweenInstancesRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
         if (isset($map['SourceDBInstanceId'])) {
             $model->sourceDBInstanceId = $map['SourceDBInstanceId'];
-        }
-        if (isset($map['DBInfo'])) {
-            $model->DBInfo = $map['DBInfo'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

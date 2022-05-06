@@ -11,21 +11,21 @@ class backupDownloadLinkByDB extends Model
     /**
      * @var string
      */
-    public $intranetDownloadLink;
-
-    /**
-     * @var string
-     */
     public $dataBase;
 
     /**
      * @var string
      */
     public $downloadLink;
+
+    /**
+     * @var string
+     */
+    public $intranetDownloadLink;
     protected $_name = [
-        'intranetDownloadLink' => 'IntranetDownloadLink',
         'dataBase'             => 'DataBase',
         'downloadLink'         => 'DownloadLink',
+        'intranetDownloadLink' => 'IntranetDownloadLink',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class backupDownloadLinkByDB extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intranetDownloadLink) {
-            $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
-        }
         if (null !== $this->dataBase) {
             $res['DataBase'] = $this->dataBase;
         }
         if (null !== $this->downloadLink) {
             $res['DownloadLink'] = $this->downloadLink;
+        }
+        if (null !== $this->intranetDownloadLink) {
+            $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class backupDownloadLinkByDB extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntranetDownloadLink'])) {
-            $model->intranetDownloadLink = $map['IntranetDownloadLink'];
-        }
         if (isset($map['DataBase'])) {
             $model->dataBase = $map['DataBase'];
         }
         if (isset($map['DownloadLink'])) {
             $model->downloadLink = $map['DownloadLink'];
+        }
+        if (isset($map['IntranetDownloadLink'])) {
+            $model->intranetDownloadLink = $map['IntranetDownloadLink'];
         }
 
         return $model;

@@ -11,27 +11,7 @@ class items extends Model
     /**
      * @var string
      */
-    public $targetMajorVersion;
-
-    /**
-     * @var string
-     */
-    public $effectiveTime;
-
-    /**
-     * @var string
-     */
-    public $sourceMajorVersion;
-
-    /**
-     * @var string
-     */
-    public $result;
-
-    /**
-     * @var int
-     */
-    public $taskId;
+    public $checkTime;
 
     /**
      * @var string
@@ -41,15 +21,35 @@ class items extends Model
     /**
      * @var string
      */
-    public $checkTime;
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
+    public $result;
+
+    /**
+     * @var string
+     */
+    public $sourceMajorVersion;
+
+    /**
+     * @var string
+     */
+    public $targetMajorVersion;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
-        'targetMajorVersion' => 'TargetMajorVersion',
-        'effectiveTime'      => 'EffectiveTime',
-        'sourceMajorVersion' => 'SourceMajorVersion',
-        'result'             => 'Result',
-        'taskId'             => 'TaskId',
-        'detail'             => 'Detail',
         'checkTime'          => 'CheckTime',
+        'detail'             => 'Detail',
+        'effectiveTime'      => 'EffectiveTime',
+        'result'             => 'Result',
+        'sourceMajorVersion' => 'SourceMajorVersion',
+        'targetMajorVersion' => 'TargetMajorVersion',
+        'taskId'             => 'TaskId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetMajorVersion) {
-            $res['TargetMajorVersion'] = $this->targetMajorVersion;
-        }
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
-        }
-        if (null !== $this->sourceMajorVersion) {
-            $res['SourceMajorVersion'] = $this->sourceMajorVersion;
-        }
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->checkTime) {
+            $res['CheckTime'] = $this->checkTime;
         }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
-        if (null !== $this->checkTime) {
-            $res['CheckTime'] = $this->checkTime;
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
+        }
+        if (null !== $this->sourceMajorVersion) {
+            $res['SourceMajorVersion'] = $this->sourceMajorVersion;
+        }
+        if (null !== $this->targetMajorVersion) {
+            $res['TargetMajorVersion'] = $this->targetMajorVersion;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetMajorVersion'])) {
-            $model->targetMajorVersion = $map['TargetMajorVersion'];
-        }
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
-        }
-        if (isset($map['SourceMajorVersion'])) {
-            $model->sourceMajorVersion = $map['SourceMajorVersion'];
-        }
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['CheckTime'])) {
+            $model->checkTime = $map['CheckTime'];
         }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
-        if (isset($map['CheckTime'])) {
-            $model->checkTime = $map['CheckTime'];
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
+        }
+        if (isset($map['SourceMajorVersion'])) {
+            $model->sourceMajorVersion = $map['SourceMajorVersion'];
+        }
+        if (isset($map['TargetMajorVersion'])) {
+            $model->targetMajorVersion = $map['TargetMajorVersion'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

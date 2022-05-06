@@ -16,16 +16,16 @@ class ecsSecurityGroupRelation extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $securityGroupId;
     protected $_name = [
         'networkType'     => 'NetworkType',
-        'securityGroupId' => 'SecurityGroupId',
         'regionId'        => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ecsSecurityGroupRelation extends Model
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ecsSecurityGroupRelation extends Model
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         return $model;

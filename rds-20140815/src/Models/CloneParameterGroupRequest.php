@@ -16,22 +16,7 @@ class CloneParameterGroupRequest extends Model
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $targetRegionId;
+    public $parameterGroupDesc;
 
     /**
      * @var string
@@ -46,16 +31,31 @@ class CloneParameterGroupRequest extends Model
     /**
      * @var string
      */
-    public $parameterGroupDesc;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $targetRegionId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'targetRegionId'       => 'TargetRegionId',
+        'parameterGroupDesc'   => 'ParameterGroupDesc',
         'parameterGroupId'     => 'ParameterGroupId',
         'parameterGroupName'   => 'ParameterGroupName',
-        'parameterGroupDesc'   => 'ParameterGroupDesc',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'targetRegionId'       => 'TargetRegionId',
     ];
 
     public function validate()
@@ -68,17 +68,8 @@ class CloneParameterGroupRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->targetRegionId) {
-            $res['TargetRegionId'] = $this->targetRegionId;
+        if (null !== $this->parameterGroupDesc) {
+            $res['ParameterGroupDesc'] = $this->parameterGroupDesc;
         }
         if (null !== $this->parameterGroupId) {
             $res['ParameterGroupId'] = $this->parameterGroupId;
@@ -86,8 +77,17 @@ class CloneParameterGroupRequest extends Model
         if (null !== $this->parameterGroupName) {
             $res['ParameterGroupName'] = $this->parameterGroupName;
         }
-        if (null !== $this->parameterGroupDesc) {
-            $res['ParameterGroupDesc'] = $this->parameterGroupDesc;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->targetRegionId) {
+            $res['TargetRegionId'] = $this->targetRegionId;
         }
 
         return $res;
@@ -104,17 +104,8 @@ class CloneParameterGroupRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TargetRegionId'])) {
-            $model->targetRegionId = $map['TargetRegionId'];
+        if (isset($map['ParameterGroupDesc'])) {
+            $model->parameterGroupDesc = $map['ParameterGroupDesc'];
         }
         if (isset($map['ParameterGroupId'])) {
             $model->parameterGroupId = $map['ParameterGroupId'];
@@ -122,8 +113,17 @@ class CloneParameterGroupRequest extends Model
         if (isset($map['ParameterGroupName'])) {
             $model->parameterGroupName = $map['ParameterGroupName'];
         }
-        if (isset($map['ParameterGroupDesc'])) {
-            $model->parameterGroupDesc = $map['ParameterGroupDesc'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['TargetRegionId'])) {
+            $model->targetRegionId = $map['TargetRegionId'];
         }
 
         return $model;

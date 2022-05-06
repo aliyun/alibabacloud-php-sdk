@@ -11,15 +11,15 @@ class GetDbProxyInstanceSslRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $dbInstanceId;
 
     /**
      * @var string
      */
-    public $dbInstanceId;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'dbInstanceId' => 'DbInstanceId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetDbProxyInstanceSslRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetDbProxyInstanceSslRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

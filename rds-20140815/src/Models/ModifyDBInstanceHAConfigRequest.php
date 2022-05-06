@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceHAConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dbInstanceId;
+
+    /**
+     * @var string
+     */
+    public $HAMode;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -27,29 +42,14 @@ class ModifyDBInstanceHAConfigRequest extends Model
      * @var string
      */
     public $syncMode;
-
-    /**
-     * @var string
-     */
-    public $HAMode;
-
-    /**
-     * @var string
-     */
-    public $dbInstanceId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'dbInstanceId'         => 'DbInstanceId',
+        'HAMode'               => 'HAMode',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'syncMode'             => 'SyncMode',
-        'HAMode'               => 'HAMode',
-        'dbInstanceId'         => 'DbInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,6 +59,15 @@ class ModifyDBInstanceHAConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbInstanceId) {
+            $res['DbInstanceId'] = $this->dbInstanceId;
+        }
+        if (null !== $this->HAMode) {
+            $res['HAMode'] = $this->HAMode;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -70,15 +79,6 @@ class ModifyDBInstanceHAConfigRequest extends Model
         }
         if (null !== $this->syncMode) {
             $res['SyncMode'] = $this->syncMode;
-        }
-        if (null !== $this->HAMode) {
-            $res['HAMode'] = $this->HAMode;
-        }
-        if (null !== $this->dbInstanceId) {
-            $res['DbInstanceId'] = $this->dbInstanceId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,6 +92,15 @@ class ModifyDBInstanceHAConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbInstanceId'])) {
+            $model->dbInstanceId = $map['DbInstanceId'];
+        }
+        if (isset($map['HAMode'])) {
+            $model->HAMode = $map['HAMode'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -103,15 +112,6 @@ class ModifyDBInstanceHAConfigRequest extends Model
         }
         if (isset($map['SyncMode'])) {
             $model->syncMode = $map['SyncMode'];
-        }
-        if (isset($map['HAMode'])) {
-            $model->HAMode = $map['HAMode'];
-        }
-        if (isset($map['DbInstanceId'])) {
-            $model->dbInstanceId = $map['DbInstanceId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

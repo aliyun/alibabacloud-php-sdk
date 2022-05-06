@@ -11,7 +11,7 @@ class collationTimeZone extends Model
     /**
      * @var string
      */
-    public $timeZone;
+    public $description;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class collationTimeZone extends Model
     /**
      * @var string
      */
-    public $description;
+    public $timeZone;
     protected $_name = [
-        'timeZone'           => 'TimeZone',
-        'standardTimeOffset' => 'StandardTimeOffset',
         'description'        => 'Description',
+        'standardTimeOffset' => 'StandardTimeOffset',
+        'timeZone'           => 'TimeZone',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class collationTimeZone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeZone) {
-            $res['TimeZone'] = $this->timeZone;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->standardTimeOffset) {
             $res['StandardTimeOffset'] = $this->standardTimeOffset;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class collationTimeZone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeZone'])) {
-            $model->timeZone = $map['TimeZone'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['StandardTimeOffset'])) {
             $model->standardTimeOffset = $map['StandardTimeOffset'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         return $model;

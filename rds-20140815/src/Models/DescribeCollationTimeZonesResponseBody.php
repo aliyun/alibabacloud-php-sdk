@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCollationTimeZonesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var collationTimeZones
      */
     public $collationTimeZones;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
         'collationTimeZones' => 'CollationTimeZones',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeCollationTimeZonesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->collationTimeZones) {
             $res['CollationTimeZones'] = null !== $this->collationTimeZones ? $this->collationTimeZones->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeCollationTimeZonesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CollationTimeZones'])) {
             $model->collationTimeZones = collationTimeZones::fromMap($map['CollationTimeZones']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,7 +11,17 @@ class DescribeAvailableRecoveryTimeRequest extends Model
     /**
      * @var int
      */
+    public $crossBackupId;
+
+    /**
+     * @var int
+     */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -22,22 +32,12 @@ class DescribeAvailableRecoveryTimeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $crossBackupId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
+        'crossBackupId'        => 'CrossBackupId',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'crossBackupId'        => 'CrossBackupId',
-        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeAvailableRecoveryTimeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->crossBackupId) {
+            $res['CrossBackupId'] = $this->crossBackupId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->crossBackupId) {
-            $res['CrossBackupId'] = $this->crossBackupId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeAvailableRecoveryTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CrossBackupId'])) {
+            $model->crossBackupId = $map['CrossBackupId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CrossBackupId'])) {
-            $model->crossBackupId = $map['CrossBackupId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

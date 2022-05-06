@@ -10,9 +10,29 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostGroups extends Model
 {
     /**
+     * @var string
+     */
+    public $allocationPolicy;
+
+    /**
+     * @var string
+     */
+    public $bastionInstanceId;
+
+    /**
      * @var float
      */
-    public $diskAllocateRation;
+    public $cpuAllocateRation;
+
+    /**
+     * @var float
+     */
+    public $cpuAllocatedAmount;
+
+    /**
+     * @var int
+     */
+    public $cpuAllocationRatio;
 
     /**
      * @var string
@@ -27,7 +47,7 @@ class dedicatedHostGroups extends Model
     /**
      * @var string
      */
-    public $text;
+    public $dedicatedHostGroupDesc;
 
     /**
      * @var string
@@ -37,67 +57,7 @@ class dedicatedHostGroups extends Model
     /**
      * @var float
      */
-    public $diskUtility;
-
-    /**
-     * @var float
-     */
-    public $memUsedAmount;
-
-    /**
-     * @var float
-     */
-    public $memAllocatedAmount;
-
-    /**
-     * @var int
-     */
-    public $cpuAllocationRatio;
-
-    /**
-     * @var int
-     */
-    public $memAllocationRatio;
-
-    /**
-     * @var float
-     */
-    public $memUtility;
-
-    /**
-     * @var float
-     */
-    public $memAllocateRation;
-
-    /**
-     * @var float
-     */
-    public $cpuAllocatedAmount;
-
-    /**
-     * @var string
-     */
-    public $dedicatedHostGroupDesc;
-
-    /**
-     * @var float
-     */
-    public $cpuAllocateRation;
-
-    /**
-     * @var int
-     */
-    public $instanceNumber;
-
-    /**
-     * @var string
-     */
-    public $openPermission;
-
-    /**
-     * @var string
-     */
-    public $VPCId;
+    public $diskAllocateRation;
 
     /**
      * @var float
@@ -107,7 +67,7 @@ class dedicatedHostGroups extends Model
     /**
      * @var int
      */
-    public $hostNumber;
+    public $diskAllocationRatio;
 
     /**
      * @var float
@@ -115,9 +75,9 @@ class dedicatedHostGroups extends Model
     public $diskUsedAmount;
 
     /**
-     * @var string
+     * @var float
      */
-    public $allocationPolicy;
+    public $diskUtility;
 
     /**
      * @var string
@@ -127,12 +87,7 @@ class dedicatedHostGroups extends Model
     /**
      * @var int
      */
-    public $diskAllocationRatio;
-
-    /**
-     * @var string
-     */
-    public $bastionInstanceId;
+    public $hostNumber;
 
     /**
      * @var string
@@ -140,36 +95,81 @@ class dedicatedHostGroups extends Model
     public $hostReplacePolicy;
 
     /**
+     * @var int
+     */
+    public $instanceNumber;
+
+    /**
+     * @var float
+     */
+    public $memAllocateRation;
+
+    /**
+     * @var float
+     */
+    public $memAllocatedAmount;
+
+    /**
+     * @var int
+     */
+    public $memAllocationRatio;
+
+    /**
+     * @var float
+     */
+    public $memUsedAmount;
+
+    /**
+     * @var float
+     */
+    public $memUtility;
+
+    /**
+     * @var string
+     */
+    public $openPermission;
+
+    /**
+     * @var string
+     */
+    public $text;
+
+    /**
+     * @var string
+     */
+    public $VPCId;
+
+    /**
      * @var zoneIDList
      */
     public $zoneIDList;
     protected $_name = [
-        'diskAllocateRation'                => 'DiskAllocateRation',
+        'allocationPolicy'                  => 'AllocationPolicy',
+        'bastionInstanceId'                 => 'BastionInstanceId',
+        'cpuAllocateRation'                 => 'CpuAllocateRation',
+        'cpuAllocatedAmount'                => 'CpuAllocatedAmount',
+        'cpuAllocationRatio'                => 'CpuAllocationRatio',
         'createTime'                        => 'CreateTime',
         'dedicatedHostCountGroupByHostType' => 'DedicatedHostCountGroupByHostType',
-        'text'                              => 'Text',
-        'dedicatedHostGroupId'              => 'DedicatedHostGroupId',
-        'diskUtility'                       => 'DiskUtility',
-        'memUsedAmount'                     => 'MemUsedAmount',
-        'memAllocatedAmount'                => 'MemAllocatedAmount',
-        'cpuAllocationRatio'                => 'CpuAllocationRatio',
-        'memAllocationRatio'                => 'MemAllocationRatio',
-        'memUtility'                        => 'MemUtility',
-        'memAllocateRation'                 => 'MemAllocateRation',
-        'cpuAllocatedAmount'                => 'CpuAllocatedAmount',
         'dedicatedHostGroupDesc'            => 'DedicatedHostGroupDesc',
-        'cpuAllocateRation'                 => 'CpuAllocateRation',
-        'instanceNumber'                    => 'InstanceNumber',
-        'openPermission'                    => 'OpenPermission',
-        'VPCId'                             => 'VPCId',
+        'dedicatedHostGroupId'              => 'DedicatedHostGroupId',
+        'diskAllocateRation'                => 'DiskAllocateRation',
         'diskAllocatedAmount'               => 'DiskAllocatedAmount',
-        'hostNumber'                        => 'HostNumber',
-        'diskUsedAmount'                    => 'DiskUsedAmount',
-        'allocationPolicy'                  => 'AllocationPolicy',
-        'engine'                            => 'Engine',
         'diskAllocationRatio'               => 'DiskAllocationRatio',
-        'bastionInstanceId'                 => 'BastionInstanceId',
+        'diskUsedAmount'                    => 'DiskUsedAmount',
+        'diskUtility'                       => 'DiskUtility',
+        'engine'                            => 'Engine',
+        'hostNumber'                        => 'HostNumber',
         'hostReplacePolicy'                 => 'HostReplacePolicy',
+        'instanceNumber'                    => 'InstanceNumber',
+        'memAllocateRation'                 => 'MemAllocateRation',
+        'memAllocatedAmount'                => 'MemAllocatedAmount',
+        'memAllocationRatio'                => 'MemAllocationRatio',
+        'memUsedAmount'                     => 'MemUsedAmount',
+        'memUtility'                        => 'MemUtility',
+        'openPermission'                    => 'OpenPermission',
+        'text'                              => 'Text',
+        'VPCId'                             => 'VPCId',
         'zoneIDList'                        => 'ZoneIDList',
     ];
 
@@ -180,8 +180,20 @@ class dedicatedHostGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->diskAllocateRation) {
-            $res['DiskAllocateRation'] = $this->diskAllocateRation;
+        if (null !== $this->allocationPolicy) {
+            $res['AllocationPolicy'] = $this->allocationPolicy;
+        }
+        if (null !== $this->bastionInstanceId) {
+            $res['BastionInstanceId'] = $this->bastionInstanceId;
+        }
+        if (null !== $this->cpuAllocateRation) {
+            $res['CpuAllocateRation'] = $this->cpuAllocateRation;
+        }
+        if (null !== $this->cpuAllocatedAmount) {
+            $res['CpuAllocatedAmount'] = $this->cpuAllocatedAmount;
+        }
+        if (null !== $this->cpuAllocationRatio) {
+            $res['CpuAllocationRatio'] = $this->cpuAllocationRatio;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -189,74 +201,62 @@ class dedicatedHostGroups extends Model
         if (null !== $this->dedicatedHostCountGroupByHostType) {
             $res['DedicatedHostCountGroupByHostType'] = $this->dedicatedHostCountGroupByHostType;
         }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
+        if (null !== $this->dedicatedHostGroupDesc) {
+            $res['DedicatedHostGroupDesc'] = $this->dedicatedHostGroupDesc;
         }
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
         }
-        if (null !== $this->diskUtility) {
-            $res['DiskUtility'] = $this->diskUtility;
-        }
-        if (null !== $this->memUsedAmount) {
-            $res['MemUsedAmount'] = $this->memUsedAmount;
-        }
-        if (null !== $this->memAllocatedAmount) {
-            $res['MemAllocatedAmount'] = $this->memAllocatedAmount;
-        }
-        if (null !== $this->cpuAllocationRatio) {
-            $res['CpuAllocationRatio'] = $this->cpuAllocationRatio;
-        }
-        if (null !== $this->memAllocationRatio) {
-            $res['MemAllocationRatio'] = $this->memAllocationRatio;
-        }
-        if (null !== $this->memUtility) {
-            $res['MemUtility'] = $this->memUtility;
-        }
-        if (null !== $this->memAllocateRation) {
-            $res['MemAllocateRation'] = $this->memAllocateRation;
-        }
-        if (null !== $this->cpuAllocatedAmount) {
-            $res['CpuAllocatedAmount'] = $this->cpuAllocatedAmount;
-        }
-        if (null !== $this->dedicatedHostGroupDesc) {
-            $res['DedicatedHostGroupDesc'] = $this->dedicatedHostGroupDesc;
-        }
-        if (null !== $this->cpuAllocateRation) {
-            $res['CpuAllocateRation'] = $this->cpuAllocateRation;
-        }
-        if (null !== $this->instanceNumber) {
-            $res['InstanceNumber'] = $this->instanceNumber;
-        }
-        if (null !== $this->openPermission) {
-            $res['OpenPermission'] = $this->openPermission;
-        }
-        if (null !== $this->VPCId) {
-            $res['VPCId'] = $this->VPCId;
+        if (null !== $this->diskAllocateRation) {
+            $res['DiskAllocateRation'] = $this->diskAllocateRation;
         }
         if (null !== $this->diskAllocatedAmount) {
             $res['DiskAllocatedAmount'] = $this->diskAllocatedAmount;
         }
-        if (null !== $this->hostNumber) {
-            $res['HostNumber'] = $this->hostNumber;
+        if (null !== $this->diskAllocationRatio) {
+            $res['DiskAllocationRatio'] = $this->diskAllocationRatio;
         }
         if (null !== $this->diskUsedAmount) {
             $res['DiskUsedAmount'] = $this->diskUsedAmount;
         }
-        if (null !== $this->allocationPolicy) {
-            $res['AllocationPolicy'] = $this->allocationPolicy;
+        if (null !== $this->diskUtility) {
+            $res['DiskUtility'] = $this->diskUtility;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-        if (null !== $this->diskAllocationRatio) {
-            $res['DiskAllocationRatio'] = $this->diskAllocationRatio;
-        }
-        if (null !== $this->bastionInstanceId) {
-            $res['BastionInstanceId'] = $this->bastionInstanceId;
+        if (null !== $this->hostNumber) {
+            $res['HostNumber'] = $this->hostNumber;
         }
         if (null !== $this->hostReplacePolicy) {
             $res['HostReplacePolicy'] = $this->hostReplacePolicy;
+        }
+        if (null !== $this->instanceNumber) {
+            $res['InstanceNumber'] = $this->instanceNumber;
+        }
+        if (null !== $this->memAllocateRation) {
+            $res['MemAllocateRation'] = $this->memAllocateRation;
+        }
+        if (null !== $this->memAllocatedAmount) {
+            $res['MemAllocatedAmount'] = $this->memAllocatedAmount;
+        }
+        if (null !== $this->memAllocationRatio) {
+            $res['MemAllocationRatio'] = $this->memAllocationRatio;
+        }
+        if (null !== $this->memUsedAmount) {
+            $res['MemUsedAmount'] = $this->memUsedAmount;
+        }
+        if (null !== $this->memUtility) {
+            $res['MemUtility'] = $this->memUtility;
+        }
+        if (null !== $this->openPermission) {
+            $res['OpenPermission'] = $this->openPermission;
+        }
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
+        }
+        if (null !== $this->VPCId) {
+            $res['VPCId'] = $this->VPCId;
         }
         if (null !== $this->zoneIDList) {
             $res['ZoneIDList'] = null !== $this->zoneIDList ? $this->zoneIDList->toMap() : null;
@@ -273,8 +273,20 @@ class dedicatedHostGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DiskAllocateRation'])) {
-            $model->diskAllocateRation = $map['DiskAllocateRation'];
+        if (isset($map['AllocationPolicy'])) {
+            $model->allocationPolicy = $map['AllocationPolicy'];
+        }
+        if (isset($map['BastionInstanceId'])) {
+            $model->bastionInstanceId = $map['BastionInstanceId'];
+        }
+        if (isset($map['CpuAllocateRation'])) {
+            $model->cpuAllocateRation = $map['CpuAllocateRation'];
+        }
+        if (isset($map['CpuAllocatedAmount'])) {
+            $model->cpuAllocatedAmount = $map['CpuAllocatedAmount'];
+        }
+        if (isset($map['CpuAllocationRatio'])) {
+            $model->cpuAllocationRatio = $map['CpuAllocationRatio'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -282,74 +294,62 @@ class dedicatedHostGroups extends Model
         if (isset($map['DedicatedHostCountGroupByHostType'])) {
             $model->dedicatedHostCountGroupByHostType = $map['DedicatedHostCountGroupByHostType'];
         }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
+        if (isset($map['DedicatedHostGroupDesc'])) {
+            $model->dedicatedHostGroupDesc = $map['DedicatedHostGroupDesc'];
         }
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
         }
-        if (isset($map['DiskUtility'])) {
-            $model->diskUtility = $map['DiskUtility'];
-        }
-        if (isset($map['MemUsedAmount'])) {
-            $model->memUsedAmount = $map['MemUsedAmount'];
-        }
-        if (isset($map['MemAllocatedAmount'])) {
-            $model->memAllocatedAmount = $map['MemAllocatedAmount'];
-        }
-        if (isset($map['CpuAllocationRatio'])) {
-            $model->cpuAllocationRatio = $map['CpuAllocationRatio'];
-        }
-        if (isset($map['MemAllocationRatio'])) {
-            $model->memAllocationRatio = $map['MemAllocationRatio'];
-        }
-        if (isset($map['MemUtility'])) {
-            $model->memUtility = $map['MemUtility'];
-        }
-        if (isset($map['MemAllocateRation'])) {
-            $model->memAllocateRation = $map['MemAllocateRation'];
-        }
-        if (isset($map['CpuAllocatedAmount'])) {
-            $model->cpuAllocatedAmount = $map['CpuAllocatedAmount'];
-        }
-        if (isset($map['DedicatedHostGroupDesc'])) {
-            $model->dedicatedHostGroupDesc = $map['DedicatedHostGroupDesc'];
-        }
-        if (isset($map['CpuAllocateRation'])) {
-            $model->cpuAllocateRation = $map['CpuAllocateRation'];
-        }
-        if (isset($map['InstanceNumber'])) {
-            $model->instanceNumber = $map['InstanceNumber'];
-        }
-        if (isset($map['OpenPermission'])) {
-            $model->openPermission = $map['OpenPermission'];
-        }
-        if (isset($map['VPCId'])) {
-            $model->VPCId = $map['VPCId'];
+        if (isset($map['DiskAllocateRation'])) {
+            $model->diskAllocateRation = $map['DiskAllocateRation'];
         }
         if (isset($map['DiskAllocatedAmount'])) {
             $model->diskAllocatedAmount = $map['DiskAllocatedAmount'];
         }
-        if (isset($map['HostNumber'])) {
-            $model->hostNumber = $map['HostNumber'];
+        if (isset($map['DiskAllocationRatio'])) {
+            $model->diskAllocationRatio = $map['DiskAllocationRatio'];
         }
         if (isset($map['DiskUsedAmount'])) {
             $model->diskUsedAmount = $map['DiskUsedAmount'];
         }
-        if (isset($map['AllocationPolicy'])) {
-            $model->allocationPolicy = $map['AllocationPolicy'];
+        if (isset($map['DiskUtility'])) {
+            $model->diskUtility = $map['DiskUtility'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-        if (isset($map['DiskAllocationRatio'])) {
-            $model->diskAllocationRatio = $map['DiskAllocationRatio'];
-        }
-        if (isset($map['BastionInstanceId'])) {
-            $model->bastionInstanceId = $map['BastionInstanceId'];
+        if (isset($map['HostNumber'])) {
+            $model->hostNumber = $map['HostNumber'];
         }
         if (isset($map['HostReplacePolicy'])) {
             $model->hostReplacePolicy = $map['HostReplacePolicy'];
+        }
+        if (isset($map['InstanceNumber'])) {
+            $model->instanceNumber = $map['InstanceNumber'];
+        }
+        if (isset($map['MemAllocateRation'])) {
+            $model->memAllocateRation = $map['MemAllocateRation'];
+        }
+        if (isset($map['MemAllocatedAmount'])) {
+            $model->memAllocatedAmount = $map['MemAllocatedAmount'];
+        }
+        if (isset($map['MemAllocationRatio'])) {
+            $model->memAllocationRatio = $map['MemAllocationRatio'];
+        }
+        if (isset($map['MemUsedAmount'])) {
+            $model->memUsedAmount = $map['MemUsedAmount'];
+        }
+        if (isset($map['MemUtility'])) {
+            $model->memUtility = $map['MemUtility'];
+        }
+        if (isset($map['OpenPermission'])) {
+            $model->openPermission = $map['OpenPermission'];
+        }
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
+        }
+        if (isset($map['VPCId'])) {
+            $model->VPCId = $map['VPCId'];
         }
         if (isset($map['ZoneIDList'])) {
             $model->zoneIDList = zoneIDList::fromMap($map['ZoneIDList']);

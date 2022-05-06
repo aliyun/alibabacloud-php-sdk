@@ -11,7 +11,12 @@ class item extends Model
     /**
      * @var string
      */
-    public $status;
+    public $autoRenew;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
 
     /**
      * @var int
@@ -21,23 +26,18 @@ class item extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $autoRenew;
-
-    /**
-     * @var string
-     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
-        'duration'     => 'Duration',
-        'DBInstanceId' => 'DBInstanceId',
         'autoRenew'    => 'AutoRenew',
+        'DBInstanceId' => 'DBInstanceId',
+        'duration'     => 'Duration',
         'regionId'     => 'RegionId',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->autoRenew) {
-            $res['AutoRenew'] = $this->autoRenew;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['AutoRenew'])) {
-            $model->autoRenew = $map['AutoRenew'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

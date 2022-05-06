@@ -16,16 +16,22 @@ class UpgradeDBInstanceMajorVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $orderId;
 
     /**
      * @var string
      */
-    public $orderId;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'requestId'    => 'RequestId',
         'orderId'      => 'OrderId',
+        'requestId'    => 'RequestId',
+        'taskId'       => 'TaskId',
     ];
 
     public function validate()
@@ -38,11 +44,14 @@ class UpgradeDBInstanceMajorVersionResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -59,11 +68,14 @@ class UpgradeDBInstanceMajorVersionResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

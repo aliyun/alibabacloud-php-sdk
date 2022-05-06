@@ -16,16 +16,16 @@ class CopyDatabaseResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $DBStatus;
 
     /**
      * @var string
      */
-    public $DBStatus;
+    public $taskId;
     protected $_name = [
         'DBName'   => 'DBName',
-        'taskId'   => 'TaskId',
         'DBStatus' => 'DBStatus',
+        'taskId'   => 'TaskId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CopyDatabaseResponseBody extends Model
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->DBStatus) {
             $res['DBStatus'] = $this->DBStatus;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CopyDatabaseResponseBody extends Model
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['DBStatus'])) {
             $model->DBStatus = $map['DBStatus'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

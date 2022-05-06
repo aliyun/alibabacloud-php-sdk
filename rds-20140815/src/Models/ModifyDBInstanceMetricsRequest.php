@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceMetricsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
     public $DBInstanceName;
@@ -21,17 +16,22 @@ class ModifyDBInstanceMetricsRequest extends Model
     /**
      * @var string
      */
-    public $scope;
+    public $metricsConfig;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
-    public $metricsConfig;
+    public $scope;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
         'DBInstanceName'  => 'DBInstanceName',
-        'scope'           => 'Scope',
         'metricsConfig'   => 'MetricsConfig',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'scope'           => 'Scope',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyDBInstanceMetricsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-        if (null !== $this->scope) {
-            $res['Scope'] = $this->scope;
-        }
         if (null !== $this->metricsConfig) {
             $res['MetricsConfig'] = $this->metricsConfig;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyDBInstanceMetricsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-        if (isset($map['Scope'])) {
-            $model->scope = $map['Scope'];
-        }
         if (isset($map['MetricsConfig'])) {
             $model->metricsConfig = $map['MetricsConfig'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
 
         return $model;

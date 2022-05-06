@@ -11,17 +11,17 @@ class reportList extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
     public $diagnosticTime;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $downloadURL;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var int
@@ -31,13 +31,13 @@ class reportList extends Model
     /**
      * @var string
      */
-    public $downloadURL;
+    public $startTime;
     protected $_name = [
-        'endTime'        => 'EndTime',
         'diagnosticTime' => 'DiagnosticTime',
-        'startTime'      => 'StartTime',
-        'score'          => 'Score',
         'downloadURL'    => 'DownloadURL',
+        'endTime'        => 'EndTime',
+        'score'          => 'Score',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class reportList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->diagnosticTime) {
             $res['DiagnosticTime'] = $this->diagnosticTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->downloadURL) {
+            $res['DownloadURL'] = $this->downloadURL;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
-        if (null !== $this->downloadURL) {
-            $res['DownloadURL'] = $this->downloadURL;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class reportList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['DiagnosticTime'])) {
             $model->diagnosticTime = $map['DiagnosticTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DownloadURL'])) {
+            $model->downloadURL = $map['DownloadURL'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
-        if (isset($map['DownloadURL'])) {
-            $model->downloadURL = $map['DownloadURL'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

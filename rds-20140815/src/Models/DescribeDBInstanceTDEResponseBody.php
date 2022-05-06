@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceTDEResponseBody extends Model
 {
     /**
-     * @var string
+     * @var databases
      */
-    public $TDEStatus;
+    public $databases;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeDBInstanceTDEResponseBody extends Model
     public $requestId;
 
     /**
-     * @var databases
+     * @var string
      */
-    public $databases;
+    public $TDEStatus;
     protected $_name = [
-        'TDEStatus' => 'TDEStatus',
-        'requestId' => 'RequestId',
         'databases' => 'Databases',
+        'requestId' => 'RequestId',
+        'TDEStatus' => 'TDEStatus',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeDBInstanceTDEResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->TDEStatus) {
-            $res['TDEStatus'] = $this->TDEStatus;
+        if (null !== $this->databases) {
+            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->databases) {
-            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
+        if (null !== $this->TDEStatus) {
+            $res['TDEStatus'] = $this->TDEStatus;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeDBInstanceTDEResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TDEStatus'])) {
-            $model->TDEStatus = $map['TDEStatus'];
+        if (isset($map['Databases'])) {
+            $model->databases = databases::fromMap($map['Databases']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Databases'])) {
-            $model->databases = databases::fromMap($map['Databases']);
+        if (isset($map['TDEStatus'])) {
+            $model->TDEStatus = $map['TDEStatus'];
         }
 
         return $model;

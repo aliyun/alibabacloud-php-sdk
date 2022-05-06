@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckCloudResourceAuthorizedResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $authorizationState;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class CheckCloudResourceAuthorizedResponseBody extends Model
      * @var string
      */
     public $roleArn;
-
-    /**
-     * @var int
-     */
-    public $authorizationState;
     protected $_name = [
+        'authorizationState' => 'AuthorizationState',
         'requestId'          => 'RequestId',
         'roleArn'            => 'RoleArn',
-        'authorizationState' => 'AuthorizationState',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CheckCloudResourceAuthorizedResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authorizationState) {
+            $res['AuthorizationState'] = $this->authorizationState;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
-        }
-        if (null !== $this->authorizationState) {
-            $res['AuthorizationState'] = $this->authorizationState;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CheckCloudResourceAuthorizedResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthorizationState'])) {
+            $model->authorizationState = $map['AuthorizationState'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
-        }
-        if (isset($map['AuthorizationState'])) {
-            $model->authorizationState = $map['AuthorizationState'];
         }
 
         return $model;

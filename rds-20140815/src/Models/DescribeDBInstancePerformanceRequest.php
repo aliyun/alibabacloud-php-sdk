@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
     public $DBInstanceId;
@@ -21,23 +16,28 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $key;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
         'DBInstanceId'    => 'DBInstanceId',
-        'key'             => 'Key',
-        'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
+        'key'             => 'Key',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDBInstancePerformanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDBInstancePerformanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

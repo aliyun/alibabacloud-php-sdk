@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBProxyInstanceKernelVersionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,24 +31,19 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $switchTime;
 
     /**
      * @var string
      */
     public $upgradeTime;
-
-    /**
-     * @var string
-     */
-    public $switchTime;
     protected $_name = [
+        'DBInstanceId'         => 'DBInstanceId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'upgradeTime'          => 'UpgradeTime',
         'switchTime'           => 'SwitchTime',
+        'upgradeTime'          => 'UpgradeTime',
     ];
 
     public function validate()
@@ -53,6 +53,9 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -62,14 +65,11 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
         }
         if (null !== $this->upgradeTime) {
             $res['UpgradeTime'] = $this->upgradeTime;
-        }
-        if (null !== $this->switchTime) {
-            $res['SwitchTime'] = $this->switchTime;
         }
 
         return $res;
@@ -83,6 +83,9 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -92,14 +95,11 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
         }
         if (isset($map['UpgradeTime'])) {
             $model->upgradeTime = $map['UpgradeTime'];
-        }
-        if (isset($map['SwitchTime'])) {
-            $model->switchTime = $map['SwitchTime'];
         }
 
         return $model;

@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $backupMethod;
+
+    /**
+     * @var string
+     */
+    public $backupStrategy;
+
+    /**
+     * @var string
+     */
+    public $backupType;
 
     /**
      * @var string
@@ -24,26 +34,16 @@ class CreateBackupRequest extends Model
     public $DBName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $backupStrategy;
-
-    /**
-     * @var string
-     */
-    public $backupMethod;
-
-    /**
-     * @var string
-     */
-    public $backupType;
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
+        'backupMethod'    => 'BackupMethod',
+        'backupStrategy'  => 'BackupStrategy',
+        'backupType'      => 'BackupType',
         'DBInstanceId'    => 'DBInstanceId',
         'DBName'          => 'DBName',
-        'backupStrategy'  => 'BackupStrategy',
-        'backupMethod'    => 'BackupMethod',
-        'backupType'      => 'BackupType',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class CreateBackupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->backupMethod) {
+            $res['BackupMethod'] = $this->backupMethod;
+        }
+        if (null !== $this->backupStrategy) {
+            $res['BackupStrategy'] = $this->backupStrategy;
+        }
+        if (null !== $this->backupType) {
+            $res['BackupType'] = $this->backupType;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -62,14 +68,8 @@ class CreateBackupRequest extends Model
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
-        if (null !== $this->backupStrategy) {
-            $res['BackupStrategy'] = $this->backupStrategy;
-        }
-        if (null !== $this->backupMethod) {
-            $res['BackupMethod'] = $this->backupMethod;
-        }
-        if (null !== $this->backupType) {
-            $res['BackupType'] = $this->backupType;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class CreateBackupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['BackupMethod'])) {
+            $model->backupMethod = $map['BackupMethod'];
+        }
+        if (isset($map['BackupStrategy'])) {
+            $model->backupStrategy = $map['BackupStrategy'];
+        }
+        if (isset($map['BackupType'])) {
+            $model->backupType = $map['BackupType'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
@@ -92,14 +98,8 @@ class CreateBackupRequest extends Model
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
-        if (isset($map['BackupStrategy'])) {
-            $model->backupStrategy = $map['BackupStrategy'];
-        }
-        if (isset($map['BackupMethod'])) {
-            $model->backupMethod = $map['BackupMethod'];
-        }
-        if (isset($map['BackupType'])) {
-            $model->backupType = $map['BackupType'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;
