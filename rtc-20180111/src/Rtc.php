@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppKeyRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppKeyResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleRequest;
@@ -628,6 +630,52 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRecordTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAppKeyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeAppKeyResponse
+     */
+    public function describeAppKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppKey',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAppKeyRequest $request
+     *
+     * @return DescribeAppKeyResponse
+     */
+    public function describeAppKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppKeyWithOptions($request, $runtime);
     }
 
     /**
