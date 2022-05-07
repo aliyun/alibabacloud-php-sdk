@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IoTCC\V20210513\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListServiceEntriesResponse extends Model
+class ListIoTCoudConnectorBackhaulRouteResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListServiceEntriesResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListServiceEntriesResponseBody
+     * @var ListIoTCoudConnectorBackhaulRouteResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ListServiceEntriesResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListServiceEntriesResponse
+     * @return ListIoTCoudConnectorBackhaulRouteResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ListServiceEntriesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListServiceEntriesResponseBody::fromMap($map['body']);
+            $model->body = ListIoTCoudConnectorBackhaulRouteResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupAuthorizationRuleRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupAuthorizationRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupDNSServiceRuleRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupDNSServiceRuleResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorBackhaulRouteRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorBackhaulRouteResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorGroupRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorRequest;
@@ -46,6 +48,8 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorGroupRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnetorBackhaulRouteRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnetorBackhaulRouteResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteServiceEntryRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteServiceEntryResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteServiceRequest;
@@ -94,6 +98,8 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorGroupsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorGroupsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorsResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCoudConnectorBackhaulRouteRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCoudConnectorBackhaulRouteResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListServiceEntriesRequest;
@@ -805,6 +811,58 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param CreateIoTCloudConnectorBackhaulRouteRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateIoTCloudConnectorBackhaulRouteResponse
+     */
+    public function createIoTCloudConnectorBackhaulRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIoTCloudConnectorBackhaulRoute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIoTCloudConnectorBackhaulRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateIoTCloudConnectorBackhaulRouteRequest $request
+     *
+     * @return CreateIoTCloudConnectorBackhaulRouteResponse
+     */
+    public function createIoTCloudConnectorBackhaulRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIoTCloudConnectorBackhaulRouteWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateIoTCloudConnectorGroupRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1361,6 +1419,58 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteIoTCloudConnectorGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIoTCloudConnetorBackhaulRouteRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DeleteIoTCloudConnetorBackhaulRouteResponse
+     */
+    public function deleteIoTCloudConnetorBackhaulRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIoTCloudConnetorBackhaulRoute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIoTCloudConnetorBackhaulRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIoTCloudConnetorBackhaulRouteRequest $request
+     *
+     * @return DeleteIoTCloudConnetorBackhaulRouteResponse
+     */
+    public function deleteIoTCloudConnetorBackhaulRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIoTCloudConnetorBackhaulRouteWithOptions($request, $runtime);
     }
 
     /**
@@ -2768,6 +2878,58 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listIoTCloudConnectorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIoTCoudConnectorBackhaulRouteRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListIoTCoudConnectorBackhaulRouteResponse
+     */
+    public function listIoTCoudConnectorBackhaulRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIoTCoudConnectorBackhaulRoute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIoTCoudConnectorBackhaulRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIoTCoudConnectorBackhaulRouteRequest $request
+     *
+     * @return ListIoTCoudConnectorBackhaulRouteResponse
+     */
+    public function listIoTCoudConnectorBackhaulRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIoTCoudConnectorBackhaulRouteWithOptions($request, $runtime);
     }
 
     /**

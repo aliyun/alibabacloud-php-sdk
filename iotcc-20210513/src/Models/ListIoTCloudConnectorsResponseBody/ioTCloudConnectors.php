@@ -54,6 +54,16 @@ class ioTCloudConnectors extends Model
     public $ioTCloudConnectorStatus;
 
     /**
+     * @var string
+     */
+    public $ipFeature;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var int
      */
     public $modifyTime;
@@ -87,6 +97,8 @@ class ioTCloudConnectors extends Model
         'ioTCloudConnectorId'             => 'IoTCloudConnectorId',
         'ioTCloudConnectorName'           => 'IoTCloudConnectorName',
         'ioTCloudConnectorStatus'         => 'IoTCloudConnectorStatus',
+        'ipFeature'                       => 'IpFeature',
+        'mode'                            => 'Mode',
         'modifyTime'                      => 'ModifyTime',
         'rateLimit'                       => 'RateLimit',
         'vSwitchList'                     => 'VSwitchList',
@@ -127,6 +139,12 @@ class ioTCloudConnectors extends Model
         }
         if (null !== $this->ioTCloudConnectorStatus) {
             $res['IoTCloudConnectorStatus'] = $this->ioTCloudConnectorStatus;
+        }
+        if (null !== $this->ipFeature) {
+            $res['IpFeature'] = $this->ipFeature;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
@@ -181,6 +199,12 @@ class ioTCloudConnectors extends Model
         }
         if (isset($map['IoTCloudConnectorStatus'])) {
             $model->ioTCloudConnectorStatus = $map['IoTCloudConnectorStatus'];
+        }
+        if (isset($map['IpFeature'])) {
+            $model->ipFeature = $map['IpFeature'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
