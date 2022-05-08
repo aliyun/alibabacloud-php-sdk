@@ -7693,6 +7693,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->sslVerifyDepth)) {
+            $query['SslVerifyDepth'] = $request->sslVerifyDepth;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

@@ -42,6 +42,11 @@ class SetDomainCertificateRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $sslVerifyDepth;
     protected $_name = [
         'caCertificateBody'     => 'CaCertificateBody',
         'certificateBody'       => 'CertificateBody',
@@ -50,6 +55,7 @@ class SetDomainCertificateRequest extends Model
         'domainName'            => 'DomainName',
         'groupId'               => 'GroupId',
         'securityToken'         => 'SecurityToken',
+        'sslVerifyDepth'        => 'SslVerifyDepth',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class SetDomainCertificateRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->sslVerifyDepth) {
+            $res['SslVerifyDepth'] = $this->sslVerifyDepth;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class SetDomainCertificateRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['SslVerifyDepth'])) {
+            $model->sslVerifyDepth = $map['SslVerifyDepth'];
         }
 
         return $model;
