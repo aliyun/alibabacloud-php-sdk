@@ -46,10 +46,14 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOriginLayoutDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOriginLayoutDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOssPolicyRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOssPolicyResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetPackSceneTaskStatusRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetPackSceneTaskStatusResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetRectifyImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetRectifyImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneBuildTaskStatusRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneBuildTaskStatusResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePackUrlRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePackUrlResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewInfoRequest;
@@ -76,6 +80,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListSubSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\OptimizeRightAngleRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\OptimizeRightAngleResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PackSceneRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PackSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredictionWallLineRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredictionWallLineResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredImageRequest;
@@ -1071,6 +1077,52 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param GetPackSceneTaskStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPackSceneTaskStatusResponse
+     */
+    public function getPackSceneTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPackSceneTaskStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPackSceneTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPackSceneTaskStatusRequest $request
+     *
+     * @return GetPackSceneTaskStatusResponse
+     */
+    public function getPackSceneTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPackSceneTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRectifyImageRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1154,6 +1206,49 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSceneBuildTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetScenePackUrlRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetScenePackUrlResponse
+     */
+    public function getScenePackUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetScenePackUrl',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetScenePackUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetScenePackUrlRequest $request
+     *
+     * @return GetScenePackUrlResponse
+     */
+    public function getScenePackUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getScenePackUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -1764,6 +1859,52 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->optimizeRightAngleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PackSceneRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return PackSceneResponse
+     */
+    public function packSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PackScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PackSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PackSceneRequest $request
+     *
+     * @return PackSceneResponse
+     */
+    public function packScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->packSceneWithOptions($request, $runtime);
     }
 
     /**
