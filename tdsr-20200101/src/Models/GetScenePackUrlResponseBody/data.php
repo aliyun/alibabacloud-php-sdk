@@ -25,7 +25,7 @@ class data extends Model
     /**
      * @description 是否有效
      *
-     * @var string
+     * @var bool
      */
     public $valid;
     protected $_name = [

@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @description 任务进度
      *
-     * @var string
+     * @var int
      */
     public $progress;
 
