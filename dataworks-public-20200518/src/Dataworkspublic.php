@@ -319,6 +319,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaDBRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaDBResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMigrationsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMigrationsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListNodeInputOrOutputRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListNodeInputOrOutputResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListNodeIORequest;
@@ -8786,6 +8788,61 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMetaDBWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMigrationsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListMigrationsResponse
+     */
+    public function listMigrationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->migrationType)) {
+            $body['MigrationType'] = $request->migrationType;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMigrations',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMigrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMigrationsRequest $request
+     *
+     * @return ListMigrationsResponse
+     */
+    public function listMigrations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMigrationsWithOptions($request, $runtime);
     }
 
     /**
