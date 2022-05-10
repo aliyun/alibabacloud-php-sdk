@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeAppExpMetricRuleResponse;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeAppFollowCallRuleListResponse;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeAppFollowCallRuleRequest;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeAppFollowCallRuleResponse;
+use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallInfoRequest;
+use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallInfoResponse;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallListRequest;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallListResponse;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallListTestRequest;
@@ -26,6 +28,8 @@ use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallRequest;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallResponse;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallUserExpRequest;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallUserExpResponse;
+use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallUserListRequest;
+use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallUserListResponse;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeChannelAreaDistributionStatDataRequest;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeChannelAreaDistributionStatDataResponse;
 use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeChannelDistributionStatDataRequest;
@@ -495,6 +499,61 @@ class Vdc extends OpenApiClient
     }
 
     /**
+     * @param DescribeCallInfoRequest $request
+     *
+     * @return DescribeCallInfoResponse
+     */
+    public function describeCallInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeCallInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeCallInfoRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeCallInfoResponse
+     */
+    public function describeCallInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCallInfo',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeCallInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCallInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param DescribeCallListRequest $request
      *
      * @return DescribeCallListResponse
@@ -672,6 +731,79 @@ class Vdc extends OpenApiClient
         ]);
 
         return DescribeCallUserExpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCallUserListRequest $request
+     *
+     * @return DescribeCallUserListResponse
+     */
+    public function describeCallUserList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeCallUserListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeCallUserListRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeCallUserListResponse
+     */
+    public function describeCallUserListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        if (!Utils::isUnset($request->extDataType)) {
+            $query['ExtDataType'] = $request->extDataType;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryExpInfo)) {
+            $query['QueryExpInfo'] = $request->queryExpInfo;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCallUserList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeCallUserList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCallUserListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

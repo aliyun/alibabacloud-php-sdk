@@ -2,52 +2,40 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallResponseBody;
+namespace AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallUserListResponseBody;
 
-use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallResponseBody\userDetailList\durMetricStatData;
-use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallResponseBody\userDetailList\onlinePeriods;
+use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallUserListResponseBody\userDetailList\durMetricStatData;
+use AlibabaCloud\SDK\Vdc\V20201214\Models\DescribeCallUserListResponseBody\userDetailList\onlinePeriods;
 use AlibabaCloud\Tea\Model;
 
 class userDetailList extends Model
 {
     /**
-     * @description 通话体验，取值：GOOD:优良，BAD:欠佳。
-     *
      * @var string
      */
     public $callExp;
 
     /**
-     * @description 创建通话时间，使用UNIX时间戳表示，单位：秒。
-     *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 释放通话时间，使用UNIX时间戳表示，单位：秒。通话未结束时值为0。
-     *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 时长统计数据
-     *
      * @var durMetricStatData
      */
     public $durMetricStatData;
 
     /**
-     * @description 通话时长，首次进入到最后离开，单位：秒。
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 地理位置信息，例如：北京市-北京市
-     *
      * @var string
      */
     public $location;
@@ -63,78 +51,56 @@ class userDetailList extends Model
     public $locationEn;
 
     /**
-     * @description 网络类型，如WiFi，4G等
-     *
      * @var string
      */
     public $network;
 
     /**
-     * @description 网络类型，如WiFi，4G等
-     *
      * @var string[]
      */
     public $networkList;
 
     /**
-     * @description 在线时长，单位：秒。
-     *
      * @var int
      */
     public $onlineDuration;
 
     /**
-     * @description 在线时段信息。
-     *
      * @var onlinePeriods[]
      */
     public $onlinePeriods;
 
     /**
-     * @description 平台类型：若用户客户端为WEB则是浏览器类型，若客户端为NATIVE则是操作系统类型
-     *
      * @var string
      */
     public $os;
 
     /**
-     * @description 平台类型：若用户客户端为WEB则是浏览器类型，若客户端为NATIVE则是操作系统类型
-     *
      * @var string[]
      */
     public $osList;
 
     /**
-     * @description 用户角色，取值：SENDER：发布端。RECEIVER：订阅端。
-     *
      * @var string[]
      */
     public $roles;
 
     /**
-     * @description SDK版本，如1.0.0、1.1.1等
-     *
      * @var string
      */
     public $sdkVersion;
 
     /**
-     * @description SDK版本列表，如1.0.0、1.1.1等
-     *
      * @var string[]
      */
     public $sdkVersionList;
 
     /**
-     * @description 用户ID。
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 用户ID 别称
-     *
      * @var string
      */
     public $userIdAlias;
