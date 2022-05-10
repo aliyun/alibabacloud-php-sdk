@@ -12,11 +12,6 @@ class rules extends Model
     /**
      * @var int
      */
-    public $defaultValue;
-
-    /**
-     * @var int
-     */
     public $optional;
 
     /**
@@ -34,11 +29,10 @@ class rules extends Model
      */
     public $ruleId;
     protected $_name = [
-        'defaultValue' => 'DefaultValue',
-        'optional'     => 'Optional',
-        'paramList'    => 'ParamList',
-        'ruleDesc'     => 'RuleDesc',
-        'ruleId'       => 'RuleId',
+        'optional'  => 'Optional',
+        'paramList' => 'ParamList',
+        'ruleDesc'  => 'RuleDesc',
+        'ruleId'    => 'RuleId',
     ];
 
     public function validate()
@@ -48,9 +42,6 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->defaultValue) {
-            $res['DefaultValue'] = $this->defaultValue;
-        }
         if (null !== $this->optional) {
             $res['Optional'] = $this->optional;
         }
@@ -81,9 +72,6 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DefaultValue'])) {
-            $model->defaultValue = $map['DefaultValue'];
-        }
         if (isset($map['Optional'])) {
             $model->optional = $map['Optional'];
         }

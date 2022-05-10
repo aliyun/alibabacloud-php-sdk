@@ -346,6 +346,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\PublicCreateImageScanTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\PublicCreateImageScanTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\PublicSyncAndCreateImageScanTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\PublicSyncAndCreateImageScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameRequest;
@@ -360,8 +366,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SasInstallCodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SasInstallCodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
@@ -1454,6 +1458,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
@@ -6494,6 +6501,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -9878,6 +9888,186 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param PublicCreateImageScanTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return PublicCreateImageScanTaskResponse
+     */
+    public function publicCreateImageScanTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->digests)) {
+            $query['Digests'] = $request->digests;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->regionIds)) {
+            $query['RegionIds'] = $request->regionIds;
+        }
+        if (!Utils::isUnset($request->registryTypes)) {
+            $query['RegistryTypes'] = $request->registryTypes;
+        }
+        if (!Utils::isUnset($request->repoIds)) {
+            $query['RepoIds'] = $request->repoIds;
+        }
+        if (!Utils::isUnset($request->repoNames)) {
+            $query['RepoNames'] = $request->repoNames;
+        }
+        if (!Utils::isUnset($request->repoNamespaces)) {
+            $query['RepoNamespaces'] = $request->repoNamespaces;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublicCreateImageScanTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublicCreateImageScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublicCreateImageScanTaskRequest $request
+     *
+     * @return PublicCreateImageScanTaskResponse
+     */
+    public function publicCreateImageScanTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publicCreateImageScanTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublicPreCheckImageScanTaskRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return PublicPreCheckImageScanTaskResponse
+     */
+    public function publicPreCheckImageScanTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->digests)) {
+            $query['Digests'] = $request->digests;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->regionIds)) {
+            $query['RegionIds'] = $request->regionIds;
+        }
+        if (!Utils::isUnset($request->registryTypes)) {
+            $query['RegistryTypes'] = $request->registryTypes;
+        }
+        if (!Utils::isUnset($request->repoIds)) {
+            $query['RepoIds'] = $request->repoIds;
+        }
+        if (!Utils::isUnset($request->repoNames)) {
+            $query['RepoNames'] = $request->repoNames;
+        }
+        if (!Utils::isUnset($request->repoNamespaces)) {
+            $query['RepoNamespaces'] = $request->repoNamespaces;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublicPreCheckImageScanTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublicPreCheckImageScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublicPreCheckImageScanTaskRequest $request
+     *
+     * @return PublicPreCheckImageScanTaskResponse
+     */
+    public function publicPreCheckImageScanTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publicPreCheckImageScanTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublicSyncAndCreateImageScanTaskRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return PublicSyncAndCreateImageScanTaskResponse
+     */
+    public function publicSyncAndCreateImageScanTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublicSyncAndCreateImageScanTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublicSyncAndCreateImageScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublicSyncAndCreateImageScanTaskRequest $request
+     *
+     * @return PublicSyncAndCreateImageScanTaskResponse
+     */
+    public function publicSyncAndCreateImageScanTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publicSyncAndCreateImageScanTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryGroupIdByGroupNameRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -9948,9 +10138,6 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->lang)) {
             $body['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->maxId)) {
-            $body['MaxId'] = $request->maxId;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
@@ -10220,76 +10407,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startBaselineSecurityCheckWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartImageVulScanRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return StartImageVulScanResponse
-     */
-    public function startImageVulScanWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->imageDigest)) {
-            $query['ImageDigest'] = $request->imageDigest;
-        }
-        if (!Utils::isUnset($request->imageLayer)) {
-            $query['ImageLayer'] = $request->imageLayer;
-        }
-        if (!Utils::isUnset($request->imageTag)) {
-            $query['ImageTag'] = $request->imageTag;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->registryTypes)) {
-            $query['RegistryTypes'] = $request->registryTypes;
-        }
-        if (!Utils::isUnset($request->repName)) {
-            $query['RepName'] = $request->repName;
-        }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
-        }
-        if (!Utils::isUnset($request->repoInstanceId)) {
-            $query['RepoInstanceId'] = $request->repoInstanceId;
-        }
-        if (!Utils::isUnset($request->repoNamespace)) {
-            $query['RepoNamespace'] = $request->repoNamespace;
-        }
-        if (!Utils::isUnset($request->repoRegionId)) {
-            $query['RepoRegionId'] = $request->repoRegionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StartImageVulScan',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return StartImageVulScanResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param StartImageVulScanRequest $request
-     *
-     * @return StartImageVulScanResponse
-     */
-    public function startImageVulScan($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startImageVulScanWithOptions($request, $runtime);
     }
 
     /**

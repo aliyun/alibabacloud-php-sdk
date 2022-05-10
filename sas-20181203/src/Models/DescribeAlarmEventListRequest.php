@@ -39,6 +39,11 @@ class DescribeAlarmEventListRequest extends Model
     public $groupId;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $lang;
@@ -79,6 +84,7 @@ class DescribeAlarmEventListRequest extends Model
         'dealed'               => 'Dealed',
         'from'                 => 'From',
         'groupId'              => 'GroupId',
+        'id'                   => 'Id',
         'lang'                 => 'Lang',
         'levels'               => 'Levels',
         'operateErrorCodeList' => 'OperateErrorCodeList',
@@ -112,6 +118,9 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -163,6 +172,9 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

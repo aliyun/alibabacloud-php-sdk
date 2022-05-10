@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class StartImageVulScanResponseBody extends Model
+class PublicPreCheckImageScanTaskResponseBody extends Model
 {
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -23,6 +32,9 @@ class StartImageVulScanResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -33,11 +45,14 @@ class StartImageVulScanResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return StartImageVulScanResponseBody
+     * @return PublicPreCheckImageScanTaskResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -65,20 +65,6 @@ class list_ extends Model
     public $filedAliasName;
 
     /**
-     * @description 创建时间
-     *
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @description 修改时间
-     *
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
      * @description 操作符
      *
      * @var string
@@ -100,8 +86,6 @@ class list_ extends Model
         'field'             => 'Field',
         'fieldValue'        => 'FieldValue',
         'filedAliasName'    => 'FiledAliasName',
-        'gmtCreate'         => 'GmtCreate',
-        'gmtModified'       => 'GmtModified',
         'operate'           => 'Operate',
         'uuids'             => 'Uuids',
     ];
@@ -136,12 +120,6 @@ class list_ extends Model
         }
         if (null !== $this->filedAliasName) {
             $res['FiledAliasName'] = $this->filedAliasName;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->operate) {
             $res['Operate'] = $this->operate;
@@ -184,12 +162,6 @@ class list_ extends Model
         }
         if (isset($map['FiledAliasName'])) {
             $model->filedAliasName = $map['FiledAliasName'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Operate'])) {
             $model->operate = $map['Operate'];

@@ -33,11 +33,6 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     /**
      * @var int
      */
-    public $maxId;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -56,7 +51,6 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
         'eventName'   => 'EventName',
         'from'        => 'From',
         'lang'        => 'Lang',
-        'maxId'       => 'MaxId',
         'pageSize'    => 'PageSize',
         'remark'      => 'Remark',
         'sourceIp'    => 'SourceIp',
@@ -80,9 +74,6 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->maxId) {
-            $res['MaxId'] = $this->maxId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -116,9 +107,6 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['MaxId'])) {
-            $model->maxId = $map['MaxId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
