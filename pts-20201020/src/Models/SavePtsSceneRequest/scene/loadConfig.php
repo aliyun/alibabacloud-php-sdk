@@ -48,13 +48,6 @@ class loadConfig extends Model
     public $increment;
 
     /**
-     * @description 是否为VPC测试。默认为false，表示公网测试。当此值为true时，VPC相关配置才会生效。
-     *
-     * @var string
-     */
-    public $isVpcTest;
-
-    /**
      * @description 单量级持续时长，单位分钟，一定是小于施压时长 maxRunningTime
      *
      * @var int
@@ -94,7 +87,6 @@ class loadConfig extends Model
         'autoStep'               => 'AutoStep',
         'configuration'          => 'Configuration',
         'increment'              => 'Increment',
-        'isVpcTest'              => 'IsVpcTest',
         'keepTime'               => 'KeepTime',
         'maxRunningTime'         => 'MaxRunningTime',
         'relationLoadConfigList' => 'RelationLoadConfigList',
@@ -129,9 +121,6 @@ class loadConfig extends Model
         }
         if (null !== $this->increment) {
             $res['Increment'] = $this->increment;
-        }
-        if (null !== $this->isVpcTest) {
-            $res['IsVpcTest'] = $this->isVpcTest;
         }
         if (null !== $this->keepTime) {
             $res['KeepTime'] = $this->keepTime;
@@ -186,9 +175,6 @@ class loadConfig extends Model
         }
         if (isset($map['Increment'])) {
             $model->increment = $map['Increment'];
-        }
-        if (isset($map['IsVpcTest'])) {
-            $model->isVpcTest = $map['IsVpcTest'];
         }
         if (isset($map['KeepTime'])) {
             $model->keepTime = $map['KeepTime'];

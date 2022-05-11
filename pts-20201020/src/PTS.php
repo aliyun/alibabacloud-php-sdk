@@ -1365,12 +1365,12 @@ class PTS extends OpenApiClient
     public function modifyPtsSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+            $body['Scene'] = $request->scene;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyPtsScene',

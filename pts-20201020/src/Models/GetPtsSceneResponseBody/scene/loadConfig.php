@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\loadConfig\apiLoadConfigList;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\loadConfig\configuration;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\loadConfig\relationLoadConfigList;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\loadConfig\vpcLoadConfig;
 use AlibabaCloud\Tea\Model;
 
 class loadConfig extends Model
@@ -22,9 +23,24 @@ class loadConfig extends Model
     public $apiLoadConfigList;
 
     /**
+     * @var bool
+     */
+    public $autoStep;
+
+    /**
      * @var configuration
      */
     public $configuration;
+
+    /**
+     * @var int
+     */
+    public $increment;
+
+    /**
+     * @var int
+     */
+    public $keepTime;
 
     /**
      * @var int
@@ -40,13 +56,22 @@ class loadConfig extends Model
      * @var string
      */
     public $testMode;
+
+    /**
+     * @var vpcLoadConfig
+     */
+    public $vpcLoadConfig;
     protected $_name = [
         'agentCount'             => 'AgentCount',
         'apiLoadConfigList'      => 'ApiLoadConfigList',
+        'autoStep'               => 'AutoStep',
         'configuration'          => 'Configuration',
+        'increment'              => 'Increment',
+        'keepTime'               => 'KeepTime',
         'maxRunningTime'         => 'MaxRunningTime',
         'relationLoadConfigList' => 'RelationLoadConfigList',
         'testMode'               => 'TestMode',
+        'vpcLoadConfig'          => 'VpcLoadConfig',
     ];
 
     public function validate()
@@ -68,8 +93,17 @@ class loadConfig extends Model
                 }
             }
         }
+        if (null !== $this->autoStep) {
+            $res['AutoStep'] = $this->autoStep;
+        }
         if (null !== $this->configuration) {
             $res['Configuration'] = null !== $this->configuration ? $this->configuration->toMap() : null;
+        }
+        if (null !== $this->increment) {
+            $res['Increment'] = $this->increment;
+        }
+        if (null !== $this->keepTime) {
+            $res['KeepTime'] = $this->keepTime;
         }
         if (null !== $this->maxRunningTime) {
             $res['MaxRunningTime'] = $this->maxRunningTime;
@@ -85,6 +119,9 @@ class loadConfig extends Model
         }
         if (null !== $this->testMode) {
             $res['TestMode'] = $this->testMode;
+        }
+        if (null !== $this->vpcLoadConfig) {
+            $res['VpcLoadConfig'] = null !== $this->vpcLoadConfig ? $this->vpcLoadConfig->toMap() : null;
         }
 
         return $res;
@@ -110,8 +147,17 @@ class loadConfig extends Model
                 }
             }
         }
+        if (isset($map['AutoStep'])) {
+            $model->autoStep = $map['AutoStep'];
+        }
         if (isset($map['Configuration'])) {
             $model->configuration = configuration::fromMap($map['Configuration']);
+        }
+        if (isset($map['Increment'])) {
+            $model->increment = $map['Increment'];
+        }
+        if (isset($map['KeepTime'])) {
+            $model->keepTime = $map['KeepTime'];
         }
         if (isset($map['MaxRunningTime'])) {
             $model->maxRunningTime = $map['MaxRunningTime'];
@@ -127,6 +173,9 @@ class loadConfig extends Model
         }
         if (isset($map['TestMode'])) {
             $model->testMode = $map['TestMode'];
+        }
+        if (isset($map['VpcLoadConfig'])) {
+            $model->vpcLoadConfig = vpcLoadConfig::fromMap($map['VpcLoadConfig']);
         }
 
         return $model;

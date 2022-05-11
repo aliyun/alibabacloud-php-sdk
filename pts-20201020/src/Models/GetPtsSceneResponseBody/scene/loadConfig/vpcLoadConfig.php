@@ -2,16 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetUserVpcSecurityGroupResponseBody;
+namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\loadConfig;
 
 use AlibabaCloud\Tea\Model;
 
-class securityGroupList extends Model
+class vpcLoadConfig extends Model
 {
     /**
      * @var string
      */
-    public $description;
+    public $regionId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class securityGroupList extends Model
     /**
      * @var string
      */
-    public $securityGroupName;
+    public $vSwitchId;
 
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'description'       => 'Description',
-        'securityGroupId'   => 'SecurityGroupId',
-        'securityGroupName' => 'SecurityGroupName',
-        'vpcId'             => 'VpcId',
+        'regionId'        => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
+        'vSwitchId'       => 'VSwitchId',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class securityGroupList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-        if (null !== $this->securityGroupName) {
-            $res['SecurityGroupName'] = $this->securityGroupName;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -60,19 +60,19 @@ class securityGroupList extends Model
     /**
      * @param array $map
      *
-     * @return securityGroupList
+     * @return vpcLoadConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-        if (isset($map['SecurityGroupName'])) {
-            $model->securityGroupName = $map['SecurityGroupName'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
