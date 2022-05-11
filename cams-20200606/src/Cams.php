@@ -9,8 +9,6 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsShrinkRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\CheckContactsRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\CheckContactsResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
@@ -24,8 +22,6 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageShrinkRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\SendMessageRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\SendMessageResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -121,66 +117,6 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkChatappContactsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CheckContactsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CheckContactsResponse
-     */
-    public function checkContactsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->channelType)) {
-            $body['ChannelType'] = $request->channelType;
-        }
-        if (!Utils::isUnset($request->contacts)) {
-            $body['Contacts'] = $request->contacts;
-        }
-        if (!Utils::isUnset($request->from)) {
-            $body['From'] = $request->from;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckContacts',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CheckContactsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CheckContactsRequest $request
-     *
-     * @return CheckContactsResponse
-     */
-    public function checkContacts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkContactsWithOptions($request, $runtime);
     }
 
     /**
@@ -488,95 +424,5 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendChatappMessageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SendMessageRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SendMessageResponse
-     */
-    public function sendMessageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->caption)) {
-            $body['Caption'] = $request->caption;
-        }
-        if (!Utils::isUnset($request->channelType)) {
-            $body['ChannelType'] = $request->channelType;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $body['FileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->from)) {
-            $body['From'] = $request->from;
-        }
-        if (!Utils::isUnset($request->link)) {
-            $body['Link'] = $request->link;
-        }
-        if (!Utils::isUnset($request->messageType)) {
-            $body['MessageType'] = $request->messageType;
-        }
-        if (!Utils::isUnset($request->templateBodyParams)) {
-            $body['TemplateBodyParams'] = $request->templateBodyParams;
-        }
-        if (!Utils::isUnset($request->templateButtonParams)) {
-            $body['TemplateButtonParams'] = $request->templateButtonParams;
-        }
-        if (!Utils::isUnset($request->templateCode)) {
-            $body['TemplateCode'] = $request->templateCode;
-        }
-        if (!Utils::isUnset($request->templateHeaderParams)) {
-            $body['TemplateHeaderParams'] = $request->templateHeaderParams;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        if (!Utils::isUnset($request->to)) {
-            $body['To'] = $request->to;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SendMessage',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SendMessageRequest $request
-     *
-     * @return SendMessageResponse
-     */
-    public function sendMessage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->sendMessageWithOptions($request, $runtime);
     }
 }

@@ -31,6 +31,13 @@ class components extends Model
     public $fileName;
 
     /**
+     * @description 格式
+     *
+     * @var string
+     */
+    public $format;
+
+    /**
      * @description 所发送消息的文本
      *
      * @var string
@@ -54,6 +61,7 @@ class components extends Model
         'buttons'  => 'Buttons',
         'caption'  => 'Caption',
         'fileName' => 'FileName',
+        'format'   => 'Format',
         'text'     => 'Text',
         'type'     => 'Type',
         'url'      => 'Url',
@@ -80,6 +88,9 @@ class components extends Model
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
@@ -116,6 +127,9 @@ class components extends Model
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
