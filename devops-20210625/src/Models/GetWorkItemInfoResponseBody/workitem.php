@@ -4,22 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\ak;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\customFields;
 use AlibabaCloud\Tea\Model;
 
 class workitem extends Model
 {
-    /**
-     * @var ak
-     */
-    public $ak;
-
-    /**
-     * @var \AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\workitem
-     */
-    public $workitem;
-
     /**
      * @description 负责人
      *
@@ -98,6 +87,13 @@ class workitem extends Model
     public $parentIdentifier;
 
     /**
+     * @description 参与人account id列表
+     *
+     * @var string[]
+     */
+    public $participant;
+
+    /**
      * @description 编号
      *
      * @var string
@@ -168,11 +164,25 @@ class workitem extends Model
     public $tag;
 
     /**
+     * @description 抄送人的account id列表
+     *
+     * @var string[]
+     */
+    public $tracker;
+
+    /**
      * @description 状态更新时间
      *
      * @var int
      */
     public $updateStatusAt;
+
+    /**
+     * @description 验证者的account id列表
+     *
+     * @var string[]
+     */
+    public $verifier;
 
     /**
      * @description 工作项类型id
@@ -181,8 +191,6 @@ class workitem extends Model
      */
     public $workitemTypeIdentifier;
     protected $_name = [
-        'ak'                     => 'ak',
-        'workitem'               => 'workitem',
         'assignedTo'             => 'assignedTo',
         'categoryIdentifier'     => 'categoryIdentifier',
         'creator'                => 'creator',
@@ -194,6 +202,7 @@ class workitem extends Model
         'logicalStatus'          => 'logicalStatus',
         'modifier'               => 'modifier',
         'parentIdentifier'       => 'parentIdentifier',
+        'participant'            => 'participant',
         'serialNumber'           => 'serialNumber',
         'spaceIdentifier'        => 'spaceIdentifier',
         'spaceName'              => 'spaceName',
@@ -204,25 +213,19 @@ class workitem extends Model
         'statusStageIdentifier'  => 'statusStageIdentifier',
         'subject'                => 'subject',
         'tag'                    => 'tag',
+        'tracker'                => 'tracker',
         'updateStatusAt'         => 'updateStatusAt',
+        'verifier'               => 'verifier',
         'workitemTypeIdentifier' => 'workitemTypeIdentifier',
     ];
 
     public function validate()
     {
-        Model::validateRequired('ak', $this->ak, true);
-        Model::validateRequired('workitem', $this->workitem, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ak) {
-            $res['ak'] = null !== $this->ak ? $this->ak->toMap() : null;
-        }
-        if (null !== $this->workitem) {
-            $res['workitem'] = null !== $this->workitem ? $this->workitem->toMap() : null;
-        }
         if (null !== $this->assignedTo) {
             $res['assignedTo'] = $this->assignedTo;
         }
@@ -262,6 +265,9 @@ class workitem extends Model
         if (null !== $this->parentIdentifier) {
             $res['parentIdentifier'] = $this->parentIdentifier;
         }
+        if (null !== $this->participant) {
+            $res['participant'] = $this->participant;
+        }
         if (null !== $this->serialNumber) {
             $res['serialNumber'] = $this->serialNumber;
         }
@@ -292,8 +298,14 @@ class workitem extends Model
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
+        if (null !== $this->tracker) {
+            $res['tracker'] = $this->tracker;
+        }
         if (null !== $this->updateStatusAt) {
             $res['updateStatusAt'] = $this->updateStatusAt;
+        }
+        if (null !== $this->verifier) {
+            $res['verifier'] = $this->verifier;
         }
         if (null !== $this->workitemTypeIdentifier) {
             $res['workitemTypeIdentifier'] = $this->workitemTypeIdentifier;
@@ -310,12 +322,6 @@ class workitem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ak'])) {
-            $model->ak = ak::fromMap($map['ak']);
-        }
-        if (isset($map['workitem'])) {
-            $model->workitem = \AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\workitem::fromMap($map['workitem']);
-        }
         if (isset($map['assignedTo'])) {
             $model->assignedTo = $map['assignedTo'];
         }
@@ -355,6 +361,11 @@ class workitem extends Model
         if (isset($map['parentIdentifier'])) {
             $model->parentIdentifier = $map['parentIdentifier'];
         }
+        if (isset($map['participant'])) {
+            if (!empty($map['participant'])) {
+                $model->participant = $map['participant'];
+            }
+        }
         if (isset($map['serialNumber'])) {
             $model->serialNumber = $map['serialNumber'];
         }
@@ -389,8 +400,18 @@ class workitem extends Model
                 $model->tag = $map['tag'];
             }
         }
+        if (isset($map['tracker'])) {
+            if (!empty($map['tracker'])) {
+                $model->tracker = $map['tracker'];
+            }
+        }
         if (isset($map['updateStatusAt'])) {
             $model->updateStatusAt = $map['updateStatusAt'];
+        }
+        if (isset($map['verifier'])) {
+            if (!empty($map['verifier'])) {
+                $model->verifier = $map['verifier'];
+            }
         }
         if (isset($map['workitemTypeIdentifier'])) {
             $model->workitemTypeIdentifier = $map['workitemTypeIdentifier'];

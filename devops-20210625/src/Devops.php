@@ -912,9 +912,6 @@ class Devops extends OpenApiClient
         Utils::validateModel($request);
         $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
         $body           = [];
-        if (!Utils::isUnset($request->ak->issue->member)) {
-            $body['ak'] = $request->ak->issue->member;
-        }
         if (!Utils::isUnset($request->assignedTo)) {
             $body['assignedTo'] = $request->assignedTo;
         }
@@ -933,6 +930,9 @@ class Devops extends OpenApiClient
         if (!Utils::isUnset($request->parent)) {
             $body['parent'] = $request->parent;
         }
+        if (!Utils::isUnset($request->participant)) {
+            $body['participant'] = $request->participant;
+        }
         if (!Utils::isUnset($request->space)) {
             $body['space'] = $request->space;
         }
@@ -948,11 +948,11 @@ class Devops extends OpenApiClient
         if (!Utils::isUnset($request->subject)) {
             $body['subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->workitem->tracker)) {
-            $body['workitem'] = $request->workitem->tracker;
+        if (!Utils::isUnset($request->tracker)) {
+            $body['tracker'] = $request->tracker;
         }
-        if (!Utils::isUnset($request->workitem->verifier)) {
-            $body['workitem'] = $request->workitem->verifier;
+        if (!Utils::isUnset($request->verifier)) {
+            $body['verifier'] = $request->verifier;
         }
         if (!Utils::isUnset($request->workitemType)) {
             $body['workitemType'] = $request->workitemType;
@@ -3629,6 +3629,9 @@ class Devops extends OpenApiClient
         }
         if (!Utils::isUnset($request->orderBy)) {
             $query['orderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->searchType)) {
+            $query['searchType'] = $request->searchType;
         }
         if (!Utils::isUnset($request->spaceIdentifier)) {
             $query['spaceIdentifier'] = $request->spaceIdentifier;

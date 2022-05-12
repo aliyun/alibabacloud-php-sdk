@@ -107,6 +107,13 @@ class workitem extends Model
     public $spaceType;
 
     /**
+     * @description 迭代id
+     *
+     * @var string
+     */
+    public $sprintIdentifier;
+
+    /**
      * @description 状态名称
      *
      * @var string
@@ -162,6 +169,7 @@ class workitem extends Model
         'spaceIdentifier'        => 'spaceIdentifier',
         'spaceName'              => 'spaceName',
         'spaceType'              => 'spaceType',
+        'sprintIdentifier'       => 'sprintIdentifier',
         'status'                 => 'status',
         'statusIdentifier'       => 'statusIdentifier',
         'statusStageIdentifier'  => 'statusStageIdentifier',
@@ -218,6 +226,9 @@ class workitem extends Model
         }
         if (null !== $this->spaceType) {
             $res['spaceType'] = $this->spaceType;
+        }
+        if (null !== $this->sprintIdentifier) {
+            $res['sprintIdentifier'] = $this->sprintIdentifier;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -290,6 +301,9 @@ class workitem extends Model
         }
         if (isset($map['spaceType'])) {
             $model->spaceType = $map['spaceType'];
+        }
+        if (isset($map['sprintIdentifier'])) {
+            $model->sprintIdentifier = $map['sprintIdentifier'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

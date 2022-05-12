@@ -58,6 +58,13 @@ class ListWorkitemsRequest extends Model
     public $orderBy;
 
     /**
+     * @description 查询类型
+     *
+     * @var string
+     */
+    public $searchType;
+
+    /**
      * @description 项目id
      *
      * @var string
@@ -78,6 +85,7 @@ class ListWorkitemsRequest extends Model
         'maxResults'      => 'maxResults',
         'nextToken'       => 'nextToken',
         'orderBy'         => 'orderBy',
+        'searchType'      => 'searchType',
         'spaceIdentifier' => 'spaceIdentifier',
         'spaceType'       => 'spaceType',
     ];
@@ -109,6 +117,9 @@ class ListWorkitemsRequest extends Model
         }
         if (null !== $this->orderBy) {
             $res['orderBy'] = $this->orderBy;
+        }
+        if (null !== $this->searchType) {
+            $res['searchType'] = $this->searchType;
         }
         if (null !== $this->spaceIdentifier) {
             $res['spaceIdentifier'] = $this->spaceIdentifier;
@@ -148,6 +159,9 @@ class ListWorkitemsRequest extends Model
         }
         if (isset($map['orderBy'])) {
             $model->orderBy = $map['orderBy'];
+        }
+        if (isset($map['searchType'])) {
+            $model->searchType = $map['searchType'];
         }
         if (isset($map['spaceIdentifier'])) {
             $model->spaceIdentifier = $map['spaceIdentifier'];
