@@ -11,6 +11,21 @@ class CreatePickUpWaybillShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appointGotEndTime;
+
+    /**
+     * @var string
+     */
+    public $appointGotStartTime;
+
+    /**
+     * @var int
+     */
+    public $bizType;
+
+    /**
+     * @var string
+     */
     public $consigneeAddressShrink;
 
     /**
@@ -73,6 +88,9 @@ class CreatePickUpWaybillShrinkRequest extends Model
      */
     public $sendPhone;
     protected $_name = [
+        'appointGotEndTime'      => 'AppointGotEndTime',
+        'appointGotStartTime'    => 'AppointGotStartTime',
+        'bizType'                => 'BizType',
         'consigneeAddressShrink' => 'ConsigneeAddress',
         'consigneeMobile'        => 'ConsigneeMobile',
         'consigneeName'          => 'ConsigneeName',
@@ -95,6 +113,15 @@ class CreatePickUpWaybillShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appointGotEndTime) {
+            $res['AppointGotEndTime'] = $this->appointGotEndTime;
+        }
+        if (null !== $this->appointGotStartTime) {
+            $res['AppointGotStartTime'] = $this->appointGotStartTime;
+        }
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->consigneeAddressShrink) {
             $res['ConsigneeAddress'] = $this->consigneeAddressShrink;
         }
@@ -146,6 +173,15 @@ class CreatePickUpWaybillShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppointGotEndTime'])) {
+            $model->appointGotEndTime = $map['AppointGotEndTime'];
+        }
+        if (isset($map['AppointGotStartTime'])) {
+            $model->appointGotStartTime = $map['AppointGotStartTime'];
+        }
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['ConsigneeAddress'])) {
             $model->consigneeAddressShrink = $map['ConsigneeAddress'];
         }

@@ -12,6 +12,21 @@ use AlibabaCloud\Tea\Model;
 class CreatePickUpWaybillRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appointGotEndTime;
+
+    /**
+     * @var string
+     */
+    public $appointGotStartTime;
+
+    /**
+     * @var int
+     */
+    public $bizType;
+
+    /**
      * @var consigneeAddress
      */
     public $consigneeAddress;
@@ -76,19 +91,22 @@ class CreatePickUpWaybillRequest extends Model
      */
     public $sendPhone;
     protected $_name = [
-        'consigneeAddress' => 'ConsigneeAddress',
-        'consigneeMobile'  => 'ConsigneeMobile',
-        'consigneeName'    => 'ConsigneeName',
-        'consigneePhone'   => 'ConsigneePhone',
-        'cpCode'           => 'CpCode',
-        'goodsInfos'       => 'GoodsInfos',
-        'orderChannels'    => 'OrderChannels',
-        'outerOrderCode'   => 'OuterOrderCode',
-        'remark'           => 'Remark',
-        'sendAddress'      => 'SendAddress',
-        'sendMobile'       => 'SendMobile',
-        'sendName'         => 'SendName',
-        'sendPhone'        => 'SendPhone',
+        'appointGotEndTime'   => 'AppointGotEndTime',
+        'appointGotStartTime' => 'AppointGotStartTime',
+        'bizType'             => 'BizType',
+        'consigneeAddress'    => 'ConsigneeAddress',
+        'consigneeMobile'     => 'ConsigneeMobile',
+        'consigneeName'       => 'ConsigneeName',
+        'consigneePhone'      => 'ConsigneePhone',
+        'cpCode'              => 'CpCode',
+        'goodsInfos'          => 'GoodsInfos',
+        'orderChannels'       => 'OrderChannels',
+        'outerOrderCode'      => 'OuterOrderCode',
+        'remark'              => 'Remark',
+        'sendAddress'         => 'SendAddress',
+        'sendMobile'          => 'SendMobile',
+        'sendName'            => 'SendName',
+        'sendPhone'           => 'SendPhone',
     ];
 
     public function validate()
@@ -98,6 +116,15 @@ class CreatePickUpWaybillRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appointGotEndTime) {
+            $res['AppointGotEndTime'] = $this->appointGotEndTime;
+        }
+        if (null !== $this->appointGotStartTime) {
+            $res['AppointGotStartTime'] = $this->appointGotStartTime;
+        }
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->consigneeAddress) {
             $res['ConsigneeAddress'] = null !== $this->consigneeAddress ? $this->consigneeAddress->toMap() : null;
         }
@@ -155,6 +182,15 @@ class CreatePickUpWaybillRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppointGotEndTime'])) {
+            $model->appointGotEndTime = $map['AppointGotEndTime'];
+        }
+        if (isset($map['AppointGotStartTime'])) {
+            $model->appointGotStartTime = $map['AppointGotStartTime'];
+        }
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['ConsigneeAddress'])) {
             $model->consigneeAddress = consigneeAddress::fromMap($map['ConsigneeAddress']);
         }

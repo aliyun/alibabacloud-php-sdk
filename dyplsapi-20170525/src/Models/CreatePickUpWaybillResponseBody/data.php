@@ -26,6 +26,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $gotCode;
+
+    /**
+     * @var string
+     */
     public $mailNo;
 
     /**
@@ -36,6 +41,7 @@ class data extends Model
         'cpCode'    => 'CpCode',
         'errorCode' => 'ErrorCode',
         'errorMsg'  => 'ErrorMsg',
+        'gotCode'   => 'GotCode',
         'mailNo'    => 'MailNo',
         'success'   => 'Success',
     ];
@@ -55,6 +61,9 @@ class data extends Model
         }
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
+        }
+        if (null !== $this->gotCode) {
+            $res['GotCode'] = $this->gotCode;
         }
         if (null !== $this->mailNo) {
             $res['MailNo'] = $this->mailNo;
@@ -82,6 +91,9 @@ class data extends Model
         }
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
+        }
+        if (isset($map['GotCode'])) {
+            $model->gotCode = $map['GotCode'];
         }
         if (isset($map['MailNo'])) {
             $model->mailNo = $map['MailNo'];

@@ -859,6 +859,15 @@ class Dyplsapi extends OpenApiClient
             $request->sendAddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sendAddress), 'SendAddress', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->appointGotEndTime)) {
+            $query['AppointGotEndTime'] = $request->appointGotEndTime;
+        }
+        if (!Utils::isUnset($request->appointGotStartTime)) {
+            $query['AppointGotStartTime'] = $request->appointGotStartTime;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
         if (!Utils::isUnset($request->consigneeAddressShrink)) {
             $query['ConsigneeAddress'] = $request->consigneeAddressShrink;
         }
