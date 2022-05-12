@@ -112,6 +112,11 @@ class DeployApplicationRequest extends Model
     /**
      * @var string
      */
+    public $kafkaConfigs;
+
+    /**
+     * @var string
+     */
     public $kafkaEndpoint;
 
     /**
@@ -274,6 +279,7 @@ class DeployApplicationRequest extends Model
         'jarStartArgs'                     => 'JarStartArgs',
         'jarStartOptions'                  => 'JarStartOptions',
         'jdk'                              => 'Jdk',
+        'kafkaConfigs'                     => 'KafkaConfigs',
         'kafkaEndpoint'                    => 'KafkaEndpoint',
         'kafkaInstanceId'                  => 'KafkaInstanceId',
         'kafkaLogfileConfig'               => 'KafkaLogfileConfig',
@@ -367,6 +373,9 @@ class DeployApplicationRequest extends Model
         }
         if (null !== $this->jdk) {
             $res['Jdk'] = $this->jdk;
+        }
+        if (null !== $this->kafkaConfigs) {
+            $res['KafkaConfigs'] = $this->kafkaConfigs;
         }
         if (null !== $this->kafkaEndpoint) {
             $res['KafkaEndpoint'] = $this->kafkaEndpoint;
@@ -520,6 +529,9 @@ class DeployApplicationRequest extends Model
         }
         if (isset($map['Jdk'])) {
             $model->jdk = $map['Jdk'];
+        }
+        if (isset($map['KafkaConfigs'])) {
+            $model->kafkaConfigs = $map['KafkaConfigs'];
         }
         if (isset($map['KafkaEndpoint'])) {
             $model->kafkaEndpoint = $map['KafkaEndpoint'];

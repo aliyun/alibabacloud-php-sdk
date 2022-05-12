@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UploadFilesResponseBody extends Model
+class UpdateApplicationDescriptionResponseBody extends Model
 {
     /**
      * @var string
      */
     public $code;
-
-    /**
-     * @var string
-     */
-    public $data;
 
     /**
      * @var string
@@ -44,7 +39,6 @@ class UploadFilesResponseBody extends Model
     public $traceId;
     protected $_name = [
         'code'      => 'Code',
-        'data'      => 'Data',
         'errorCode' => 'ErrorCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
@@ -61,9 +55,6 @@ class UploadFilesResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -87,16 +78,13 @@ class UploadFilesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UploadFilesResponseBody
+     * @return UpdateApplicationDescriptionResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

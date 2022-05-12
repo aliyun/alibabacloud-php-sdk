@@ -91,8 +91,6 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribePipelineResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleResponse;
-use AlibabaCloud\SDK\Sae\V20190506\Models\DownloadFilesRequest;
-use AlibabaCloud\SDK\Sae\V20190506\Models\DownloadFilesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsRequest;
@@ -146,8 +144,12 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\UnbindSlbRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UnbindSlbResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationDescriptionRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationDescriptionResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationScalingRuleResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationVswitchesRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationVswitchesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateAppSecurityGroupRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateAppSecurityGroupResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateConfigMapRequest;
@@ -160,8 +162,6 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceVpcRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceVpcResponse;
-use AlibabaCloud\SDK\Sae\V20190506\Models\UploadFilesRequest;
-use AlibabaCloud\SDK\Sae\V20190506\Models\UploadFilesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -567,6 +567,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->jdk)) {
             $query['Jdk'] = $request->jdk;
         }
+        if (!Utils::isUnset($request->kafkaConfigs)) {
+            $query['KafkaConfigs'] = $request->kafkaConfigs;
+        }
         if (!Utils::isUnset($request->kafkaEndpoint)) {
             $query['KafkaEndpoint'] = $request->kafkaEndpoint;
         }
@@ -617,6 +620,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->preStop)) {
             $query['PreStop'] = $request->preStop;
+        }
+        if (!Utils::isUnset($request->programmingLanguage)) {
+            $query['ProgrammingLanguage'] = $request->programmingLanguage;
         }
         if (!Utils::isUnset($request->readiness)) {
             $query['Readiness'] = $request->readiness;
@@ -910,6 +916,12 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->listenerPort)) {
             $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalanceType)) {
+            $query['LoadBalanceType'] = $request->loadBalanceType;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -1343,6 +1355,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->jdk)) {
             $query['Jdk'] = $request->jdk;
+        }
+        if (!Utils::isUnset($request->kafkaConfigs)) {
+            $query['KafkaConfigs'] = $request->kafkaConfigs;
         }
         if (!Utils::isUnset($request->kafkaEndpoint)) {
             $query['KafkaEndpoint'] = $request->kafkaEndpoint;
@@ -2633,58 +2648,6 @@ class Sae extends OpenApiClient
         ]);
 
         return DisableApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DownloadFilesRequest $request
-     *
-     * @return DownloadFilesResponse
-     */
-    public function downloadFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->downloadFilesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DownloadFilesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DownloadFilesResponse
-     */
-    public function downloadFilesWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->localpath)) {
-            $query['Localpath'] = $request->localpath;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DownloadFiles',
-            'version'     => '2019-05-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/v1/sam/app/downloadFiles',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DownloadFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4153,6 +4116,55 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @param UpdateApplicationDescriptionRequest $request
+     *
+     * @return UpdateApplicationDescriptionResponse
+     */
+    public function updateApplicationDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateApplicationDescriptionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateApplicationDescriptionRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateApplicationDescriptionResponse
+     */
+    public function updateApplicationDescriptionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appDescription)) {
+            $query['AppDescription'] = $request->appDescription;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplicationDescription',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/app/updateAppDescription',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApplicationDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param UpdateApplicationScalingRuleRequest $request
      *
      * @return UpdateApplicationScalingRuleResponse
@@ -4211,6 +4223,55 @@ class Sae extends OpenApiClient
         ]);
 
         return UpdateApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateApplicationVswitchesRequest $request
+     *
+     * @return UpdateApplicationVswitchesResponse
+     */
+    public function updateApplicationVswitches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateApplicationVswitchesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateApplicationVswitchesRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateApplicationVswitchesResponse
+     */
+    public function updateApplicationVswitchesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplicationVswitches',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/app/updateAppVswitches',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApplicationVswitchesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4361,6 +4422,12 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->listenerPort)) {
             $query['ListenerPort'] = $request->listenerPort;
         }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalanceType)) {
+            $query['LoadBalanceType'] = $request->loadBalanceType;
+        }
         $body = [];
         if (!Utils::isUnset($request->rules)) {
             $body['Rules'] = $request->rules;
@@ -4484,60 +4551,5 @@ class Sae extends OpenApiClient
         ]);
 
         return UpdateNamespaceVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UploadFilesRequest $request
-     *
-     * @return UploadFilesResponse
-     */
-    public function uploadFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->uploadFilesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param UploadFilesRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return UploadFilesResponse
-     */
-    public function uploadFilesWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->cloudUrl)) {
-            $query['CloudUrl'] = $request->cloudUrl;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->localpath)) {
-            $query['Localpath'] = $request->localpath;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UploadFiles',
-            'version'     => '2019-05-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/v1/sam/app/uploadFiles',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UploadFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

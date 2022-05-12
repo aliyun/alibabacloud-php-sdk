@@ -31,6 +31,16 @@ class CreateIngressRequest extends Model
     /**
      * @var string
      */
+    public $listenerProtocol;
+
+    /**
+     * @var string
+     */
+    public $loadBalanceType;
+
+    /**
+     * @var string
+     */
     public $namespaceId;
 
     /**
@@ -43,13 +53,15 @@ class CreateIngressRequest extends Model
      */
     public $slbId;
     protected $_name = [
-        'certId'       => 'CertId',
-        'defaultRule'  => 'DefaultRule',
-        'description'  => 'Description',
-        'listenerPort' => 'ListenerPort',
-        'namespaceId'  => 'NamespaceId',
-        'rules'        => 'Rules',
-        'slbId'        => 'SlbId',
+        'certId'           => 'CertId',
+        'defaultRule'      => 'DefaultRule',
+        'description'      => 'Description',
+        'listenerPort'     => 'ListenerPort',
+        'listenerProtocol' => 'ListenerProtocol',
+        'loadBalanceType'  => 'LoadBalanceType',
+        'namespaceId'      => 'NamespaceId',
+        'rules'            => 'Rules',
+        'slbId'            => 'SlbId',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class CreateIngressRequest extends Model
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
+        }
+        if (null !== $this->listenerProtocol) {
+            $res['ListenerProtocol'] = $this->listenerProtocol;
+        }
+        if (null !== $this->loadBalanceType) {
+            $res['LoadBalanceType'] = $this->loadBalanceType;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -103,6 +121,12 @@ class CreateIngressRequest extends Model
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
+        }
+        if (isset($map['ListenerProtocol'])) {
+            $model->listenerProtocol = $map['ListenerProtocol'];
+        }
+        if (isset($map['LoadBalanceType'])) {
+            $model->loadBalanceType = $map['LoadBalanceType'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

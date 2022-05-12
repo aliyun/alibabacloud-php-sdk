@@ -6,26 +6,20 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DownloadFilesRequest extends Model
+class UpdateApplicationDescriptionRequest extends Model
 {
     /**
      * @var string
      */
+    public $appDescription;
+
+    /**
+     * @var string
+     */
     public $appId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $localpath;
     protected $_name = [
-        'appId'      => 'AppId',
-        'instanceId' => 'InstanceId',
-        'localpath'  => 'Localpath',
+        'appDescription' => 'AppDescription',
+        'appId'          => 'AppId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DownloadFilesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appDescription) {
+            $res['AppDescription'] = $this->appDescription;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->localpath) {
-            $res['Localpath'] = $this->localpath;
         }
 
         return $res;
@@ -51,19 +42,16 @@ class DownloadFilesRequest extends Model
     /**
      * @param array $map
      *
-     * @return DownloadFilesRequest
+     * @return UpdateApplicationDescriptionRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppDescription'])) {
+            $model->appDescription = $map['AppDescription'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Localpath'])) {
-            $model->localpath = $map['Localpath'];
         }
 
         return $model;

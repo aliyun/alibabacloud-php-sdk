@@ -26,6 +26,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $jumpServerAppId;
+
+    /**
+     * @var string
+     */
+    public $jumpServerIp;
+
+    /**
+     * @var string
+     */
     public $lastChangeOrderId;
 
     /**
@@ -91,6 +101,8 @@ class data extends Model
         'appCount'               => 'AppCount',
         'belongRegion'           => 'BelongRegion',
         'description'            => 'Description',
+        'jumpServerAppId'        => 'JumpServerAppId',
+        'jumpServerIp'           => 'JumpServerIp',
         'lastChangeOrderId'      => 'LastChangeOrderId',
         'lastChangeOrderRunning' => 'LastChangeOrderRunning',
         'lastChangeOrderStatus'  => 'LastChangeOrderStatus',
@@ -121,6 +133,12 @@ class data extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->jumpServerAppId) {
+            $res['JumpServerAppId'] = $this->jumpServerAppId;
+        }
+        if (null !== $this->jumpServerIp) {
+            $res['JumpServerIp'] = $this->jumpServerIp;
         }
         if (null !== $this->lastChangeOrderId) {
             $res['LastChangeOrderId'] = $this->lastChangeOrderId;
@@ -181,6 +199,12 @@ class data extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['JumpServerAppId'])) {
+            $model->jumpServerAppId = $map['JumpServerAppId'];
+        }
+        if (isset($map['JumpServerIp'])) {
+            $model->jumpServerIp = $map['JumpServerIp'];
         }
         if (isset($map['LastChangeOrderId'])) {
             $model->lastChangeOrderId = $map['LastChangeOrderId'];

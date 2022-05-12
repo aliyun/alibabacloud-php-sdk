@@ -38,6 +38,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $listenerProtocol;
+
+    /**
+     * @var string
+     */
+    public $loadBalanceType;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -60,16 +70,18 @@ class data extends Model
      */
     public $slbType;
     protected $_name = [
-        'certId'       => 'CertId',
-        'defaultRule'  => 'DefaultRule',
-        'description'  => 'Description',
-        'id'           => 'Id',
-        'listenerPort' => 'ListenerPort',
-        'name'         => 'Name',
-        'namespaceId'  => 'NamespaceId',
-        'rules'        => 'Rules',
-        'slbId'        => 'SlbId',
-        'slbType'      => 'SlbType',
+        'certId'           => 'CertId',
+        'defaultRule'      => 'DefaultRule',
+        'description'      => 'Description',
+        'id'               => 'Id',
+        'listenerPort'     => 'ListenerPort',
+        'listenerProtocol' => 'ListenerProtocol',
+        'loadBalanceType'  => 'LoadBalanceType',
+        'name'             => 'Name',
+        'namespaceId'      => 'NamespaceId',
+        'rules'            => 'Rules',
+        'slbId'            => 'SlbId',
+        'slbType'          => 'SlbType',
     ];
 
     public function validate()
@@ -93,6 +105,12 @@ class data extends Model
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
+        }
+        if (null !== $this->listenerProtocol) {
+            $res['ListenerProtocol'] = $this->listenerProtocol;
+        }
+        if (null !== $this->loadBalanceType) {
+            $res['LoadBalanceType'] = $this->loadBalanceType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -141,6 +159,12 @@ class data extends Model
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
+        }
+        if (isset($map['ListenerProtocol'])) {
+            $model->listenerProtocol = $map['ListenerProtocol'];
+        }
+        if (isset($map['LoadBalanceType'])) {
+            $model->loadBalanceType = $map['LoadBalanceType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

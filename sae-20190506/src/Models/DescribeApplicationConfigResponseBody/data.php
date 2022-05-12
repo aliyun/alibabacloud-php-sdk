@@ -18,6 +18,13 @@ class data extends Model
     public $acrAssumeRoleArn;
 
     /**
+     * @description ACR 企业版实例 ID
+     *
+     * @var string
+     */
+    public $acrInstanceId;
+
+    /**
      * @var string
      */
     public $appDescription;
@@ -227,6 +234,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $programmingLanguage;
+
+    /**
+     * @var string
+     */
     public $readiness;
 
     /**
@@ -295,6 +307,7 @@ class data extends Model
     public $webContainer;
     protected $_name = [
         'acrAssumeRoleArn'              => 'AcrAssumeRoleArn',
+        'acrInstanceId'                 => 'AcrInstanceId',
         'appDescription'                => 'AppDescription',
         'appId'                         => 'AppId',
         'appName'                       => 'AppName',
@@ -334,6 +347,7 @@ class data extends Model
         'phpConfigLocation'             => 'PhpConfigLocation',
         'postStart'                     => 'PostStart',
         'preStop'                       => 'PreStop',
+        'programmingLanguage'           => 'ProgrammingLanguage',
         'readiness'                     => 'Readiness',
         'regionId'                      => 'RegionId',
         'replicas'                      => 'Replicas',
@@ -359,6 +373,9 @@ class data extends Model
         $res = [];
         if (null !== $this->acrAssumeRoleArn) {
             $res['AcrAssumeRoleArn'] = $this->acrAssumeRoleArn;
+        }
+        if (null !== $this->acrInstanceId) {
+            $res['AcrInstanceId'] = $this->acrInstanceId;
         }
         if (null !== $this->appDescription) {
             $res['AppDescription'] = $this->appDescription;
@@ -495,6 +512,9 @@ class data extends Model
         if (null !== $this->preStop) {
             $res['PreStop'] = $this->preStop;
         }
+        if (null !== $this->programmingLanguage) {
+            $res['ProgrammingLanguage'] = $this->programmingLanguage;
+        }
         if (null !== $this->readiness) {
             $res['Readiness'] = $this->readiness;
         }
@@ -557,6 +577,9 @@ class data extends Model
         $model = new self();
         if (isset($map['AcrAssumeRoleArn'])) {
             $model->acrAssumeRoleArn = $map['AcrAssumeRoleArn'];
+        }
+        if (isset($map['AcrInstanceId'])) {
+            $model->acrInstanceId = $map['AcrInstanceId'];
         }
         if (isset($map['AppDescription'])) {
             $model->appDescription = $map['AppDescription'];
@@ -692,6 +715,9 @@ class data extends Model
         }
         if (isset($map['PreStop'])) {
             $model->preStop = $map['PreStop'];
+        }
+        if (isset($map['ProgrammingLanguage'])) {
+            $model->programmingLanguage = $map['ProgrammingLanguage'];
         }
         if (isset($map['Readiness'])) {
             $model->readiness = $map['Readiness'];

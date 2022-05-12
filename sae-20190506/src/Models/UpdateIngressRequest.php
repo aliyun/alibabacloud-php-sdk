@@ -36,14 +36,26 @@ class UpdateIngressRequest extends Model
     /**
      * @var string
      */
+    public $listenerProtocol;
+
+    /**
+     * @var string
+     */
+    public $loadBalanceType;
+
+    /**
+     * @var string
+     */
     public $rules;
     protected $_name = [
-        'certId'       => 'CertId',
-        'defaultRule'  => 'DefaultRule',
-        'description'  => 'Description',
-        'ingressId'    => 'IngressId',
-        'listenerPort' => 'ListenerPort',
-        'rules'        => 'Rules',
+        'certId'           => 'CertId',
+        'defaultRule'      => 'DefaultRule',
+        'description'      => 'Description',
+        'ingressId'        => 'IngressId',
+        'listenerPort'     => 'ListenerPort',
+        'listenerProtocol' => 'ListenerProtocol',
+        'loadBalanceType'  => 'LoadBalanceType',
+        'rules'            => 'Rules',
     ];
 
     public function validate()
@@ -67,6 +79,12 @@ class UpdateIngressRequest extends Model
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
+        }
+        if (null !== $this->listenerProtocol) {
+            $res['ListenerProtocol'] = $this->listenerProtocol;
+        }
+        if (null !== $this->loadBalanceType) {
+            $res['LoadBalanceType'] = $this->loadBalanceType;
         }
         if (null !== $this->rules) {
             $res['Rules'] = $this->rules;
@@ -97,6 +115,12 @@ class UpdateIngressRequest extends Model
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
+        }
+        if (isset($map['ListenerProtocol'])) {
+            $model->listenerProtocol = $map['ListenerProtocol'];
+        }
+        if (isset($map['LoadBalanceType'])) {
+            $model->loadBalanceType = $map['LoadBalanceType'];
         }
         if (isset($map['Rules'])) {
             $model->rules = $map['Rules'];

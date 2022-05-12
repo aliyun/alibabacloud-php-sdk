@@ -105,6 +105,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $kafkaConfigs;
+
+    /**
+     * @var string
+     */
     public $kafkaEndpoint;
 
     /**
@@ -216,6 +221,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $programmingLanguage;
+
+    /**
+     * @var string
+     */
     public $readiness;
 
     /**
@@ -286,6 +296,7 @@ class CreateApplicationRequest extends Model
         'jarStartArgs'                  => 'JarStartArgs',
         'jarStartOptions'               => 'JarStartOptions',
         'jdk'                           => 'Jdk',
+        'kafkaConfigs'                  => 'KafkaConfigs',
         'kafkaEndpoint'                 => 'KafkaEndpoint',
         'kafkaInstanceId'               => 'KafkaInstanceId',
         'kafkaLogfileConfig'            => 'KafkaLogfileConfig',
@@ -307,6 +318,7 @@ class CreateApplicationRequest extends Model
         'phpConfigLocation'             => 'PhpConfigLocation',
         'postStart'                     => 'PostStart',
         'preStop'                       => 'PreStop',
+        'programmingLanguage'           => 'ProgrammingLanguage',
         'readiness'                     => 'Readiness',
         'replicas'                      => 'Replicas',
         'securityGroupId'               => 'SecurityGroupId',
@@ -381,6 +393,9 @@ class CreateApplicationRequest extends Model
         if (null !== $this->jdk) {
             $res['Jdk'] = $this->jdk;
         }
+        if (null !== $this->kafkaConfigs) {
+            $res['KafkaConfigs'] = $this->kafkaConfigs;
+        }
         if (null !== $this->kafkaEndpoint) {
             $res['KafkaEndpoint'] = $this->kafkaEndpoint;
         }
@@ -443,6 +458,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->preStop) {
             $res['PreStop'] = $this->preStop;
+        }
+        if (null !== $this->programmingLanguage) {
+            $res['ProgrammingLanguage'] = $this->programmingLanguage;
         }
         if (null !== $this->readiness) {
             $res['Readiness'] = $this->readiness;
@@ -543,6 +561,9 @@ class CreateApplicationRequest extends Model
         if (isset($map['Jdk'])) {
             $model->jdk = $map['Jdk'];
         }
+        if (isset($map['KafkaConfigs'])) {
+            $model->kafkaConfigs = $map['KafkaConfigs'];
+        }
         if (isset($map['KafkaEndpoint'])) {
             $model->kafkaEndpoint = $map['KafkaEndpoint'];
         }
@@ -605,6 +626,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['PreStop'])) {
             $model->preStop = $map['PreStop'];
+        }
+        if (isset($map['ProgrammingLanguage'])) {
+            $model->programmingLanguage = $map['ProgrammingLanguage'];
         }
         if (isset($map['Readiness'])) {
             $model->readiness = $map['Readiness'];
