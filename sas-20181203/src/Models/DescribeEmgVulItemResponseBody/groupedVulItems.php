@@ -16,6 +16,11 @@ class groupedVulItems extends Model
     /**
      * @var int
      */
+    public $checkType;
+
+    /**
+     * @var int
+     */
     public $gmtLastCheck;
 
     /**
@@ -49,6 +54,7 @@ class groupedVulItems extends Model
     public $type;
     protected $_name = [
         'aliasName'    => 'AliasName',
+        'checkType'    => 'CheckType',
         'gmtLastCheck' => 'GmtLastCheck',
         'gmtPublish'   => 'GmtPublish',
         'name'         => 'Name',
@@ -67,6 +73,9 @@ class groupedVulItems extends Model
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->checkType) {
+            $res['CheckType'] = $this->checkType;
         }
         if (null !== $this->gmtLastCheck) {
             $res['GmtLastCheck'] = $this->gmtLastCheck;
@@ -103,6 +112,9 @@ class groupedVulItems extends Model
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['CheckType'])) {
+            $model->checkType = $map['CheckType'];
         }
         if (isset($map['GmtLastCheck'])) {
             $model->gmtLastCheck = $map['GmtLastCheck'];

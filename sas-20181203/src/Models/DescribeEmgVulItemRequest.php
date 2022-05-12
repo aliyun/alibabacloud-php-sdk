@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeEmgVulItemRequest extends Model
 {
     /**
+     * @description 检测方式
+     *
+     * @var int
+     */
+    public $checkType;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -38,6 +45,7 @@ class DescribeEmgVulItemRequest extends Model
      */
     public $vulName;
     protected $_name = [
+        'checkType'   => 'CheckType',
         'currentPage' => 'CurrentPage',
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
@@ -53,6 +61,9 @@ class DescribeEmgVulItemRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkType) {
+            $res['CheckType'] = $this->checkType;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -83,6 +94,9 @@ class DescribeEmgVulItemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckType'])) {
+            $model->checkType = $map['CheckType'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
