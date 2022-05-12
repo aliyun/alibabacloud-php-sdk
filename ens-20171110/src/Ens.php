@@ -73,6 +73,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteForwardEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteForwardEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteImageRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteKeyPairsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteKeyPairsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteLoadBalancerListenerRequest;
@@ -2287,6 +2289,49 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DeleteImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteImageResponse
+     */
+    public function deleteImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteImage',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteImageRequest $request
+     *
+     * @return DeleteImageResponse
+     */
+    public function deleteImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteImageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteKeyPairsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2344,6 +2389,9 @@ class Ens extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->listenerPort)) {
             $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
         }
         if (!Utils::isUnset($request->loadBalancerId)) {
             $query['LoadBalancerId'] = $request->loadBalancerId;
@@ -7341,9 +7389,6 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8685,6 +8730,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->listenerPort)) {
             $query['ListenerPort'] = $request->listenerPort;
         }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
         if (!Utils::isUnset($request->loadBalancerId)) {
             $query['LoadBalancerId'] = $request->loadBalancerId;
         }
@@ -8822,6 +8870,9 @@ class Ens extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->listenerPort)) {
             $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
         }
         if (!Utils::isUnset($request->loadBalancerId)) {
             $query['LoadBalancerId'] = $request->loadBalancerId;

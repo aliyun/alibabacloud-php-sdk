@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReleasePrePaidInstanceRequest extends Model
+class DeleteImageRequest extends Model
 {
     /**
      * @var string
      */
-    public $instanceId;
+    public $imageId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'imageId' => 'ImageId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class ReleasePrePaidInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class ReleasePrePaidInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ReleasePrePaidInstanceRequest
+     * @return DeleteImageRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         return $model;

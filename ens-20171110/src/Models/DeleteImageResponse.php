@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeLoadBalancerHTTPSListenerAttributeResponse extends Model
+class DeleteImageResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeLoadBalancerHTTPSListenerAttributeResponseBody
+     * @var DeleteImageResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+     * @return DeleteImageResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeLoadBalancerHTTPSListenerAttributeResponseBody::fromMap($map['body']);
+            $model->body = DeleteImageResponseBody::fromMap($map['body']);
         }
 
         return $model;
