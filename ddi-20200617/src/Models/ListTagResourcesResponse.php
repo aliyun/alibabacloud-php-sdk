@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ddi\V20200617\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateClusterV2Response extends Model
+class ListTagResourcesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateClusterV2Response extends Model
     public $statusCode;
 
     /**
-     * @var CreateClusterV2ResponseBody
+     * @var ListTagResourcesResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class CreateClusterV2Response extends Model
     /**
      * @param array $map
      *
-     * @return CreateClusterV2Response
+     * @return ListTagResourcesResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class CreateClusterV2Response extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateClusterV2ResponseBody::fromMap($map['body']);
+            $model->body = ListTagResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;
