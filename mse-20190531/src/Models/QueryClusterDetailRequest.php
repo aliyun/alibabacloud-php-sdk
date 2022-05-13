@@ -14,6 +14,11 @@ class QueryClusterDetailRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var bool
+     */
+    public $aclSwitch;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -24,6 +29,7 @@ class QueryClusterDetailRequest extends Model
     public $orderId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'aclSwitch'      => 'AclSwitch',
         'instanceId'     => 'InstanceId',
         'orderId'        => 'OrderId',
     ];
@@ -37,6 +43,9 @@ class QueryClusterDetailRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->aclSwitch) {
+            $res['AclSwitch'] = $this->aclSwitch;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -58,6 +67,9 @@ class QueryClusterDetailRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['AclSwitch'])) {
+            $model->aclSwitch = $map['AclSwitch'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

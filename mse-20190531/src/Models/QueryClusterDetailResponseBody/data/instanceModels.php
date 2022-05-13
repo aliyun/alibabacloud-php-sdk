@@ -42,6 +42,11 @@ class instanceModels extends Model
      * @var string
      */
     public $singleTunnelVip;
+
+    /**
+     * @var string
+     */
+    public $zone;
     protected $_name = [
         'creationTimestamp' => 'CreationTimestamp',
         'healthStatus'      => 'HealthStatus',
@@ -50,6 +55,7 @@ class instanceModels extends Model
         'podName'           => 'PodName',
         'role'              => 'Role',
         'singleTunnelVip'   => 'SingleTunnelVip',
+        'zone'              => 'Zone',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class instanceModels extends Model
         }
         if (null !== $this->singleTunnelVip) {
             $res['SingleTunnelVip'] = $this->singleTunnelVip;
+        }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class instanceModels extends Model
         }
         if (isset($map['SingleTunnelVip'])) {
             $model->singleTunnelVip = $map['SingleTunnelVip'];
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

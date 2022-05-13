@@ -17,9 +17,15 @@ class listeners extends Model
      * @var string
      */
     public $md5;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'ip'  => 'Ip',
-        'md5' => 'Md5',
+        'ip'     => 'Ip',
+        'md5'    => 'Md5',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class listeners extends Model
         }
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class listeners extends Model
         }
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

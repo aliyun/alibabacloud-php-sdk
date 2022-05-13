@@ -86,6 +86,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $mseVersion;
+
+    /**
+     * @var string
+     */
     public $versionCode;
     protected $_name = [
         'appVersion'       => 'AppVersion',
@@ -103,6 +108,7 @@ class data extends Model
         'internetDomain'   => 'InternetDomain',
         'intranetAddress'  => 'IntranetAddress',
         'intranetDomain'   => 'IntranetDomain',
+        'mseVersion'       => 'MseVersion',
         'versionCode'      => 'VersionCode',
     ];
 
@@ -157,6 +163,9 @@ class data extends Model
         }
         if (null !== $this->intranetDomain) {
             $res['IntranetDomain'] = $this->intranetDomain;
+        }
+        if (null !== $this->mseVersion) {
+            $res['MseVersion'] = $this->mseVersion;
         }
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
@@ -217,6 +226,9 @@ class data extends Model
         }
         if (isset($map['IntranetDomain'])) {
             $model->intranetDomain = $map['IntranetDomain'];
+        }
+        if (isset($map['MseVersion'])) {
+            $model->mseVersion = $map['MseVersion'];
         }
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];
