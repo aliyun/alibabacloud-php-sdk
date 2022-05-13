@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateSubSceneRequest extends Model
+class UpdateSubSceneShrinkRequest extends Model
 {
     /**
      * @description 子场景ID
@@ -23,13 +23,13 @@ class UpdateSubSceneRequest extends Model
     public $name;
 
     /**
-     * @var float[]
+     * @var string
      */
-    public $viewPoint;
+    public $viewPointShrink;
     protected $_name = [
-        'id'        => 'Id',
-        'name'      => 'Name',
-        'viewPoint' => 'ViewPoint',
+        'id'              => 'Id',
+        'name'            => 'Name',
+        'viewPointShrink' => 'ViewPoint',
     ];
 
     public function validate()
@@ -45,8 +45,8 @@ class UpdateSubSceneRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->viewPoint) {
-            $res['ViewPoint'] = $this->viewPoint;
+        if (null !== $this->viewPointShrink) {
+            $res['ViewPoint'] = $this->viewPointShrink;
         }
 
         return $res;
@@ -55,7 +55,7 @@ class UpdateSubSceneRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateSubSceneRequest
+     * @return UpdateSubSceneShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -67,9 +67,7 @@ class UpdateSubSceneRequest extends Model
             $model->name = $map['Name'];
         }
         if (isset($map['ViewPoint'])) {
-            if (!empty($map['ViewPoint'])) {
-                $model->viewPoint = $map['ViewPoint'];
-            }
+            $model->viewPointShrink = $map['ViewPoint'];
         }
 
         return $model;

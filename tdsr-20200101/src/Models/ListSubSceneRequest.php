@@ -33,11 +33,19 @@ class ListSubSceneRequest extends Model
      * @var bool
      */
     public $showLayoutData;
+
+    /**
+     * @description 排序字段，默认：NAME（名称），SEQUENCE（自定义排序）
+     *
+     * @var string
+     */
+    public $sortField;
     protected $_name = [
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
         'sceneId'        => 'SceneId',
         'showLayoutData' => 'ShowLayoutData',
+        'sortField'      => 'SortField',
     ];
 
     public function validate()
@@ -58,6 +66,9 @@ class ListSubSceneRequest extends Model
         }
         if (null !== $this->showLayoutData) {
             $res['ShowLayoutData'] = $this->showLayoutData;
+        }
+        if (null !== $this->sortField) {
+            $res['SortField'] = $this->sortField;
         }
 
         return $res;
@@ -82,6 +93,9 @@ class ListSubSceneRequest extends Model
         }
         if (isset($map['ShowLayoutData'])) {
             $model->showLayoutData = $map['ShowLayoutData'];
+        }
+        if (isset($map['SortField'])) {
+            $model->sortField = $map['SortField'];
         }
 
         return $model;

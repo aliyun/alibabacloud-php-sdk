@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSubSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckUserPropertyRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckUserPropertyResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\CopySceneRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\CopySceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneRequest;
@@ -34,6 +36,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropSubSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetConnDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetConnDataResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetCopySceneTaskStatusRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetCopySceneTaskStatusResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotConfigRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotConfigResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotSceneDataRequest;
@@ -120,6 +124,10 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneSeqRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneSeqResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneSeqShrinkRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -488,6 +496,52 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param CopySceneRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CopySceneResponse
+     */
+    public function copySceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->sceneName)) {
+            $query['SceneName'] = $request->sceneName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CopyScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CopySceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CopySceneRequest $request
+     *
+     * @return CopySceneResponse
+     */
+    public function copyScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->copySceneWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetailProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -786,6 +840,49 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getConnDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCopySceneTaskStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetCopySceneTaskStatusResponse
+     */
+    public function getCopySceneTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCopySceneTaskStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCopySceneTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCopySceneTaskStatusRequest $request
+     *
+     * @return GetCopySceneTaskStatusResponse
+     */
+    public function getCopySceneTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCopySceneTaskStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1788,6 +1885,9 @@ class Tdsr extends OpenApiClient
         if (!Utils::isUnset($request->showLayoutData)) {
             $query['ShowLayoutData'] = $request->showLayoutData;
         }
+        if (!Utils::isUnset($request->sortField)) {
+            $query['SortField'] = $request->sortField;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2730,20 +2830,28 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubSceneRequest $request
+     * @param UpdateSubSceneRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return UpdateSubSceneResponse
      */
-    public function updateSubSceneWithOptions($request, $runtime)
+    public function updateSubSceneWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSubSceneShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->viewPoint)) {
+            $request->viewPointShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->viewPoint, 'ViewPoint', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->viewPointShrink)) {
+            $query['ViewPoint'] = $request->viewPointShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2773,5 +2881,56 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSubSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSubSceneSeqRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateSubSceneSeqResponse
+     */
+    public function updateSubSceneSeqWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSubSceneSeqShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sortSubSceneIds)) {
+            $request->sortSubSceneIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sortSubSceneIds, 'SortSubSceneIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->sortSubSceneIdsShrink)) {
+            $query['SortSubSceneIds'] = $request->sortSubSceneIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSubSceneSeq',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSubSceneSeqResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSubSceneSeqRequest $request
+     *
+     * @return UpdateSubSceneSeqResponse
+     */
+    public function updateSubSceneSeq($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSubSceneSeqWithOptions($request, $runtime);
     }
 }
