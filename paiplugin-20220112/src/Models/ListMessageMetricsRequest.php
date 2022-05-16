@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListMessageMetricsRequest extends Model
 {
     /**
-     * @description 结束日期，必填，格式20220102。
+     * @description 结束日期，格式20220102。
      *
      * @var string
      */
@@ -58,7 +58,7 @@ class ListMessageMetricsRequest extends Model
     public $signatureId;
 
     /**
-     * @description 开始日期，必填，格式20220102。
+     * @description 开始日期，格式20220102。
      *
      * @var string
      */
@@ -80,7 +80,7 @@ class ListMessageMetricsRequest extends Model
 
     /**
      * @description 模板类型。
-     * 2 : 推广短信。
+     * - 2 : 推广短信。
      * @var int
      */
     public $templateType;

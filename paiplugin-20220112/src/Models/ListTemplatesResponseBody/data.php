@@ -24,14 +24,14 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description 模板列表。
+     * @description 分页返回的模板列表。
      *
      * @var templates[]
      */
     public $templates;
 
     /**
-     * @description 总模板数量。
+     * @description 全部模板注册记录数量。
      *
      * @var int
      */

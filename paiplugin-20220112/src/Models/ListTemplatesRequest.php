@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
-     * @description 内容类型过滤。
+     * @description 模板内容过滤。
      *
      * @var string
      */
@@ -38,14 +38,14 @@ class ListTemplatesRequest extends Model
 
     /**
      * @description 审核状态过滤。
-     *
+     * - 2 : 审核不通过。
      * @var int
      */
     public $status;
 
     /**
      * @description 模板类型过滤。
-     *
+     * - 2 : 推广短信。
      * @var int
      */
     public $type;

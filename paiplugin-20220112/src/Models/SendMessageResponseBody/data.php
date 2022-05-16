@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 短信列表。
+     * @description 短信结果列表，列表中手机号的顺序与输入请求手机号顺序一一对应。
      *
      * @var messages[]
      */
     public $messages;
 
     /**
-     * @description 请求Id。
+     * @description 短信批处理Id，可使用ListMessages查询短信状态。
      *
      * @var string
      */

@@ -24,14 +24,14 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description 签名列表。
+     * @description 分页返回的签名列表。
      *
      * @var signatures[]
      */
     public $signatures;
 
     /**
-     * @description 签名数量。
+     * @description 账号下全部签名注册记录数量。
      *
      * @var int
      */

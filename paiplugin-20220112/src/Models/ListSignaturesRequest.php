@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSignaturesRequest extends Model
 {
     /**
-     * @description 签名名称。
+     * @description 签名名称过滤。
      *
      * @var string
      */
@@ -30,8 +30,8 @@ class ListSignaturesRequest extends Model
     public $pageSize;
 
     /**
-     * @description 审核状态。
-     *
+     * @description 签名审核状态过滤。
+     * - 2：审核不通过。
      * @var int
      */
     public $status;
