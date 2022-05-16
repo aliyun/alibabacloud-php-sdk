@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetItemRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetItemResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetOutAccountBindDetailRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetOutAccountBindDetailResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetQueuingSizeRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetQueuingSizeResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetSessionRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetSessionResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetStopGameTokenRequest;
@@ -1084,9 +1086,6 @@ class CloudGameAPI extends OpenApiClient
         if (!Utils::isUnset($request->gameId)) {
             $query['GameId'] = $request->gameId;
         }
-        if (!Utils::isUnset($request->userLevel)) {
-            $query['UserLevel'] = $request->userLevel;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1342,6 +1341,55 @@ class CloudGameAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOutAccountBindDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetQueuingSizeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetQueuingSizeResponse
+     */
+    public function getQueuingSizeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->userLevel)) {
+            $query['UserLevel'] = $request->userLevel;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQueuingSize',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQueuingSizeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetQueuingSizeRequest $request
+     *
+     * @return GetQueuingSizeResponse
+     */
+    public function getQueuingSize($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQueuingSizeWithOptions($request, $runtime);
     }
 
     /**

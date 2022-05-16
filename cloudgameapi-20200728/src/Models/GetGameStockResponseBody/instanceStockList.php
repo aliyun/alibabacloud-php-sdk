@@ -19,9 +19,9 @@ class instanceStockList extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceSpec;
+    public $quotaSlots;
 
     /**
      * @var string
@@ -31,12 +31,18 @@ class instanceStockList extends Model
     /**
      * @var int
      */
+    public $usedSlots;
+
+    /**
+     * @var int
+     */
     public $userLevel;
     protected $_name = [
         'availableSlots' => 'AvailableSlots',
         'instanceId'     => 'InstanceId',
-        'instanceSpec'   => 'InstanceSpec',
+        'quotaSlots'     => 'QuotaSlots',
         'reginName'      => 'ReginName',
+        'usedSlots'      => 'UsedSlots',
         'userLevel'      => 'UserLevel',
     ];
 
@@ -53,11 +59,14 @@ class instanceStockList extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->instanceSpec) {
-            $res['InstanceSpec'] = $this->instanceSpec;
+        if (null !== $this->quotaSlots) {
+            $res['QuotaSlots'] = $this->quotaSlots;
         }
         if (null !== $this->reginName) {
             $res['ReginName'] = $this->reginName;
+        }
+        if (null !== $this->usedSlots) {
+            $res['UsedSlots'] = $this->usedSlots;
         }
         if (null !== $this->userLevel) {
             $res['UserLevel'] = $this->userLevel;
@@ -80,11 +89,14 @@ class instanceStockList extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['InstanceSpec'])) {
-            $model->instanceSpec = $map['InstanceSpec'];
+        if (isset($map['QuotaSlots'])) {
+            $model->quotaSlots = $map['QuotaSlots'];
         }
         if (isset($map['ReginName'])) {
             $model->reginName = $map['ReginName'];
+        }
+        if (isset($map['UsedSlots'])) {
+            $model->usedSlots = $map['UsedSlots'];
         }
         if (isset($map['UserLevel'])) {
             $model->userLevel = $map['UserLevel'];

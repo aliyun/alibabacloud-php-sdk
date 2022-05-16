@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetGameStockResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $availableTotal;
+
+    /**
      * @var string
      */
     public $gameId;
@@ -25,14 +30,27 @@ class GetGameStockResponseBody extends Model
     public $message;
 
     /**
+     * @var int
+     */
+    public $quotaTotal;
+
+    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $usedTotal;
     protected $_name = [
+        'availableTotal'    => 'AvailableTotal',
         'gameId'            => 'GameId',
         'instanceStockList' => 'InstanceStockList',
         'message'           => 'Message',
+        'quotaTotal'        => 'QuotaTotal',
         'requestId'         => 'RequestId',
+        'usedTotal'         => 'UsedTotal',
     ];
 
     public function validate()
@@ -42,6 +60,9 @@ class GetGameStockResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->availableTotal) {
+            $res['AvailableTotal'] = $this->availableTotal;
+        }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
         }
@@ -57,8 +78,14 @@ class GetGameStockResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->quotaTotal) {
+            $res['QuotaTotal'] = $this->quotaTotal;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->usedTotal) {
+            $res['UsedTotal'] = $this->usedTotal;
         }
 
         return $res;
@@ -72,6 +99,9 @@ class GetGameStockResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableTotal'])) {
+            $model->availableTotal = $map['AvailableTotal'];
+        }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
         }
@@ -87,8 +117,14 @@ class GetGameStockResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['QuotaTotal'])) {
+            $model->quotaTotal = $map['QuotaTotal'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UsedTotal'])) {
+            $model->usedTotal = $map['UsedTotal'];
         }
 
         return $model;

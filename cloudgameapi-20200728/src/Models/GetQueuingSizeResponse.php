@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\CloudGameAPI\V20200728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryGameHangResponse extends Model
+class GetQueuingSizeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class QueryGameHangResponse extends Model
     public $statusCode;
 
     /**
-     * @var QueryGameHangResponseBody
+     * @var GetQueuingSizeResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class QueryGameHangResponse extends Model
     /**
      * @param array $map
      *
-     * @return QueryGameHangResponse
+     * @return GetQueuingSizeResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class QueryGameHangResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = QueryGameHangResponseBody::fromMap($map['body']);
+            $model->body = GetQueuingSizeResponseBody::fromMap($map['body']);
         }
 
         return $model;

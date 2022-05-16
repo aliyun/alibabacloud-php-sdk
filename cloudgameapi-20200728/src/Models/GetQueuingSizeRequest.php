@@ -6,20 +6,26 @@ namespace AlibabaCloud\SDK\CloudGameAPI\V20200728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetGameStockRequest extends Model
+class GetQueuingSizeRequest extends Model
 {
     /**
      * @var string
      */
-    public $accessKey;
+    public $gameId;
 
     /**
      * @var string
      */
-    public $gameId;
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $userLevel;
     protected $_name = [
-        'accessKey' => 'AccessKey',
         'gameId'    => 'GameId',
+        'projectId' => 'ProjectId',
+        'userLevel' => 'UserLevel',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class GetGameStockRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessKey) {
-            $res['AccessKey'] = $this->accessKey;
-        }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->userLevel) {
+            $res['UserLevel'] = $this->userLevel;
         }
 
         return $res;
@@ -42,16 +51,19 @@ class GetGameStockRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetGameStockRequest
+     * @return GetQueuingSizeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessKey'])) {
-            $model->accessKey = $map['AccessKey'];
-        }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['UserLevel'])) {
+            $model->userLevel = $map['UserLevel'];
         }
 
         return $model;
