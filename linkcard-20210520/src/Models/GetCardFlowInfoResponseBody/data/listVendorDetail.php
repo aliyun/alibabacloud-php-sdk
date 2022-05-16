@@ -16,7 +16,17 @@ class listVendorDetail extends Model
     /**
      * @var string
      */
+    public $ratio;
+
+    /**
+     * @var string
+     */
     public $signalStrength;
+
+    /**
+     * @var string
+     */
+    public $usedFlow;
 
     /**
      * @var string
@@ -24,7 +34,9 @@ class listVendorDetail extends Model
     public $vendor;
     protected $_name = [
         'netWorkDelay'   => 'NetWorkDelay',
+        'ratio'          => 'Ratio',
         'signalStrength' => 'SignalStrength',
+        'usedFlow'       => 'UsedFlow',
         'vendor'         => 'Vendor',
     ];
 
@@ -38,8 +50,14 @@ class listVendorDetail extends Model
         if (null !== $this->netWorkDelay) {
             $res['NetWorkDelay'] = $this->netWorkDelay;
         }
+        if (null !== $this->ratio) {
+            $res['Ratio'] = $this->ratio;
+        }
         if (null !== $this->signalStrength) {
             $res['SignalStrength'] = $this->signalStrength;
+        }
+        if (null !== $this->usedFlow) {
+            $res['UsedFlow'] = $this->usedFlow;
         }
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
@@ -59,8 +77,14 @@ class listVendorDetail extends Model
         if (isset($map['NetWorkDelay'])) {
             $model->netWorkDelay = $map['NetWorkDelay'];
         }
+        if (isset($map['Ratio'])) {
+            $model->ratio = $map['Ratio'];
+        }
         if (isset($map['SignalStrength'])) {
             $model->signalStrength = $map['SignalStrength'];
+        }
+        if (isset($map['UsedFlow'])) {
+            $model->usedFlow = $map['UsedFlow'];
         }
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];

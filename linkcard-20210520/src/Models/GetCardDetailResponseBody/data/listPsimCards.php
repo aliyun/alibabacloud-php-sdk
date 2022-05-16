@@ -31,7 +31,17 @@ class listPsimCards extends Model
     /**
      * @var string[]
      */
+    public $ip;
+
+    /**
+     * @var string[]
+     */
     public $msisdn;
+
+    /**
+     * @var bool
+     */
+    public $openSms;
 
     /**
      * @var string
@@ -67,7 +77,9 @@ class listPsimCards extends Model
         'certifyStatus'         => 'CertifyStatus',
         'iccid'                 => 'Iccid',
         'imsi'                  => 'Imsi',
+        'ip'                    => 'Ip',
         'msisdn'                => 'Msisdn',
+        'openSms'               => 'OpenSms',
         'osStatus'              => 'OsStatus',
         'periodAddFlow'         => 'PeriodAddFlow',
         'periodSmsUse'          => 'PeriodSmsUse',
@@ -95,8 +107,14 @@ class listPsimCards extends Model
         if (null !== $this->imsi) {
             $res['Imsi'] = $this->imsi;
         }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
+        }
         if (null !== $this->msisdn) {
             $res['Msisdn'] = $this->msisdn;
+        }
+        if (null !== $this->openSms) {
+            $res['OpenSms'] = $this->openSms;
         }
         if (null !== $this->osStatus) {
             $res['OsStatus'] = $this->osStatus;
@@ -142,10 +160,18 @@ class listPsimCards extends Model
                 $model->imsi = $map['Imsi'];
             }
         }
+        if (isset($map['Ip'])) {
+            if (!empty($map['Ip'])) {
+                $model->ip = $map['Ip'];
+            }
+        }
         if (isset($map['Msisdn'])) {
             if (!empty($map['Msisdn'])) {
                 $model->msisdn = $map['Msisdn'];
             }
+        }
+        if (isset($map['OpenSms'])) {
+            $model->openSms = $map['OpenSms'];
         }
         if (isset($map['OsStatus'])) {
             $model->osStatus = $map['OsStatus'];

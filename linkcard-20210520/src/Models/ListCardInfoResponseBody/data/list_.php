@@ -2,12 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardDetailResponseBody\data;
+namespace AlibabaCloud\SDK\Linkcard\V20210520\Models\ListCardInfoResponseBody\data;
 
-use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardDetailResponseBody\data\vsimCardInfo\tagList;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListCardInfoResponseBody\data\list_\tagList;
 use AlibabaCloud\Tea\Model;
 
-class vsimCardInfo extends Model
+class list_ extends Model
 {
     /**
      * @var string
@@ -35,31 +35,6 @@ class vsimCardInfo extends Model
     public $apnName;
 
     /**
-     * @var bool
-     */
-    public $autoLimitResume;
-
-    /**
-     * @var bool
-     */
-    public $autoRebindReuse;
-
-    /**
-     * @var int
-     */
-    public $cardLimitSpeedThreshold;
-
-    /**
-     * @var int
-     */
-    public $cardLimitStopThreshold;
-
-    /**
-     * @var string
-     */
-    public $certifyStatus;
-
-    /**
      * @var string
      */
     public $certifyType;
@@ -68,16 +43,6 @@ class vsimCardInfo extends Model
      * @var string
      */
     public $credentialInstanceId;
-
-    /**
-     * @var int
-     */
-    public $credentialLimitSpeedThreshold;
-
-    /**
-     * @var int
-     */
-    public $credentialLimitStopThreshold;
 
     /**
      * @var string
@@ -102,16 +67,6 @@ class vsimCardInfo extends Model
     /**
      * @var string
      */
-    public $deviceImei;
-
-    /**
-     * @var string
-     */
-    public $directionalGroupId;
-
-    /**
-     * @var string
-     */
     public $directionalGroupName;
 
     /**
@@ -122,22 +77,12 @@ class vsimCardInfo extends Model
     /**
      * @var string
      */
-    public $flowThresholdUnit;
-
-    /**
-     * @var string
-     */
     public $iccid;
 
     /**
      * @var string[]
      */
     public $imsi;
-
-    /**
-     * @var string[]
-     */
-    public $ip;
 
     /**
      * @var bool
@@ -158,11 +103,6 @@ class vsimCardInfo extends Model
      * @var string
      */
     public $openAccountTime;
-
-    /**
-     * @var bool
-     */
-    public $openSms;
 
     /**
      * @var string
@@ -197,6 +137,11 @@ class vsimCardInfo extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $simType;
 
     /**
@@ -219,48 +164,37 @@ class vsimCardInfo extends Model
      */
     public $vsimInstanceId;
     protected $_name = [
-        'activeTime'                    => 'ActiveTime',
-        'activeType'                    => 'ActiveType',
-        'aliFee'                        => 'AliFee',
-        'aliyunOrderId'                 => 'AliyunOrderId',
-        'apnName'                       => 'ApnName',
-        'autoLimitResume'               => 'AutoLimitResume',
-        'autoRebindReuse'               => 'AutoRebindReuse',
-        'cardLimitSpeedThreshold'       => 'CardLimitSpeedThreshold',
-        'cardLimitStopThreshold'        => 'CardLimitStopThreshold',
-        'certifyStatus'                 => 'CertifyStatus',
-        'certifyType'                   => 'CertifyType',
-        'credentialInstanceId'          => 'CredentialInstanceId',
-        'credentialLimitSpeedThreshold' => 'CredentialLimitSpeedThreshold',
-        'credentialLimitStopThreshold'  => 'CredentialLimitStopThreshold',
-        'credentialNo'                  => 'CredentialNo',
-        'credentialType'                => 'CredentialType',
-        'dataLevel'                     => 'DataLevel',
-        'dataType'                      => 'DataType',
-        'deviceImei'                    => 'DeviceImei',
-        'directionalGroupId'            => 'DirectionalGroupId',
-        'directionalGroupName'          => 'DirectionalGroupName',
-        'expireTime'                    => 'ExpireTime',
-        'flowThresholdUnit'             => 'FlowThresholdUnit',
-        'iccid'                         => 'Iccid',
-        'imsi'                          => 'Imsi',
-        'ip'                            => 'Ip',
-        'isAutoRecharge'                => 'IsAutoRecharge',
-        'msisdn'                        => 'Msisdn',
-        'notifyId'                      => 'NotifyId',
-        'openAccountTime'               => 'OpenAccountTime',
-        'openSms'                       => 'OpenSms',
-        'osStatus'                      => 'OsStatus',
-        'period'                        => 'Period',
-        'periodAddFlow'                 => 'PeriodAddFlow',
-        'periodRestFlow'                => 'PeriodRestFlow',
-        'periodSmsUse'                  => 'PeriodSmsUse',
-        'privateNetworkSegment'         => 'PrivateNetworkSegment',
-        'simType'                       => 'SimType',
-        'status'                        => 'Status',
-        'tagList'                       => 'TagList',
-        'vendor'                        => 'Vendor',
-        'vsimInstanceId'                => 'VsimInstanceId',
+        'activeTime'            => 'ActiveTime',
+        'activeType'            => 'ActiveType',
+        'aliFee'                => 'AliFee',
+        'aliyunOrderId'         => 'AliyunOrderId',
+        'apnName'               => 'ApnName',
+        'certifyType'           => 'CertifyType',
+        'credentialInstanceId'  => 'CredentialInstanceId',
+        'credentialNo'          => 'CredentialNo',
+        'credentialType'        => 'CredentialType',
+        'dataLevel'             => 'DataLevel',
+        'dataType'              => 'DataType',
+        'directionalGroupName'  => 'DirectionalGroupName',
+        'expireTime'            => 'ExpireTime',
+        'iccid'                 => 'Iccid',
+        'imsi'                  => 'Imsi',
+        'isAutoRecharge'        => 'IsAutoRecharge',
+        'msisdn'                => 'Msisdn',
+        'notifyId'              => 'NotifyId',
+        'openAccountTime'       => 'OpenAccountTime',
+        'osStatus'              => 'OsStatus',
+        'period'                => 'Period',
+        'periodAddFlow'         => 'PeriodAddFlow',
+        'periodRestFlow'        => 'PeriodRestFlow',
+        'periodSmsUse'          => 'PeriodSmsUse',
+        'privateNetworkSegment' => 'PrivateNetworkSegment',
+        'remark'                => 'Remark',
+        'simType'               => 'SimType',
+        'status'                => 'Status',
+        'tagList'               => 'TagList',
+        'vendor'                => 'Vendor',
+        'vsimInstanceId'        => 'VsimInstanceId',
     ];
 
     public function validate()
@@ -285,32 +219,11 @@ class vsimCardInfo extends Model
         if (null !== $this->apnName) {
             $res['ApnName'] = $this->apnName;
         }
-        if (null !== $this->autoLimitResume) {
-            $res['AutoLimitResume'] = $this->autoLimitResume;
-        }
-        if (null !== $this->autoRebindReuse) {
-            $res['AutoRebindReuse'] = $this->autoRebindReuse;
-        }
-        if (null !== $this->cardLimitSpeedThreshold) {
-            $res['CardLimitSpeedThreshold'] = $this->cardLimitSpeedThreshold;
-        }
-        if (null !== $this->cardLimitStopThreshold) {
-            $res['CardLimitStopThreshold'] = $this->cardLimitStopThreshold;
-        }
-        if (null !== $this->certifyStatus) {
-            $res['CertifyStatus'] = $this->certifyStatus;
-        }
         if (null !== $this->certifyType) {
             $res['CertifyType'] = $this->certifyType;
         }
         if (null !== $this->credentialInstanceId) {
             $res['CredentialInstanceId'] = $this->credentialInstanceId;
-        }
-        if (null !== $this->credentialLimitSpeedThreshold) {
-            $res['CredentialLimitSpeedThreshold'] = $this->credentialLimitSpeedThreshold;
-        }
-        if (null !== $this->credentialLimitStopThreshold) {
-            $res['CredentialLimitStopThreshold'] = $this->credentialLimitStopThreshold;
         }
         if (null !== $this->credentialNo) {
             $res['CredentialNo'] = $this->credentialNo;
@@ -324,29 +237,17 @@ class vsimCardInfo extends Model
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
-        if (null !== $this->deviceImei) {
-            $res['DeviceImei'] = $this->deviceImei;
-        }
-        if (null !== $this->directionalGroupId) {
-            $res['DirectionalGroupId'] = $this->directionalGroupId;
-        }
         if (null !== $this->directionalGroupName) {
             $res['DirectionalGroupName'] = $this->directionalGroupName;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->flowThresholdUnit) {
-            $res['FlowThresholdUnit'] = $this->flowThresholdUnit;
-        }
         if (null !== $this->iccid) {
             $res['Iccid'] = $this->iccid;
         }
         if (null !== $this->imsi) {
             $res['Imsi'] = $this->imsi;
-        }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
         }
         if (null !== $this->isAutoRecharge) {
             $res['IsAutoRecharge'] = $this->isAutoRecharge;
@@ -359,9 +260,6 @@ class vsimCardInfo extends Model
         }
         if (null !== $this->openAccountTime) {
             $res['OpenAccountTime'] = $this->openAccountTime;
-        }
-        if (null !== $this->openSms) {
-            $res['OpenSms'] = $this->openSms;
         }
         if (null !== $this->osStatus) {
             $res['OsStatus'] = $this->osStatus;
@@ -380,6 +278,9 @@ class vsimCardInfo extends Model
         }
         if (null !== $this->privateNetworkSegment) {
             $res['PrivateNetworkSegment'] = $this->privateNetworkSegment;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->simType) {
             $res['SimType'] = $this->simType;
@@ -409,7 +310,7 @@ class vsimCardInfo extends Model
     /**
      * @param array $map
      *
-     * @return vsimCardInfo
+     * @return list_
      */
     public static function fromMap($map = [])
     {
@@ -429,32 +330,11 @@ class vsimCardInfo extends Model
         if (isset($map['ApnName'])) {
             $model->apnName = $map['ApnName'];
         }
-        if (isset($map['AutoLimitResume'])) {
-            $model->autoLimitResume = $map['AutoLimitResume'];
-        }
-        if (isset($map['AutoRebindReuse'])) {
-            $model->autoRebindReuse = $map['AutoRebindReuse'];
-        }
-        if (isset($map['CardLimitSpeedThreshold'])) {
-            $model->cardLimitSpeedThreshold = $map['CardLimitSpeedThreshold'];
-        }
-        if (isset($map['CardLimitStopThreshold'])) {
-            $model->cardLimitStopThreshold = $map['CardLimitStopThreshold'];
-        }
-        if (isset($map['CertifyStatus'])) {
-            $model->certifyStatus = $map['CertifyStatus'];
-        }
         if (isset($map['CertifyType'])) {
             $model->certifyType = $map['CertifyType'];
         }
         if (isset($map['CredentialInstanceId'])) {
             $model->credentialInstanceId = $map['CredentialInstanceId'];
-        }
-        if (isset($map['CredentialLimitSpeedThreshold'])) {
-            $model->credentialLimitSpeedThreshold = $map['CredentialLimitSpeedThreshold'];
-        }
-        if (isset($map['CredentialLimitStopThreshold'])) {
-            $model->credentialLimitStopThreshold = $map['CredentialLimitStopThreshold'];
         }
         if (isset($map['CredentialNo'])) {
             $model->credentialNo = $map['CredentialNo'];
@@ -468,20 +348,11 @@ class vsimCardInfo extends Model
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
-        if (isset($map['DeviceImei'])) {
-            $model->deviceImei = $map['DeviceImei'];
-        }
-        if (isset($map['DirectionalGroupId'])) {
-            $model->directionalGroupId = $map['DirectionalGroupId'];
-        }
         if (isset($map['DirectionalGroupName'])) {
             $model->directionalGroupName = $map['DirectionalGroupName'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['FlowThresholdUnit'])) {
-            $model->flowThresholdUnit = $map['FlowThresholdUnit'];
         }
         if (isset($map['Iccid'])) {
             $model->iccid = $map['Iccid'];
@@ -489,11 +360,6 @@ class vsimCardInfo extends Model
         if (isset($map['Imsi'])) {
             if (!empty($map['Imsi'])) {
                 $model->imsi = $map['Imsi'];
-            }
-        }
-        if (isset($map['Ip'])) {
-            if (!empty($map['Ip'])) {
-                $model->ip = $map['Ip'];
             }
         }
         if (isset($map['IsAutoRecharge'])) {
@@ -509,9 +375,6 @@ class vsimCardInfo extends Model
         }
         if (isset($map['OpenAccountTime'])) {
             $model->openAccountTime = $map['OpenAccountTime'];
-        }
-        if (isset($map['OpenSms'])) {
-            $model->openSms = $map['OpenSms'];
         }
         if (isset($map['OsStatus'])) {
             $model->osStatus = $map['OsStatus'];
@@ -530,6 +393,9 @@ class vsimCardInfo extends Model
         }
         if (isset($map['PrivateNetworkSegment'])) {
             $model->privateNetworkSegment = $map['PrivateNetworkSegment'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['SimType'])) {
             $model->simType = $map['SimType'];
