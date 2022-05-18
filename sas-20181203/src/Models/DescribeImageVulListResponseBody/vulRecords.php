@@ -15,6 +15,11 @@ class vulRecords extends Model
     public $aliasName;
 
     /**
+     * @var string
+     */
+    public $canFix;
+
+    /**
      * @var bool
      */
     public $canUpdate;
@@ -100,6 +105,7 @@ class vulRecords extends Model
     public $uuid;
     protected $_name = [
         'aliasName'         => 'AliasName',
+        'canFix'            => 'CanFix',
         'canUpdate'         => 'CanUpdate',
         'extendContentJson' => 'ExtendContentJson',
         'firstTs'           => 'FirstTs',
@@ -128,6 +134,9 @@ class vulRecords extends Model
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->canFix) {
+            $res['CanFix'] = $this->canFix;
         }
         if (null !== $this->canUpdate) {
             $res['CanUpdate'] = $this->canUpdate;
@@ -194,6 +203,9 @@ class vulRecords extends Model
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['CanFix'])) {
+            $model->canFix = $map['CanFix'];
         }
         if (isset($map['CanUpdate'])) {
             $model->canUpdate = $map['CanUpdate'];

@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSuspEventNoteRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSuspEventNoteResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineRequest;
@@ -151,6 +153,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOnceTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOnceTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyCronDetailRequest;
@@ -863,6 +867,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSimilarSecurityEventsQueryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSuspEventNoteRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSuspEventNoteResponse
+     */
+    public function createSuspEventNoteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSuspEventNote',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSuspEventNoteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSuspEventNoteRequest $request
+     *
+     * @return CreateSuspEventNoteResponse
+     */
+    public function createSuspEventNote($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSuspEventNoteWithOptions($request, $runtime);
     }
 
     /**
@@ -4465,6 +4515,64 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNoticeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOnceTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeOnceTaskResponse
+     */
+    public function describeOnceTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTimeQuery)) {
+            $query['EndTimeQuery'] = $request->endTimeQuery;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->rootTaskId)) {
+            $query['RootTaskId'] = $request->rootTaskId;
+        }
+        if (!Utils::isUnset($request->startTimeQuery)) {
+            $query['StartTimeQuery'] = $request->startTimeQuery;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOnceTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOnceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOnceTaskRequest $request
+     *
+     * @return DescribeOnceTaskResponse
+     */
+    public function describeOnceTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOnceTaskWithOptions($request, $runtime);
     }
 
     /**
