@@ -119,6 +119,15 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->instanceName)) {
             $body['InstanceName'] = $request->instanceName;
         }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->requestedResource)) {
+            $body['RequestedResource'] = $request->requestedResource;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
         if (!Utils::isUnset($request->userVpc)) {
             $body['UserVpc'] = $request->userVpc;
         }

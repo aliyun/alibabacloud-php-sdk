@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\instanceShutdownTimer;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\latestSnapshot;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\requestedResource;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\userVpc;
 use AlibabaCloud\Tea\Model;
 
@@ -139,6 +140,13 @@ class instances extends Model
     public $paymentType;
 
     /**
+     * @description 优先级，在分配资源给实例时，优先级越高的实例越优先
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @description 实例错误代码
      *
      * @var string
@@ -151,6 +159,20 @@ class instances extends Model
      * @var string
      */
     public $reasonMessage;
+
+    /**
+     * @description 资源配置，弹内或者轻量化时使用
+     *
+     * @var requestedResource
+     */
+    public $requestedResource;
+
+    /**
+     * @description 资源Id,预付费时填写
+     *
+     * @var string
+     */
+    public $resourceId;
 
     /**
      * @description 实例状态
@@ -226,8 +248,11 @@ class instances extends Model
         'jupyterlabUrl'              => 'JupyterlabUrl',
         'latestSnapshot'             => 'LatestSnapshot',
         'paymentType'                => 'PaymentType',
+        'priority'                   => 'Priority',
         'reasonCode'                 => 'ReasonCode',
         'reasonMessage'              => 'ReasonMessage',
+        'requestedResource'          => 'RequestedResource',
+        'resourceId'                 => 'ResourceId',
         'status'                     => 'Status',
         'terminalUrl'                => 'TerminalUrl',
         'userId'                     => 'UserId',
@@ -305,11 +330,20 @@ class instances extends Model
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
         }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
         }
         if (null !== $this->reasonMessage) {
             $res['ReasonMessage'] = $this->reasonMessage;
+        }
+        if (null !== $this->requestedResource) {
+            $res['RequestedResource'] = null !== $this->requestedResource ? $this->requestedResource->toMap() : null;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -407,11 +441,20 @@ class instances extends Model
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
         }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
         }
         if (isset($map['ReasonMessage'])) {
             $model->reasonMessage = $map['ReasonMessage'];
+        }
+        if (isset($map['RequestedResource'])) {
+            $model->requestedResource = requestedResource::fromMap($map['RequestedResource']);
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\datasets;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\requestedResource;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\userVpc;
 use AlibabaCloud\Tea\Model;
 
@@ -60,6 +61,27 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @description 优先级，在分配资源给实例时，优先级越高的实例越优先
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @description 资源配置，弹内或者轻量化时使用
+     *
+     * @var requestedResource
+     */
+    public $requestedResource;
+
+    /**
+     * @description 资源Id,预付费时填写
+     *
+     * @var string
+     */
+    public $resourceId;
+
+    /**
      * @description user vpc配置
      *
      * @var userVpc
@@ -80,6 +102,9 @@ class CreateInstanceRequest extends Model
         'imageId'              => 'ImageId',
         'imageUrl'             => 'ImageUrl',
         'instanceName'         => 'InstanceName',
+        'priority'             => 'Priority',
+        'requestedResource'    => 'RequestedResource',
+        'resourceId'           => 'ResourceId',
         'userVpc'              => 'UserVpc',
         'workspaceId'          => 'WorkspaceId',
     ];
@@ -117,6 +142,15 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->requestedResource) {
+            $res['RequestedResource'] = null !== $this->requestedResource ? $this->requestedResource->toMap() : null;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->userVpc) {
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
@@ -162,6 +196,15 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+        if (isset($map['RequestedResource'])) {
+            $model->requestedResource = requestedResource::fromMap($map['RequestedResource']);
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['UserVpc'])) {
             $model->userVpc = userVpc::fromMap($map['UserVpc']);
