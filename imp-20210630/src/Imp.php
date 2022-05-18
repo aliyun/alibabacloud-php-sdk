@@ -63,6 +63,10 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteSensitiveWordRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteSensitiveWordResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteSensitiveWordShrinkRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpPlayBackTimeByLiveIdRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpPlayBackTimeByLiveIdResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpWatchLiveTimeByLiveIdRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpWatchLiveTimeByLiveIdResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateRequest;
@@ -1537,6 +1541,104 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSensitiveWordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeMeterImpPlayBackTimeByLiveIdRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeMeterImpPlayBackTimeByLiveIdResponse
+     */
+    public function describeMeterImpPlayBackTimeByLiveIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $query['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMeterImpPlayBackTimeByLiveId',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMeterImpPlayBackTimeByLiveIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMeterImpPlayBackTimeByLiveIdRequest $request
+     *
+     * @return DescribeMeterImpPlayBackTimeByLiveIdResponse
+     */
+    public function describeMeterImpPlayBackTimeByLiveId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMeterImpPlayBackTimeByLiveIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeMeterImpWatchLiveTimeByLiveIdRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeMeterImpWatchLiveTimeByLiveIdResponse
+     */
+    public function describeMeterImpWatchLiveTimeByLiveIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $query['LiveId'] = $request->liveId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMeterImpWatchLiveTimeByLiveId',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMeterImpWatchLiveTimeByLiveIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMeterImpWatchLiveTimeByLiveIdRequest $request
+     *
+     * @return DescribeMeterImpWatchLiveTimeByLiveIdResponse
+     */
+    public function describeMeterImpWatchLiveTimeByLiveId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMeterImpWatchLiveTimeByLiveIdWithOptions($request, $runtime);
     }
 
     /**
