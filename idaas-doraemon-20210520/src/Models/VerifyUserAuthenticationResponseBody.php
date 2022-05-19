@@ -19,6 +19,16 @@ class VerifyUserAuthenticationResponseBody extends Model
     /**
      * @var string
      */
+    public $etasSDKString;
+
+    /**
+     * @var string
+     */
+    public $idToken;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -29,6 +39,8 @@ class VerifyUserAuthenticationResponseBody extends Model
     public $verifyResult;
     protected $_name = [
         'authenticateResultInfo' => 'AuthenticateResultInfo',
+        'etasSDKString'          => 'EtasSDKString',
+        'idToken'                => 'IdToken',
         'requestId'              => 'RequestId',
         'verifyResult'           => 'VerifyResult',
     ];
@@ -42,6 +54,12 @@ class VerifyUserAuthenticationResponseBody extends Model
         $res = [];
         if (null !== $this->authenticateResultInfo) {
             $res['AuthenticateResultInfo'] = null !== $this->authenticateResultInfo ? $this->authenticateResultInfo->toMap() : null;
+        }
+        if (null !== $this->etasSDKString) {
+            $res['EtasSDKString'] = $this->etasSDKString;
+        }
+        if (null !== $this->idToken) {
+            $res['IdToken'] = $this->idToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -63,6 +81,12 @@ class VerifyUserAuthenticationResponseBody extends Model
         $model = new self();
         if (isset($map['AuthenticateResultInfo'])) {
             $model->authenticateResultInfo = authenticateResultInfo::fromMap($map['AuthenticateResultInfo']);
+        }
+        if (isset($map['EtasSDKString'])) {
+            $model->etasSDKString = $map['EtasSDKString'];
+        }
+        if (isset($map['IdToken'])) {
+            $model->idToken = $map['IdToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

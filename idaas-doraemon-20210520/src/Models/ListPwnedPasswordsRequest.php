@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListPwnedPasswordsRequest extends Model
 {
     /**
-     * @description 泄露密码SHA1值前6位
-     *
      * @var string
      */
     public $prefixHexPasswordSha1Hash;

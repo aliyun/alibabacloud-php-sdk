@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ServiceInvokeResponse extends Model
+class VerifyIdTokenResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ServiceInvokeResponse extends Model
     public $statusCode;
 
     /**
-     * @var ServiceInvokeResponseBody
+     * @var VerifyIdTokenResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ServiceInvokeResponse extends Model
     /**
      * @param array $map
      *
-     * @return ServiceInvokeResponse
+     * @return VerifyIdTokenResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ServiceInvokeResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ServiceInvokeResponseBody::fromMap($map['body']);
+            $model->body = VerifyIdTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

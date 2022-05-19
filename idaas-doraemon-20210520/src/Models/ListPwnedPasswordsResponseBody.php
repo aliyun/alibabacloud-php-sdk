@@ -10,22 +10,34 @@ use AlibabaCloud\Tea\Model;
 class ListPwnedPasswordsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var pwnedPasswordInfos[]
      */
     public $pwnedPasswordInfos;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 返回列表长度
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
+        'pageNumber'         => 'PageNumber',
+        'pageSize'           => 'PageSize',
         'pwnedPasswordInfos' => 'PwnedPasswordInfos',
         'requestId'          => 'RequestId',
         'totalCount'         => 'TotalCount',
@@ -38,6 +50,12 @@ class ListPwnedPasswordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->pwnedPasswordInfos) {
             $res['PwnedPasswordInfos'] = [];
             if (null !== $this->pwnedPasswordInfos && \is_array($this->pwnedPasswordInfos)) {
@@ -65,6 +83,12 @@ class ListPwnedPasswordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['PwnedPasswordInfos'])) {
             if (!empty($map['PwnedPasswordInfos'])) {
                 $model->pwnedPasswordInfos = [];

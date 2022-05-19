@@ -16,11 +16,19 @@ class RegisterAuthenticatorResponseBody extends Model
     public $authenticatorUuid;
 
     /**
+     * @description 仅IFAA认证器注册返回
+     *
+     * @var string
+     */
+    public $etasResponseSting;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'authenticatorUuid' => 'AuthenticatorUuid',
+        'etasResponseSting' => 'EtasResponseSting',
         'requestId'         => 'RequestId',
     ];
 
@@ -33,6 +41,9 @@ class RegisterAuthenticatorResponseBody extends Model
         $res = [];
         if (null !== $this->authenticatorUuid) {
             $res['AuthenticatorUuid'] = $this->authenticatorUuid;
+        }
+        if (null !== $this->etasResponseSting) {
+            $res['EtasResponseSting'] = $this->etasResponseSting;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -51,6 +62,9 @@ class RegisterAuthenticatorResponseBody extends Model
         $model = new self();
         if (isset($map['AuthenticatorUuid'])) {
             $model->authenticatorUuid = $map['AuthenticatorUuid'];
+        }
+        if (isset($map['EtasResponseSting'])) {
+            $model->etasResponseSting = $map['EtasResponseSting'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

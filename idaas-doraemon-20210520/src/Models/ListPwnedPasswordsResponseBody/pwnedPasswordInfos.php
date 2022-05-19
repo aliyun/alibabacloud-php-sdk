@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class pwnedPasswordInfos extends Model
 {
     /**
-     * @description 泄露密码SHA1值
-     *
      * @var string
      */
     public $hexPasswordSha1Hash;
 
     /**
-     * @description 泄露次数
-     *
      * @var int
      */
     public $pwnedCount;

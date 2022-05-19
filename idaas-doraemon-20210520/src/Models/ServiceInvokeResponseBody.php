@@ -21,6 +21,11 @@ class ServiceInvokeResponseBody extends Model
     /**
      * @var string
      */
+    public $idToken;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -35,6 +40,7 @@ class ServiceInvokeResponseBody extends Model
     protected $_name = [
         'code'      => 'Code',
         'data'      => 'Data',
+        'idToken'   => 'IdToken',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -52,6 +58,9 @@ class ServiceInvokeResponseBody extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->idToken) {
+            $res['IdToken'] = $this->idToken;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -79,6 +88,9 @@ class ServiceInvokeResponseBody extends Model
         }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['IdToken'])) {
+            $model->idToken = $map['IdToken'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

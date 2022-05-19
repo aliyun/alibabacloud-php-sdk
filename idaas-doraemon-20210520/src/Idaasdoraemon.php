@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Idaasdoraemon\V20210520;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\CreateAuthenticatorRegistrationRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\CreateAuthenticatorRegistrationResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\CreateUserAuthenticateOptionsRequest;
@@ -31,11 +32,14 @@ use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ServiceInvokeRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ServiceInvokeResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\UpdateAuthenticatorAttributeRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\UpdateAuthenticatorAttributeResponse;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\VerifyIdTokenRequest;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\VerifyIdTokenResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\VerifyUserAuthenticationRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\VerifyUserAuthenticationResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Idaasdoraemon extends OpenApiClient
@@ -83,11 +87,50 @@ class Idaasdoraemon extends OpenApiClient
     public function createAuthenticatorRegistrationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorType)) {
+            $query['AuthenticatorType'] = $request->authenticatorType;
+        }
+        if (!Utils::isUnset($request->clientExtendParamsJson)) {
+            $query['ClientExtendParamsJson'] = $request->clientExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->clientExtendParamsJsonSign)) {
+            $query['ClientExtendParamsJsonSign'] = $request->clientExtendParamsJsonSign;
+        }
+        if (!Utils::isUnset($request->registrationContext)) {
+            $query['RegistrationContext'] = $request->registrationContext;
+        }
+        if (!Utils::isUnset($request->serverExtendParamsJson)) {
+            $query['ServerExtendParamsJson'] = $request->serverExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->userDisplayName)) {
+            $query['UserDisplayName'] = $request->userDisplayName;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAuthenticatorRegistration',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAuthenticatorRegistrationResponse::fromMap($this->doRPCRequest('CreateAuthenticatorRegistration', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAuthenticatorRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -111,11 +154,44 @@ class Idaasdoraemon extends OpenApiClient
     public function createUserAuthenticateOptionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorType)) {
+            $query['AuthenticatorType'] = $request->authenticatorType;
+        }
+        if (!Utils::isUnset($request->bindHashBase64)) {
+            $query['BindHashBase64'] = $request->bindHashBase64;
+        }
+        if (!Utils::isUnset($request->clientExtendParamsJson)) {
+            $query['ClientExtendParamsJson'] = $request->clientExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->clientExtendParamsJsonSign)) {
+            $query['ClientExtendParamsJsonSign'] = $request->clientExtendParamsJsonSign;
+        }
+        if (!Utils::isUnset($request->serverExtendParamsJson)) {
+            $query['ServerExtendParamsJson'] = $request->serverExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUserAuthenticateOptions',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUserAuthenticateOptionsResponse::fromMap($this->doRPCRequest('CreateUserAuthenticateOptions', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUserAuthenticateOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -139,11 +215,32 @@ class Idaasdoraemon extends OpenApiClient
     public function deregisterAuthenticatorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorUuid)) {
+            $query['AuthenticatorUuid'] = $request->authenticatorUuid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeregisterAuthenticator',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeregisterAuthenticatorResponse::fromMap($this->doRPCRequest('DeregisterAuthenticator', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeregisterAuthenticatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -167,11 +264,41 @@ class Idaasdoraemon extends OpenApiClient
     public function fetchAccessTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->mobileExtendParamsJson)) {
+            $query['MobileExtendParamsJson'] = $request->mobileExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->mobileExtendParamsJsonSign)) {
+            $query['MobileExtendParamsJsonSign'] = $request->mobileExtendParamsJsonSign;
+        }
+        if (!Utils::isUnset($request->serverExtendParamsJson)) {
+            $query['ServerExtendParamsJson'] = $request->serverExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->XClientIp)) {
+            $query['XClientIp'] = $request->XClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FetchAccessToken',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FetchAccessTokenResponse::fromMap($this->doRPCRequest('FetchAccessToken', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FetchAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -195,11 +322,32 @@ class Idaasdoraemon extends OpenApiClient
     public function getAuthenticatorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorUuid)) {
+            $query['AuthenticatorUuid'] = $request->authenticatorUuid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAuthenticator',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAuthenticatorResponse::fromMap($this->doRPCRequest('GetAuthenticator', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAuthenticatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -223,11 +371,53 @@ class Idaasdoraemon extends OpenApiClient
     public function listAuthenticationLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorType)) {
+            $query['AuthenticatorType'] = $request->authenticatorType;
+        }
+        if (!Utils::isUnset($request->authenticatorUuid)) {
+            $query['AuthenticatorUuid'] = $request->authenticatorUuid;
+        }
+        if (!Utils::isUnset($request->credentialId)) {
+            $query['CredentialId'] = $request->credentialId;
+        }
+        if (!Utils::isUnset($request->fromTime)) {
+            $query['FromTime'] = $request->fromTime;
+        }
+        if (!Utils::isUnset($request->logTag)) {
+            $query['LogTag'] = $request->logTag;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->toTime)) {
+            $query['ToTime'] = $request->toTime;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthenticationLogs',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAuthenticationLogsResponse::fromMap($this->doRPCRequest('ListAuthenticationLogs', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAuthenticationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -251,11 +441,47 @@ class Idaasdoraemon extends OpenApiClient
     public function listAuthenticatorOpsLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorType)) {
+            $query['AuthenticatorType'] = $request->authenticatorType;
+        }
+        if (!Utils::isUnset($request->authenticatorUuid)) {
+            $query['AuthenticatorUuid'] = $request->authenticatorUuid;
+        }
+        if (!Utils::isUnset($request->fromTime)) {
+            $query['FromTime'] = $request->fromTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->toTime)) {
+            $query['ToTime'] = $request->toTime;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthenticatorOpsLogs',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAuthenticatorOpsLogsResponse::fromMap($this->doRPCRequest('ListAuthenticatorOpsLogs', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAuthenticatorOpsLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -279,11 +505,38 @@ class Idaasdoraemon extends OpenApiClient
     public function listAuthenticatorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorType)) {
+            $query['AuthenticatorType'] = $request->authenticatorType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthenticators',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAuthenticatorsResponse::fromMap($this->doRPCRequest('ListAuthenticators', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAuthenticatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -307,11 +560,26 @@ class Idaasdoraemon extends OpenApiClient
     public function listPwnedPasswordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->prefixHexPasswordSha1Hash)) {
+            $query['PrefixHexPasswordSha1Hash'] = $request->prefixHexPasswordSha1Hash;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPwnedPasswords',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPwnedPasswordsResponse::fromMap($this->doRPCRequest('ListPwnedPasswords', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPwnedPasswordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -335,11 +603,29 @@ class Idaasdoraemon extends OpenApiClient
     public function listUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsers',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUsersResponse::fromMap($this->doRPCRequest('ListUsers', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -363,11 +649,56 @@ class Idaasdoraemon extends OpenApiClient
     public function registerAuthenticatorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorName)) {
+            $query['AuthenticatorName'] = $request->authenticatorName;
+        }
+        if (!Utils::isUnset($request->authenticatorType)) {
+            $query['AuthenticatorType'] = $request->authenticatorType;
+        }
+        if (!Utils::isUnset($request->clientExtendParamsJson)) {
+            $query['ClientExtendParamsJson'] = $request->clientExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->clientExtendParamsJsonSign)) {
+            $query['ClientExtendParamsJsonSign'] = $request->clientExtendParamsJsonSign;
+        }
+        if (!Utils::isUnset($request->logParams)) {
+            $query['LogParams'] = $request->logParams;
+        }
+        if (!Utils::isUnset($request->registrationContext)) {
+            $query['RegistrationContext'] = $request->registrationContext;
+        }
+        if (!Utils::isUnset($request->requireChallengeBase64)) {
+            $query['RequireChallengeBase64'] = $request->requireChallengeBase64;
+        }
+        if (!Utils::isUnset($request->serverExtendParamsJson)) {
+            $query['ServerExtendParamsJson'] = $request->serverExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userSourceIp)) {
+            $query['UserSourceIp'] = $request->userSourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterAuthenticator',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterAuthenticatorResponse::fromMap($this->doRPCRequest('RegisterAuthenticator', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterAuthenticatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -391,11 +722,47 @@ class Idaasdoraemon extends OpenApiClient
     public function serviceInvokeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->doraemonAction)) {
+            $query['DoraemonAction'] = $request->doraemonAction;
+        }
+        if (!Utils::isUnset($request->mobileExtendParamsJson)) {
+            $query['MobileExtendParamsJson'] = $request->mobileExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->mobileExtendParamsJsonSign)) {
+            $query['MobileExtendParamsJsonSign'] = $request->mobileExtendParamsJsonSign;
+        }
+        if (!Utils::isUnset($request->serverExtendParamsJson)) {
+            $query['ServerExtendParamsJson'] = $request->serverExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->testModel)) {
+            $query['TestModel'] = $request->testModel;
+        }
+        if (!Utils::isUnset($request->XClientIp)) {
+            $query['XClientIp'] = $request->XClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ServiceInvoke',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ServiceInvokeResponse::fromMap($this->doRPCRequest('ServiceInvoke', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ServiceInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -419,11 +786,35 @@ class Idaasdoraemon extends OpenApiClient
     public function updateAuthenticatorAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticatorName)) {
+            $query['AuthenticatorName'] = $request->authenticatorName;
+        }
+        if (!Utils::isUnset($request->authenticatorUuid)) {
+            $query['AuthenticatorUuid'] = $request->authenticatorUuid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAuthenticatorAttribute',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAuthenticatorAttributeResponse::fromMap($this->doRPCRequest('UpdateAuthenticatorAttribute', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAuthenticatorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -439,6 +830,52 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
+     * @param VerifyIdTokenRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return VerifyIdTokenResponse
+     */
+    public function verifyIdTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->jwtIdToken)) {
+            $query['JwtIdToken'] = $request->jwtIdToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyIdToken',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyIdTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyIdTokenRequest $request
+     *
+     * @return VerifyIdTokenResponse
+     */
+    public function verifyIdToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyIdTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param VerifyUserAuthenticationRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -447,11 +884,59 @@ class Idaasdoraemon extends OpenApiClient
     public function verifyUserAuthenticationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
+        if (!Utils::isUnset($request->authenticationContext)) {
+            $query['AuthenticationContext'] = $request->authenticationContext;
+        }
+        if (!Utils::isUnset($request->authenticatorType)) {
+            $query['AuthenticatorType'] = $request->authenticatorType;
+        }
+        if (!Utils::isUnset($request->clientExtendParamsJson)) {
+            $query['ClientExtendParamsJson'] = $request->clientExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->clientExtendParamsJsonSign)) {
+            $query['ClientExtendParamsJsonSign'] = $request->clientExtendParamsJsonSign;
+        }
+        if (!Utils::isUnset($request->logParams)) {
+            $query['LogParams'] = $request->logParams;
+        }
+        if (!Utils::isUnset($request->logTag)) {
+            $query['LogTag'] = $request->logTag;
+        }
+        if (!Utils::isUnset($request->requireBindHashBase64)) {
+            $query['RequireBindHashBase64'] = $request->requireBindHashBase64;
+        }
+        if (!Utils::isUnset($request->requireChallengeBase64)) {
+            $query['RequireChallengeBase64'] = $request->requireChallengeBase64;
+        }
+        if (!Utils::isUnset($request->serverExtendParamsJson)) {
+            $query['ServerExtendParamsJson'] = $request->serverExtendParamsJson;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userSourceIp)) {
+            $query['UserSourceIp'] = $request->userSourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyUserAuthentication',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return VerifyUserAuthenticationResponse::fromMap($this->doRPCRequest('VerifyUserAuthentication', '2021-05-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return VerifyUserAuthenticationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

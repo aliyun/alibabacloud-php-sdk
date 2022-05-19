@@ -31,12 +31,18 @@ class FetchAccessTokenRequest extends Model
     /**
      * @var string
      */
+    public $userId;
+
+    /**
+     * @var string
+     */
     public $XClientIp;
     protected $_name = [
         'applicationExternalId'      => 'ApplicationExternalId',
         'mobileExtendParamsJson'     => 'MobileExtendParamsJson',
         'mobileExtendParamsJsonSign' => 'MobileExtendParamsJsonSign',
         'serverExtendParamsJson'     => 'ServerExtendParamsJson',
+        'userId'                     => 'UserId',
         'XClientIp'                  => 'XClientIp',
     ];
 
@@ -58,6 +64,9 @@ class FetchAccessTokenRequest extends Model
         }
         if (null !== $this->serverExtendParamsJson) {
             $res['ServerExtendParamsJson'] = $this->serverExtendParamsJson;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
         if (null !== $this->XClientIp) {
             $res['XClientIp'] = $this->XClientIp;
@@ -85,6 +94,9 @@ class FetchAccessTokenRequest extends Model
         }
         if (isset($map['ServerExtendParamsJson'])) {
             $model->serverExtendParamsJson = $map['ServerExtendParamsJson'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
         if (isset($map['XClientIp'])) {
             $model->XClientIp = $map['XClientIp'];
