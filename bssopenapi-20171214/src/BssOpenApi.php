@@ -153,6 +153,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryUserOmsDataRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryUserOmsDataResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RefundInstanceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RefundInstanceResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ReleaseInstanceRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RelieveAccountRelationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RelieveAccountRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewInstanceRequest;
@@ -4563,6 +4565,67 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param ReleaseInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseInstanceResponse
+     */
+    public function releaseInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->renewStatus)) {
+            $query['RenewStatus'] = $request->renewStatus;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $query['SubscriptionType'] = $request->subscriptionType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseInstanceRequest $request
+     *
+     * @return ReleaseInstanceResponse
+     */
+    public function releaseInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RelieveAccountRelationRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -5160,6 +5223,9 @@ class BssOpenApi extends OpenApiClient
         }
         if (!Utils::isUnset($request->bucketOwnerId)) {
             $query['BucketOwnerId'] = $request->bucketOwnerId;
+        }
+        if (!Utils::isUnset($request->bucketPath)) {
+            $query['BucketPath'] = $request->bucketPath;
         }
         if (!Utils::isUnset($request->multAccountRelSubscribe)) {
             $query['MultAccountRelSubscribe'] = $request->multAccountRelSubscribe;

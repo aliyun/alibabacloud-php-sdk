@@ -19,6 +19,13 @@ class SubscribeBillToOSSRequest extends Model
     public $bucketOwnerId;
 
     /**
+     * @description OSS Bucket存储路径
+     *
+     * @var string
+     */
+    public $bucketPath;
+
+    /**
      * @var string
      */
     public $multAccountRelSubscribe;
@@ -35,6 +42,7 @@ class SubscribeBillToOSSRequest extends Model
     protected $_name = [
         'beginBillingCycle'       => 'BeginBillingCycle',
         'bucketOwnerId'           => 'BucketOwnerId',
+        'bucketPath'              => 'BucketPath',
         'multAccountRelSubscribe' => 'MultAccountRelSubscribe',
         'subscribeBucket'         => 'SubscribeBucket',
         'subscribeType'           => 'SubscribeType',
@@ -52,6 +60,9 @@ class SubscribeBillToOSSRequest extends Model
         }
         if (null !== $this->bucketOwnerId) {
             $res['BucketOwnerId'] = $this->bucketOwnerId;
+        }
+        if (null !== $this->bucketPath) {
+            $res['BucketPath'] = $this->bucketPath;
         }
         if (null !== $this->multAccountRelSubscribe) {
             $res['MultAccountRelSubscribe'] = $this->multAccountRelSubscribe;
@@ -79,6 +90,9 @@ class SubscribeBillToOSSRequest extends Model
         }
         if (isset($map['BucketOwnerId'])) {
             $model->bucketOwnerId = $map['BucketOwnerId'];
+        }
+        if (isset($map['BucketPath'])) {
+            $model->bucketPath = $map['BucketPath'];
         }
         if (isset($map['MultAccountRelSubscribe'])) {
             $model->multAccountRelSubscribe = $map['MultAccountRelSubscribe'];

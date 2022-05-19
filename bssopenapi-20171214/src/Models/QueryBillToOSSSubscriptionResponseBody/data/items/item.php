@@ -16,6 +16,11 @@ class item extends Model
     /**
      * @var string
      */
+    public $bucketPath;
+
+    /**
+     * @var string
+     */
     public $subscribeBucket;
 
     /**
@@ -34,6 +39,7 @@ class item extends Model
     public $subscribeType;
     protected $_name = [
         'bucketOwnerId'     => 'BucketOwnerId',
+        'bucketPath'        => 'BucketPath',
         'subscribeBucket'   => 'SubscribeBucket',
         'subscribeLanguage' => 'SubscribeLanguage',
         'subscribeTime'     => 'SubscribeTime',
@@ -49,6 +55,9 @@ class item extends Model
         $res = [];
         if (null !== $this->bucketOwnerId) {
             $res['BucketOwnerId'] = $this->bucketOwnerId;
+        }
+        if (null !== $this->bucketPath) {
+            $res['BucketPath'] = $this->bucketPath;
         }
         if (null !== $this->subscribeBucket) {
             $res['SubscribeBucket'] = $this->subscribeBucket;
@@ -76,6 +85,9 @@ class item extends Model
         $model = new self();
         if (isset($map['BucketOwnerId'])) {
             $model->bucketOwnerId = $map['BucketOwnerId'];
+        }
+        if (isset($map['BucketPath'])) {
+            $model->bucketPath = $map['BucketPath'];
         }
         if (isset($map['SubscribeBucket'])) {
             $model->subscribeBucket = $map['SubscribeBucket'];

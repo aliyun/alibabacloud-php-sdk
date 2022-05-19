@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryAvailableInstancesResponse extends Model
+class ReleaseInstanceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class QueryAvailableInstancesResponse extends Model
     public $statusCode;
 
     /**
-     * @var QueryAvailableInstancesResponseBody
+     * @var ReleaseInstanceResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class QueryAvailableInstancesResponse extends Model
     /**
      * @param array $map
      *
-     * @return QueryAvailableInstancesResponse
+     * @return ReleaseInstanceResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class QueryAvailableInstancesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = QueryAvailableInstancesResponseBody::fromMap($map['body']);
+            $model->body = ReleaseInstanceResponseBody::fromMap($map['body']);
         }
 
         return $model;
