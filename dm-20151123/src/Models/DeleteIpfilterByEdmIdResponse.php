@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SenderStatisticsDetailByParamResponse extends Model
+class DeleteIpfilterByEdmIdResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class SenderStatisticsDetailByParamResponse extends Model
     public $statusCode;
 
     /**
-     * @var SenderStatisticsDetailByParamResponseBody
+     * @var DeleteIpfilterByEdmIdResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class SenderStatisticsDetailByParamResponse extends Model
     /**
      * @param array $map
      *
-     * @return SenderStatisticsDetailByParamResponse
+     * @return DeleteIpfilterByEdmIdResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class SenderStatisticsDetailByParamResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = SenderStatisticsDetailByParamResponseBody::fromMap($map['body']);
+            $model->body = DeleteIpfilterByEdmIdResponseBody::fromMap($map['body']);
         }
 
         return $model;

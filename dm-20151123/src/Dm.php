@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Dm\V20151123;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dm\V20151123\Models\AddIpfilterRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\AddIpfilterResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ApproveReplyMailAddressRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ApproveReplyMailAddressResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\BatchSendMailRequest;
@@ -24,6 +26,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTagRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTagResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteIpfilterByEdmIdRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteIpfilterByEdmIdResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteMailAddressRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteMailAddressResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteReceiverDetailRequest;
@@ -36,6 +40,10 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescDomainResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpfilterListRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpfilterListResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpProtectionRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpProtectionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListRequest;
@@ -70,6 +78,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\SendTestByTemplateRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SendTestByTemplateResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateMailAddressMsgCallBackUrlRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateMailAddressMsgCallBackUrlResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -109,6 +119,58 @@ class Dm extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddIpfilterRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddIpfilterResponse
+     */
+    public function addIpfilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipAddress)) {
+            $query['IpAddress'] = $request->ipAddress;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddIpfilter',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddIpfilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddIpfilterRequest $request
+     *
+     * @return AddIpfilterResponse
+     */
+    public function addIpfilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addIpfilterWithOptions($request, $runtime);
     }
 
     /**
@@ -619,6 +681,61 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * @param DeleteIpfilterByEdmIdRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteIpfilterByEdmIdResponse
+     */
+    public function deleteIpfilterByEdmIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromType)) {
+            $query['FromType'] = $request->fromType;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIpfilterByEdmId',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIpfilterByEdmIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIpfilterByEdmIdRequest $request
+     *
+     * @return DeleteIpfilterByEdmIdResponse
+     */
+    public function deleteIpfilterByEdmId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIpfilterByEdmIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteMailAddressRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -928,6 +1045,104 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->descDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIpProtectionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetIpProtectionResponse
+     */
+    public function getIpProtectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIpProtection',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIpProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetIpProtectionRequest $request
+     *
+     * @return GetIpProtectionResponse
+     */
+    public function getIpProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIpProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIpfilterListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetIpfilterListResponse
+     */
+    public function getIpfilterListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIpfilterList',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIpfilterListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetIpfilterListRequest $request
+     *
+     * @return GetIpfilterListResponse
+     */
+    public function getIpfilterList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIpfilterListWithOptions($request, $runtime);
     }
 
     /**
@@ -2016,6 +2231,58 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->singleSendMailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateIpProtectionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateIpProtectionResponse
+     */
+    public function updateIpProtectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipProtection)) {
+            $query['IpProtection'] = $request->ipProtection;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIpProtection',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateIpProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIpProtectionRequest $request
+     *
+     * @return UpdateIpProtectionResponse
+     */
+    public function updateIpProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIpProtectionWithOptions($request, $runtime);
     }
 
     /**
