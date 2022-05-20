@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\CGCS\V20211111\Models;
 
-use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppSessionResponseBody\scheduleInfo;
 use AlibabaCloud\Tea\Model;
 
 class GetAppSessionResponseBody extends Model
@@ -45,11 +44,6 @@ class GetAppSessionResponseBody extends Model
     public $requestId;
 
     /**
-     * @var scheduleInfo[]
-     */
-    public $scheduleInfo;
-
-    /**
      * @description 状态
      *
      * @var string
@@ -61,7 +55,6 @@ class GetAppSessionResponseBody extends Model
         'customSessionId'   => 'CustomSessionId',
         'platformSessionId' => 'PlatformSessionId',
         'requestId'         => 'RequestId',
-        'scheduleInfo'      => 'ScheduleInfo',
         'status'            => 'Status',
     ];
 
@@ -86,15 +79,6 @@ class GetAppSessionResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->scheduleInfo) {
-            $res['ScheduleInfo'] = [];
-            if (null !== $this->scheduleInfo && \is_array($this->scheduleInfo)) {
-                $n = 0;
-                foreach ($this->scheduleInfo as $item) {
-                    $res['ScheduleInfo'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -125,15 +109,6 @@ class GetAppSessionResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ScheduleInfo'])) {
-            if (!empty($map['ScheduleInfo'])) {
-                $model->scheduleInfo = [];
-                $n                   = 0;
-                foreach ($map['ScheduleInfo'] as $item) {
-                    $model->scheduleInfo[$n++] = null !== $item ? scheduleInfo::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

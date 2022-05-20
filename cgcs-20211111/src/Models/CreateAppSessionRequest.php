@@ -46,6 +46,11 @@ class CreateAppSessionRequest extends Model
     public $customUserId;
 
     /**
+     * @var bool
+     */
+    public $enablePostpaid;
+
+    /**
      * @description 启动参数
      *
      * @var startParameters[]
@@ -58,14 +63,21 @@ class CreateAppSessionRequest extends Model
      * @var systemInfo[]
      */
     public $systemInfo;
+
+    /**
+     * @var int
+     */
+    public $timeout;
     protected $_name = [
         'appId'           => 'AppId',
         'appVersion'      => 'AppVersion',
         'clientIp'        => 'ClientIp',
         'customSessionId' => 'CustomSessionId',
         'customUserId'    => 'CustomUserId',
+        'enablePostpaid'  => 'EnablePostpaid',
         'startParameters' => 'StartParameters',
         'systemInfo'      => 'SystemInfo',
+        'timeout'         => 'Timeout',
     ];
 
     public function validate()
@@ -90,6 +102,9 @@ class CreateAppSessionRequest extends Model
         if (null !== $this->customUserId) {
             $res['CustomUserId'] = $this->customUserId;
         }
+        if (null !== $this->enablePostpaid) {
+            $res['EnablePostpaid'] = $this->enablePostpaid;
+        }
         if (null !== $this->startParameters) {
             $res['StartParameters'] = [];
             if (null !== $this->startParameters && \is_array($this->startParameters)) {
@@ -107,6 +122,9 @@ class CreateAppSessionRequest extends Model
                     $res['SystemInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -135,6 +153,9 @@ class CreateAppSessionRequest extends Model
         if (isset($map['CustomUserId'])) {
             $model->customUserId = $map['CustomUserId'];
         }
+        if (isset($map['EnablePostpaid'])) {
+            $model->enablePostpaid = $map['EnablePostpaid'];
+        }
         if (isset($map['StartParameters'])) {
             if (!empty($map['StartParameters'])) {
                 $model->startParameters = [];
@@ -152,6 +173,9 @@ class CreateAppSessionRequest extends Model
                     $model->systemInfo[$n++] = null !== $item ? systemInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;
