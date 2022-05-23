@@ -1677,8 +1677,20 @@ class Tdsr extends OpenApiClient
         if (!Utils::isUnset($request->mode)) {
             $query['Mode'] = $request->mode;
         }
+        if (!Utils::isUnset($request->optimizeModelEffect)) {
+            $query['OptimizeModelEffect'] = $request->optimizeModelEffect;
+        }
+        if (!Utils::isUnset($request->optimizeWallWidth)) {
+            $query['OptimizeWallWidth'] = $request->optimizeWallWidth;
+        }
+        if (!Utils::isUnset($request->planStyle)) {
+            $query['PlanStyle'] = $request->planStyle;
+        }
         if (!Utils::isUnset($request->sceneId)) {
             $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->wallHeight)) {
+            $query['WallHeight'] = $request->wallHeight;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

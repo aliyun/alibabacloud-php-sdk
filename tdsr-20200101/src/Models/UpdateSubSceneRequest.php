@@ -23,6 +23,8 @@ class UpdateSubSceneRequest extends Model
     public $name;
 
     /**
+     * @description 视角坐标，目前支持3元坐标，4元坐标，例如：[0.94005,0.13397,-0.3136,0.782992]
+     *
      * @var float[]
      */
     public $viewPoint;
