@@ -319,8 +319,9 @@ class Edas extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
+        $this->_endpointMap        = [
             'ap-northeast-2-pop'          => 'edas.ap-northeast-1.aliyuncs.com',
             'ap-south-1'                  => 'edas.ap-northeast-1.aliyuncs.com',
             'ap-southeast-3'              => 'edas.ap-northeast-1.aliyuncs.com',
@@ -2404,6 +2405,9 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->annotations)) {
+            $query['Annotations'] = $request->annotations;
+        }
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
@@ -2455,6 +2459,12 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->enableAhas)) {
             $query['EnableAhas'] = $request->enableAhas;
         }
+        if (!Utils::isUnset($request->enableEmptyPushReject)) {
+            $query['EnableEmptyPushReject'] = $request->enableEmptyPushReject;
+        }
+        if (!Utils::isUnset($request->enableLosslessRule)) {
+            $query['EnableLosslessRule'] = $request->enableLosslessRule;
+        }
         if (!Utils::isUnset($request->envFroms)) {
             $query['EnvFroms'] = $request->envFroms;
         }
@@ -2473,11 +2483,29 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->javaStartUpConfig)) {
             $query['JavaStartUpConfig'] = $request->javaStartUpConfig;
         }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
         if (!Utils::isUnset($request->liveness)) {
             $query['Liveness'] = $request->liveness;
         }
         if (!Utils::isUnset($request->localVolume)) {
             $query['LocalVolume'] = $request->localVolume;
+        }
+        if (!Utils::isUnset($request->losslessRuleAligned)) {
+            $query['LosslessRuleAligned'] = $request->losslessRuleAligned;
+        }
+        if (!Utils::isUnset($request->losslessRuleDelayTime)) {
+            $query['LosslessRuleDelayTime'] = $request->losslessRuleDelayTime;
+        }
+        if (!Utils::isUnset($request->losslessRuleFuncType)) {
+            $query['LosslessRuleFuncType'] = $request->losslessRuleFuncType;
+        }
+        if (!Utils::isUnset($request->losslessRuleRelated)) {
+            $query['LosslessRuleRelated'] = $request->losslessRuleRelated;
+        }
+        if (!Utils::isUnset($request->losslessRuleWarmupTime)) {
+            $query['LosslessRuleWarmupTime'] = $request->losslessRuleWarmupTime;
         }
         if (!Utils::isUnset($request->mcpuLimit)) {
             $query['McpuLimit'] = $request->mcpuLimit;
@@ -4451,6 +4479,9 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->annotations)) {
+            $query['Annotations'] = $request->annotations;
+        }
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
         }
@@ -4499,6 +4530,12 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->enableAsm)) {
             $query['EnableAsm'] = $request->enableAsm;
         }
+        if (!Utils::isUnset($request->enableEmptyPushReject)) {
+            $query['EnableEmptyPushReject'] = $request->enableEmptyPushReject;
+        }
+        if (!Utils::isUnset($request->enableLosslessRule)) {
+            $query['EnableLosslessRule'] = $request->enableLosslessRule;
+        }
         if (!Utils::isUnset($request->envFroms)) {
             $query['EnvFroms'] = $request->envFroms;
         }
@@ -4541,6 +4578,9 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->javaStartUpConfig)) {
             $query['JavaStartUpConfig'] = $request->javaStartUpConfig;
         }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
         if (!Utils::isUnset($request->limitCpu)) {
             $query['LimitCpu'] = $request->limitCpu;
         }
@@ -4558,6 +4598,21 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->logicalRegionId)) {
             $query['LogicalRegionId'] = $request->logicalRegionId;
+        }
+        if (!Utils::isUnset($request->losslessRuleAligned)) {
+            $query['LosslessRuleAligned'] = $request->losslessRuleAligned;
+        }
+        if (!Utils::isUnset($request->losslessRuleDelayTime)) {
+            $query['LosslessRuleDelayTime'] = $request->losslessRuleDelayTime;
+        }
+        if (!Utils::isUnset($request->losslessRuleFuncType)) {
+            $query['LosslessRuleFuncType'] = $request->losslessRuleFuncType;
+        }
+        if (!Utils::isUnset($request->losslessRuleRelated)) {
+            $query['LosslessRuleRelated'] = $request->losslessRuleRelated;
+        }
+        if (!Utils::isUnset($request->losslessRuleWarmupTime)) {
+            $query['LosslessRuleWarmupTime'] = $request->losslessRuleWarmupTime;
         }
         if (!Utils::isUnset($request->mountDescs)) {
             $query['MountDescs'] = $request->mountDescs;

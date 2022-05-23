@@ -11,6 +11,11 @@ class DeployK8sApplicationRequest extends Model
     /**
      * @var string
      */
+    public $annotations;
+
+    /**
+     * @var string
+     */
     public $appId;
 
     /**
@@ -94,6 +99,20 @@ class DeployK8sApplicationRequest extends Model
     public $enableAhas;
 
     /**
+     * @description 是否开启推空保护
+     *
+     * @var bool
+     */
+    public $enableEmptyPushReject;
+
+    /**
+     * @description 是否启用无损上线规则
+     *
+     * @var bool
+     */
+    public $enableLosslessRule;
+
+    /**
      * @var string
      */
     public $envFroms;
@@ -126,12 +145,52 @@ class DeployK8sApplicationRequest extends Model
     /**
      * @var string
      */
+    public $labels;
+
+    /**
+     * @var string
+     */
     public $liveness;
 
     /**
      * @var string
      */
     public $localVolume;
+
+    /**
+     * @description 是否启用无损滚动发布模式配置通过就绪检查前完成服务注册
+     *
+     * @var bool
+     */
+    public $losslessRuleAligned;
+
+    /**
+     * @description 无损上线延迟注册时长
+     *
+     * @var int
+     */
+    public $losslessRuleDelayTime;
+
+    /**
+     * @description 无损上线服务预热曲线
+     *
+     * @var int
+     */
+    public $losslessRuleFuncType;
+
+    /**
+     * @description 是否启用无损滚动发布模式配置通过就绪检查前完成服务预热
+     *
+     * @var bool
+     */
+    public $losslessRuleRelated;
+
+    /**
+     * @description 无损上线服务预热时长
+     *
+     * @var int
+     */
+    public $losslessRuleWarmupTime;
 
     /**
      * @var int
@@ -253,6 +312,7 @@ class DeployK8sApplicationRequest extends Model
      */
     public $webContainerConfig;
     protected $_name = [
+        'annotations'            => 'Annotations',
         'appId'                  => 'AppId',
         'args'                   => 'Args',
         'batchTimeout'           => 'BatchTimeout',
@@ -270,14 +330,22 @@ class DeployK8sApplicationRequest extends Model
         'edasContainerVersion'   => 'EdasContainerVersion',
         'emptyDirs'              => 'EmptyDirs',
         'enableAhas'             => 'EnableAhas',
+        'enableEmptyPushReject'  => 'EnableEmptyPushReject',
+        'enableLosslessRule'     => 'EnableLosslessRule',
         'envFroms'               => 'EnvFroms',
         'envs'                   => 'Envs',
         'image'                  => 'Image',
         'imageTag'               => 'ImageTag',
         'JDK'                    => 'JDK',
         'javaStartUpConfig'      => 'JavaStartUpConfig',
+        'labels'                 => 'Labels',
         'liveness'               => 'Liveness',
         'localVolume'            => 'LocalVolume',
+        'losslessRuleAligned'    => 'LosslessRuleAligned',
+        'losslessRuleDelayTime'  => 'LosslessRuleDelayTime',
+        'losslessRuleFuncType'   => 'LosslessRuleFuncType',
+        'losslessRuleRelated'    => 'LosslessRuleRelated',
+        'losslessRuleWarmupTime' => 'LosslessRuleWarmupTime',
         'mcpuLimit'              => 'McpuLimit',
         'mcpuRequest'            => 'McpuRequest',
         'memoryLimit'            => 'MemoryLimit',
@@ -311,6 +379,9 @@ class DeployK8sApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->annotations) {
+            $res['Annotations'] = $this->annotations;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -362,6 +433,12 @@ class DeployK8sApplicationRequest extends Model
         if (null !== $this->enableAhas) {
             $res['EnableAhas'] = $this->enableAhas;
         }
+        if (null !== $this->enableEmptyPushReject) {
+            $res['EnableEmptyPushReject'] = $this->enableEmptyPushReject;
+        }
+        if (null !== $this->enableLosslessRule) {
+            $res['EnableLosslessRule'] = $this->enableLosslessRule;
+        }
         if (null !== $this->envFroms) {
             $res['EnvFroms'] = $this->envFroms;
         }
@@ -380,11 +457,29 @@ class DeployK8sApplicationRequest extends Model
         if (null !== $this->javaStartUpConfig) {
             $res['JavaStartUpConfig'] = $this->javaStartUpConfig;
         }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
+        }
         if (null !== $this->liveness) {
             $res['Liveness'] = $this->liveness;
         }
         if (null !== $this->localVolume) {
             $res['LocalVolume'] = $this->localVolume;
+        }
+        if (null !== $this->losslessRuleAligned) {
+            $res['LosslessRuleAligned'] = $this->losslessRuleAligned;
+        }
+        if (null !== $this->losslessRuleDelayTime) {
+            $res['LosslessRuleDelayTime'] = $this->losslessRuleDelayTime;
+        }
+        if (null !== $this->losslessRuleFuncType) {
+            $res['LosslessRuleFuncType'] = $this->losslessRuleFuncType;
+        }
+        if (null !== $this->losslessRuleRelated) {
+            $res['LosslessRuleRelated'] = $this->losslessRuleRelated;
+        }
+        if (null !== $this->losslessRuleWarmupTime) {
+            $res['LosslessRuleWarmupTime'] = $this->losslessRuleWarmupTime;
         }
         if (null !== $this->mcpuLimit) {
             $res['McpuLimit'] = $this->mcpuLimit;
@@ -470,6 +565,9 @@ class DeployK8sApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Annotations'])) {
+            $model->annotations = $map['Annotations'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -521,6 +619,12 @@ class DeployK8sApplicationRequest extends Model
         if (isset($map['EnableAhas'])) {
             $model->enableAhas = $map['EnableAhas'];
         }
+        if (isset($map['EnableEmptyPushReject'])) {
+            $model->enableEmptyPushReject = $map['EnableEmptyPushReject'];
+        }
+        if (isset($map['EnableLosslessRule'])) {
+            $model->enableLosslessRule = $map['EnableLosslessRule'];
+        }
         if (isset($map['EnvFroms'])) {
             $model->envFroms = $map['EnvFroms'];
         }
@@ -539,11 +643,29 @@ class DeployK8sApplicationRequest extends Model
         if (isset($map['JavaStartUpConfig'])) {
             $model->javaStartUpConfig = $map['JavaStartUpConfig'];
         }
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
+        }
         if (isset($map['Liveness'])) {
             $model->liveness = $map['Liveness'];
         }
         if (isset($map['LocalVolume'])) {
             $model->localVolume = $map['LocalVolume'];
+        }
+        if (isset($map['LosslessRuleAligned'])) {
+            $model->losslessRuleAligned = $map['LosslessRuleAligned'];
+        }
+        if (isset($map['LosslessRuleDelayTime'])) {
+            $model->losslessRuleDelayTime = $map['LosslessRuleDelayTime'];
+        }
+        if (isset($map['LosslessRuleFuncType'])) {
+            $model->losslessRuleFuncType = $map['LosslessRuleFuncType'];
+        }
+        if (isset($map['LosslessRuleRelated'])) {
+            $model->losslessRuleRelated = $map['LosslessRuleRelated'];
+        }
+        if (isset($map['LosslessRuleWarmupTime'])) {
+            $model->losslessRuleWarmupTime = $map['LosslessRuleWarmupTime'];
         }
         if (isset($map['McpuLimit'])) {
             $model->mcpuLimit = $map['McpuLimit'];
