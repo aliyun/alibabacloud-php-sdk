@@ -82,6 +82,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeApplicationMonitorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeApplicationMonitorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageAutoRenewAttributeRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeEndpointGroupRequest;
@@ -168,6 +170,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateApplicationMonitorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateApplicationMonitorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackagaAutoRenewAttributeRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackagaAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicAcceleratorRequest;
@@ -889,6 +893,12 @@ class Ga extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewDuration)) {
+            $query['AutoRenewDuration'] = $request->autoRenewDuration;
         }
         if (!Utils::isUnset($request->autoUseCoupon)) {
             $query['AutoUseCoupon'] = $request->autoUseCoupon;
@@ -2409,6 +2419,52 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBandwidthPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBandwidthPackageAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return DescribeBandwidthPackageAutoRenewAttributeResponse
+     */
+    public function describeBandwidthPackageAutoRenewAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBandwidthPackageAutoRenewAttribute',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBandwidthPackageAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBandwidthPackageAutoRenewAttributeRequest $request
+     *
+     * @return DescribeBandwidthPackageAutoRenewAttributeResponse
+     */
+    public function describeBandwidthPackageAutoRenewAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBandwidthPackageAutoRenewAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -4602,6 +4658,67 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateBandwidthPackagaAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
+     */
+    public function updateBandwidthPackagaAutoRenewAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewDuration)) {
+            $query['AutoRenewDuration'] = $request->autoRenewDuration;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->renewalStatus)) {
+            $query['RenewalStatus'] = $request->renewalStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBandwidthPackagaAutoRenewAttribute',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBandwidthPackagaAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBandwidthPackagaAutoRenewAttributeRequest $request
+     *
+     * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
+     */
+    public function updateBandwidthPackagaAutoRenewAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBandwidthPackagaAutoRenewAttributeWithOptions($request, $runtime);
     }
 
     /**

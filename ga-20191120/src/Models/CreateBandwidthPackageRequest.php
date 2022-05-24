@@ -14,6 +14,16 @@ class CreateBandwidthPackageRequest extends Model
     public $autoPay;
 
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @var int
+     */
+    public $autoRenewDuration;
+
+    /**
      * @var string
      */
     public $autoUseCoupon;
@@ -79,6 +89,8 @@ class CreateBandwidthPackageRequest extends Model
     public $type;
     protected $_name = [
         'autoPay'                => 'AutoPay',
+        'autoRenew'              => 'AutoRenew',
+        'autoRenewDuration'      => 'AutoRenewDuration',
         'autoUseCoupon'          => 'AutoUseCoupon',
         'bandwidth'              => 'Bandwidth',
         'bandwidthType'          => 'BandwidthType',
@@ -103,6 +115,12 @@ class CreateBandwidthPackageRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewDuration) {
+            $res['AutoRenewDuration'] = $this->autoRenewDuration;
         }
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
@@ -157,6 +175,12 @@ class CreateBandwidthPackageRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewDuration'])) {
+            $model->autoRenewDuration = $map['AutoRenewDuration'];
         }
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];

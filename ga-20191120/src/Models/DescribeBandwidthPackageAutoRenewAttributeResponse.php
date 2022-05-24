@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeApplicationMonitorResponse extends Model
+class DescribeBandwidthPackageAutoRenewAttributeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeApplicationMonitorResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeApplicationMonitorResponseBody
+     * @var DescribeBandwidthPackageAutoRenewAttributeResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeApplicationMonitorResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeApplicationMonitorResponse
+     * @return DescribeBandwidthPackageAutoRenewAttributeResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeApplicationMonitorResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeApplicationMonitorResponseBody::fromMap($map['body']);
+            $model->body = DescribeBandwidthPackageAutoRenewAttributeResponseBody::fromMap($map['body']);
         }
 
         return $model;
