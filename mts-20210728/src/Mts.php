@@ -486,6 +486,9 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->userData)) {
             $body['UserData'] = $request->userData;
         }
+        if (!Utils::isUnset($request->visibleMessage)) {
+            $body['VisibleMessage'] = $request->visibleMessage;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),

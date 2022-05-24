@@ -77,17 +77,25 @@ class SubmitCopyrightJobRequest extends Model
      * @var string
      */
     public $userData;
+
+    /**
+     * @description 可见水印(必须是英文字符)
+     *
+     * @var string
+     */
+    public $visibleMessage;
     protected $_name = [
-        'callBack'    => 'CallBack',
-        'description' => 'Description',
-        'input'       => 'Input',
-        'level'       => 'Level',
-        'message'     => 'Message',
-        'output'      => 'Output',
-        'startTime'   => 'StartTime',
-        'totalTime'   => 'TotalTime',
-        'url'         => 'Url',
-        'userData'    => 'UserData',
+        'callBack'       => 'CallBack',
+        'description'    => 'Description',
+        'input'          => 'Input',
+        'level'          => 'Level',
+        'message'        => 'Message',
+        'output'         => 'Output',
+        'startTime'      => 'StartTime',
+        'totalTime'      => 'TotalTime',
+        'url'            => 'Url',
+        'userData'       => 'UserData',
+        'visibleMessage' => 'VisibleMessage',
     ];
 
     public function validate()
@@ -126,6 +134,9 @@ class SubmitCopyrightJobRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->visibleMessage) {
+            $res['VisibleMessage'] = $this->visibleMessage;
         }
 
         return $res;
@@ -168,6 +179,9 @@ class SubmitCopyrightJobRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['VisibleMessage'])) {
+            $model->visibleMessage = $map['VisibleMessage'];
         }
 
         return $model;
