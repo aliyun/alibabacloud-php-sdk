@@ -12,13 +12,20 @@ class DeleteAlertContactGroupResponse extends Model
      * @var string[]
      */
     public $headers;
+
+    /**
+     * @var int
+     */
+    public $statusCode;
     protected $_name = [
-        'headers' => 'headers',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
     }
 
     public function toMap()
@@ -26,6 +33,9 @@ class DeleteAlertContactGroupResponse extends Model
         $res = [];
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
+        }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
 
         return $res;
@@ -41,6 +51,9 @@ class DeleteAlertContactGroupResponse extends Model
         $model = new self();
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
+        }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
 
         return $model;

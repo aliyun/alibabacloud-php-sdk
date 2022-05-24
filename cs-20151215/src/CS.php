@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CancelTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigRequest;
@@ -81,6 +82,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeNodePoolVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePoliciesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyDetailsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponse;
@@ -99,6 +101,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserQuotaResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeWorkflowsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponse;
@@ -126,12 +130,14 @@ use AlibabaCloud\SDK\CS\V20151215\Models\OpenAckServiceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\OpenAckServiceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\PauseClusterUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\PauseComponentUpgradeResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\PauseTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ResumeTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeUpgradeClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolResponse;
@@ -400,6 +406,47 @@ class CS extends OpenApiClient
         ]);
 
         return CancelComponentUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $taskId
+     *
+     * @return CancelTaskResponse
+     */
+    public function cancelTask($taskId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelTaskWithOptions($taskId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $taskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CancelTaskResponse
+     */
+    public function cancelTaskWithOptions($taskId, $headers, $runtime)
+    {
+        $taskId = OpenApiUtilClient::getEncodeParam($taskId);
+        $req    = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CancelTask',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tasks/' . $taskId . '/cancel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2804,6 +2851,50 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $clusterId
+     * @param string $nodepoolId
+     *
+     * @return DescribeNodePoolVulsResponse
+     */
+    public function describeNodePoolVuls($clusterId, $nodepoolId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
+     * @param string         $nodepoolId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeNodePoolVulsResponse
+     */
+    public function describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $headers, $runtime)
+    {
+        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
+        $nodepoolId = OpenApiUtilClient::getEncodeParam($nodepoolId);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNodePoolVuls',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/nodepools/' . $nodepoolId . '/vuls',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNodePoolVulsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @return DescribePoliciesResponse
      */
     public function describePolicies()
@@ -3386,6 +3477,64 @@ class CS extends OpenApiClient
         ]);
 
         return EdgeClusterAddEdgeMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $clusterId
+     * @param string                 $nodepoolId
+     * @param FixNodePoolVulsRequest $request
+     *
+     * @return FixNodePoolVulsResponse
+     */
+    public function fixNodePoolVuls($clusterId, $nodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->fixNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $clusterId
+     * @param string                 $nodepoolId
+     * @param FixNodePoolVulsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FixNodePoolVulsResponse
+     */
+    public function fixNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
+        $nodepoolId = OpenApiUtilClient::getEncodeParam($nodepoolId);
+        $body       = [];
+        if (!Utils::isUnset($request->nodes)) {
+            $body['nodes'] = $request->nodes;
+        }
+        if (!Utils::isUnset($request->rolloutPolicy)) {
+            $body['rollout_policy'] = $request->rolloutPolicy;
+        }
+        if (!Utils::isUnset($request->vulList)) {
+            $body['vul_list'] = $request->vulList;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FixNodePoolVuls',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/nodepools/' . $nodepoolId . '/vuls/fix',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FixNodePoolVulsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4166,6 +4315,47 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $taskId
+     *
+     * @return PauseTaskResponse
+     */
+    public function pauseTask($taskId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pauseTaskWithOptions($taskId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $taskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return PauseTaskResponse
+     */
+    public function pauseTaskWithOptions($taskId, $headers, $runtime)
+    {
+        $taskId = OpenApiUtilClient::getEncodeParam($taskId);
+        $req    = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'PauseTask',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tasks/' . $taskId . '/pause',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return PauseTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                    $ClusterId
      * @param RemoveClusterNodesRequest $request
      *
@@ -4355,6 +4545,47 @@ class CS extends OpenApiClient
         ]);
 
         return ResumeComponentUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $taskId
+     *
+     * @return ResumeTaskResponse
+     */
+    public function resumeTask($taskId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeTaskWithOptions($taskId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $taskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ResumeTaskResponse
+     */
+    public function resumeTaskWithOptions($taskId, $headers, $runtime)
+    {
+        $taskId = OpenApiUtilClient::getEncodeParam($taskId);
+        $req    = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeTask',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tasks/' . $taskId . '/resume',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return ResumeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

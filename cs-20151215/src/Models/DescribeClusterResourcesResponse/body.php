@@ -49,6 +49,13 @@ class body extends Model
      * @var string
      */
     public $state;
+
+    /**
+     * @description 是否为自动创建。
+     *
+     * @var int
+     */
+    public $autoCreate;
     protected $_name = [
         'clusterId'    => 'cluster_id',
         'created'      => 'created',
@@ -56,6 +63,7 @@ class body extends Model
         'resourceInfo' => 'resource_info',
         'resourceType' => 'resource_type',
         'state'        => 'state',
+        'autoCreate'   => 'auto_create',
     ];
 
     public function validate()
@@ -82,6 +90,9 @@ class body extends Model
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
+        }
+        if (null !== $this->autoCreate) {
+            $res['auto_create'] = $this->autoCreate;
         }
 
         return $res;
@@ -112,6 +123,9 @@ class body extends Model
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];
+        }
+        if (isset($map['auto_create'])) {
+            $model->autoCreate = $map['auto_create'];
         }
 
         return $model;
