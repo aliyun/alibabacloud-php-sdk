@@ -24,6 +24,11 @@ class userStatus extends Model
     public $chargeType;
 
     /**
+     * @var int
+     */
+    public $dataManagerRole;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -63,17 +68,18 @@ class userStatus extends Model
      */
     public $useOssSize;
     protected $_name = [
-        'accessKeyId'    => 'AccessKeyId',
-        'authed'         => 'Authed',
-        'chargeType'     => 'ChargeType',
-        'instanceId'     => 'InstanceId',
-        'instanceNum'    => 'InstanceNum',
-        'labStatus'      => 'LabStatus',
-        'purchased'      => 'Purchased',
-        'remainDays'     => 'RemainDays',
-        'trail'          => 'Trail',
-        'useInstanceNum' => 'UseInstanceNum',
-        'useOssSize'     => 'UseOssSize',
+        'accessKeyId'     => 'AccessKeyId',
+        'authed'          => 'Authed',
+        'chargeType'      => 'ChargeType',
+        'dataManagerRole' => 'DataManagerRole',
+        'instanceId'      => 'InstanceId',
+        'instanceNum'     => 'InstanceNum',
+        'labStatus'       => 'LabStatus',
+        'purchased'       => 'Purchased',
+        'remainDays'      => 'RemainDays',
+        'trail'           => 'Trail',
+        'useInstanceNum'  => 'UseInstanceNum',
+        'useOssSize'      => 'UseOssSize',
     ];
 
     public function validate()
@@ -91,6 +97,9 @@ class userStatus extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->dataManagerRole) {
+            $res['DataManagerRole'] = $this->dataManagerRole;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -136,6 +145,9 @@ class userStatus extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['DataManagerRole'])) {
+            $model->dataManagerRole = $map['DataManagerRole'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -224,6 +224,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
         }
+        if (!Utils::isUnset($request->samplingSize)) {
+            $query['SamplingSize'] = $request->samplingSize;
+        }
         if (!Utils::isUnset($request->serviceRegionId)) {
             $query['ServiceRegionId'] = $request->serviceRegionId;
         }
@@ -2032,6 +2035,9 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->samplingSize)) {
+            $query['SamplingSize'] = $request->samplingSize;
         }
         if (!Utils::isUnset($request->serviceRegionId)) {
             $query['ServiceRegionId'] = $request->serviceRegionId;

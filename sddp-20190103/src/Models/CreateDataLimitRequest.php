@@ -69,6 +69,11 @@ class CreateDataLimitRequest extends Model
     public $resourceType;
 
     /**
+     * @var int
+     */
+    public $samplingSize;
+
+    /**
      * @var string
      */
     public $serviceRegionId;
@@ -90,6 +95,7 @@ class CreateDataLimitRequest extends Model
         'password'        => 'Password',
         'port'            => 'Port',
         'resourceType'    => 'ResourceType',
+        'samplingSize'    => 'SamplingSize',
         'serviceRegionId' => 'ServiceRegionId',
         'userName'        => 'UserName',
     ];
@@ -136,6 +142,9 @@ class CreateDataLimitRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->samplingSize) {
+            $res['SamplingSize'] = $this->samplingSize;
         }
         if (null !== $this->serviceRegionId) {
             $res['ServiceRegionId'] = $this->serviceRegionId;
@@ -190,6 +199,9 @@ class CreateDataLimitRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['SamplingSize'])) {
+            $model->samplingSize = $map['SamplingSize'];
         }
         if (isset($map['ServiceRegionId'])) {
             $model->serviceRegionId = $map['ServiceRegionId'];
