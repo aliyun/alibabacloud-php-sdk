@@ -387,9 +387,6 @@ class Eiamdeveloperapi extends OpenApiClient
         $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
         $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
         $query         = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['client_id'] = $request->clientId;
-        }
         if (!Utils::isUnset($request->scope)) {
             $query['scope'] = $request->scope;
         }
