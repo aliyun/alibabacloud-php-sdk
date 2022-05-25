@@ -38,9 +38,15 @@ use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeDrivingLicenseResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeIdentityCardAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeIdentityCardRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeIdentityCardResponse;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeIndonesiaIdentityCardAdvanceRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeIndonesiaIdentityCardRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeIndonesiaIdentityCardResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeLicensePlateAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeLicensePlateRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeLicensePlateResponse;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeMalaysiaIdentityCardAdvanceRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeMalaysiaIdentityCardRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeMalaysiaIdentityCardResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizePassportMRZAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizePassportMRZRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizePassportMRZResponse;
@@ -55,6 +61,9 @@ use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQrCodeResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQuotaInvoiceAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQuotaInvoiceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQuotaInvoiceResponse;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeRussiaIdentityCardAdvanceRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeRussiaIdentityCardRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeRussiaIdentityCardResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeStampAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeStampRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeStampResponse;
@@ -73,6 +82,9 @@ use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTicketInvoiceResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTrainTicketAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTrainTicketRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTrainTicketResponse;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTurkeyIdentityCardAdvanceRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTurkeyIdentityCardRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTurkeyIdentityCardResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeUkraineIdentityCardAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeUkraineIdentityCardRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeUkraineIdentityCardResponse;
@@ -88,6 +100,9 @@ use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCastCrewListResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCastCrewListShrinkRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCharacterRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCharacterResponse;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVietnamIdentityCardAdvanceRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVietnamIdentityCardRequest;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVietnamIdentityCardResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVINCodeAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVINCodeRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVINCodeResponse;
@@ -1410,6 +1425,127 @@ class Ocr extends OpenApiClient
     }
 
     /**
+     * @param RecognizeIndonesiaIdentityCardRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RecognizeIndonesiaIdentityCardResponse
+     */
+    public function recognizeIndonesiaIdentityCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeIndonesiaIdentityCard',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeIndonesiaIdentityCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeIndonesiaIdentityCardRequest $request
+     *
+     * @return RecognizeIndonesiaIdentityCardResponse
+     */
+    public function recognizeIndonesiaIdentityCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeIndonesiaIdentityCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeIndonesiaIdentityCardAdvanceRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RecognizeIndonesiaIdentityCardResponse
+     */
+    public function recognizeIndonesiaIdentityCardAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeIndonesiaIdentityCardReq = new RecognizeIndonesiaIdentityCardRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeIndonesiaIdentityCardReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $recognizeIndonesiaIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->recognizeIndonesiaIdentityCardWithOptions($recognizeIndonesiaIdentityCardReq, $runtime);
+    }
+
+    /**
      * @param RecognizeLicensePlateRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1528,6 +1664,127 @@ class Ocr extends OpenApiClient
         }
 
         return $this->recognizeLicensePlateWithOptions($recognizeLicensePlateReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeMalaysiaIdentityCardRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeMalaysiaIdentityCardResponse
+     */
+    public function recognizeMalaysiaIdentityCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeMalaysiaIdentityCard',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeMalaysiaIdentityCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeMalaysiaIdentityCardRequest $request
+     *
+     * @return RecognizeMalaysiaIdentityCardResponse
+     */
+    public function recognizeMalaysiaIdentityCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeMalaysiaIdentityCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeMalaysiaIdentityCardAdvanceRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return RecognizeMalaysiaIdentityCardResponse
+     */
+    public function recognizeMalaysiaIdentityCardAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeMalaysiaIdentityCardReq = new RecognizeMalaysiaIdentityCardRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeMalaysiaIdentityCardReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $recognizeMalaysiaIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->recognizeMalaysiaIdentityCardWithOptions($recognizeMalaysiaIdentityCardReq, $runtime);
     }
 
     /**
@@ -2055,6 +2312,127 @@ class Ocr extends OpenApiClient
         }
 
         return $this->recognizeQuotaInvoiceWithOptions($recognizeQuotaInvoiceReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeRussiaIdentityCardRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeRussiaIdentityCardResponse
+     */
+    public function recognizeRussiaIdentityCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeRussiaIdentityCard',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeRussiaIdentityCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeRussiaIdentityCardRequest $request
+     *
+     * @return RecognizeRussiaIdentityCardResponse
+     */
+    public function recognizeRussiaIdentityCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeRussiaIdentityCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeRussiaIdentityCardAdvanceRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return RecognizeRussiaIdentityCardResponse
+     */
+    public function recognizeRussiaIdentityCardAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeRussiaIdentityCardReq = new RecognizeRussiaIdentityCardRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeRussiaIdentityCardReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $recognizeRussiaIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->recognizeRussiaIdentityCardWithOptions($recognizeRussiaIdentityCardReq, $runtime);
     }
 
     /**
@@ -2799,6 +3177,127 @@ class Ocr extends OpenApiClient
     }
 
     /**
+     * @param RecognizeTurkeyIdentityCardRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeTurkeyIdentityCardResponse
+     */
+    public function recognizeTurkeyIdentityCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTurkeyIdentityCard',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeTurkeyIdentityCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTurkeyIdentityCardRequest $request
+     *
+     * @return RecognizeTurkeyIdentityCardResponse
+     */
+    public function recognizeTurkeyIdentityCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTurkeyIdentityCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeTurkeyIdentityCardAdvanceRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return RecognizeTurkeyIdentityCardResponse
+     */
+    public function recognizeTurkeyIdentityCardAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeTurkeyIdentityCardReq = new RecognizeTurkeyIdentityCardRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeTurkeyIdentityCardReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $recognizeTurkeyIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->recognizeTurkeyIdentityCardWithOptions($recognizeTurkeyIdentityCardReq, $runtime);
+    }
+
+    /**
      * @param RecognizeUkraineIdentityCardRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -3458,6 +3957,127 @@ class Ocr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeVideoCharacterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeVietnamIdentityCardRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeVietnamIdentityCardResponse
+     */
+    public function recognizeVietnamIdentityCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeVietnamIdentityCard',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeVietnamIdentityCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeVietnamIdentityCardRequest $request
+     *
+     * @return RecognizeVietnamIdentityCardResponse
+     */
+    public function recognizeVietnamIdentityCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeVietnamIdentityCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeVietnamIdentityCardAdvanceRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return RecognizeVietnamIdentityCardResponse
+     */
+    public function recognizeVietnamIdentityCardAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeVietnamIdentityCardReq = new RecognizeVietnamIdentityCardRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeVietnamIdentityCardReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $recognizeVietnamIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->recognizeVietnamIdentityCardWithOptions($recognizeVietnamIdentityCardReq, $runtime);
     }
 
     /**
