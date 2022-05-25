@@ -66,6 +66,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewResourceRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewResourceResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSingleConnDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSingleConnDataResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSourcePackStatusRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSourcePackStatusResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSubSceneTaskStatusRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSubSceneTaskStatusResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetTaskStatusRequest;
@@ -86,6 +88,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\OptimizeRightAngleRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\OptimizeRightAngleResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PackSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PackSceneResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PackSourceRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PackSourceResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredictionWallLineRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredictionWallLineResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredImageRequest;
@@ -1536,6 +1540,49 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param GetSourcePackStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSourcePackStatusResponse
+     */
+    public function getSourcePackStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSourcePackStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSourcePackStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSourcePackStatusRequest $request
+     *
+     * @return GetSourcePackStatusResponse
+     */
+    public function getSourcePackStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSourcePackStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetSubSceneTaskStatusRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1677,8 +1724,8 @@ class Tdsr extends OpenApiClient
         if (!Utils::isUnset($request->mode)) {
             $query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->optimizeModelEffect)) {
-            $query['OptimizeModelEffect'] = $request->optimizeModelEffect;
+        if (!Utils::isUnset($request->modelStyle)) {
+            $query['ModelStyle'] = $request->modelStyle;
         }
         if (!Utils::isUnset($request->optimizeWallWidth)) {
             $query['OptimizeWallWidth'] = $request->optimizeWallWidth;
@@ -2017,6 +2064,49 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->packSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PackSourceRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return PackSourceResponse
+     */
+    public function packSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PackSource',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PackSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PackSourceRequest $request
+     *
+     * @return PackSourceResponse
+     */
+    public function packSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->packSourceWithOptions($request, $runtime);
     }
 
     /**

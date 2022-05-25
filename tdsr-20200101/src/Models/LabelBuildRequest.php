@@ -16,14 +16,14 @@ class LabelBuildRequest extends Model
     public $mode;
 
     /**
-     * @description 模型效果 PASTER：切片模型（默认） DEPTH：深度模型 VIRTUAL：虚拟模型 MOBILE：移动重建模型
+     * @description 模型效果 PATCH：切片模型（默认） DEPTH：深度模型 VIRTUAL：虚拟模型 MOBILE：移动重建模型
      *
      * @var string
      */
-    public $optimizeModelEffect;
+    public $modelStyle;
 
     /**
-     * @description 墙宽优化，SHUTDOWN:关闭（默认） STANDARD：标准 DEPTH：深度
+     * @description 墙宽优化，OFF:关闭（默认） NORMAL：标准 ENHANCED：加强
      *
      * @var string
      */
@@ -50,12 +50,12 @@ class LabelBuildRequest extends Model
      */
     public $wallHeight;
     protected $_name = [
-        'mode'                => 'Mode',
-        'optimizeModelEffect' => 'OptimizeModelEffect',
-        'optimizeWallWidth'   => 'OptimizeWallWidth',
-        'planStyle'           => 'PlanStyle',
-        'sceneId'             => 'SceneId',
-        'wallHeight'          => 'WallHeight',
+        'mode'              => 'Mode',
+        'modelStyle'        => 'ModelStyle',
+        'optimizeWallWidth' => 'OptimizeWallWidth',
+        'planStyle'         => 'PlanStyle',
+        'sceneId'           => 'SceneId',
+        'wallHeight'        => 'WallHeight',
     ];
 
     public function validate()
@@ -68,8 +68,8 @@ class LabelBuildRequest extends Model
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->optimizeModelEffect) {
-            $res['OptimizeModelEffect'] = $this->optimizeModelEffect;
+        if (null !== $this->modelStyle) {
+            $res['ModelStyle'] = $this->modelStyle;
         }
         if (null !== $this->optimizeWallWidth) {
             $res['OptimizeWallWidth'] = $this->optimizeWallWidth;
@@ -98,8 +98,8 @@ class LabelBuildRequest extends Model
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['OptimizeModelEffect'])) {
-            $model->optimizeModelEffect = $map['OptimizeModelEffect'];
+        if (isset($map['ModelStyle'])) {
+            $model->modelStyle = $map['ModelStyle'];
         }
         if (isset($map['OptimizeWallWidth'])) {
             $model->optimizeWallWidth = $map['OptimizeWallWidth'];
