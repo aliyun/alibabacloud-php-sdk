@@ -15,7 +15,7 @@ class ListVpcEndpointConnectionsResponseBody extends Model
     public $connections;
 
     /**
-     * @var string
+     * @var int
      */
     public $maxResults;
 

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServiceUsersResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $maxResults;
 
