@@ -26,6 +26,9 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfirmSendSmsRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfirmSendSmsResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillShrinkRequest;
@@ -77,7 +80,8 @@ class Dyplsapi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dyplsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -935,6 +939,72 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPickUpWaybillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePickUpWaybillPreQueryRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreatePickUpWaybillPreQueryResponse
+     */
+    public function createPickUpWaybillPreQueryWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePickUpWaybillPreQueryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->consigneeInfo)) {
+            $request->consigneeInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->consigneeInfo), 'ConsigneeInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->senderInfo)) {
+            $request->senderInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->senderInfo), 'SenderInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->consigneeInfoShrink)) {
+            $query['ConsigneeInfo'] = $request->consigneeInfoShrink;
+        }
+        if (!Utils::isUnset($request->cpCode)) {
+            $query['CpCode'] = $request->cpCode;
+        }
+        if (!Utils::isUnset($request->orderChannels)) {
+            $query['OrderChannels'] = $request->orderChannels;
+        }
+        if (!Utils::isUnset($request->outerOrderCode)) {
+            $query['OuterOrderCode'] = $request->outerOrderCode;
+        }
+        if (!Utils::isUnset($request->preWeight)) {
+            $query['PreWeight'] = $request->preWeight;
+        }
+        if (!Utils::isUnset($request->senderInfoShrink)) {
+            $query['SenderInfo'] = $request->senderInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePickUpWaybillPreQuery',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePickUpWaybillPreQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePickUpWaybillPreQueryRequest $request
+     *
+     * @return CreatePickUpWaybillPreQueryResponse
+     */
+    public function createPickUpWaybillPreQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPickUpWaybillPreQueryWithOptions($request, $runtime);
     }
 
     /**
