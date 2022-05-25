@@ -12,8 +12,6 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateIntantSiteMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateIntantSiteMonitorResponse;
-use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateOnceSiteMonitorRequest;
-use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateOnceSiteMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsOrderRequest;
@@ -28,6 +26,12 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\CreateGroupMonitoringAgentProcessReque
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateGroupMonitoringAgentProcessResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHostAvailabilityRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHostAvailabilityResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorNamespaceRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorNamespaceResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorSLSGroupRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorSLSGroupResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateInstantSiteMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateInstantSiteMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleResourcesRequest;
@@ -68,6 +72,12 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteGroupMonitoringAgentProcessReque
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteGroupMonitoringAgentProcessResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHostAvailabilityRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHostAvailabilityResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHybridMonitorNamespaceRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHybridMonitorNamespaceResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHybridMonitorSLSGroupRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHybridMonitorSLSGroupResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHybridMonitorTaskRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHybridMonitorTaskResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteLogMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteLogMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMetricRuleResourcesRequest;
@@ -132,6 +142,14 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessReq
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorDataListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorDataListResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorNamespaceListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorNamespaceListResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorSLSGroupRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorSLSGroupResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorTaskListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorTaskListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeLogMonitorAttributeRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeLogMonitorAttributeResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeLogMonitorListRequest;
@@ -244,6 +262,12 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHostAvailabilityRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHostAvailabilityResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHostInfoRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHostInfoResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorNamespaceRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorNamespaceResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorSLSGroupRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorSLSGroupResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorTaskRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorTaskResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMetricRuleTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMetricRuleTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMonitorGroupInstancesRequest;
@@ -487,49 +511,6 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchCreateIntantSiteMonitorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BatchCreateOnceSiteMonitorRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return BatchCreateOnceSiteMonitorResponse
-     */
-    public function batchCreateOnceSiteMonitorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->taskList)) {
-            $query['TaskList'] = $request->taskList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCreateOnceSiteMonitor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchCreateOnceSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param BatchCreateOnceSiteMonitorRequest $request
-     *
-     * @return BatchCreateOnceSiteMonitorResponse
-     */
-    public function batchCreateOnceSiteMonitor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchCreateOnceSiteMonitorWithOptions($request, $runtime);
     }
 
     /**
@@ -966,6 +947,180 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createHostAvailabilityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateHybridMonitorNamespaceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateHybridMonitorNamespaceResponse
+     */
+    public function createHybridMonitorNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHybridMonitorNamespace',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHybridMonitorNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateHybridMonitorNamespaceRequest $request
+     *
+     * @return CreateHybridMonitorNamespaceResponse
+     */
+    public function createHybridMonitorNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHybridMonitorNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateHybridMonitorSLSGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateHybridMonitorSLSGroupResponse
+     */
+    public function createHybridMonitorSLSGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->SLSGroupConfig)) {
+            $query['SLSGroupConfig'] = $request->SLSGroupConfig;
+        }
+        if (!Utils::isUnset($request->SLSGroupDescription)) {
+            $query['SLSGroupDescription'] = $request->SLSGroupDescription;
+        }
+        if (!Utils::isUnset($request->SLSGroupName)) {
+            $query['SLSGroupName'] = $request->SLSGroupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHybridMonitorSLSGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHybridMonitorSLSGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateHybridMonitorSLSGroupRequest $request
+     *
+     * @return CreateHybridMonitorSLSGroupResponse
+     */
+    public function createHybridMonitorSLSGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHybridMonitorSLSGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateHybridMonitorTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateHybridMonitorTaskResponse
+     */
+    public function createHybridMonitorTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->attachLabels)) {
+            $query['AttachLabels'] = $request->attachLabels;
+        }
+        if (!Utils::isUnset($request->collectInterval)) {
+            $query['CollectInterval'] = $request->collectInterval;
+        }
+        if (!Utils::isUnset($request->collectTargetType)) {
+            $query['CollectTargetType'] = $request->collectTargetType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->SLSProcessConfig)) {
+            $query['SLSProcessConfig'] = $request->SLSProcessConfig;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
+        }
+        if (!Utils::isUnset($request->targetUserIdList)) {
+            $query['TargetUserIdList'] = $request->targetUserIdList;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->YARMConfig)) {
+            $query['YARMConfig'] = $request->YARMConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHybridMonitorTask',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHybridMonitorTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateHybridMonitorTaskRequest $request
+     *
+     * @return CreateHybridMonitorTaskResponse
+     */
+    public function createHybridMonitorTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHybridMonitorTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1931,6 +2086,141 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param DeleteHybridMonitorNamespaceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteHybridMonitorNamespaceResponse
+     */
+    public function deleteHybridMonitorNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHybridMonitorNamespace',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHybridMonitorNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteHybridMonitorNamespaceRequest $request
+     *
+     * @return DeleteHybridMonitorNamespaceResponse
+     */
+    public function deleteHybridMonitorNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHybridMonitorNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteHybridMonitorSLSGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteHybridMonitorSLSGroupResponse
+     */
+    public function deleteHybridMonitorSLSGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->SLSGroupName)) {
+            $query['SLSGroupName'] = $request->SLSGroupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHybridMonitorSLSGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHybridMonitorSLSGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteHybridMonitorSLSGroupRequest $request
+     *
+     * @return DeleteHybridMonitorSLSGroupResponse
+     */
+    public function deleteHybridMonitorSLSGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHybridMonitorSLSGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteHybridMonitorTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteHybridMonitorTaskResponse
+     */
+    public function deleteHybridMonitorTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHybridMonitorTask',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHybridMonitorTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteHybridMonitorTaskRequest $request
+     *
+     * @return DeleteHybridMonitorTaskResponse
+     */
+    public function deleteHybridMonitorTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHybridMonitorTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteLogMonitorRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2439,11 +2729,8 @@ class Cms extends OpenApiClient
     public function describeActiveMetricRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
-        }
-        $req = new OpenApiRequest([
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2451,7 +2738,7 @@ class Cms extends OpenApiClient
             'version'     => '2019-01-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'POST',
+            'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -3628,6 +3915,232 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHostAvailabilityListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHybridMonitorDataListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHybridMonitorDataListResponse
+     */
+    public function describeHybridMonitorDataListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->promSQL)) {
+            $query['PromSQL'] = $request->promSQL;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridMonitorDataList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridMonitorDataListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHybridMonitorDataListRequest $request
+     *
+     * @return DescribeHybridMonitorDataListResponse
+     */
+    public function describeHybridMonitorDataList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridMonitorDataListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHybridMonitorNamespaceListRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeHybridMonitorNamespaceListResponse
+     */
+    public function describeHybridMonitorNamespaceListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->showTaskStatistic)) {
+            $query['ShowTaskStatistic'] = $request->showTaskStatistic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridMonitorNamespaceList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridMonitorNamespaceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHybridMonitorNamespaceListRequest $request
+     *
+     * @return DescribeHybridMonitorNamespaceListResponse
+     */
+    public function describeHybridMonitorNamespaceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridMonitorNamespaceListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHybridMonitorSLSGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHybridMonitorSLSGroupResponse
+     */
+    public function describeHybridMonitorSLSGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->SLSGroupName)) {
+            $query['SLSGroupName'] = $request->SLSGroupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridMonitorSLSGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridMonitorSLSGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHybridMonitorSLSGroupRequest $request
+     *
+     * @return DescribeHybridMonitorSLSGroupResponse
+     */
+    public function describeHybridMonitorSLSGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridMonitorSLSGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHybridMonitorTaskListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHybridMonitorTaskListResponse
+     */
+    public function describeHybridMonitorTaskListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->includeAliyunTask)) {
+            $query['IncludeAliyunTask'] = $request->includeAliyunTask;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridMonitorTaskList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridMonitorTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHybridMonitorTaskListRequest $request
+     *
+     * @return DescribeHybridMonitorTaskListResponse
+     */
+    public function describeHybridMonitorTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridMonitorTaskListWithOptions($request, $runtime);
     }
 
     /**
@@ -6477,6 +6990,162 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param ModifyHybridMonitorNamespaceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyHybridMonitorNamespaceResponse
+     */
+    public function modifyHybridMonitorNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHybridMonitorNamespace',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyHybridMonitorNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHybridMonitorNamespaceRequest $request
+     *
+     * @return ModifyHybridMonitorNamespaceResponse
+     */
+    public function modifyHybridMonitorNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHybridMonitorNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyHybridMonitorSLSGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyHybridMonitorSLSGroupResponse
+     */
+    public function modifyHybridMonitorSLSGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->SLSGroupConfig)) {
+            $query['SLSGroupConfig'] = $request->SLSGroupConfig;
+        }
+        if (!Utils::isUnset($request->SLSGroupDescription)) {
+            $query['SLSGroupDescription'] = $request->SLSGroupDescription;
+        }
+        if (!Utils::isUnset($request->SLSGroupName)) {
+            $query['SLSGroupName'] = $request->SLSGroupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHybridMonitorSLSGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyHybridMonitorSLSGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHybridMonitorSLSGroupRequest $request
+     *
+     * @return ModifyHybridMonitorSLSGroupResponse
+     */
+    public function modifyHybridMonitorSLSGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHybridMonitorSLSGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyHybridMonitorTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyHybridMonitorTaskResponse
+     */
+    public function modifyHybridMonitorTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->attachLabels)) {
+            $query['AttachLabels'] = $request->attachLabels;
+        }
+        if (!Utils::isUnset($request->collectInterval)) {
+            $query['CollectInterval'] = $request->collectInterval;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->SLSProcessConfig)) {
+            $query['SLSProcessConfig'] = $request->SLSProcessConfig;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHybridMonitorTask',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyHybridMonitorTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHybridMonitorTaskRequest $request
+     *
+     * @return ModifyHybridMonitorTaskResponse
+     */
+    public function modifyHybridMonitorTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHybridMonitorTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyMetricRuleTemplateRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -7683,6 +8352,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->compositeExpression)) {
             $request->compositeExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->compositeExpression), 'CompositeExpression', 'json');
         }
+        if (!Utils::isUnset($tmpReq->prometheus)) {
+            $request->prometheusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->prometheus), 'Prometheus', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->compositeExpressionShrink)) {
             $query['CompositeExpression'] = $request->compositeExpressionShrink;
@@ -7716,6 +8388,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->prometheusShrink)) {
+            $query['Prometheus'] = $request->prometheusShrink;
         }
         if (!Utils::isUnset($request->resources)) {
             $query['Resources'] = $request->resources;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BatchCreateOnceSiteMonitorResponseBody extends Model
+class CreateHybridMonitorSLSGroupResponseBody extends Model
 {
     /**
      * @var string
@@ -16,27 +16,19 @@ class BatchCreateOnceSiteMonitorResponseBody extends Model
     /**
      * @var string
      */
-    public $data;
-
-    /**
-     * @var string
-     */
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var bool
+     * @var string
      */
     public $success;
     protected $_name = [
         'code'      => 'Code',
-        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -51,9 +43,6 @@ class BatchCreateOnceSiteMonitorResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -71,16 +60,13 @@ class BatchCreateOnceSiteMonitorResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return BatchCreateOnceSiteMonitorResponseBody
+     * @return CreateHybridMonitorSLSGroupResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

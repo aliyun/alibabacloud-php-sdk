@@ -73,6 +73,11 @@ class PutResourceMetricRuleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $prometheusShrink;
+
+    /**
+     * @var string
+     */
     public $resources;
 
     /**
@@ -107,6 +112,7 @@ class PutResourceMetricRuleShrinkRequest extends Model
         'noDataPolicy'              => 'NoDataPolicy',
         'noEffectiveInterval'       => 'NoEffectiveInterval',
         'period'                    => 'Period',
+        'prometheusShrink'          => 'Prometheus',
         'resources'                 => 'Resources',
         'ruleId'                    => 'RuleId',
         'ruleName'                  => 'RuleName',
@@ -162,6 +168,9 @@ class PutResourceMetricRuleShrinkRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->prometheusShrink) {
+            $res['Prometheus'] = $this->prometheusShrink;
         }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
@@ -231,6 +240,9 @@ class PutResourceMetricRuleShrinkRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['Prometheus'])) {
+            $model->prometheusShrink = $map['Prometheus'];
         }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];

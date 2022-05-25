@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBo
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBody\alarms\alarm\compositeExpression;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBody\alarms\alarm\escalations;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBody\alarms\alarm\labels;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListResponseBody\alarms\alarm\prometheus;
 use AlibabaCloud\Tea\Model;
 
 class alarm extends Model
@@ -92,6 +93,11 @@ class alarm extends Model
     public $period;
 
     /**
+     * @var prometheus
+     */
+    public $prometheus;
+
+    /**
      * @var string
      */
     public $resources;
@@ -137,6 +143,7 @@ class alarm extends Model
         'noDataPolicy'        => 'NoDataPolicy',
         'noEffectiveInterval' => 'NoEffectiveInterval',
         'period'              => 'Period',
+        'prometheus'          => 'Prometheus',
         'resources'           => 'Resources',
         'ruleId'              => 'RuleId',
         'ruleName'            => 'RuleName',
@@ -199,6 +206,9 @@ class alarm extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->prometheus) {
+            $res['Prometheus'] = null !== $this->prometheus ? $this->prometheus->toMap() : null;
         }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
@@ -277,6 +287,9 @@ class alarm extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['Prometheus'])) {
+            $model->prometheus = prometheus::fromMap($map['Prometheus']);
         }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
