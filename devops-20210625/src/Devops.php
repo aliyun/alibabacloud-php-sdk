@@ -108,6 +108,7 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemTimeResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemWorkFlowStatusRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemWorkFlowStatusResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesRequest;
@@ -3580,6 +3581,50 @@ class Devops extends OpenApiClient
         ]);
 
         return ListWorkItemWorkFlowStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $workitemId
+     *
+     * @return ListWorkitemTimeResponse
+     */
+    public function listWorkitemTime($organizationId, $workitemId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkitemTimeWithOptions($organizationId, $workitemId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $workitemId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListWorkitemTimeResponse
+     */
+    public function listWorkitemTimeWithOptions($organizationId, $workitemId, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $workitemId     = OpenApiUtilClient::getEncodeParam($workitemId);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkitemTime',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/workitems/' . $workitemId . '/time/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkitemTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
