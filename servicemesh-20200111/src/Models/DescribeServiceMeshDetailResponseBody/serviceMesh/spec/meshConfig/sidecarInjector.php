@@ -45,6 +45,11 @@ class sidecarInjector extends Model
     public $requestMemory;
 
     /**
+     * @var int
+     */
+    public $sidecarInjectorNum;
+
+    /**
      * @var string
      */
     public $sidecarInjectorWebhookAsYaml;
@@ -56,6 +61,7 @@ class sidecarInjector extends Model
         'limitMemory'                  => 'LimitMemory',
         'requestCPU'                   => 'RequestCPU',
         'requestMemory'                => 'RequestMemory',
+        'sidecarInjectorNum'           => 'SidecarInjectorNum',
         'sidecarInjectorWebhookAsYaml' => 'SidecarInjectorWebhookAsYaml',
     ];
 
@@ -86,6 +92,9 @@ class sidecarInjector extends Model
         }
         if (null !== $this->requestMemory) {
             $res['RequestMemory'] = $this->requestMemory;
+        }
+        if (null !== $this->sidecarInjectorNum) {
+            $res['SidecarInjectorNum'] = $this->sidecarInjectorNum;
         }
         if (null !== $this->sidecarInjectorWebhookAsYaml) {
             $res['SidecarInjectorWebhookAsYaml'] = $this->sidecarInjectorWebhookAsYaml;
@@ -122,6 +131,9 @@ class sidecarInjector extends Model
         }
         if (isset($map['RequestMemory'])) {
             $model->requestMemory = $map['RequestMemory'];
+        }
+        if (isset($map['SidecarInjectorNum'])) {
+            $model->sidecarInjectorNum = $map['SidecarInjectorNum'];
         }
         if (isset($map['SidecarInjectorWebhookAsYaml'])) {
             $model->sidecarInjectorWebhookAsYaml = $map['SidecarInjectorWebhookAsYaml'];

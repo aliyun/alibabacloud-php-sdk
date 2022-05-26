@@ -176,6 +176,11 @@ class UpdateMeshFeatureRequest extends Model
     /**
      * @var bool
      */
+    public $integrateKiali;
+
+    /**
+     * @var bool
+     */
     public $kialiEnabled;
 
     /**
@@ -421,6 +426,7 @@ class UpdateMeshFeatureRequest extends Model
         'http10Enabled'                  => 'Http10Enabled',
         'includeIPRanges'                => 'IncludeIPRanges',
         'includeInboundPorts'            => 'IncludeInboundPorts',
+        'integrateKiali'                 => 'IntegrateKiali',
         'kialiEnabled'                   => 'KialiEnabled',
         'lifecycle'                      => 'Lifecycle',
         'localityLBConf'                 => 'LocalityLBConf',
@@ -571,6 +577,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->includeInboundPorts) {
             $res['IncludeInboundPorts'] = $this->includeInboundPorts;
+        }
+        if (null !== $this->integrateKiali) {
+            $res['IntegrateKiali'] = $this->integrateKiali;
         }
         if (null !== $this->kialiEnabled) {
             $res['KialiEnabled'] = $this->kialiEnabled;
@@ -811,6 +820,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['IncludeInboundPorts'])) {
             $model->includeInboundPorts = $map['IncludeInboundPorts'];
+        }
+        if (isset($map['IntegrateKiali'])) {
+            $model->integrateKiali = $map['IntegrateKiali'];
         }
         if (isset($map['KialiEnabled'])) {
             $model->kialiEnabled = $map['KialiEnabled'];

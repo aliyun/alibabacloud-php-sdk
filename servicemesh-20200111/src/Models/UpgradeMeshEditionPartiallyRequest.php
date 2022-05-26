@@ -16,6 +16,11 @@ class UpgradeMeshEditionPartiallyRequest extends Model
     /**
      * @var string
      */
+    public $expectedVersion;
+
+    /**
+     * @var string
+     */
     public $serviceMeshId;
 
     /**
@@ -29,6 +34,7 @@ class UpgradeMeshEditionPartiallyRequest extends Model
     public $upgradeGatewayRecords;
     protected $_name = [
         'ASMGatewayContinue'    => 'ASMGatewayContinue',
+        'expectedVersion'       => 'ExpectedVersion',
         'serviceMeshId'         => 'ServiceMeshId',
         'switchToPro'           => 'SwitchToPro',
         'upgradeGatewayRecords' => 'UpgradeGatewayRecords',
@@ -43,6 +49,9 @@ class UpgradeMeshEditionPartiallyRequest extends Model
         $res = [];
         if (null !== $this->ASMGatewayContinue) {
             $res['ASMGatewayContinue'] = $this->ASMGatewayContinue;
+        }
+        if (null !== $this->expectedVersion) {
+            $res['ExpectedVersion'] = $this->expectedVersion;
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
@@ -67,6 +76,9 @@ class UpgradeMeshEditionPartiallyRequest extends Model
         $model = new self();
         if (isset($map['ASMGatewayContinue'])) {
             $model->ASMGatewayContinue = $map['ASMGatewayContinue'];
+        }
+        if (isset($map['ExpectedVersion'])) {
+            $model->expectedVersion = $map['ExpectedVersion'];
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];

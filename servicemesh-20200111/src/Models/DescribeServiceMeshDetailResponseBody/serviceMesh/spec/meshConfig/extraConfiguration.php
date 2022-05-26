@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\CRAggregationConfiguration;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\istioCRHistory;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\multiBuffer;
@@ -15,6 +16,11 @@ use AlibabaCloud\Tea\Model;
 
 class extraConfiguration extends Model
 {
+    /**
+     * @var CRAggregationConfiguration
+     */
+    public $CRAggregationConfiguration;
+
     /**
      * @var bool
      */
@@ -65,6 +71,7 @@ class extraConfiguration extends Model
      */
     public $terminationDrainDuration;
     protected $_name = [
+        'CRAggregationConfiguration'      => 'CRAggregationConfiguration',
         'CRAggregationEnabled'            => 'CRAggregationEnabled',
         'discoverySelectors'              => 'DiscoverySelectors',
         'istioCRHistory'                  => 'IstioCRHistory',
@@ -84,6 +91,9 @@ class extraConfiguration extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->CRAggregationConfiguration) {
+            $res['CRAggregationConfiguration'] = null !== $this->CRAggregationConfiguration ? $this->CRAggregationConfiguration->toMap() : null;
+        }
         if (null !== $this->CRAggregationEnabled) {
             $res['CRAggregationEnabled'] = $this->CRAggregationEnabled;
         }
@@ -126,6 +136,9 @@ class extraConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CRAggregationConfiguration'])) {
+            $model->CRAggregationConfiguration = CRAggregationConfiguration::fromMap($map['CRAggregationConfiguration']);
+        }
         if (isset($map['CRAggregationEnabled'])) {
             $model->CRAggregationEnabled = $map['CRAggregationEnabled'];
         }
