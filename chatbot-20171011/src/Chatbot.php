@@ -25,8 +25,6 @@ use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateCoreWordRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateCoreWordResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateDialogRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateDialogResponse;
-use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateDSEntityRequest;
-use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateEntityShrinkRequest;
@@ -52,6 +50,8 @@ use AlibabaCloud\SDK\Chatbot\V20171011\Models\DeleteIntentRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\DeleteIntentResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\DeleteKnowledgeRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\DeleteKnowledgeResponse;
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\DeletePerspectiveRequest;
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\DeletePerspectiveResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\DescribeBotRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\DescribeBotResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\DescribeCategoryRequest;
@@ -106,8 +106,6 @@ use AlibabaCloud\SDK\Chatbot\V20171011\Models\ListBotReceptionDetailDatasRequest
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\ListBotReceptionDetailDatasResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\ListConversationLogsRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\ListConversationLogsResponse;
-use AlibabaCloud\SDK\Chatbot\V20171011\Models\ListDSEntityRequest;
-use AlibabaCloud\SDK\Chatbot\V20171011\Models\ListDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\MoveKnowledgeCategoryRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\MoveKnowledgeCategoryResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\PublishDialogFlowRequest;
@@ -639,55 +637,6 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCoreWordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDSEntityRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateDSEntityResponse
-     */
-    public function createDSEntityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->entityName)) {
-            $query['EntityName'] = $request->entityName;
-        }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDSEntity',
-            'version'     => '2017-10-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDSEntityResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateDSEntityRequest $request
-     *
-     * @return CreateDSEntityResponse
-     */
-    public function createDSEntity($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDSEntityWithOptions($request, $runtime);
     }
 
     /**
@@ -1278,6 +1227,52 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteKnowledgeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePerspectiveRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeletePerspectiveResponse
+     */
+    public function deletePerspectiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->perspectiveId)) {
+            $query['PerspectiveId'] = $request->perspectiveId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePerspective',
+            'version'     => '2017-10-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePerspectiveRequest $request
+     *
+     * @return DeletePerspectiveResponse
+     */
+    public function deletePerspective($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePerspectiveWithOptions($request, $runtime);
     }
 
     /**
@@ -2640,58 +2635,6 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConversationLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDSEntityRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListDSEntityResponse
-     */
-    public function listDSEntityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDSEntity',
-            'version'     => '2017-10-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDSEntityResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDSEntityRequest $request
-     *
-     * @return ListDSEntityResponse
-     */
-    public function listDSEntity($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDSEntityWithOptions($request, $runtime);
     }
 
     /**
