@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateWasmRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateWasmResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDomainRequest;
@@ -74,6 +76,10 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteWasmCodeRevisionRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteWasmCodeRevisionResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteWasmRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteWasmResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnAclFieldsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnAclFieldsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpBpsDataRequest;
@@ -300,9 +306,15 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserErStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserErStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeWasmRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeWasmResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeWasmUserInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeWasmUserInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditWasmConfRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditWasmConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
@@ -336,8 +348,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainRequest;
@@ -1655,6 +1665,57 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param CreateWasmRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateWasmResponse
+     */
+    public function createWasmWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWasm',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWasmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateWasmRequest $request
+     *
+     * @return CreateWasmResponse
+     */
+    public function createWasm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWasmWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDcdnDeliverTaskRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2253,6 +2314,105 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRoutineConfEnvsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWasmRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteWasmResponse
+     */
+    public function deleteWasmWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWasm',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWasmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWasmRequest $request
+     *
+     * @return DeleteWasmResponse
+     */
+    public function deleteWasm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWasmWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWasmCodeRevisionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteWasmCodeRevisionResponse
+     */
+    public function deleteWasmCodeRevisionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->selectCodeRevision)) {
+            $body['SelectCodeRevision'] = $request->selectCodeRevision;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWasmCodeRevision',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWasmCodeRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWasmCodeRevisionRequest $request
+     *
+     * @return DeleteWasmCodeRevisionResponse
+     */
+    public function deleteWasmCodeRevision($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWasmCodeRevisionWithOptions($request, $runtime);
     }
 
     /**
@@ -8064,6 +8224,97 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeWasmRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeWasmResponse
+     */
+    public function describeWasmWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWasm',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWasmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWasmRequest $request
+     *
+     * @return DescribeWasmResponse
+     */
+    public function describeWasm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWasmWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWasmUserInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeWasmUserInfoResponse
+     */
+    public function describeWasmUserInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWasmUserInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWasmUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWasmUserInfoRequest $request
+     *
+     * @return DescribeWasmUserInfoResponse
+     */
+    public function describeWasmUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWasmUserInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EditRoutineConfRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
@@ -8120,6 +8371,57 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->editRoutineConfWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EditWasmConfRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EditWasmConfResponse
+     */
+    public function editWasmConfWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EditWasmConf',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EditWasmConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EditWasmConfRequest $request
+     *
+     * @return EditWasmConfResponse
+     */
+    public function editWasmConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->editWasmConfWithOptions($request, $runtime);
     }
 
     /**
@@ -8989,60 +9291,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDcdnDomainStagingConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetDcdnFullDomainsBlockIPRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SetDcdnFullDomainsBlockIPResponse
-     */
-    public function setDcdnFullDomainsBlockIPWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->blockInterval)) {
-            $body['BlockInterval'] = $request->blockInterval;
-        }
-        if (!Utils::isUnset($request->IPList)) {
-            $body['IPList'] = $request->IPList;
-        }
-        if (!Utils::isUnset($request->operationType)) {
-            $body['OperationType'] = $request->operationType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDcdnFullDomainsBlockIP',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetDcdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetDcdnFullDomainsBlockIPRequest $request
-     *
-     * @return SetDcdnFullDomainsBlockIPResponse
-     */
-    public function setDcdnFullDomainsBlockIP($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDcdnFullDomainsBlockIPWithOptions($request, $runtime);
     }
 
     /**

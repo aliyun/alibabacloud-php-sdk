@@ -6,25 +6,19 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetDcdnFullDomainsBlockIPResponseBody extends Model
+class DeleteWasmCodeRevisionResponseBody extends Model
 {
     /**
-     * @var int
+     * @var mixed[]
      */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
+    public $content;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'content'   => 'Content',
         'requestId' => 'RequestId',
     ];
 
@@ -35,11 +29,8 @@ class SetDcdnFullDomainsBlockIPResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -51,16 +42,13 @@ class SetDcdnFullDomainsBlockIPResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SetDcdnFullDomainsBlockIPResponseBody
+     * @return DeleteWasmCodeRevisionResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
