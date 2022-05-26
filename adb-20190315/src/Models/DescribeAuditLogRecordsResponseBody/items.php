@@ -52,6 +52,11 @@ class items extends Model
      * @var string
      */
     public $totalTime;
+
+    /**
+     * @var string
+     */
+    public $user;
     protected $_name = [
         'connId'      => 'ConnId',
         'DBName'      => 'DBName',
@@ -62,6 +67,7 @@ class items extends Model
         'SQLType'     => 'SQLType',
         'succeed'     => 'Succeed',
         'totalTime'   => 'TotalTime',
+        'user'        => 'User',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class items extends Model
         }
         if (null !== $this->totalTime) {
             $res['TotalTime'] = $this->totalTime;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class items extends Model
         }
         if (isset($map['TotalTime'])) {
             $model->totalTime = $map['TotalTime'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
         }
 
         return $model;

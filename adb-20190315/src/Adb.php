@@ -8,12 +8,16 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Adb\V20190315\Models\AllocateClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\AllocateClusterPublicConnectionResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourceGroupWithUserRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourceGroupWithUserResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourcePoolWithUserRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourcePoolWithUserResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBClusterResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourceGroupRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourcePoolRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourcePoolResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateElasticPlanRequest;
@@ -22,6 +26,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBClusterResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBResourceGroupRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBResourcePoolRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBResourcePoolResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteElasticPlanRequest;
@@ -64,6 +70,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerforman
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBResourceGroupRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBResourcePoolRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBResourcePoolResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisDimensionsRequest;
@@ -142,10 +150,14 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterDescriptionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterDescriptionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterMaintainTimeRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterMaintainTimeResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterPayTypeRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterPayTypeResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourceGroupRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourcePoolRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourcePoolResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyElasticPlanRequest;
@@ -162,6 +174,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\RevokeOperatorPermissionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\RevokeOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\UnbindDBResourceGroupWithUserRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\UnbindDBResourceGroupWithUserResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\UnbindDBResourcePoolWithUserRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\UnbindDBResourcePoolWithUserResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\UntagResourcesRequest;
@@ -307,6 +321,67 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateClusterPublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindDBResourceGroupWithUserRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return BindDBResourceGroupWithUserResponse
+     */
+    public function bindDBResourceGroupWithUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupUser)) {
+            $query['GroupUser'] = $request->groupUser;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindDBResourceGroupWithUser',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindDBResourceGroupWithUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindDBResourceGroupWithUserRequest $request
+     *
+     * @return BindDBResourceGroupWithUserResponse
+     */
+    public function bindDBResourceGroupWithUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindDBResourceGroupWithUserWithOptions($request, $runtime);
     }
 
     /**
@@ -565,6 +640,70 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDBResourceGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDBResourceGroupResponse
+     */
+    public function createDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->nodeNum)) {
+            $query['NodeNum'] = $request->nodeNum;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBResourceGroup',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDBResourceGroupRequest $request
+     *
+     * @return CreateDBResourceGroupResponse
+     */
+    public function createDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -827,6 +966,64 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDBResourceGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDBResourceGroupResponse
+     */
+    public function deleteDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDBResourceGroup',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDBResourceGroupRequest $request
+     *
+     * @return DeleteDBResourceGroupResponse
+     */
+    public function deleteDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2117,6 +2314,64 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBResourceGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDBResourceGroupResponse
+     */
+    public function describeDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBResourceGroup',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBResourceGroupRequest $request
+     *
+     * @return DescribeDBResourceGroupResponse
+     */
+    public function describeDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -4707,6 +4962,58 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param ModifyDBClusterPayTypeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDBClusterPayTypeResponse
+     */
+    public function modifyDBClusterPayTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbClusterId)) {
+            $query['DbClusterId'] = $request->dbClusterId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterPayType',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterPayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBClusterPayTypeRequest $request
+     *
+     * @return ModifyDBClusterPayTypeResponse
+     */
+    public function modifyDBClusterPayType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterPayTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDBClusterResourceGroupRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -4762,6 +5069,70 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBClusterResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBResourceGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDBResourceGroupResponse
+     */
+    public function modifyDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->nodeNum)) {
+            $query['NodeNum'] = $request->nodeNum;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBResourceGroup',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBResourceGroupRequest $request
+     *
+     * @return ModifyDBResourceGroupResponse
+     */
+    public function modifyDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -5268,6 +5639,67 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindDBResourceGroupWithUserRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UnbindDBResourceGroupWithUserResponse
+     */
+    public function unbindDBResourceGroupWithUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupUser)) {
+            $query['GroupUser'] = $request->groupUser;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindDBResourceGroupWithUser',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindDBResourceGroupWithUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindDBResourceGroupWithUserRequest $request
+     *
+     * @return UnbindDBResourceGroupWithUserResponse
+     */
+    public function unbindDBResourceGroupWithUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindDBResourceGroupWithUserWithOptions($request, $runtime);
     }
 
     /**
