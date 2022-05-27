@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainStagingConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnHttpsDomainListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnHttpsDomainListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnOrderCommodityCodeRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnOrderCommodityCodeResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnRegionAndIspRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnRegionAndIspResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportListRequest;
@@ -2318,6 +2320,55 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnHttpsDomainListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCdnOrderCommodityCodeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeCdnOrderCommodityCodeResponse
+     */
+    public function describeCdnOrderCommodityCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnOrderCommodityCode',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnOrderCommodityCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnOrderCommodityCodeRequest $request
+     *
+     * @return DescribeCdnOrderCommodityCodeResponse
+     */
+    public function describeCdnOrderCommodityCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnOrderCommodityCodeWithOptions($request, $runtime);
     }
 
     /**

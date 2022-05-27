@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateCdnDeliverTaskResponseBody extends Model
+class DescribeCdnOrderCommodityCodeResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $deliverId;
+    public $orderCommodityCode;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'deliverId' => 'DeliverId',
-        'requestId' => 'RequestId',
+        'orderCommodityCode' => 'OrderCommodityCode',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class CreateCdnDeliverTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deliverId) {
-            $res['DeliverId'] = $this->deliverId;
+        if (null !== $this->orderCommodityCode) {
+            $res['OrderCommodityCode'] = $this->orderCommodityCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -42,13 +42,13 @@ class CreateCdnDeliverTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateCdnDeliverTaskResponseBody
+     * @return DescribeCdnOrderCommodityCodeResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeliverId'])) {
-            $model->deliverId = $map['DeliverId'];
+        if (isset($map['OrderCommodityCode'])) {
+            $model->orderCommodityCode = $map['OrderCommodityCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

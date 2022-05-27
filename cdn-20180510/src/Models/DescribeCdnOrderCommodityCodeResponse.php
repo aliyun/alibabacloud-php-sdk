@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateUserUsageDataExportTaskResponse extends Model
+class DescribeCdnOrderCommodityCodeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateUserUsageDataExportTaskResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateUserUsageDataExportTaskResponseBody
+     * @var DescribeCdnOrderCommodityCodeResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class CreateUserUsageDataExportTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateUserUsageDataExportTaskResponse
+     * @return DescribeCdnOrderCommodityCodeResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class CreateUserUsageDataExportTaskResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateUserUsageDataExportTaskResponseBody::fromMap($map['body']);
+            $model->body = DescribeCdnOrderCommodityCodeResponseBody::fromMap($map['body']);
         }
 
         return $model;
