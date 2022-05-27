@@ -51,6 +51,7 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDatabaseRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDatabaseResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBProxyEndpointAddressRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBProxyEndpointAddressResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDdrInstanceRequest;
@@ -63,8 +64,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateNotifyRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateNotifyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOnlineDatabaseTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOnlineDatabaseTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateParameterGroupRequest;
@@ -103,8 +102,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableCrossRegionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableCrossRegionResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableMetricsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableMetricsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableRecoveryTimeRequest;
@@ -670,6 +667,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->babelfishPort)) {
+            $query['BabelfishPort'] = $request->babelfishPort;
+        }
         if (!Utils::isUnset($request->connectionStringPrefix)) {
             $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
@@ -1812,20 +1812,28 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
+     * @param CreateDBInstanceRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return CreateDBInstanceResponse
      */
-    public function createDBInstanceWithOptions($request, $runtime)
+    public function createDBInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDBInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
+            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->serverlessConfig), 'ServerlessConfig', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->amount)) {
             $query['Amount'] = $request->amount;
         }
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->babelfishConfig)) {
+            $query['BabelfishConfig'] = $request->babelfishConfig;
         }
         if (!Utils::isUnset($request->businessInfo)) {
             $query['BusinessInfo'] = $request->businessInfo;
@@ -1910,6 +1918,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
+        }
+        if (!Utils::isUnset($request->serverlessConfigShrink)) {
+            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
         }
         if (!Utils::isUnset($request->storageAutoScale)) {
             $query['StorageAutoScale'] = $request->storageAutoScale;
@@ -2501,61 +2512,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMigrateTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateNotifyRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateNotifyResponse
-     */
-    public function createNotifyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->idempotentId)) {
-            $body['IdempotentId'] = $request->idempotentId;
-        }
-        if (!Utils::isUnset($request->level)) {
-            $body['Level'] = $request->level;
-        }
-        if (!Utils::isUnset($request->notifyElement)) {
-            $body['NotifyElement'] = $request->notifyElement;
-        }
-        if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateNotify',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateNotifyResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateNotifyRequest $request
-     *
-     * @return CreateNotifyResponse
-     */
-    public function createNotify($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createNotifyWithOptions($request, $runtime);
     }
 
     /**
@@ -3745,64 +3701,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableCrossRegionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAvailableDedicatedHostClassesRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeAvailableDedicatedHostClassesResponse
-     */
-    public function describeAvailableDedicatedHostClassesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableDedicatedHostClasses',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAvailableDedicatedHostClassesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableDedicatedHostClassesRequest $request
-     *
-     * @return DescribeAvailableDedicatedHostClassesResponse
-     */
-    public function describeAvailableDedicatedHostClasses($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableDedicatedHostClassesWithOptions($request, $runtime);
     }
 
     /**
@@ -10450,6 +10348,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->babelfishPort)) {
+            $query['BabelfishPort'] = $request->babelfishPort;
+        }
         if (!Utils::isUnset($request->connectionStringPrefix)) {
             $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }

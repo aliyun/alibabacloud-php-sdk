@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceRequest\serverlessConfig;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -18,6 +19,11 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $autoRenew;
+
+    /**
+     * @var string
+     */
+    public $babelfishConfig;
 
     /**
      * @var string
@@ -160,6 +166,11 @@ class CreateDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
+     * @var serverlessConfig
+     */
+    public $serverlessConfig;
+
+    /**
      * @var string
      */
     public $storageAutoScale;
@@ -241,6 +252,7 @@ class CreateDBInstanceRequest extends Model
     protected $_name = [
         'amount'                         => 'Amount',
         'autoRenew'                      => 'AutoRenew',
+        'babelfishConfig'                => 'BabelfishConfig',
         'businessInfo'                   => 'BusinessInfo',
         'category'                       => 'Category',
         'clientToken'                    => 'ClientToken',
@@ -269,6 +281,7 @@ class CreateDBInstanceRequest extends Model
         'resourceOwnerId'                => 'ResourceOwnerId',
         'roleARN'                        => 'RoleARN',
         'securityIPList'                 => 'SecurityIPList',
+        'serverlessConfig'               => 'ServerlessConfig',
         'storageAutoScale'               => 'StorageAutoScale',
         'storageThreshold'               => 'StorageThreshold',
         'storageUpperBound'              => 'StorageUpperBound',
@@ -299,6 +312,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->babelfishConfig) {
+            $res['BabelfishConfig'] = $this->babelfishConfig;
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
@@ -384,6 +400,9 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
+        if (null !== $this->serverlessConfig) {
+            $res['ServerlessConfig'] = null !== $this->serverlessConfig ? $this->serverlessConfig->toMap() : null;
+        }
         if (null !== $this->storageAutoScale) {
             $res['StorageAutoScale'] = $this->storageAutoScale;
         }
@@ -455,6 +474,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['BabelfishConfig'])) {
+            $model->babelfishConfig = $map['BabelfishConfig'];
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];
@@ -539,6 +561,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
+        }
+        if (isset($map['ServerlessConfig'])) {
+            $model->serverlessConfig = serverlessConfig::fromMap($map['ServerlessConfig']);
         }
         if (isset($map['StorageAutoScale'])) {
             $model->storageAutoScale = $map['StorageAutoScale'];

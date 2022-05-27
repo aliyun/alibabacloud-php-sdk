@@ -13,6 +13,11 @@ class DBInstanceNetInfo extends Model
     /**
      * @var string
      */
+    public $babelfishPort;
+
+    /**
+     * @var string
+     */
     public $connectionString;
 
     /**
@@ -75,6 +80,7 @@ class DBInstanceNetInfo extends Model
      */
     public $vSwitchId;
     protected $_name = [
+        'babelfishPort'        => 'BabelfishPort',
         'connectionString'     => 'ConnectionString',
         'connectionStringType' => 'ConnectionStringType',
         'DBInstanceWeights'    => 'DBInstanceWeights',
@@ -97,6 +103,9 @@ class DBInstanceNetInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->babelfishPort) {
+            $res['BabelfishPort'] = $this->babelfishPort;
+        }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
@@ -148,6 +157,9 @@ class DBInstanceNetInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BabelfishPort'])) {
+            $model->babelfishPort = $map['BabelfishPort'];
+        }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }

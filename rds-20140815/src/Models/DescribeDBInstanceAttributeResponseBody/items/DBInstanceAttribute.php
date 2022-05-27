@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\babelfishConfig;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\extra;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\readOnlyDBInstanceIds;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\serverlessConfig;
@@ -31,6 +32,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $availabilityValue;
+
+    /**
+     * @var babelfishConfig
+     */
+    public $babelfishConfig;
 
     /**
      * @var string
@@ -331,6 +337,7 @@ class DBInstanceAttribute extends Model
         'advancedFeatures'               => 'AdvancedFeatures',
         'autoUpgradeMinorVersion'        => 'AutoUpgradeMinorVersion',
         'availabilityValue'              => 'AvailabilityValue',
+        'babelfishConfig'                => 'BabelfishConfig',
         'category'                       => 'Category',
         'collation'                      => 'Collation',
         'connectionMode'                 => 'ConnectionMode',
@@ -410,6 +417,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->availabilityValue) {
             $res['AvailabilityValue'] = $this->availabilityValue;
+        }
+        if (null !== $this->babelfishConfig) {
+            $res['BabelfishConfig'] = null !== $this->babelfishConfig ? $this->babelfishConfig->toMap() : null;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -611,6 +621,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['AvailabilityValue'])) {
             $model->availabilityValue = $map['AvailabilityValue'];
+        }
+        if (isset($map['BabelfishConfig'])) {
+            $model->babelfishConfig = babelfishConfig::fromMap($map['BabelfishConfig']);
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];

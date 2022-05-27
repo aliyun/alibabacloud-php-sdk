@@ -11,6 +11,11 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @var string
      */
+    public $babelfishPort;
+
+    /**
+     * @var string
+     */
     public $connectionStringPrefix;
 
     /**
@@ -48,6 +53,7 @@ class AllocateInstancePublicConnectionRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'babelfishPort'          => 'BabelfishPort',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'DBInstanceId'           => 'DBInstanceId',
         'generalGroupName'       => 'GeneralGroupName',
@@ -65,6 +71,9 @@ class AllocateInstancePublicConnectionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->babelfishPort) {
+            $res['BabelfishPort'] = $this->babelfishPort;
+        }
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
@@ -101,6 +110,9 @@ class AllocateInstancePublicConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BabelfishPort'])) {
+            $model->babelfishPort = $map['BabelfishPort'];
+        }
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
