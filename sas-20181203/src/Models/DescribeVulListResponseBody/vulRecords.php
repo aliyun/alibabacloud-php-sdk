@@ -15,6 +15,16 @@ class vulRecords extends Model
     public $aliasName;
 
     /**
+     * @var string
+     */
+    public $authVersion;
+
+    /**
+     * @var bool
+     */
+    public $bind;
+
+    /**
      * @var extendContentJson
      */
     public $extendContentJson;
@@ -77,6 +87,11 @@ class vulRecords extends Model
     /**
      * @var string
      */
+    public $osName;
+
+    /**
+     * @var string
+     */
     public $osVersion;
 
     /**
@@ -130,6 +145,8 @@ class vulRecords extends Model
     public $uuid;
     protected $_name = [
         'aliasName'         => 'AliasName',
+        'authVersion'       => 'AuthVersion',
+        'bind'              => 'Bind',
         'extendContentJson' => 'ExtendContentJson',
         'firstTs'           => 'FirstTs',
         'groupId'           => 'GroupId',
@@ -142,6 +159,7 @@ class vulRecords extends Model
         'name'              => 'Name',
         'necessity'         => 'Necessity',
         'online'            => 'Online',
+        'osName'            => 'OsName',
         'osVersion'         => 'OsVersion',
         'primaryId'         => 'PrimaryId',
         'regionId'          => 'RegionId',
@@ -164,6 +182,12 @@ class vulRecords extends Model
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->authVersion) {
+            $res['AuthVersion'] = $this->authVersion;
+        }
+        if (null !== $this->bind) {
+            $res['Bind'] = $this->bind;
         }
         if (null !== $this->extendContentJson) {
             $res['ExtendContentJson'] = null !== $this->extendContentJson ? $this->extendContentJson->toMap() : null;
@@ -200,6 +224,9 @@ class vulRecords extends Model
         }
         if (null !== $this->online) {
             $res['Online'] = $this->online;
+        }
+        if (null !== $this->osName) {
+            $res['OsName'] = $this->osName;
         }
         if (null !== $this->osVersion) {
             $res['OsVersion'] = $this->osVersion;
@@ -249,6 +276,12 @@ class vulRecords extends Model
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
+        if (isset($map['AuthVersion'])) {
+            $model->authVersion = $map['AuthVersion'];
+        }
+        if (isset($map['Bind'])) {
+            $model->bind = $map['Bind'];
+        }
         if (isset($map['ExtendContentJson'])) {
             $model->extendContentJson = extendContentJson::fromMap($map['ExtendContentJson']);
         }
@@ -284,6 +317,9 @@ class vulRecords extends Model
         }
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
+        }
+        if (isset($map['OsName'])) {
+            $model->osName = $map['OsName'];
         }
         if (isset($map['OsVersion'])) {
             $model->osVersion = $map['OsVersion'];

@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccessKeyLeakDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccessKeyLeakDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccesskeyLeakListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccesskeyLeakListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAffectedMaliciousFileImagesRequest;
@@ -1296,6 +1298,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeAccessKeyLeakDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAccessKeyLeakDetailResponse
+     */
+    public function describeAccessKeyLeakDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessKeyLeakDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccessKeyLeakDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccessKeyLeakDetailRequest $request
+     *
+     * @return DescribeAccessKeyLeakDetailResponse
+     */
+    public function describeAccessKeyLeakDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessKeyLeakDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAccesskeyLeakListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1532,6 +1577,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->tacticId)) {
             $query['TacticId'] = $request->tacticId;
+        }
+        if (!Utils::isUnset($request->uniqueInfo)) {
+            $query['UniqueInfo'] = $request->uniqueInfo;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
