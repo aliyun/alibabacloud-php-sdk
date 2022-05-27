@@ -18,8 +18,6 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaGroupsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaGroupsResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressRequest;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsRequest;
@@ -434,52 +432,6 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDiskReplicaGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDiskReplicaPairProgressRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeDiskReplicaPairProgressResponse
-     */
-    public function describeDiskReplicaPairProgressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDiskReplicaPairProgress',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDiskReplicaPairProgressResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDiskReplicaPairProgressRequest $request
-     *
-     * @return DescribeDiskReplicaPairProgressResponse
-     */
-    public function describeDiskReplicaPairProgress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDiskReplicaPairProgressWithOptions($request, $runtime);
     }
 
     /**
