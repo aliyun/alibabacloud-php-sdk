@@ -16,6 +16,13 @@ class DetailSceneResponseBody extends Model
     public $code;
 
     /**
+     * @description 封面地址
+     *
+     * @var string
+     */
+    public $coverUrl;
+
+    /**
      * @description 创建时间
      *
      * @var int
@@ -100,6 +107,7 @@ class DetailSceneResponseBody extends Model
     public $type;
     protected $_name = [
         'code'         => 'Code',
+        'coverUrl'     => 'CoverUrl',
         'gmtCreate'    => 'GmtCreate',
         'gmtModified'  => 'GmtModified',
         'id'           => 'Id',
@@ -123,6 +131,9 @@ class DetailSceneResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->coverUrl) {
+            $res['CoverUrl'] = $this->coverUrl;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -174,6 +185,9 @@ class DetailSceneResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['CoverUrl'])) {
+            $model->coverUrl = $map['CoverUrl'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];

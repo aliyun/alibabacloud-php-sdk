@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description 封面地址
+     *
+     * @var string
+     */
+    public $coverUrl;
+
+    /**
      * @description 创建时间
      *
      * @var int
@@ -71,6 +78,7 @@ class list_ extends Model
      */
     public $type;
     protected $_name = [
+        'coverUrl'     => 'CoverUrl',
         'gmtCreate'    => 'GmtCreate',
         'gmtModified'  => 'GmtModified',
         'id'           => 'Id',
@@ -89,6 +97,9 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->coverUrl) {
+            $res['CoverUrl'] = $this->coverUrl;
+        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
@@ -128,6 +139,9 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CoverUrl'])) {
+            $model->coverUrl = $map['CoverUrl'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
