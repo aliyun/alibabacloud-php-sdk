@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ClassifyFNFResponse extends Model
+class DetectLymphResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ClassifyFNFResponse extends Model
     public $statusCode;
 
     /**
-     * @var ClassifyFNFResponseBody
+     * @var DetectLymphResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ClassifyFNFResponse extends Model
     /**
      * @param array $map
      *
-     * @return ClassifyFNFResponse
+     * @return DetectLymphResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ClassifyFNFResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ClassifyFNFResponseBody::fromMap($map['body']);
+            $model->body = DetectLymphResponseBody::fromMap($map['body']);
         }
 
         return $model;

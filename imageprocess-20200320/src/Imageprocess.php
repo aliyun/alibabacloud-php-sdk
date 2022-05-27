@@ -26,6 +26,10 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectKneeXRayRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectKneeXRayResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLungNoduleRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLungNoduleResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLymphRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLymphResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectPancRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectPancResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectRibFractureRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectRibFractureResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseAdvanceRequest;
@@ -836,6 +840,98 @@ class Imageprocess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectLungNoduleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectLymphRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DetectLymphResponse
+     */
+    public function detectLymphWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectLymph',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectLymphResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectLymphRequest $request
+     *
+     * @return DetectLymphResponse
+     */
+    public function detectLymph($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectLymphWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectPancRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DetectPancResponse
+     */
+    public function detectPancWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectPanc',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectPancResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectPancRequest $request
+     *
+     * @return DetectPancResponse
+     */
+    public function detectPanc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectPancWithOptions($request, $runtime);
     }
 
     /**
