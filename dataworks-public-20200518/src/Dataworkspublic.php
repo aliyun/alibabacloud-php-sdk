@@ -139,6 +139,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiTestRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiTestResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApplicationRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApplicationResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceFolderRequest;
@@ -159,6 +161,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskMetricInfoReq
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskMetricInfoResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDutyRosterRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDutyRosterResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetExtensionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetExtensionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileRequest;
@@ -283,6 +287,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiAuthorit
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiAuthoritiesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApisRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApisResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiTestRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiTestResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApplicationsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApplicationsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceAuthorizedApisRequest;
@@ -299,6 +305,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDutyRostersRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDutyRostersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListExtensionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListExtensionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFilesRequest;
@@ -413,6 +421,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SuspendInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SuspendInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TerminateDISyncInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TerminateDISyncInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TestDataServiceApiRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TestDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TestNetworkConnectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TestNetworkConnectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceRequest;
@@ -4471,6 +4481,46 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param GetDataServiceApiTestRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDataServiceApiTestResponse
+     */
+    public function getDataServiceApiTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataServiceApiTest',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataServiceApiTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataServiceApiTestRequest $request
+     *
+     * @return GetDataServiceApiTestResponse
+     */
+    public function getDataServiceApiTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataServiceApiTestWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDataServiceApplicationRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4768,6 +4818,61 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDeploymentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDutyRosterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDutyRosterResponse
+     */
+    public function getDutyRosterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $body['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->dutyRosterIdentifier)) {
+            $body['DutyRosterIdentifier'] = $request->dutyRosterIdentifier;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $body['UserType'] = $request->userType;
+        }
+        if (!Utils::isUnset($request->watchkeeper)) {
+            $body['Watchkeeper'] = $request->watchkeeper;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDutyRoster',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDutyRosterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDutyRosterRequest $request
+     *
+     * @return GetDutyRosterResponse
+     */
+    public function getDutyRoster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDutyRosterWithOptions($request, $runtime);
     }
 
     /**
@@ -7784,6 +7889,46 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListDataServiceApiTestRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDataServiceApiTestResponse
+     */
+    public function listDataServiceApiTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataServiceApiTest',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataServiceApiTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataServiceApiTestRequest $request
+     *
+     * @return ListDataServiceApiTestResponse
+     */
+    public function listDataServiceApiTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServiceApiTestWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDataServiceApisRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -8235,6 +8380,58 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDeploymentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDutyRostersRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDutyRostersResponse
+     */
+    public function listDutyRostersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dutyRosterName)) {
+            $body['DutyRosterName'] = $request->dutyRosterName;
+        }
+        if (!Utils::isUnset($request->dutyRosterOwner)) {
+            $body['DutyRosterOwner'] = $request->dutyRosterOwner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDutyRosters',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDutyRostersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDutyRostersRequest $request
+     *
+     * @return ListDutyRostersResponse
+     */
+    public function listDutyRosters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDutyRostersWithOptions($request, $runtime);
     }
 
     /**
@@ -11208,6 +11405,66 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->terminateDISyncInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TestDataServiceApiRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TestDataServiceApiResponse
+     */
+    public function testDataServiceApiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bodyContent)) {
+            $body['BodyContent'] = $request->bodyContent;
+        }
+        if (!Utils::isUnset($request->bodyParams)) {
+            $body['BodyParams'] = $request->bodyParams;
+        }
+        if (!Utils::isUnset($request->headParams)) {
+            $body['HeadParams'] = $request->headParams;
+        }
+        if (!Utils::isUnset($request->pathParams)) {
+            $body['PathParams'] = $request->pathParams;
+        }
+        if (!Utils::isUnset($request->queryParam)) {
+            $body['QueryParam'] = $request->queryParam;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TestDataServiceApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TestDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TestDataServiceApiRequest $request
+     *
+     * @return TestDataServiceApiResponse
+     */
+    public function testDataServiceApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testDataServiceApiWithOptions($request, $runtime);
     }
 
     /**
