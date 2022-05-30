@@ -121,6 +121,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordRequest;
@@ -3377,6 +3379,52 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RebalanceDBInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RebalanceDBInstanceResponse
+     */
+    public function rebalanceDBInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebalanceDBInstance',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebalanceDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RebalanceDBInstanceRequest $request
+     *
+     * @return RebalanceDBInstanceResponse
+     */
+    public function rebalanceDBInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebalanceDBInstanceWithOptions($request, $runtime);
     }
 
     /**
