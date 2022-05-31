@@ -25,14 +25,14 @@ class discoveredResourceProfiles extends Model
     public $nextToken;
 
     /**
-     * @var string
+     * @var int
      */
-    public $previousToken;
+    public $totalCount;
     protected $_name = [
         'discoveredResourceProfileList' => 'DiscoveredResourceProfileList',
         'maxResults'                    => 'MaxResults',
         'nextToken'                     => 'NextToken',
-        'previousToken'                 => 'PreviousToken',
+        'totalCount'                    => 'TotalCount',
     ];
 
     public function validate()
@@ -57,8 +57,8 @@ class discoveredResourceProfiles extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->previousToken) {
-            $res['PreviousToken'] = $this->previousToken;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -87,8 +87,8 @@ class discoveredResourceProfiles extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['PreviousToken'])) {
-            $model->previousToken = $map['PreviousToken'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

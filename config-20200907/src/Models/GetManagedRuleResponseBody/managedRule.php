@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class managedRule extends Model
 {
     /**
-     * @var string[]
+     * @var mixed[]
      */
     public $compulsoryInputParameterDetails;
 
@@ -41,7 +41,7 @@ class managedRule extends Model
     public $labels;
 
     /**
-     * @var string[]
+     * @var mixed[]
      */
     public $optionalInputParameterDetails;
 
@@ -128,9 +128,7 @@ class managedRule extends Model
     {
         $model = new self();
         if (isset($map['CompulsoryInputParameterDetails'])) {
-            if (!empty($map['CompulsoryInputParameterDetails'])) {
-                $model->compulsoryInputParameterDetails = $map['CompulsoryInputParameterDetails'];
-            }
+            $model->compulsoryInputParameterDetails = $map['CompulsoryInputParameterDetails'];
         }
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
@@ -150,9 +148,7 @@ class managedRule extends Model
             }
         }
         if (isset($map['OptionalInputParameterDetails'])) {
-            if (!empty($map['OptionalInputParameterDetails'])) {
-                $model->optionalInputParameterDetails = $map['OptionalInputParameterDetails'];
-            }
+            $model->optionalInputParameterDetails = $map['OptionalInputParameterDetails'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

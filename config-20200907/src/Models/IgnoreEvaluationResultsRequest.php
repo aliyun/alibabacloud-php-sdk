@@ -17,6 +17,11 @@ class IgnoreEvaluationResultsRequest extends Model
     /**
      * @var string
      */
+    public $ignoreDate;
+
+    /**
+     * @var string
+     */
     public $reason;
 
     /**
@@ -25,6 +30,7 @@ class IgnoreEvaluationResultsRequest extends Model
     public $resources;
     protected $_name = [
         'configRuleId' => 'ConfigRuleId',
+        'ignoreDate'   => 'IgnoreDate',
         'reason'       => 'Reason',
         'resources'    => 'Resources',
     ];
@@ -38,6 +44,9 @@ class IgnoreEvaluationResultsRequest extends Model
         $res = [];
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
+        }
+        if (null !== $this->ignoreDate) {
+            $res['IgnoreDate'] = $this->ignoreDate;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
@@ -65,6 +74,9 @@ class IgnoreEvaluationResultsRequest extends Model
         $model = new self();
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
+        }
+        if (isset($map['IgnoreDate'])) {
+            $model->ignoreDate = $map['IgnoreDate'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];

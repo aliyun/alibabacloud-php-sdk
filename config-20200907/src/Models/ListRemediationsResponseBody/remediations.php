@@ -41,11 +41,6 @@ class remediations extends Model
     /**
      * @var string
      */
-    public $remediationDynamicParams;
-
-    /**
-     * @var string
-     */
     public $remediationId;
 
     /**
@@ -74,7 +69,6 @@ class remediations extends Model
         'lastSuccessfulInvocationId'   => 'LastSuccessfulInvocationId',
         'lastSuccessfulInvocationTime' => 'LastSuccessfulInvocationTime',
         'lastSuccessfulInvocationType' => 'LastSuccessfulInvocationType',
-        'remediationDynamicParams'     => 'RemediationDynamicParams',
         'remediationId'                => 'RemediationId',
         'remediationOriginParams'      => 'RemediationOriginParams',
         'remediationSourceType'        => 'RemediationSourceType',
@@ -106,9 +100,6 @@ class remediations extends Model
         }
         if (null !== $this->lastSuccessfulInvocationType) {
             $res['LastSuccessfulInvocationType'] = $this->lastSuccessfulInvocationType;
-        }
-        if (null !== $this->remediationDynamicParams) {
-            $res['RemediationDynamicParams'] = $this->remediationDynamicParams;
         }
         if (null !== $this->remediationId) {
             $res['RemediationId'] = $this->remediationId;
@@ -154,9 +145,6 @@ class remediations extends Model
         }
         if (isset($map['LastSuccessfulInvocationType'])) {
             $model->lastSuccessfulInvocationType = $map['LastSuccessfulInvocationType'];
-        }
-        if (isset($map['RemediationDynamicParams'])) {
-            $model->remediationDynamicParams = $map['RemediationDynamicParams'];
         }
         if (isset($map['RemediationId'])) {
             $model->remediationId = $map['RemediationId'];

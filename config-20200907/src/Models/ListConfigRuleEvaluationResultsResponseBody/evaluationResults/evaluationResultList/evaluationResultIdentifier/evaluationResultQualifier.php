@@ -31,6 +31,11 @@ class evaluationResultQualifier extends Model
     /**
      * @var string
      */
+    public $ignoreDate;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -57,6 +62,7 @@ class evaluationResultQualifier extends Model
         'configRuleArn'    => 'ConfigRuleArn',
         'configRuleId'     => 'ConfigRuleId',
         'configRuleName'   => 'ConfigRuleName',
+        'ignoreDate'       => 'IgnoreDate',
         'regionId'         => 'RegionId',
         'resourceId'       => 'ResourceId',
         'resourceName'     => 'ResourceName',
@@ -82,6 +88,9 @@ class evaluationResultQualifier extends Model
         }
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
+        }
+        if (null !== $this->ignoreDate) {
+            $res['IgnoreDate'] = $this->ignoreDate;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -121,6 +130,9 @@ class evaluationResultQualifier extends Model
         }
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
+        }
+        if (isset($map['IgnoreDate'])) {
+            $model->ignoreDate = $map['IgnoreDate'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

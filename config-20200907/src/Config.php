@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\AttachConfigRuleToCompliancePackRes
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigDeliveryChannelRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigDeliveryChannelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleShrinkRequest;
@@ -26,6 +28,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregatorShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateCompliancePackShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigDeliveryChannelRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigDeliveryChannelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleShrinkRequest;
@@ -65,6 +69,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackReportReq
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigDeliveryChannelRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigDeliveryChannelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleComplianceByPackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleComplianceByPackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleRequest;
@@ -97,6 +103,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigDeliveryChannelRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigDeliveryChannelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleComplianceByPackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleComplianceByPackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleRequest;
@@ -132,6 +140,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreEvaluationResultsShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigDeliveryChannelsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigDeliveryChannelsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesRequest;
@@ -148,6 +158,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePacksResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigDeliveryChannelsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigDeliveryChannelsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListDiscoveredResourcesRequest;
@@ -160,6 +172,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\RevertAggregateEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\RevertAggregateEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\RevertAggregateEvaluationResultsShrinkRequest;
@@ -172,9 +186,15 @@ use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartRemediationResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigDeliveryChannelRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigDeliveryChannelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleShrinkRequest;
@@ -186,6 +206,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateCompliancePackShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigDeliveryChannelRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigDeliveryChannelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleShrinkRequest;
@@ -437,6 +459,79 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAggregateCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAggregateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateAggregateConfigDeliveryChannelResponse
+     */
+    public function createAggregateConfigDeliveryChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
+            $query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+        }
+        if (!Utils::isUnset($request->configurationSnapshot)) {
+            $query['ConfigurationSnapshot'] = $request->configurationSnapshot;
+        }
+        if (!Utils::isUnset($request->deliveryChannelCondition)) {
+            $query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+        }
+        if (!Utils::isUnset($request->deliveryChannelName)) {
+            $query['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
+            $query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+        }
+        if (!Utils::isUnset($request->deliveryChannelType)) {
+            $query['DeliveryChannelType'] = $request->deliveryChannelType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->nonCompliantNotification)) {
+            $query['NonCompliantNotification'] = $request->nonCompliantNotification;
+        }
+        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
+            $query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAggregateConfigDeliveryChannel',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAggregateConfigDeliveryChannelRequest $request
+     *
+     * @return CreateAggregateConfigDeliveryChannelResponse
+     */
+    public function createAggregateConfigDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAggregateConfigDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -732,6 +827,76 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateConfigDeliveryChannelResponse
+     */
+    public function createConfigDeliveryChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
+            $query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+        }
+        if (!Utils::isUnset($request->configurationSnapshot)) {
+            $query['ConfigurationSnapshot'] = $request->configurationSnapshot;
+        }
+        if (!Utils::isUnset($request->deliveryChannelCondition)) {
+            $query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+        }
+        if (!Utils::isUnset($request->deliveryChannelName)) {
+            $query['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
+            $query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+        }
+        if (!Utils::isUnset($request->deliveryChannelType)) {
+            $query['DeliveryChannelType'] = $request->deliveryChannelType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->nonCompliantNotification)) {
+            $query['NonCompliantNotification'] = $request->nonCompliantNotification;
+        }
+        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
+            $query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConfigDeliveryChannel',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateConfigDeliveryChannelRequest $request
+     *
+     * @return CreateConfigDeliveryChannelResponse
+     */
+    public function createConfigDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createConfigDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -1668,6 +1833,52 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param GetAggregateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetAggregateConfigDeliveryChannelResponse
+     */
+    public function getAggregateConfigDeliveryChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->deliveryChannelId)) {
+            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateConfigDeliveryChannel',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateConfigDeliveryChannelRequest $request
+     *
+     * @return GetAggregateConfigDeliveryChannelResponse
+     */
+    public function getAggregateConfigDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateConfigDeliveryChannelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAggregateConfigRuleRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2344,6 +2555,49 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param GetConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetConfigDeliveryChannelResponse
+     */
+    public function getConfigDeliveryChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deliveryChannelId)) {
+            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConfigDeliveryChannel',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetConfigDeliveryChannelRequest $request
+     *
+     * @return GetConfigDeliveryChannelResponse
+     */
+    public function getConfigDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConfigDeliveryChannelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetConfigRuleRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2932,6 +3186,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->configRuleId)) {
             $body['ConfigRuleId'] = $request->configRuleId;
         }
+        if (!Utils::isUnset($request->ignoreDate)) {
+            $body['IgnoreDate'] = $request->ignoreDate;
+        }
         if (!Utils::isUnset($request->reason)) {
             $body['Reason'] = $request->reason;
         }
@@ -2985,6 +3242,9 @@ class Config extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->configRuleId)) {
             $body['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->ignoreDate)) {
+            $body['IgnoreDate'] = $request->ignoreDate;
         }
         if (!Utils::isUnset($request->reason)) {
             $body['Reason'] = $request->reason;
@@ -3060,6 +3320,52 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAggregateCompliancePacksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateConfigDeliveryChannelsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListAggregateConfigDeliveryChannelsResponse
+     */
+    public function listAggregateConfigDeliveryChannelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->deliveryChannelIds)) {
+            $query['DeliveryChannelIds'] = $request->deliveryChannelIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateConfigDeliveryChannels',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAggregateConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateConfigDeliveryChannelsRequest $request
+     *
+     * @return ListAggregateConfigDeliveryChannelsResponse
+     */
+    public function listAggregateConfigDeliveryChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateConfigDeliveryChannelsWithOptions($request, $runtime);
     }
 
     /**
@@ -3434,6 +3740,49 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param ListConfigDeliveryChannelsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListConfigDeliveryChannelsResponse
+     */
+    public function listConfigDeliveryChannelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deliveryChannelIds)) {
+            $query['DeliveryChannelIds'] = $request->deliveryChannelIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConfigDeliveryChannels',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListConfigDeliveryChannelsRequest $request
+     *
+     * @return ListConfigDeliveryChannelsResponse
+     */
+    public function listConfigDeliveryChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConfigDeliveryChannelsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListConfigRuleEvaluationResultsRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -3731,6 +4080,61 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RevertAggregateEvaluationResultsRequest $tmpReq
      * @param RuntimeOptions                          $runtime
      *
@@ -3977,6 +4381,113 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateAggregateCompliancePackRequest $tmpReq
      * @param RuntimeOptions                       $runtime
      *
@@ -4040,6 +4551,82 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAggregateCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAggregateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return UpdateAggregateConfigDeliveryChannelResponse
+     */
+    public function updateAggregateConfigDeliveryChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
+            $query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+        }
+        if (!Utils::isUnset($request->configurationSnapshot)) {
+            $query['ConfigurationSnapshot'] = $request->configurationSnapshot;
+        }
+        if (!Utils::isUnset($request->deliveryChannelCondition)) {
+            $query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+        }
+        if (!Utils::isUnset($request->deliveryChannelId)) {
+            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+        if (!Utils::isUnset($request->deliveryChannelName)) {
+            $query['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
+            $query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->nonCompliantNotification)) {
+            $query['NonCompliantNotification'] = $request->nonCompliantNotification;
+        }
+        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
+            $query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAggregateConfigDeliveryChannel',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAggregateConfigDeliveryChannelRequest $request
+     *
+     * @return UpdateAggregateConfigDeliveryChannelResponse
+     */
+    public function updateAggregateConfigDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAggregateConfigDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -4329,6 +4916,79 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateConfigDeliveryChannelResponse
+     */
+    public function updateConfigDeliveryChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
+            $query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+        }
+        if (!Utils::isUnset($request->configurationSnapshot)) {
+            $query['ConfigurationSnapshot'] = $request->configurationSnapshot;
+        }
+        if (!Utils::isUnset($request->deliveryChannelCondition)) {
+            $query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+        }
+        if (!Utils::isUnset($request->deliveryChannelId)) {
+            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+        if (!Utils::isUnset($request->deliveryChannelName)) {
+            $query['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
+            $query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->nonCompliantNotification)) {
+            $query['NonCompliantNotification'] = $request->nonCompliantNotification;
+        }
+        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
+            $query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConfigDeliveryChannel',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateConfigDeliveryChannelRequest $request
+     *
+     * @return UpdateConfigDeliveryChannelResponse
+     */
+    public function updateConfigDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConfigDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
