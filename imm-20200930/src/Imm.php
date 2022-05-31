@@ -33,6 +33,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskShrinkReques
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskShrinkRequest;
@@ -44,6 +47,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteDatasetRequest;
@@ -68,6 +74,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
@@ -767,6 +775,90 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CreateImageModerationTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateImageModerationTaskResponse
+     */
+    public function createImageModerationTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateImageModerationTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->scenes)) {
+            $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->maxFrames)) {
+            $query['MaxFrames'] = $request->maxFrames;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->reviewer)) {
+            $query['Reviewer'] = $request->reviewer;
+        }
+        if (!Utils::isUnset($request->scenesShrink)) {
+            $query['Scenes'] = $request->scenesShrink;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateImageModerationTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateImageModerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateImageModerationTaskRequest $request
+     *
+     * @return CreateImageModerationTaskResponse
+     */
+    public function createImageModerationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImageModerationTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateMediaConvertTaskRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
@@ -1160,6 +1252,90 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createStoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVideoModerationTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateVideoModerationTaskResponse
+     */
+    public function createVideoModerationTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateVideoModerationTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->scenes)) {
+            $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->maxFrames)) {
+            $query['MaxFrames'] = $request->maxFrames;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->reviewer)) {
+            $query['Reviewer'] = $request->reviewer;
+        }
+        if (!Utils::isUnset($request->scenesShrink)) {
+            $query['Scenes'] = $request->scenesShrink;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVideoModerationTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVideoModerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVideoModerationTaskRequest $request
+     *
+     * @return CreateVideoModerationTaskResponse
+     */
+    public function createVideoModerationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVideoModerationTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1664,6 +1840,52 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectImageScoreWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectTextAnomalyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DetectTextAnomalyResponse
+     */
+    public function detectTextAnomalyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectTextAnomaly',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectTextAnomalyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectTextAnomalyRequest $request
+     *
+     * @return DetectTextAnomalyResponse
+     */
+    public function detectTextAnomaly($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectTextAnomalyWithOptions($request, $runtime);
     }
 
     /**
