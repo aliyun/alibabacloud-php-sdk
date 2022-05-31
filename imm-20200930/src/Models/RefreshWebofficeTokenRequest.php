@@ -16,11 +16,9 @@ class RefreshWebofficeTokenRequest extends Model
     public $accessToken;
 
     /**
-     * @description 链式授权
-     *
-     * @var AssumeRoleChain
+     * @var CredentialConfig
      */
-    public $assumeRoleChain;
+    public $credentialConfig;
 
     /**
      * @description 项目名称
@@ -36,10 +34,10 @@ class RefreshWebofficeTokenRequest extends Model
      */
     public $refreshToken;
     protected $_name = [
-        'accessToken'     => 'AccessToken',
-        'assumeRoleChain' => 'AssumeRoleChain',
-        'projectName'     => 'ProjectName',
-        'refreshToken'    => 'RefreshToken',
+        'accessToken'      => 'AccessToken',
+        'credentialConfig' => 'CredentialConfig',
+        'projectName'      => 'ProjectName',
+        'refreshToken'     => 'RefreshToken',
     ];
 
     public function validate()
@@ -52,8 +50,8 @@ class RefreshWebofficeTokenRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->assumeRoleChain) {
-            $res['AssumeRoleChain'] = null !== $this->assumeRoleChain ? $this->assumeRoleChain->toMap() : null;
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -76,8 +74,8 @@ class RefreshWebofficeTokenRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['AssumeRoleChain'])) {
-            $model->assumeRoleChain = AssumeRoleChain::fromMap($map['AssumeRoleChain']);
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

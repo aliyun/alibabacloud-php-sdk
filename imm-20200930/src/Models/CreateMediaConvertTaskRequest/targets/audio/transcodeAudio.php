@@ -14,6 +14,11 @@ class transcodeAudio extends Model
     public $bitrate;
 
     /**
+     * @var string
+     */
+    public $bitrateOption;
+
+    /**
      * @var int
      */
     public $channel;
@@ -32,12 +37,19 @@ class transcodeAudio extends Model
      * @var int
      */
     public $sampleRate;
+
+    /**
+     * @var string
+     */
+    public $sampleRateOption;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'channel'    => 'Channel',
-        'codec'      => 'Codec',
-        'quality'    => 'Quality',
-        'sampleRate' => 'SampleRate',
+        'bitrate'          => 'Bitrate',
+        'bitrateOption'    => 'BitrateOption',
+        'channel'          => 'Channel',
+        'codec'            => 'Codec',
+        'quality'          => 'Quality',
+        'sampleRate'       => 'SampleRate',
+        'sampleRateOption' => 'SampleRateOption',
     ];
 
     public function validate()
@@ -50,6 +62,9 @@ class transcodeAudio extends Model
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
+        if (null !== $this->bitrateOption) {
+            $res['BitrateOption'] = $this->bitrateOption;
+        }
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
         }
@@ -61,6 +76,9 @@ class transcodeAudio extends Model
         }
         if (null !== $this->sampleRate) {
             $res['SampleRate'] = $this->sampleRate;
+        }
+        if (null !== $this->sampleRateOption) {
+            $res['SampleRateOption'] = $this->sampleRateOption;
         }
 
         return $res;
@@ -77,6 +95,9 @@ class transcodeAudio extends Model
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
+        if (isset($map['BitrateOption'])) {
+            $model->bitrateOption = $map['BitrateOption'];
+        }
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
         }
@@ -88,6 +109,9 @@ class transcodeAudio extends Model
         }
         if (isset($map['SampleRate'])) {
             $model->sampleRate = $map['SampleRate'];
+        }
+        if (isset($map['SampleRateOption'])) {
+            $model->sampleRateOption = $map['SampleRateOption'];
         }
 
         return $model;

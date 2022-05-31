@@ -65,6 +65,13 @@ class File extends Model
     public $audioStreams;
 
     /**
+     * @description Bitrate
+     *
+     * @var int
+     */
+    public $bitrate;
+
+    /**
      * @description CacheControl
      *
      * @var string
@@ -163,6 +170,13 @@ class File extends Model
     public $documentLanguage;
 
     /**
+     * @description Duration
+     *
+     * @var float
+     */
+    public $duration;
+
+    /**
      * @description ETag
      *
      * @var string
@@ -224,6 +238,20 @@ class File extends Model
      * @var string
      */
     public $filename;
+
+    /**
+     * @description FormatLongName
+     *
+     * @var string
+     */
+    public $formatLongName;
+
+    /**
+     * @description FormatName
+     *
+     * @var string
+     */
+    public $formatName;
 
     /**
      * @description ImageHeight
@@ -406,6 +434,13 @@ class File extends Model
     public $produceTime;
 
     /**
+     * @description ProgramCount
+     *
+     * @var int
+     */
+    public $programCount;
+
+    /**
      * @description ProjectName
      *
      * @var string
@@ -446,6 +481,20 @@ class File extends Model
      * @var int
      */
     public $size;
+
+    /**
+     * @description StartTime
+     *
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @description StreamCount
+     *
+     * @var int
+     */
+    public $streamCount;
 
     /**
      * @description Subtitles
@@ -525,6 +574,7 @@ class File extends Model
         'artist'                                => 'Artist',
         'audioCovers'                           => 'AudioCovers',
         'audioStreams'                          => 'AudioStreams',
+        'bitrate'                               => 'Bitrate',
         'cacheControl'                          => 'CacheControl',
         'composer'                              => 'Composer',
         'contentDisposition'                    => 'ContentDisposition',
@@ -539,6 +589,7 @@ class File extends Model
         'datasetName'                           => 'DatasetName',
         'documentContent'                       => 'DocumentContent',
         'documentLanguage'                      => 'DocumentLanguage',
+        'duration'                              => 'Duration',
         'ETag'                                  => 'ETag',
         'EXIF'                                  => 'EXIF',
         'figureCount'                           => 'FigureCount',
@@ -548,6 +599,8 @@ class File extends Model
         'fileHash'                              => 'FileHash',
         'fileModifiedTime'                      => 'FileModifiedTime',
         'filename'                              => 'Filename',
+        'formatLongName'                        => 'FormatLongName',
+        'formatName'                            => 'FormatName',
         'imageHeight'                           => 'ImageHeight',
         'imageScore'                            => 'ImageScore',
         'imageWidth'                            => 'ImageWidth',
@@ -574,12 +627,15 @@ class File extends Model
         'pageCount'                             => 'PageCount',
         'performer'                             => 'Performer',
         'produceTime'                           => 'ProduceTime',
+        'programCount'                          => 'ProgramCount',
         'projectName'                           => 'ProjectName',
         'serverSideDataEncryption'              => 'ServerSideDataEncryption',
         'serverSideEncryption'                  => 'ServerSideEncryption',
         'serverSideEncryptionCustomerAlgorithm' => 'ServerSideEncryptionCustomerAlgorithm',
         'serverSideEncryptionKeyId'             => 'ServerSideEncryptionKeyId',
         'size'                                  => 'Size',
+        'startTime'                             => 'StartTime',
+        'streamCount'                           => 'StreamCount',
         'subtitles'                             => 'Subtitles',
         'timezone'                              => 'Timezone',
         'title'                                 => 'Title',
@@ -641,6 +697,9 @@ class File extends Model
                 }
             }
         }
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
+        }
         if (null !== $this->cacheControl) {
             $res['CacheControl'] = $this->cacheControl;
         }
@@ -689,6 +748,9 @@ class File extends Model
         if (null !== $this->documentLanguage) {
             $res['DocumentLanguage'] = $this->documentLanguage;
         }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
         if (null !== $this->ETag) {
             $res['ETag'] = $this->ETag;
         }
@@ -721,6 +783,12 @@ class File extends Model
         }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
+        }
+        if (null !== $this->formatLongName) {
+            $res['FormatLongName'] = $this->formatLongName;
+        }
+        if (null !== $this->formatName) {
+            $res['FormatName'] = $this->formatName;
         }
         if (null !== $this->imageHeight) {
             $res['ImageHeight'] = $this->imageHeight;
@@ -812,6 +880,9 @@ class File extends Model
         if (null !== $this->produceTime) {
             $res['ProduceTime'] = $this->produceTime;
         }
+        if (null !== $this->programCount) {
+            $res['ProgramCount'] = $this->programCount;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -829,6 +900,12 @@ class File extends Model
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->streamCount) {
+            $res['StreamCount'] = $this->streamCount;
         }
         if (null !== $this->subtitles) {
             $res['Subtitles'] = [];
@@ -926,6 +1003,9 @@ class File extends Model
                 }
             }
         }
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
+        }
         if (isset($map['CacheControl'])) {
             $model->cacheControl = $map['CacheControl'];
         }
@@ -974,6 +1054,9 @@ class File extends Model
         if (isset($map['DocumentLanguage'])) {
             $model->documentLanguage = $map['DocumentLanguage'];
         }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
         if (isset($map['ETag'])) {
             $model->ETag = $map['ETag'];
         }
@@ -1006,6 +1089,12 @@ class File extends Model
         }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
+        }
+        if (isset($map['FormatLongName'])) {
+            $model->formatLongName = $map['FormatLongName'];
+        }
+        if (isset($map['FormatName'])) {
+            $model->formatName = $map['FormatName'];
         }
         if (isset($map['ImageHeight'])) {
             $model->imageHeight = $map['ImageHeight'];
@@ -1097,6 +1186,9 @@ class File extends Model
         if (isset($map['ProduceTime'])) {
             $model->produceTime = $map['ProduceTime'];
         }
+        if (isset($map['ProgramCount'])) {
+            $model->programCount = $map['ProgramCount'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
@@ -1114,6 +1206,12 @@ class File extends Model
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StreamCount'])) {
+            $model->streamCount = $map['StreamCount'];
         }
         if (isset($map['Subtitles'])) {
             if (!empty($map['Subtitles'])) {

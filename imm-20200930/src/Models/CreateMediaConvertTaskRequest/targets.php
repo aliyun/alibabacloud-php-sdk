@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\segment;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\subtitle;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\video;
+use AlibabaCloud\SDK\Imm\V20200930\Models\PresetReference;
 use AlibabaCloud\Tea\Model;
 
 class targets extends Model
@@ -29,9 +30,9 @@ class targets extends Model
     public $image;
 
     /**
-     * @var string
+     * @var PresetReference
      */
-    public $presetId;
+    public $preset;
 
     /**
      * @var segment
@@ -61,7 +62,7 @@ class targets extends Model
         'audio'     => 'Audio',
         'container' => 'Container',
         'image'     => 'Image',
-        'presetId'  => 'PresetId',
+        'preset'    => 'Preset',
         'segment'   => 'Segment',
         'speed'     => 'Speed',
         'subtitle'  => 'Subtitle',
@@ -85,8 +86,8 @@ class targets extends Model
         if (null !== $this->image) {
             $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
         }
-        if (null !== $this->presetId) {
-            $res['PresetId'] = $this->presetId;
+        if (null !== $this->preset) {
+            $res['Preset'] = null !== $this->preset ? $this->preset->toMap() : null;
         }
         if (null !== $this->segment) {
             $res['Segment'] = null !== $this->segment ? $this->segment->toMap() : null;
@@ -124,8 +125,8 @@ class targets extends Model
         if (isset($map['Image'])) {
             $model->image = image::fromMap($map['Image']);
         }
-        if (isset($map['PresetId'])) {
-            $model->presetId = $map['PresetId'];
+        if (isset($map['Preset'])) {
+            $model->preset = PresetReference::fromMap($map['Preset']);
         }
         if (isset($map['Segment'])) {
             $model->segment = segment::fromMap($map['Segment']);

@@ -14,6 +14,11 @@ class DetectImageCroppingRequest extends Model
     public $aspectRatios;
 
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @description 项目名称
      *
      * @var string
@@ -27,9 +32,10 @@ class DetectImageCroppingRequest extends Model
      */
     public $sourceURI;
     protected $_name = [
-        'aspectRatios' => 'AspectRatios',
-        'projectName'  => 'ProjectName',
-        'sourceURI'    => 'SourceURI',
+        'aspectRatios'     => 'AspectRatios',
+        'credentialConfig' => 'CredentialConfig',
+        'projectName'      => 'ProjectName',
+        'sourceURI'        => 'SourceURI',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class DetectImageCroppingRequest extends Model
         $res = [];
         if (null !== $this->aspectRatios) {
             $res['AspectRatios'] = $this->aspectRatios;
+        }
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -62,6 +71,9 @@ class DetectImageCroppingRequest extends Model
         $model = new self();
         if (isset($map['AspectRatios'])) {
             $model->aspectRatios = $map['AspectRatios'];
+        }
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

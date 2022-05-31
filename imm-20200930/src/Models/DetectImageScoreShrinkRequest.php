@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DetectImageLabelsRequest extends Model
+class DetectImageScoreShrinkRequest extends Model
 {
     /**
-     * @var CredentialConfig
+     * @var string
      */
-    public $credentialConfig;
+    public $credentialConfigShrink;
 
     /**
      * @description 项目名称
@@ -21,23 +21,13 @@ class DetectImageLabelsRequest extends Model
     public $projectName;
 
     /**
-     * @description SourceURI
-     *
      * @var string
      */
     public $sourceURI;
-
-    /**
-     * @description Threshold
-     *
-     * @var float
-     */
-    public $threshold;
     protected $_name = [
-        'credentialConfig' => 'CredentialConfig',
-        'projectName'      => 'ProjectName',
-        'sourceURI'        => 'SourceURI',
-        'threshold'        => 'Threshold',
+        'credentialConfigShrink' => 'CredentialConfig',
+        'projectName'            => 'ProjectName',
+        'sourceURI'              => 'SourceURI',
     ];
 
     public function validate()
@@ -47,17 +37,14 @@ class DetectImageLabelsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->credentialConfig) {
-            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+        if (null !== $this->credentialConfigShrink) {
+            $res['CredentialConfig'] = $this->credentialConfigShrink;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
-        }
-        if (null !== $this->threshold) {
-            $res['Threshold'] = $this->threshold;
         }
 
         return $res;
@@ -66,22 +53,19 @@ class DetectImageLabelsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetectImageLabelsRequest
+     * @return DetectImageScoreShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CredentialConfig'])) {
-            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
+            $model->credentialConfigShrink = $map['CredentialConfig'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
-        }
-        if (isset($map['Threshold'])) {
-            $model->threshold = $map['Threshold'];
         }
 
         return $model;

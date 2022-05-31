@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DetectImageScoreRequest extends Model
 {
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @description 项目名称
      *
      * @var string
@@ -20,8 +25,9 @@ class DetectImageScoreRequest extends Model
      */
     public $sourceURI;
     protected $_name = [
-        'projectName' => 'ProjectName',
-        'sourceURI'   => 'SourceURI',
+        'credentialConfig' => 'CredentialConfig',
+        'projectName'      => 'ProjectName',
+        'sourceURI'        => 'SourceURI',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class DetectImageScoreRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -49,6 +58,9 @@ class DetectImageScoreRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

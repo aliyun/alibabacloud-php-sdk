@@ -24,6 +24,11 @@ class transcodeVideo extends Model
     public $bitrate;
 
     /**
+     * @var string
+     */
+    public $bitrateOption;
+
+    /**
      * @var int
      */
     public $bufferSize;
@@ -42,6 +47,11 @@ class transcodeVideo extends Model
      * @var float
      */
     public $frameRate;
+
+    /**
+     * @var string
+     */
+    public $frameRateOption;
 
     /**
      * @var int
@@ -69,6 +79,11 @@ class transcodeVideo extends Model
     public $resolution;
 
     /**
+     * @var string
+     */
+    public $resolutionOption;
+
+    /**
      * @var int
      */
     public $rotation;
@@ -81,15 +96,18 @@ class transcodeVideo extends Model
         'adaptiveResolutionDirection' => 'AdaptiveResolutionDirection',
         'BFrames'                     => 'BFrames',
         'bitrate'                     => 'Bitrate',
+        'bitrateOption'               => 'BitrateOption',
         'bufferSize'                  => 'BufferSize',
         'CRF'                         => 'CRF',
         'codec'                       => 'Codec',
         'frameRate'                   => 'FrameRate',
+        'frameRateOption'             => 'FrameRateOption',
         'GOPSize'                     => 'GOPSize',
         'maxBitrate'                  => 'MaxBitrate',
         'pixelFormat'                 => 'PixelFormat',
         'refs'                        => 'Refs',
         'resolution'                  => 'Resolution',
+        'resolutionOption'            => 'ResolutionOption',
         'rotation'                    => 'Rotation',
         'scaleType'                   => 'ScaleType',
     ];
@@ -110,6 +128,9 @@ class transcodeVideo extends Model
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
+        if (null !== $this->bitrateOption) {
+            $res['BitrateOption'] = $this->bitrateOption;
+        }
         if (null !== $this->bufferSize) {
             $res['BufferSize'] = $this->bufferSize;
         }
@@ -121,6 +142,9 @@ class transcodeVideo extends Model
         }
         if (null !== $this->frameRate) {
             $res['FrameRate'] = $this->frameRate;
+        }
+        if (null !== $this->frameRateOption) {
+            $res['FrameRateOption'] = $this->frameRateOption;
         }
         if (null !== $this->GOPSize) {
             $res['GOPSize'] = $this->GOPSize;
@@ -136,6 +160,9 @@ class transcodeVideo extends Model
         }
         if (null !== $this->resolution) {
             $res['Resolution'] = $this->resolution;
+        }
+        if (null !== $this->resolutionOption) {
+            $res['ResolutionOption'] = $this->resolutionOption;
         }
         if (null !== $this->rotation) {
             $res['Rotation'] = $this->rotation;
@@ -164,6 +191,9 @@ class transcodeVideo extends Model
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
+        if (isset($map['BitrateOption'])) {
+            $model->bitrateOption = $map['BitrateOption'];
+        }
         if (isset($map['BufferSize'])) {
             $model->bufferSize = $map['BufferSize'];
         }
@@ -175,6 +205,9 @@ class transcodeVideo extends Model
         }
         if (isset($map['FrameRate'])) {
             $model->frameRate = $map['FrameRate'];
+        }
+        if (isset($map['FrameRateOption'])) {
+            $model->frameRateOption = $map['FrameRateOption'];
         }
         if (isset($map['GOPSize'])) {
             $model->GOPSize = $map['GOPSize'];
@@ -190,6 +223,9 @@ class transcodeVideo extends Model
         }
         if (isset($map['Resolution'])) {
             $model->resolution = $map['Resolution'];
+        }
+        if (isset($map['ResolutionOption'])) {
+            $model->resolutionOption = $map['ResolutionOption'];
         }
         if (isset($map['Rotation'])) {
             $model->rotation = $map['Rotation'];

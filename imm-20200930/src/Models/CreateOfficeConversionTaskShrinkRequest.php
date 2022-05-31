@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateOfficeConversionTaskShrinkRequest extends Model
 {
     /**
-     * @description 链式授权
-     *
      * @var string
      */
-    public $assumeRoleChainShrink;
+    public $credentialConfigShrink;
 
     /**
      * @description 转换终止页，包含终止页，默认转换到最后一页，表格转图片时需要指定 SheetIndex 才有效
@@ -49,6 +47,13 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
      * @var bool
      */
     public $holdLineFeed;
+
+    /**
+     * @description 输出图片 DPI，允许范围 96-600，默认 96
+     *
+     * @var int
+     */
+    public $imageDPI;
 
     /**
      * @description 转图片时是否转换成一张长图，最多支持将 20 页合成一张长图，超过可能报错，默认为不转成长图
@@ -91,6 +96,13 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
      * @var string
      */
     public $notifyTopicName;
+
+    /**
+     * @description 指定转换页码，优先级高于 StartPage/EndPage，格式：多个页码用 “," 拼接，连续页码用 "-" 连接，样例参考: 1,2-4,7
+     *
+     * @var string
+     */
+    public $pages;
 
     /**
      * @description 表格转图片纸张是否水平放置，默认为否
@@ -211,35 +223,37 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'assumeRoleChainShrink' => 'AssumeRoleChain',
-        'endPage'               => 'EndPage',
-        'firstPage'             => 'FirstPage',
-        'fitToHeight'           => 'FitToHeight',
-        'fitToWidth'            => 'FitToWidth',
-        'holdLineFeed'          => 'HoldLineFeed',
-        'longPicture'           => 'LongPicture',
-        'longText'              => 'LongText',
-        'maxSheetColumn'        => 'MaxSheetColumn',
-        'maxSheetRow'           => 'MaxSheetRow',
-        'notifyEndpoint'        => 'NotifyEndpoint',
-        'notifyTopicName'       => 'NotifyTopicName',
-        'paperHorizontal'       => 'PaperHorizontal',
-        'paperSize'             => 'PaperSize',
-        'password'              => 'Password',
-        'projectName'           => 'ProjectName',
-        'quality'               => 'Quality',
-        'scalePercentage'       => 'ScalePercentage',
-        'sheetCount'            => 'SheetCount',
-        'sheetIndex'            => 'SheetIndex',
-        'showComments'          => 'ShowComments',
-        'sourceType'            => 'SourceType',
-        'sourceURI'             => 'SourceURI',
-        'startPage'             => 'StartPage',
-        'tagsShrink'            => 'Tags',
-        'targetType'            => 'TargetType',
-        'targetURIPrefix'       => 'TargetURIPrefix',
-        'trimPolicyShrink'      => 'TrimPolicy',
-        'userData'              => 'UserData',
+        'credentialConfigShrink' => 'CredentialConfig',
+        'endPage'                => 'EndPage',
+        'firstPage'              => 'FirstPage',
+        'fitToHeight'            => 'FitToHeight',
+        'fitToWidth'             => 'FitToWidth',
+        'holdLineFeed'           => 'HoldLineFeed',
+        'imageDPI'               => 'ImageDPI',
+        'longPicture'            => 'LongPicture',
+        'longText'               => 'LongText',
+        'maxSheetColumn'         => 'MaxSheetColumn',
+        'maxSheetRow'            => 'MaxSheetRow',
+        'notifyEndpoint'         => 'NotifyEndpoint',
+        'notifyTopicName'        => 'NotifyTopicName',
+        'pages'                  => 'Pages',
+        'paperHorizontal'        => 'PaperHorizontal',
+        'paperSize'              => 'PaperSize',
+        'password'               => 'Password',
+        'projectName'            => 'ProjectName',
+        'quality'                => 'Quality',
+        'scalePercentage'        => 'ScalePercentage',
+        'sheetCount'             => 'SheetCount',
+        'sheetIndex'             => 'SheetIndex',
+        'showComments'           => 'ShowComments',
+        'sourceType'             => 'SourceType',
+        'sourceURI'              => 'SourceURI',
+        'startPage'              => 'StartPage',
+        'tagsShrink'             => 'Tags',
+        'targetType'             => 'TargetType',
+        'targetURIPrefix'        => 'TargetURIPrefix',
+        'trimPolicyShrink'       => 'TrimPolicy',
+        'userData'               => 'UserData',
     ];
 
     public function validate()
@@ -249,8 +263,8 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->assumeRoleChainShrink) {
-            $res['AssumeRoleChain'] = $this->assumeRoleChainShrink;
+        if (null !== $this->credentialConfigShrink) {
+            $res['CredentialConfig'] = $this->credentialConfigShrink;
         }
         if (null !== $this->endPage) {
             $res['EndPage'] = $this->endPage;
@@ -266,6 +280,9 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
         }
         if (null !== $this->holdLineFeed) {
             $res['HoldLineFeed'] = $this->holdLineFeed;
+        }
+        if (null !== $this->imageDPI) {
+            $res['ImageDPI'] = $this->imageDPI;
         }
         if (null !== $this->longPicture) {
             $res['LongPicture'] = $this->longPicture;
@@ -284,6 +301,9 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
+        }
+        if (null !== $this->pages) {
+            $res['Pages'] = $this->pages;
         }
         if (null !== $this->paperHorizontal) {
             $res['PaperHorizontal'] = $this->paperHorizontal;
@@ -348,8 +368,8 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssumeRoleChain'])) {
-            $model->assumeRoleChainShrink = $map['AssumeRoleChain'];
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfigShrink = $map['CredentialConfig'];
         }
         if (isset($map['EndPage'])) {
             $model->endPage = $map['EndPage'];
@@ -365,6 +385,9 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
         }
         if (isset($map['HoldLineFeed'])) {
             $model->holdLineFeed = $map['HoldLineFeed'];
+        }
+        if (isset($map['ImageDPI'])) {
+            $model->imageDPI = $map['ImageDPI'];
         }
         if (isset($map['LongPicture'])) {
             $model->longPicture = $map['LongPicture'];
@@ -383,6 +406,9 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
+        }
+        if (isset($map['Pages'])) {
+            $model->pages = $map['Pages'];
         }
         if (isset($map['PaperHorizontal'])) {
             $model->paperHorizontal = $map['PaperHorizontal'];

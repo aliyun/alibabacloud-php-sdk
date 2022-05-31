@@ -11,7 +11,7 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     /**
      * @var string
      */
-    public $datasetName;
+    public $credentialConfigShrink;
 
     /**
      * @var string
@@ -48,14 +48,14 @@ class CreateMediaConvertTaskShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'sourcesShrink'   => 'Sources',
-        'tagsShrink'      => 'Tags',
-        'targetsShrink'   => 'Targets',
-        'userData'        => 'UserData',
+        'credentialConfigShrink' => 'CredentialConfig',
+        'notifyEndpoint'         => 'NotifyEndpoint',
+        'notifyTopicName'        => 'NotifyTopicName',
+        'projectName'            => 'ProjectName',
+        'sourcesShrink'          => 'Sources',
+        'tagsShrink'             => 'Tags',
+        'targetsShrink'          => 'Targets',
+        'userData'               => 'UserData',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->datasetName) {
-            $res['DatasetName'] = $this->datasetName;
+        if (null !== $this->credentialConfigShrink) {
+            $res['CredentialConfig'] = $this->credentialConfigShrink;
         }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
@@ -101,8 +101,8 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatasetName'])) {
-            $model->datasetName = $map['DatasetName'];
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfigShrink = $map['CredentialConfig'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDetectVideoLabelsTaskRequest extends Model
 {
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @description NotifyEndpoint
      *
      * @var string
@@ -48,12 +53,13 @@ class CreateDetectVideoLabelsTaskRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'sourceURI'       => 'SourceURI',
-        'tags'            => 'Tags',
-        'userData'        => 'UserData',
+        'credentialConfig' => 'CredentialConfig',
+        'notifyEndpoint'   => 'NotifyEndpoint',
+        'notifyTopicName'  => 'NotifyTopicName',
+        'projectName'      => 'ProjectName',
+        'sourceURI'        => 'SourceURI',
+        'tags'             => 'Tags',
+        'userData'         => 'UserData',
     ];
 
     public function validate()
@@ -63,6 +69,9 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+        }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
@@ -93,6 +102,9 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
+        }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
         }

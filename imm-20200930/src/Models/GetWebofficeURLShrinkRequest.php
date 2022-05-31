@@ -9,18 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetWebofficeURLShrinkRequest extends Model
 {
     /**
-     * @description 链式授权
-     *
-     * @var string
-     */
-    public $assumeRoleChainShrink;
-
-    /**
      * @description 缓存预览标识
      *
      * @var bool
      */
     public $cachePreview;
+
+    /**
+     * @var string
+     */
+    public $credentialConfigShrink;
 
     /**
      * @description 是否支持外部上传
@@ -120,22 +118,22 @@ class GetWebofficeURLShrinkRequest extends Model
      */
     public $watermarkShrink;
     protected $_name = [
-        'assumeRoleChainShrink' => 'AssumeRoleChain',
-        'cachePreview'          => 'CachePreview',
-        'externalUploaded'      => 'ExternalUploaded',
-        'filename'              => 'Filename',
-        'hidecmb'               => 'Hidecmb',
-        'notifyEndpoint'        => 'NotifyEndpoint',
-        'notifyTopicName'       => 'NotifyTopicName',
-        'password'              => 'Password',
-        'permissionShrink'      => 'Permission',
-        'previewPages'          => 'PreviewPages',
-        'projectName'           => 'ProjectName',
-        'referer'               => 'Referer',
-        'sourceURI'             => 'SourceURI',
-        'userShrink'            => 'User',
-        'userData'              => 'UserData',
-        'watermarkShrink'       => 'Watermark',
+        'cachePreview'           => 'CachePreview',
+        'credentialConfigShrink' => 'CredentialConfig',
+        'externalUploaded'       => 'ExternalUploaded',
+        'filename'               => 'Filename',
+        'hidecmb'                => 'Hidecmb',
+        'notifyEndpoint'         => 'NotifyEndpoint',
+        'notifyTopicName'        => 'NotifyTopicName',
+        'password'               => 'Password',
+        'permissionShrink'       => 'Permission',
+        'previewPages'           => 'PreviewPages',
+        'projectName'            => 'ProjectName',
+        'referer'                => 'Referer',
+        'sourceURI'              => 'SourceURI',
+        'userShrink'             => 'User',
+        'userData'               => 'UserData',
+        'watermarkShrink'        => 'Watermark',
     ];
 
     public function validate()
@@ -145,11 +143,11 @@ class GetWebofficeURLShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->assumeRoleChainShrink) {
-            $res['AssumeRoleChain'] = $this->assumeRoleChainShrink;
-        }
         if (null !== $this->cachePreview) {
             $res['CachePreview'] = $this->cachePreview;
+        }
+        if (null !== $this->credentialConfigShrink) {
+            $res['CredentialConfig'] = $this->credentialConfigShrink;
         }
         if (null !== $this->externalUploaded) {
             $res['ExternalUploaded'] = $this->externalUploaded;
@@ -205,11 +203,11 @@ class GetWebofficeURLShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssumeRoleChain'])) {
-            $model->assumeRoleChainShrink = $map['AssumeRoleChain'];
-        }
         if (isset($map['CachePreview'])) {
             $model->cachePreview = $map['CachePreview'];
+        }
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfigShrink = $map['CredentialConfig'];
         }
         if (isset($map['ExternalUploaded'])) {
             $model->externalUploaded = $map['ExternalUploaded'];

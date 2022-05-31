@@ -17,9 +17,15 @@ class segment extends Model
      * @var string
      */
     public $format;
+
+    /**
+     * @var int
+     */
+    public $startNumber;
     protected $_name = [
-        'duration' => 'Duration',
-        'format'   => 'Format',
+        'duration'    => 'Duration',
+        'format'      => 'Format',
+        'startNumber' => 'StartNumber',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class segment extends Model
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
+        }
+        if (null !== $this->startNumber) {
+            $res['StartNumber'] = $this->startNumber;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class segment extends Model
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
+        }
+        if (isset($map['StartNumber'])) {
+            $model->startNumber = $map['StartNumber'];
         }
 
         return $model;

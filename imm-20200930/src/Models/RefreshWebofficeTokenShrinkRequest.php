@@ -16,11 +16,9 @@ class RefreshWebofficeTokenShrinkRequest extends Model
     public $accessToken;
 
     /**
-     * @description 链式授权
-     *
      * @var string
      */
-    public $assumeRoleChainShrink;
+    public $credentialConfigShrink;
 
     /**
      * @description 项目名称
@@ -36,10 +34,10 @@ class RefreshWebofficeTokenShrinkRequest extends Model
      */
     public $refreshToken;
     protected $_name = [
-        'accessToken'           => 'AccessToken',
-        'assumeRoleChainShrink' => 'AssumeRoleChain',
-        'projectName'           => 'ProjectName',
-        'refreshToken'          => 'RefreshToken',
+        'accessToken'            => 'AccessToken',
+        'credentialConfigShrink' => 'CredentialConfig',
+        'projectName'            => 'ProjectName',
+        'refreshToken'           => 'RefreshToken',
     ];
 
     public function validate()
@@ -52,8 +50,8 @@ class RefreshWebofficeTokenShrinkRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->assumeRoleChainShrink) {
-            $res['AssumeRoleChain'] = $this->assumeRoleChainShrink;
+        if (null !== $this->credentialConfigShrink) {
+            $res['CredentialConfig'] = $this->credentialConfigShrink;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -76,8 +74,8 @@ class RefreshWebofficeTokenShrinkRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['AssumeRoleChain'])) {
-            $model->assumeRoleChainShrink = $map['AssumeRoleChain'];
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfigShrink = $map['CredentialConfig'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetMediaMetaRequest extends Model
 {
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @var string
      */
     public $projectName;
@@ -18,8 +23,9 @@ class GetMediaMetaRequest extends Model
      */
     public $sourceURI;
     protected $_name = [
-        'projectName' => 'ProjectName',
-        'sourceURI'   => 'SourceURI',
+        'credentialConfig' => 'CredentialConfig',
+        'projectName'      => 'ProjectName',
+        'sourceURI'        => 'SourceURI',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class GetMediaMetaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -47,6 +56,9 @@ class GetMediaMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

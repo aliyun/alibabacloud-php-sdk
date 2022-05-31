@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMediaConvertTaskRequest extends Model
 {
     /**
-     * @var string
+     * @var CredentialConfig
      */
-    public $datasetName;
+    public $credentialConfig;
 
     /**
      * @var string
@@ -50,14 +50,14 @@ class CreateMediaConvertTaskRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'sources'         => 'Sources',
-        'tags'            => 'Tags',
-        'targets'         => 'Targets',
-        'userData'        => 'UserData',
+        'credentialConfig' => 'CredentialConfig',
+        'notifyEndpoint'   => 'NotifyEndpoint',
+        'notifyTopicName'  => 'NotifyTopicName',
+        'projectName'      => 'ProjectName',
+        'sources'          => 'Sources',
+        'tags'             => 'Tags',
+        'targets'          => 'Targets',
+        'userData'         => 'UserData',
     ];
 
     public function validate()
@@ -67,8 +67,8 @@ class CreateMediaConvertTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->datasetName) {
-            $res['DatasetName'] = $this->datasetName;
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
@@ -115,8 +115,8 @@ class CreateMediaConvertTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatasetName'])) {
-            $model->datasetName = $map['DatasetName'];
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
