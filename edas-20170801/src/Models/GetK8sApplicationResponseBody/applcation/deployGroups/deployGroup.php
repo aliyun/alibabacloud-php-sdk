@@ -13,8 +13,14 @@ class deployGroup extends Model
      * @var components
      */
     public $components;
+
+    /**
+     * @var string
+     */
+    public $env;
     protected $_name = [
         'components' => 'Components',
+        'env'        => 'Env',
     ];
 
     public function validate()
@@ -26,6 +32,9 @@ class deployGroup extends Model
         $res = [];
         if (null !== $this->components) {
             $res['Components'] = null !== $this->components ? $this->components->toMap() : null;
+        }
+        if (null !== $this->env) {
+            $res['Env'] = $this->env;
         }
 
         return $res;
@@ -41,6 +50,9 @@ class deployGroup extends Model
         $model = new self();
         if (isset($map['Components'])) {
             $model->components = components::fromMap($map['Components']);
+        }
+        if (isset($map['Env'])) {
+            $model->env = $map['Env'];
         }
 
         return $model;

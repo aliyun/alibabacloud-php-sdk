@@ -187,6 +187,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sConfigMapsRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sConfigMapsResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sNamespacesRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sNamespacesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sSecretsRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sSecretsResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListMethodsRequest;
@@ -5723,6 +5725,52 @@ class Edas extends OpenApiClient
         ]);
 
         return ListK8sIngressRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListK8sNamespacesRequest $request
+     *
+     * @return ListK8sNamespacesResponse
+     */
+    public function listK8sNamespaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listK8sNamespacesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListK8sNamespacesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListK8sNamespacesResponse
+     */
+    public function listK8sNamespacesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListK8sNamespaces',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/acs/k8s_namespace',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListK8sNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
