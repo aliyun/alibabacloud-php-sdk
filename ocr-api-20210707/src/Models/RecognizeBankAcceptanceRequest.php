@@ -7,13 +7,8 @@ namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecognizeHouseholdRequest extends Model
+class RecognizeBankAcceptanceRequest extends Model
 {
-    /**
-     * @var bool
-     */
-    public $isResidentPage;
-
     /**
      * @description 图片链接（长度不超 2048，不支持 base64）
      *
@@ -28,9 +23,8 @@ class RecognizeHouseholdRequest extends Model
      */
     public $body;
     protected $_name = [
-        'isResidentPage' => 'IsResidentPage',
-        'url'            => 'Url',
-        'body'           => 'body',
+        'url'  => 'Url',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class RecognizeHouseholdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isResidentPage) {
-            $res['IsResidentPage'] = $this->isResidentPage;
-        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -56,14 +47,11 @@ class RecognizeHouseholdRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeHouseholdRequest
+     * @return RecognizeBankAcceptanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsResidentPage'])) {
-            $model->isResidentPage = $map['IsResidentPage'];
-        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

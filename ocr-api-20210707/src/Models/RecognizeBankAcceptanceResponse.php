@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RecognizeKoreanResponse extends Model
+class RecognizeBankAcceptanceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class RecognizeKoreanResponse extends Model
     public $statusCode;
 
     /**
-     * @var RecognizeKoreanResponseBody
+     * @var RecognizeBankAcceptanceResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class RecognizeKoreanResponse extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeKoreanResponse
+     * @return RecognizeBankAcceptanceResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class RecognizeKoreanResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = RecognizeKoreanResponseBody::fromMap($map['body']);
+            $model->body = RecognizeBankAcceptanceResponseBody::fromMap($map['body']);
         }
 
         return $model;

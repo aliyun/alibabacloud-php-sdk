@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAdvancedRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAdvancedResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAirItineraryRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAirItineraryResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankAcceptanceRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankAcceptanceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankAccountLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankAccountLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankCardRequest;
@@ -36,6 +38,8 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCommonPrintedInvoiceReques
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCommonPrintedInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCosmeticProduceLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCosmeticProduceLicenseResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCovidTestReportRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCovidTestReportResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDeleteExcelRecordRequest;
@@ -115,8 +119,12 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRollTicketRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRollTicketResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRussianRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRussianResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeShoppingReceiptRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeShoppingReceiptResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeSocialSecurityCardRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeSocialSecurityCardResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeSocialSecurityCardVersionIIRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeSocialSecurityCardVersionIIResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTableOcrRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTableOcrResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTaxClearanceCertificateRequest;
@@ -294,6 +302,51 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeAirItineraryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeBankAcceptanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeBankAcceptanceResponse
+     */
+    public function recognizeBankAcceptanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBankAcceptance',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeBankAcceptanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeBankAcceptanceRequest $request
+     *
+     * @return RecognizeBankAcceptanceResponse
+     */
+    public function recognizeBankAcceptance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBankAcceptanceWithOptions($request, $runtime);
     }
 
     /**
@@ -901,6 +954,51 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeCosmeticProduceLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeCovidTestReportRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeCovidTestReportResponse
+     */
+    public function recognizeCovidTestReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeCovidTestReport',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeCovidTestReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeCovidTestReportRequest $request
+     *
+     * @return RecognizeCovidTestReportResponse
+     */
+    public function recognizeCovidTestReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeCovidTestReportWithOptions($request, $runtime);
     }
 
     /**
@@ -1918,6 +2016,9 @@ class Ocrapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->isResidentPage)) {
+            $query['IsResidentPage'] = $request->isResidentPage;
+        }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
         }
@@ -2778,6 +2879,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeShoppingReceiptRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeShoppingReceiptResponse
+     */
+    public function recognizeShoppingReceiptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeShoppingReceipt',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeShoppingReceiptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeShoppingReceiptRequest $request
+     *
+     * @return RecognizeShoppingReceiptResponse
+     */
+    public function recognizeShoppingReceipt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeShoppingReceiptWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeSocialSecurityCardRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2820,6 +2966,51 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeSocialSecurityCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeSocialSecurityCardVersionIIRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return RecognizeSocialSecurityCardVersionIIResponse
+     */
+    public function recognizeSocialSecurityCardVersionIIWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeSocialSecurityCardVersionII',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeSocialSecurityCardVersionIIResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeSocialSecurityCardVersionIIRequest $request
+     *
+     * @return RecognizeSocialSecurityCardVersionIIResponse
+     */
+    public function recognizeSocialSecurityCardVersionII($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeSocialSecurityCardVersionIIWithOptions($request, $runtime);
     }
 
     /**
