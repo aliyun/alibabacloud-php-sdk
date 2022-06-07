@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFlowTagRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFlowTagResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateHostGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateHostGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateOAuthTokenRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateOAuthTokenResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryRequest;
@@ -503,6 +505,67 @@ class Devops extends OpenApiClient
         ]);
 
         return CreateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOAuthTokenRequest $request
+     *
+     * @return CreateOAuthTokenResponse
+     */
+    public function createOAuthToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOAuthTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateOAuthTokenRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateOAuthTokenResponse
+     */
+    public function createOAuthTokenWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $body['clientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->clientSecret)) {
+            $body['clientSecret'] = $request->clientSecret;
+        }
+        if (!Utils::isUnset($request->code)) {
+            $body['code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->grantType)) {
+            $body['grantType'] = $request->grantType;
+        }
+        if (!Utils::isUnset($request->login)) {
+            $body['login'] = $request->login;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['scope'] = $request->scope;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOAuthToken',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/login/oauth/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
