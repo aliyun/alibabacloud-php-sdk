@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddDesensitizationRuleRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddDesensitizationRuleResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersShrinkRequest;
@@ -185,6 +187,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDDLPublishRecordsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDDLPublishRecordsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDesensitizationRuleRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDesensitizationRuleResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceLoginAuditLogRequest;
@@ -238,6 +242,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesRequest
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDesensitizationStrategyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDesensitizationStrategyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobRequest;
@@ -310,6 +316,68 @@ class Dmsenterprise extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddDesensitizationRuleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddDesensitizationRuleResponse
+     */
+    public function addDesensitizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionType)) {
+            $query['FunctionType'] = $request->functionType;
+        }
+        if (!Utils::isUnset($request->ruleDescription)) {
+            $query['RuleDescription'] = $request->ruleDescription;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->functionParams)) {
+            $bodyFlat['FunctionParams'] = $request->functionParams;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDesensitizationRule',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDesensitizationRuleRequest $request
+     *
+     * @return AddDesensitizationRuleResponse
+     */
+    public function addDesensitizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDesensitizationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -4521,6 +4589,67 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListDesensitizationRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDesensitizationRuleResponse
+     */
+    public function listDesensitizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->funcType)) {
+            $query['FuncType'] = $request->funcType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDesensitizationRule',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDesensitizationRuleRequest $request
+     *
+     * @return ListDesensitizationRuleResponse
+     */
+    public function listDesensitizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDesensitizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListIndexesRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -5941,6 +6070,70 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDataCorrectExecSQLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDesensitizationStrategyRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyDesensitizationStrategyResponse
+     */
+    public function modifyDesensitizationStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->columnName)) {
+            $query['ColumnName'] = $request->columnName;
+        }
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->isLogic)) {
+            $query['IsLogic'] = $request->isLogic;
+        }
+        if (!Utils::isUnset($request->isReset)) {
+            $query['IsReset'] = $request->isReset;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDesensitizationStrategy',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDesensitizationStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDesensitizationStrategyRequest $request
+     *
+     * @return ModifyDesensitizationStrategyResponse
+     */
+    public function modifyDesensitizationStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDesensitizationStrategyWithOptions($request, $runtime);
     }
 
     /**

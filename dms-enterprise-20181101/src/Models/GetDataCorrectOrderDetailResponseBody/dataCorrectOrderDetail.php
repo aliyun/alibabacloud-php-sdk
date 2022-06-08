@@ -17,6 +17,11 @@ class dataCorrectOrderDetail extends Model
     public $databaseList;
 
     /**
+     * @var string
+     */
+    public $execMode;
+
+    /**
      * @var orderDetail
      */
     public $orderDetail;
@@ -32,6 +37,7 @@ class dataCorrectOrderDetail extends Model
     public $status;
     protected $_name = [
         'databaseList'   => 'DatabaseList',
+        'execMode'       => 'ExecMode',
         'orderDetail'    => 'OrderDetail',
         'preCheckDetail' => 'PreCheckDetail',
         'status'         => 'Status',
@@ -46,6 +52,9 @@ class dataCorrectOrderDetail extends Model
         $res = [];
         if (null !== $this->databaseList) {
             $res['DatabaseList'] = null !== $this->databaseList ? $this->databaseList->toMap() : null;
+        }
+        if (null !== $this->execMode) {
+            $res['ExecMode'] = $this->execMode;
         }
         if (null !== $this->orderDetail) {
             $res['OrderDetail'] = null !== $this->orderDetail ? $this->orderDetail->toMap() : null;
@@ -70,6 +79,9 @@ class dataCorrectOrderDetail extends Model
         $model = new self();
         if (isset($map['DatabaseList'])) {
             $model->databaseList = databaseList::fromMap($map['DatabaseList']);
+        }
+        if (isset($map['ExecMode'])) {
+            $model->execMode = $map['ExecMode'];
         }
         if (isset($map['OrderDetail'])) {
             $model->orderDetail = orderDetail::fromMap($map['OrderDetail']);

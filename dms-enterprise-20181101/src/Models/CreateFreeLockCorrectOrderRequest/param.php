@@ -27,6 +27,11 @@ class param extends Model
     /**
      * @var string
      */
+    public $execMode;
+
+    /**
+     * @var string
+     */
     public $execSQL;
 
     /**
@@ -52,6 +57,7 @@ class param extends Model
         'attachmentName'         => 'AttachmentName',
         'classify'               => 'Classify',
         'dbItemList'             => 'DbItemList',
+        'execMode'               => 'ExecMode',
         'execSQL'                => 'ExecSQL',
         'rollbackAttachmentName' => 'RollbackAttachmentName',
         'rollbackSQL'            => 'RollbackSQL',
@@ -80,6 +86,9 @@ class param extends Model
                     $res['DbItemList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->execMode) {
+            $res['ExecMode'] = $this->execMode;
         }
         if (null !== $this->execSQL) {
             $res['ExecSQL'] = $this->execSQL;
@@ -122,6 +131,9 @@ class param extends Model
                     $model->dbItemList[$n++] = null !== $item ? dbItemList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ExecMode'])) {
+            $model->execMode = $map['ExecMode'];
         }
         if (isset($map['ExecSQL'])) {
             $model->execSQL = $map['ExecSQL'];
