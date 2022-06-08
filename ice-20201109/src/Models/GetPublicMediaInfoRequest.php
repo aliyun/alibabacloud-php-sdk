@@ -12,14 +12,8 @@ class GetPublicMediaInfoRequest extends Model
      * @var string
      */
     public $mediaId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
-        'mediaId'  => 'MediaId',
-        'regionId' => 'RegionId',
+        'mediaId' => 'MediaId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class GetPublicMediaInfoRequest extends Model
         $res = [];
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class GetPublicMediaInfoRequest extends Model
         $model = new self();
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

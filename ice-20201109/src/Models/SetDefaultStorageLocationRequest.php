@@ -21,16 +21,10 @@ class SetDefaultStorageLocationRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $storageType;
     protected $_name = [
         'bucket'      => 'Bucket',
         'path'        => 'Path',
-        'regionId'    => 'RegionId',
         'storageType' => 'StorageType',
     ];
 
@@ -46,9 +40,6 @@ class SetDefaultStorageLocationRequest extends Model
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
@@ -70,9 +61,6 @@ class SetDefaultStorageLocationRequest extends Model
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];

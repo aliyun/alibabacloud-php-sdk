@@ -26,14 +26,14 @@ class liveEditingJob extends Model
     public $code;
 
     /**
-     * @description 直播剪辑作业完成时间，格式为utc时间。  格式为："YYYY-MM-DD'T'hh:mm:ss'Z'"。
+     * @description 直播剪辑作业完成时间，格式为utc时间。  格式为："2021-06-21T08:01:00Z"。
      *
      * @var string
      */
     public $completeTime;
 
     /**
-     * @description 直播剪辑作业创建时间，格式为utc时间。  格式为："YYYY-MM-DD'T'hh:mm:ss'Z'"。
+     * @description 直播剪辑作业创建时间，格式为utc时间。  格式为："2021-06-21T08:01:00Z"。
      *
      * @var string
      */
@@ -82,7 +82,7 @@ class liveEditingJob extends Model
     public $message;
 
     /**
-     * @description 直播剪辑作业修改时间，格式为utc时间。  格式为："YYYY-MM-DD'T'hh:mm:ss'Z'"。
+     * @description 直播剪辑作业修改时间，格式为utc时间。  格式为："2021-06-21T08:01:00Z"。
      *
      * @var string
      */

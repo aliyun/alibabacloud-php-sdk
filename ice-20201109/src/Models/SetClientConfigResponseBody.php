@@ -6,22 +6,24 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeIceProductStatusResponseBody extends Model
+class SetClientConfigResponseBody extends Model
 {
-    /**
-     * @var bool
-     */
-    public $ICEServiceAvaliable;
-
     /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 配置是否成功
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'ICEServiceAvaliable' => 'ICEServiceAvaliable',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -31,11 +33,11 @@ class DescribeIceProductStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ICEServiceAvaliable) {
-            $res['ICEServiceAvaliable'] = $this->ICEServiceAvaliable;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -44,16 +46,16 @@ class DescribeIceProductStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeIceProductStatusResponseBody
+     * @return SetClientConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ICEServiceAvaliable'])) {
-            $model->ICEServiceAvaliable = $map['ICEServiceAvaliable'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

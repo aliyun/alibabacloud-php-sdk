@@ -79,11 +79,6 @@ class UpdateMediaInfoRequest extends Model
     public $mediaTags;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 标题
      *
      * @var string
@@ -107,7 +102,6 @@ class UpdateMediaInfoRequest extends Model
         'inputURL'            => 'InputURL',
         'mediaId'             => 'MediaId',
         'mediaTags'           => 'MediaTags',
-        'regionId'            => 'RegionId',
         'title'               => 'Title',
         'userData'            => 'UserData',
     ];
@@ -148,9 +142,6 @@ class UpdateMediaInfoRequest extends Model
         }
         if (null !== $this->mediaTags) {
             $res['MediaTags'] = $this->mediaTags;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -199,9 +190,6 @@ class UpdateMediaInfoRequest extends Model
         }
         if (isset($map['MediaTags'])) {
             $model->mediaTags = $map['MediaTags'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

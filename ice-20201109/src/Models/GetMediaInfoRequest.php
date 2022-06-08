@@ -22,16 +22,10 @@ class GetMediaInfoRequest extends Model
      * @var string
      */
     public $outputType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'inputURL'   => 'InputURL',
         'mediaId'    => 'MediaId',
         'outputType' => 'OutputType',
-        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class GetMediaInfoRequest extends Model
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class GetMediaInfoRequest extends Model
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -12,14 +12,8 @@ class GetMediaProducingJobRequest extends Model
      * @var string
      */
     public $jobId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
-        'jobId'    => 'JobId',
-        'regionId' => 'RegionId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class GetMediaProducingJobRequest extends Model
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class GetMediaProducingJobRequest extends Model
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

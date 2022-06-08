@@ -44,6 +44,13 @@ class ListMediaBasicInfosRequest extends Model
     public $maxResults;
 
     /**
+     * @description 媒资ID，单个媒资ID支持前缀匹配
+     *
+     * @var string
+     */
+    public $mediaId;
+
+    /**
      * @description 媒资媒体类型
      *
      * @var string
@@ -56,11 +63,6 @@ class ListMediaBasicInfosRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @description 排序
@@ -95,9 +97,9 @@ class ListMediaBasicInfosRequest extends Model
         'endTime'              => 'EndTime',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
         'maxResults'           => 'MaxResults',
+        'mediaId'              => 'MediaId',
         'mediaType'            => 'MediaType',
         'nextToken'            => 'NextToken',
-        'regionId'             => 'RegionId',
         'sortBy'               => 'SortBy',
         'source'               => 'Source',
         'startTime'            => 'StartTime',
@@ -126,14 +128,14 @@ class ListMediaBasicInfosRequest extends Model
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
+        }
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -174,14 +176,14 @@ class ListMediaBasicInfosRequest extends Model
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
+        }
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

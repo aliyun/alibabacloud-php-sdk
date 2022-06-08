@@ -72,11 +72,6 @@ class SubmitDynamicChartJobRequest extends Model
     public $outputConfig;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 副标题
      *
      * @var string
@@ -113,7 +108,6 @@ class SubmitDynamicChartJobRequest extends Model
         'description'  => 'Description',
         'input'        => 'Input',
         'outputConfig' => 'OutputConfig',
-        'regionId'     => 'RegionId',
         'subtitle'     => 'Subtitle',
         'title'        => 'Title',
         'unit'         => 'Unit',
@@ -153,9 +147,6 @@ class SubmitDynamicChartJobRequest extends Model
         }
         if (null !== $this->outputConfig) {
             $res['OutputConfig'] = $this->outputConfig;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->subtitle) {
             $res['Subtitle'] = $this->subtitle;
@@ -207,9 +198,6 @@ class SubmitDynamicChartJobRequest extends Model
         }
         if (isset($map['OutputConfig'])) {
             $model->outputConfig = $map['OutputConfig'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Subtitle'])) {
             $model->subtitle = $map['Subtitle'];

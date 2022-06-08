@@ -42,11 +42,6 @@ class UpdateEditingProjectRequest extends Model
     public $projectId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 模板Id
      *
      * @var string
@@ -72,7 +67,6 @@ class UpdateEditingProjectRequest extends Model
         'coverURL'       => 'CoverURL',
         'description'    => 'Description',
         'projectId'      => 'ProjectId',
-        'regionId'       => 'RegionId',
         'templateId'     => 'TemplateId',
         'timeline'       => 'Timeline',
         'title'          => 'Title',
@@ -99,9 +93,6 @@ class UpdateEditingProjectRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -138,9 +129,6 @@ class UpdateEditingProjectRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

@@ -19,17 +19,9 @@ class ListAllPublicMediaTagsRequest extends Model
      * @var string
      */
     public $entityId;
-
-    /**
-     * @description 区域标识
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'businessType' => 'BusinessType',
         'entityId'     => 'EntityId',
-        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -44,9 +36,6 @@ class ListAllPublicMediaTagsRequest extends Model
         }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,9 +54,6 @@ class ListAllPublicMediaTagsRequest extends Model
         }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

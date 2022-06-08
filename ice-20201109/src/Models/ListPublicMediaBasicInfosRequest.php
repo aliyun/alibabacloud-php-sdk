@@ -35,19 +35,11 @@ class ListPublicMediaBasicInfosRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @description 区域标识
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
         'maxResults'           => 'MaxResults',
         'mediaTagId'           => 'MediaTagId',
         'nextToken'            => 'NextToken',
-        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -68,9 +60,6 @@ class ListPublicMediaBasicInfosRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -95,9 +84,6 @@ class ListPublicMediaBasicInfosRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

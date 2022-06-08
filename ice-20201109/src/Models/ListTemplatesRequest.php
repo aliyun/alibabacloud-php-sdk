@@ -23,6 +23,20 @@ class ListTemplatesRequest extends Model
     public $keyword;
 
     /**
+     * @description 当前页码。默认值为1。
+     *
+     * @var int
+     */
+    public $pageNo;
+
+    /**
+     * @description 分页大小，每页显示条数。默认值为10，最大值为100。
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @description 排序参数，默认根据创建时间倒序
      *
      * @var string
@@ -45,6 +59,8 @@ class ListTemplatesRequest extends Model
     protected $_name = [
         'createSource' => 'CreateSource',
         'keyword'      => 'Keyword',
+        'pageNo'       => 'PageNo',
+        'pageSize'     => 'PageSize',
         'sortType'     => 'SortType',
         'status'       => 'Status',
         'type'         => 'Type',
@@ -62,6 +78,12 @@ class ListTemplatesRequest extends Model
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->sortType) {
             $res['SortType'] = $this->sortType;
@@ -89,6 +111,12 @@ class ListTemplatesRequest extends Model
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['SortType'])) {
             $model->sortType = $map['SortType'];

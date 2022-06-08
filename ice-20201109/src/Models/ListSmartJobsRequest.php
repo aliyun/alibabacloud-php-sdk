@@ -9,49 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ListSmartJobsRequest extends Model
 {
     /**
+     * @description 任务状态
+     *
      * @var string
      */
     public $jobState;
 
     /**
+     * @description 任务类型
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @description 分页大小。最大不超过100。  默认值：10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description 当前开始读取的位置
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description 当前页码。默认值为1。
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description 分页大小，每页显示条数。默认值为10，最大值为100。
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
+     * @description 排序参数，默认根据创建时间倒序
+     *
      * @var string
      */
     public $sortBy;
-
-    /**
-     * @var int
-     */
-    public $status;
     protected $_name = [
         'jobState'   => 'JobState',
         'jobType'    => 'JobType',
@@ -59,9 +63,7 @@ class ListSmartJobsRequest extends Model
         'nextToken'  => 'NextToken',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'sortBy'     => 'SortBy',
-        'status'     => 'Status',
     ];
 
     public function validate()
@@ -89,14 +91,8 @@ class ListSmartJobsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -128,14 +124,8 @@ class ListSmartJobsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
 
         return $model;

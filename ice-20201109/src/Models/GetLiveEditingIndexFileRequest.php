@@ -26,17 +26,11 @@ class GetLiveEditingIndexFileRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $streamName;
     protected $_name = [
         'appName'    => 'AppName',
         'domainName' => 'DomainName',
         'projectId'  => 'ProjectId',
-        'regionId'   => 'RegionId',
         'streamName' => 'StreamName',
     ];
 
@@ -55,9 +49,6 @@ class GetLiveEditingIndexFileRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -82,9 +73,6 @@ class GetLiveEditingIndexFileRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
