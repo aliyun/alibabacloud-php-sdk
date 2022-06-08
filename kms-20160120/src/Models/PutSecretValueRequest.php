@@ -11,16 +11,6 @@ class PutSecretValueRequest extends Model
     /**
      * @var string
      */
-    public $versionId;
-
-    /**
-     * @var string
-     */
-    public $secretName;
-
-    /**
-     * @var string
-     */
     public $secretData;
 
     /**
@@ -31,12 +21,22 @@ class PutSecretValueRequest extends Model
     /**
      * @var string
      */
+    public $secretName;
+
+    /**
+     * @var string
+     */
+    public $versionId;
+
+    /**
+     * @var string
+     */
     public $versionStages;
     protected $_name = [
-        'versionId'      => 'VersionId',
-        'secretName'     => 'SecretName',
         'secretData'     => 'SecretData',
         'secretDataType' => 'SecretDataType',
+        'secretName'     => 'SecretName',
+        'versionId'      => 'VersionId',
         'versionStages'  => 'VersionStages',
     ];
 
@@ -47,17 +47,17 @@ class PutSecretValueRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
-        }
-        if (null !== $this->secretName) {
-            $res['SecretName'] = $this->secretName;
-        }
         if (null !== $this->secretData) {
             $res['SecretData'] = $this->secretData;
         }
         if (null !== $this->secretDataType) {
             $res['SecretDataType'] = $this->secretDataType;
+        }
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
         if (null !== $this->versionStages) {
             $res['VersionStages'] = $this->versionStages;
@@ -74,17 +74,17 @@ class PutSecretValueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
-        }
-        if (isset($map['SecretName'])) {
-            $model->secretName = $map['SecretName'];
-        }
         if (isset($map['SecretData'])) {
             $model->secretData = $map['SecretData'];
         }
         if (isset($map['SecretDataType'])) {
             $model->secretDataType = $map['SecretDataType'];
+        }
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
         if (isset($map['VersionStages'])) {
             $model->versionStages = $map['VersionStages'];

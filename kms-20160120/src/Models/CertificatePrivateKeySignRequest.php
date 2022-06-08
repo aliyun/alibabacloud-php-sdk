@@ -11,27 +11,27 @@ class CertificatePrivateKeySignRequest extends Model
     /**
      * @var string
      */
-    public $certificateId;
-
-    /**
-     * @var string
-     */
     public $algorithm;
 
     /**
      * @var string
      */
-    public $messageType;
+    public $certificateId;
 
     /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var string
+     */
+    public $messageType;
     protected $_name = [
-        'certificateId' => 'CertificateId',
         'algorithm'     => 'Algorithm',
-        'messageType'   => 'MessageType',
+        'certificateId' => 'CertificateId',
         'message'       => 'Message',
+        'messageType'   => 'MessageType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CertificatePrivateKeySignRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
-        }
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
         }
-        if (null !== $this->messageType) {
-            $res['MessageType'] = $this->messageType;
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->messageType) {
+            $res['MessageType'] = $this->messageType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CertificatePrivateKeySignRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
-        }
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
         }
-        if (isset($map['MessageType'])) {
-            $model->messageType = $map['MessageType'];
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['MessageType'])) {
+            $model->messageType = $map['MessageType'];
         }
 
         return $model;

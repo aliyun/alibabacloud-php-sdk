@@ -16,16 +16,16 @@ class tag extends Model
     /**
      * @var string
      */
-    public $tagValue;
+    public $tagKey;
 
     /**
      * @var string
      */
-    public $tagKey;
+    public $tagValue;
     protected $_name = [
         'keyId'    => 'KeyId',
-        'tagValue' => 'TagValue',
         'tagKey'   => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class tag extends Model
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
-        }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class tag extends Model
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
-        }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
+        }
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
 
         return $model;

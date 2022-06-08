@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Kms\V20160120\Models\DescribeServiceResponseBody\protectionLevels;
+namespace AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class protectionLevel extends Model
+class extendedConfig extends Model
 {
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $type;
+    public $customData;
     protected $_name = [
-        'type' => 'Type',
+        'customData' => 'CustomData',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class protectionLevel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->customData) {
+            $res['CustomData'] = $this->customData;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class protectionLevel extends Model
     /**
      * @param array $map
      *
-     * @return protectionLevel
+     * @return extendedConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['CustomData'])) {
+            $model->customData = $map['CustomData'];
         }
 
         return $model;

@@ -14,6 +14,11 @@ class ListSecretsRequest extends Model
     public $fetchTags;
 
     /**
+     * @var string
+     */
+    public $filters;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -22,16 +27,11 @@ class ListSecretsRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $filters;
     protected $_name = [
         'fetchTags'  => 'FetchTags',
+        'filters'    => 'Filters',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'filters'    => 'Filters',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ListSecretsRequest extends Model
         if (null !== $this->fetchTags) {
             $res['FetchTags'] = $this->fetchTags;
         }
+        if (null !== $this->filters) {
+            $res['Filters'] = $this->filters;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->filters) {
-            $res['Filters'] = $this->filters;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ListSecretsRequest extends Model
         if (isset($map['FetchTags'])) {
             $model->fetchTags = $map['FetchTags'];
         }
+        if (isset($map['Filters'])) {
+            $model->filters = $map['Filters'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Filters'])) {
-            $model->filters = $map['Filters'];
         }
 
         return $model;

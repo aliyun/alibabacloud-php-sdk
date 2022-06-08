@@ -11,15 +11,15 @@ class CreateAliasRequest extends Model
     /**
      * @var string
      */
-    public $keyId;
+    public $aliasName;
 
     /**
      * @var string
      */
-    public $aliasName;
+    public $keyId;
     protected $_name = [
-        'keyId'     => 'KeyId',
         'aliasName' => 'AliasName',
+        'keyId'     => 'KeyId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAliasRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyId) {
-            $res['KeyId'] = $this->keyId;
-        }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAliasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KeyId'])) {
-            $model->keyId = $map['KeyId'];
-        }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
         }
 
         return $model;

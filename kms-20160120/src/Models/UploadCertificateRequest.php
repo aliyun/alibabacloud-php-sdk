@@ -11,21 +11,21 @@ class UploadCertificateRequest extends Model
     /**
      * @var string
      */
-    public $certificateId;
-
-    /**
-     * @var string
-     */
     public $certificate;
 
     /**
      * @var string
      */
     public $certificateChain;
+
+    /**
+     * @var string
+     */
+    public $certificateId;
     protected $_name = [
-        'certificateId'    => 'CertificateId',
         'certificate'      => 'Certificate',
         'certificateChain' => 'CertificateChain',
+        'certificateId'    => 'CertificateId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UploadCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
-        }
         if (null !== $this->certificate) {
             $res['Certificate'] = $this->certificate;
         }
         if (null !== $this->certificateChain) {
             $res['CertificateChain'] = $this->certificateChain;
+        }
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UploadCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
-        }
         if (isset($map['Certificate'])) {
             $model->certificate = $map['Certificate'];
         }
         if (isset($map['CertificateChain'])) {
             $model->certificateChain = $map['CertificateChain'];
+        }
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
         }
 
         return $model;

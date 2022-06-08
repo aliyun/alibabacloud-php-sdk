@@ -14,6 +14,16 @@ class CreateKeyRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableAutomaticRotation;
+
+    /**
+     * @var string
+     */
+    public $keySpec;
+
+    /**
      * @var string
      */
     public $keyUsage;
@@ -29,27 +39,17 @@ class CreateKeyRequest extends Model
     public $protectionLevel;
 
     /**
-     * @var bool
-     */
-    public $enableAutomaticRotation;
-
-    /**
      * @var string
      */
     public $rotationInterval;
-
-    /**
-     * @var string
-     */
-    public $keySpec;
     protected $_name = [
         'description'             => 'Description',
+        'enableAutomaticRotation' => 'EnableAutomaticRotation',
+        'keySpec'                 => 'KeySpec',
         'keyUsage'                => 'KeyUsage',
         'origin'                  => 'Origin',
         'protectionLevel'         => 'ProtectionLevel',
-        'enableAutomaticRotation' => 'EnableAutomaticRotation',
         'rotationInterval'        => 'RotationInterval',
-        'keySpec'                 => 'KeySpec',
     ];
 
     public function validate()
@@ -62,6 +62,12 @@ class CreateKeyRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->enableAutomaticRotation) {
+            $res['EnableAutomaticRotation'] = $this->enableAutomaticRotation;
+        }
+        if (null !== $this->keySpec) {
+            $res['KeySpec'] = $this->keySpec;
+        }
         if (null !== $this->keyUsage) {
             $res['KeyUsage'] = $this->keyUsage;
         }
@@ -71,14 +77,8 @@ class CreateKeyRequest extends Model
         if (null !== $this->protectionLevel) {
             $res['ProtectionLevel'] = $this->protectionLevel;
         }
-        if (null !== $this->enableAutomaticRotation) {
-            $res['EnableAutomaticRotation'] = $this->enableAutomaticRotation;
-        }
         if (null !== $this->rotationInterval) {
             $res['RotationInterval'] = $this->rotationInterval;
-        }
-        if (null !== $this->keySpec) {
-            $res['KeySpec'] = $this->keySpec;
         }
 
         return $res;
@@ -95,6 +95,12 @@ class CreateKeyRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['EnableAutomaticRotation'])) {
+            $model->enableAutomaticRotation = $map['EnableAutomaticRotation'];
+        }
+        if (isset($map['KeySpec'])) {
+            $model->keySpec = $map['KeySpec'];
+        }
         if (isset($map['KeyUsage'])) {
             $model->keyUsage = $map['KeyUsage'];
         }
@@ -104,14 +110,8 @@ class CreateKeyRequest extends Model
         if (isset($map['ProtectionLevel'])) {
             $model->protectionLevel = $map['ProtectionLevel'];
         }
-        if (isset($map['EnableAutomaticRotation'])) {
-            $model->enableAutomaticRotation = $map['EnableAutomaticRotation'];
-        }
         if (isset($map['RotationInterval'])) {
             $model->rotationInterval = $map['RotationInterval'];
-        }
-        if (isset($map['KeySpec'])) {
-            $model->keySpec = $map['KeySpec'];
         }
 
         return $model;

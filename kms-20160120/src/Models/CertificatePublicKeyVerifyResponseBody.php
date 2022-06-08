@@ -11,20 +11,20 @@ class CertificatePublicKeyVerifyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $certificateId;
 
     /**
      * @var string
      */
-    public $certificateId;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $signatureValid;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'certificateId'  => 'CertificateId',
+        'requestId'      => 'RequestId',
         'signatureValid' => 'SignatureValid',
     ];
 
@@ -35,11 +35,11 @@ class CertificatePublicKeyVerifyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->signatureValid) {
             $res['SignatureValid'] = $this->signatureValid;
@@ -56,11 +56,11 @@ class CertificatePublicKeyVerifyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SignatureValid'])) {
             $model->signatureValid = $map['SignatureValid'];

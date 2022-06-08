@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Kms\V20160120\Models\DescribeServiceResponseBody\keySpecs\keySpec;
+namespace AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretShrinkRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class usages extends Model
+class extendedConfig extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $usage;
+    public $customData;
     protected $_name = [
-        'usage' => 'Usage',
+        'customData' => 'CustomData',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class usages extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->usage) {
-            $res['Usage'] = $this->usage;
+        if (null !== $this->customData) {
+            $res['CustomData'] = $this->customData;
         }
 
         return $res;
@@ -33,15 +33,13 @@ class usages extends Model
     /**
      * @param array $map
      *
-     * @return usages
+     * @return extendedConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Usage'])) {
-            if (!empty($map['Usage'])) {
-                $model->usage = $map['Usage'];
-            }
+        if (isset($map['CustomData'])) {
+            $model->customData = $map['CustomData'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GenerateDataKeyRequest extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $encryptionContext;
+
+    /**
      * @var string
      */
     public $keyId;
@@ -22,16 +27,11 @@ class GenerateDataKeyRequest extends Model
      * @var int
      */
     public $numberOfBytes;
-
-    /**
-     * @var mixed[]
-     */
-    public $encryptionContext;
     protected $_name = [
+        'encryptionContext' => 'EncryptionContext',
         'keyId'             => 'KeyId',
         'keySpec'           => 'KeySpec',
         'numberOfBytes'     => 'NumberOfBytes',
-        'encryptionContext' => 'EncryptionContext',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class GenerateDataKeyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->encryptionContext) {
+            $res['EncryptionContext'] = $this->encryptionContext;
+        }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
@@ -49,9 +52,6 @@ class GenerateDataKeyRequest extends Model
         }
         if (null !== $this->numberOfBytes) {
             $res['NumberOfBytes'] = $this->numberOfBytes;
-        }
-        if (null !== $this->encryptionContext) {
-            $res['EncryptionContext'] = $this->encryptionContext;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class GenerateDataKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EncryptionContext'])) {
+            $model->encryptionContext = $map['EncryptionContext'];
+        }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
@@ -73,9 +76,6 @@ class GenerateDataKeyRequest extends Model
         }
         if (isset($map['NumberOfBytes'])) {
             $model->numberOfBytes = $map['NumberOfBytes'];
-        }
-        if (isset($map['EncryptionContext'])) {
-            $model->encryptionContext = $map['EncryptionContext'];
         }
 
         return $model;

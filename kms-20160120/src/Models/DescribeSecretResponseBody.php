@@ -12,32 +12,7 @@ class DescribeSecretResponseBody extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $rotationInterval;
-
-    /**
-     * @var string
-     */
-    public $lastRotationDate;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $secretType;
-
-    /**
-     * @var string
-     */
-    public $createTime;
+    public $arn;
 
     /**
      * @var string
@@ -47,17 +22,17 @@ class DescribeSecretResponseBody extends Model
     /**
      * @var string
      */
-    public $secretName;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $nextRotationDate;
+    public $description;
 
     /**
      * @var string
      */
-    public $updateTime;
+    public $encryptionKeyId;
 
     /**
      * @var string
@@ -67,12 +42,37 @@ class DescribeSecretResponseBody extends Model
     /**
      * @var string
      */
+    public $lastRotationDate;
+
+    /**
+     * @var string
+     */
+    public $nextRotationDate;
+
+    /**
+     * @var string
+     */
     public $plannedDeleteTime;
 
     /**
      * @var string
      */
-    public $arn;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $rotationInterval;
+
+    /**
+     * @var string
+     */
+    public $secretName;
+
+    /**
+     * @var string
+     */
+    public $secretType;
 
     /**
      * @var tags
@@ -82,23 +82,23 @@ class DescribeSecretResponseBody extends Model
     /**
      * @var string
      */
-    public $encryptionKeyId;
+    public $updateTime;
     protected $_name = [
-        'description'       => 'Description',
-        'rotationInterval'  => 'RotationInterval',
-        'lastRotationDate'  => 'LastRotationDate',
-        'requestId'         => 'RequestId',
-        'secretType'        => 'SecretType',
-        'createTime'        => 'CreateTime',
-        'automaticRotation' => 'AutomaticRotation',
-        'secretName'        => 'SecretName',
-        'nextRotationDate'  => 'NextRotationDate',
-        'updateTime'        => 'UpdateTime',
-        'extendedConfig'    => 'ExtendedConfig',
-        'plannedDeleteTime' => 'PlannedDeleteTime',
         'arn'               => 'Arn',
-        'tags'              => 'Tags',
+        'automaticRotation' => 'AutomaticRotation',
+        'createTime'        => 'CreateTime',
+        'description'       => 'Description',
         'encryptionKeyId'   => 'EncryptionKeyId',
+        'extendedConfig'    => 'ExtendedConfig',
+        'lastRotationDate'  => 'LastRotationDate',
+        'nextRotationDate'  => 'NextRotationDate',
+        'plannedDeleteTime' => 'PlannedDeleteTime',
+        'requestId'         => 'RequestId',
+        'rotationInterval'  => 'RotationInterval',
+        'secretName'        => 'SecretName',
+        'secretType'        => 'SecretType',
+        'tags'              => 'Tags',
+        'updateTime'        => 'UpdateTime',
     ];
 
     public function validate()
@@ -108,50 +108,50 @@ class DescribeSecretResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->rotationInterval) {
-            $res['RotationInterval'] = $this->rotationInterval;
-        }
-        if (null !== $this->lastRotationDate) {
-            $res['LastRotationDate'] = $this->lastRotationDate;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->secretType) {
-            $res['SecretType'] = $this->secretType;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->arn) {
+            $res['Arn'] = $this->arn;
         }
         if (null !== $this->automaticRotation) {
             $res['AutomaticRotation'] = $this->automaticRotation;
         }
-        if (null !== $this->secretName) {
-            $res['SecretName'] = $this->secretName;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->nextRotationDate) {
-            $res['NextRotationDate'] = $this->nextRotationDate;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->encryptionKeyId) {
+            $res['EncryptionKeyId'] = $this->encryptionKeyId;
         }
         if (null !== $this->extendedConfig) {
             $res['ExtendedConfig'] = $this->extendedConfig;
         }
+        if (null !== $this->lastRotationDate) {
+            $res['LastRotationDate'] = $this->lastRotationDate;
+        }
+        if (null !== $this->nextRotationDate) {
+            $res['NextRotationDate'] = $this->nextRotationDate;
+        }
         if (null !== $this->plannedDeleteTime) {
             $res['PlannedDeleteTime'] = $this->plannedDeleteTime;
         }
-        if (null !== $this->arn) {
-            $res['Arn'] = $this->arn;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->rotationInterval) {
+            $res['RotationInterval'] = $this->rotationInterval;
+        }
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
+        }
+        if (null !== $this->secretType) {
+            $res['SecretType'] = $this->secretType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
-        if (null !== $this->encryptionKeyId) {
-            $res['EncryptionKeyId'] = $this->encryptionKeyId;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -165,50 +165,50 @@ class DescribeSecretResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RotationInterval'])) {
-            $model->rotationInterval = $map['RotationInterval'];
-        }
-        if (isset($map['LastRotationDate'])) {
-            $model->lastRotationDate = $map['LastRotationDate'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SecretType'])) {
-            $model->secretType = $map['SecretType'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Arn'])) {
+            $model->arn = $map['Arn'];
         }
         if (isset($map['AutomaticRotation'])) {
             $model->automaticRotation = $map['AutomaticRotation'];
         }
-        if (isset($map['SecretName'])) {
-            $model->secretName = $map['SecretName'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['NextRotationDate'])) {
-            $model->nextRotationDate = $map['NextRotationDate'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['EncryptionKeyId'])) {
+            $model->encryptionKeyId = $map['EncryptionKeyId'];
         }
         if (isset($map['ExtendedConfig'])) {
             $model->extendedConfig = $map['ExtendedConfig'];
         }
+        if (isset($map['LastRotationDate'])) {
+            $model->lastRotationDate = $map['LastRotationDate'];
+        }
+        if (isset($map['NextRotationDate'])) {
+            $model->nextRotationDate = $map['NextRotationDate'];
+        }
         if (isset($map['PlannedDeleteTime'])) {
             $model->plannedDeleteTime = $map['PlannedDeleteTime'];
         }
-        if (isset($map['Arn'])) {
-            $model->arn = $map['Arn'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RotationInterval'])) {
+            $model->rotationInterval = $map['RotationInterval'];
+        }
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
+        }
+        if (isset($map['SecretType'])) {
+            $model->secretType = $map['SecretType'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
-        if (isset($map['EncryptionKeyId'])) {
-            $model->encryptionKeyId = $map['EncryptionKeyId'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

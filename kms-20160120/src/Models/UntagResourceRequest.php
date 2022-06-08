@@ -11,12 +11,12 @@ class UntagResourceRequest extends Model
     /**
      * @var string
      */
-    public $keyId;
+    public $certificateId;
 
     /**
      * @var string
      */
-    public $tagKeys;
+    public $keyId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class UntagResourceRequest extends Model
     /**
      * @var string
      */
-    public $certificateId;
+    public $tagKeys;
     protected $_name = [
-        'keyId'         => 'KeyId',
-        'tagKeys'       => 'TagKeys',
-        'secretName'    => 'SecretName',
         'certificateId' => 'CertificateId',
+        'keyId'         => 'KeyId',
+        'secretName'    => 'SecretName',
+        'tagKeys'       => 'TagKeys',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UntagResourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
+        }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
-        }
-        if (null !== $this->tagKeys) {
-            $res['TagKeys'] = $this->tagKeys;
         }
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+        if (null !== $this->tagKeys) {
+            $res['TagKeys'] = $this->tagKeys;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UntagResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
+        }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
-        }
-        if (isset($map['TagKeys'])) {
-            $model->tagKeys = $map['TagKeys'];
         }
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
+        if (isset($map['TagKeys'])) {
+            $model->tagKeys = $map['TagKeys'];
         }
 
         return $model;

@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCertificateShrinkRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $subject;
-
-    /**
-     * @var string
-     */
-    public $subjectAlternativeNamesShrink;
+    public $exportablePrivateKey;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class CreateCertificateShrinkRequest extends Model
     /**
      * @var string
      */
-    public $protectionLevel;
+    public $subject;
+
+    /**
+     * @var string
+     */
+    public $subjectAlternativeNamesShrink;
     protected $_name = [
+        'exportablePrivateKey'          => 'ExportablePrivateKey',
+        'keySpec'                       => 'KeySpec',
         'subject'                       => 'Subject',
         'subjectAlternativeNamesShrink' => 'SubjectAlternativeNames',
-        'keySpec'                       => 'KeySpec',
-        'protectionLevel'               => 'ProtectionLevel',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateCertificateShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exportablePrivateKey) {
+            $res['ExportablePrivateKey'] = $this->exportablePrivateKey;
+        }
+        if (null !== $this->keySpec) {
+            $res['KeySpec'] = $this->keySpec;
+        }
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
         }
         if (null !== $this->subjectAlternativeNamesShrink) {
             $res['SubjectAlternativeNames'] = $this->subjectAlternativeNamesShrink;
-        }
-        if (null !== $this->keySpec) {
-            $res['KeySpec'] = $this->keySpec;
-        }
-        if (null !== $this->protectionLevel) {
-            $res['ProtectionLevel'] = $this->protectionLevel;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateCertificateShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExportablePrivateKey'])) {
+            $model->exportablePrivateKey = $map['ExportablePrivateKey'];
+        }
+        if (isset($map['KeySpec'])) {
+            $model->keySpec = $map['KeySpec'];
+        }
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];
         }
         if (isset($map['SubjectAlternativeNames'])) {
             $model->subjectAlternativeNamesShrink = $map['SubjectAlternativeNames'];
-        }
-        if (isset($map['KeySpec'])) {
-            $model->keySpec = $map['KeySpec'];
-        }
-        if (isset($map['ProtectionLevel'])) {
-            $model->protectionLevel = $map['ProtectionLevel'];
         }
 
         return $model;

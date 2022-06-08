@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ImportCertificateResponseBody extends Model
+class UpdateSecretResponseBody extends Model
 {
     /**
      * @var string
@@ -16,16 +16,10 @@ class ImportCertificateResponseBody extends Model
     /**
      * @var string
      */
-    public $certificateId;
-
-    /**
-     * @var string
-     */
-    public $arn;
+    public $secretName;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'certificateId' => 'CertificateId',
-        'arn'           => 'Arn',
+        'requestId'  => 'RequestId',
+        'secretName' => 'SecretName',
     ];
 
     public function validate()
@@ -38,11 +32,8 @@ class ImportCertificateResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
-        }
-        if (null !== $this->arn) {
-            $res['Arn'] = $this->arn;
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
         }
 
         return $res;
@@ -51,7 +42,7 @@ class ImportCertificateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ImportCertificateResponseBody
+     * @return UpdateSecretResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -59,11 +50,8 @@ class ImportCertificateResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
-        }
-        if (isset($map['Arn'])) {
-            $model->arn = $map['Arn'];
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
         }
 
         return $model;

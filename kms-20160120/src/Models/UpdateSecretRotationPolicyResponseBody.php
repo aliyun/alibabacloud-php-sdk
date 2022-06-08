@@ -11,15 +11,15 @@ class UpdateSecretRotationPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $secretName;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $secretName;
     protected $_name = [
-        'secretName' => 'SecretName',
         'requestId'  => 'RequestId',
+        'secretName' => 'SecretName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateSecretRotationPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secretName) {
-            $res['SecretName'] = $this->secretName;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateSecretRotationPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecretName'])) {
-            $model->secretName = $map['SecretName'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
         }
 
         return $model;

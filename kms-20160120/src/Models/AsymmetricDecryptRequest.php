@@ -11,6 +11,11 @@ class AsymmetricDecryptRequest extends Model
     /**
      * @var string
      */
+    public $algorithm;
+
+    /**
+     * @var string
+     */
     public $ciphertextBlob;
 
     /**
@@ -22,16 +27,11 @@ class AsymmetricDecryptRequest extends Model
      * @var string
      */
     public $keyVersionId;
-
-    /**
-     * @var string
-     */
-    public $algorithm;
     protected $_name = [
+        'algorithm'      => 'Algorithm',
         'ciphertextBlob' => 'CiphertextBlob',
         'keyId'          => 'KeyId',
         'keyVersionId'   => 'KeyVersionId',
-        'algorithm'      => 'Algorithm',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class AsymmetricDecryptRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
+        }
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
         }
@@ -49,9 +52,6 @@ class AsymmetricDecryptRequest extends Model
         }
         if (null !== $this->keyVersionId) {
             $res['KeyVersionId'] = $this->keyVersionId;
-        }
-        if (null !== $this->algorithm) {
-            $res['Algorithm'] = $this->algorithm;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class AsymmetricDecryptRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
         }
@@ -73,9 +76,6 @@ class AsymmetricDecryptRequest extends Model
         }
         if (isset($map['KeyVersionId'])) {
             $model->keyVersionId = $map['KeyVersionId'];
-        }
-        if (isset($map['Algorithm'])) {
-            $model->algorithm = $map['Algorithm'];
         }
 
         return $model;

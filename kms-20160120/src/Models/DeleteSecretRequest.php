@@ -11,21 +11,21 @@ class DeleteSecretRequest extends Model
     /**
      * @var string
      */
-    public $secretName;
-
-    /**
-     * @var string
-     */
     public $forceDeleteWithoutRecovery;
 
     /**
      * @var string
      */
     public $recoveryWindowInDays;
+
+    /**
+     * @var string
+     */
+    public $secretName;
     protected $_name = [
-        'secretName'                 => 'SecretName',
         'forceDeleteWithoutRecovery' => 'ForceDeleteWithoutRecovery',
         'recoveryWindowInDays'       => 'RecoveryWindowInDays',
+        'secretName'                 => 'SecretName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteSecretRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secretName) {
-            $res['SecretName'] = $this->secretName;
-        }
         if (null !== $this->forceDeleteWithoutRecovery) {
             $res['ForceDeleteWithoutRecovery'] = $this->forceDeleteWithoutRecovery;
         }
         if (null !== $this->recoveryWindowInDays) {
             $res['RecoveryWindowInDays'] = $this->recoveryWindowInDays;
+        }
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteSecretRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecretName'])) {
-            $model->secretName = $map['SecretName'];
-        }
         if (isset($map['ForceDeleteWithoutRecovery'])) {
             $model->forceDeleteWithoutRecovery = $map['ForceDeleteWithoutRecovery'];
         }
         if (isset($map['RecoveryWindowInDays'])) {
             $model->recoveryWindowInDays = $map['RecoveryWindowInDays'];
+        }
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
         }
 
         return $model;

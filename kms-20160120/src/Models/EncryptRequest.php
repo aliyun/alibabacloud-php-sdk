@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EncryptRequest extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $encryptionContext;
+
+    /**
      * @var string
      */
     public $keyId;
@@ -17,15 +22,10 @@ class EncryptRequest extends Model
      * @var string
      */
     public $plaintext;
-
-    /**
-     * @var mixed[]
-     */
-    public $encryptionContext;
     protected $_name = [
+        'encryptionContext' => 'EncryptionContext',
         'keyId'             => 'KeyId',
         'plaintext'         => 'Plaintext',
-        'encryptionContext' => 'EncryptionContext',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class EncryptRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->encryptionContext) {
+            $res['EncryptionContext'] = $this->encryptionContext;
+        }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
         if (null !== $this->plaintext) {
             $res['Plaintext'] = $this->plaintext;
-        }
-        if (null !== $this->encryptionContext) {
-            $res['EncryptionContext'] = $this->encryptionContext;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class EncryptRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EncryptionContext'])) {
+            $model->encryptionContext = $map['EncryptionContext'];
+        }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
         if (isset($map['Plaintext'])) {
             $model->plaintext = $map['Plaintext'];
-        }
-        if (isset($map['EncryptionContext'])) {
-            $model->encryptionContext = $map['EncryptionContext'];
         }
 
         return $model;

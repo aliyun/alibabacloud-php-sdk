@@ -11,12 +11,7 @@ class UpdateSecretVersionStageRequest extends Model
     /**
      * @var string
      */
-    public $secretName;
-
-    /**
-     * @var string
-     */
-    public $versionStage;
+    public $moveToVersion;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class UpdateSecretVersionStageRequest extends Model
     /**
      * @var string
      */
-    public $moveToVersion;
+    public $secretName;
+
+    /**
+     * @var string
+     */
+    public $versionStage;
     protected $_name = [
+        'moveToVersion'     => 'MoveToVersion',
+        'removeFromVersion' => 'RemoveFromVersion',
         'secretName'        => 'SecretName',
         'versionStage'      => 'VersionStage',
-        'removeFromVersion' => 'RemoveFromVersion',
-        'moveToVersion'     => 'MoveToVersion',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateSecretVersionStageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->moveToVersion) {
+            $res['MoveToVersion'] = $this->moveToVersion;
+        }
+        if (null !== $this->removeFromVersion) {
+            $res['RemoveFromVersion'] = $this->removeFromVersion;
+        }
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
         if (null !== $this->versionStage) {
             $res['VersionStage'] = $this->versionStage;
-        }
-        if (null !== $this->removeFromVersion) {
-            $res['RemoveFromVersion'] = $this->removeFromVersion;
-        }
-        if (null !== $this->moveToVersion) {
-            $res['MoveToVersion'] = $this->moveToVersion;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateSecretVersionStageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MoveToVersion'])) {
+            $model->moveToVersion = $map['MoveToVersion'];
+        }
+        if (isset($map['RemoveFromVersion'])) {
+            $model->removeFromVersion = $map['RemoveFromVersion'];
+        }
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }
         if (isset($map['VersionStage'])) {
             $model->versionStage = $map['VersionStage'];
-        }
-        if (isset($map['RemoveFromVersion'])) {
-            $model->removeFromVersion = $map['RemoveFromVersion'];
-        }
-        if (isset($map['MoveToVersion'])) {
-            $model->moveToVersion = $map['MoveToVersion'];
         }
 
         return $model;

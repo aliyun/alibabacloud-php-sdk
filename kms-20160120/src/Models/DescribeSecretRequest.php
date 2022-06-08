@@ -11,15 +11,15 @@ class DescribeSecretRequest extends Model
     /**
      * @var string
      */
-    public $secretName;
+    public $fetchTags;
 
     /**
      * @var string
      */
-    public $fetchTags;
+    public $secretName;
     protected $_name = [
-        'secretName' => 'SecretName',
         'fetchTags'  => 'FetchTags',
+        'secretName' => 'SecretName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeSecretRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secretName) {
-            $res['SecretName'] = $this->secretName;
-        }
         if (null !== $this->fetchTags) {
             $res['FetchTags'] = $this->fetchTags;
+        }
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeSecretRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecretName'])) {
-            $model->secretName = $map['SecretName'];
-        }
         if (isset($map['FetchTags'])) {
             $model->fetchTags = $map['FetchTags'];
+        }
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
         }
 
         return $model;

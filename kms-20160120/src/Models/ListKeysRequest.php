@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListKeysRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $filters;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -17,15 +22,10 @@ class ListKeysRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $filters;
     protected $_name = [
+        'filters'    => 'Filters',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'filters'    => 'Filters',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListKeysRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filters) {
+            $res['Filters'] = $this->filters;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->filters) {
-            $res['Filters'] = $this->filters;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListKeysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Filters'])) {
+            $model->filters = $map['Filters'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Filters'])) {
-            $model->filters = $map['Filters'];
         }
 
         return $model;

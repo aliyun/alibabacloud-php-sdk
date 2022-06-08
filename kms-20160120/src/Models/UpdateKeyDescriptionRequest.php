@@ -11,15 +11,15 @@ class UpdateKeyDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $keyId;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $keyId;
     protected $_name = [
-        'keyId'       => 'KeyId',
         'description' => 'Description',
+        'keyId'       => 'KeyId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateKeyDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyId) {
-            $res['KeyId'] = $this->keyId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateKeyDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KeyId'])) {
-            $model->keyId = $map['KeyId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
         }
 
         return $model;

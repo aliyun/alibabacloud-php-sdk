@@ -57,7 +57,6 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeKeyVersionResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeSecretRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeSecretResponse;
-use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeServiceResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DisableKeyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DisableKeyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\EnableKeyRequest;
@@ -65,8 +64,6 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\EnableKeyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\EncryptRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\EncryptResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\EncryptShrinkRequest;
-use AlibabaCloud\SDK\Kms\V20160120\Models\ExportCertificateRequest;
-use AlibabaCloud\SDK\Kms\V20160120\Models\ExportCertificateResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ExportDataKeyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ExportDataKeyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ExportDataKeyShrinkRequest;
@@ -89,18 +86,12 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\GetRandomPasswordRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetRandomPasswordResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetSecretValueRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetSecretValueResponse;
-use AlibabaCloud\SDK\Kms\V20160120\Models\ImportCertificateRequest;
-use AlibabaCloud\SDK\Kms\V20160120\Models\ImportCertificateResponse;
-use AlibabaCloud\SDK\Kms\V20160120\Models\ImportEncryptionCertificateRequest;
-use AlibabaCloud\SDK\Kms\V20160120\Models\ImportEncryptionCertificateResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ImportKeyMaterialRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ImportKeyMaterialResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesByKeyIdRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesByKeyIdResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesResponse;
-use AlibabaCloud\SDK\Kms\V20160120\Models\ListCertificatesRequest;
-use AlibabaCloud\SDK\Kms\V20160120\Models\ListCertificatesResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeysRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeysResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeyVersionsRequest;
@@ -123,6 +114,8 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\RotateSecretRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\RotateSecretResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ScheduleKeyDeletionRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ScheduleKeyDeletionResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\SetDeletionProtectionRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\SetDeletionProtectionResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\TagResourceRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\TagResourceResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UntagResourceRequest;
@@ -135,6 +128,8 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateKeyDescriptionRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateKeyDescriptionResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateRotationPolicyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateRotationPolicyResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretRotationPolicyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretRotationPolicyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretVersionStageRequest;
@@ -144,6 +139,7 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\UploadCertificateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Kms extends OpenApiClient
@@ -188,11 +184,35 @@ class Kms extends OpenApiClient
     public function asymmetricDecryptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->ciphertextBlob)) {
+            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyVersionId)) {
+            $query['KeyVersionId'] = $request->keyVersionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AsymmetricDecrypt',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AsymmetricDecryptResponse::fromMap($this->doRPCRequest('AsymmetricDecrypt', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AsymmetricDecryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -216,11 +236,35 @@ class Kms extends OpenApiClient
     public function asymmetricEncryptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyVersionId)) {
+            $query['KeyVersionId'] = $request->keyVersionId;
+        }
+        if (!Utils::isUnset($request->plaintext)) {
+            $query['Plaintext'] = $request->plaintext;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AsymmetricEncrypt',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AsymmetricEncryptResponse::fromMap($this->doRPCRequest('AsymmetricEncrypt', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AsymmetricEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -244,11 +288,35 @@ class Kms extends OpenApiClient
     public function asymmetricSignWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->digest)) {
+            $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyVersionId)) {
+            $query['KeyVersionId'] = $request->keyVersionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AsymmetricSign',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AsymmetricSignResponse::fromMap($this->doRPCRequest('AsymmetricSign', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AsymmetricSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -272,11 +340,38 @@ class Kms extends OpenApiClient
     public function asymmetricVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->digest)) {
+            $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyVersionId)) {
+            $query['KeyVersionId'] = $request->keyVersionId;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AsymmetricVerify',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AsymmetricVerifyResponse::fromMap($this->doRPCRequest('AsymmetricVerify', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AsymmetricVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -300,11 +395,26 @@ class Kms extends OpenApiClient
     public function cancelKeyDeletionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelKeyDeletion',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelKeyDeletionResponse::fromMap($this->doRPCRequest('CancelKeyDeletion', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelKeyDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -328,11 +438,32 @@ class Kms extends OpenApiClient
     public function certificatePrivateKeyDecryptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->ciphertextBlob)) {
+            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CertificatePrivateKeyDecrypt',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CertificatePrivateKeyDecryptResponse::fromMap($this->doRPCRequest('CertificatePrivateKeyDecrypt', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CertificatePrivateKeyDecryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -356,11 +487,35 @@ class Kms extends OpenApiClient
     public function certificatePrivateKeySignWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CertificatePrivateKeySign',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CertificatePrivateKeySignResponse::fromMap($this->doRPCRequest('CertificatePrivateKeySign', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CertificatePrivateKeySignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -384,11 +539,32 @@ class Kms extends OpenApiClient
     public function certificatePublicKeyEncryptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->plaintext)) {
+            $query['Plaintext'] = $request->plaintext;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CertificatePublicKeyEncrypt',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CertificatePublicKeyEncryptResponse::fromMap($this->doRPCRequest('CertificatePublicKeyEncrypt', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CertificatePublicKeyEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -412,11 +588,38 @@ class Kms extends OpenApiClient
     public function certificatePublicKeyVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->signatureValue)) {
+            $query['SignatureValue'] = $request->signatureValue;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CertificatePublicKeyVerify',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CertificatePublicKeyVerifyResponse::fromMap($this->doRPCRequest('CertificatePublicKeyVerify', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CertificatePublicKeyVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -440,11 +643,29 @@ class Kms extends OpenApiClient
     public function createAliasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAlias',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAliasResponse::fromMap($this->doRPCRequest('CreateAlias', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -473,11 +694,35 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->subjectAlternativeNames)) {
             $request->subjectAlternativeNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subjectAlternativeNames, 'SubjectAlternativeNames', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->exportablePrivateKey)) {
+            $query['ExportablePrivateKey'] = $request->exportablePrivateKey;
+        }
+        if (!Utils::isUnset($request->keySpec)) {
+            $query['KeySpec'] = $request->keySpec;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->subjectAlternativeNamesShrink)) {
+            $query['SubjectAlternativeNames'] = $request->subjectAlternativeNamesShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCertificate',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCertificateResponse::fromMap($this->doRPCRequest('CreateCertificate', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -501,11 +746,44 @@ class Kms extends OpenApiClient
     public function createKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enableAutomaticRotation)) {
+            $query['EnableAutomaticRotation'] = $request->enableAutomaticRotation;
+        }
+        if (!Utils::isUnset($request->keySpec)) {
+            $query['KeySpec'] = $request->keySpec;
+        }
+        if (!Utils::isUnset($request->keyUsage)) {
+            $query['KeyUsage'] = $request->keyUsage;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['Origin'] = $request->origin;
+        }
+        if (!Utils::isUnset($request->protectionLevel)) {
+            $query['ProtectionLevel'] = $request->protectionLevel;
+        }
+        if (!Utils::isUnset($request->rotationInterval)) {
+            $query['RotationInterval'] = $request->rotationInterval;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateKeyResponse::fromMap($this->doRPCRequest('CreateKey', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -529,11 +807,26 @@ class Kms extends OpenApiClient
     public function createKeyVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateKeyVersion',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateKeyVersionResponse::fromMap($this->doRPCRequest('CreateKeyVersion', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateKeyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -562,11 +855,56 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->extendedConfig)) {
             $request->extendedConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extendedConfig, 'ExtendedConfig', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enableAutomaticRotation)) {
+            $query['EnableAutomaticRotation'] = $request->enableAutomaticRotation;
+        }
+        if (!Utils::isUnset($request->encryptionKeyId)) {
+            $query['EncryptionKeyId'] = $request->encryptionKeyId;
+        }
+        if (!Utils::isUnset($request->extendedConfigShrink)) {
+            $query['ExtendedConfig'] = $request->extendedConfigShrink;
+        }
+        if (!Utils::isUnset($request->rotationInterval)) {
+            $query['RotationInterval'] = $request->rotationInterval;
+        }
+        if (!Utils::isUnset($request->secretData)) {
+            $query['SecretData'] = $request->secretData;
+        }
+        if (!Utils::isUnset($request->secretDataType)) {
+            $query['SecretDataType'] = $request->secretDataType;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->secretType)) {
+            $query['SecretType'] = $request->secretType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSecret',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSecretResponse::fromMap($this->doRPCRequest('CreateSecret', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -595,11 +933,29 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->encryptionContext)) {
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->ciphertextBlob)) {
+            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
+        if (!Utils::isUnset($request->encryptionContextShrink)) {
+            $query['EncryptionContext'] = $request->encryptionContextShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Decrypt',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DecryptResponse::fromMap($this->doRPCRequest('Decrypt', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DecryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -623,11 +979,26 @@ class Kms extends OpenApiClient
     public function deleteAliasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlias',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAliasResponse::fromMap($this->doRPCRequest('DeleteAlias', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -651,11 +1022,26 @@ class Kms extends OpenApiClient
     public function deleteCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCertificate',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCertificateResponse::fromMap($this->doRPCRequest('DeleteCertificate', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -679,11 +1065,26 @@ class Kms extends OpenApiClient
     public function deleteKeyMaterialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteKeyMaterial',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteKeyMaterialResponse::fromMap($this->doRPCRequest('DeleteKeyMaterial', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteKeyMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -707,11 +1108,32 @@ class Kms extends OpenApiClient
     public function deleteSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forceDeleteWithoutRecovery)) {
+            $query['ForceDeleteWithoutRecovery'] = $request->forceDeleteWithoutRecovery;
+        }
+        if (!Utils::isUnset($request->recoveryWindowInDays)) {
+            $query['RecoveryWindowInDays'] = $request->recoveryWindowInDays;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecret',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSecretResponse::fromMap($this->doRPCRequest('DeleteSecret', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -733,9 +1155,20 @@ class Kms extends OpenApiClient
      */
     public function describeAccountKmsStatusWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeAccountKmsStatus',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeAccountKmsStatusResponse::fromMap($this->doRPCRequest('DescribeAccountKmsStatus', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAccountKmsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -757,11 +1190,26 @@ class Kms extends OpenApiClient
     public function describeCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCertificate',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCertificateResponse::fromMap($this->doRPCRequest('DescribeCertificate', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -785,11 +1233,26 @@ class Kms extends OpenApiClient
     public function describeKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeKeyResponse::fromMap($this->doRPCRequest('DescribeKey', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -813,11 +1276,29 @@ class Kms extends OpenApiClient
     public function describeKeyVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyVersionId)) {
+            $query['KeyVersionId'] = $request->keyVersionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeKeyVersion',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeKeyVersionResponse::fromMap($this->doRPCRequest('DescribeKeyVersion', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeKeyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -839,9 +1320,20 @@ class Kms extends OpenApiClient
      */
     public function describeRegionsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -863,11 +1355,29 @@ class Kms extends OpenApiClient
     public function describeSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fetchTags)) {
+            $query['FetchTags'] = $request->fetchTags;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecret',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecretResponse::fromMap($this->doRPCRequest('DescribeSecret', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -883,28 +1393,6 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeServiceResponse
-     */
-    public function describeServiceWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return DescribeServiceResponse::fromMap($this->doRPCRequest('DescribeService', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeServiceResponse
-     */
-    public function describeService()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeServiceWithOptions($runtime);
-    }
-
-    /**
      * @param DisableKeyRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -913,11 +1401,26 @@ class Kms extends OpenApiClient
     public function disableKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableKeyResponse::fromMap($this->doRPCRequest('DisableKey', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -941,11 +1444,26 @@ class Kms extends OpenApiClient
     public function enableKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableKeyResponse::fromMap($this->doRPCRequest('EnableKey', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -974,11 +1492,32 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->encryptionContext)) {
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->encryptionContextShrink)) {
+            $query['EncryptionContext'] = $request->encryptionContextShrink;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->plaintext)) {
+            $query['Plaintext'] = $request->plaintext;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Encrypt',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EncryptResponse::fromMap($this->doRPCRequest('Encrypt', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EncryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -991,34 +1530,6 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->encryptWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ExportCertificateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExportCertificateResponse
-     */
-    public function exportCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ExportCertificateResponse::fromMap($this->doRPCRequest('ExportCertificate', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExportCertificateRequest $request
-     *
-     * @return ExportCertificateResponse
-     */
-    public function exportCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->exportCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -1035,11 +1546,38 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->encryptionContext)) {
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->ciphertextBlob)) {
+            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
+        if (!Utils::isUnset($request->encryptionContextShrink)) {
+            $query['EncryptionContext'] = $request->encryptionContextShrink;
+        }
+        if (!Utils::isUnset($request->publicKeyBlob)) {
+            $query['PublicKeyBlob'] = $request->publicKeyBlob;
+        }
+        if (!Utils::isUnset($request->wrappingAlgorithm)) {
+            $query['WrappingAlgorithm'] = $request->wrappingAlgorithm;
+        }
+        if (!Utils::isUnset($request->wrappingKeySpec)) {
+            $query['WrappingKeySpec'] = $request->wrappingKeySpec;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportDataKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExportDataKeyResponse::fromMap($this->doRPCRequest('ExportDataKey', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExportDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1068,11 +1606,44 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->encryptionContext)) {
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->encryptionContextShrink)) {
+            $query['EncryptionContext'] = $request->encryptionContextShrink;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keySpec)) {
+            $query['KeySpec'] = $request->keySpec;
+        }
+        if (!Utils::isUnset($request->numberOfBytes)) {
+            $query['NumberOfBytes'] = $request->numberOfBytes;
+        }
+        if (!Utils::isUnset($request->publicKeyBlob)) {
+            $query['PublicKeyBlob'] = $request->publicKeyBlob;
+        }
+        if (!Utils::isUnset($request->wrappingAlgorithm)) {
+            $query['WrappingAlgorithm'] = $request->wrappingAlgorithm;
+        }
+        if (!Utils::isUnset($request->wrappingKeySpec)) {
+            $query['WrappingKeySpec'] = $request->wrappingKeySpec;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateAndExportDataKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateAndExportDataKeyResponse::fromMap($this->doRPCRequest('GenerateAndExportDataKey', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateAndExportDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1101,11 +1672,35 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->encryptionContext)) {
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->encryptionContextShrink)) {
+            $query['EncryptionContext'] = $request->encryptionContextShrink;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keySpec)) {
+            $query['KeySpec'] = $request->keySpec;
+        }
+        if (!Utils::isUnset($request->numberOfBytes)) {
+            $query['NumberOfBytes'] = $request->numberOfBytes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateDataKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateDataKeyResponse::fromMap($this->doRPCRequest('GenerateDataKey', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1134,11 +1729,35 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($tmpReq->encryptionContext)) {
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->encryptionContextShrink)) {
+            $query['EncryptionContext'] = $request->encryptionContextShrink;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keySpec)) {
+            $query['KeySpec'] = $request->keySpec;
+        }
+        if (!Utils::isUnset($request->numberOfBytes)) {
+            $query['NumberOfBytes'] = $request->numberOfBytes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateDataKeyWithoutPlaintext',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateDataKeyWithoutPlaintextResponse::fromMap($this->doRPCRequest('GenerateDataKeyWithoutPlaintext', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateDataKeyWithoutPlaintextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1162,11 +1781,26 @@ class Kms extends OpenApiClient
     public function getCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCertificate',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCertificateResponse::fromMap($this->doRPCRequest('GetCertificate', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1190,11 +1824,32 @@ class Kms extends OpenApiClient
     public function getParametersForImportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->wrappingAlgorithm)) {
+            $query['WrappingAlgorithm'] = $request->wrappingAlgorithm;
+        }
+        if (!Utils::isUnset($request->wrappingKeySpec)) {
+            $query['WrappingKeySpec'] = $request->wrappingKeySpec;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetParametersForImport',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetParametersForImportResponse::fromMap($this->doRPCRequest('GetParametersForImport', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetParametersForImportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1218,11 +1873,29 @@ class Kms extends OpenApiClient
     public function getPublicKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyVersionId)) {
+            $query['KeyVersionId'] = $request->keyVersionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPublicKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPublicKeyResponse::fromMap($this->doRPCRequest('GetPublicKey', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1246,11 +1919,44 @@ class Kms extends OpenApiClient
     public function getRandomPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->excludeCharacters)) {
+            $query['ExcludeCharacters'] = $request->excludeCharacters;
+        }
+        if (!Utils::isUnset($request->excludeLowercase)) {
+            $query['ExcludeLowercase'] = $request->excludeLowercase;
+        }
+        if (!Utils::isUnset($request->excludeNumbers)) {
+            $query['ExcludeNumbers'] = $request->excludeNumbers;
+        }
+        if (!Utils::isUnset($request->excludePunctuation)) {
+            $query['ExcludePunctuation'] = $request->excludePunctuation;
+        }
+        if (!Utils::isUnset($request->excludeUppercase)) {
+            $query['ExcludeUppercase'] = $request->excludeUppercase;
+        }
+        if (!Utils::isUnset($request->passwordLength)) {
+            $query['PasswordLength'] = $request->passwordLength;
+        }
+        if (!Utils::isUnset($request->requireEachIncludedType)) {
+            $query['RequireEachIncludedType'] = $request->requireEachIncludedType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRandomPassword',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRandomPasswordResponse::fromMap($this->doRPCRequest('GetRandomPassword', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRandomPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1274,11 +1980,35 @@ class Kms extends OpenApiClient
     public function getSecretValueWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fetchExtendedConfig)) {
+            $query['FetchExtendedConfig'] = $request->fetchExtendedConfig;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        if (!Utils::isUnset($request->versionStage)) {
+            $query['VersionStage'] = $request->versionStage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSecretValue',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSecretValueResponse::fromMap($this->doRPCRequest('GetSecretValue', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1294,62 +2024,6 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param ImportCertificateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ImportCertificateResponse
-     */
-    public function importCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ImportCertificateResponse::fromMap($this->doRPCRequest('ImportCertificate', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ImportCertificateRequest $request
-     *
-     * @return ImportCertificateResponse
-     */
-    public function importCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importCertificateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ImportEncryptionCertificateRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ImportEncryptionCertificateResponse
-     */
-    public function importEncryptionCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ImportEncryptionCertificateResponse::fromMap($this->doRPCRequest('ImportEncryptionCertificate', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ImportEncryptionCertificateRequest $request
-     *
-     * @return ImportEncryptionCertificateResponse
-     */
-    public function importEncryptionCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importEncryptionCertificateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ImportKeyMaterialRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1358,11 +2032,35 @@ class Kms extends OpenApiClient
     public function importKeyMaterialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->encryptedKeyMaterial)) {
+            $query['EncryptedKeyMaterial'] = $request->encryptedKeyMaterial;
+        }
+        if (!Utils::isUnset($request->importToken)) {
+            $query['ImportToken'] = $request->importToken;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyMaterialExpireUnix)) {
+            $query['KeyMaterialExpireUnix'] = $request->keyMaterialExpireUnix;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportKeyMaterial',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ImportKeyMaterialResponse::fromMap($this->doRPCRequest('ImportKeyMaterial', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImportKeyMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1386,11 +2084,29 @@ class Kms extends OpenApiClient
     public function listAliasesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAliases',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAliasesResponse::fromMap($this->doRPCRequest('ListAliases', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1414,11 +2130,32 @@ class Kms extends OpenApiClient
     public function listAliasesByKeyIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAliasesByKeyId',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAliasesByKeyIdResponse::fromMap($this->doRPCRequest('ListAliasesByKeyId', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAliasesByKeyIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1434,62 +2171,6 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param ListCertificatesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListCertificatesResponse
-     */
-    public function listCertificatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListCertificatesResponse::fromMap($this->doRPCRequest('ListCertificates', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCertificatesRequest $request
-     *
-     * @return ListCertificatesResponse
-     */
-    public function listCertificates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCertificatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListKeysRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListKeysResponse
-     */
-    public function listKeysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListKeysResponse::fromMap($this->doRPCRequest('ListKeys', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListKeysRequest $request
-     *
-     * @return ListKeysResponse
-     */
-    public function listKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listKeysWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListKeyVersionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1498,11 +2179,32 @@ class Kms extends OpenApiClient
     public function listKeyVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListKeyVersions',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListKeyVersionsResponse::fromMap($this->doRPCRequest('ListKeyVersions', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListKeyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1518,6 +2220,55 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param ListKeysRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListKeysResponse
+     */
+    public function listKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListKeys',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListKeysRequest $request
+     *
+     * @return ListKeysResponse
+     */
+    public function listKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKeysWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListResourceTagsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1526,11 +2277,26 @@ class Kms extends OpenApiClient
     public function listResourceTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceTags',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListResourceTagsResponse::fromMap($this->doRPCRequest('ListResourceTags', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1546,34 +2312,6 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param ListSecretsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListSecretsResponse
-     */
-    public function listSecretsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSecretsResponse::fromMap($this->doRPCRequest('ListSecrets', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSecretsRequest $request
-     *
-     * @return ListSecretsResponse
-     */
-    public function listSecrets($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSecretsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListSecretVersionIdsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1582,11 +2320,35 @@ class Kms extends OpenApiClient
     public function listSecretVersionIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->includeDeprecated)) {
+            $query['IncludeDeprecated'] = $request->includeDeprecated;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecretVersionIds',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSecretVersionIdsResponse::fromMap($this->doRPCRequest('ListSecretVersionIds', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSecretVersionIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1602,15 +2364,78 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param ListSecretsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSecretsResponse
+     */
+    public function listSecretsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fetchTags)) {
+            $query['FetchTags'] = $request->fetchTags;
+        }
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecrets',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSecretsRequest $request
+     *
+     * @return ListSecretsResponse
+     */
+    public function listSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecretsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return OpenKmsServiceResponse
      */
     public function openKmsServiceWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'OpenKmsService',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return OpenKmsServiceResponse::fromMap($this->doRPCRequest('OpenKmsService', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenKmsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1632,11 +2457,38 @@ class Kms extends OpenApiClient
     public function putSecretValueWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->secretData)) {
+            $query['SecretData'] = $request->secretData;
+        }
+        if (!Utils::isUnset($request->secretDataType)) {
+            $query['SecretDataType'] = $request->secretDataType;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        if (!Utils::isUnset($request->versionStages)) {
+            $query['VersionStages'] = $request->versionStages;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutSecretValue',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutSecretValueResponse::fromMap($this->doRPCRequest('PutSecretValue', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1662,17 +2514,50 @@ class Kms extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ReEncryptShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sourceEncryptionContext)) {
-            $request->sourceEncryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceEncryptionContext, 'SourceEncryptionContext', 'json');
-        }
         if (!Utils::isUnset($tmpReq->destinationEncryptionContext)) {
             $request->destinationEncryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destinationEncryptionContext, 'DestinationEncryptionContext', 'json');
         }
+        if (!Utils::isUnset($tmpReq->sourceEncryptionContext)) {
+            $request->sourceEncryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceEncryptionContext, 'SourceEncryptionContext', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->ciphertextBlob)) {
+            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
+        if (!Utils::isUnset($request->destinationEncryptionContextShrink)) {
+            $query['DestinationEncryptionContext'] = $request->destinationEncryptionContextShrink;
+        }
+        if (!Utils::isUnset($request->destinationKeyId)) {
+            $query['DestinationKeyId'] = $request->destinationKeyId;
+        }
+        if (!Utils::isUnset($request->sourceEncryptionAlgorithm)) {
+            $query['SourceEncryptionAlgorithm'] = $request->sourceEncryptionAlgorithm;
+        }
+        if (!Utils::isUnset($request->sourceEncryptionContextShrink)) {
+            $query['SourceEncryptionContext'] = $request->sourceEncryptionContextShrink;
+        }
+        if (!Utils::isUnset($request->sourceKeyId)) {
+            $query['SourceKeyId'] = $request->sourceKeyId;
+        }
+        if (!Utils::isUnset($request->sourceKeyVersionId)) {
+            $query['SourceKeyVersionId'] = $request->sourceKeyVersionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReEncrypt',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReEncryptResponse::fromMap($this->doRPCRequest('ReEncrypt', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1696,11 +2581,26 @@ class Kms extends OpenApiClient
     public function restoreSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestoreSecret',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RestoreSecretResponse::fromMap($this->doRPCRequest('RestoreSecret', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RestoreSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1724,11 +2624,29 @@ class Kms extends OpenApiClient
     public function rotateSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RotateSecret',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RotateSecretResponse::fromMap($this->doRPCRequest('RotateSecret', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RotateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1752,11 +2670,29 @@ class Kms extends OpenApiClient
     public function scheduleKeyDeletionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->pendingWindowInDays)) {
+            $query['PendingWindowInDays'] = $request->pendingWindowInDays;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ScheduleKeyDeletion',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ScheduleKeyDeletionResponse::fromMap($this->doRPCRequest('ScheduleKeyDeletion', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ScheduleKeyDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1772,6 +2708,55 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param SetDeletionProtectionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetDeletionProtectionResponse
+     */
+    public function setDeletionProtectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deletionProtectionDescription)) {
+            $query['DeletionProtectionDescription'] = $request->deletionProtectionDescription;
+        }
+        if (!Utils::isUnset($request->enableDeletionProtection)) {
+            $query['EnableDeletionProtection'] = $request->enableDeletionProtection;
+        }
+        if (!Utils::isUnset($request->protectedResourceArn)) {
+            $query['ProtectedResourceArn'] = $request->protectedResourceArn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDeletionProtection',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDeletionProtectionRequest $request
+     *
+     * @return SetDeletionProtectionResponse
+     */
+    public function setDeletionProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDeletionProtectionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param TagResourceRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1780,11 +2765,35 @@ class Kms extends OpenApiClient
     public function tagResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResource',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourceResponse::fromMap($this->doRPCRequest('TagResource', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1808,11 +2817,35 @@ class Kms extends OpenApiClient
     public function untagResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->tagKeys)) {
+            $query['TagKeys'] = $request->tagKeys;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResource',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourceResponse::fromMap($this->doRPCRequest('UntagResource', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1836,11 +2869,29 @@ class Kms extends OpenApiClient
     public function updateAliasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAlias',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAliasResponse::fromMap($this->doRPCRequest('UpdateAlias', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1864,11 +2915,29 @@ class Kms extends OpenApiClient
     public function updateCertificateStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCertificateStatus',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCertificateStatusResponse::fromMap($this->doRPCRequest('UpdateCertificateStatus', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1892,11 +2961,29 @@ class Kms extends OpenApiClient
     public function updateKeyDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateKeyDescription',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateKeyDescriptionResponse::fromMap($this->doRPCRequest('UpdateKeyDescription', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateKeyDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1920,11 +3007,32 @@ class Kms extends OpenApiClient
     public function updateRotationPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enableAutomaticRotation)) {
+            $query['EnableAutomaticRotation'] = $request->enableAutomaticRotation;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->rotationInterval)) {
+            $query['RotationInterval'] = $request->rotationInterval;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRotationPolicy',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRotationPolicyResponse::fromMap($this->doRPCRequest('UpdateRotationPolicy', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRotationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1940,6 +3048,55 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param UpdateSecretRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateSecretResponse
+     */
+    public function updateSecretWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->extendedConfig)) {
+            $query['ExtendedConfig'] = $request->extendedConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSecret',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSecretRequest $request
+     *
+     * @return UpdateSecretResponse
+     */
+    public function updateSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecretWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateSecretRotationPolicyRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1948,11 +3105,32 @@ class Kms extends OpenApiClient
     public function updateSecretRotationPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enableAutomaticRotation)) {
+            $query['EnableAutomaticRotation'] = $request->enableAutomaticRotation;
+        }
+        if (!Utils::isUnset($request->rotationInterval)) {
+            $query['RotationInterval'] = $request->rotationInterval;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSecretRotationPolicy',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSecretRotationPolicyResponse::fromMap($this->doRPCRequest('UpdateSecretRotationPolicy', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSecretRotationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1976,11 +3154,35 @@ class Kms extends OpenApiClient
     public function updateSecretVersionStageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->moveToVersion)) {
+            $query['MoveToVersion'] = $request->moveToVersion;
+        }
+        if (!Utils::isUnset($request->removeFromVersion)) {
+            $query['RemoveFromVersion'] = $request->removeFromVersion;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->versionStage)) {
+            $query['VersionStage'] = $request->versionStage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSecretVersionStage',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSecretVersionStageResponse::fromMap($this->doRPCRequest('UpdateSecretVersionStage', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSecretVersionStageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2004,11 +3206,32 @@ class Kms extends OpenApiClient
     public function uploadCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certificate)) {
+            $query['Certificate'] = $request->certificate;
+        }
+        if (!Utils::isUnset($request->certificateChain)) {
+            $query['CertificateChain'] = $request->certificateChain;
+        }
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadCertificate',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadCertificateResponse::fromMap($this->doRPCRequest('UploadCertificate', '2016-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

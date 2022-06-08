@@ -11,11 +11,6 @@ class ListSecretVersionIdsRequest extends Model
     /**
      * @var string
      */
-    public $secretName;
-
-    /**
-     * @var string
-     */
     public $includeDeprecated;
 
     /**
@@ -27,11 +22,16 @@ class ListSecretVersionIdsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $secretName;
     protected $_name = [
-        'secretName'        => 'SecretName',
         'includeDeprecated' => 'IncludeDeprecated',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
+        'secretName'        => 'SecretName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class ListSecretVersionIdsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secretName) {
-            $res['SecretName'] = $this->secretName;
-        }
         if (null !== $this->includeDeprecated) {
             $res['IncludeDeprecated'] = $this->includeDeprecated;
         }
@@ -52,6 +49,9 @@ class ListSecretVersionIdsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class ListSecretVersionIdsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecretName'])) {
-            $model->secretName = $map['SecretName'];
-        }
         if (isset($map['IncludeDeprecated'])) {
             $model->includeDeprecated = $map['IncludeDeprecated'];
         }
@@ -76,6 +73,9 @@ class ListSecretVersionIdsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
         }
 
         return $model;

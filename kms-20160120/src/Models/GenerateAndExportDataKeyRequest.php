@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GenerateAndExportDataKeyRequest extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $encryptionContext;
+
+    /**
      * @var string
      */
     public $keyId;
@@ -24,11 +29,6 @@ class GenerateAndExportDataKeyRequest extends Model
     public $numberOfBytes;
 
     /**
-     * @var mixed[]
-     */
-    public $encryptionContext;
-
-    /**
      * @var string
      */
     public $publicKeyBlob;
@@ -36,20 +36,20 @@ class GenerateAndExportDataKeyRequest extends Model
     /**
      * @var string
      */
-    public $wrappingKeySpec;
+    public $wrappingAlgorithm;
 
     /**
      * @var string
      */
-    public $wrappingAlgorithm;
+    public $wrappingKeySpec;
     protected $_name = [
+        'encryptionContext' => 'EncryptionContext',
         'keyId'             => 'KeyId',
         'keySpec'           => 'KeySpec',
         'numberOfBytes'     => 'NumberOfBytes',
-        'encryptionContext' => 'EncryptionContext',
         'publicKeyBlob'     => 'PublicKeyBlob',
-        'wrappingKeySpec'   => 'WrappingKeySpec',
         'wrappingAlgorithm' => 'WrappingAlgorithm',
+        'wrappingKeySpec'   => 'WrappingKeySpec',
     ];
 
     public function validate()
@@ -59,6 +59,9 @@ class GenerateAndExportDataKeyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->encryptionContext) {
+            $res['EncryptionContext'] = $this->encryptionContext;
+        }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
@@ -68,17 +71,14 @@ class GenerateAndExportDataKeyRequest extends Model
         if (null !== $this->numberOfBytes) {
             $res['NumberOfBytes'] = $this->numberOfBytes;
         }
-        if (null !== $this->encryptionContext) {
-            $res['EncryptionContext'] = $this->encryptionContext;
-        }
         if (null !== $this->publicKeyBlob) {
             $res['PublicKeyBlob'] = $this->publicKeyBlob;
         }
-        if (null !== $this->wrappingKeySpec) {
-            $res['WrappingKeySpec'] = $this->wrappingKeySpec;
-        }
         if (null !== $this->wrappingAlgorithm) {
             $res['WrappingAlgorithm'] = $this->wrappingAlgorithm;
+        }
+        if (null !== $this->wrappingKeySpec) {
+            $res['WrappingKeySpec'] = $this->wrappingKeySpec;
         }
 
         return $res;
@@ -92,6 +92,9 @@ class GenerateAndExportDataKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EncryptionContext'])) {
+            $model->encryptionContext = $map['EncryptionContext'];
+        }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
@@ -101,17 +104,14 @@ class GenerateAndExportDataKeyRequest extends Model
         if (isset($map['NumberOfBytes'])) {
             $model->numberOfBytes = $map['NumberOfBytes'];
         }
-        if (isset($map['EncryptionContext'])) {
-            $model->encryptionContext = $map['EncryptionContext'];
-        }
         if (isset($map['PublicKeyBlob'])) {
             $model->publicKeyBlob = $map['PublicKeyBlob'];
         }
-        if (isset($map['WrappingKeySpec'])) {
-            $model->wrappingKeySpec = $map['WrappingKeySpec'];
-        }
         if (isset($map['WrappingAlgorithm'])) {
             $model->wrappingAlgorithm = $map['WrappingAlgorithm'];
+        }
+        if (isset($map['WrappingKeySpec'])) {
+            $model->wrappingKeySpec = $map['WrappingKeySpec'];
         }
 
         return $model;

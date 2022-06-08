@@ -11,11 +11,6 @@ class ImportKeyMaterialRequest extends Model
     /**
      * @var string
      */
-    public $keyId;
-
-    /**
-     * @var string
-     */
     public $encryptedKeyMaterial;
 
     /**
@@ -24,13 +19,18 @@ class ImportKeyMaterialRequest extends Model
     public $importToken;
 
     /**
+     * @var string
+     */
+    public $keyId;
+
+    /**
      * @var int
      */
     public $keyMaterialExpireUnix;
     protected $_name = [
-        'keyId'                 => 'KeyId',
         'encryptedKeyMaterial'  => 'EncryptedKeyMaterial',
         'importToken'           => 'ImportToken',
+        'keyId'                 => 'KeyId',
         'keyMaterialExpireUnix' => 'KeyMaterialExpireUnix',
     ];
 
@@ -41,14 +41,14 @@ class ImportKeyMaterialRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyId) {
-            $res['KeyId'] = $this->keyId;
-        }
         if (null !== $this->encryptedKeyMaterial) {
             $res['EncryptedKeyMaterial'] = $this->encryptedKeyMaterial;
         }
         if (null !== $this->importToken) {
             $res['ImportToken'] = $this->importToken;
+        }
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
         }
         if (null !== $this->keyMaterialExpireUnix) {
             $res['KeyMaterialExpireUnix'] = $this->keyMaterialExpireUnix;
@@ -65,14 +65,14 @@ class ImportKeyMaterialRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KeyId'])) {
-            $model->keyId = $map['KeyId'];
-        }
         if (isset($map['EncryptedKeyMaterial'])) {
             $model->encryptedKeyMaterial = $map['EncryptedKeyMaterial'];
         }
         if (isset($map['ImportToken'])) {
             $model->importToken = $map['ImportToken'];
+        }
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
         }
         if (isset($map['KeyMaterialExpireUnix'])) {
             $model->keyMaterialExpireUnix = $map['KeyMaterialExpireUnix'];

@@ -11,27 +11,27 @@ class AsymmetricVerifyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $value;
-
-    /**
-     * @var string
-     */
     public $keyId;
 
     /**
      * @var string
      */
     public $keyVersionId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $value;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'value'        => 'Value',
         'keyId'        => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
+        'requestId'    => 'RequestId',
+        'value'        => 'Value',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AsymmetricVerifyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
         if (null !== $this->keyVersionId) {
             $res['KeyVersionId'] = $this->keyVersionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AsymmetricVerifyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
         if (isset($map['KeyVersionId'])) {
             $model->keyVersionId = $map['KeyVersionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

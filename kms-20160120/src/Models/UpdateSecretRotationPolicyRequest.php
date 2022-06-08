@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecretRotationPolicyRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $secretName;
-
-    /**
      * @var bool
      */
     public $enableAutomaticRotation;
@@ -22,10 +17,15 @@ class UpdateSecretRotationPolicyRequest extends Model
      * @var string
      */
     public $rotationInterval;
+
+    /**
+     * @var string
+     */
+    public $secretName;
     protected $_name = [
-        'secretName'              => 'SecretName',
         'enableAutomaticRotation' => 'EnableAutomaticRotation',
         'rotationInterval'        => 'RotationInterval',
+        'secretName'              => 'SecretName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateSecretRotationPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secretName) {
-            $res['SecretName'] = $this->secretName;
-        }
         if (null !== $this->enableAutomaticRotation) {
             $res['EnableAutomaticRotation'] = $this->enableAutomaticRotation;
         }
         if (null !== $this->rotationInterval) {
             $res['RotationInterval'] = $this->rotationInterval;
+        }
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateSecretRotationPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecretName'])) {
-            $model->secretName = $map['SecretName'];
-        }
         if (isset($map['EnableAutomaticRotation'])) {
             $model->enableAutomaticRotation = $map['EnableAutomaticRotation'];
         }
         if (isset($map['RotationInterval'])) {
             $model->rotationInterval = $map['RotationInterval'];
+        }
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
         }
 
         return $model;

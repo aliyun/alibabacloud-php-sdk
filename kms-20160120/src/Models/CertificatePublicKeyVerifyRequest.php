@@ -11,12 +11,12 @@ class CertificatePublicKeyVerifyRequest extends Model
     /**
      * @var string
      */
-    public $certificateId;
+    public $algorithm;
 
     /**
      * @var string
      */
-    public $algorithm;
+    public $certificateId;
 
     /**
      * @var string
@@ -33,8 +33,8 @@ class CertificatePublicKeyVerifyRequest extends Model
      */
     public $signatureValue;
     protected $_name = [
-        'certificateId'  => 'CertificateId',
         'algorithm'      => 'Algorithm',
+        'certificateId'  => 'CertificateId',
         'message'        => 'Message',
         'messageType'    => 'MessageType',
         'signatureValue' => 'SignatureValue',
@@ -47,11 +47,11 @@ class CertificatePublicKeyVerifyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
-        }
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
+        }
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -74,11 +74,11 @@ class CertificatePublicKeyVerifyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
-        }
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
+        }
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

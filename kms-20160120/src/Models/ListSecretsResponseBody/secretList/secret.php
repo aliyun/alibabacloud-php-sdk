@@ -12,17 +12,22 @@ class secret extends Model
     /**
      * @var string
      */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
      * @var string
      */
+    public $plannedDeleteTime;
+
+    /**
+     * @var string
+     */
     public $secretName;
+
+    /**
+     * @var string
+     */
+    public $secretType;
 
     /**
      * @var tags
@@ -32,19 +37,14 @@ class secret extends Model
     /**
      * @var string
      */
-    public $secretType;
-
-    /**
-     * @var string
-     */
-    public $plannedDeleteTime;
+    public $updateTime;
     protected $_name = [
-        'updateTime'        => 'UpdateTime',
         'createTime'        => 'CreateTime',
-        'secretName'        => 'SecretName',
-        'tags'              => 'Tags',
-        'secretType'        => 'SecretType',
         'plannedDeleteTime' => 'PlannedDeleteTime',
+        'secretName'        => 'SecretName',
+        'secretType'        => 'SecretType',
+        'tags'              => 'Tags',
+        'updateTime'        => 'UpdateTime',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class secret extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->plannedDeleteTime) {
+            $res['PlannedDeleteTime'] = $this->plannedDeleteTime;
         }
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
         if (null !== $this->secretType) {
             $res['SecretType'] = $this->secretType;
         }
-        if (null !== $this->plannedDeleteTime) {
-            $res['PlannedDeleteTime'] = $this->plannedDeleteTime;
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class secret extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['PlannedDeleteTime'])) {
+            $model->plannedDeleteTime = $map['PlannedDeleteTime'];
         }
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
         if (isset($map['SecretType'])) {
             $model->secretType = $map['SecretType'];
         }
-        if (isset($map['PlannedDeleteTime'])) {
-            $model->plannedDeleteTime = $map['PlannedDeleteTime'];
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

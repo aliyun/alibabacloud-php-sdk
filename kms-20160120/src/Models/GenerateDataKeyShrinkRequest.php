@@ -11,6 +11,11 @@ class GenerateDataKeyShrinkRequest extends Model
     /**
      * @var string
      */
+    public $encryptionContextShrink;
+
+    /**
+     * @var string
+     */
     public $keyId;
 
     /**
@@ -22,16 +27,11 @@ class GenerateDataKeyShrinkRequest extends Model
      * @var int
      */
     public $numberOfBytes;
-
-    /**
-     * @var string
-     */
-    public $encryptionContextShrink;
     protected $_name = [
+        'encryptionContextShrink' => 'EncryptionContext',
         'keyId'                   => 'KeyId',
         'keySpec'                 => 'KeySpec',
         'numberOfBytes'           => 'NumberOfBytes',
-        'encryptionContextShrink' => 'EncryptionContext',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class GenerateDataKeyShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->encryptionContextShrink) {
+            $res['EncryptionContext'] = $this->encryptionContextShrink;
+        }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
@@ -49,9 +52,6 @@ class GenerateDataKeyShrinkRequest extends Model
         }
         if (null !== $this->numberOfBytes) {
             $res['NumberOfBytes'] = $this->numberOfBytes;
-        }
-        if (null !== $this->encryptionContextShrink) {
-            $res['EncryptionContext'] = $this->encryptionContextShrink;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class GenerateDataKeyShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EncryptionContext'])) {
+            $model->encryptionContextShrink = $map['EncryptionContext'];
+        }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
@@ -73,9 +76,6 @@ class GenerateDataKeyShrinkRequest extends Model
         }
         if (isset($map['NumberOfBytes'])) {
             $model->numberOfBytes = $map['NumberOfBytes'];
-        }
-        if (isset($map['EncryptionContext'])) {
-            $model->encryptionContextShrink = $map['EncryptionContext'];
         }
 
         return $model;

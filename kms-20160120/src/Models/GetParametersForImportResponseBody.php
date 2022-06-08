@@ -11,12 +11,7 @@ class GetParametersForImportResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $publicKey;
+    public $importToken;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class GetParametersForImportResponseBody extends Model
     /**
      * @var string
      */
-    public $tokenExpireTime;
+    public $publicKey;
 
     /**
      * @var string
      */
-    public $importToken;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $tokenExpireTime;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'publicKey'       => 'PublicKey',
-        'keyId'           => 'KeyId',
-        'tokenExpireTime' => 'TokenExpireTime',
         'importToken'     => 'ImportToken',
+        'keyId'           => 'KeyId',
+        'publicKey'       => 'PublicKey',
+        'requestId'       => 'RequestId',
+        'tokenExpireTime' => 'TokenExpireTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetParametersForImportResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->publicKey) {
-            $res['PublicKey'] = $this->publicKey;
+        if (null !== $this->importToken) {
+            $res['ImportToken'] = $this->importToken;
         }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
+        if (null !== $this->publicKey) {
+            $res['PublicKey'] = $this->publicKey;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->tokenExpireTime) {
             $res['TokenExpireTime'] = $this->tokenExpireTime;
-        }
-        if (null !== $this->importToken) {
-            $res['ImportToken'] = $this->importToken;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetParametersForImportResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PublicKey'])) {
-            $model->publicKey = $map['PublicKey'];
+        if (isset($map['ImportToken'])) {
+            $model->importToken = $map['ImportToken'];
         }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
+        if (isset($map['PublicKey'])) {
+            $model->publicKey = $map['PublicKey'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TokenExpireTime'])) {
             $model->tokenExpireTime = $map['TokenExpireTime'];
-        }
-        if (isset($map['ImportToken'])) {
-            $model->importToken = $map['ImportToken'];
         }
 
         return $model;

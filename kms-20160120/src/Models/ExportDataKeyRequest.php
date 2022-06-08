@@ -26,18 +26,18 @@ class ExportDataKeyRequest extends Model
     /**
      * @var string
      */
-    public $wrappingKeySpec;
+    public $wrappingAlgorithm;
 
     /**
      * @var string
      */
-    public $wrappingAlgorithm;
+    public $wrappingKeySpec;
     protected $_name = [
         'ciphertextBlob'    => 'CiphertextBlob',
         'encryptionContext' => 'EncryptionContext',
         'publicKeyBlob'     => 'PublicKeyBlob',
-        'wrappingKeySpec'   => 'WrappingKeySpec',
         'wrappingAlgorithm' => 'WrappingAlgorithm',
+        'wrappingKeySpec'   => 'WrappingKeySpec',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class ExportDataKeyRequest extends Model
         if (null !== $this->publicKeyBlob) {
             $res['PublicKeyBlob'] = $this->publicKeyBlob;
         }
-        if (null !== $this->wrappingKeySpec) {
-            $res['WrappingKeySpec'] = $this->wrappingKeySpec;
-        }
         if (null !== $this->wrappingAlgorithm) {
             $res['WrappingAlgorithm'] = $this->wrappingAlgorithm;
+        }
+        if (null !== $this->wrappingKeySpec) {
+            $res['WrappingKeySpec'] = $this->wrappingKeySpec;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class ExportDataKeyRequest extends Model
         if (isset($map['PublicKeyBlob'])) {
             $model->publicKeyBlob = $map['PublicKeyBlob'];
         }
-        if (isset($map['WrappingKeySpec'])) {
-            $model->wrappingKeySpec = $map['WrappingKeySpec'];
-        }
         if (isset($map['WrappingAlgorithm'])) {
             $model->wrappingAlgorithm = $map['WrappingAlgorithm'];
+        }
+        if (isset($map['WrappingKeySpec'])) {
+            $model->wrappingKeySpec = $map['WrappingKeySpec'];
         }
 
         return $model;

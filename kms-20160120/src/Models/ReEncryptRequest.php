@@ -14,14 +14,14 @@ class ReEncryptRequest extends Model
     public $ciphertextBlob;
 
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $sourceKeyId;
+    public $destinationEncryptionContext;
 
     /**
      * @var string
      */
-    public $sourceKeyVersionId;
+    public $destinationKeyId;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class ReEncryptRequest extends Model
     /**
      * @var string
      */
-    public $destinationKeyId;
+    public $sourceKeyId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $destinationEncryptionContext;
+    public $sourceKeyVersionId;
     protected $_name = [
         'ciphertextBlob'               => 'CiphertextBlob',
-        'sourceKeyId'                  => 'SourceKeyId',
-        'sourceKeyVersionId'           => 'SourceKeyVersionId',
+        'destinationEncryptionContext' => 'DestinationEncryptionContext',
+        'destinationKeyId'             => 'DestinationKeyId',
         'sourceEncryptionAlgorithm'    => 'SourceEncryptionAlgorithm',
         'sourceEncryptionContext'      => 'SourceEncryptionContext',
-        'destinationKeyId'             => 'DestinationKeyId',
-        'destinationEncryptionContext' => 'DestinationEncryptionContext',
+        'sourceKeyId'                  => 'SourceKeyId',
+        'sourceKeyVersionId'           => 'SourceKeyVersionId',
     ];
 
     public function validate()
@@ -62,11 +62,11 @@ class ReEncryptRequest extends Model
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
         }
-        if (null !== $this->sourceKeyId) {
-            $res['SourceKeyId'] = $this->sourceKeyId;
+        if (null !== $this->destinationEncryptionContext) {
+            $res['DestinationEncryptionContext'] = $this->destinationEncryptionContext;
         }
-        if (null !== $this->sourceKeyVersionId) {
-            $res['SourceKeyVersionId'] = $this->sourceKeyVersionId;
+        if (null !== $this->destinationKeyId) {
+            $res['DestinationKeyId'] = $this->destinationKeyId;
         }
         if (null !== $this->sourceEncryptionAlgorithm) {
             $res['SourceEncryptionAlgorithm'] = $this->sourceEncryptionAlgorithm;
@@ -74,11 +74,11 @@ class ReEncryptRequest extends Model
         if (null !== $this->sourceEncryptionContext) {
             $res['SourceEncryptionContext'] = $this->sourceEncryptionContext;
         }
-        if (null !== $this->destinationKeyId) {
-            $res['DestinationKeyId'] = $this->destinationKeyId;
+        if (null !== $this->sourceKeyId) {
+            $res['SourceKeyId'] = $this->sourceKeyId;
         }
-        if (null !== $this->destinationEncryptionContext) {
-            $res['DestinationEncryptionContext'] = $this->destinationEncryptionContext;
+        if (null !== $this->sourceKeyVersionId) {
+            $res['SourceKeyVersionId'] = $this->sourceKeyVersionId;
         }
 
         return $res;
@@ -95,11 +95,11 @@ class ReEncryptRequest extends Model
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
         }
-        if (isset($map['SourceKeyId'])) {
-            $model->sourceKeyId = $map['SourceKeyId'];
+        if (isset($map['DestinationEncryptionContext'])) {
+            $model->destinationEncryptionContext = $map['DestinationEncryptionContext'];
         }
-        if (isset($map['SourceKeyVersionId'])) {
-            $model->sourceKeyVersionId = $map['SourceKeyVersionId'];
+        if (isset($map['DestinationKeyId'])) {
+            $model->destinationKeyId = $map['DestinationKeyId'];
         }
         if (isset($map['SourceEncryptionAlgorithm'])) {
             $model->sourceEncryptionAlgorithm = $map['SourceEncryptionAlgorithm'];
@@ -107,11 +107,11 @@ class ReEncryptRequest extends Model
         if (isset($map['SourceEncryptionContext'])) {
             $model->sourceEncryptionContext = $map['SourceEncryptionContext'];
         }
-        if (isset($map['DestinationKeyId'])) {
-            $model->destinationKeyId = $map['DestinationKeyId'];
+        if (isset($map['SourceKeyId'])) {
+            $model->sourceKeyId = $map['SourceKeyId'];
         }
-        if (isset($map['DestinationEncryptionContext'])) {
-            $model->destinationEncryptionContext = $map['DestinationEncryptionContext'];
+        if (isset($map['SourceKeyVersionId'])) {
+            $model->sourceKeyVersionId = $map['SourceKeyVersionId'];
         }
 
         return $model;

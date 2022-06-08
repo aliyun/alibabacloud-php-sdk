@@ -11,7 +11,7 @@ class AsymmetricEncryptRequest extends Model
     /**
      * @var string
      */
-    public $plaintext;
+    public $algorithm;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class AsymmetricEncryptRequest extends Model
     /**
      * @var string
      */
-    public $algorithm;
+    public $plaintext;
     protected $_name = [
-        'plaintext'    => 'Plaintext',
+        'algorithm'    => 'Algorithm',
         'keyId'        => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
-        'algorithm'    => 'Algorithm',
+        'plaintext'    => 'Plaintext',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class AsymmetricEncryptRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->plaintext) {
-            $res['Plaintext'] = $this->plaintext;
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
         }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
@@ -50,8 +50,8 @@ class AsymmetricEncryptRequest extends Model
         if (null !== $this->keyVersionId) {
             $res['KeyVersionId'] = $this->keyVersionId;
         }
-        if (null !== $this->algorithm) {
-            $res['Algorithm'] = $this->algorithm;
+        if (null !== $this->plaintext) {
+            $res['Plaintext'] = $this->plaintext;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class AsymmetricEncryptRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Plaintext'])) {
-            $model->plaintext = $map['Plaintext'];
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
         }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
@@ -74,8 +74,8 @@ class AsymmetricEncryptRequest extends Model
         if (isset($map['KeyVersionId'])) {
             $model->keyVersionId = $map['KeyVersionId'];
         }
-        if (isset($map['Algorithm'])) {
-            $model->algorithm = $map['Algorithm'];
+        if (isset($map['Plaintext'])) {
+            $model->plaintext = $map['Plaintext'];
         }
 
         return $model;

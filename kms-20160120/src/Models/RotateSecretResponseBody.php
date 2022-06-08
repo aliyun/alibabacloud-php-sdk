@@ -11,12 +11,7 @@ class RotateSecretResponseBody extends Model
     /**
      * @var string
      */
-    public $versionId;
-
-    /**
-     * @var string
-     */
-    public $secretName;
+    public $arn;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class RotateSecretResponseBody extends Model
     /**
      * @var string
      */
-    public $arn;
+    public $secretName;
+
+    /**
+     * @var string
+     */
+    public $versionId;
     protected $_name = [
-        'versionId'  => 'VersionId',
-        'secretName' => 'SecretName',
-        'requestId'  => 'RequestId',
         'arn'        => 'Arn',
+        'requestId'  => 'RequestId',
+        'secretName' => 'SecretName',
+        'versionId'  => 'VersionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class RotateSecretResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
-        }
-        if (null !== $this->secretName) {
-            $res['SecretName'] = $this->secretName;
+        if (null !== $this->arn) {
+            $res['Arn'] = $this->arn;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->arn) {
-            $res['Arn'] = $this->arn;
+        if (null !== $this->secretName) {
+            $res['SecretName'] = $this->secretName;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class RotateSecretResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
-        }
-        if (isset($map['SecretName'])) {
-            $model->secretName = $map['SecretName'];
+        if (isset($map['Arn'])) {
+            $model->arn = $map['Arn'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Arn'])) {
-            $model->arn = $map['Arn'];
+        if (isset($map['SecretName'])) {
+            $model->secretName = $map['SecretName'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class keyVersion extends Model
     /**
      * @var string
      */
-    public $keyVersionId;
+    public $creationDate;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class keyVersion extends Model
     /**
      * @var string
      */
-    public $creationDate;
+    public $keyVersionId;
     protected $_name = [
-        'keyVersionId' => 'KeyVersionId',
-        'keyId'        => 'KeyId',
         'creationDate' => 'CreationDate',
+        'keyId'        => 'KeyId',
+        'keyVersionId' => 'KeyVersionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class keyVersion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyVersionId) {
-            $res['KeyVersionId'] = $this->keyVersionId;
+        if (null !== $this->creationDate) {
+            $res['CreationDate'] = $this->creationDate;
         }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
-        if (null !== $this->creationDate) {
-            $res['CreationDate'] = $this->creationDate;
+        if (null !== $this->keyVersionId) {
+            $res['KeyVersionId'] = $this->keyVersionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class keyVersion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KeyVersionId'])) {
-            $model->keyVersionId = $map['KeyVersionId'];
+        if (isset($map['CreationDate'])) {
+            $model->creationDate = $map['CreationDate'];
         }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
-        if (isset($map['CreationDate'])) {
-            $model->creationDate = $map['CreationDate'];
+        if (isset($map['KeyVersionId'])) {
+            $model->keyVersionId = $map['KeyVersionId'];
         }
 
         return $model;

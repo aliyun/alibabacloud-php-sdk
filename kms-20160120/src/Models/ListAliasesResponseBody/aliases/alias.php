@@ -16,16 +16,16 @@ class alias extends Model
     /**
      * @var string
      */
-    public $keyId;
+    public $aliasName;
 
     /**
      * @var string
      */
-    public $aliasName;
+    public $keyId;
     protected $_name = [
         'aliasArn'  => 'AliasArn',
-        'keyId'     => 'KeyId',
         'aliasName' => 'AliasName',
+        'keyId'     => 'KeyId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class alias extends Model
         if (null !== $this->aliasArn) {
             $res['AliasArn'] = $this->aliasArn;
         }
-        if (null !== $this->keyId) {
-            $res['KeyId'] = $this->keyId;
-        }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class alias extends Model
         if (isset($map['AliasArn'])) {
             $model->aliasArn = $map['AliasArn'];
         }
-        if (isset($map['KeyId'])) {
-            $model->keyId = $map['KeyId'];
-        }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
         }
 
         return $model;

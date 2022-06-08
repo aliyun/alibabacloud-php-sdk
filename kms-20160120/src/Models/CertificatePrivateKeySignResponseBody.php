@@ -11,7 +11,7 @@ class CertificatePrivateKeySignResponseBody extends Model
     /**
      * @var string
      */
-    public $signatureValue;
+    public $certificateId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CertificatePrivateKeySignResponseBody extends Model
     /**
      * @var string
      */
-    public $certificateId;
+    public $signatureValue;
     protected $_name = [
-        'signatureValue' => 'SignatureValue',
-        'requestId'      => 'RequestId',
         'certificateId'  => 'CertificateId',
+        'requestId'      => 'RequestId',
+        'signatureValue' => 'SignatureValue',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CertificatePrivateKeySignResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signatureValue) {
-            $res['SignatureValue'] = $this->signatureValue;
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+        if (null !== $this->signatureValue) {
+            $res['SignatureValue'] = $this->signatureValue;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CertificatePrivateKeySignResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SignatureValue'])) {
-            $model->signatureValue = $map['SignatureValue'];
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
+        if (isset($map['SignatureValue'])) {
+            $model->signatureValue = $map['SignatureValue'];
         }
 
         return $model;
