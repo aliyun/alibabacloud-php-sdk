@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateResponseBody\permissions;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetTemplateResponseBody extends Model
@@ -70,6 +71,11 @@ class GetTemplateResponseBody extends Model
     public $stackId;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $templateARN;
@@ -111,6 +117,7 @@ class GetTemplateResponseBody extends Model
         'shareType'       => 'ShareType',
         'stackGroupName'  => 'StackGroupName',
         'stackId'         => 'StackId',
+        'tags'            => 'Tags',
         'templateARN'     => 'TemplateARN',
         'templateBody'    => 'TemplateBody',
         'templateId'      => 'TemplateId',
@@ -167,6 +174,15 @@ class GetTemplateResponseBody extends Model
         }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateARN) {
             $res['TemplateARN'] = $this->templateARN;
@@ -239,6 +255,15 @@ class GetTemplateResponseBody extends Model
         }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateARN'])) {
             $model->templateARN = $map['TemplateARN'];

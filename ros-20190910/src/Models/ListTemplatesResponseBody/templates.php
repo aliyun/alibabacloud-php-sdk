@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesResponseBody\templates\tags;
 use AlibabaCloud\Tea\Model;
 
 class templates extends Model
@@ -32,6 +33,11 @@ class templates extends Model
      * @var string
      */
     public $shareType;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -63,6 +69,7 @@ class templates extends Model
         'ownerId'         => 'OwnerId',
         'resourceGroupId' => 'ResourceGroupId',
         'shareType'       => 'ShareType',
+        'tags'            => 'Tags',
         'templateARN'     => 'TemplateARN',
         'templateId'      => 'TemplateId',
         'templateName'    => 'TemplateName',
@@ -91,6 +98,15 @@ class templates extends Model
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateARN) {
             $res['TemplateARN'] = $this->templateARN;
@@ -133,6 +149,15 @@ class templates extends Model
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateARN'])) {
             $model->templateARN = $map['TemplateARN'];

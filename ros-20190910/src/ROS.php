@@ -2131,6 +2131,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->includePermission)) {
             $query['IncludePermission'] = $request->includePermission;
         }
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -3321,6 +3324,9 @@ class ROS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }

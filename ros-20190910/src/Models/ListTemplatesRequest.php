@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $includeTags;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -39,6 +44,7 @@ class ListTemplatesRequest extends Model
      */
     public $templateName;
     protected $_name = [
+        'includeTags'     => 'IncludeTags',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
@@ -54,6 +60,9 @@ class ListTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->includeTags) {
+            $res['IncludeTags'] = $this->includeTags;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -90,6 +99,9 @@ class ListTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IncludeTags'])) {
+            $model->includeTags = $map['IncludeTags'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\resourceCleaner;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateScratch;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform;
 use AlibabaCloud\Tea\Model;
@@ -16,6 +17,11 @@ class GetFeatureDetailsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var resourceCleaner
+     */
+    public $resourceCleaner;
+
+    /**
      * @var templateScratch
      */
     public $templateScratch;
@@ -26,6 +32,7 @@ class GetFeatureDetailsResponseBody extends Model
     public $terraform;
     protected $_name = [
         'requestId'       => 'RequestId',
+        'resourceCleaner' => 'ResourceCleaner',
         'templateScratch' => 'TemplateScratch',
         'terraform'       => 'Terraform',
     ];
@@ -39,6 +46,9 @@ class GetFeatureDetailsResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceCleaner) {
+            $res['ResourceCleaner'] = null !== $this->resourceCleaner ? $this->resourceCleaner->toMap() : null;
         }
         if (null !== $this->templateScratch) {
             $res['TemplateScratch'] = null !== $this->templateScratch ? $this->templateScratch->toMap() : null;
@@ -60,6 +70,9 @@ class GetFeatureDetailsResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceCleaner'])) {
+            $model->resourceCleaner = resourceCleaner::fromMap($map['ResourceCleaner']);
         }
         if (isset($map['TemplateScratch'])) {
             $model->templateScratch = templateScratch::fromMap($map['TemplateScratch']);

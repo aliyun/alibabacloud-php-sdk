@@ -21,6 +21,11 @@ class GetTemplateRequest extends Model
     /**
      * @var string
      */
+    public $includeTags;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -50,6 +55,7 @@ class GetTemplateRequest extends Model
     protected $_name = [
         'changeSetId'       => 'ChangeSetId',
         'includePermission' => 'IncludePermission',
+        'includeTags'       => 'IncludeTags',
         'regionId'          => 'RegionId',
         'stackGroupName'    => 'StackGroupName',
         'stackId'           => 'StackId',
@@ -70,6 +76,9 @@ class GetTemplateRequest extends Model
         }
         if (null !== $this->includePermission) {
             $res['IncludePermission'] = $this->includePermission;
+        }
+        if (null !== $this->includeTags) {
+            $res['IncludeTags'] = $this->includeTags;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -106,6 +115,9 @@ class GetTemplateRequest extends Model
         }
         if (isset($map['IncludePermission'])) {
             $model->includePermission = $map['IncludePermission'];
+        }
+        if (isset($map['IncludeTags'])) {
+            $model->includeTags = $map['IncludeTags'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
