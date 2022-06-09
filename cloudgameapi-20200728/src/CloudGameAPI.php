@@ -98,6 +98,10 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameHangRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameHangResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SkipTrialPolicyRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SkipTrialPolicyResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StartGameLiveRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StartGameLiveResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StopGameLiveRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StopGameLiveResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StopGameSessionRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StopGameSessionResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SubmitDeploymentRequest;
@@ -2398,6 +2402,95 @@ class CloudGameAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->skipTrialPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartGameLiveRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartGameLiveResponse
+     */
+    public function startGameLiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gameSession)) {
+            $query['GameSession'] = $request->gameSession;
+        }
+        if (!Utils::isUnset($request->videoPushAddress)) {
+            $query['VideoPushAddress'] = $request->videoPushAddress;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartGameLive',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartGameLiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartGameLiveRequest $request
+     *
+     * @return StartGameLiveResponse
+     */
+    public function startGameLive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startGameLiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopGameLiveRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopGameLiveResponse
+     */
+    public function stopGameLiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gameSession)) {
+            $query['GameSession'] = $request->gameSession;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopGameLive',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopGameLiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopGameLiveRequest $request
+     *
+     * @return StopGameLiveResponse
+     */
+    public function stopGameLive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopGameLiveWithOptions($request, $runtime);
     }
 
     /**
