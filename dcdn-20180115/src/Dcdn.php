@@ -124,6 +124,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataRequest
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaBpsDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaBpsDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaConnDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaConnDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaTrafficDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaTrafficDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIspDataRequest;
@@ -348,6 +350,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainRequest;
@@ -3584,6 +3588,61 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnDomainIpaBpsDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnDomainIpaConnDataRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnDomainIpaConnDataResponse
+     */
+    public function describeDcdnDomainIpaConnDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->splitBy)) {
+            $query['SplitBy'] = $request->splitBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainIpaConnData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDomainIpaConnDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDomainIpaConnDataRequest $request
+     *
+     * @return DescribeDcdnDomainIpaConnDataResponse
+     */
+    public function describeDcdnDomainIpaConnData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDomainIpaConnDataWithOptions($request, $runtime);
     }
 
     /**
@@ -9291,6 +9350,60 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDcdnDomainStagingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDcdnFullDomainsBlockIPRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetDcdnFullDomainsBlockIPResponse
+     */
+    public function setDcdnFullDomainsBlockIPWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->blockInterval)) {
+            $body['BlockInterval'] = $request->blockInterval;
+        }
+        if (!Utils::isUnset($request->IPList)) {
+            $body['IPList'] = $request->IPList;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $body['OperationType'] = $request->operationType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnFullDomainsBlockIP',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDcdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDcdnFullDomainsBlockIPRequest $request
+     *
+     * @return SetDcdnFullDomainsBlockIPResponse
+     */
+    public function setDcdnFullDomainsBlockIP($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDcdnFullDomainsBlockIPWithOptions($request, $runtime);
     }
 
     /**
