@@ -42,6 +42,11 @@ class data extends Model
      * @var lungNodule
      */
     public $lungNodule;
+
+    /**
+     * @var mixed[]
+     */
+    public $URLList;
     protected $_name = [
         'analyzeChestVessel' => 'AnalyzeChestVessel',
         'CACS'               => 'CACS',
@@ -49,6 +54,7 @@ class data extends Model
         'detectRibFracture'  => 'DetectRibFracture',
         'errorMessage'       => 'ErrorMessage',
         'lungNodule'         => 'LungNodule',
+        'URLList'            => 'URLList',
     ];
 
     public function validate()
@@ -75,6 +81,9 @@ class data extends Model
         }
         if (null !== $this->lungNodule) {
             $res['LungNodule'] = null !== $this->lungNodule ? $this->lungNodule->toMap() : null;
+        }
+        if (null !== $this->URLList) {
+            $res['URLList'] = $this->URLList;
         }
 
         return $res;
@@ -105,6 +114,9 @@ class data extends Model
         }
         if (isset($map['LungNodule'])) {
             $model->lungNodule = lungNodule::fromMap($map['LungNodule']);
+        }
+        if (isset($map['URLList'])) {
+            $model->URLList = $map['URLList'];
         }
 
         return $model;

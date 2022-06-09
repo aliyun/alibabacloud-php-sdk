@@ -1404,6 +1404,9 @@ class Imageprocess extends OpenApiClient
         if (!Utils::isUnset($request->URLList)) {
             $body['URLList'] = $request->URLList;
         }
+        if (!Utils::isUnset($request->verbose)) {
+            $body['Verbose'] = $request->verbose;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
