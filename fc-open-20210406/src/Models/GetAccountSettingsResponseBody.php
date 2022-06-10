@@ -14,8 +14,16 @@ class GetAccountSettingsResponseBody extends Model
      * @var string[]
      */
     public $availableAZs;
+
+    /**
+     * @description 默认服务角色
+     *
+     * @var string
+     */
+    public $defaultRole;
     protected $_name = [
         'availableAZs' => 'availableAZs',
+        'defaultRole'  => 'defaultRole',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class GetAccountSettingsResponseBody extends Model
         $res = [];
         if (null !== $this->availableAZs) {
             $res['availableAZs'] = $this->availableAZs;
+        }
+        if (null !== $this->defaultRole) {
+            $res['defaultRole'] = $this->defaultRole;
         }
 
         return $res;
@@ -44,6 +55,9 @@ class GetAccountSettingsResponseBody extends Model
             if (!empty($map['availableAZs'])) {
                 $model->availableAZs = $map['availableAZs'];
             }
+        }
+        if (isset($map['defaultRole'])) {
+            $model->defaultRole = $map['defaultRole'];
         }
 
         return $model;

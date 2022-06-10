@@ -16,6 +16,13 @@ class TLSConfig extends Model
     public $cipherSuites;
 
     /**
+     * @description TLS最大版本号
+     *
+     * @var string
+     */
+    public $maxVersion;
+
+    /**
      * @description TLS最小版本号
      *
      * @var string
@@ -23,6 +30,7 @@ class TLSConfig extends Model
     public $minVersion;
     protected $_name = [
         'cipherSuites' => 'cipherSuites',
+        'maxVersion'   => 'maxVersion',
         'minVersion'   => 'minVersion',
     ];
 
@@ -35,6 +43,9 @@ class TLSConfig extends Model
         $res = [];
         if (null !== $this->cipherSuites) {
             $res['cipherSuites'] = $this->cipherSuites;
+        }
+        if (null !== $this->maxVersion) {
+            $res['maxVersion'] = $this->maxVersion;
         }
         if (null !== $this->minVersion) {
             $res['minVersion'] = $this->minVersion;
@@ -55,6 +66,9 @@ class TLSConfig extends Model
             if (!empty($map['cipherSuites'])) {
                 $model->cipherSuites = $map['cipherSuites'];
             }
+        }
+        if (isset($map['maxVersion'])) {
+            $model->maxVersion = $map['maxVersion'];
         }
         if (isset($map['minVersion'])) {
             $model->minVersion = $map['minVersion'];

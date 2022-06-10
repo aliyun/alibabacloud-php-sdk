@@ -6,16 +6,14 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteFunctionOnDemandConfigRequest extends Model
+class VendorConfig extends Model
 {
     /**
-     * @description 服务别名或LATEST，不支持版本。
-     *
-     * @var string
+     * @var MeteringConfig
      */
-    public $qualifier;
+    public $meteringConfig;
     protected $_name = [
-        'qualifier' => 'qualifier',
+        'meteringConfig' => 'meteringConfig',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class DeleteFunctionOnDemandConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
+        if (null !== $this->meteringConfig) {
+            $res['meteringConfig'] = null !== $this->meteringConfig ? $this->meteringConfig->toMap() : null;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class DeleteFunctionOnDemandConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteFunctionOnDemandConfigRequest
+     * @return VendorConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
+        if (isset($map['meteringConfig'])) {
+            $model->meteringConfig = MeteringConfig::fromMap($map['meteringConfig']);
         }
 
         return $model;

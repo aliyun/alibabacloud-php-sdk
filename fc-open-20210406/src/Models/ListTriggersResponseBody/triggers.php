@@ -80,6 +80,20 @@ class triggers extends Model
      * @var string
      */
     public $triggerType;
+
+    /**
+     * @description 公网域名地址。在互联网可以通过HTTP协议或者HTTPS协议访问HTTP Trigger。
+     *
+     * @var string
+     */
+    public $urlInternet;
+
+    /**
+     * @description 私网域名地址。在VPC可以通过HTTP协议或者HTTPS协议访问HTTP Trigger。
+     *
+     * @var string
+     */
+    public $urlIntranet;
     protected $_name = [
         'createdTime'      => 'createdTime',
         'description'      => 'description',
@@ -92,6 +106,8 @@ class triggers extends Model
         'triggerId'        => 'triggerId',
         'triggerName'      => 'triggerName',
         'triggerType'      => 'triggerType',
+        'urlInternet'      => 'urlInternet',
+        'urlIntranet'      => 'urlIntranet',
     ];
 
     public function validate()
@@ -133,6 +149,12 @@ class triggers extends Model
         }
         if (null !== $this->triggerType) {
             $res['triggerType'] = $this->triggerType;
+        }
+        if (null !== $this->urlInternet) {
+            $res['urlInternet'] = $this->urlInternet;
+        }
+        if (null !== $this->urlIntranet) {
+            $res['urlIntranet'] = $this->urlIntranet;
         }
 
         return $res;
@@ -178,6 +200,12 @@ class triggers extends Model
         }
         if (isset($map['triggerType'])) {
             $model->triggerType = $map['triggerType'];
+        }
+        if (isset($map['urlInternet'])) {
+            $model->urlInternet = $map['urlInternet'];
+        }
+        if (isset($map['urlIntranet'])) {
+            $model->urlIntranet = $map['urlIntranet'];
         }
 
         return $model;

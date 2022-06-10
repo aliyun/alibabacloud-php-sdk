@@ -11,6 +11,8 @@ class PublishServiceVersionHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description 服务的ETag，可通过GetService接口获得。若发布版本时服务的ETag与传入的不一致，则发布版本会失败。
+     *
      * @var string
      */
     public $ifMatch;

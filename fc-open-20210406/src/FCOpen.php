@@ -104,6 +104,9 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionAsyncInvokeConfigsRespo
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesHeaders;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesRequest;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersResponse;
@@ -2689,6 +2692,71 @@ class FCOpen extends OpenApiClient
     }
 
     /**
+     * @param string               $serviceName
+     * @param string               $functionName
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($serviceName, $functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListInstancesHeaders([]);
+
+        return $this->listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $serviceName
+     * @param string               $functionName
+     * @param ListInstancesRequest $request
+     * @param ListInstancesHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
+        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
+        $query        = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['instanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->qualifier)) {
+            $query['qualifier'] = $request->qualifier;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstances',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/instances',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                   $layerName
      * @param ListLayerVersionsRequest $request
      *
@@ -4059,7 +4127,7 @@ class FCOpen extends OpenApiClient
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
             'pathname'    => '/2021-04-06/tag',
-            'method'      => 'DELETE',
+            'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',

@@ -14,7 +14,7 @@ class CustomContainerConfigInfo extends Model
     public $accelerationInfo;
 
     /**
-     * @description 镜像加速类型，取值Default为开启加速，None为关闭加速，默认关闭
+     * @description 镜像加速类型，取值Default为开启加速，None为关闭加速，默认开启
      *
      * @var string
      */
@@ -40,12 +40,20 @@ class CustomContainerConfigInfo extends Model
      * @var string
      */
     public $image;
+
+    /**
+     * @description ACR企业版镜像仓库ID，使用ACR企业版镜像时须传入
+     *
+     * @var string
+     */
+    public $instanceID;
     protected $_name = [
         'accelerationInfo' => 'accelerationInfo',
         'accelerationType' => 'accelerationType',
         'args'             => 'args',
         'command'          => 'command',
         'image'            => 'image',
+        'instanceID'       => 'instanceID',
     ];
 
     public function validate()
@@ -69,6 +77,9 @@ class CustomContainerConfigInfo extends Model
         }
         if (null !== $this->image) {
             $res['image'] = $this->image;
+        }
+        if (null !== $this->instanceID) {
+            $res['instanceID'] = $this->instanceID;
         }
 
         return $res;
@@ -96,6 +107,9 @@ class CustomContainerConfigInfo extends Model
         }
         if (isset($map['image'])) {
             $model->image = $map['image'];
+        }
+        if (isset($map['instanceID'])) {
+            $model->instanceID = $map['instanceID'];
         }
 
         return $model;

@@ -9,27 +9,21 @@ use AlibabaCloud\Tea\Model;
 class TracingConfig extends Model
 {
     /**
-     * @var JaegerConfig
-     */
-    public $jaegerConfig;
-
-    /**
-     * @description 链路追踪参数
+     * @description 链路追踪参数。当协议类型为 Jaeger 时，参数为 map[string]string，其中 key 为 "endpoint"，value 为您的链路追踪内网接入点。例如 endpoint: http://tracing-analysis-dc-hz.aliyuncs.com/adapt_xxx/api/otlp/traces
      *
      * @var string[]
      */
     public $params;
 
     /**
-     * @description 链路追踪类型
+     * @description 链路追踪协议类型，目前只支持 Jaeger
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'jaegerConfig' => 'jaegerConfig',
-        'params'       => 'params',
-        'type'         => 'type',
+        'params' => 'params',
+        'type'   => 'type',
     ];
 
     public function validate()
@@ -39,9 +33,6 @@ class TracingConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jaegerConfig) {
-            $res['jaegerConfig'] = null !== $this->jaegerConfig ? $this->jaegerConfig->toMap() : null;
-        }
         if (null !== $this->params) {
             $res['params'] = $this->params;
         }
@@ -60,9 +51,6 @@ class TracingConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['jaegerConfig'])) {
-            $model->jaegerConfig = JaegerConfig::fromMap($map['jaegerConfig']);
-        }
         if (isset($map['params'])) {
             $model->params = $map['params'];
         }

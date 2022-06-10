@@ -18,7 +18,7 @@ class ListTriggersRequest extends Model
     /**
      * @description 用来返回更多结果。第一次查询不需要提供这个参数，后续查询的token从返回结果中获取
      *
-     * @var int
+     * @var string
      */
     public $nextToken;
 
