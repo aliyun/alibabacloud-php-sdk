@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateLogstashSettingsRequest extends Model
 {
     /**
-     * @var mixed[]
+     * @var string
      */
     public $body;
 

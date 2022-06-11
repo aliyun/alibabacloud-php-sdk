@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashResponseBody\headers;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
 class ListLogstashResponseBody extends Model
@@ -20,7 +21,7 @@ class ListLogstashResponseBody extends Model
     public $requestId;
 
     /**
-     * @var Logstash[]
+     * @var result[]
      */
     public $result;
     protected $_name = [
@@ -74,7 +75,7 @@ class ListLogstashResponseBody extends Model
                 $model->result = [];
                 $n             = 0;
                 foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? Logstash::fromMap($item) : $item;
+                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
         }

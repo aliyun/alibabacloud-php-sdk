@@ -4,12 +4,9 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody;
 
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\dictList;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\kibanaConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\masterConfiguration;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\networkConfig;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\nodeSpec;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\synonymsDicts;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
@@ -23,11 +20,6 @@ class result extends Model
      * @var string
      */
     public $description;
-
-    /**
-     * @var dictList[]
-     */
-    public $dictList;
 
     /**
      * @var string
@@ -50,24 +42,9 @@ class result extends Model
     public $kibanaConfiguration;
 
     /**
-     * @var string
-     */
-    public $kibanaDomain;
-
-    /**
-     * @var int
-     */
-    public $kibanaPort;
-
-    /**
      * @var masterConfiguration
      */
     public $masterConfiguration;
-
-    /**
-     * @var networkConfig
-     */
-    public $networkConfig;
 
     /**
      * @var int
@@ -87,47 +64,19 @@ class result extends Model
     /**
      * @var string
      */
-    public $publicDomain;
-
-    /**
-     * @var int
-     */
-    public $publicPort;
-
-    /**
-     * @var string
-     */
     public $status;
-
-    /**
-     * @var synonymsDicts[]
-     */
-    public $synonymsDicts;
-
-    /**
-     * @var string
-     */
-    public $updatedAt;
     protected $_name = [
         'createdAt'           => 'createdAt',
         'description'         => 'description',
-        'dictList'            => 'dictList',
         'domain'              => 'domain',
         'esVersion'           => 'esVersion',
         'instanceId'          => 'instanceId',
         'kibanaConfiguration' => 'kibanaConfiguration',
-        'kibanaDomain'        => 'kibanaDomain',
-        'kibanaPort'          => 'kibanaPort',
         'masterConfiguration' => 'masterConfiguration',
-        'networkConfig'       => 'networkConfig',
         'nodeAmount'          => 'nodeAmount',
         'nodeSpec'            => 'nodeSpec',
         'paymentType'         => 'paymentType',
-        'publicDomain'        => 'publicDomain',
-        'publicPort'          => 'publicPort',
         'status'              => 'status',
-        'synonymsDicts'       => 'synonymsDicts',
-        'updatedAt'           => 'updatedAt',
     ];
 
     public function validate()
@@ -143,15 +92,6 @@ class result extends Model
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-        if (null !== $this->dictList) {
-            $res['dictList'] = [];
-            if (null !== $this->dictList && \is_array($this->dictList)) {
-                $n = 0;
-                foreach ($this->dictList as $item) {
-                    $res['dictList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
@@ -164,17 +104,8 @@ class result extends Model
         if (null !== $this->kibanaConfiguration) {
             $res['kibanaConfiguration'] = null !== $this->kibanaConfiguration ? $this->kibanaConfiguration->toMap() : null;
         }
-        if (null !== $this->kibanaDomain) {
-            $res['kibanaDomain'] = $this->kibanaDomain;
-        }
-        if (null !== $this->kibanaPort) {
-            $res['kibanaPort'] = $this->kibanaPort;
-        }
         if (null !== $this->masterConfiguration) {
             $res['masterConfiguration'] = null !== $this->masterConfiguration ? $this->masterConfiguration->toMap() : null;
-        }
-        if (null !== $this->networkConfig) {
-            $res['networkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toMap() : null;
         }
         if (null !== $this->nodeAmount) {
             $res['nodeAmount'] = $this->nodeAmount;
@@ -185,26 +116,8 @@ class result extends Model
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
         }
-        if (null !== $this->publicDomain) {
-            $res['publicDomain'] = $this->publicDomain;
-        }
-        if (null !== $this->publicPort) {
-            $res['publicPort'] = $this->publicPort;
-        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
-        }
-        if (null !== $this->synonymsDicts) {
-            $res['synonymsDicts'] = [];
-            if (null !== $this->synonymsDicts && \is_array($this->synonymsDicts)) {
-                $n = 0;
-                foreach ($this->synonymsDicts as $item) {
-                    $res['synonymsDicts'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->updatedAt) {
-            $res['updatedAt'] = $this->updatedAt;
         }
 
         return $res;
@@ -224,15 +137,6 @@ class result extends Model
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-        if (isset($map['dictList'])) {
-            if (!empty($map['dictList'])) {
-                $model->dictList = [];
-                $n               = 0;
-                foreach ($map['dictList'] as $item) {
-                    $model->dictList[$n++] = null !== $item ? dictList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
@@ -245,17 +149,8 @@ class result extends Model
         if (isset($map['kibanaConfiguration'])) {
             $model->kibanaConfiguration = kibanaConfiguration::fromMap($map['kibanaConfiguration']);
         }
-        if (isset($map['kibanaDomain'])) {
-            $model->kibanaDomain = $map['kibanaDomain'];
-        }
-        if (isset($map['kibanaPort'])) {
-            $model->kibanaPort = $map['kibanaPort'];
-        }
         if (isset($map['masterConfiguration'])) {
             $model->masterConfiguration = masterConfiguration::fromMap($map['masterConfiguration']);
-        }
-        if (isset($map['networkConfig'])) {
-            $model->networkConfig = networkConfig::fromMap($map['networkConfig']);
         }
         if (isset($map['nodeAmount'])) {
             $model->nodeAmount = $map['nodeAmount'];
@@ -266,26 +161,8 @@ class result extends Model
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
         }
-        if (isset($map['publicDomain'])) {
-            $model->publicDomain = $map['publicDomain'];
-        }
-        if (isset($map['publicPort'])) {
-            $model->publicPort = $map['publicPort'];
-        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
-        }
-        if (isset($map['synonymsDicts'])) {
-            if (!empty($map['synonymsDicts'])) {
-                $model->synonymsDicts = [];
-                $n                    = 0;
-                foreach ($map['synonymsDicts'] as $item) {
-                    $model->synonymsDicts[$n++] = null !== $item ? synonymsDicts::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['updatedAt'])) {
-            $model->updatedAt = $map['updatedAt'];
         }
 
         return $model;

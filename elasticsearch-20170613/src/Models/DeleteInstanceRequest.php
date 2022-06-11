@@ -11,6 +11,11 @@ class DeleteInstanceRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -18,6 +23,7 @@ class DeleteInstanceRequest extends Model
      */
     public $deleteType;
     protected $_name = [
+        'body'        => 'body',
         'clientToken' => 'clientToken',
         'deleteType'  => 'deleteType',
     ];
@@ -29,6 +35,9 @@ class DeleteInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -47,6 +56,9 @@ class DeleteInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

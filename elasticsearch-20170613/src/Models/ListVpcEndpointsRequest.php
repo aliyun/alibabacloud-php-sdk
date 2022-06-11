@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @var int
      */
     public $page;
@@ -18,6 +23,7 @@ class ListVpcEndpointsRequest extends Model
      */
     public $size;
     protected $_name = [
+        'body' => 'body',
         'page' => 'page',
         'size' => 'size',
     ];
@@ -29,6 +35,9 @@ class ListVpcEndpointsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
@@ -47,6 +56,9 @@ class ListVpcEndpointsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }

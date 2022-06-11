@@ -37,6 +37,11 @@ class ListTagResourcesRequest extends Model
      * @var string
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $body;
     protected $_name = [
         'nextToken'    => 'NextToken',
         'page'         => 'Page',
@@ -44,6 +49,7 @@ class ListTagResourcesRequest extends Model
         'resourceType' => 'ResourceType',
         'size'         => 'Size',
         'tags'         => 'Tags',
+        'body'         => 'body',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class ListTagResourcesRequest extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class ListTagResourcesRequest extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

@@ -9,10 +9,16 @@ use AlibabaCloud\Tea\Model;
 class EstimatedLogstashRestartTimeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @var bool
      */
     public $force;
     protected $_name = [
+        'body'  => 'body',
         'force' => 'force',
     ];
 
@@ -23,6 +29,9 @@ class EstimatedLogstashRestartTimeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->force) {
             $res['force'] = $this->force;
         }
@@ -38,6 +47,9 @@ class EstimatedLogstashRestartTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['force'])) {
             $model->force = $map['force'];
         }

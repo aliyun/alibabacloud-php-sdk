@@ -16,6 +16,11 @@ class ListDictInformationRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $bucketName;
 
     /**
@@ -24,6 +29,7 @@ class ListDictInformationRequest extends Model
     public $key;
     protected $_name = [
         'analyzerType' => 'analyzerType',
+        'body'         => 'body',
         'bucketName'   => 'bucketName',
         'key'          => 'key',
     ];
@@ -37,6 +43,9 @@ class ListDictInformationRequest extends Model
         $res = [];
         if (null !== $this->analyzerType) {
             $res['analyzerType'] = $this->analyzerType;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
@@ -58,6 +67,9 @@ class ListDictInformationRequest extends Model
         $model = new self();
         if (isset($map['analyzerType'])) {
             $model->analyzerType = $map['analyzerType'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];

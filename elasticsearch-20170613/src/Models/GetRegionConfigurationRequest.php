@@ -11,8 +11,14 @@ class GetRegionConfigurationRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
+        'body'   => 'body',
         'zoneId' => 'zoneId',
     ];
 
@@ -23,6 +29,9 @@ class GetRegionConfigurationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -38,6 +47,9 @@ class GetRegionConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

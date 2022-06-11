@@ -11,20 +11,20 @@ class UpdateInstanceRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $body;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $ignoreStatus;
+    public $clientToken;
 
     /**
      * @var string
      */
     public $orderActionType;
     protected $_name = [
+        'body'            => 'body',
         'clientToken'     => 'clientToken',
-        'ignoreStatus'    => 'ignoreStatus',
         'orderActionType' => 'orderActionType',
     ];
 
@@ -35,11 +35,11 @@ class UpdateInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
-        }
-        if (null !== $this->ignoreStatus) {
-            $res['ignoreStatus'] = $this->ignoreStatus;
         }
         if (null !== $this->orderActionType) {
             $res['orderActionType'] = $this->orderActionType;
@@ -56,11 +56,11 @@ class UpdateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
-        }
-        if (isset($map['ignoreStatus'])) {
-            $model->ignoreStatus = $map['ignoreStatus'];
         }
         if (isset($map['orderActionType'])) {
             $model->orderActionType = $map['orderActionType'];

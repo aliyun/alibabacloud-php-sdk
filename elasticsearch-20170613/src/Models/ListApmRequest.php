@@ -11,6 +11,11 @@ class ListApmRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -33,6 +38,7 @@ class ListApmRequest extends Model
      */
     public $size;
     protected $_name = [
+        'body'        => 'body',
         'description' => 'description',
         'instanceId'  => 'instanceId',
         'output'      => 'output',
@@ -47,6 +53,9 @@ class ListApmRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -74,6 +83,9 @@ class ListApmRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }

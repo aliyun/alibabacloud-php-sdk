@@ -14,11 +14,17 @@ class CreatePipelinesRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @var bool
      */
     public $trigger;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'body'        => 'body',
         'trigger'     => 'trigger',
     ];
 
@@ -31,6 +37,9 @@ class CreatePipelinesRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
         if (null !== $this->trigger) {
             $res['trigger'] = $this->trigger;
@@ -49,6 +58,9 @@ class CreatePipelinesRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
         if (isset($map['trigger'])) {
             $model->trigger = $map['trigger'];

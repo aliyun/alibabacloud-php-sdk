@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDataStreamsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @var bool
      */
     public $isManaged;
@@ -18,6 +23,7 @@ class ListDataStreamsRequest extends Model
      */
     public $name;
     protected $_name = [
+        'body'      => 'body',
         'isManaged' => 'isManaged',
         'name'      => 'name',
     ];
@@ -29,6 +35,9 @@ class ListDataStreamsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->isManaged) {
             $res['isManaged'] = $this->isManaged;
         }
@@ -47,6 +56,9 @@ class ListDataStreamsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['isManaged'])) {
             $model->isManaged = $map['isManaged'];
         }

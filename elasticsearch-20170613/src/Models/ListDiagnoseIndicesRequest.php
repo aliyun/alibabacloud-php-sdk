@@ -11,8 +11,14 @@ class ListDiagnoseIndicesRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $lang;
     protected $_name = [
+        'body' => 'body',
         'lang' => 'lang',
     ];
 
@@ -23,6 +29,9 @@ class ListDiagnoseIndicesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->lang) {
             $res['lang'] = $this->lang;
         }
@@ -38,6 +47,9 @@ class ListDiagnoseIndicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['lang'])) {
             $model->lang = $map['lang'];
         }

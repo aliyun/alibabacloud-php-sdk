@@ -11,6 +11,11 @@ class ListNodesRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $ecsInstanceIds;
 
     /**
@@ -33,6 +38,7 @@ class ListNodesRequest extends Model
      */
     public $tags;
     protected $_name = [
+        'body'            => 'body',
         'ecsInstanceIds'  => 'ecsInstanceIds',
         'ecsInstanceName' => 'ecsInstanceName',
         'page'            => 'page',
@@ -47,6 +53,9 @@ class ListNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->ecsInstanceIds) {
             $res['ecsInstanceIds'] = $this->ecsInstanceIds;
         }
@@ -74,6 +83,9 @@ class ListNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['ecsInstanceIds'])) {
             $model->ecsInstanceIds = $map['ecsInstanceIds'];
         }

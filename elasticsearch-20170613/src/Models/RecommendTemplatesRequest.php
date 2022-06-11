@@ -11,8 +11,14 @@ class RecommendTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $usageScenario;
     protected $_name = [
+        'body'          => 'body',
         'usageScenario' => 'usageScenario',
     ];
 
@@ -23,6 +29,9 @@ class RecommendTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->usageScenario) {
             $res['usageScenario'] = $this->usageScenario;
         }
@@ -38,6 +47,9 @@ class RecommendTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['usageScenario'])) {
             $model->usageScenario = $map['usageScenario'];
         }

@@ -11,6 +11,11 @@ class ListComponentIndicesRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -23,6 +28,7 @@ class ListComponentIndicesRequest extends Model
      */
     public $size;
     protected $_name = [
+        'body' => 'body',
         'name' => 'name',
         'page' => 'page',
         'size' => 'size',
@@ -35,6 +41,9 @@ class ListComponentIndicesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -56,6 +65,9 @@ class ListComponentIndicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

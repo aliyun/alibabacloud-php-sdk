@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSuggestShrinkableNodesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @var int
      */
     public $count;
@@ -23,6 +28,7 @@ class GetSuggestShrinkableNodesRequest extends Model
      */
     public $nodeType;
     protected $_name = [
+        'body'         => 'body',
         'count'        => 'count',
         'ignoreStatus' => 'ignoreStatus',
         'nodeType'     => 'nodeType',
@@ -35,6 +41,9 @@ class GetSuggestShrinkableNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
@@ -56,6 +65,9 @@ class GetSuggestShrinkableNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }

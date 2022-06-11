@@ -12,8 +12,14 @@ class ListShardRecoveriesRequest extends Model
      * @var bool
      */
     public $activeOnly;
+
+    /**
+     * @var string
+     */
+    public $body;
     protected $_name = [
         'activeOnly' => 'activeOnly',
+        'body'       => 'body',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class ListShardRecoveriesRequest extends Model
         $res = [];
         if (null !== $this->activeOnly) {
             $res['activeOnly'] = $this->activeOnly;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class ListShardRecoveriesRequest extends Model
         $model = new self();
         if (isset($map['activeOnly'])) {
             $model->activeOnly = $map['activeOnly'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

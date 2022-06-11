@@ -14,6 +14,11 @@ class ListSearchLogRequest extends Model
     public $beginTime;
 
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -39,6 +44,7 @@ class ListSearchLogRequest extends Model
     public $type;
     protected $_name = [
         'beginTime' => 'beginTime',
+        'body'      => 'body',
         'endTime'   => 'endTime',
         'page'      => 'page',
         'query'     => 'query',
@@ -55,6 +61,9 @@ class ListSearchLogRequest extends Model
         $res = [];
         if (null !== $this->beginTime) {
             $res['beginTime'] = $this->beginTime;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
@@ -85,6 +94,9 @@ class ListSearchLogRequest extends Model
         $model = new self();
         if (isset($map['beginTime'])) {
             $model->beginTime = $map['beginTime'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];

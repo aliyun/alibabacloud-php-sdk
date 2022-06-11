@@ -11,6 +11,11 @@ class RestartInstanceRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -18,6 +23,7 @@ class RestartInstanceRequest extends Model
      */
     public $force;
     protected $_name = [
+        'body'        => 'body',
         'clientToken' => 'clientToken',
         'force'       => 'force',
     ];
@@ -29,6 +35,9 @@ class RestartInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -47,6 +56,9 @@ class RestartInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

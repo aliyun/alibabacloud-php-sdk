@@ -11,6 +11,11 @@ class ListDefaultCollectorConfigurationsRequest extends Model
     /**
      * @var string
      */
+    public $body;
+
+    /**
+     * @var string
+     */
     public $resType;
 
     /**
@@ -23,6 +28,7 @@ class ListDefaultCollectorConfigurationsRequest extends Model
      */
     public $sourceType;
     protected $_name = [
+        'body'       => 'body',
         'resType'    => 'resType',
         'resVersion' => 'resVersion',
         'sourceType' => 'sourceType',
@@ -35,6 +41,9 @@ class ListDefaultCollectorConfigurationsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->resType) {
             $res['resType'] = $this->resType;
         }
@@ -56,6 +65,9 @@ class ListDefaultCollectorConfigurationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['resType'])) {
             $model->resType = $map['resType'];
         }

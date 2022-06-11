@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ActivateZonesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ActivateZonesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\AddConnectableClusterRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\AddConnectableClusterResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\AddSnapshotRepoRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\AddSnapshotRepoResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CancelDeletionRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CancelDeletionResponse;
@@ -51,6 +52,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeactivateZonesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeactivateZonesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteComponentIndexRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteConnectedClusterRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteConnectedClusterResponse;
@@ -58,8 +60,11 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataStreamRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataStreamResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataTaskRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataTaskResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDeprecatedTemplateRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDeprecatedTemplateResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteILMPolicyRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteILMPolicyResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteIndexTemplateRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteIndexTemplateResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteInstanceResponse;
@@ -71,29 +76,47 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteSnapshotRepoRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteSnapshotRepoResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeAckOperatorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeAckOperatorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeApmResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeComponentIndexRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDeprecatedTemplateRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDeprecatedTemplateResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnoseReportRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnoseReportResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnosisSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnosisSettingsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDynamicSettingsRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDynamicSettingsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeElasticsearchHealthRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeElasticsearchHealthResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeILMPolicyRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeILMPolicyResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeIndexTemplateRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeIndexTemplateResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeKibanaSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeKibanaSettingsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeLogstashRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeLogstashResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribePipelineManagementConfigRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribePipelineManagementConfigResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribePipelineRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribePipelineResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeSnapshotSettingRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeSnapshotSettingResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeTemplatesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeXpackMonitorConfigRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeXpackMonitorConfigResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DiagnoseInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DiagnoseInstanceResponse;
@@ -101,11 +124,17 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedLogstashRestartTime
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedLogstashRestartTimeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedRestartTimeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedRestartTimeResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetElastictaskRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetElastictaskResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaAlertsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaAlertsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaDashboardsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaDashboardsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonMonitorDataRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonMonitorDataResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetOpenStoreUsageRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetOpenStoreUsageResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationResponse;
@@ -123,6 +152,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallLogstashSystemPluginR
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallLogstashSystemPluginResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallSystemPluginRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallSystemPluginResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallUserPluginsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallUserPluginsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InterruptElasticsearchTaskRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InterruptElasticsearchTaskResponse;
@@ -132,20 +162,25 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAckClustersRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAckClustersResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAckNamespacesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAckNamespacesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListActionRecordsRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListActionRecordsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAllNodeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAllNodeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotReposRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotReposResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAvailableEsInstanceIdsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAvailableEsInstanceIdsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListConnectedClustersRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListConnectedClustersResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataTasksRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataTasksResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDefaultCollectorConfigurationsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDefaultCollectorConfigurationsResponse;
@@ -163,13 +198,12 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEcsInstancesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEcsInstancesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListExtendfilesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListExtendfilesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListILMPoliciesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListILMPoliciesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListIndexTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListIndexTemplatesResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsRequest;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceIndicesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceIndicesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceRequest;
@@ -184,6 +218,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListNodesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListPipelineIdsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListPipelineIdsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListPipelineRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListPipelineResponse;
@@ -193,6 +228,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSearchLogRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSearchLogResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListShardRecoveriesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListShardRecoveriesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSnapshotReposByInstanceIdRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSnapshotReposByInstanceIdResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagResourcesResponse;
@@ -204,6 +240,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\MigrateToOtherZoneRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\MigrateToOtherZoneResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyDeployMachineRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyDeployMachineResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyElastictaskRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyElastictaskResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyInstanceMaintainTimeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyInstanceMaintainTimeResponse;
@@ -215,11 +252,13 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\OpenDiagnosisRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\OpenDiagnosisResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\OpenHttpsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\OpenHttpsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\PostEmonTryAlarmRuleRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\PostEmonTryAlarmRuleResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RemoveApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RemoveApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceResponse;
@@ -241,9 +280,11 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RunPipelinesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RunPipelinesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ShrinkNodeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ShrinkNodeResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopCollectorResponse;
@@ -285,6 +326,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDiagnosisSettingsReque
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDiagnosisSettingsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDictRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDictResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDynamicSettingsRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDynamicSettingsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateExtendConfigRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateExtendConfigResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateExtendfilesRequest;
@@ -325,6 +368,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdatePublicWhiteIpsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdatePublicWhiteIpsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateReadWritePolicyRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateReadWritePolicyResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateSnapshotSettingRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateSnapshotSettingResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateSynonymsDictsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateSynonymsDictsResponse;
@@ -355,7 +399,8 @@ class Elasticsearch extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('elasticsearch', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -416,6 +461,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ActivateZones',
@@ -465,6 +511,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'AddConnectableCluster',
@@ -482,30 +529,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                 $InstanceId
+     * @param AddSnapshotRepoRequest $request
      *
      * @return AddSnapshotRepoResponse
      */
-    public function addSnapshotRepo($InstanceId)
+    public function addSnapshotRepo($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addSnapshotRepoWithOptions($InstanceId, $headers, $runtime);
+        return $this->addSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $InstanceId
+     * @param AddSnapshotRepoRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return AddSnapshotRepoResponse
      */
-    public function addSnapshotRepoWithOptions($InstanceId, $headers, $runtime)
+    public function addSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'AddSnapshotRepo',
@@ -555,6 +606,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CancelDeletion',
@@ -604,6 +656,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CancelLogstashDeletion',
@@ -656,6 +709,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CancelTask',
@@ -763,6 +817,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CloseDiagnosis',
@@ -812,6 +867,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CloseHttps',
@@ -864,6 +920,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CloseManagedIndex',
@@ -910,6 +967,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CreateCollector',
@@ -1014,6 +1072,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CreateDataStream',
@@ -1063,6 +1122,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CreateDataTasks',
@@ -1112,6 +1172,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CreateILMPolicy',
@@ -1161,6 +1222,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CreateIndexTemplate',
@@ -1282,6 +1344,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CreatePipelines',
@@ -1331,6 +1394,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CreateSnapshot',
@@ -1440,6 +1504,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeactivateZones',
@@ -1489,6 +1554,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteCollector',
@@ -1506,33 +1572,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $name
+     * @param string                      $InstanceId
+     * @param string                      $name
+     * @param DeleteComponentIndexRequest $request
      *
      * @return DeleteComponentIndexResponse
      */
-    public function deleteComponentIndex($InstanceId, $name)
+    public function deleteComponentIndex($InstanceId, $name, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
+        return $this->deleteComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $InstanceId
+     * @param string                      $name
+     * @param DeleteComponentIndexRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DeleteComponentIndexResponse
      */
-    public function deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime)
+    public function deleteComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $name       = OpenApiUtilClient::getEncodeParam($name);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteComponentIndex',
@@ -1585,6 +1655,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteConnectedCluster',
@@ -1637,6 +1708,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteDataStream',
@@ -1689,6 +1761,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteDataTask',
@@ -1706,33 +1779,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $name
+     * @param string                          $InstanceId
+     * @param string                          $name
+     * @param DeleteDeprecatedTemplateRequest $request
      *
      * @return DeleteDeprecatedTemplateResponse
      */
-    public function deleteDeprecatedTemplate($InstanceId, $name)
+    public function deleteDeprecatedTemplate($InstanceId, $name, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
+        return $this->deleteDeprecatedTemplateWithOptions($InstanceId, $name, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $InstanceId
+     * @param string                          $name
+     * @param DeleteDeprecatedTemplateRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return DeleteDeprecatedTemplateResponse
      */
-    public function deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime)
+    public function deleteDeprecatedTemplateWithOptions($InstanceId, $name, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $name       = OpenApiUtilClient::getEncodeParam($name);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteDeprecatedTemplate',
@@ -1750,33 +1827,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $PolicyName
+     * @param string                 $InstanceId
+     * @param string                 $PolicyName
+     * @param DeleteILMPolicyRequest $request
      *
      * @return DeleteILMPolicyResponse
      */
-    public function deleteILMPolicy($InstanceId, $PolicyName)
+    public function deleteILMPolicy($InstanceId, $PolicyName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime);
+        return $this->deleteILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $PolicyName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $InstanceId
+     * @param string                 $PolicyName
+     * @param DeleteILMPolicyRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return DeleteILMPolicyResponse
      */
-    public function deleteILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime)
+    public function deleteILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $PolicyName = OpenApiUtilClient::getEncodeParam($PolicyName);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteILMPolicy',
@@ -1794,33 +1875,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $IndexTemplate
+     * @param string                     $InstanceId
+     * @param string                     $IndexTemplate
+     * @param DeleteIndexTemplateRequest $request
      *
      * @return DeleteIndexTemplateResponse
      */
-    public function deleteIndexTemplate($InstanceId, $IndexTemplate)
+    public function deleteIndexTemplate($InstanceId, $IndexTemplate, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime);
+        return $this->deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $IndexTemplate
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                     $InstanceId
+     * @param string                     $IndexTemplate
+     * @param DeleteIndexTemplateRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
      * @return DeleteIndexTemplateResponse
      */
-    public function deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime)
+    public function deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId    = OpenApiUtilClient::getEncodeParam($InstanceId);
         $IndexTemplate = OpenApiUtilClient::getEncodeParam($IndexTemplate);
         $req           = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteIndexTemplate',
@@ -1873,6 +1958,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
@@ -1925,6 +2011,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteLogstash',
@@ -1977,6 +2064,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeletePipelines',
@@ -2029,6 +2117,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteSnapshotRepo',
@@ -2081,6 +2170,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteVpcEndpoint',
@@ -2098,30 +2188,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                     $ClusterId
+     * @param DescribeAckOperatorRequest $request
      *
      * @return DescribeAckOperatorResponse
      */
-    public function describeAckOperator($ClusterId)
+    public function describeAckOperator($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeAckOperatorWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeAckOperatorWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                     $ClusterId
+     * @param DescribeAckOperatorRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
      * @return DescribeAckOperatorResponse
      */
-    public function describeAckOperatorWithOptions($ClusterId, $headers, $runtime)
+    public function describeAckOperatorWithOptions($ClusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $req       = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeAckOperator',
@@ -2139,30 +2233,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string             $instanceId
+     * @param DescribeApmRequest $request
      *
      * @return DescribeApmResponse
      */
-    public function describeApm($instanceId)
+    public function describeApm($instanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApmWithOptions($instanceId, $headers, $runtime);
+        return $this->describeApmWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $instanceId
+     * @param DescribeApmRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return DescribeApmResponse
      */
-    public function describeApmWithOptions($instanceId, $headers, $runtime)
+    public function describeApmWithOptions($instanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeApm',
@@ -2180,30 +2278,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $ResId
+     * @param string                   $ResId
+     * @param DescribeCollectorRequest $request
      *
      * @return DescribeCollectorResponse
      */
-    public function describeCollector($ResId)
+    public function describeCollector($ResId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeCollectorWithOptions($ResId, $headers, $runtime);
+        return $this->describeCollectorWithOptions($ResId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ResId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $ResId
+     * @param DescribeCollectorRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return DescribeCollectorResponse
      */
-    public function describeCollectorWithOptions($ResId, $headers, $runtime)
+    public function describeCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $req   = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeCollector',
@@ -2221,33 +2323,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $name
+     * @param string                        $InstanceId
+     * @param string                        $name
+     * @param DescribeComponentIndexRequest $request
      *
      * @return DescribeComponentIndexResponse
      */
-    public function describeComponentIndex($InstanceId, $name)
+    public function describeComponentIndex($InstanceId, $name, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
+        return $this->describeComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                        $InstanceId
+     * @param string                        $name
+     * @param DescribeComponentIndexRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
      * @return DescribeComponentIndexResponse
      */
-    public function describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime)
+    public function describeComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $name       = OpenApiUtilClient::getEncodeParam($name);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeComponentIndex',
@@ -2297,6 +2403,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeConnectableClusters',
@@ -2314,33 +2421,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $name
+     * @param string                            $InstanceId
+     * @param string                            $name
+     * @param DescribeDeprecatedTemplateRequest $request
      *
      * @return DescribeDeprecatedTemplateResponse
      */
-    public function describeDeprecatedTemplate($InstanceId, $name)
+    public function describeDeprecatedTemplate($InstanceId, $name, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
+        return $this->describeDeprecatedTemplateWithOptions($InstanceId, $name, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                            $InstanceId
+     * @param string                            $name
+     * @param DescribeDeprecatedTemplateRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
      * @return DescribeDeprecatedTemplateResponse
      */
-    public function describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime)
+    public function describeDeprecatedTemplateWithOptions($InstanceId, $name, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $name       = OpenApiUtilClient::getEncodeParam($name);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeDeprecatedTemplate',
@@ -2393,6 +2504,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeDiagnoseReport',
@@ -2442,6 +2554,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeDiagnosisSettings',
@@ -2459,30 +2572,79 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                         $InstanceId
+     * @param DescribeDynamicSettingsRequest $request
      *
-     * @return DescribeElasticsearchHealthResponse
+     * @return DescribeDynamicSettingsResponse
      */
-    public function describeElasticsearchHealth($InstanceId)
+    public function describeDynamicSettings($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeElasticsearchHealthWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                         $InstanceId
+     * @param DescribeDynamicSettingsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeElasticsearchHealthResponse
+     * @return DescribeDynamicSettingsResponse
      */
-    public function describeElasticsearchHealthWithOptions($InstanceId, $headers, $runtime)
+    public function describeDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDynamicSettings',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/dynamic-settings',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDynamicSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                             $InstanceId
+     * @param DescribeElasticsearchHealthRequest $request
+     *
+     * @return DescribeElasticsearchHealthResponse
+     */
+    public function describeElasticsearchHealth($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeElasticsearchHealthWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                             $InstanceId
+     * @param DescribeElasticsearchHealthRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeElasticsearchHealthResponse
+     */
+    public function describeElasticsearchHealthWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeElasticsearchHealth',
@@ -2500,33 +2662,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $PolicyName
+     * @param string                   $InstanceId
+     * @param string                   $PolicyName
+     * @param DescribeILMPolicyRequest $request
      *
      * @return DescribeILMPolicyResponse
      */
-    public function describeILMPolicy($InstanceId, $PolicyName)
+    public function describeILMPolicy($InstanceId, $PolicyName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime);
+        return $this->describeILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $PolicyName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $InstanceId
+     * @param string                   $PolicyName
+     * @param DescribeILMPolicyRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return DescribeILMPolicyResponse
      */
-    public function describeILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime)
+    public function describeILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $PolicyName = OpenApiUtilClient::getEncodeParam($PolicyName);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeILMPolicy',
@@ -2544,33 +2710,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $IndexTemplate
+     * @param string                       $InstanceId
+     * @param string                       $IndexTemplate
+     * @param DescribeIndexTemplateRequest $request
      *
      * @return DescribeIndexTemplateResponse
      */
-    public function describeIndexTemplate($InstanceId, $IndexTemplate)
+    public function describeIndexTemplate($InstanceId, $IndexTemplate, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime);
+        return $this->describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $IndexTemplate
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                       $InstanceId
+     * @param string                       $IndexTemplate
+     * @param DescribeIndexTemplateRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
      * @return DescribeIndexTemplateResponse
      */
-    public function describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime)
+    public function describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId    = OpenApiUtilClient::getEncodeParam($InstanceId);
         $IndexTemplate = OpenApiUtilClient::getEncodeParam($IndexTemplate);
         $req           = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeIndexTemplate',
@@ -2588,30 +2758,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                  $InstanceId
+     * @param DescribeInstanceRequest $request
      *
      * @return DescribeInstanceResponse
      */
-    public function describeInstance($InstanceId)
+    public function describeInstance($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeInstanceWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeInstanceWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $InstanceId
+     * @param DescribeInstanceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DescribeInstanceResponse
      */
-    public function describeInstanceWithOptions($InstanceId, $headers, $runtime)
+    public function describeInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeInstance',
@@ -2629,30 +2803,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                        $InstanceId
+     * @param DescribeKibanaSettingsRequest $request
      *
      * @return DescribeKibanaSettingsResponse
      */
-    public function describeKibanaSettings($InstanceId)
+    public function describeKibanaSettings($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeKibanaSettingsWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                        $InstanceId
+     * @param DescribeKibanaSettingsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
      * @return DescribeKibanaSettingsResponse
      */
-    public function describeKibanaSettingsWithOptions($InstanceId, $headers, $runtime)
+    public function describeKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeKibanaSettings',
@@ -2670,30 +2848,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                  $InstanceId
+     * @param DescribeLogstashRequest $request
      *
      * @return DescribeLogstashResponse
      */
-    public function describeLogstash($InstanceId)
+    public function describeLogstash($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeLogstashWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeLogstashWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $InstanceId
+     * @param DescribeLogstashRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DescribeLogstashResponse
      */
-    public function describeLogstashWithOptions($InstanceId, $headers, $runtime)
+    public function describeLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeLogstash',
@@ -2711,33 +2893,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
-     * @param string $PipelineId
+     * @param string                  $InstanceId
+     * @param string                  $PipelineId
+     * @param DescribePipelineRequest $request
      *
      * @return DescribePipelineResponse
      */
-    public function describePipeline($InstanceId, $PipelineId)
+    public function describePipeline($InstanceId, $PipelineId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePipelineWithOptions($InstanceId, $PipelineId, $headers, $runtime);
+        return $this->describePipelineWithOptions($InstanceId, $PipelineId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $PipelineId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $InstanceId
+     * @param string                  $PipelineId
+     * @param DescribePipelineRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DescribePipelineResponse
      */
-    public function describePipelineWithOptions($InstanceId, $PipelineId, $headers, $runtime)
+    public function describePipelineWithOptions($InstanceId, $PipelineId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $PipelineId = OpenApiUtilClient::getEncodeParam($PipelineId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribePipeline',
@@ -2787,6 +2973,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribePipelineManagementConfig',
@@ -2804,26 +2991,31 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @param DescribeRegionsRequest $request
+     *
      * @return DescribeRegionsResponse
      */
-    public function describeRegions()
+    public function describeRegions($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeRegionsWithOptions($headers, $runtime);
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return DescribeRegionsResponse
      */
-    public function describeRegionsWithOptions($headers, $runtime)
+    public function describeRegionsWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -2841,30 +3033,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                         $InstanceId
+     * @param DescribeSnapshotSettingRequest $request
      *
      * @return DescribeSnapshotSettingResponse
      */
-    public function describeSnapshotSetting($InstanceId)
+    public function describeSnapshotSetting($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeSnapshotSettingWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                         $InstanceId
+     * @param DescribeSnapshotSettingRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
      * @return DescribeSnapshotSettingResponse
      */
-    public function describeSnapshotSettingWithOptions($InstanceId, $headers, $runtime)
+    public function describeSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeSnapshotSetting',
@@ -2882,30 +3078,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                   $InstanceId
+     * @param DescribeTemplatesRequest $request
      *
      * @return DescribeTemplatesResponse
      */
-    public function describeTemplates($InstanceId)
+    public function describeTemplates($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeTemplatesWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $InstanceId
+     * @param DescribeTemplatesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return DescribeTemplatesResponse
      */
-    public function describeTemplatesWithOptions($InstanceId, $headers, $runtime)
+    public function describeTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeTemplates',
@@ -2923,30 +3123,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                            $InstanceId
+     * @param DescribeXpackMonitorConfigRequest $request
      *
      * @return DescribeXpackMonitorConfigResponse
      */
-    public function describeXpackMonitorConfig($InstanceId)
+    public function describeXpackMonitorConfig($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeXpackMonitorConfigWithOptions($InstanceId, $headers, $runtime);
+        return $this->describeXpackMonitorConfigWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                            $InstanceId
+     * @param DescribeXpackMonitorConfigRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
      * @return DescribeXpackMonitorConfigResponse
      */
-    public function describeXpackMonitorConfigWithOptions($InstanceId, $headers, $runtime)
+    public function describeXpackMonitorConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeXpackMonitorConfig',
@@ -2999,6 +3203,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DiagnoseInstance',
@@ -3048,6 +3253,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'EstimatedLogstashRestartTime',
@@ -3097,6 +3303,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'EstimatedRestartTime',
@@ -3114,26 +3321,31 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @param GetClusterDataInformationRequest $request
+     *
      * @return GetClusterDataInformationResponse
      */
-    public function getClusterDataInformation()
+    public function getClusterDataInformation($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getClusterDataInformationWithOptions($headers, $runtime);
+        return $this->getClusterDataInformationWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetClusterDataInformationRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
      *
      * @return GetClusterDataInformationResponse
      */
-    public function getClusterDataInformationWithOptions($headers, $runtime)
+    public function getClusterDataInformationWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetClusterDataInformation',
@@ -3151,30 +3363,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                $InstanceId
+     * @param GetElastictaskRequest $request
      *
      * @return GetElastictaskResponse
      */
-    public function getElastictask($InstanceId)
+    public function getElastictask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getElastictaskWithOptions($InstanceId, $headers, $runtime);
+        return $this->getElastictaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $InstanceId
+     * @param GetElastictaskRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return GetElastictaskResponse
      */
-    public function getElastictaskWithOptions($InstanceId, $headers, $runtime)
+    public function getElastictaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetElastictask',
@@ -3192,30 +3408,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $ProjectId
+     * @param string                      $ProjectId
+     * @param GetEmonGrafanaAlertsRequest $request
      *
      * @return GetEmonGrafanaAlertsResponse
      */
-    public function getEmonGrafanaAlerts($ProjectId)
+    public function getEmonGrafanaAlerts($ProjectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEmonGrafanaAlertsWithOptions($ProjectId, $headers, $runtime);
+        return $this->getEmonGrafanaAlertsWithOptions($ProjectId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ProjectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $ProjectId
+     * @param GetEmonGrafanaAlertsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return GetEmonGrafanaAlertsResponse
      */
-    public function getEmonGrafanaAlertsWithOptions($ProjectId, $headers, $runtime)
+    public function getEmonGrafanaAlertsWithOptions($ProjectId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $ProjectId = OpenApiUtilClient::getEncodeParam($ProjectId);
         $req       = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetEmonGrafanaAlerts',
@@ -3233,30 +3453,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $ProjectId
+     * @param string                          $ProjectId
+     * @param GetEmonGrafanaDashboardsRequest $request
      *
      * @return GetEmonGrafanaDashboardsResponse
      */
-    public function getEmonGrafanaDashboards($ProjectId)
+    public function getEmonGrafanaDashboards($ProjectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEmonGrafanaDashboardsWithOptions($ProjectId, $headers, $runtime);
+        return $this->getEmonGrafanaDashboardsWithOptions($ProjectId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ProjectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $ProjectId
+     * @param GetEmonGrafanaDashboardsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return GetEmonGrafanaDashboardsResponse
      */
-    public function getEmonGrafanaDashboardsWithOptions($ProjectId, $headers, $runtime)
+    public function getEmonGrafanaDashboardsWithOptions($ProjectId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $ProjectId = OpenApiUtilClient::getEncodeParam($ProjectId);
         $req       = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetEmonGrafanaDashboards',
@@ -3274,30 +3498,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $ProjectId
+     * @param string                    $ProjectId
+     * @param GetEmonMonitorDataRequest $request
      *
      * @return GetEmonMonitorDataResponse
      */
-    public function getEmonMonitorData($ProjectId)
+    public function getEmonMonitorData($ProjectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEmonMonitorDataWithOptions($ProjectId, $headers, $runtime);
+        return $this->getEmonMonitorDataWithOptions($ProjectId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ProjectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $ProjectId
+     * @param GetEmonMonitorDataRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return GetEmonMonitorDataResponse
      */
-    public function getEmonMonitorDataWithOptions($ProjectId, $headers, $runtime)
+    public function getEmonMonitorDataWithOptions($ProjectId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $ProjectId = OpenApiUtilClient::getEncodeParam($ProjectId);
         $req       = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetEmonMonitorData',
@@ -3315,30 +3543,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                   $InstanceId
+     * @param GetOpenStoreUsageRequest $request
      *
      * @return GetOpenStoreUsageResponse
      */
-    public function getOpenStoreUsage($InstanceId)
+    public function getOpenStoreUsage($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getOpenStoreUsageWithOptions($InstanceId, $headers, $runtime);
+        return $this->getOpenStoreUsageWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $InstanceId
+     * @param GetOpenStoreUsageRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return GetOpenStoreUsageResponse
      */
-    public function getOpenStoreUsageWithOptions($InstanceId, $headers, $runtime)
+    public function getOpenStoreUsageWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetOpenStoreUsage',
@@ -3385,6 +3617,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetRegionConfiguration',
@@ -3440,6 +3673,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetSuggestShrinkableNodes',
@@ -3492,6 +3726,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetTransferableNodes',
@@ -3538,6 +3773,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InitializeOperationRole',
@@ -3587,6 +3823,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InstallAckOperator',
@@ -3636,6 +3873,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InstallKibanaSystemPlugin',
@@ -3685,6 +3923,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InstallLogstashSystemPlugin',
@@ -3734,6 +3973,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InstallSystemPlugin',
@@ -3751,30 +3991,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                    $InstanceId
+     * @param InstallUserPluginsRequest $request
      *
      * @return InstallUserPluginsResponse
      */
-    public function installUserPlugins($InstanceId)
+    public function installUserPlugins($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->installUserPluginsWithOptions($InstanceId, $headers, $runtime);
+        return $this->installUserPluginsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $InstanceId
+     * @param InstallUserPluginsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return InstallUserPluginsResponse
      */
-    public function installUserPluginsWithOptions($InstanceId, $headers, $runtime)
+    public function installUserPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InstallUserPlugins',
@@ -3824,6 +4068,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InterruptElasticsearchTask',
@@ -3873,6 +4118,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InterruptLogstashTask',
@@ -3925,6 +4171,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAckClusters',
@@ -3977,6 +4224,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAckNamespaces',
@@ -3991,6 +4239,77 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return ListAckNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $InstanceId
+     * @param ListActionRecordsRequest $request
+     *
+     * @return ListActionRecordsResponse
+     */
+    public function listActionRecords($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listActionRecordsWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $InstanceId
+     * @param ListActionRecordsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListActionRecordsResponse
+     */
+    public function listActionRecordsWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $query      = [];
+        if (!Utils::isUnset($request->actionNames)) {
+            $query['actionNames'] = $request->actionNames;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['requestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'ListActionRecords',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/action-records',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListActionRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4026,6 +4345,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAllNode',
@@ -4075,6 +4395,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAlternativeSnapshotRepos',
@@ -4133,6 +4454,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListApm',
@@ -4150,30 +4472,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                            $InstanceId
+     * @param ListAvailableEsInstanceIdsRequest $request
      *
      * @return ListAvailableEsInstanceIdsResponse
      */
-    public function listAvailableEsInstanceIds($InstanceId)
+    public function listAvailableEsInstanceIds($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAvailableEsInstanceIdsWithOptions($InstanceId, $headers, $runtime);
+        return $this->listAvailableEsInstanceIdsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                            $InstanceId
+     * @param ListAvailableEsInstanceIdsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
      * @return ListAvailableEsInstanceIdsResponse
      */
-    public function listAvailableEsInstanceIdsWithOptions($InstanceId, $headers, $runtime)
+    public function listAvailableEsInstanceIdsWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAvailableEsInstanceIds',
@@ -4235,6 +4561,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListCollectors',
@@ -4290,6 +4617,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListComponentIndices',
@@ -4307,30 +4635,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                       $InstanceId
+     * @param ListConnectedClustersRequest $request
      *
      * @return ListConnectedClustersResponse
      */
-    public function listConnectedClusters($InstanceId)
+    public function listConnectedClusters($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConnectedClustersWithOptions($InstanceId, $headers, $runtime);
+        return $this->listConnectedClustersWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                       $InstanceId
+     * @param ListConnectedClustersRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
      * @return ListConnectedClustersResponse
      */
-    public function listConnectedClustersWithOptions($InstanceId, $headers, $runtime)
+    public function listConnectedClustersWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListConnectedClusters',
@@ -4383,6 +4715,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDataStreams',
@@ -4400,30 +4733,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string               $InstanceId
+     * @param ListDataTasksRequest $request
      *
      * @return ListDataTasksResponse
      */
-    public function listDataTasks($InstanceId)
+    public function listDataTasks($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDataTasksWithOptions($InstanceId, $headers, $runtime);
+        return $this->listDataTasksWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $InstanceId
+     * @param ListDataTasksRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return ListDataTasksResponse
      */
-    public function listDataTasksWithOptions($InstanceId, $headers, $runtime)
+    public function listDataTasksWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDataTasks',
@@ -4476,6 +4813,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDefaultCollectorConfigurations',
@@ -4531,6 +4869,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDeprecatedTemplates',
@@ -4580,6 +4919,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDiagnoseIndices',
@@ -4647,6 +4987,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDiagnoseReport',
@@ -4711,6 +5052,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDiagnoseReportIds',
@@ -4766,6 +5108,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDictInformation',
@@ -4818,6 +5161,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDicts',
@@ -4879,6 +5223,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListEcsInstances',
@@ -4896,30 +5241,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                 $InstanceId
+     * @param ListExtendfilesRequest $request
      *
      * @return ListExtendfilesResponse
      */
-    public function listExtendfiles($InstanceId)
+    public function listExtendfiles($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listExtendfilesWithOptions($InstanceId, $headers, $runtime);
+        return $this->listExtendfilesWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $InstanceId
+     * @param ListExtendfilesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return ListExtendfilesResponse
      */
-    public function listExtendfilesWithOptions($InstanceId, $headers, $runtime)
+    public function listExtendfilesWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListExtendfiles',
@@ -4969,6 +5318,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListILMPolicies',
@@ -5024,6 +5374,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListIndexTemplates',
@@ -5100,6 +5451,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListInstance',
@@ -5114,80 +5466,6 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return ListInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListInstanceHistoryEventsRequest $request
-     *
-     * @return ListInstanceHistoryEventsResponse
-     */
-    public function listInstanceHistoryEvents($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listInstanceHistoryEventsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListInstanceHistoryEventsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListInstanceHistoryEventsResponse
-     */
-    public function listInstanceHistoryEventsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->eventCreateEndTime)) {
-            $query['eventCreateEndTime'] = $request->eventCreateEndTime;
-        }
-        if (!Utils::isUnset($request->eventCreateStartTime)) {
-            $query['eventCreateStartTime'] = $request->eventCreateStartTime;
-        }
-        if (!Utils::isUnset($request->eventExecuteEndTime)) {
-            $query['eventExecuteEndTime'] = $request->eventExecuteEndTime;
-        }
-        if (!Utils::isUnset($request->eventExecuteStartTime)) {
-            $query['eventExecuteStartTime'] = $request->eventExecuteStartTime;
-        }
-        if (!Utils::isUnset($request->eventFinashEndTime)) {
-            $query['eventFinashEndTime'] = $request->eventFinashEndTime;
-        }
-        if (!Utils::isUnset($request->eventFinashStartTime)) {
-            $query['eventFinashStartTime'] = $request->eventFinashStartTime;
-        }
-        if (!Utils::isUnset($request->eventLevel)) {
-            $query['eventLevel'] = $request->eventLevel;
-        }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['eventType'] = $request->eventType;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['instanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->nodeIP)) {
-            $query['nodeIP'] = $request->nodeIP;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => Utils::toArray($request->body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListInstanceHistoryEvents',
-            'version'     => '2017-06-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/events',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListInstanceHistoryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5238,6 +5516,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListInstanceIndices',
@@ -5290,6 +5569,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListKibanaPlugins',
@@ -5354,6 +5634,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListLogstash',
@@ -5418,6 +5699,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListLogstashLog',
@@ -5476,6 +5758,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListLogstashPlugins',
@@ -5537,6 +5820,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListNodes',
@@ -5592,6 +5876,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListPipeline',
@@ -5609,30 +5894,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                 $InstanceId
+     * @param ListPipelineIdsRequest $request
      *
      * @return ListPipelineIdsResponse
      */
-    public function listPipelineIds($InstanceId)
+    public function listPipelineIds($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPipelineIdsWithOptions($InstanceId, $headers, $runtime);
+        return $this->listPipelineIdsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $InstanceId
+     * @param ListPipelineIdsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return ListPipelineIdsResponse
      */
-    public function listPipelineIdsWithOptions($InstanceId, $headers, $runtime)
+    public function listPipelineIdsWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListPipelineIds',
@@ -5691,6 +5980,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListPlugins',
@@ -5755,6 +6045,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListSearchLog',
@@ -5804,6 +6095,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListShardRecoveries',
@@ -5821,30 +6113,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                               $InstanceId
+     * @param ListSnapshotReposByInstanceIdRequest $request
      *
      * @return ListSnapshotReposByInstanceIdResponse
      */
-    public function listSnapshotReposByInstanceId($InstanceId)
+    public function listSnapshotReposByInstanceId($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSnapshotReposByInstanceIdWithOptions($InstanceId, $headers, $runtime);
+        return $this->listSnapshotReposByInstanceIdWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                               $InstanceId
+     * @param ListSnapshotReposByInstanceIdRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
      * @return ListSnapshotReposByInstanceIdResponse
      */
-    public function listSnapshotReposByInstanceIdWithOptions($InstanceId, $headers, $runtime)
+    public function listSnapshotReposByInstanceIdWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListSnapshotReposByInstanceId',
@@ -5906,6 +6202,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -5955,6 +6252,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListTags',
@@ -6007,6 +6305,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpoints',
@@ -6056,6 +6355,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'MigrateToOtherZone',
@@ -6105,6 +6405,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ModifyDeployMachine',
@@ -6122,30 +6423,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                   $InstanceId
+     * @param ModifyElastictaskRequest $request
      *
      * @return ModifyElastictaskResponse
      */
-    public function modifyElastictask($InstanceId)
+    public function modifyElastictask($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyElastictaskWithOptions($InstanceId, $headers, $runtime);
+        return $this->modifyElastictaskWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $InstanceId
+     * @param ModifyElastictaskRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return ModifyElastictaskResponse
      */
-    public function modifyElastictaskWithOptions($InstanceId, $headers, $runtime)
+    public function modifyElastictaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ModifyElastictask',
@@ -6195,6 +6500,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ModifyInstanceMaintainTime',
@@ -6307,14 +6613,10 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
-        $body = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'MoveResourceGroup',
@@ -6367,6 +6669,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'OpenDiagnosis',
@@ -6416,6 +6719,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'OpenHttps',
@@ -6433,33 +6737,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $ProjectId
-     * @param string $AlarmGroupId
+     * @param string                      $ProjectId
+     * @param string                      $AlarmGroupId
+     * @param PostEmonTryAlarmRuleRequest $request
      *
      * @return PostEmonTryAlarmRuleResponse
      */
-    public function postEmonTryAlarmRule($ProjectId, $AlarmGroupId)
+    public function postEmonTryAlarmRule($ProjectId, $AlarmGroupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $headers, $runtime);
+        return $this->postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ProjectId
-     * @param string         $AlarmGroupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $ProjectId
+     * @param string                      $AlarmGroupId
+     * @param PostEmonTryAlarmRuleRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return PostEmonTryAlarmRuleResponse
      */
-    public function postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $headers, $runtime)
+    public function postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $ProjectId    = OpenApiUtilClient::getEncodeParam($ProjectId);
         $AlarmGroupId = OpenApiUtilClient::getEncodeParam($AlarmGroupId);
         $req          = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'PostEmonTryAlarmRule',
@@ -6509,6 +6817,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RecommendTemplates',
@@ -6558,6 +6867,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ReinstallCollector',
@@ -6575,30 +6885,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string           $instanceId
+     * @param RemoveApmRequest $request
      *
      * @return RemoveApmResponse
      */
-    public function removeApm($instanceId)
+    public function removeApm($instanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeApmWithOptions($instanceId, $headers, $runtime);
+        return $this->removeApmWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $instanceId
+     * @param RemoveApmRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return RemoveApmResponse
      */
-    public function removeApmWithOptions($instanceId, $headers, $runtime)
+    public function removeApmWithOptions($instanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RemoveApm',
@@ -6648,6 +6962,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RenewInstance',
@@ -6697,6 +7012,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RenewLogstash',
@@ -6746,6 +7062,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RestartCollector',
@@ -6798,6 +7115,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RestartInstance',
@@ -6850,6 +7168,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RestartLogstash',
@@ -6899,6 +7218,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ResumeElasticsearchTask',
@@ -6948,6 +7268,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ResumeLogstashTask',
@@ -7000,6 +7321,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RolloverDataStream',
@@ -7049,6 +7371,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RunPipelines',
@@ -7122,30 +7445,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string          $instanceId
+     * @param StartApmRequest $request
      *
      * @return StartApmResponse
      */
-    public function startApm($instanceId)
+    public function startApm($instanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startApmWithOptions($instanceId, $headers, $runtime);
+        return $this->startApmWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string          $instanceId
+     * @param StartApmRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
      *
      * @return StartApmResponse
      */
-    public function startApmWithOptions($instanceId, $headers, $runtime)
+    public function startApmWithOptions($instanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StartApm',
@@ -7195,6 +7522,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StartCollector',
@@ -7212,30 +7540,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
+     * @param string         $instanceId
+     * @param StopApmRequest $request
      *
      * @return StopApmResponse
      */
-    public function stopApm($instanceId)
+    public function stopApm($instanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopApmWithOptions($instanceId, $headers, $runtime);
+        return $this->stopApmWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
      * @param string         $instanceId
+     * @param StopApmRequest $request
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return StopApmResponse
      */
-    public function stopApmWithOptions($instanceId, $headers, $runtime)
+    public function stopApmWithOptions($instanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StopApm',
@@ -7285,6 +7617,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StopCollector',
@@ -7334,6 +7667,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StopPipelines',
@@ -7373,19 +7707,9 @@ class Elasticsearch extends OpenApiClient
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->resourceIds)) {
-            $body['ResourceIds'] = $request->resourceIds;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -7548,6 +7872,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UninstallKibanaPlugin',
@@ -7597,6 +7922,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UninstallLogstashPlugin',
@@ -7646,6 +7972,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UninstallPlugin',
@@ -7701,6 +8028,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -7750,6 +8078,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateAdminPassword',
@@ -7799,6 +8128,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateAdvancedSetting',
@@ -7848,6 +8178,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateAliwsDict',
@@ -8012,6 +8343,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateCollector',
@@ -8061,6 +8393,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateCollectorName',
@@ -8222,6 +8555,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateDiagnosisSettings',
@@ -8271,6 +8605,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateDict',
@@ -8285,6 +8620,62 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return UpdateDictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $InstanceId
+     * @param UpdateDynamicSettingsRequest $request
+     *
+     * @return UpdateDynamicSettingsResponse
+     */
+    public function updateDynamicSettings($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $InstanceId
+     * @param UpdateDynamicSettingsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDynamicSettingsResponse
+     */
+    public function updateDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $query      = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['mode'] = $request->mode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDynamicSettings',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/dynamic-settings',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDynamicSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8320,6 +8711,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateExtendConfig',
@@ -8369,6 +8761,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateExtendfiles',
@@ -8418,6 +8811,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateHotIkDicts',
@@ -8470,6 +8864,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateILMPolicy',
@@ -8522,6 +8917,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateIndexTemplate',
@@ -8568,15 +8964,13 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ignoreStatus)) {
-            $query['ignoreStatus'] = $request->ignoreStatus;
-        }
         if (!Utils::isUnset($request->orderActionType)) {
             $query['orderActionType'] = $request->orderActionType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateInstance',
@@ -8626,6 +9020,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateInstanceChargeType',
@@ -8675,6 +9070,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateInstanceSettings',
@@ -8724,6 +9120,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateKibanaSettings',
@@ -8776,6 +9173,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateKibanaWhiteIps',
@@ -8822,20 +9220,10 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->nodeAmount)) {
-            $body['nodeAmount'] = $request->nodeAmount;
-        }
-        if (!Utils::isUnset($request->nodeSpec)) {
-            $body['nodeSpec'] = $request->nodeSpec;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateLogstash',
@@ -8882,17 +9270,10 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
-        $body = [];
-        if (!Utils::isUnset($request->paymentInfo)) {
-            $body['paymentInfo'] = $request->paymentInfo;
-        }
-        if (!Utils::isUnset($request->paymentType)) {
-            $body['paymentType'] = $request->paymentType;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateLogstashChargeType',
@@ -8939,14 +9320,10 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateLogstashDescription',
@@ -8993,14 +9370,10 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
-        $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateLogstashSettings',
@@ -9050,6 +9423,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdatePipelineManagementConfig',
@@ -9102,6 +9476,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdatePipelines',
@@ -9154,6 +9529,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdatePrivateNetworkWhiteIps',
@@ -9203,6 +9579,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdatePublicNetwork',
@@ -9255,6 +9632,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdatePublicWhiteIps',
@@ -9304,6 +9682,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateReadWritePolicy',
@@ -9321,30 +9700,34 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string $InstanceId
+     * @param string                       $InstanceId
+     * @param UpdateSnapshotSettingRequest $request
      *
      * @return UpdateSnapshotSettingResponse
      */
-    public function updateSnapshotSetting($InstanceId)
+    public function updateSnapshotSetting($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateSnapshotSettingWithOptions($InstanceId, $headers, $runtime);
+        return $this->updateSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                       $InstanceId
+     * @param UpdateSnapshotSettingRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
      * @return UpdateSnapshotSettingResponse
      */
-    public function updateSnapshotSettingWithOptions($InstanceId, $headers, $runtime)
+    public function updateSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
         $req        = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateSnapshotSetting',
@@ -9394,6 +9777,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateSynonymsDicts',
@@ -9446,6 +9830,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',
@@ -9555,6 +9940,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'UpdateXpackMonitorConfig',
@@ -9664,6 +10050,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ValidateConnection',
@@ -9766,6 +10153,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ValidateSlrPermission',
@@ -9862,6 +10250,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'createInstance',

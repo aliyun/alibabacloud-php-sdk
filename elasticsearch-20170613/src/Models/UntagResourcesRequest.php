@@ -27,11 +27,17 @@ class UntagResourcesRequest extends Model
      * @var string
      */
     public $tagKeys;
+
+    /**
+     * @var string
+     */
+    public $body;
     protected $_name = [
         'all'          => 'All',
         'resourceIds'  => 'ResourceIds',
         'resourceType' => 'ResourceType',
         'tagKeys'      => 'TagKeys',
+        'body'         => 'body',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class UntagResourcesRequest extends Model
         }
         if (null !== $this->tagKeys) {
             $res['TagKeys'] = $this->tagKeys;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class UntagResourcesRequest extends Model
         }
         if (isset($map['TagKeys'])) {
             $model->tagKeys = $map['TagKeys'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

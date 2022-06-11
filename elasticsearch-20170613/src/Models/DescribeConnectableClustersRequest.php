@@ -12,8 +12,14 @@ class DescribeConnectableClustersRequest extends Model
      * @var bool
      */
     public $alreadySetItems;
+
+    /**
+     * @var string
+     */
+    public $body;
     protected $_name = [
         'alreadySetItems' => 'alreadySetItems',
+        'body'            => 'body',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeConnectableClustersRequest extends Model
         $res = [];
         if (null !== $this->alreadySetItems) {
             $res['alreadySetItems'] = $this->alreadySetItems;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DescribeConnectableClustersRequest extends Model
         $model = new self();
         if (isset($map['alreadySetItems'])) {
             $model->alreadySetItems = $map['alreadySetItems'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

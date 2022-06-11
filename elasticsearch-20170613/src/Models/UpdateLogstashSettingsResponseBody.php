@@ -12,14 +12,8 @@ class UpdateLogstashSettingsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var Logstash
-     */
-    public $result;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class UpdateLogstashSettingsResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class UpdateLogstashSettingsResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Result'])) {
-            $model->result = Logstash::fromMap($map['Result']);
         }
 
         return $model;

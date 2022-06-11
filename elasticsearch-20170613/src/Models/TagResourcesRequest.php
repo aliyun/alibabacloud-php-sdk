@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TagResourcesRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class TagResourcesRequest extends Model
 {
     /**
-     * @var string[]
-     */
-    public $resourceIds;
-
-    /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
+    public $body;
     protected $_name = [
-        'resourceIds'  => 'ResourceIds',
-        'resourceType' => 'ResourceType',
-        'tags'         => 'Tags',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -36,20 +23,8 @@ class TagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -63,22 +38,8 @@ class TagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceIds'])) {
-            if (!empty($map['ResourceIds'])) {
-                $model->resourceIds = $map['ResourceIds'];
-            }
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

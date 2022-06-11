@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListTagsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -18,6 +23,7 @@ class ListTagsRequest extends Model
      */
     public $resourceType;
     protected $_name = [
+        'body'         => 'body',
         'pageSize'     => 'pageSize',
         'resourceType' => 'resourceType',
     ];
@@ -29,6 +35,9 @@ class ListTagsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -47,6 +56,9 @@ class ListTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
+        }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
