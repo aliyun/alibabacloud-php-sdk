@@ -403,6 +403,9 @@ class Schedulerx2 extends OpenApiClient
         if (!Utils::isUnset($request->sendChannel)) {
             $body['SendChannel'] = $request->sendChannel;
         }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         if (!Utils::isUnset($request->taskAttemptInterval)) {
             $body['TaskAttemptInterval'] = $request->taskAttemptInterval;
         }
@@ -473,9 +476,6 @@ class Schedulerx2 extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->uid)) {
             $query['Uid'] = $request->uid;

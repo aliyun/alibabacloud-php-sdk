@@ -137,6 +137,11 @@ class CreateJobRequest extends Model
     /**
      * @var int
      */
+    public $status;
+
+    /**
+     * @var int
+     */
     public $taskAttemptInterval;
 
     /**
@@ -194,6 +199,7 @@ class CreateJobRequest extends Model
         'queueSize'           => 'QueueSize',
         'regionId'            => 'RegionId',
         'sendChannel'         => 'SendChannel',
+        'status'              => 'Status',
         'taskAttemptInterval' => 'TaskAttemptInterval',
         'taskMaxAttempt'      => 'TaskMaxAttempt',
         'timeExpression'      => 'TimeExpression',
@@ -290,6 +296,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->sendChannel) {
             $res['SendChannel'] = $this->sendChannel;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->taskAttemptInterval) {
             $res['TaskAttemptInterval'] = $this->taskAttemptInterval;
@@ -404,6 +413,9 @@ class CreateJobRequest extends Model
         }
         if (isset($map['SendChannel'])) {
             $model->sendChannel = $map['SendChannel'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TaskAttemptInterval'])) {
             $model->taskAttemptInterval = $map['TaskAttemptInterval'];
