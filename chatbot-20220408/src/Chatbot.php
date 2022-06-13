@@ -2674,6 +2674,9 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($request->robotEnv)) {
             $query['RobotEnv'] = $request->robotEnv;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         if (!Utils::isUnset($request->tags)) {
             $query['Tags'] = $request->tags;
         }

@@ -30,6 +30,13 @@ class ListDsMenusRequest extends Model
     public $robotEnv;
 
     /**
+     * @description 业务来源标识：
+     * 1-集团内部aliyun域名；2-外部使用4service域名（默认）
+     * @var int
+     */
+    public $source;
+
+    /**
      * @description 功能标识，为空表示所有；支持的tag有：Dialog / Intent / Entity / Var / TaskCenter；传入多个时通过英文逗号分隔
      *
      * @var string
@@ -39,6 +46,7 @@ class ListDsMenusRequest extends Model
         'agentKey'   => 'AgentKey',
         'instanceId' => 'InstanceId',
         'robotEnv'   => 'RobotEnv',
+        'source'     => 'Source',
         'tags'       => 'Tags',
     ];
 
@@ -57,6 +65,9 @@ class ListDsMenusRequest extends Model
         }
         if (null !== $this->robotEnv) {
             $res['RobotEnv'] = $this->robotEnv;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -81,6 +92,9 @@ class ListDsMenusRequest extends Model
         }
         if (isset($map['RobotEnv'])) {
             $model->robotEnv = $map['RobotEnv'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
