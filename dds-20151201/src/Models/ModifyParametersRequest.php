@@ -41,6 +41,11 @@ class ModifyParametersRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -59,6 +64,7 @@ class ModifyParametersRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'parameters'           => 'Parameters',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
@@ -88,6 +94,9 @@ class ModifyParametersRequest extends Model
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -127,6 +136,9 @@ class ModifyParametersRequest extends Model
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -16,9 +16,15 @@ class zone extends Model
     /**
      * @var string
      */
+    public $zoneId;
+
+    /**
+     * @var string
+     */
     public $zoneName;
     protected $_name = [
         'vpcEnabled' => 'VpcEnabled',
+        'zoneId'     => 'ZoneId',
         'zoneName'   => 'ZoneName',
     ];
 
@@ -31,6 +37,9 @@ class zone extends Model
         $res = [];
         if (null !== $this->vpcEnabled) {
             $res['VpcEnabled'] = $this->vpcEnabled;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->zoneName) {
             $res['ZoneName'] = $this->zoneName;
@@ -49,6 +58,9 @@ class zone extends Model
         $model = new self();
         if (isset($map['VpcEnabled'])) {
             $model->vpcEnabled = $map['VpcEnabled'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['ZoneName'])) {
             $model->zoneName = $map['ZoneName'];

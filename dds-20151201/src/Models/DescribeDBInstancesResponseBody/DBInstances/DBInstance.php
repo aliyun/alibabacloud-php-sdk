@@ -122,6 +122,11 @@ class DBInstance extends Model
     public $shardList;
 
     /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @var tags
      */
     public $tags;
@@ -158,6 +163,7 @@ class DBInstance extends Model
         'replicationFactor'     => 'ReplicationFactor',
         'resourceGroupId'       => 'ResourceGroupId',
         'shardList'             => 'ShardList',
+        'storageType'           => 'StorageType',
         'tags'                  => 'Tags',
         'vpcAuthMode'           => 'VpcAuthMode',
         'zoneId'                => 'ZoneId',
@@ -235,6 +241,9 @@ class DBInstance extends Model
         }
         if (null !== $this->shardList) {
             $res['ShardList'] = null !== $this->shardList ? $this->shardList->toMap() : null;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -322,6 +331,9 @@ class DBInstance extends Model
         }
         if (isset($map['ShardList'])) {
             $model->shardList = shardList::fromMap($map['ShardList']);
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

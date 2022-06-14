@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions\supportedEngineVersion\supportedEngines\supportedEngine\supportedNodeTypes\supportedNodeType\availableResources;
 
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions\supportedEngineVersion\supportedEngines\supportedEngine\supportedNodeTypes\supportedNodeType\availableResources\availableResource\DBInstanceStorageRange;
 use AlibabaCloud\Tea\Model;
 
 class availableResource extends Model
 {
+    /**
+     * @var DBInstanceStorageRange
+     */
+    public $DBInstanceStorageRange;
+
     /**
      * @var string
      */
@@ -18,8 +24,9 @@ class availableResource extends Model
      */
     public $instanceClassRemark;
     protected $_name = [
-        'instanceClass'       => 'InstanceClass',
-        'instanceClassRemark' => 'InstanceClassRemark',
+        'DBInstanceStorageRange' => 'DBInstanceStorageRange',
+        'instanceClass'          => 'InstanceClass',
+        'instanceClassRemark'    => 'InstanceClassRemark',
     ];
 
     public function validate()
@@ -29,6 +36,9 @@ class availableResource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceStorageRange) {
+            $res['DBInstanceStorageRange'] = null !== $this->DBInstanceStorageRange ? $this->DBInstanceStorageRange->toMap() : null;
+        }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
@@ -47,6 +57,9 @@ class availableResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceStorageRange'])) {
+            $model->DBInstanceStorageRange = DBInstanceStorageRange::fromMap($map['DBInstanceStorageRange']);
+        }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
