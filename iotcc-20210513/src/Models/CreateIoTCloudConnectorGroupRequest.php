@@ -32,12 +32,18 @@ class CreateIoTCloudConnectorGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
         'dryRun'      => 'DryRun',
         'name'        => 'Name',
         'regionId'    => 'RegionId',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class CreateIoTCloudConnectorGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class CreateIoTCloudConnectorGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -74,6 +74,11 @@ class ioTCloudConnectors extends Model
     public $rateLimit;
 
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var string[]
      */
     public $vSwitchList;
@@ -101,6 +106,7 @@ class ioTCloudConnectors extends Model
         'mode'                            => 'Mode',
         'modifyTime'                      => 'ModifyTime',
         'rateLimit'                       => 'RateLimit',
+        'type'                            => 'Type',
         'vSwitchList'                     => 'VSwitchList',
         'vpcId'                           => 'VpcId',
         'wildcardDomainEnabled'           => 'WildcardDomainEnabled',
@@ -151,6 +157,9 @@ class ioTCloudConnectors extends Model
         }
         if (null !== $this->rateLimit) {
             $res['RateLimit'] = $this->rateLimit;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->vSwitchList) {
             $res['VSwitchList'] = $this->vSwitchList;
@@ -211,6 +220,9 @@ class ioTCloudConnectors extends Model
         }
         if (isset($map['RateLimit'])) {
             $model->rateLimit = $map['RateLimit'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['VSwitchList'])) {
             if (!empty($map['VSwitchList'])) {

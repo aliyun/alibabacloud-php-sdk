@@ -49,6 +49,11 @@ class CreateIoTCloudConnectorRequest extends Model
     public $resourceUid;
 
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var bool
      */
     public $wildcardDomainEnabled;
@@ -61,6 +66,7 @@ class CreateIoTCloudConnectorRequest extends Model
         'ioTCloudConnectorName'        => 'IoTCloudConnectorName',
         'regionId'                     => 'RegionId',
         'resourceUid'                  => 'ResourceUid',
+        'type'                         => 'Type',
         'wildcardDomainEnabled'        => 'WildcardDomainEnabled',
     ];
 
@@ -94,6 +100,9 @@ class CreateIoTCloudConnectorRequest extends Model
         }
         if (null !== $this->resourceUid) {
             $res['ResourceUid'] = $this->resourceUid;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->wildcardDomainEnabled) {
             $res['WildcardDomainEnabled'] = $this->wildcardDomainEnabled;
@@ -133,6 +142,9 @@ class CreateIoTCloudConnectorRequest extends Model
         }
         if (isset($map['ResourceUid'])) {
             $model->resourceUid = $map['ResourceUid'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['WildcardDomainEnabled'])) {
             $model->wildcardDomainEnabled = $map['WildcardDomainEnabled'];

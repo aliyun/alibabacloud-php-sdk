@@ -646,6 +646,9 @@ class IoTCC extends OpenApiClient
         if (!Utils::isUnset($request->sourceCidrs)) {
             $query['SourceCidrs'] = $request->sourceCidrs;
         }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -777,6 +780,9 @@ class IoTCC extends OpenApiClient
         if (!Utils::isUnset($request->resourceUid)) {
             $query['ResourceUid'] = $request->resourceUid;
         }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         if (!Utils::isUnset($request->wildcardDomainEnabled)) {
             $query['WildcardDomainEnabled'] = $request->wildcardDomainEnabled;
         }
@@ -886,6 +892,9 @@ class IoTCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2539,6 +2548,9 @@ class IoTCC extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2776,6 +2788,9 @@ class IoTCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

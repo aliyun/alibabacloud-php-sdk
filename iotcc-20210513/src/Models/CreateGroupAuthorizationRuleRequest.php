@@ -57,6 +57,11 @@ class CreateGroupAuthorizationRuleRequest extends Model
      * @var string[]
      */
     public $sourceCidrs;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'authorizationRuleDescription' => 'AuthorizationRuleDescription',
         'authorizationRuleName'        => 'AuthorizationRuleName',
@@ -68,6 +73,7 @@ class CreateGroupAuthorizationRuleRequest extends Model
         'policy'                       => 'Policy',
         'regionId'                     => 'RegionId',
         'sourceCidrs'                  => 'SourceCidrs',
+        'type'                         => 'Type',
     ];
 
     public function validate()
@@ -106,6 +112,9 @@ class CreateGroupAuthorizationRuleRequest extends Model
         }
         if (null !== $this->sourceCidrs) {
             $res['SourceCidrs'] = $this->sourceCidrs;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -150,6 +159,9 @@ class CreateGroupAuthorizationRuleRequest extends Model
             if (!empty($map['SourceCidrs'])) {
                 $model->sourceCidrs = $map['SourceCidrs'];
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

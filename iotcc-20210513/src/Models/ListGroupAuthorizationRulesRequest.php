@@ -57,6 +57,11 @@ class ListGroupAuthorizationRulesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'authorizationRuleIds'     => 'AuthorizationRuleIds',
         'authorizationRuleName'    => 'AuthorizationRuleName',
@@ -68,6 +73,7 @@ class ListGroupAuthorizationRulesRequest extends Model
         'nextToken'                => 'NextToken',
         'policy'                   => 'Policy',
         'regionId'                 => 'RegionId',
+        'type'                     => 'Type',
     ];
 
     public function validate()
@@ -106,6 +112,9 @@ class ListGroupAuthorizationRulesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class ListGroupAuthorizationRulesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

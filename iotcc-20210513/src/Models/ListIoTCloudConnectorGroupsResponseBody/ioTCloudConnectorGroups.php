@@ -38,6 +38,11 @@ class ioTCloudConnectorGroups extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'createTime'                   => 'CreateTime',
         'description'                  => 'Description',
@@ -45,6 +50,7 @@ class ioTCloudConnectorGroups extends Model
         'ioTCloudConnectorGroupStatus' => 'IoTCloudConnectorGroupStatus',
         'ioTCloudConnectors'           => 'IoTCloudConnectors',
         'name'                         => 'Name',
+        'type'                         => 'Type',
     ];
 
     public function validate()
@@ -77,6 +83,9 @@ class ioTCloudConnectorGroups extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -113,6 +122,9 @@ class ioTCloudConnectorGroups extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
