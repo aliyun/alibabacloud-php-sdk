@@ -31,11 +31,6 @@ class instances extends Model
     /**
      * @var string
      */
-    public $connectionMode;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
@@ -84,11 +79,6 @@ class instances extends Model
     public $networkType;
 
     /**
-     * @var int
-     */
-    public $port;
-
-    /**
      * @var string
      */
     public $privateIp;
@@ -122,7 +112,6 @@ class instances extends Model
         'capacity'         => 'Capacity',
         'chargeType'       => 'ChargeType',
         'connectionDomain' => 'ConnectionDomain',
-        'connectionMode'   => 'ConnectionMode',
         'createTime'       => 'CreateTime',
         'endTime'          => 'EndTime',
         'engineVersion'    => 'EngineVersion',
@@ -133,7 +122,6 @@ class instances extends Model
         'instanceStatus'   => 'InstanceStatus',
         'instanceType'     => 'InstanceType',
         'networkType'      => 'NetworkType',
-        'port'             => 'Port',
         'privateIp'        => 'PrivateIp',
         'regionId'         => 'RegionId',
         'resourceGroupId'  => 'ResourceGroupId',
@@ -160,9 +148,6 @@ class instances extends Model
         }
         if (null !== $this->connectionDomain) {
             $res['ConnectionDomain'] = $this->connectionDomain;
-        }
-        if (null !== $this->connectionMode) {
-            $res['ConnectionMode'] = $this->connectionMode;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -193,9 +178,6 @@ class instances extends Model
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
         }
         if (null !== $this->privateIp) {
             $res['PrivateIp'] = $this->privateIp;
@@ -239,9 +221,6 @@ class instances extends Model
         if (isset($map['ConnectionDomain'])) {
             $model->connectionDomain = $map['ConnectionDomain'];
         }
-        if (isset($map['ConnectionMode'])) {
-            $model->connectionMode = $map['ConnectionMode'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -271,9 +250,6 @@ class instances extends Model
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
         }
         if (isset($map['PrivateIp'])) {
             $model->privateIp = $map['PrivateIp'];

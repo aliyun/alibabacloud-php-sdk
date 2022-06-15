@@ -67,6 +67,11 @@ class KVStoreInstance extends Model
     /**
      * @var string
      */
+    public $editionType;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -162,11 +167,6 @@ class KVStoreInstance extends Model
     /**
      * @var string
      */
-    public $searchKey;
-
-    /**
-     * @var string
-     */
     public $secondaryZoneId;
 
     /**
@@ -210,6 +210,7 @@ class KVStoreInstance extends Model
         'connections'         => 'Connections',
         'createTime'          => 'CreateTime',
         'destroyTime'         => 'DestroyTime',
+        'editionType'         => 'EditionType',
         'endTime'             => 'EndTime',
         'engineVersion'       => 'EngineVersion',
         'globalInstanceId'    => 'GlobalInstanceId',
@@ -229,7 +230,6 @@ class KVStoreInstance extends Model
         'regionId'            => 'RegionId',
         'replacateId'         => 'ReplacateId',
         'resourceGroupId'     => 'ResourceGroupId',
-        'searchKey'           => 'SearchKey',
         'secondaryZoneId'     => 'SecondaryZoneId',
         'shardCount'          => 'ShardCount',
         'tags'                => 'Tags',
@@ -278,6 +278,9 @@ class KVStoreInstance extends Model
         }
         if (null !== $this->destroyTime) {
             $res['DestroyTime'] = $this->destroyTime;
+        }
+        if (null !== $this->editionType) {
+            $res['EditionType'] = $this->editionType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -335,9 +338,6 @@ class KVStoreInstance extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->searchKey) {
-            $res['SearchKey'] = $this->searchKey;
         }
         if (null !== $this->secondaryZoneId) {
             $res['SecondaryZoneId'] = $this->secondaryZoneId;
@@ -405,6 +405,9 @@ class KVStoreInstance extends Model
         if (isset($map['DestroyTime'])) {
             $model->destroyTime = $map['DestroyTime'];
         }
+        if (isset($map['EditionType'])) {
+            $model->editionType = $map['EditionType'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -461,9 +464,6 @@ class KVStoreInstance extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['SearchKey'])) {
-            $model->searchKey = $map['SearchKey'];
         }
         if (isset($map['SecondaryZoneId'])) {
             $model->secondaryZoneId = $map['SecondaryZoneId'];

@@ -69,6 +69,11 @@ class ModifyInstanceSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $readOnlyCount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -105,6 +110,7 @@ class ModifyInstanceSpecRequest extends Model
         'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'readOnlyCount'        => 'ReadOnlyCount',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -154,6 +160,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->readOnlyCount) {
+            $res['ReadOnlyCount'] = $this->readOnlyCount;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -217,6 +226,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ReadOnlyCount'])) {
+            $model->readOnlyCount = $map['ReadOnlyCount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

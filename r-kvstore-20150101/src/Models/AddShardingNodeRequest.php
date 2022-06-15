@@ -39,6 +39,11 @@ class AddShardingNodeRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $readOnlyCount;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -74,6 +79,7 @@ class AddShardingNodeRequest extends Model
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'readOnlyCount'        => 'ReadOnlyCount',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
@@ -106,6 +112,9 @@ class AddShardingNodeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->readOnlyCount) {
+            $res['ReadOnlyCount'] = $this->readOnlyCount;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -154,6 +163,9 @@ class AddShardingNodeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ReadOnlyCount'])) {
+            $model->readOnlyCount = $map['ReadOnlyCount'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

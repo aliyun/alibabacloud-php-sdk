@@ -71,6 +71,11 @@ class CreateInstanceResponseBody extends Model
     /**
      * @var int
      */
+    public $orderId;
+
+    /**
+     * @var int
+     */
     public $port;
 
     /**
@@ -125,6 +130,7 @@ class CreateInstanceResponseBody extends Model
         'instanceStatus'   => 'InstanceStatus',
         'networkType'      => 'NetworkType',
         'nodeType'         => 'NodeType',
+        'orderId'          => 'OrderId',
         'port'             => 'Port',
         'privateIpAddr'    => 'PrivateIpAddr',
         'QPS'              => 'QPS',
@@ -178,6 +184,9 @@ class CreateInstanceResponseBody extends Model
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -253,6 +262,9 @@ class CreateInstanceResponseBody extends Model
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];

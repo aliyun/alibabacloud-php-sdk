@@ -170,6 +170,11 @@ class DBInstanceAttribute extends Model
     public $QPS;
 
     /**
+     * @var int
+     */
+    public $readOnlyCount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -271,6 +276,7 @@ class DBInstanceAttribute extends Model
         'port'                      => 'Port',
         'privateIp'                 => 'PrivateIp',
         'QPS'                       => 'QPS',
+        'readOnlyCount'             => 'ReadOnlyCount',
         'regionId'                  => 'RegionId',
         'replicaId'                 => 'ReplicaId',
         'replicationMode'           => 'ReplicationMode',
@@ -389,6 +395,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->QPS) {
             $res['QPS'] = $this->QPS;
+        }
+        if (null !== $this->readOnlyCount) {
+            $res['ReadOnlyCount'] = $this->readOnlyCount;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -539,6 +548,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['QPS'])) {
             $model->QPS = $map['QPS'];
+        }
+        if (isset($map['ReadOnlyCount'])) {
+            $model->readOnlyCount = $map['ReadOnlyCount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

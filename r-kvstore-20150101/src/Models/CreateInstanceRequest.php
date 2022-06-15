@@ -160,6 +160,11 @@ class CreateInstanceRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $shardCount;
+
+    /**
      * @var string
      */
     public $srcDBInstanceId;
@@ -219,6 +224,7 @@ class CreateInstanceRequest extends Model
         'restoreTime'          => 'RestoreTime',
         'secondaryZoneId'      => 'SecondaryZoneId',
         'securityToken'        => 'SecurityToken',
+        'shardCount'           => 'ShardCount',
         'srcDBInstanceId'      => 'SrcDBInstanceId',
         'tag'                  => 'Tag',
         'token'                => 'Token',
@@ -323,6 +329,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->shardCount) {
+            $res['ShardCount'] = $this->shardCount;
         }
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
@@ -449,6 +458,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['ShardCount'])) {
+            $model->shardCount = $map['ShardCount'];
         }
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];

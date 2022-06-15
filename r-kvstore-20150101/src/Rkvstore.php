@@ -316,6 +316,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -900,6 +903,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
+        }
         if (!Utils::isUnset($request->srcDBInstanceId)) {
             $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
         }
@@ -1312,6 +1318,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -5492,6 +5501,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

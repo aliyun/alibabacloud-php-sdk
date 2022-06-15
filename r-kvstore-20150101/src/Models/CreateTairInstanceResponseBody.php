@@ -51,6 +51,11 @@ class CreateTairInstanceResponseBody extends Model
     /**
      * @var int
      */
+    public $orderId;
+
+    /**
+     * @var int
+     */
     public $port;
 
     /**
@@ -86,6 +91,7 @@ class CreateTairInstanceResponseBody extends Model
         'instanceId'       => 'InstanceId',
         'instanceName'     => 'InstanceName',
         'instanceStatus'   => 'InstanceStatus',
+        'orderId'          => 'OrderId',
         'port'             => 'Port',
         'QPS'              => 'QPS',
         'regionId'         => 'RegionId',
@@ -124,6 +130,9 @@ class CreateTairInstanceResponseBody extends Model
         }
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -178,6 +187,9 @@ class CreateTairInstanceResponseBody extends Model
         }
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
