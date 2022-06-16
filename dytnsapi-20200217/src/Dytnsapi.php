@@ -22,7 +22,10 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptResponse;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PvrCallbackFCUResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\TwoElementsVerificationRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\TwoElementsVerificationResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -518,15 +521,44 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param ThreeElementsVerificationRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return PvrCallbackFCUResponse
+     * @return ThreeElementsVerificationResponse
      */
-    public function pvrCallbackFCUWithOptions($runtime)
+    public function threeElementsVerificationWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->certCode)) {
+            $query['CertCode'] = $request->certCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
-            'action'      => 'PvrCallbackFCU',
+            'action'      => 'ThreeElementsVerification',
             'version'     => '2020-02-17',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -534,19 +566,82 @@ class Dytnsapi extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
-        return PvrCallbackFCUResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ThreeElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return PvrCallbackFCUResponse
+     * @param ThreeElementsVerificationRequest $request
+     *
+     * @return ThreeElementsVerificationResponse
      */
-    public function pvrCallbackFCU()
+    public function threeElementsVerification($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->pvrCallbackFCUWithOptions($runtime);
+        return $this->threeElementsVerificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TwoElementsVerificationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TwoElementsVerificationResponse
+     */
+    public function twoElementsVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TwoElementsVerification',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TwoElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TwoElementsVerificationRequest $request
+     *
+     * @return TwoElementsVerificationResponse
+     */
+    public function twoElementsVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->twoElementsVerificationWithOptions($request, $runtime);
     }
 }

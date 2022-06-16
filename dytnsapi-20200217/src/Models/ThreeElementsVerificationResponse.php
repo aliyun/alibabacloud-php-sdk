@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePhoneNumberOnlineTimeResponse extends Model
+class ThreeElementsVerificationResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribePhoneNumberOnlineTimeResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribePhoneNumberOnlineTimeResponseBody
+     * @var ThreeElementsVerificationResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribePhoneNumberOnlineTimeResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribePhoneNumberOnlineTimeResponse
+     * @return ThreeElementsVerificationResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribePhoneNumberOnlineTimeResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribePhoneNumberOnlineTimeResponseBody::fromMap($map['body']);
+            $model->body = ThreeElementsVerificationResponseBody::fromMap($map['body']);
         }
 
         return $model;
