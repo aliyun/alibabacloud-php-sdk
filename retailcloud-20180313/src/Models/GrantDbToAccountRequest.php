@@ -1,0 +1,83 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Retailcloud\V20180313\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class GrantDbToAccountRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $accountPrivilege;
+
+    /**
+     * @var string
+     */
+    public $dbInstanceId;
+
+    /**
+     * @var string
+     */
+    public $dbName;
+    protected $_name = [
+        'accountName'      => 'AccountName',
+        'accountPrivilege' => 'AccountPrivilege',
+        'dbInstanceId'     => 'DbInstanceId',
+        'dbName'           => 'DbName',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountPrivilege) {
+            $res['AccountPrivilege'] = $this->accountPrivilege;
+        }
+        if (null !== $this->dbInstanceId) {
+            $res['DbInstanceId'] = $this->dbInstanceId;
+        }
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return GrantDbToAccountRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountPrivilege'])) {
+            $model->accountPrivilege = $map['AccountPrivilege'];
+        }
+        if (isset($map['DbInstanceId'])) {
+            $model->dbInstanceId = $map['DbInstanceId'];
+        }
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
+        }
+
+        return $model;
+    }
+}
