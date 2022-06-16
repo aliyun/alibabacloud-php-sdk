@@ -154,6 +154,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDomainRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDomainResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlPolicyItemsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlPolicyItemsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlsRequest;
@@ -261,6 +263,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ResetAppCodeRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ResetAppCodeResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ResetAppSecretRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ResetAppSecretResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByAppForRegionRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByAppForRegionResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByAppResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByGroupRequest;
@@ -3410,6 +3414,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
         if (!Utils::isUnset($request->method)) {
             $query['Method'] = $request->method;
         }
@@ -4379,6 +4386,61 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHistoryApisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
+     */
+    public function describeInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enableTagAuthorization)) {
+            $query['EnableTagAuthorization'] = $request->enableTagAuthorization;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstances',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
+     */
+    public function describeInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -7434,6 +7496,55 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sdkGenerateByAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SdkGenerateByAppForRegionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SdkGenerateByAppForRegionResponse
+     */
+    public function sdkGenerateByAppForRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SdkGenerateByAppForRegion',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SdkGenerateByAppForRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SdkGenerateByAppForRegionRequest $request
+     *
+     * @return SdkGenerateByAppForRegionResponse
+     */
+    public function sdkGenerateByAppForRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sdkGenerateByAppForRegionWithOptions($request, $runtime);
     }
 
     /**

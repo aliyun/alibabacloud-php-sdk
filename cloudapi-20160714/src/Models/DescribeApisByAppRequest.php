@@ -30,6 +30,11 @@ class DescribeApisByAppRequest extends Model
     public $appId;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description API的请求HTTP Method
      *
      * @var string
@@ -65,6 +70,7 @@ class DescribeApisByAppRequest extends Model
         'apiName'       => 'ApiName',
         'apiUid'        => 'ApiUid',
         'appId'         => 'AppId',
+        'description'   => 'Description',
         'method'        => 'Method',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
@@ -87,6 +93,9 @@ class DescribeApisByAppRequest extends Model
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->method) {
             $res['Method'] = $this->method;
@@ -123,6 +132,9 @@ class DescribeApisByAppRequest extends Model
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
