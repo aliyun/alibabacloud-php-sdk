@@ -12,18 +12,32 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CheckMobilesCardSupportRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CheckMobilesCardSupportResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetCardSmsLinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetCardSmsLinkResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForCardTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateReportRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateReportResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsRequest;
@@ -38,8 +52,12 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateListRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateListResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchCardSmsRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchCardSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesRequest;
@@ -276,6 +294,106 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param CheckMobilesCardSupportRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckMobilesCardSupportResponse
+     */
+    public function checkMobilesCardSupportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mobiles)) {
+            $query['Mobiles'] = $request->mobiles;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckMobilesCardSupport',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckMobilesCardSupportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckMobilesCardSupportRequest $request
+     *
+     * @return CheckMobilesCardSupportResponse
+     */
+    public function checkMobilesCardSupport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkMobilesCardSupportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCardSmsTemplateRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCardSmsTemplateResponse
+     */
+    public function createCardSmsTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCardSmsTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->template)) {
+            $request->templateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->memo)) {
+            $query['Memo'] = $request->memo;
+        }
+        if (!Utils::isUnset($request->templateShrink)) {
+            $query['Template'] = $request->templateShrink;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCardSmsTemplate',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCardSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCardSmsTemplateRequest $request
+     *
+     * @return CreateCardSmsTemplateResponse
+     */
+    public function createCardSmsTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCardSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteShortUrlRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -431,6 +549,149 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCardSmsLinkRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetCardSmsLinkResponse
+     */
+    public function getCardSmsLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cardTemplateCode)) {
+            $query['CardTemplateCode'] = $request->cardTemplateCode;
+        }
+        if (!Utils::isUnset($request->cardTemplateParamJson)) {
+            $query['CardTemplateParamJson'] = $request->cardTemplateParamJson;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->phoneNumberJson)) {
+            $query['PhoneNumberJson'] = $request->phoneNumberJson;
+        }
+        if (!Utils::isUnset($request->signNameJson)) {
+            $query['SignNameJson'] = $request->signNameJson;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCardSmsLink',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCardSmsLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCardSmsLinkRequest $request
+     *
+     * @return GetCardSmsLinkResponse
+     */
+    public function getCardSmsLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCardSmsLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMediaResourceIdRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMediaResourceIdResponse
+     */
+    public function getMediaResourceIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->extendInfo)) {
+            $query['ExtendInfo'] = $request->extendInfo;
+        }
+        if (!Utils::isUnset($request->fileSize)) {
+            $query['FileSize'] = $request->fileSize;
+        }
+        if (!Utils::isUnset($request->memo)) {
+            $query['Memo'] = $request->memo;
+        }
+        if (!Utils::isUnset($request->ossKey)) {
+            $query['OssKey'] = $request->ossKey;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaResourceId',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMediaResourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaResourceIdRequest $request
+     *
+     * @return GetMediaResourceIdResponse
+     */
+    public function getMediaResourceId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaResourceIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOSSInfoForCardTemplateResponse
+     */
+    public function getOSSInfoForCardTemplateWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetOSSInfoForCardTemplate',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOSSInfoForCardTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetOSSInfoForCardTemplateResponse
+     */
+    public function getOSSInfoForCardTemplate()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOSSInfoForCardTemplateWithOptions($runtime);
     }
 
     /**
@@ -628,6 +889,98 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCardSmsTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryCardSmsTemplateResponse
+     */
+    public function queryCardSmsTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCardSmsTemplate',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCardSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCardSmsTemplateRequest $request
+     *
+     * @return QueryCardSmsTemplateResponse
+     */
+    public function queryCardSmsTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCardSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCardSmsTemplateReportRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryCardSmsTemplateReportResponse
+     */
+    public function queryCardSmsTemplateReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->templateCodes)) {
+            $query['TemplateCodes'] = $request->templateCodes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCardSmsTemplateReport',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCardSmsTemplateReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCardSmsTemplateReportRequest $request
+     *
+     * @return QueryCardSmsTemplateReportResponse
+     */
+    public function queryCardSmsTemplateReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCardSmsTemplateReportWithOptions($request, $runtime);
     }
 
     /**
@@ -1027,6 +1380,79 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param SendBatchCardSmsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SendBatchCardSmsResponse
+     */
+    public function sendBatchCardSmsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cardTemplateCode)) {
+            $query['CardTemplateCode'] = $request->cardTemplateCode;
+        }
+        if (!Utils::isUnset($request->cardTemplateParamJson)) {
+            $query['CardTemplateParamJson'] = $request->cardTemplateParamJson;
+        }
+        if (!Utils::isUnset($request->digitalTemplateCode)) {
+            $query['DigitalTemplateCode'] = $request->digitalTemplateCode;
+        }
+        if (!Utils::isUnset($request->digitalTemplateParamJson)) {
+            $query['DigitalTemplateParamJson'] = $request->digitalTemplateParamJson;
+        }
+        if (!Utils::isUnset($request->fallbackType)) {
+            $query['FallbackType'] = $request->fallbackType;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->phoneNumberJson)) {
+            $query['PhoneNumberJson'] = $request->phoneNumberJson;
+        }
+        if (!Utils::isUnset($request->signNameJson)) {
+            $query['SignNameJson'] = $request->signNameJson;
+        }
+        if (!Utils::isUnset($request->smsTemplateCode)) {
+            $query['SmsTemplateCode'] = $request->smsTemplateCode;
+        }
+        if (!Utils::isUnset($request->smsTemplateParamJson)) {
+            $query['SmsTemplateParamJson'] = $request->smsTemplateParamJson;
+        }
+        if (!Utils::isUnset($request->smsUpExtendCodeJson)) {
+            $query['SmsUpExtendCodeJson'] = $request->smsUpExtendCodeJson;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendBatchCardSms',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendBatchCardSmsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendBatchCardSmsRequest $request
+     *
+     * @return SendBatchCardSmsResponse
+     */
+    public function sendBatchCardSms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendBatchCardSmsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SendBatchSmsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1088,6 +1514,76 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendBatchSmsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendCardSmsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendCardSmsResponse
+     */
+    public function sendCardSmsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cardObjects)) {
+            $query['CardObjects'] = $request->cardObjects;
+        }
+        if (!Utils::isUnset($request->cardTemplateCode)) {
+            $query['CardTemplateCode'] = $request->cardTemplateCode;
+        }
+        if (!Utils::isUnset($request->digitalTemplateCode)) {
+            $query['DigitalTemplateCode'] = $request->digitalTemplateCode;
+        }
+        if (!Utils::isUnset($request->digitalTemplateParam)) {
+            $query['DigitalTemplateParam'] = $request->digitalTemplateParam;
+        }
+        if (!Utils::isUnset($request->fallbackType)) {
+            $query['FallbackType'] = $request->fallbackType;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        if (!Utils::isUnset($request->smsTemplateCode)) {
+            $query['SmsTemplateCode'] = $request->smsTemplateCode;
+        }
+        if (!Utils::isUnset($request->smsTemplateParam)) {
+            $query['SmsTemplateParam'] = $request->smsTemplateParam;
+        }
+        if (!Utils::isUnset($request->smsUpExtendCode)) {
+            $query['SmsUpExtendCode'] = $request->smsUpExtendCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendCardSms',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendCardSmsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendCardSmsRequest $request
+     *
+     * @return SendCardSmsResponse
+     */
+    public function sendCardSms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCardSmsWithOptions($request, $runtime);
     }
 
     /**

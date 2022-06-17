@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifySmsTemplateResponse extends Model
+class GetOSSInfoForCardTemplateResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ModifySmsTemplateResponse extends Model
     public $statusCode;
 
     /**
-     * @var ModifySmsTemplateResponseBody
+     * @var GetOSSInfoForCardTemplateResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ModifySmsTemplateResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifySmsTemplateResponse
+     * @return GetOSSInfoForCardTemplateResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ModifySmsTemplateResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifySmsTemplateResponseBody::fromMap($map['body']);
+            $model->body = GetOSSInfoForCardTemplateResponseBody::fromMap($map['body']);
         }
 
         return $model;
