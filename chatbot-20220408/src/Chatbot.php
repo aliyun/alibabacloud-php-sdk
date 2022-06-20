@@ -28,6 +28,7 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityValueRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityValueResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityValueShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateFaqRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateFaqResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateInstancePublishTaskRequest;
@@ -108,8 +109,6 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListDSEntityValueRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListDSEntityValueResponse;
-use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListDsMenusRequest;
-use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListDsMenusResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListInstanceRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListInstanceResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListIntentRequest;
@@ -137,6 +136,7 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityValueRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityValueResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityValueShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateFaqRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateFaqResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateInstanceRequest;
@@ -679,14 +679,19 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateDSEntityValueRequest $request
+     * @param CreateDSEntityValueRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return CreateDSEntityValueResponse
      */
-    public function createDSEntityValueWithOptions($request, $runtime)
+    public function createDSEntityValueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDSEntityValueShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->synonyms)) {
+            $request->synonymsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->synonyms, 'Synonyms', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
@@ -700,11 +705,13 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->synonyms)) {
-            $query['Synonyms'] = $request->synonyms;
+        $body = [];
+        if (!Utils::isUnset($request->synonymsShrink)) {
+            $body['Synonyms'] = $request->synonymsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDSEntityValue',
@@ -2656,61 +2663,6 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListDsMenusRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListDsMenusResponse
-     */
-    public function listDsMenusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->robotEnv)) {
-            $query['RobotEnv'] = $request->robotEnv;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDsMenus',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDsMenusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDsMenusRequest $request
-     *
-     * @return ListDsMenusResponse
-     */
-    public function listDsMenus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDsMenusWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListInstanceRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2783,6 +2735,12 @@ class Chatbot extends OpenApiClient
         }
         if (!Utils::isUnset($request->intentName)) {
             $query['IntentName'] = $request->intentName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3374,14 +3332,19 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDSEntityValueRequest $request
+     * @param UpdateDSEntityValueRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return UpdateDSEntityValueResponse
      */
-    public function updateDSEntityValueWithOptions($request, $runtime)
+    public function updateDSEntityValueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDSEntityValueShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->synonyms)) {
+            $request->synonymsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->synonyms, 'Synonyms', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
@@ -3398,11 +3361,13 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->synonyms)) {
-            $query['Synonyms'] = $request->synonyms;
+        $body = [];
+        if (!Utils::isUnset($request->synonymsShrink)) {
+            $body['Synonyms'] = $request->synonymsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDSEntityValue',

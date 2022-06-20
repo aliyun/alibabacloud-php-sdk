@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\ChatResponseBody;
 
-use AlibabaCloud\SDK\Chatbot\V20220408\Models\ChatResponseBody\messages\cardList;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ChatResponseBody\messages\knowledge;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ChatResponseBody\messages\recommends;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ChatResponseBody\messages\text;
@@ -25,13 +24,6 @@ class messages extends Model
      * @var string
      */
     public $answerType;
-
-    /**
-     * @description 当AnswerType为CardAnswer时，此字段包含机器人返回的Card的列表
-     *
-     * @var cardList[]
-     */
-    public $cardList;
 
     /**
      * @description 当AnswerType为Knowledge时，此字段包含机器人返回的Knowledge对象
@@ -70,7 +62,6 @@ class messages extends Model
     protected $_name = [
         'answerSource' => 'AnswerSource',
         'answerType'   => 'AnswerType',
-        'cardList'     => 'CardList',
         'knowledge'    => 'Knowledge',
         'recommends'   => 'Recommends',
         'text'         => 'Text',
@@ -90,15 +81,6 @@ class messages extends Model
         }
         if (null !== $this->answerType) {
             $res['AnswerType'] = $this->answerType;
-        }
-        if (null !== $this->cardList) {
-            $res['CardList'] = [];
-            if (null !== $this->cardList && \is_array($this->cardList)) {
-                $n = 0;
-                foreach ($this->cardList as $item) {
-                    $res['CardList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->knowledge) {
             $res['Knowledge'] = null !== $this->knowledge ? $this->knowledge->toMap() : null;
@@ -138,15 +120,6 @@ class messages extends Model
         }
         if (isset($map['AnswerType'])) {
             $model->answerType = $map['AnswerType'];
-        }
-        if (isset($map['CardList'])) {
-            if (!empty($map['CardList'])) {
-                $model->cardList = [];
-                $n               = 0;
-                foreach ($map['CardList'] as $item) {
-                    $model->cardList[$n++] = null !== $item ? cardList::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Knowledge'])) {
             $model->knowledge = knowledge::fromMap($map['Knowledge']);
