@@ -14,6 +14,13 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $currentPage;
 
     /**
+     * @description 加白方式
+     *
+     * @var string
+     */
+    public $disposalWay;
+
+    /**
      * @description 告警事件名称（子类型）
      *
      * @var string
@@ -48,6 +55,7 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $sourceIp;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'disposalWay' => 'DisposalWay',
         'eventName'   => 'EventName',
         'from'        => 'From',
         'lang'        => 'Lang',
@@ -65,6 +73,9 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->disposalWay) {
+            $res['DisposalWay'] = $this->disposalWay;
         }
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
@@ -98,6 +109,9 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['DisposalWay'])) {
+            $model->disposalWay = $map['DisposalWay'];
         }
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];

@@ -16,6 +16,13 @@ class list_ extends Model
     public $aliUid;
 
     /**
+     * @description 处置方式
+     *
+     * @var string
+     */
+    public $disposalWay;
+
+    /**
      * @description 告警事件名称（子类型）
      *
      * @var string
@@ -79,6 +86,7 @@ class list_ extends Model
     public $uuids;
     protected $_name = [
         'aliUid'            => 'AliUid',
+        'disposalWay'       => 'DisposalWay',
         'eventName'         => 'EventName',
         'eventNameOriginal' => 'EventNameOriginal',
         'eventType'         => 'EventType',
@@ -99,6 +107,9 @@ class list_ extends Model
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+        if (null !== $this->disposalWay) {
+            $res['DisposalWay'] = $this->disposalWay;
         }
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
@@ -141,6 +152,9 @@ class list_ extends Model
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+        if (isset($map['DisposalWay'])) {
+            $model->disposalWay = $map['DisposalWay'];
         }
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];

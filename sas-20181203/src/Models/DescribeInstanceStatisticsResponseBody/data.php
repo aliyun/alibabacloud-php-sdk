@@ -67,6 +67,11 @@ class data extends Model
      * @var int
      */
     public $vul;
+
+    /**
+     * @var int
+     */
+    public $weakPWNum;
     protected $_name = [
         'account'    => 'Account',
         'appNum'     => 'AppNum',
@@ -80,6 +85,7 @@ class data extends Model
         'trojan'     => 'Trojan',
         'uuid'       => 'Uuid',
         'vul'        => 'Vul',
+        'weakPWNum'  => 'WeakPWNum',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class data extends Model
         }
         if (null !== $this->vul) {
             $res['Vul'] = $this->vul;
+        }
+        if (null !== $this->weakPWNum) {
+            $res['WeakPWNum'] = $this->weakPWNum;
         }
 
         return $res;
@@ -172,6 +181,9 @@ class data extends Model
         }
         if (isset($map['Vul'])) {
             $model->vul = $map['Vul'];
+        }
+        if (isset($map['WeakPWNum'])) {
+            $model->weakPWNum = $map['WeakPWNum'];
         }
 
         return $model;

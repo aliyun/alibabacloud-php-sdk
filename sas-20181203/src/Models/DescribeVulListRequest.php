@@ -41,6 +41,11 @@ class DescribeVulListRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $necessity;
 
     /**
@@ -74,6 +79,7 @@ class DescribeVulListRequest extends Model
         'dealed'         => 'Dealed',
         'groupId'        => 'GroupId',
         'lang'           => 'Lang',
+        'name'           => 'Name',
         'necessity'      => 'Necessity',
         'pageSize'       => 'PageSize',
         'remark'         => 'Remark',
@@ -106,6 +112,9 @@ class DescribeVulListRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->necessity) {
             $res['Necessity'] = $this->necessity;
@@ -154,6 +163,9 @@ class DescribeVulListRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Necessity'])) {
             $model->necessity = $map['Necessity'];

@@ -348,6 +348,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperationCancelIgnoreSuspEventRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperationCancelIgnoreSuspEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientRequest;
@@ -7289,6 +7291,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         if (!Utils::isUnset($request->necessity)) {
             $query['Necessity'] = $request->necessity;
         }
@@ -9943,6 +9948,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param OperationCancelIgnoreSuspEventRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return OperationCancelIgnoreSuspEventResponse
+     */
+    public function operationCancelIgnoreSuspEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->securityEventIds)) {
+            $query['SecurityEventIds'] = $request->securityEventIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperationCancelIgnoreSuspEvent',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OperationCancelIgnoreSuspEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OperationCancelIgnoreSuspEventRequest $request
+     *
+     * @return OperationCancelIgnoreSuspEventResponse
+     */
+    public function operationCancelIgnoreSuspEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operationCancelIgnoreSuspEventWithOptions($request, $runtime);
+    }
+
+    /**
      * @param OperationSuspEventsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -10282,6 +10330,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->disposalWay)) {
+            $query['DisposalWay'] = $request->disposalWay;
+        }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
         }
