@@ -1,3 +1,6 @@
+2022-06-20 Version: 1.0.3
+- Update MakeSuperResolutionImage.
+
 2022-03-14 Version: 1.0.2
 - AMP version.
 

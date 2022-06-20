@@ -20,12 +20,24 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
     public $mode;
 
     /**
+     * @var string
+     */
+    public $outputFormat;
+
+    /**
+     * @var int
+     */
+    public $outputQuality;
+
+    /**
      * @var int
      */
     public $upscaleFactor;
     protected $_name = [
         'urlObject'     => 'UrlObject',
         'mode'          => 'Mode',
+        'outputFormat'  => 'OutputFormat',
+        'outputQuality' => 'OutputQuality',
         'upscaleFactor' => 'UpscaleFactor',
     ];
 
@@ -42,6 +54,12 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->outputFormat) {
+            $res['OutputFormat'] = $this->outputFormat;
+        }
+        if (null !== $this->outputQuality) {
+            $res['OutputQuality'] = $this->outputQuality;
         }
         if (null !== $this->upscaleFactor) {
             $res['UpscaleFactor'] = $this->upscaleFactor;
@@ -63,6 +81,12 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['OutputFormat'])) {
+            $model->outputFormat = $map['OutputFormat'];
+        }
+        if (isset($map['OutputQuality'])) {
+            $model->outputQuality = $map['OutputQuality'];
         }
         if (isset($map['UpscaleFactor'])) {
             $model->upscaleFactor = $map['UpscaleFactor'];

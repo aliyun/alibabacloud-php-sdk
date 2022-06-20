@@ -1715,6 +1715,12 @@ class Imageenhan extends OpenApiClient
         if (!Utils::isUnset($request->mode)) {
             $body['Mode'] = $request->mode;
         }
+        if (!Utils::isUnset($request->outputFormat)) {
+            $body['OutputFormat'] = $request->outputFormat;
+        }
+        if (!Utils::isUnset($request->outputQuality)) {
+            $body['OutputQuality'] = $request->outputQuality;
+        }
         if (!Utils::isUnset($request->upscaleFactor)) {
             $body['UpscaleFactor'] = $request->upscaleFactor;
         }
