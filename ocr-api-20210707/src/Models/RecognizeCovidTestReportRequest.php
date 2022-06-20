@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeCovidTestReportRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $multipleResult;
+
+    /**
      * @description 图片链接（长度不超 2048，不支持 base64）
      *
      * @var string
@@ -23,8 +28,9 @@ class RecognizeCovidTestReportRequest extends Model
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
-        'body' => 'body',
+        'multipleResult' => 'MultipleResult',
+        'url'            => 'Url',
+        'body'           => 'body',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class RecognizeCovidTestReportRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->multipleResult) {
+            $res['MultipleResult'] = $this->multipleResult;
+        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -52,6 +61,9 @@ class RecognizeCovidTestReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MultipleResult'])) {
+            $model->multipleResult = $map['MultipleResult'];
+        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
