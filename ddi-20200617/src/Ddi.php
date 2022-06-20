@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowForWebRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowForWebResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowJobRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowJobResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowProjectRequest;
@@ -1706,6 +1708,106 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyFlowForWebRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyFlowForWebResponse
+     */
+    public function modifyFlowForWebWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertConf)) {
+            $query['AlertConf'] = $request->alertConf;
+        }
+        if (!Utils::isUnset($request->alertDingDingGroupBizId)) {
+            $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
+        }
+        if (!Utils::isUnset($request->alertUserGroupBizId)) {
+            $query['AlertUserGroupBizId'] = $request->alertUserGroupBizId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->createCluster)) {
+            $query['CreateCluster'] = $request->createCluster;
+        }
+        if (!Utils::isUnset($request->cronExpr)) {
+            $query['CronExpr'] = $request->cronExpr;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endSchedule)) {
+            $query['EndSchedule'] = $request->endSchedule;
+        }
+        if (!Utils::isUnset($request->graph)) {
+            $query['Graph'] = $request->graph;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->parentCategory)) {
+            $query['ParentCategory'] = $request->parentCategory;
+        }
+        if (!Utils::isUnset($request->parentFlowList)) {
+            $query['ParentFlowList'] = $request->parentFlowList;
+        }
+        if (!Utils::isUnset($request->periodic)) {
+            $query['Periodic'] = $request->periodic;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startSchedule)) {
+            $query['StartSchedule'] = $request->startSchedule;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFlowForWeb',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyFlowForWebResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyFlowForWebRequest $request
+     *
+     * @return ModifyFlowForWebResponse
+     */
+    public function modifyFlowForWeb($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyFlowForWebWithOptions($request, $runtime);
     }
 
     /**
