@@ -12,7 +12,6 @@ use AlibabaCloud\SDK\Dplus\V20201216\Models\AePredictCategoryResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\AePropRecAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\AePropRecRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\AePropRecResponse;
-use AlibabaCloud\SDK\Dplus\V20201216\Models\AlivisionImgdupAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\AlivisionImgdupRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\AlivisionImgdupResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateImageAmazonTaskRequest;
@@ -357,11 +356,11 @@ class Dplus extends OpenApiClient
         if (!Utils::isUnset($request->outputImageNum)) {
             $body['OutputImageNum'] = $request->outputImageNum;
         }
-        if (!Utils::isUnset($request->picNum)) {
-            $body['PicNum'] = $request->picNum;
+        if (!Utils::isUnset($request->picNumList)) {
+            $body['PicNumList'] = $request->picNumList;
         }
-        if (!Utils::isUnset($request->picUrl)) {
-            $body['PicUrl'] = $request->picUrl;
+        if (!Utils::isUnset($request->picUrlList)) {
+            $body['PicUrlList'] = $request->picUrlList;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -391,84 +390,6 @@ class Dplus extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->alivisionImgdupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AlivisionImgdupAdvanceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return AlivisionImgdupResponse
-     */
-    public function alivisionImgdupAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-        if (Utils::isUnset($credentialType)) {
-            $credentialType = 'access_key';
-        }
-        $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'dplus',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $alivisionImgdupReq = new AlivisionImgdupRequest([]);
-        OpenApiUtilClient::convert($request, $alivisionImgdupReq);
-        if (!Utils::isUnset($request->picUrlObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
-                'content'     => $request->picUrlObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $alivisionImgdupReq->picUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-        }
-
-        return $this->alivisionImgdupWithOptions($alivisionImgdupReq, $runtime);
     }
 
     /**

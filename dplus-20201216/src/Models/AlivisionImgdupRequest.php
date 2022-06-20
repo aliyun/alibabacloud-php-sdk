@@ -24,20 +24,20 @@ class AlivisionImgdupRequest extends Model
     public $outputImageNum;
 
     /**
-     * @var int
+     * @var string
      */
-    public $picNum;
+    public $picNumList;
 
     /**
      * @var string
      */
-    public $picUrl;
+    public $picUrlList;
     protected $_name = [
         'imageHeight'    => 'ImageHeight',
         'imageWidth'     => 'ImageWidth',
         'outputImageNum' => 'OutputImageNum',
-        'picNum'         => 'PicNum',
-        'picUrl'         => 'PicUrl',
+        'picNumList'     => 'PicNumList',
+        'picUrlList'     => 'PicUrlList',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class AlivisionImgdupRequest extends Model
         if (null !== $this->outputImageNum) {
             $res['OutputImageNum'] = $this->outputImageNum;
         }
-        if (null !== $this->picNum) {
-            $res['PicNum'] = $this->picNum;
+        if (null !== $this->picNumList) {
+            $res['PicNumList'] = $this->picNumList;
         }
-        if (null !== $this->picUrl) {
-            $res['PicUrl'] = $this->picUrl;
+        if (null !== $this->picUrlList) {
+            $res['PicUrlList'] = $this->picUrlList;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class AlivisionImgdupRequest extends Model
         if (isset($map['OutputImageNum'])) {
             $model->outputImageNum = $map['OutputImageNum'];
         }
-        if (isset($map['PicNum'])) {
-            $model->picNum = $map['PicNum'];
+        if (isset($map['PicNumList'])) {
+            $model->picNumList = $map['PicNumList'];
         }
-        if (isset($map['PicUrl'])) {
-            $model->picUrl = $map['PicUrl'];
+        if (isset($map['PicUrlList'])) {
+            $model->picUrlList = $map['PicUrlList'];
         }
 
         return $model;
