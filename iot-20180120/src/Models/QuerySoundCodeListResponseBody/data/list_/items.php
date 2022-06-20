@@ -21,6 +21,16 @@ class items extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $openType;
+
+    /**
+     * @var string
+     */
     public $soundCode;
 
     /**
@@ -30,6 +40,8 @@ class items extends Model
     protected $_name = [
         'duration'         => 'Duration',
         'gmtCreate'        => 'GmtCreate',
+        'name'             => 'Name',
+        'openType'         => 'OpenType',
         'soundCode'        => 'SoundCode',
         'soundCodeContent' => 'SoundCodeContent',
     ];
@@ -46,6 +58,12 @@ class items extends Model
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->openType) {
+            $res['OpenType'] = $this->openType;
         }
         if (null !== $this->soundCode) {
             $res['SoundCode'] = $this->soundCode;
@@ -70,6 +88,12 @@ class items extends Model
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OpenType'])) {
+            $model->openType = $map['OpenType'];
         }
         if (isset($map['SoundCode'])) {
             $model->soundCode = $map['SoundCode'];

@@ -17,6 +17,11 @@ class PubRequest extends Model
     /**
      * @var string
      */
+    public $deviceName;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
@@ -50,6 +55,7 @@ class PubRequest extends Model
     public $userProp;
     protected $_name = [
         'correlationData' => 'CorrelationData',
+        'deviceName'      => 'DeviceName',
         'iotInstanceId'   => 'IotInstanceId',
         'messageContent'  => 'MessageContent',
         'productKey'      => 'ProductKey',
@@ -68,6 +74,9 @@ class PubRequest extends Model
         $res = [];
         if (null !== $this->correlationData) {
             $res['CorrelationData'] = $this->correlationData;
+        }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
@@ -110,6 +119,9 @@ class PubRequest extends Model
         $model = new self();
         if (isset($map['CorrelationData'])) {
             $model->correlationData = $map['CorrelationData'];
+        }
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];

@@ -21,10 +21,22 @@ class CreateSoundCodeRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $openType;
+
+    /**
+     * @var string
+     */
     public $soundCodeContent;
     protected $_name = [
         'duration'         => 'Duration',
         'iotInstanceId'    => 'IotInstanceId',
+        'name'             => 'Name',
+        'openType'         => 'OpenType',
         'soundCodeContent' => 'SoundCodeContent',
     ];
 
@@ -40,6 +52,12 @@ class CreateSoundCodeRequest extends Model
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->openType) {
+            $res['OpenType'] = $this->openType;
         }
         if (null !== $this->soundCodeContent) {
             $res['SoundCodeContent'] = $this->soundCodeContent;
@@ -61,6 +79,12 @@ class CreateSoundCodeRequest extends Model
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OpenType'])) {
+            $model->openType = $map['OpenType'];
         }
         if (isset($map['SoundCodeContent'])) {
             $model->soundCodeContent = $map['SoundCodeContent'];

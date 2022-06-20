@@ -21,6 +21,11 @@ class ResetThingResponseBody extends Model
     /**
      * @var string
      */
+    public $jobId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -30,6 +35,7 @@ class ResetThingResponseBody extends Model
     protected $_name = [
         'code'         => 'Code',
         'errorMessage' => 'ErrorMessage',
+        'jobId'        => 'JobId',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
@@ -46,6 +52,9 @@ class ResetThingResponseBody extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -70,6 +79,9 @@ class ResetThingResponseBody extends Model
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
