@@ -19,7 +19,7 @@ class routeRules extends Model
     public $enable;
 
     /**
-     * @var int
+     * @var string
      */
     public $gmtModified;
 

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\QueryUserVpcResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class QueryUserVpcResponseBody extends Model
+class UpdateClusterSpecResponseBody extends Model
 {
     /**
      * @var int
@@ -15,7 +14,7 @@ class QueryUserVpcResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var string
      */
     public $data;
 
@@ -60,13 +59,7 @@ class QueryUserVpcResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = $this->data;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -87,7 +80,7 @@ class QueryUserVpcResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QueryUserVpcResponseBody
+     * @return UpdateClusterSpecResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -96,13 +89,7 @@ class QueryUserVpcResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = $map['Data'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

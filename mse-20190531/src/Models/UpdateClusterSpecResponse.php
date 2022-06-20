@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteVGroupResponse extends Model
+class UpdateClusterSpecResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteVGroupResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteVGroupResponseBody
+     * @var UpdateClusterSpecResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DeleteVGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteVGroupResponse
+     * @return UpdateClusterSpecResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DeleteVGroupResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteVGroupResponseBody::fromMap($map['body']);
+            $model->body = UpdateClusterSpecResponseBody::fromMap($map['body']);
         }
 
         return $model;

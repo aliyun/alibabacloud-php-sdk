@@ -23,8 +23,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\AddSeataServerRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\AddSeataServerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSecurityGroupRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceRequest;
@@ -32,8 +30,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSSLCertResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\AddTestRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\AddTestResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesRequest;
@@ -46,6 +42,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateMseServiceApplicationRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateMseServiceApplicationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosInstanceRequest;
@@ -56,8 +54,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupRequest
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateVGroupRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateVGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceRequest;
@@ -86,8 +82,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSeataServerRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSeataServerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteServiceSourceRequest;
@@ -96,8 +90,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneGroupRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteVGroupRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteVGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigRequest;
@@ -108,8 +100,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\GetDashBoardUrlRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\GetDashBoardUrlResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayDomainDetailRequest;
@@ -122,8 +112,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayServiceDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayServiceDetailResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\GetGovernanceKubernetesClusterListRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\GetGovernanceKubernetesClusterListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGovernanceKubernetesClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGovernanceKubernetesClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetImageRequest;
@@ -163,8 +151,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterConnectionTypesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterConnectionTypesResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterDetailFeatureRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterDetailFeatureResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterTypesRequest;
@@ -190,8 +176,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstancesRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpRequest;
@@ -242,14 +226,10 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySlbSpecRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySlbSpecResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySwimmingLaneByIdRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySwimmingLaneByIdResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\QueryUserVpcRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\QueryUserVpcResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryZnodeDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryZnodeDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\RestartSeataServerRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\RestartSeataServerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RetryClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RetryClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\SelectGatewaySlbRequest;
@@ -260,6 +240,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateBlackWhiteListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateBlackWhiteListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateClusterResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateClusterSpecRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateClusterSpecResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateEngineNamespaceRequest;
@@ -294,6 +276,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyRespo
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceVersionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceVersionResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewaySpecRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewaySpecResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteRequest;
@@ -307,6 +291,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosInstanceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosServiceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateServiceSourceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateServiceSourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateServiceSourceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateSSLCertResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeRequest;
@@ -325,7 +312,8 @@ class Mse extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('mse', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -482,6 +470,15 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->enableHardwareAcceleration)) {
+            $query['EnableHardwareAcceleration'] = $request->enableHardwareAcceleration;
+        }
+        if (!Utils::isUnset($request->enableSls)) {
+            $query['EnableSls'] = $request->enableSls;
+        }
+        if (!Utils::isUnset($request->enableXtrace)) {
+            $query['EnableXtrace'] = $request->enableXtrace;
+        }
         if (!Utils::isUnset($request->enterpriseSecurityGroup)) {
             $query['EnterpriseSecurityGroup'] = $request->enterpriseSecurityGroup;
         }
@@ -511,6 +508,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->vpc)) {
             $query['Vpc'] = $request->vpc;
+        }
+        if (!Utils::isUnset($request->xtraceRatio)) {
+            $query['XtraceRatio'] = $request->xtraceRatio;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -926,70 +926,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddSeataServerRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AddSeataServerResponse
-     */
-    public function addSeataServerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->primaryUser)) {
-            $query['PrimaryUser'] = $request->primaryUser;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->replica)) {
-            $query['Replica'] = $request->replica;
-        }
-        if (!Utils::isUnset($request->vpc)) {
-            $query['Vpc'] = $request->vpc;
-        }
-        if (!Utils::isUnset($request->vswitch)) {
-            $query['Vswitch'] = $request->vswitch;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddSeataServer',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddSeataServerResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddSeataServerRequest $request
-     *
-     * @return AddSeataServerResponse
-     */
-    public function addSeataServer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addSeataServerWithOptions($request, $runtime);
-    }
-
-    /**
      * @param AddSecurityGroupRuleRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1108,61 +1044,6 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addServiceSourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddTestRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return AddTestResponse
-     */
-    public function addTestWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->descSort)) {
-            $query['DescSort'] = $request->descSort;
-        }
-        if (!Utils::isUnset($request->orderItem)) {
-            $query['OrderItem'] = $request->orderItem;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddTest',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddTestResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddTestRequest $request
-     *
-     * @return AddTestResponse
-     */
-    public function addTest($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addTestWithOptions($request, $runtime);
     }
 
     /**
@@ -1547,6 +1428,70 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param CreateMseServiceApplicationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateMseServiceApplicationResponse
+     */
+    public function createMseServiceApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $query['ExtraInfo'] = $request->extraInfo;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sentinelEnable)) {
+            $query['SentinelEnable'] = $request->sentinelEnable;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->switchEnable)) {
+            $query['SwitchEnable'] = $request->switchEnable;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMseServiceApplication',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMseServiceApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMseServiceApplicationRequest $request
+     *
+     * @return CreateMseServiceApplicationResponse
+     */
+    public function createMseServiceApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMseServiceApplicationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateNacosConfigRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1926,61 +1871,6 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOrUpdateSwimmingLaneGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVGroupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateVGroupResponse
-     */
-    public function createVGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->primaryUser)) {
-            $query['PrimaryUser'] = $request->primaryUser;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->seataServerUniqueId)) {
-            $query['SeataServerUniqueId'] = $request->seataServerUniqueId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateVGroup',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateVGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateVGroupRequest $request
-     *
-     * @return CreateVGroupResponse
-     */
-    public function createVGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2718,52 +2608,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSeataServerRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteSeataServerResponse
-     */
-    public function deleteSeataServerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->seataServerUniqueId)) {
-            $query['SeataServerUniqueId'] = $request->seataServerUniqueId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSeataServer',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteSeataServerResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSeataServerRequest $request
-     *
-     * @return DeleteSeataServerResponse
-     */
-    public function deleteSeataServer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSeataServerWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteSecurityGroupRuleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2951,52 +2795,6 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSwimmingLaneGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteVGroupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteVGroupResponse
-     */
-    public function deleteVGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteVGroup',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteVGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteVGroupRequest $request
-     *
-     * @return DeleteVGroupResponse
-     */
-    public function deleteVGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteVGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3284,58 +3082,6 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBlackWhiteListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDashBoardUrlRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetDashBoardUrlResponse
-     */
-    public function getDashBoardUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->requestPars)) {
-            $query['RequestPars'] = $request->requestPars;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDashBoardUrl',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetDashBoardUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetDashBoardUrlRequest $request
-     *
-     * @return GetDashBoardUrlResponse
-     */
-    public function getDashBoardUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDashBoardUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -3682,61 +3428,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGovernanceKubernetesClusterListRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GetGovernanceKubernetesClusterListResponse
-     */
-    public function getGovernanceKubernetesClusterListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetGovernanceKubernetesClusterList',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetGovernanceKubernetesClusterListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetGovernanceKubernetesClusterListRequest $request
-     *
-     * @return GetGovernanceKubernetesClusterListResponse
-     */
-    public function getGovernanceKubernetesClusterList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getGovernanceKubernetesClusterListWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetImageRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -3932,8 +3623,14 @@ class Mse extends OpenApiClient
     public function getMseSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3941,7 +3638,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -4600,58 +4297,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterDetailFeatureRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListClusterDetailFeatureResponse
-     */
-    public function listClusterDetailFeatureWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->requestPars)) {
-            $query['RequestPars'] = $request->requestPars;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListClusterDetailFeature',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListClusterDetailFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListClusterDetailFeatureRequest $request
-     *
-     * @return ListClusterDetailFeatureResponse
-     */
-    public function listClusterDetailFeature($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listClusterDetailFeatureWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListClusterTypesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -5191,46 +4836,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListInstancesResponse
-     */
-    public function listInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListInstancesRequest $request
-     *
-     * @return ListInstancesResponse
-     */
-    public function listInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListListenersByConfigRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -5584,8 +5189,14 @@ class Mse extends OpenApiClient
     public function listSecurityGroupRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5593,7 +5204,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -6417,46 +6028,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryUserVpcRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return QueryUserVpcResponse
-     */
-    public function queryUserVpcWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryUserVpc',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryUserVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryUserVpcRequest $request
-     *
-     * @return QueryUserVpcResponse
-     */
-    public function queryUserVpc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryUserVpcWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryZnodeDetailRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -6552,52 +6123,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RestartSeataServerRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RestartSeataServerResponse
-     */
-    public function restartSeataServerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->seataServerUniqueId)) {
-            $query['SeataServerUniqueId'] = $request->seataServerUniqueId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RestartSeataServer',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RestartSeataServerResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RestartSeataServerRequest $request
-     *
-     * @return RestartSeataServerResponse
-     */
-    public function restartSeataServer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->restartSeataServerWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RetryClusterRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -6655,8 +6180,20 @@ class Mse extends OpenApiClient
     public function selectGatewaySlbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6664,7 +6201,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -6849,6 +6386,61 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateClusterSpecRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateClusterSpecResponse
+     */
+    public function updateClusterSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterSpecification)) {
+            $query['ClusterSpecification'] = $request->clusterSpecification;
+        }
+        if (!Utils::isUnset($request->instanceCount)) {
+            $query['InstanceCount'] = $request->instanceCount;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateClusterSpec',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateClusterSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateClusterSpecRequest $request
+     *
+     * @return UpdateClusterSpecResponse
+     */
+    public function updateClusterSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateClusterSpecWithOptions($request, $runtime);
     }
 
     /**
@@ -7726,6 +7318,58 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param UpdateGatewaySpecRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateGatewaySpecResponse
+     */
+    public function updateGatewaySpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->replica)) {
+            $query['Replica'] = $request->replica;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewaySpec',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewaySpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewaySpecRequest $request
+     *
+     * @return UpdateGatewaySpecResponse
+     */
+    public function updateGatewaySpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewaySpecWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateImageRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -8169,6 +7813,78 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSSLCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateServiceSourceRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateServiceSourceResponse
+     */
+    public function updateServiceSourceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateServiceSourceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ingressOptionsRequest)) {
+            $request->ingressOptionsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ingressOptionsRequest), 'IngressOptionsRequest', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ingressOptionsRequestShrink)) {
+            $query['IngressOptionsRequest'] = $request->ingressOptionsRequestShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceSource',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateServiceSourceRequest $request
+     *
+     * @return UpdateServiceSourceResponse
+     */
+    public function updateServiceSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServiceSourceWithOptions($request, $runtime);
     }
 
     /**

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Kubernetes集群Id
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description Kubernetes集群名
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description Kubernetes集群版本
+     *
      * @var string
      */
     public $k8sVersion;
 
     /**
+     * @description Kubernetes集群命名空间信息（json格式）
+     *
      * @var string
      */
     public $namespaceInfos;
 
     /**
+     * @description pilot启动时间
+     *
      * @var string
      */
     public $pilotStartTime;
 
     /**
+     * @description Kubernetes集群所在的地域
+     *
      * @var string
      */
     public $region;

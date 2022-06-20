@@ -88,6 +88,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $statusDesc;
+
+    /**
+     * @var string
+     */
     public $vpc;
 
     /**
@@ -120,6 +125,7 @@ class data extends Model
         'securityGroup'    => 'SecurityGroup',
         'spec'             => 'Spec',
         'status'           => 'Status',
+        'statusDesc'       => 'StatusDesc',
         'vpc'              => 'Vpc',
         'vswitch'          => 'Vswitch',
         'vswitch2'         => 'Vswitch2',
@@ -177,6 +183,9 @@ class data extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->statusDesc) {
+            $res['StatusDesc'] = $this->statusDesc;
         }
         if (null !== $this->vpc) {
             $res['Vpc'] = $this->vpc;
@@ -246,6 +255,9 @@ class data extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StatusDesc'])) {
+            $model->statusDesc = $map['StatusDesc'];
         }
         if (isset($map['Vpc'])) {
             $model->vpc = $map['Vpc'];

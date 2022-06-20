@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteSeataServerResponse extends Model
+class UpdateGatewaySpecResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteSeataServerResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteSeataServerResponseBody
+     * @var UpdateGatewaySpecResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DeleteSeataServerResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteSeataServerResponse
+     * @return UpdateGatewaySpecResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DeleteSeataServerResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteSeataServerResponseBody::fromMap($map['body']);
+            $model->body = UpdateGatewaySpecResponseBody::fromMap($map['body']);
         }
 
         return $model;

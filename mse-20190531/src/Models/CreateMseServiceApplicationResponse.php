@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddSeataServerResponse extends Model
+class CreateMseServiceApplicationResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AddSeataServerResponse extends Model
     public $statusCode;
 
     /**
-     * @var AddSeataServerResponseBody
+     * @var CreateMseServiceApplicationResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class AddSeataServerResponse extends Model
     /**
      * @param array $map
      *
-     * @return AddSeataServerResponse
+     * @return CreateMseServiceApplicationResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class AddSeataServerResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AddSeataServerResponseBody::fromMap($map['body']);
+            $model->body = CreateMseServiceApplicationResponseBody::fromMap($map['body']);
         }
 
         return $model;

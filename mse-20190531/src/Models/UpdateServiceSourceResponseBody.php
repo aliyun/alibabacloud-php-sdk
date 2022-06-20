@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RestartSeataServerResponseBody extends Model
+class UpdateServiceSourceResponseBody extends Model
 {
     /**
      * @var int
@@ -14,7 +14,7 @@ class RestartSeataServerResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var int
      */
     public $data;
 
@@ -80,7 +80,7 @@ class RestartSeataServerResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RestartSeataServerResponseBody
+     * @return UpdateServiceSourceResponseBody
      */
     public static function fromMap($map = [])
     {

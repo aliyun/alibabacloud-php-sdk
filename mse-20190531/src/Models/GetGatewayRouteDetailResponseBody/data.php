@@ -18,6 +18,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $ahasStatus;
+
+    /**
      * @var cors
      */
     public $cors;
@@ -152,6 +157,7 @@ class data extends Model
      */
     public $timeout;
     protected $_name = [
+        'ahasStatus'         => 'AhasStatus',
         'cors'               => 'Cors',
         'defaultServiceId'   => 'DefaultServiceId',
         'defaultServiceName' => 'DefaultServiceName',
@@ -188,6 +194,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ahasStatus) {
+            $res['AhasStatus'] = $this->ahasStatus;
+        }
         if (null !== $this->cors) {
             $res['Cors'] = null !== $this->cors ? $this->cors->toMap() : null;
         }
@@ -287,6 +296,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AhasStatus'])) {
+            $model->ahasStatus = $map['AhasStatus'];
+        }
         if (isset($map['Cors'])) {
             $model->cors = cors::fromMap($map['Cors']);
         }

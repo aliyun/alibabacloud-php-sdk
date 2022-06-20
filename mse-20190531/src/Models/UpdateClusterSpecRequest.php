@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryGovernanceKubernetesClusterRequest extends Model
+class UpdateClusterSpecRequest extends Model
 {
     /**
      * @var string
@@ -14,38 +14,36 @@ class QueryGovernanceKubernetesClusterRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Kubernetes集群Id
+     * @description 网关名称
      *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description Kubernetes集群名
+     * @var string
+     */
+    public $clusterSpecification;
+
+    /**
+     * @description 节点数量
+     *
+     * @var int
+     */
+    public $instanceCount;
+
+    /**
+     * @description 节点规格
      *
      * @var string
      */
-    public $clusterName;
-
-    /**
-     * @description 当前页码
-     *
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @description 每页元素数量
-     *
-     * @var int
-     */
-    public $pageSize;
+    public $instanceId;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'clusterId'      => 'ClusterId',
-        'clusterName'    => 'ClusterName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'acceptLanguage'       => 'AcceptLanguage',
+        'clusterId'            => 'ClusterId',
+        'clusterSpecification' => 'ClusterSpecification',
+        'instanceCount'        => 'InstanceCount',
+        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
@@ -61,14 +59,14 @@ class QueryGovernanceKubernetesClusterRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
+        if (null !== $this->clusterSpecification) {
+            $res['ClusterSpecification'] = $this->clusterSpecification;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -77,7 +75,7 @@ class QueryGovernanceKubernetesClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryGovernanceKubernetesClusterRequest
+     * @return UpdateClusterSpecRequest
      */
     public static function fromMap($map = [])
     {
@@ -88,14 +86,14 @@ class QueryGovernanceKubernetesClusterRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
+        if (isset($map['ClusterSpecification'])) {
+            $model->clusterSpecification = $map['ClusterSpecification'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

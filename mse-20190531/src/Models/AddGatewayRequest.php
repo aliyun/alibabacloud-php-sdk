@@ -14,6 +14,27 @@ class AddGatewayRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description 是否开启硬件加速
+     *
+     * @var bool
+     */
+    public $enableHardwareAcceleration;
+
+    /**
+     * @description 是否开启SLS日志投递
+     *
+     * @var bool
+     */
+    public $enableSls;
+
+    /**
+     * @description 是否开启xtrace
+     *
+     * @var bool
+     */
+    public $enableXtrace;
+
+    /**
      * @description 是否企业安全组类型
      *
      * @var bool
@@ -82,18 +103,29 @@ class AddGatewayRequest extends Model
      * @var string
      */
     public $vpc;
+
+    /**
+     * @description xtrace采样率，取值[0,100]
+     *
+     * @var string
+     */
+    public $xtraceRatio;
     protected $_name = [
-        'acceptLanguage'          => 'AcceptLanguage',
-        'enterpriseSecurityGroup' => 'EnterpriseSecurityGroup',
-        'internetSlbSpec'         => 'InternetSlbSpec',
-        'name'                    => 'Name',
-        'region'                  => 'Region',
-        'replica'                 => 'Replica',
-        'slbSpec'                 => 'SlbSpec',
-        'spec'                    => 'Spec',
-        'vSwitchId'               => 'VSwitchId',
-        'vSwitchId2'              => 'VSwitchId2',
-        'vpc'                     => 'Vpc',
+        'acceptLanguage'             => 'AcceptLanguage',
+        'enableHardwareAcceleration' => 'EnableHardwareAcceleration',
+        'enableSls'                  => 'EnableSls',
+        'enableXtrace'               => 'EnableXtrace',
+        'enterpriseSecurityGroup'    => 'EnterpriseSecurityGroup',
+        'internetSlbSpec'            => 'InternetSlbSpec',
+        'name'                       => 'Name',
+        'region'                     => 'Region',
+        'replica'                    => 'Replica',
+        'slbSpec'                    => 'SlbSpec',
+        'spec'                       => 'Spec',
+        'vSwitchId'                  => 'VSwitchId',
+        'vSwitchId2'                 => 'VSwitchId2',
+        'vpc'                        => 'Vpc',
+        'xtraceRatio'                => 'XtraceRatio',
     ];
 
     public function validate()
@@ -105,6 +137,15 @@ class AddGatewayRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->enableHardwareAcceleration) {
+            $res['EnableHardwareAcceleration'] = $this->enableHardwareAcceleration;
+        }
+        if (null !== $this->enableSls) {
+            $res['EnableSls'] = $this->enableSls;
+        }
+        if (null !== $this->enableXtrace) {
+            $res['EnableXtrace'] = $this->enableXtrace;
         }
         if (null !== $this->enterpriseSecurityGroup) {
             $res['EnterpriseSecurityGroup'] = $this->enterpriseSecurityGroup;
@@ -136,6 +177,9 @@ class AddGatewayRequest extends Model
         if (null !== $this->vpc) {
             $res['Vpc'] = $this->vpc;
         }
+        if (null !== $this->xtraceRatio) {
+            $res['XtraceRatio'] = $this->xtraceRatio;
+        }
 
         return $res;
     }
@@ -150,6 +194,15 @@ class AddGatewayRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['EnableHardwareAcceleration'])) {
+            $model->enableHardwareAcceleration = $map['EnableHardwareAcceleration'];
+        }
+        if (isset($map['EnableSls'])) {
+            $model->enableSls = $map['EnableSls'];
+        }
+        if (isset($map['EnableXtrace'])) {
+            $model->enableXtrace = $map['EnableXtrace'];
         }
         if (isset($map['EnterpriseSecurityGroup'])) {
             $model->enterpriseSecurityGroup = $map['EnterpriseSecurityGroup'];
@@ -180,6 +233,9 @@ class AddGatewayRequest extends Model
         }
         if (isset($map['Vpc'])) {
             $model->vpc = $map['Vpc'];
+        }
+        if (isset($map['XtraceRatio'])) {
+            $model->xtraceRatio = $map['XtraceRatio'];
         }
 
         return $model;

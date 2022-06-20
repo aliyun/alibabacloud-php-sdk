@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateMseServiceApplicationResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class AddSeataServerResponseBody extends Model
+class CreateMseServiceApplicationResponseBody extends Model
 {
     /**
      * @var int
@@ -14,7 +15,7 @@ class AddSeataServerResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var data
      */
     public $data;
 
@@ -29,14 +30,12 @@ class AddSeataServerResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var bool
+     * @var string
      */
     public $success;
     protected $_name = [
@@ -59,7 +58,7 @@ class AddSeataServerResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -80,7 +79,7 @@ class AddSeataServerResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddSeataServerResponseBody
+     * @return CreateMseServiceApplicationResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -89,7 +88,7 @@ class AddSeataServerResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

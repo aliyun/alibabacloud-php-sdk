@@ -157,6 +157,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $orderClusterVersion;
+
+    /**
+     * @var string
+     */
     public $payInfo;
 
     /**
@@ -208,6 +213,7 @@ class data extends Model
         'memoryCapacity'       => 'MemoryCapacity',
         'mseVersion'           => 'MseVersion',
         'netType'              => 'NetType',
+        'orderClusterVersion'  => 'OrderClusterVersion',
         'payInfo'              => 'PayInfo',
         'pubNetworkFlow'       => 'PubNetworkFlow',
         'regionId'             => 'RegionId',
@@ -314,6 +320,9 @@ class data extends Model
         }
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
+        }
+        if (null !== $this->orderClusterVersion) {
+            $res['OrderClusterVersion'] = $this->orderClusterVersion;
         }
         if (null !== $this->payInfo) {
             $res['PayInfo'] = $this->payInfo;
@@ -434,6 +443,9 @@ class data extends Model
         }
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
+        }
+        if (isset($map['OrderClusterVersion'])) {
+            $model->orderClusterVersion = $map['OrderClusterVersion'];
         }
         if (isset($map['PayInfo'])) {
             $model->payInfo = $map['PayInfo'];

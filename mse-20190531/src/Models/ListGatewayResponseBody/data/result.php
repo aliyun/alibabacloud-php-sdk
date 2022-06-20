@@ -54,6 +54,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $gatewayVersion;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -112,6 +117,11 @@ class result extends Model
     public $replica;
 
     /**
+     * @var bool
+     */
+    public $rollBack;
+
+    /**
      * @var slb[]
      */
     public $slb;
@@ -159,6 +169,7 @@ class result extends Model
         'endDate'         => 'EndDate',
         'gatewayType'     => 'GatewayType',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'gatewayVersion'  => 'GatewayVersion',
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
         'id'              => 'Id',
@@ -171,6 +182,7 @@ class result extends Model
         'primaryUser'     => 'PrimaryUser',
         'region'          => 'Region',
         'replica'         => 'Replica',
+        'rollBack'        => 'RollBack',
         'slb'             => 'Slb',
         'spec'            => 'Spec',
         'status'          => 'Status',
@@ -211,6 +223,9 @@ class result extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->gatewayVersion) {
+            $res['GatewayVersion'] = $this->gatewayVersion;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -253,6 +268,9 @@ class result extends Model
         }
         if (null !== $this->replica) {
             $res['Replica'] = $this->replica;
+        }
+        if (null !== $this->rollBack) {
+            $res['RollBack'] = $this->rollBack;
         }
         if (null !== $this->slb) {
             $res['Slb'] = [];
@@ -320,6 +338,9 @@ class result extends Model
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
+        if (isset($map['GatewayVersion'])) {
+            $model->gatewayVersion = $map['GatewayVersion'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
@@ -361,6 +382,9 @@ class result extends Model
         }
         if (isset($map['Replica'])) {
             $model->replica = $map['Replica'];
+        }
+        if (isset($map['RollBack'])) {
+            $model->rollBack = $map['RollBack'];
         }
         if (isset($map['Slb'])) {
             if (!empty($map['Slb'])) {

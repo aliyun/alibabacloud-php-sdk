@@ -22,9 +22,17 @@ class loadBalancerSettings extends Model
      * @var string
      */
     public $loadbalancerType;
+
+    /**
+     * @description 预热时间(单位/s)
+     *
+     * @var int
+     */
+    public $warmupDuration;
     protected $_name = [
         'consistentHashLBConfig' => 'ConsistentHashLBConfig',
         'loadbalancerType'       => 'LoadbalancerType',
+        'warmupDuration'         => 'WarmupDuration',
     ];
 
     public function validate()
@@ -39,6 +47,9 @@ class loadBalancerSettings extends Model
         }
         if (null !== $this->loadbalancerType) {
             $res['LoadbalancerType'] = $this->loadbalancerType;
+        }
+        if (null !== $this->warmupDuration) {
+            $res['WarmupDuration'] = $this->warmupDuration;
         }
 
         return $res;
@@ -57,6 +68,9 @@ class loadBalancerSettings extends Model
         }
         if (isset($map['LoadbalancerType'])) {
             $model->loadbalancerType = $map['LoadbalancerType'];
+        }
+        if (isset($map['WarmupDuration'])) {
+            $model->warmupDuration = $map['WarmupDuration'];
         }
 
         return $model;
