@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class detections extends Model
 {
     /**
+     * @var int[]
+     */
+    public $calciumCenter;
+
+    /**
      * @var int
      */
     public $calciumId;
@@ -23,6 +28,7 @@ class detections extends Model
      */
     public $calciumVolume;
     protected $_name = [
+        'calciumCenter' => 'CalciumCenter',
         'calciumId'     => 'CalciumId',
         'calciumScore'  => 'CalciumScore',
         'calciumVolume' => 'CalciumVolume',
@@ -35,6 +41,9 @@ class detections extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->calciumCenter) {
+            $res['CalciumCenter'] = $this->calciumCenter;
+        }
         if (null !== $this->calciumId) {
             $res['CalciumId'] = $this->calciumId;
         }
@@ -56,6 +65,11 @@ class detections extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CalciumCenter'])) {
+            if (!empty($map['CalciumCenter'])) {
+                $model->calciumCenter = $map['CalciumCenter'];
+            }
+        }
         if (isset($map['CalciumId'])) {
             $model->calciumId = $map['CalciumId'];
         }
