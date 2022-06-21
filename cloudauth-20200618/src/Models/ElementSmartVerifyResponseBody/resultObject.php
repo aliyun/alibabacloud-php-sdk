@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\VerifyBankElementResponse;
+namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\ElementSmartVerifyResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -36,10 +36,6 @@ class resultObject extends Model
 
     public function validate()
     {
-        Model::validateRequired('certifyId', $this->certifyId, true);
-        Model::validateRequired('materialInfo', $this->materialInfo, true);
-        Model::validateRequired('passed', $this->passed, true);
-        Model::validateRequired('subCode', $this->subCode, true);
     }
 
     public function toMap()

@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\DescribeSmsDetailResponse;
+namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\DescribeSmsDetailResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -90,19 +90,6 @@ class items extends Model
 
     public function validate()
     {
-        Model::validateRequired('bizId', $this->bizId, true);
-        Model::validateRequired('content', $this->content, true);
-        Model::validateRequired('errorCode', $this->errorCode, true);
-        Model::validateRequired('errorMessage', $this->errorMessage, true);
-        Model::validateRequired('mobile', $this->mobile, true);
-        Model::validateRequired('outerOrderNo', $this->outerOrderNo, true);
-        Model::validateRequired('receiveDate', $this->receiveDate, true);
-        Model::validateRequired('sendDate', $this->sendDate, true);
-        Model::validateRequired('sendStatus', $this->sendStatus, true);
-        Model::validateRequired('signName', $this->signName, true);
-        Model::validateRequired('smsSize', $this->smsSize, true);
-        Model::validateRequired('taskDate', $this->taskDate, true);
-        Model::validateRequired('templateCode', $this->templateCode, true);
     }
 
     public function toMap()

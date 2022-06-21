@@ -42,9 +42,6 @@ class SendSmsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('mobile', $this->mobile, true);
-        Model::validateRequired('signName', $this->signName, true);
-        Model::validateRequired('templateCode', $this->templateCode, true);
     }
 
     public function toMap()

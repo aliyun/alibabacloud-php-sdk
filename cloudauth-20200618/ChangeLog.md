@@ -1,3 +1,6 @@
+2022-06-21 Version: 2.0.4
+- AMP version.
+
 2022-01-04 Version: 1.0.6
 - QPS.
 

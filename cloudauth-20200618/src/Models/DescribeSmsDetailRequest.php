@@ -72,9 +72,6 @@ class DescribeSmsDetailRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('sendDate', $this->sendDate, true);
     }
 
     public function toMap()
