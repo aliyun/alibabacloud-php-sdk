@@ -176,6 +176,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstancesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpRequest;
@@ -192,6 +194,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSSLCertResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListVgroupsRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListVgroupsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterRequest;
@@ -4836,6 +4840,46 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstances',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListListenersByConfigRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -5270,6 +5314,46 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listServiceSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVgroupsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListVgroupsResponse
+     */
+    public function listVgroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVgroups',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVgroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListVgroupsRequest $request
+     *
+     * @return ListVgroupsResponse
+     */
+    public function listVgroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVgroupsWithOptions($request, $runtime);
     }
 
     /**
