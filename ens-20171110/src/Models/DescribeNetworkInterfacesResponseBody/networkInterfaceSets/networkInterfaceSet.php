@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets\networkInterfaceSet\privateIpSets;
 use AlibabaCloud\Tea\Model;
 
 class networkInterfaceSet extends Model
@@ -44,6 +45,11 @@ class networkInterfaceSet extends Model
     public $primaryIpType;
 
     /**
+     * @var privateIpSets
+     */
+    public $privateIpSets;
+
+    /**
      * @var string
      */
     public $status;
@@ -60,6 +66,7 @@ class networkInterfaceSet extends Model
         'networkInterfaceId' => 'NetworkInterfaceId',
         'primaryIp'          => 'PrimaryIp',
         'primaryIpType'      => 'PrimaryIpType',
+        'privateIpSets'      => 'PrivateIpSets',
         'status'             => 'Status',
         'vSwitchId'          => 'VSwitchId',
     ];
@@ -91,6 +98,9 @@ class networkInterfaceSet extends Model
         }
         if (null !== $this->primaryIpType) {
             $res['PrimaryIpType'] = $this->primaryIpType;
+        }
+        if (null !== $this->privateIpSets) {
+            $res['PrivateIpSets'] = null !== $this->privateIpSets ? $this->privateIpSets->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -130,6 +140,9 @@ class networkInterfaceSet extends Model
         }
         if (isset($map['PrimaryIpType'])) {
             $model->primaryIpType = $map['PrimaryIpType'];
+        }
+        if (isset($map['PrivateIpSets'])) {
+            $model->privateIpSets = privateIpSets::fromMap($map['PrivateIpSets']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

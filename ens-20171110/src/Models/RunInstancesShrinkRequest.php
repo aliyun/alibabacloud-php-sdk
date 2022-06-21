@@ -142,6 +142,11 @@ class RunInstancesShrinkRequest extends Model
     public $privateIpAddress;
 
     /**
+     * @var bool
+     */
+    public $publicIpIdentification;
+
+    /**
      * @description 调度层级
      *
      * @var string
@@ -216,6 +221,7 @@ class RunInstancesShrinkRequest extends Model
         'period'                  => 'Period',
         'periodUnit'              => 'PeriodUnit',
         'privateIpAddress'        => 'PrivateIpAddress',
+        'publicIpIdentification'  => 'PublicIpIdentification',
         'scheduleAreaLevel'       => 'ScheduleAreaLevel',
         'schedulingPriceStrategy' => 'SchedulingPriceStrategy',
         'schedulingStrategy'      => 'SchedulingStrategy',
@@ -289,6 +295,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->publicIpIdentification) {
+            $res['PublicIpIdentification'] = $this->publicIpIdentification;
         }
         if (null !== $this->scheduleAreaLevel) {
             $res['ScheduleAreaLevel'] = $this->scheduleAreaLevel;
@@ -382,6 +391,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['PublicIpIdentification'])) {
+            $model->publicIpIdentification = $map['PublicIpIdentification'];
         }
         if (isset($map['ScheduleAreaLevel'])) {
             $model->scheduleAreaLevel = $map['ScheduleAreaLevel'];

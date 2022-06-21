@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateVSwitchRequest extends Model
+class CreateClassicNetworkRequest extends Model
 {
     /**
      * @var string
@@ -26,18 +26,12 @@ class CreateVSwitchRequest extends Model
     /**
      * @var string
      */
-    public $networkId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchName;
+    public $networkName;
     protected $_name = [
         'cidrBlock'   => 'CidrBlock',
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
-        'networkId'   => 'NetworkId',
-        'vSwitchName' => 'VSwitchName',
+        'networkName' => 'NetworkName',
     ];
 
     public function validate()
@@ -56,11 +50,8 @@ class CreateVSwitchRequest extends Model
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
-        if (null !== $this->networkId) {
-            $res['NetworkId'] = $this->networkId;
-        }
-        if (null !== $this->vSwitchName) {
-            $res['VSwitchName'] = $this->vSwitchName;
+        if (null !== $this->networkName) {
+            $res['NetworkName'] = $this->networkName;
         }
 
         return $res;
@@ -69,7 +60,7 @@ class CreateVSwitchRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateVSwitchRequest
+     * @return CreateClassicNetworkRequest
      */
     public static function fromMap($map = [])
     {
@@ -83,11 +74,8 @@ class CreateVSwitchRequest extends Model
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
-        if (isset($map['NetworkId'])) {
-            $model->networkId = $map['NetworkId'];
-        }
-        if (isset($map['VSwitchName'])) {
-            $model->vSwitchName = $map['VSwitchName'];
+        if (isset($map['NetworkName'])) {
+            $model->networkName = $map['NetworkName'];
         }
 
         return $model;

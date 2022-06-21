@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AddDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddDeviceInternetPortResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddNetworkInterfaceToInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddNetworkInterfaceToInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AssignPrivateIpAddressesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AssignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskRequest;
@@ -25,6 +27,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceRequest;
@@ -331,6 +335,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeApplicationRequest;
@@ -516,6 +522,52 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param AssignPrivateIpAddressesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AssignPrivateIpAddressesResponse
+     */
+    public function assignPrivateIpAddressesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssignPrivateIpAddresses',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssignPrivateIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AssignPrivateIpAddressesRequest $request
+     *
+     * @return AssignPrivateIpAddressesResponse
+     */
+    public function assignPrivateIpAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->assignPrivateIpAddressesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AssociateEnsEipAddressRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -628,9 +680,6 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->scripts)) {
             $query['Scripts'] = $request->scripts;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -834,6 +883,58 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateClassicNetworkRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateClassicNetworkResponse
+     */
+    public function createClassicNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cidrBlock)) {
+            $query['CidrBlock'] = $request->cidrBlock;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->networkName)) {
+            $query['NetworkName'] = $request->networkName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClassicNetwork',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateClassicNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateClassicNetworkRequest $request
+     *
+     * @return CreateClassicNetworkResponse
+     */
+    public function createClassicNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClassicNetworkWithOptions($request, $runtime);
     }
 
     /**
@@ -2039,9 +2140,6 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->vSwitchName)) {
             $query['VSwitchName'] = $request->vSwitchName;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6309,9 +6407,6 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7103,9 +7198,6 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->userData)) {
             $query['UserData'] = $request->userData;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8067,6 +8159,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
+        if (!Utils::isUnset($request->publicIpIdentification)) {
+            $query['PublicIpIdentification'] = $request->publicIpIdentification;
+        }
         if (!Utils::isUnset($request->scheduleAreaLevel)) {
             $query['ScheduleAreaLevel'] = $request->scheduleAreaLevel;
         }
@@ -8948,6 +9043,52 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unAssociateEnsEipAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnassignPrivateIpAddressesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UnassignPrivateIpAddressesResponse
+     */
+    public function unassignPrivateIpAddressesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnassignPrivateIpAddresses',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnassignPrivateIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnassignPrivateIpAddressesRequest $request
+     *
+     * @return UnassignPrivateIpAddressesResponse
+     */
+    public function unassignPrivateIpAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unassignPrivateIpAddressesWithOptions($request, $runtime);
     }
 
     /**

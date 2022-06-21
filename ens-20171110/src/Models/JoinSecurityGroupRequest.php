@@ -17,15 +17,9 @@ class JoinSecurityGroupRequest extends Model
      * @var string
      */
     public $securityGroupId;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'instanceId'      => 'InstanceId',
         'securityGroupId' => 'SecurityGroupId',
-        'version'         => 'Version',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class JoinSecurityGroupRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class JoinSecurityGroupRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

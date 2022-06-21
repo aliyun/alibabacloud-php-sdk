@@ -17,15 +17,9 @@ class AttachEnsInstancesRequest extends Model
      * @var string
      */
     public $scripts;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'scripts'    => 'Scripts',
-        'version'    => 'Version',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class AttachEnsInstancesRequest extends Model
         }
         if (null !== $this->scripts) {
             $res['Scripts'] = $this->scripts;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class AttachEnsInstancesRequest extends Model
         }
         if (isset($map['Scripts'])) {
             $model->scripts = $map['Scripts'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

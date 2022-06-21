@@ -77,11 +77,6 @@ class PreCreateEnsServiceRequest extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'bandwidthType'           => 'BandwidthType',
         'buyResourcesDetail'      => 'BuyResourcesDetail',
@@ -97,7 +92,6 @@ class PreCreateEnsServiceRequest extends Model
         'schedulingStrategy'      => 'SchedulingStrategy',
         'systemDiskSize'          => 'SystemDiskSize',
         'userData'                => 'UserData',
-        'version'                 => 'Version',
     ];
 
     public function validate()
@@ -148,9 +142,6 @@ class PreCreateEnsServiceRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -205,9 +196,6 @@ class PreCreateEnsServiceRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;
