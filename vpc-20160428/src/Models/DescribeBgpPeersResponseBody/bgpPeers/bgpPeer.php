@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class bgpPeer extends Model
 {
     /**
+     * @var int
+     */
+    public $advertisedRouteCount;
+
+    /**
      * @var string
      */
     public $authKey;
@@ -46,6 +51,11 @@ class bgpPeer extends Model
     /**
      * @var string
      */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
     public $hold;
 
     /**
@@ -54,7 +64,7 @@ class bgpPeer extends Model
     public $ipVersion;
 
     /**
-     * @var string
+     * @var bool
      */
     public $isFake;
 
@@ -84,6 +94,11 @@ class bgpPeer extends Model
     public $peerIpAddress;
 
     /**
+     * @var int
+     */
+    public $receivedRouteCount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -103,25 +118,28 @@ class bgpPeer extends Model
      */
     public $status;
     protected $_name = [
-        'authKey'       => 'AuthKey',
-        'bfdMultiHop'   => 'BfdMultiHop',
-        'bgpGroupId'    => 'BgpGroupId',
-        'bgpPeerId'     => 'BgpPeerId',
-        'bgpStatus'     => 'BgpStatus',
-        'description'   => 'Description',
-        'enableBfd'     => 'EnableBfd',
-        'hold'          => 'Hold',
-        'ipVersion'     => 'IpVersion',
-        'isFake'        => 'IsFake',
-        'keepalive'     => 'Keepalive',
-        'localAsn'      => 'LocalAsn',
-        'name'          => 'Name',
-        'peerAsn'       => 'PeerAsn',
-        'peerIpAddress' => 'PeerIpAddress',
-        'regionId'      => 'RegionId',
-        'routeLimit'    => 'RouteLimit',
-        'routerId'      => 'RouterId',
-        'status'        => 'Status',
+        'advertisedRouteCount' => 'AdvertisedRouteCount',
+        'authKey'              => 'AuthKey',
+        'bfdMultiHop'          => 'BfdMultiHop',
+        'bgpGroupId'           => 'BgpGroupId',
+        'bgpPeerId'            => 'BgpPeerId',
+        'bgpStatus'            => 'BgpStatus',
+        'description'          => 'Description',
+        'enableBfd'            => 'EnableBfd',
+        'gmtModified'          => 'GmtModified',
+        'hold'                 => 'Hold',
+        'ipVersion'            => 'IpVersion',
+        'isFake'               => 'IsFake',
+        'keepalive'            => 'Keepalive',
+        'localAsn'             => 'LocalAsn',
+        'name'                 => 'Name',
+        'peerAsn'              => 'PeerAsn',
+        'peerIpAddress'        => 'PeerIpAddress',
+        'receivedRouteCount'   => 'ReceivedRouteCount',
+        'regionId'             => 'RegionId',
+        'routeLimit'           => 'RouteLimit',
+        'routerId'             => 'RouterId',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -131,6 +149,9 @@ class bgpPeer extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advertisedRouteCount) {
+            $res['AdvertisedRouteCount'] = $this->advertisedRouteCount;
+        }
         if (null !== $this->authKey) {
             $res['AuthKey'] = $this->authKey;
         }
@@ -151,6 +172,9 @@ class bgpPeer extends Model
         }
         if (null !== $this->enableBfd) {
             $res['EnableBfd'] = $this->enableBfd;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->hold) {
             $res['Hold'] = $this->hold;
@@ -176,6 +200,9 @@ class bgpPeer extends Model
         if (null !== $this->peerIpAddress) {
             $res['PeerIpAddress'] = $this->peerIpAddress;
         }
+        if (null !== $this->receivedRouteCount) {
+            $res['ReceivedRouteCount'] = $this->receivedRouteCount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -200,6 +227,9 @@ class bgpPeer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvertisedRouteCount'])) {
+            $model->advertisedRouteCount = $map['AdvertisedRouteCount'];
+        }
         if (isset($map['AuthKey'])) {
             $model->authKey = $map['AuthKey'];
         }
@@ -220,6 +250,9 @@ class bgpPeer extends Model
         }
         if (isset($map['EnableBfd'])) {
             $model->enableBfd = $map['EnableBfd'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Hold'])) {
             $model->hold = $map['Hold'];
@@ -244,6 +277,9 @@ class bgpPeer extends Model
         }
         if (isset($map['PeerIpAddress'])) {
             $model->peerIpAddress = $map['PeerIpAddress'];
+        }
+        if (isset($map['ReceivedRouteCount'])) {
+            $model->receivedRouteCount = $map['ReceivedRouteCount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

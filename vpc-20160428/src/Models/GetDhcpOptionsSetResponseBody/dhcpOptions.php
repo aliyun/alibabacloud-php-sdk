@@ -26,11 +26,23 @@ class dhcpOptions extends Model
     /**
      * @var string
      */
+    public $ipv6LeaseTime;
+
+    /**
+     * @var string
+     */
+    public $leaseTime;
+
+    /**
+     * @var string
+     */
     public $TFTPServerName;
     protected $_name = [
         'bootFileName'      => 'BootFileName',
         'domainName'        => 'DomainName',
         'domainNameServers' => 'DomainNameServers',
+        'ipv6LeaseTime'     => 'Ipv6LeaseTime',
+        'leaseTime'         => 'LeaseTime',
         'TFTPServerName'    => 'TFTPServerName',
     ];
 
@@ -49,6 +61,12 @@ class dhcpOptions extends Model
         }
         if (null !== $this->domainNameServers) {
             $res['DomainNameServers'] = $this->domainNameServers;
+        }
+        if (null !== $this->ipv6LeaseTime) {
+            $res['Ipv6LeaseTime'] = $this->ipv6LeaseTime;
+        }
+        if (null !== $this->leaseTime) {
+            $res['LeaseTime'] = $this->leaseTime;
         }
         if (null !== $this->TFTPServerName) {
             $res['TFTPServerName'] = $this->TFTPServerName;
@@ -73,6 +91,12 @@ class dhcpOptions extends Model
         }
         if (isset($map['DomainNameServers'])) {
             $model->domainNameServers = $map['DomainNameServers'];
+        }
+        if (isset($map['Ipv6LeaseTime'])) {
+            $model->ipv6LeaseTime = $map['Ipv6LeaseTime'];
+        }
+        if (isset($map['LeaseTime'])) {
+            $model->leaseTime = $map['LeaseTime'];
         }
         if (isset($map['TFTPServerName'])) {
             $model->TFTPServerName = $map['TFTPServerName'];

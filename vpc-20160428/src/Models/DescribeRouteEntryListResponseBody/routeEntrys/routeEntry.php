@@ -22,6 +22,11 @@ class routeEntry extends Model
     /**
      * @var string
      */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
     public $ipVersion;
 
     /**
@@ -56,6 +61,7 @@ class routeEntry extends Model
     protected $_name = [
         'description'          => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
+        'gmtModified'          => 'GmtModified',
         'ipVersion'            => 'IpVersion',
         'nextHops'             => 'NextHops',
         'routeEntryId'         => 'RouteEntryId',
@@ -77,6 +83,9 @@ class routeEntry extends Model
         }
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
@@ -116,6 +125,9 @@ class routeEntry extends Model
         }
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];

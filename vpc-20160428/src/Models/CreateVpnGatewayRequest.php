@@ -46,6 +46,11 @@ class CreateVpnGatewayRequest extends Model
     /**
      * @var string
      */
+    public $networkType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -100,6 +105,7 @@ class CreateVpnGatewayRequest extends Model
         'enableSsl'            => 'EnableSsl',
         'instanceChargeType'   => 'InstanceChargeType',
         'name'                 => 'Name',
+        'networkType'          => 'NetworkType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'period'               => 'Period',
@@ -139,6 +145,9 @@ class CreateVpnGatewayRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -202,6 +211,9 @@ class CreateVpnGatewayRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

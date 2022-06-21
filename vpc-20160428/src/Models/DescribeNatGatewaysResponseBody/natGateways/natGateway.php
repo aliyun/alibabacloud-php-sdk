@@ -14,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 class natGateway extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
     public $businessStatus;
@@ -147,6 +152,7 @@ class natGateway extends Model
      */
     public $vpcId;
     protected $_name = [
+        'autoPay'                   => 'AutoPay',
         'businessStatus'            => 'BusinessStatus',
         'creationTime'              => 'CreationTime',
         'deletionProtection'        => 'DeletionProtection',
@@ -182,6 +188,9 @@ class natGateway extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
         }
@@ -272,6 +281,9 @@ class natGateway extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
         }

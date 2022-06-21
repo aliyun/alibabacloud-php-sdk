@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\availableRegions;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\operationLocks;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\securityProtectionTypes;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\tags;
 use AlibabaCloud\Tea\Model;
 
 class eipAddress extends Model
@@ -64,7 +65,7 @@ class eipAddress extends Model
     /**
      * @var string
      */
-    public $descritpion;
+    public $description;
 
     /**
      * @var string
@@ -134,6 +135,11 @@ class eipAddress extends Model
     /**
      * @var string
      */
+    public $publicIpAddressPoolId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -185,6 +191,11 @@ class eipAddress extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'allocationId'                  => 'AllocationId',
         'allocationTime'                => 'AllocationTime',
@@ -196,7 +207,7 @@ class eipAddress extends Model
         'businessStatus'                => 'BusinessStatus',
         'chargeType'                    => 'ChargeType',
         'deletionProtection'            => 'DeletionProtection',
-        'descritpion'                   => 'Descritpion',
+        'description'                   => 'Description',
         'eipBandwidth'                  => 'EipBandwidth',
         'expiredTime'                   => 'ExpiredTime',
         'HDMonitorStatus'               => 'HDMonitorStatus',
@@ -210,6 +221,7 @@ class eipAddress extends Model
         'name'                          => 'Name',
         'netmode'                       => 'Netmode',
         'operationLocks'                => 'OperationLocks',
+        'publicIpAddressPoolId'         => 'PublicIpAddressPoolId',
         'regionId'                      => 'RegionId',
         'reservationActiveTime'         => 'ReservationActiveTime',
         'reservationBandwidth'          => 'ReservationBandwidth',
@@ -221,6 +233,7 @@ class eipAddress extends Model
         'segmentInstanceId'             => 'SegmentInstanceId',
         'serviceManaged'                => 'ServiceManaged',
         'status'                        => 'Status',
+        'tags'                          => 'Tags',
     ];
 
     public function validate()
@@ -260,8 +273,8 @@ class eipAddress extends Model
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
         }
-        if (null !== $this->descritpion) {
-            $res['Descritpion'] = $this->descritpion;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->eipBandwidth) {
             $res['EipBandwidth'] = $this->eipBandwidth;
@@ -302,6 +315,9 @@ class eipAddress extends Model
         if (null !== $this->operationLocks) {
             $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
         }
+        if (null !== $this->publicIpAddressPoolId) {
+            $res['PublicIpAddressPoolId'] = $this->publicIpAddressPoolId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -334,6 +350,9 @@ class eipAddress extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -377,8 +396,8 @@ class eipAddress extends Model
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
         }
-        if (isset($map['Descritpion'])) {
-            $model->descritpion = $map['Descritpion'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EipBandwidth'])) {
             $model->eipBandwidth = $map['EipBandwidth'];
@@ -419,6 +438,9 @@ class eipAddress extends Model
         if (isset($map['OperationLocks'])) {
             $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
         }
+        if (isset($map['PublicIpAddressPoolId'])) {
+            $model->publicIpAddressPoolId = $map['PublicIpAddressPoolId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -451,6 +473,9 @@ class eipAddress extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowLogRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $aggregationInterval;
+
+    /**
      * @var string
      */
     public $description;
@@ -68,6 +73,7 @@ class CreateFlowLogRequest extends Model
      */
     public $trafficType;
     protected $_name = [
+        'aggregationInterval'  => 'AggregationInterval',
         'description'          => 'Description',
         'flowLogName'          => 'FlowLogName',
         'logStoreName'         => 'LogStoreName',
@@ -89,6 +95,9 @@ class CreateFlowLogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregationInterval) {
+            $res['AggregationInterval'] = $this->aggregationInterval;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -137,6 +146,9 @@ class CreateFlowLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregationInterval'])) {
+            $model->aggregationInterval = $map['AggregationInterval'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

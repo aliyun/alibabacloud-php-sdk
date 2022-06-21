@@ -81,6 +81,11 @@ class AllocateEipAddressRequest extends Model
     /**
      * @var string
      */
+    public $publicIpAddressPoolId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -117,6 +122,7 @@ class AllocateEipAddressRequest extends Model
         'ownerId'                 => 'OwnerId',
         'period'                  => 'Period',
         'pricingCycle'            => 'PricingCycle',
+        'publicIpAddressPoolId'   => 'PublicIpAddressPoolId',
         'regionId'                => 'RegionId',
         'resourceGroupId'         => 'ResourceGroupId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
@@ -172,6 +178,9 @@ class AllocateEipAddressRequest extends Model
         }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
+        }
+        if (null !== $this->publicIpAddressPoolId) {
+            $res['PublicIpAddressPoolId'] = $this->publicIpAddressPoolId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -241,6 +250,9 @@ class AllocateEipAddressRequest extends Model
         }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
+        }
+        if (isset($map['PublicIpAddressPoolId'])) {
+            $model->publicIpAddressPoolId = $map['PublicIpAddressPoolId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

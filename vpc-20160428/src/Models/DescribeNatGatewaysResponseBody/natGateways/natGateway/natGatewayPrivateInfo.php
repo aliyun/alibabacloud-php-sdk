@@ -29,6 +29,16 @@ class natGatewayPrivateInfo extends Model
     public $maxBandwidth;
 
     /**
+     * @var int
+     */
+    public $maxSessionEstablishRate;
+
+    /**
+     * @var int
+     */
+    public $maxSessionQuota;
+
+    /**
      * @var string
      */
     public $privateIpAddress;
@@ -38,12 +48,14 @@ class natGatewayPrivateInfo extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'eniInstanceId'    => 'EniInstanceId',
-        'eniType'          => 'EniType',
-        'izNo'             => 'IzNo',
-        'maxBandwidth'     => 'MaxBandwidth',
-        'privateIpAddress' => 'PrivateIpAddress',
-        'vswitchId'        => 'VswitchId',
+        'eniInstanceId'           => 'EniInstanceId',
+        'eniType'                 => 'EniType',
+        'izNo'                    => 'IzNo',
+        'maxBandwidth'            => 'MaxBandwidth',
+        'maxSessionEstablishRate' => 'MaxSessionEstablishRate',
+        'maxSessionQuota'         => 'MaxSessionQuota',
+        'privateIpAddress'        => 'PrivateIpAddress',
+        'vswitchId'               => 'VswitchId',
     ];
 
     public function validate()
@@ -64,6 +76,12 @@ class natGatewayPrivateInfo extends Model
         }
         if (null !== $this->maxBandwidth) {
             $res['MaxBandwidth'] = $this->maxBandwidth;
+        }
+        if (null !== $this->maxSessionEstablishRate) {
+            $res['MaxSessionEstablishRate'] = $this->maxSessionEstablishRate;
+        }
+        if (null !== $this->maxSessionQuota) {
+            $res['MaxSessionQuota'] = $this->maxSessionQuota;
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
@@ -94,6 +112,12 @@ class natGatewayPrivateInfo extends Model
         }
         if (isset($map['MaxBandwidth'])) {
             $model->maxBandwidth = $map['MaxBandwidth'];
+        }
+        if (isset($map['MaxSessionEstablishRate'])) {
+            $model->maxSessionEstablishRate = $map['MaxSessionEstablishRate'];
+        }
+        if (isset($map['MaxSessionQuota'])) {
+            $model->maxSessionQuota = $map['MaxSessionQuota'];
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];

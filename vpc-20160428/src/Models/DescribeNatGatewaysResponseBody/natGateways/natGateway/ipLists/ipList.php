@@ -11,6 +11,11 @@ class ipList extends Model
     /**
      * @var string
      */
+    public $allocationId;
+
+    /**
+     * @var string
+     */
     public $ipAddress;
 
     /**
@@ -22,10 +27,17 @@ class ipList extends Model
      * @var bool
      */
     public $snatEntryEnabled;
+
+    /**
+     * @var string
+     */
+    public $usingStatus;
     protected $_name = [
+        'allocationId'     => 'AllocationId',
         'ipAddress'        => 'IpAddress',
         'privateIpAddress' => 'PrivateIpAddress',
         'snatEntryEnabled' => 'SnatEntryEnabled',
+        'usingStatus'      => 'UsingStatus',
     ];
 
     public function validate()
@@ -35,6 +47,9 @@ class ipList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allocationId) {
+            $res['AllocationId'] = $this->allocationId;
+        }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
@@ -43,6 +58,9 @@ class ipList extends Model
         }
         if (null !== $this->snatEntryEnabled) {
             $res['SnatEntryEnabled'] = $this->snatEntryEnabled;
+        }
+        if (null !== $this->usingStatus) {
+            $res['UsingStatus'] = $this->usingStatus;
         }
 
         return $res;
@@ -56,6 +74,9 @@ class ipList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocationId'])) {
+            $model->allocationId = $map['AllocationId'];
+        }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
@@ -64,6 +85,9 @@ class ipList extends Model
         }
         if (isset($map['SnatEntryEnabled'])) {
             $model->snatEntryEnabled = $map['SnatEntryEnabled'];
+        }
+        if (isset($map['UsingStatus'])) {
+            $model->usingStatus = $map['UsingStatus'];
         }
 
         return $model;

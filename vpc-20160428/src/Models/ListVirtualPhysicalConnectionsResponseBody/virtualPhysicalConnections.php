@@ -66,6 +66,11 @@ class virtualPhysicalConnections extends Model
     /**
      * @var string
      */
+    public $expectSpec;
+
+    /**
+     * @var string
+     */
     public $lineOperator;
 
     /**
@@ -159,6 +164,7 @@ class virtualPhysicalConnections extends Model
         'description'                     => 'Description',
         'enabledTime'                     => 'EnabledTime',
         'endTime'                         => 'EndTime',
+        'expectSpec'                      => 'ExpectSpec',
         'lineOperator'                    => 'LineOperator',
         'loaStatus'                       => 'LoaStatus',
         'name'                            => 'Name',
@@ -217,6 +223,9 @@ class virtualPhysicalConnections extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->expectSpec) {
+            $res['ExpectSpec'] = $this->expectSpec;
         }
         if (null !== $this->lineOperator) {
             $res['LineOperator'] = $this->lineOperator;
@@ -313,6 +322,9 @@ class virtualPhysicalConnections extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExpectSpec'])) {
+            $model->expectSpec = $map['ExpectSpec'];
         }
         if (isset($map['LineOperator'])) {
             $model->lineOperator = $map['LineOperator'];

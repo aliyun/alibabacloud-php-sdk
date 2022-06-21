@@ -16,6 +16,13 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
     public $dryRun;
 
     /**
+     * @description ExpectSpec
+     *
+     * @var string
+     */
+    public $expectSpec;
+
+    /**
      * @description Vpconn的实例ID
      *
      * @var string
@@ -42,6 +49,7 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
     public $vlanId;
     protected $_name = [
         'dryRun'     => 'DryRun',
+        'expectSpec' => 'ExpectSpec',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
         'token'      => 'Token',
@@ -57,6 +65,9 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
         $res = [];
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->expectSpec) {
+            $res['ExpectSpec'] = $this->expectSpec;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -84,6 +95,9 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
         $model = new self();
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ExpectSpec'])) {
+            $model->expectSpec = $map['ExpectSpec'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

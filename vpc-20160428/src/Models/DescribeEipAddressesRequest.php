@@ -87,6 +87,11 @@ class DescribeEipAddressesRequest extends Model
     /**
      * @var string
      */
+    public $publicIpAddressPoolId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -136,6 +141,7 @@ class DescribeEipAddressesRequest extends Model
         'ownerId'                   => 'OwnerId',
         'pageNumber'                => 'PageNumber',
         'pageSize'                  => 'PageSize',
+        'publicIpAddressPoolId'     => 'PublicIpAddressPoolId',
         'regionId'                  => 'RegionId',
         'resourceGroupId'           => 'ResourceGroupId',
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
@@ -202,6 +208,9 @@ class DescribeEipAddressesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->publicIpAddressPoolId) {
+            $res['PublicIpAddressPoolId'] = $this->publicIpAddressPoolId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -286,6 +295,9 @@ class DescribeEipAddressesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PublicIpAddressPoolId'])) {
+            $model->publicIpAddressPoolId = $map['PublicIpAddressPoolId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

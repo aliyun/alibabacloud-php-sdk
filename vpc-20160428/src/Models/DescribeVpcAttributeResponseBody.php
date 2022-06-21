@@ -57,6 +57,11 @@ class DescribeVpcAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $ipv4GatewayId;
+
+    /**
+     * @var string
+     */
     public $ipv6CidrBlock;
 
     /**
@@ -100,6 +105,11 @@ class DescribeVpcAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $supportIpv4Gateway;
+
+    /**
      * @var userCidrs
      */
     public $userCidrs;
@@ -132,6 +142,7 @@ class DescribeVpcAttributeResponseBody extends Model
         'description'          => 'Description',
         'dhcpOptionsSetId'     => 'DhcpOptionsSetId',
         'dhcpOptionsSetStatus' => 'DhcpOptionsSetStatus',
+        'ipv4GatewayId'        => 'Ipv4GatewayId',
         'ipv6CidrBlock'        => 'Ipv6CidrBlock',
         'ipv6CidrBlocks'       => 'Ipv6CidrBlocks',
         'isDefault'            => 'IsDefault',
@@ -141,6 +152,7 @@ class DescribeVpcAttributeResponseBody extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'secondaryCidrBlocks'  => 'SecondaryCidrBlocks',
         'status'               => 'Status',
+        'supportIpv4Gateway'   => 'SupportIpv4Gateway',
         'userCidrs'            => 'UserCidrs',
         'VRouterId'            => 'VRouterId',
         'vSwitchIds'           => 'VSwitchIds',
@@ -179,6 +191,9 @@ class DescribeVpcAttributeResponseBody extends Model
         if (null !== $this->dhcpOptionsSetStatus) {
             $res['DhcpOptionsSetStatus'] = $this->dhcpOptionsSetStatus;
         }
+        if (null !== $this->ipv4GatewayId) {
+            $res['Ipv4GatewayId'] = $this->ipv4GatewayId;
+        }
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
@@ -205,6 +220,9 @@ class DescribeVpcAttributeResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->supportIpv4Gateway) {
+            $res['SupportIpv4Gateway'] = $this->supportIpv4Gateway;
         }
         if (null !== $this->userCidrs) {
             $res['UserCidrs'] = null !== $this->userCidrs ? $this->userCidrs->toMap() : null;
@@ -257,6 +275,9 @@ class DescribeVpcAttributeResponseBody extends Model
         if (isset($map['DhcpOptionsSetStatus'])) {
             $model->dhcpOptionsSetStatus = $map['DhcpOptionsSetStatus'];
         }
+        if (isset($map['Ipv4GatewayId'])) {
+            $model->ipv4GatewayId = $map['Ipv4GatewayId'];
+        }
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
@@ -283,6 +304,9 @@ class DescribeVpcAttributeResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SupportIpv4Gateway'])) {
+            $model->supportIpv4Gateway = $map['SupportIpv4Gateway'];
         }
         if (isset($map['UserCidrs'])) {
             $model->userCidrs = userCidrs::fromMap($map['UserCidrs']);

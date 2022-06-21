@@ -46,6 +46,16 @@ class CreateDhcpOptionsSetRequest extends Model
     /**
      * @var string
      */
+    public $ipv6LeaseTime;
+
+    /**
+     * @var string
+     */
+    public $leaseTime;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -80,6 +90,8 @@ class CreateDhcpOptionsSetRequest extends Model
         'domainName'                => 'DomainName',
         'domainNameServers'         => 'DomainNameServers',
         'dryRun'                    => 'DryRun',
+        'ipv6LeaseTime'             => 'Ipv6LeaseTime',
+        'leaseTime'                 => 'LeaseTime',
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
         'regionId'                  => 'RegionId',
@@ -115,6 +127,12 @@ class CreateDhcpOptionsSetRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->ipv6LeaseTime) {
+            $res['Ipv6LeaseTime'] = $this->ipv6LeaseTime;
+        }
+        if (null !== $this->leaseTime) {
+            $res['LeaseTime'] = $this->leaseTime;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -166,6 +184,12 @@ class CreateDhcpOptionsSetRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['Ipv6LeaseTime'])) {
+            $model->ipv6LeaseTime = $map['Ipv6LeaseTime'];
+        }
+        if (isset($map['LeaseTime'])) {
+            $model->leaseTime = $map['LeaseTime'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

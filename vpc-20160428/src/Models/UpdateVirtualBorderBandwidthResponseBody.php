@@ -14,7 +14,7 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var int
      */
     public $httpStatusCode;
 

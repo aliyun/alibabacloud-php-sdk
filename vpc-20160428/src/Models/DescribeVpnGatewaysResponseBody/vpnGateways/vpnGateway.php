@@ -61,6 +61,11 @@ class vpnGateway extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $networkType;
+
+    /**
      * @var reservationData
      */
     public $reservationData;
@@ -125,6 +130,7 @@ class vpnGateway extends Model
         'internetIp'        => 'InternetIp',
         'ipsecVpn'          => 'IpsecVpn',
         'name'              => 'Name',
+        'networkType'       => 'NetworkType',
         'reservationData'   => 'ReservationData',
         'spec'              => 'Spec',
         'sslMaxConnections' => 'SslMaxConnections',
@@ -174,6 +180,9 @@ class vpnGateway extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->reservationData) {
             $res['ReservationData'] = null !== $this->reservationData ? $this->reservationData->toMap() : null;
@@ -249,6 +258,9 @@ class vpnGateway extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['ReservationData'])) {
             $model->reservationData = reservationData::fromMap($map['ReservationData']);

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class flowLog extends Model
 {
     /**
+     * @var int
+     */
+    public $aggregationInterval;
+
+    /**
+     * @var string
+     */
+    public $businessStatus;
+
+    /**
      * @var string
      */
     public $creationTime;
@@ -63,17 +73,19 @@ class flowLog extends Model
      */
     public $trafficType;
     protected $_name = [
-        'creationTime' => 'CreationTime',
-        'description'  => 'Description',
-        'flowLogId'    => 'FlowLogId',
-        'flowLogName'  => 'FlowLogName',
-        'logStoreName' => 'LogStoreName',
-        'projectName'  => 'ProjectName',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
-        'resourceType' => 'ResourceType',
-        'status'       => 'Status',
-        'trafficType'  => 'TrafficType',
+        'aggregationInterval' => 'AggregationInterval',
+        'businessStatus'      => 'BusinessStatus',
+        'creationTime'        => 'CreationTime',
+        'description'         => 'Description',
+        'flowLogId'           => 'FlowLogId',
+        'flowLogName'         => 'FlowLogName',
+        'logStoreName'        => 'LogStoreName',
+        'projectName'         => 'ProjectName',
+        'regionId'            => 'RegionId',
+        'resourceId'          => 'ResourceId',
+        'resourceType'        => 'ResourceType',
+        'status'              => 'Status',
+        'trafficType'         => 'TrafficType',
     ];
 
     public function validate()
@@ -83,6 +95,12 @@ class flowLog extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregationInterval) {
+            $res['AggregationInterval'] = $this->aggregationInterval;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
@@ -128,6 +146,12 @@ class flowLog extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregationInterval'])) {
+            $model->aggregationInterval = $map['AggregationInterval'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }

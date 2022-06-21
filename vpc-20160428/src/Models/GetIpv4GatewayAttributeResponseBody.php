@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetIpv4GatewayAttributeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var bool
      */
     public $enabled;
@@ -48,6 +53,7 @@ class GetIpv4GatewayAttributeResponseBody extends Model
      */
     public $vpcId;
     protected $_name = [
+        'createTime'              => 'CreateTime',
         'enabled'                 => 'Enabled',
         'ipv4GatewayDescription'  => 'Ipv4GatewayDescription',
         'ipv4GatewayId'           => 'Ipv4GatewayId',
@@ -65,6 +71,9 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -101,6 +110,9 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }

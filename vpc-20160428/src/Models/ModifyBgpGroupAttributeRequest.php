@@ -34,11 +34,6 @@ class ModifyBgpGroupAttributeRequest extends Model
     public $isFakeAsn;
 
     /**
-     * @var int
-     */
-    public $localAsn;
-
-    /**
      * @var string
      */
     public $name;
@@ -78,7 +73,6 @@ class ModifyBgpGroupAttributeRequest extends Model
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'isFakeAsn'            => 'IsFakeAsn',
-        'localAsn'             => 'LocalAsn',
         'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -109,9 +103,6 @@ class ModifyBgpGroupAttributeRequest extends Model
         }
         if (null !== $this->isFakeAsn) {
             $res['IsFakeAsn'] = $this->isFakeAsn;
-        }
-        if (null !== $this->localAsn) {
-            $res['LocalAsn'] = $this->localAsn;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -160,9 +151,6 @@ class ModifyBgpGroupAttributeRequest extends Model
         }
         if (isset($map['IsFakeAsn'])) {
             $model->isFakeAsn = $map['IsFakeAsn'];
-        }
-        if (isset($map['LocalAsn'])) {
-            $model->localAsn = $map['LocalAsn'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

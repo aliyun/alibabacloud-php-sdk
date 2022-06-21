@@ -11,6 +11,11 @@ class AssociateVpcCidrBlockRequest extends Model
     /**
      * @var string
      */
+    public $IPv6CidrBlock;
+
+    /**
+     * @var string
+     */
     public $ipVersion;
 
     /**
@@ -53,6 +58,7 @@ class AssociateVpcCidrBlockRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'IPv6CidrBlock'        => 'IPv6CidrBlock',
         'ipVersion'            => 'IpVersion',
         'ipv6Isp'              => 'Ipv6Isp',
         'ownerAccount'         => 'OwnerAccount',
@@ -71,6 +77,9 @@ class AssociateVpcCidrBlockRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->IPv6CidrBlock) {
+            $res['IPv6CidrBlock'] = $this->IPv6CidrBlock;
+        }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
@@ -110,6 +119,9 @@ class AssociateVpcCidrBlockRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IPv6CidrBlock'])) {
+            $model->IPv6CidrBlock = $map['IPv6CidrBlock'];
+        }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }

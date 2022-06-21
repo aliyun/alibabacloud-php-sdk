@@ -66,6 +66,11 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
+    public $expectSpec;
+
+    /**
+     * @var string
+     */
     public $hasReservationData;
 
     /**
@@ -184,6 +189,7 @@ class physicalConnectionType extends Model
         'description'                    => 'Description',
         'enabledTime'                    => 'EnabledTime',
         'endTime'                        => 'EndTime',
+        'expectSpec'                     => 'ExpectSpec',
         'hasReservationData'             => 'HasReservationData',
         'lineOperator'                   => 'LineOperator',
         'loaStatus'                      => 'LoaStatus',
@@ -247,6 +253,9 @@ class physicalConnectionType extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->expectSpec) {
+            $res['ExpectSpec'] = $this->expectSpec;
         }
         if (null !== $this->hasReservationData) {
             $res['HasReservationData'] = $this->hasReservationData;
@@ -358,6 +367,9 @@ class physicalConnectionType extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExpectSpec'])) {
+            $model->expectSpec = $map['ExpectSpec'];
         }
         if (isset($map['HasReservationData'])) {
             $model->hasReservationData = $map['HasReservationData'];
