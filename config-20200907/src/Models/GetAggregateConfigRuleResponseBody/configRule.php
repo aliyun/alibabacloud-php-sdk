@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody;
 
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\compliance;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\configRuleEvaluationStatus;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\createBy;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\managedRule;
@@ -12,6 +13,16 @@ use AlibabaCloud\Tea\Model;
 
 class configRule extends Model
 {
+    /**
+     * @var int
+     */
+    public $accountId;
+
+    /**
+     * @var compliance
+     */
+    public $compliance;
+
     /**
      * @var string
      */
@@ -137,6 +148,8 @@ class configRule extends Model
      */
     public $tagValueScope;
     protected $_name = [
+        'accountId'                  => 'AccountId',
+        'compliance'                 => 'Compliance',
         'configRuleArn'              => 'ConfigRuleArn',
         'configRuleEvaluationStatus' => 'ConfigRuleEvaluationStatus',
         'configRuleId'               => 'ConfigRuleId',
@@ -171,6 +184,12 @@ class configRule extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->compliance) {
+            $res['Compliance'] = null !== $this->compliance ? $this->compliance->toMap() : null;
+        }
         if (null !== $this->configRuleArn) {
             $res['ConfigRuleArn'] = $this->configRuleArn;
         }
@@ -258,6 +277,12 @@ class configRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['Compliance'])) {
+            $model->compliance = compliance::fromMap($map['Compliance']);
+        }
         if (isset($map['ConfigRuleArn'])) {
             $model->configRuleArn = $map['ConfigRuleArn'];
         }
