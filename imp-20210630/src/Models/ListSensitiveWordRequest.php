@@ -14,8 +14,20 @@ class ListSensitiveWordRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'appId' => 'AppId',
+        'appId'    => 'AppId',
+        'pageNum'  => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -27,6 +39,12 @@ class ListSensitiveWordRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -42,6 +60,12 @@ class ListSensitiveWordRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

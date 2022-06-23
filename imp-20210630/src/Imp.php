@@ -6,33 +6,18 @@ namespace AlibabaCloud\SDK\Imp\V20210630;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Imp\V20210630\Models\AddMemberRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\AddMemberResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\AgreeLinkMicRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\AgreeLinkMicResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ApplyLinkMicRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ApplyLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\BanAllCommentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\BanAllCommentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\BanCommentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\BanCommentResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CancelApplyLinkMicRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CancelApplyLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CancelBanAllCommentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CancelBanAllCommentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CancelBanCommentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CancelBanCommentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CancelUserAdminRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CancelUserAdminResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateClassRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateClassResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateConferenceRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\CreateConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRoomRequest;
@@ -44,10 +29,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\CreateRoomShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateSensitiveWordRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateSensitiveWordResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateSensitiveWordShrinkRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppTemplateRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppTemplateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteClassRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteClassResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteCommentRequest;
@@ -67,10 +48,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpPlayBackTimeByLiveIdRe
 use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpPlayBackTimeByLiveIdResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpWatchLiveTimeByLiveIdRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DescribeMeterImpWatchLiveTimeByLiveIdResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAuthTokenRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAuthTokenResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassDetailRequest;
@@ -79,11 +56,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassRecordRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassRecordResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRecordRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRecordResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRequest;
@@ -96,24 +68,14 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomHttpsCertificateRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomHttpsCertificateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\KickRoomUserRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\KickRoomUserResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppsRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppsResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppTemplatesRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppTemplatesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListClassesRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListClassesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListCommentsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListCommentsResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListComponentsRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListComponentsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsByIdRequest;
@@ -131,8 +93,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRoomResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RemoveMemberRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RemoveMemberResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\SendCommentRequest;
@@ -150,18 +110,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveRoomResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateConfigRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateConfigResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateConfigShrinkRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateClassRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateClassResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateConferenceRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveRoomRequest;
@@ -170,8 +120,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveRoomShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomShrinkRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateShareScreenLayoutRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateShareScreenLayoutResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -210,150 +160,6 @@ class Imp extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param AddMemberRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return AddMemberResponse
-     */
-    public function addMemberWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->conferenceId)) {
-            $body['ConferenceId'] = $request->conferenceId;
-        }
-        if (!Utils::isUnset($request->fromUserId)) {
-            $body['FromUserId'] = $request->fromUserId;
-        }
-        if (!Utils::isUnset($request->toUserId)) {
-            $body['ToUserId'] = $request->toUserId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AddMember',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddMemberRequest $request
-     *
-     * @return AddMemberResponse
-     */
-    public function addMember($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addMemberWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AgreeLinkMicRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return AgreeLinkMicResponse
-     */
-    public function agreeLinkMicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->conferenceId)) {
-            $body['ConferenceId'] = $request->conferenceId;
-        }
-        if (!Utils::isUnset($request->fromUserId)) {
-            $body['FromUserId'] = $request->fromUserId;
-        }
-        if (!Utils::isUnset($request->toUserId)) {
-            $body['ToUserId'] = $request->toUserId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AgreeLinkMic',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AgreeLinkMicResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AgreeLinkMicRequest $request
-     *
-     * @return AgreeLinkMicResponse
-     */
-    public function agreeLinkMic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->agreeLinkMicWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ApplyLinkMicRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ApplyLinkMicResponse
-     */
-    public function applyLinkMicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->conferenceId)) {
-            $body['ConferenceId'] = $request->conferenceId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ApplyLinkMic',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ApplyLinkMicResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ApplyLinkMicRequest $request
-     *
-     * @return ApplyLinkMicResponse
-     */
-    public function applyLinkMic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->applyLinkMicWithOptions($request, $runtime);
     }
 
     /**
@@ -458,52 +264,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->banCommentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelApplyLinkMicRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CancelApplyLinkMicResponse
-     */
-    public function cancelApplyLinkMicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->conferenceId)) {
-            $body['ConferenceId'] = $request->conferenceId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelApplyLinkMic',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CancelApplyLinkMicResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CancelApplyLinkMicRequest $request
-     *
-     * @return CancelApplyLinkMicResponse
-     */
-    public function cancelApplyLinkMic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelApplyLinkMicWithOptions($request, $runtime);
     }
 
     /**
@@ -657,109 +417,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param CreateAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return CreateAppResponse
-     */
-    public function createAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->appTemplateId)) {
-            $body['AppTemplateId'] = $request->appTemplateId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateApp',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateAppRequest $request
-     *
-     * @return CreateAppResponse
-     */
-    public function createApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateAppTemplateRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateAppTemplateResponse
-     */
-    public function createAppTemplateWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateAppTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->componentList)) {
-            $request->componentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->componentList, 'ComponentList', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->appTemplateName)) {
-            $body['AppTemplateName'] = $request->appTemplateName;
-        }
-        if (!Utils::isUnset($request->componentListShrink)) {
-            $body['ComponentList'] = $request->componentListShrink;
-        }
-        if (!Utils::isUnset($request->integrationMode)) {
-            $body['IntegrationMode'] = $request->integrationMode;
-        }
-        if (!Utils::isUnset($request->scene)) {
-            $body['Scene'] = $request->scene;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateAppTemplate',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateAppTemplateRequest $request
-     *
-     * @return CreateAppTemplateResponse
-     */
-    public function createAppTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAppTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateClassRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -809,58 +466,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createClassWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateConferenceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateConferenceResponse
-     */
-    public function createConferenceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->roomId)) {
-            $body['RoomId'] = $request->roomId;
-        }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateConference',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateConferenceRequest $request
-     *
-     * @return CreateConferenceResponse
-     */
-    public function createConference($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createConferenceWithOptions($request, $runtime);
     }
 
     /**
@@ -953,6 +558,9 @@ class Imp extends OpenApiClient
         }
         if (!Utils::isUnset($request->coverUrl)) {
             $body['CoverUrl'] = $request->coverUrl;
+        }
+        if (!Utils::isUnset($request->enableLinkMic)) {
+            $body['EnableLinkMic'] = $request->enableLinkMic;
         }
         if (!Utils::isUnset($request->extensionShrink)) {
             $body['Extension'] = $request->extensionShrink;
@@ -1111,92 +719,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSensitiveWordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteAppResponse
-     */
-    public function deleteAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteApp',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAppRequest $request
-     *
-     * @return DeleteAppResponse
-     */
-    public function deleteApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAppTemplateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteAppTemplateResponse
-     */
-    public function deleteAppTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appTemplateId)) {
-            $body['AppTemplateId'] = $request->appTemplateId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteAppTemplate',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAppTemplateRequest $request
-     *
-     * @return DeleteAppTemplateResponse
-     */
-    public function deleteAppTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAppTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1642,92 +1164,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param GetAppRequest  $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetAppResponse
-     */
-    public function getAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetApp',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetAppRequest $request
-     *
-     * @return GetAppResponse
-     */
-    public function getApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAppTemplateRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetAppTemplateResponse
-     */
-    public function getAppTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appTemplateId)) {
-            $body['AppTemplateId'] = $request->appTemplateId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAppTemplate',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetAppTemplateRequest $request
-     *
-     * @return GetAppTemplateResponse
-     */
-    public function getAppTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAppTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetAuthTokenRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1921,49 +1357,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param GetDomainOwnerVerifyContentRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetDomainOwnerVerifyContentResponse
-     */
-    public function getDomainOwnerVerifyContentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->liveDomainName)) {
-            $body['LiveDomainName'] = $request->liveDomainName;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDomainOwnerVerifyContent',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetDomainOwnerVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetDomainOwnerVerifyContentRequest $request
-     *
-     * @return GetDomainOwnerVerifyContentResponse
-     */
-    public function getDomainOwnerVerifyContent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDomainOwnerVerifyContentWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetLiveRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -2004,60 +1397,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLiveWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetLiveDomainStatusRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetLiveDomainStatusResponse
-     */
-    public function getLiveDomainStatusWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetLiveDomainStatusShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->liveDomainList)) {
-            $request->liveDomainListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->liveDomainList, 'LiveDomainList', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->liveDomainListShrink)) {
-            $body['LiveDomainList'] = $request->liveDomainListShrink;
-        }
-        if (!Utils::isUnset($request->liveDomainType)) {
-            $body['LiveDomainType'] = $request->liveDomainType;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetLiveDomainStatus',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetLiveDomainStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetLiveDomainStatusRequest $request
-     *
-     * @return GetLiveDomainStatusResponse
-     */
-    public function getLiveDomainStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getLiveDomainStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -2300,49 +1639,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param GetStandardRoomHttpsCertificateRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return GetStandardRoomHttpsCertificateResponse
-     */
-    public function getStandardRoomHttpsCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->certificateId)) {
-            $body['CertificateId'] = $request->certificateId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetStandardRoomHttpsCertificate',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetStandardRoomHttpsCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetStandardRoomHttpsCertificateRequest $request
-     *
-     * @return GetStandardRoomHttpsCertificateResponse
-     */
-    public function getStandardRoomHttpsCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getStandardRoomHttpsCertificateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetStandardRoomJumpUrlRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2459,156 +1755,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param ListAppTemplatesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListAppTemplatesResponse
-     */
-    public function listAppTemplatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAppTemplates',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListAppTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListAppTemplatesRequest $request
-     *
-     * @return ListAppTemplatesResponse
-     */
-    public function listAppTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAppTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListApplyLinkMicUsersRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListApplyLinkMicUsersResponse
-     */
-    public function listApplyLinkMicUsersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->conferenceId)) {
-            $body['ConferenceId'] = $request->conferenceId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListApplyLinkMicUsers',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListApplyLinkMicUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListApplyLinkMicUsersRequest $request
-     *
-     * @return ListApplyLinkMicUsersResponse
-     */
-    public function listApplyLinkMicUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listApplyLinkMicUsersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAppsRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListAppsResponse
-     */
-    public function listAppsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appIds)) {
-            $body['AppIds'] = $request->appIds;
-        }
-        if (!Utils::isUnset($request->integrationMode)) {
-            $body['IntegrationMode'] = $request->integrationMode;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListApps',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListAppsRequest $request
-     *
-     * @return ListAppsResponse
-     */
-    public function listApps($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAppsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListClassesRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -2716,52 +1862,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCommentsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListComponentsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListComponentsResponse
-     */
-    public function listComponentsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->appTemplateId)) {
-            $body['AppTemplateId'] = $request->appTemplateId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListComponents',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListComponentsRequest $request
-     *
-     * @return ListComponentsResponse
-     */
-    public function listComponents($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listComponentsWithOptions($request, $runtime);
     }
 
     /**
@@ -3030,6 +2130,12 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3153,55 +2259,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->publishLiveRoomWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RejectLinkMicRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RejectLinkMicResponse
-     */
-    public function rejectLinkMicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->conferenceId)) {
-            $body['ConferenceId'] = $request->conferenceId;
-        }
-        if (!Utils::isUnset($request->fromUserId)) {
-            $body['FromUserId'] = $request->fromUserId;
-        }
-        if (!Utils::isUnset($request->toUserId)) {
-            $body['ToUserId'] = $request->toUserId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RejectLinkMic',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RejectLinkMicResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RejectLinkMicRequest $request
-     *
-     * @return RejectLinkMicResponse
-     */
-    public function rejectLinkMic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->rejectLinkMicWithOptions($request, $runtime);
     }
 
     /**
@@ -3619,160 +2676,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return UpdateAppResponse
-     */
-    public function updateAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->appStatus)) {
-            $body['AppStatus'] = $request->appStatus;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateApp',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateAppRequest $request
-     *
-     * @return UpdateAppResponse
-     */
-    public function updateApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateAppTemplateRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateAppTemplateResponse
-     */
-    public function updateAppTemplateWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateAppTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->componentList)) {
-            $request->componentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->componentList, 'ComponentList', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->appTemplateId)) {
-            $body['AppTemplateId'] = $request->appTemplateId;
-        }
-        if (!Utils::isUnset($request->appTemplateName)) {
-            $body['AppTemplateName'] = $request->appTemplateName;
-        }
-        if (!Utils::isUnset($request->componentListShrink)) {
-            $body['ComponentList'] = $request->componentListShrink;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateAppTemplate',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateAppTemplateRequest $request
-     *
-     * @return UpdateAppTemplateResponse
-     */
-    public function updateAppTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAppTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateAppTemplateConfigRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateAppTemplateConfigResponse
-     */
-    public function updateAppTemplateConfigWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateAppTemplateConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configList)) {
-            $request->configListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configList, 'ConfigList', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->appTemplateId)) {
-            $body['AppTemplateId'] = $request->appTemplateId;
-        }
-        if (!Utils::isUnset($request->configListShrink)) {
-            $body['ConfigList'] = $request->configListShrink;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateAppTemplateConfig',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateAppTemplateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateAppTemplateConfigRequest $request
-     *
-     * @return UpdateAppTemplateConfigResponse
-     */
-    public function updateAppTemplateConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAppTemplateConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateClassRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3825,52 +2728,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateClassWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateConferenceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateConferenceResponse
-     */
-    public function updateConferenceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->conferenceId)) {
-            $body['ConferenceId'] = $request->conferenceId;
-        }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateConference',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateConferenceRequest $request
-     *
-     * @return UpdateConferenceResponse
-     */
-    public function updateConference($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateConferenceWithOptions($request, $runtime);
     }
 
     /**
@@ -4058,23 +2915,41 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param VerifyDomainOwnerRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param UpdateShareScreenLayoutRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return VerifyDomainOwnerResponse
+     * @return UpdateShareScreenLayoutResponse
      */
-    public function verifyDomainOwnerWithOptions($request, $runtime)
+    public function updateShareScreenLayoutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->liveDomainName)) {
-            $body['LiveDomainName'] = $request->liveDomainName;
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->classId)) {
+            $body['ClassId'] = $request->classId;
+        }
+        if (!Utils::isUnset($request->enableOverlay)) {
+            $body['EnableOverlay'] = $request->enableOverlay;
+        }
+        if (!Utils::isUnset($request->overlayHeight)) {
+            $body['OverlayHeight'] = $request->overlayHeight;
+        }
+        if (!Utils::isUnset($request->overlayWidth)) {
+            $body['OverlayWidth'] = $request->overlayWidth;
+        }
+        if (!Utils::isUnset($request->overlayX)) {
+            $body['OverlayX'] = $request->overlayX;
+        }
+        if (!Utils::isUnset($request->overlayY)) {
+            $body['OverlayY'] = $request->overlayY;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VerifyDomainOwner',
+            'action'      => 'UpdateShareScreenLayout',
             'version'     => '2021-06-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -4085,18 +2960,18 @@ class Imp extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return VerifyDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateShareScreenLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VerifyDomainOwnerRequest $request
+     * @param UpdateShareScreenLayoutRequest $request
      *
-     * @return VerifyDomainOwnerResponse
+     * @return UpdateShareScreenLayoutResponse
      */
-    public function verifyDomainOwner($request)
+    public function updateShareScreenLayout($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->verifyDomainOwnerWithOptions($request, $runtime);
+        return $this->updateShareScreenLayoutWithOptions($request, $runtime);
     }
 }

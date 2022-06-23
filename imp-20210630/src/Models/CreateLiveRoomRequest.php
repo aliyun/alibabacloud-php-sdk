@@ -37,6 +37,13 @@ class CreateLiveRoomRequest extends Model
     public $coverUrl;
 
     /**
+     * @description 是否开启连麦。
+     *
+     * @var bool
+     */
+    public $enableLinkMic;
+
+    /**
      * @description 拓展字段，按需传递，需要额外记录的房间属性。最大支持4096个字节。
      *
      * @var string[]
@@ -64,14 +71,15 @@ class CreateLiveRoomRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'anchorId'   => 'AnchorId',
-        'anchorNick' => 'AnchorNick',
-        'appId'      => 'AppId',
-        'coverUrl'   => 'CoverUrl',
-        'extension'  => 'Extension',
-        'notice'     => 'Notice',
-        'title'      => 'Title',
-        'userId'     => 'UserId',
+        'anchorId'      => 'AnchorId',
+        'anchorNick'    => 'AnchorNick',
+        'appId'         => 'AppId',
+        'coverUrl'      => 'CoverUrl',
+        'enableLinkMic' => 'EnableLinkMic',
+        'extension'     => 'Extension',
+        'notice'        => 'Notice',
+        'title'         => 'Title',
+        'userId'        => 'UserId',
     ];
 
     public function validate()
@@ -92,6 +100,9 @@ class CreateLiveRoomRequest extends Model
         }
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
+        }
+        if (null !== $this->enableLinkMic) {
+            $res['EnableLinkMic'] = $this->enableLinkMic;
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
@@ -128,6 +139,9 @@ class CreateLiveRoomRequest extends Model
         }
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
+        }
+        if (isset($map['EnableLinkMic'])) {
+            $model->enableLinkMic = $map['EnableLinkMic'];
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];

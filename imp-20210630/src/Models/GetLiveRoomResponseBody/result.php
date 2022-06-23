@@ -46,6 +46,13 @@ class result extends Model
     public $chatId;
 
     /**
+     * @description 连麦会议唯一标识。
+     *
+     * @var string
+     */
+    public $confId;
+
+    /**
      * @description 封面。
      *
      * @var string
@@ -58,6 +65,13 @@ class result extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @description 是否开启连麦。
+     *
+     * @var bool
+     */
+    public $enableLinkMic;
 
     /**
      * @description 直播结束时间，单位：毫秒。
@@ -204,8 +218,10 @@ class result extends Model
         'appId'                  => 'AppId',
         'artcInfo'               => 'ArtcInfo',
         'chatId'                 => 'ChatId',
+        'confId'                 => 'ConfId',
         'coverUrl'               => 'CoverUrl',
         'createTime'             => 'CreateTime',
+        'enableLinkMic'          => 'EnableLinkMic',
         'endTime'                => 'EndTime',
         'extension'              => 'Extension',
         'hlsUrl'                 => 'HlsUrl',
@@ -250,11 +266,17 @@ class result extends Model
         if (null !== $this->chatId) {
             $res['ChatId'] = $this->chatId;
         }
+        if (null !== $this->confId) {
+            $res['ConfId'] = $this->confId;
+        }
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->enableLinkMic) {
+            $res['EnableLinkMic'] = $this->enableLinkMic;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -349,11 +371,17 @@ class result extends Model
         if (isset($map['ChatId'])) {
             $model->chatId = $map['ChatId'];
         }
+        if (isset($map['ConfId'])) {
+            $model->confId = $map['ConfId'];
+        }
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['EnableLinkMic'])) {
+            $model->enableLinkMic = $map['EnableLinkMic'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

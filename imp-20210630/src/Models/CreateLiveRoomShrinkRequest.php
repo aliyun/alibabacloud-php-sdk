@@ -37,6 +37,13 @@ class CreateLiveRoomShrinkRequest extends Model
     public $coverUrl;
 
     /**
+     * @description 是否开启连麦。
+     *
+     * @var bool
+     */
+    public $enableLinkMic;
+
+    /**
      * @description 拓展字段，按需传递，需要额外记录的房间属性。最大支持4096个字节。
      *
      * @var string
@@ -68,6 +75,7 @@ class CreateLiveRoomShrinkRequest extends Model
         'anchorNick'      => 'AnchorNick',
         'appId'           => 'AppId',
         'coverUrl'        => 'CoverUrl',
+        'enableLinkMic'   => 'EnableLinkMic',
         'extensionShrink' => 'Extension',
         'notice'          => 'Notice',
         'title'           => 'Title',
@@ -92,6 +100,9 @@ class CreateLiveRoomShrinkRequest extends Model
         }
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
+        }
+        if (null !== $this->enableLinkMic) {
+            $res['EnableLinkMic'] = $this->enableLinkMic;
         }
         if (null !== $this->extensionShrink) {
             $res['Extension'] = $this->extensionShrink;
@@ -128,6 +139,9 @@ class CreateLiveRoomShrinkRequest extends Model
         }
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
+        }
+        if (isset($map['EnableLinkMic'])) {
+            $model->enableLinkMic = $map['EnableLinkMic'];
         }
         if (isset($map['Extension'])) {
             $model->extensionShrink = $map['Extension'];
