@@ -6,14 +6,40 @@ namespace AlibabaCloud\SDK\CGCS\V20211111;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAdaptationRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAdaptationResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAdaptationShrinkRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppVersionRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppVersionRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAdaptationRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAdaptationResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppSessionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppSessionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppVersionRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppSessionsRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppSessionsResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppVersionRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyAppRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyAppResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyAppVersionRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyAppVersionResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\StopAppSessionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\StopAppSessionResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -25,7 +51,7 @@ class CGCS extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cgcs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -51,6 +77,103 @@ class CGCS extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateAdaptationRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAdaptationResponse
+     */
+    public function createAdaptationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAdaptationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->adaptTarget)) {
+            $request->adaptTargetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->adaptTarget), 'AdaptTarget', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->adaptTargetShrink)) {
+            $body['AdaptTarget'] = $request->adaptTargetShrink;
+        }
+        if (!Utils::isUnset($request->appVersionId)) {
+            $body['AppVersionId'] = $request->appVersionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAdaptation',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAdaptationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAdaptationRequest $request
+     *
+     * @return CreateAdaptationResponse
+     */
+    public function createAdaptation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAdaptationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAppResponse
+     */
+    public function createAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApp',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAppRequest $request
+     *
+     * @return CreateAppResponse
+     */
+    public function createApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppWithOptions($request, $runtime);
     }
 
     /**
@@ -121,6 +244,227 @@ class CGCS extends OpenApiClient
     }
 
     /**
+     * @param CreateAppVersionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAppVersionResponse
+     */
+    public function createAppVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appVersionName)) {
+            $body['AppVersionName'] = $request->appVersionName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppVersion',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAppVersionRequest $request
+     *
+     * @return CreateAppVersionResponse
+     */
+    public function createAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApp',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAppRequest $request
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAppVersionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteAppVersionResponse
+     */
+    public function deleteAppVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appVersionId)) {
+            $body['AppVersionId'] = $request->appVersionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppVersion',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAppVersionRequest $request
+     *
+     * @return DeleteAppVersionResponse
+     */
+    public function deleteAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAdaptationRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAdaptationResponse
+     */
+    public function getAdaptationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->adaptApplyId)) {
+            $body['AdaptApplyId'] = $request->adaptApplyId;
+        }
+        if (!Utils::isUnset($request->appVersionId)) {
+            $body['AppVersionId'] = $request->appVersionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAdaptation',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAdaptationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAdaptationRequest $request
+     *
+     * @return GetAdaptationResponse
+     */
+    public function getAdaptation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAdaptationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAppRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAppResponse
+     */
+    public function getAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApp',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAppRequest $request
+     *
+     * @return GetAppResponse
+     */
+    public function getApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAppSessionRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -164,6 +508,98 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAppVersionRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAppVersionResponse
+     */
+    public function getAppVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appVersionId)) {
+            $body['AppVersionId'] = $request->appVersionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppVersion',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAppVersionRequest $request
+     *
+     * @return GetAppVersionResponse
+     */
+    public function getAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAppRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAppResponse
+     */
+    public function listAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->keySearch)) {
+            $body['KeySearch'] = $request->keySearch;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApp',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAppRequest $request
+     *
+     * @return ListAppResponse
+     */
+    public function listApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppWithOptions($request, $runtime);
     }
 
     /**
@@ -219,6 +655,147 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppSessionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAppVersionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAppVersionResponse
+     */
+    public function listAppVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAppVersion',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAppVersionRequest $request
+     *
+     * @return ListAppVersionResponse
+     */
+    public function listAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ModifyAppResponse
+     */
+    public function modifyAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApp',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAppRequest $request
+     *
+     * @return ModifyAppResponse
+     */
+    public function modifyApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAppVersionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyAppVersionResponse
+     */
+    public function modifyAppVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appVersionId)) {
+            $body['AppVersionId'] = $request->appVersionId;
+        }
+        if (!Utils::isUnset($request->appVersionName)) {
+            $body['AppVersionName'] = $request->appVersionName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAppVersion',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAppVersionRequest $request
+     *
+     * @return ModifyAppVersionResponse
+     */
+    public function modifyAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppVersionWithOptions($request, $runtime);
     }
 
     /**
