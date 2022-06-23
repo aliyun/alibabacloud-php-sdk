@@ -79,6 +79,20 @@ class DescribeSuspEventsRequest extends Model
     public $operateErrorCodeList;
 
     /**
+     * @description 处理时间结束时间
+     *
+     * @var int
+     */
+    public $operateTimeEnd;
+
+    /**
+     * @description 处理时间开始时间
+     *
+     * @var int
+     */
+    public $operateTimeStart;
+
+    /**
      * @var string
      */
     public $pageSize;
@@ -142,6 +156,8 @@ class DescribeSuspEventsRequest extends Model
         'levels'               => 'Levels',
         'name'                 => 'Name',
         'operateErrorCodeList' => 'OperateErrorCodeList',
+        'operateTimeEnd'       => 'OperateTimeEnd',
+        'operateTimeStart'     => 'OperateTimeStart',
         'pageSize'             => 'PageSize',
         'parentEventTypes'     => 'ParentEventTypes',
         'remark'               => 'Remark',
@@ -202,6 +218,12 @@ class DescribeSuspEventsRequest extends Model
         }
         if (null !== $this->operateErrorCodeList) {
             $res['OperateErrorCodeList'] = $this->operateErrorCodeList;
+        }
+        if (null !== $this->operateTimeEnd) {
+            $res['OperateTimeEnd'] = $this->operateTimeEnd;
+        }
+        if (null !== $this->operateTimeStart) {
+            $res['OperateTimeStart'] = $this->operateTimeStart;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -288,6 +310,12 @@ class DescribeSuspEventsRequest extends Model
             if (!empty($map['OperateErrorCodeList'])) {
                 $model->operateErrorCodeList = $map['OperateErrorCodeList'];
             }
+        }
+        if (isset($map['OperateTimeEnd'])) {
+            $model->operateTimeEnd = $map['OperateTimeEnd'];
+        }
+        if (isset($map['OperateTimeStart'])) {
+            $model->operateTimeStart = $map['OperateTimeStart'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

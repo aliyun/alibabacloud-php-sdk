@@ -17,6 +17,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyShrinkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
@@ -269,6 +273,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ExportWarningResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulStatisticsRequest;
@@ -737,6 +743,104 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFileDetectRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateFileDetectResponse
+     */
+    public function createFileDetectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hashKey)) {
+            $query['HashKey'] = $request->hashKey;
+        }
+        if (!Utils::isUnset($request->ossKey)) {
+            $query['OssKey'] = $request->ossKey;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFileDetect',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFileDetectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFileDetectRequest $request
+     *
+     * @return CreateFileDetectResponse
+     */
+    public function createFileDetect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileDetectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFileDetectUploadUrlRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateFileDetectUploadUrlResponse
+     */
+    public function createFileDetectUploadUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hashKeyList)) {
+            $query['HashKeyList'] = $request->hashKeyList;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFileDetectUploadUrl',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFileDetectUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFileDetectUploadUrlRequest $request
+     *
+     * @return CreateFileDetectUploadUrlResponse
+     */
+    public function createFileDetectUploadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileDetectUploadUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -1582,6 +1686,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->uniqueInfo)) {
             $query['UniqueInfo'] = $request->uniqueInfo;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6677,6 +6784,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->operateErrorCodeList)) {
             $query['OperateErrorCodeList'] = $request->operateErrorCodeList;
         }
+        if (!Utils::isUnset($request->operateTimeEnd)) {
+            $query['OperateTimeEnd'] = $request->operateTimeEnd;
+        }
+        if (!Utils::isUnset($request->operateTimeStart)) {
+            $query['OperateTimeStart'] = $request->operateTimeStart;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -7849,6 +7962,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBackupStorageCountWithOptions($runtime);
+    }
+
+    /**
+     * @param GetFileDetectResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetFileDetectResultResponse
+     */
+    public function getFileDetectResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hashKeyList)) {
+            $query['HashKeyList'] = $request->hashKeyList;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFileDetectResult',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFileDetectResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFileDetectResultRequest $request
+     *
+     * @return GetFileDetectResultResponse
+     */
+    public function getFileDetectResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileDetectResultWithOptions($request, $runtime);
     }
 
     /**

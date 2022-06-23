@@ -11,9 +11,21 @@ class assetsSummary extends Model
     /**
      * @var int
      */
+    public $totalAssetAllRegion;
+
+    /**
+     * @var int
+     */
+    public $totalCoreAllRegion;
+
+    /**
+     * @var int
+     */
     public $totalCoreNum;
     protected $_name = [
-        'totalCoreNum' => 'TotalCoreNum',
+        'totalAssetAllRegion' => 'TotalAssetAllRegion',
+        'totalCoreAllRegion'  => 'TotalCoreAllRegion',
+        'totalCoreNum'        => 'TotalCoreNum',
     ];
 
     public function validate()
@@ -23,6 +35,12 @@ class assetsSummary extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->totalAssetAllRegion) {
+            $res['TotalAssetAllRegion'] = $this->totalAssetAllRegion;
+        }
+        if (null !== $this->totalCoreAllRegion) {
+            $res['TotalCoreAllRegion'] = $this->totalCoreAllRegion;
+        }
         if (null !== $this->totalCoreNum) {
             $res['TotalCoreNum'] = $this->totalCoreNum;
         }
@@ -38,6 +56,12 @@ class assetsSummary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TotalAssetAllRegion'])) {
+            $model->totalAssetAllRegion = $map['TotalAssetAllRegion'];
+        }
+        if (isset($map['TotalCoreAllRegion'])) {
+            $model->totalCoreAllRegion = $map['TotalCoreAllRegion'];
+        }
         if (isset($map['TotalCoreNum'])) {
             $model->totalCoreNum = $map['TotalCoreNum'];
         }

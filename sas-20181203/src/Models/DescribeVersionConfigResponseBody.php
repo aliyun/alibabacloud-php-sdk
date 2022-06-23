@@ -51,6 +51,11 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var bool
      */
+    public $isNewContainerVersion;
+
+    /**
+     * @var bool
+     */
     public $isOverBalance;
 
     /**
@@ -72,6 +77,11 @@ class DescribeVersionConfigResponseBody extends Model
      * @var int
      */
     public $MVUnusedAuthCount;
+
+    /**
+     * @var int
+     */
+    public $openTime;
 
     /**
      * @var int
@@ -131,11 +141,13 @@ class DescribeVersionConfigResponseBody extends Model
         'honeypotCapacity'      => 'HoneypotCapacity',
         'imageScanCapacity'     => 'ImageScanCapacity',
         'instanceId'            => 'InstanceId',
+        'isNewContainerVersion' => 'IsNewContainerVersion',
         'isOverBalance'         => 'IsOverBalance',
         'isTrialVersion'        => 'IsTrialVersion',
         'lastTrailEndTime'      => 'LastTrailEndTime',
         'MVAuthCount'           => 'MVAuthCount',
         'MVUnusedAuthCount'     => 'MVUnusedAuthCount',
+        'openTime'              => 'OpenTime',
         'releaseTime'           => 'ReleaseTime',
         'requestId'             => 'RequestId',
         'sasLog'                => 'SasLog',
@@ -179,6 +191,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->isNewContainerVersion) {
+            $res['IsNewContainerVersion'] = $this->isNewContainerVersion;
+        }
         if (null !== $this->isOverBalance) {
             $res['IsOverBalance'] = $this->isOverBalance;
         }
@@ -193,6 +208,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->MVUnusedAuthCount) {
             $res['MVUnusedAuthCount'] = $this->MVUnusedAuthCount;
+        }
+        if (null !== $this->openTime) {
+            $res['OpenTime'] = $this->openTime;
         }
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
@@ -260,6 +278,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['IsNewContainerVersion'])) {
+            $model->isNewContainerVersion = $map['IsNewContainerVersion'];
+        }
         if (isset($map['IsOverBalance'])) {
             $model->isOverBalance = $map['IsOverBalance'];
         }
@@ -274,6 +295,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['MVUnusedAuthCount'])) {
             $model->MVUnusedAuthCount = $map['MVUnusedAuthCount'];
+        }
+        if (isset($map['OpenTime'])) {
+            $model->openTime = $map['OpenTime'];
         }
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];

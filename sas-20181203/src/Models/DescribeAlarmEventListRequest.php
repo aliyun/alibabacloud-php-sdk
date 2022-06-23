@@ -82,6 +82,11 @@ class DescribeAlarmEventListRequest extends Model
      * @var string
      */
     public $uniqueInfo;
+
+    /**
+     * @var string
+     */
+    public $uuids;
     protected $_name = [
         'alarmEventName'       => 'AlarmEventName',
         'alarmEventType'       => 'AlarmEventType',
@@ -98,6 +103,7 @@ class DescribeAlarmEventListRequest extends Model
         'sourceIp'             => 'SourceIp',
         'tacticId'             => 'TacticId',
         'uniqueInfo'           => 'UniqueInfo',
+        'uuids'                => 'Uuids',
     ];
 
     public function validate()
@@ -151,6 +157,9 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (null !== $this->uniqueInfo) {
             $res['UniqueInfo'] = $this->uniqueInfo;
+        }
+        if (null !== $this->uuids) {
+            $res['Uuids'] = $this->uuids;
         }
 
         return $res;
@@ -210,6 +219,9 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (isset($map['UniqueInfo'])) {
             $model->uniqueInfo = $map['UniqueInfo'];
+        }
+        if (isset($map['Uuids'])) {
+            $model->uuids = $map['Uuids'];
         }
 
         return $model;
