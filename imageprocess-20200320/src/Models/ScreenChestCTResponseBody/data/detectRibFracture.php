@@ -15,6 +15,11 @@ class detectRibFracture extends Model
     public $detections;
 
     /**
+     * @var string
+     */
+    public $fractureMaskURL;
+
+    /**
      * @var float[]
      */
     public $origin;
@@ -25,14 +30,21 @@ class detectRibFracture extends Model
     public $resultURL;
 
     /**
+     * @var string
+     */
+    public $ribSegmentMaskURL;
+
+    /**
      * @var float[]
      */
     public $spacing;
     protected $_name = [
-        'detections' => 'Detections',
-        'origin'     => 'Origin',
-        'resultURL'  => 'ResultURL',
-        'spacing'    => 'Spacing',
+        'detections'        => 'Detections',
+        'fractureMaskURL'   => 'FractureMaskURL',
+        'origin'            => 'Origin',
+        'resultURL'         => 'ResultURL',
+        'ribSegmentMaskURL' => 'RibSegmentMaskURL',
+        'spacing'           => 'Spacing',
     ];
 
     public function validate()
@@ -51,11 +63,17 @@ class detectRibFracture extends Model
                 }
             }
         }
+        if (null !== $this->fractureMaskURL) {
+            $res['FractureMaskURL'] = $this->fractureMaskURL;
+        }
         if (null !== $this->origin) {
             $res['Origin'] = $this->origin;
         }
         if (null !== $this->resultURL) {
             $res['ResultURL'] = $this->resultURL;
+        }
+        if (null !== $this->ribSegmentMaskURL) {
+            $res['RibSegmentMaskURL'] = $this->ribSegmentMaskURL;
         }
         if (null !== $this->spacing) {
             $res['Spacing'] = $this->spacing;
@@ -81,6 +99,9 @@ class detectRibFracture extends Model
                 }
             }
         }
+        if (isset($map['FractureMaskURL'])) {
+            $model->fractureMaskURL = $map['FractureMaskURL'];
+        }
         if (isset($map['Origin'])) {
             if (!empty($map['Origin'])) {
                 $model->origin = $map['Origin'];
@@ -88,6 +109,9 @@ class detectRibFracture extends Model
         }
         if (isset($map['ResultURL'])) {
             $model->resultURL = $map['ResultURL'];
+        }
+        if (isset($map['RibSegmentMaskURL'])) {
+            $model->ribSegmentMaskURL = $map['RibSegmentMaskURL'];
         }
         if (isset($map['Spacing'])) {
             if (!empty($map['Spacing'])) {
