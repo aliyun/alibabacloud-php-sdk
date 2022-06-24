@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AbolishApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AbolishApiResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddAccessControlListEntryRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddAccessControlListEntryResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddIpControlPolicyItemRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddIpControlPolicyItemResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddTrafficSpecialControlRequest;
@@ -18,6 +20,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\BatchAbolishApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\BatchAbolishApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\BatchDeployApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\BatchDeployApisResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAccessControlListRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAccessControlListResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiGroupRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiGroupResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiRequest;
@@ -48,6 +52,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateSignatureRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateSignatureResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateTrafficControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateTrafficControlResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAccessControlListRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAccessControlListResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAllTrafficSpecialControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAllTrafficSpecialControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteApiGroupRequest;
@@ -88,6 +94,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeployApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeployApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAbolishApiTaskRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAbolishApiTaskResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAccessControlListAttributeRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAccessControlListAttributeResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAccessControlListsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAccessControlListsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiDocRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiDocResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiGroupRequest;
@@ -202,9 +212,13 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachPluginRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachPluginResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DisableInstanceAccessControlRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DisableInstanceAccessControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerShrinkRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\EnableInstanceAccessControlRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\EnableInstanceAccessControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerShrinkRequest;
@@ -243,6 +257,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyTrafficControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\OpenApiGatewayServiceResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ReactivateDomainRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ReactivateDomainResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\RemoveAccessControlListEntryRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\RemoveAccessControlListEntryResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\RemoveApisAuthoritiesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\RemoveApisAuthoritiesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\RemoveAppsAuthoritiesRequest;
@@ -410,6 +426,55 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->abolishApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddAccessControlListEntryRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddAccessControlListEntryResponse
+     */
+    public function addAccessControlListEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclEntrys)) {
+            $query['AclEntrys'] = $request->aclEntrys;
+        }
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAccessControlListEntry',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddAccessControlListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddAccessControlListEntryRequest $request
+     *
+     * @return AddAccessControlListEntryResponse
+     */
+    public function addAccessControlListEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAccessControlListEntryWithOptions($request, $runtime);
     }
 
     /**
@@ -673,6 +738,52 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchDeployApisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAccessControlListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAccessControlListResponse
+     */
+    public function createAccessControlListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccessControlList',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAccessControlListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAccessControlListRequest $request
+     *
+     * @return CreateAccessControlListResponse
+     */
+    public function createAccessControlList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAccessControlListWithOptions($request, $runtime);
     }
 
     /**
@@ -1576,6 +1687,52 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTrafficControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAccessControlListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAccessControlListResponse
+     */
+    public function deleteAccessControlListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccessControlList',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccessControlListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAccessControlListRequest $request
+     *
+     * @return DeleteAccessControlListResponse
+     */
+    public function deleteAccessControlList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccessControlListWithOptions($request, $runtime);
     }
 
     /**
@@ -2547,6 +2704,104 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAbolishApiTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAccessControlListAttributeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeAccessControlListAttributeResponse
+     */
+    public function describeAccessControlListAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessControlListAttribute',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccessControlListAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccessControlListAttributeRequest $request
+     *
+     * @return DescribeAccessControlListAttributeResponse
+     */
+    public function describeAccessControlListAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessControlListAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAccessControlListsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeAccessControlListsResponse
+     */
+    public function describeAccessControlListsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessControlLists',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccessControlListsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccessControlListsRequest $request
+     *
+     * @return DescribeAccessControlListsResponse
+     */
+    public function describeAccessControlLists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessControlListsWithOptions($request, $runtime);
     }
 
     /**
@@ -5640,6 +5895,55 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @param DisableInstanceAccessControlRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DisableInstanceAccessControlResponse
+     */
+    public function disableInstanceAccessControlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableInstanceAccessControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableInstanceAccessControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableInstanceAccessControlRequest $request
+     *
+     * @return DisableInstanceAccessControlResponse
+     */
+    public function disableInstanceAccessControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableInstanceAccessControlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DryRunSwaggerRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
@@ -5702,6 +6006,58 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dryRunSwaggerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableInstanceAccessControlRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return EnableInstanceAccessControlResponse
+     */
+    public function enableInstanceAccessControlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableInstanceAccessControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableInstanceAccessControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableInstanceAccessControlRequest $request
+     *
+     * @return EnableInstanceAccessControlResponse
+     */
+    public function enableInstanceAccessControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableInstanceAccessControlWithOptions($request, $runtime);
     }
 
     /**
@@ -6918,6 +7274,55 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->reactivateDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveAccessControlListEntryRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RemoveAccessControlListEntryResponse
+     */
+    public function removeAccessControlListEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclEntrys)) {
+            $query['AclEntrys'] = $request->aclEntrys;
+        }
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveAccessControlListEntry',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveAccessControlListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveAccessControlListEntryRequest $request
+     *
+     * @return RemoveAccessControlListEntryResponse
+     */
+    public function removeAccessControlListEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeAccessControlListEntryWithOptions($request, $runtime);
     }
 
     /**

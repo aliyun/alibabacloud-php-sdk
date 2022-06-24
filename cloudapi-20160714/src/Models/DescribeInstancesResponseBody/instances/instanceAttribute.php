@@ -12,6 +12,26 @@ class instanceAttribute extends Model
     /**
      * @var string
      */
+    public $aclId;
+
+    /**
+     * @var string
+     */
+    public $aclName;
+
+    /**
+     * @var string
+     */
+    public $aclStatus;
+
+    /**
+     * @var string
+     */
+    public $aclType;
+
+    /**
+     * @var string
+     */
     public $classicEgressAddress;
 
     /**
@@ -134,6 +154,10 @@ class instanceAttribute extends Model
      */
     public $zoneLocalName;
     protected $_name = [
+        'aclId'                  => 'AclId',
+        'aclName'                => 'AclName',
+        'aclStatus'              => 'AclStatus',
+        'aclType'                => 'AclType',
         'classicEgressAddress'   => 'ClassicEgressAddress',
         'createdTime'            => 'CreatedTime',
         'egressIpv6Enable'       => 'EgressIpv6Enable',
@@ -168,6 +192,18 @@ class instanceAttribute extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
+        }
+        if (null !== $this->aclName) {
+            $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->aclStatus) {
+            $res['AclStatus'] = $this->aclStatus;
+        }
+        if (null !== $this->aclType) {
+            $res['AclType'] = $this->aclType;
+        }
         if (null !== $this->classicEgressAddress) {
             $res['ClassicEgressAddress'] = $this->classicEgressAddress;
         }
@@ -255,6 +291,18 @@ class instanceAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
+        }
+        if (isset($map['AclName'])) {
+            $model->aclName = $map['AclName'];
+        }
+        if (isset($map['AclStatus'])) {
+            $model->aclStatus = $map['AclStatus'];
+        }
+        if (isset($map['AclType'])) {
+            $model->aclType = $map['AclType'];
+        }
         if (isset($map['ClassicEgressAddress'])) {
             $model->classicEgressAddress = $map['ClassicEgressAddress'];
         }
