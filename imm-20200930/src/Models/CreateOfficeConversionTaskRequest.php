@@ -203,6 +203,13 @@ class CreateOfficeConversionTaskRequest extends Model
     public $targetType;
 
     /**
+     * @description 文档转换输出地址模式
+     *
+     * @var string
+     */
+    public $targetURI;
+
+    /**
      * @description 文档转换输出文件地址前缀
      *
      * @var string
@@ -251,6 +258,7 @@ class CreateOfficeConversionTaskRequest extends Model
         'startPage'        => 'StartPage',
         'tags'             => 'Tags',
         'targetType'       => 'TargetType',
+        'targetURI'        => 'TargetURI',
         'targetURIPrefix'  => 'TargetURIPrefix',
         'trimPolicy'       => 'TrimPolicy',
         'userData'         => 'UserData',
@@ -346,6 +354,9 @@ class CreateOfficeConversionTaskRequest extends Model
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
+        }
+        if (null !== $this->targetURI) {
+            $res['TargetURI'] = $this->targetURI;
         }
         if (null !== $this->targetURIPrefix) {
             $res['TargetURIPrefix'] = $this->targetURIPrefix;
@@ -451,6 +462,9 @@ class CreateOfficeConversionTaskRequest extends Model
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
+        }
+        if (isset($map['TargetURI'])) {
+            $model->targetURI = $map['TargetURI'];
         }
         if (isset($map['TargetURIPrefix'])) {
             $model->targetURIPrefix = $map['TargetURIPrefix'];

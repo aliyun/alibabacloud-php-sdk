@@ -1041,6 +1041,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->targetType)) {
             $query['TargetType'] = $request->targetType;
         }
+        if (!Utils::isUnset($request->targetURI)) {
+            $query['TargetURI'] = $request->targetURI;
+        }
         if (!Utils::isUnset($request->targetURIPrefix)) {
             $query['TargetURIPrefix'] = $request->targetURIPrefix;
         }
