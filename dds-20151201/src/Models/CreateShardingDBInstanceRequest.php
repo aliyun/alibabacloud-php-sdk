@@ -52,6 +52,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
+     * @var string
+     */
+    public $hiddenZoneId;
+
+    /**
      * @var mongos[]
      */
     public $mongos;
@@ -114,6 +119,11 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $secondaryZoneId;
+
+    /**
+     * @var string
+     */
     public $securityIPList;
 
     /**
@@ -154,6 +164,7 @@ class CreateShardingDBInstanceRequest extends Model
         'DBInstanceDescription' => 'DBInstanceDescription',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
+        'hiddenZoneId'          => 'HiddenZoneId',
         'mongos'                => 'Mongos',
         'networkType'           => 'NetworkType',
         'ownerAccount'          => 'OwnerAccount',
@@ -166,6 +177,7 @@ class CreateShardingDBInstanceRequest extends Model
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'restoreTime'           => 'RestoreTime',
+        'secondaryZoneId'       => 'SecondaryZoneId',
         'securityIPList'        => 'SecurityIPList',
         'securityToken'         => 'SecurityToken',
         'srcDBInstanceId'       => 'SrcDBInstanceId',
@@ -211,6 +223,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->hiddenZoneId) {
+            $res['HiddenZoneId'] = $this->hiddenZoneId;
         }
         if (null !== $this->mongos) {
             $res['Mongos'] = [];
@@ -259,6 +274,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
+        }
+        if (null !== $this->secondaryZoneId) {
+            $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
@@ -323,6 +341,9 @@ class CreateShardingDBInstanceRequest extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
+        if (isset($map['HiddenZoneId'])) {
+            $model->hiddenZoneId = $map['HiddenZoneId'];
+        }
         if (isset($map['Mongos'])) {
             if (!empty($map['Mongos'])) {
                 $model->mongos = [];
@@ -370,6 +391,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
+        }
+        if (isset($map['SecondaryZoneId'])) {
+            $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];

@@ -16,6 +16,11 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @var string
      */
+    public $disableTlsProtocol;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -44,6 +49,7 @@ class ModifyDBInstanceSSLRequest extends Model
     public $securityToken;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
+        'disableTlsProtocol'   => 'DisableTlsProtocol',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -61,6 +67,9 @@ class ModifyDBInstanceSSLRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->disableTlsProtocol) {
+            $res['DisableTlsProtocol'] = $this->disableTlsProtocol;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -94,6 +103,9 @@ class ModifyDBInstanceSSLRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DisableTlsProtocol'])) {
+            $model->disableTlsProtocol = $map['DisableTlsProtocol'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

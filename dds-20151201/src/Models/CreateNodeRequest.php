@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $accountPassword;
+
+    /**
      * @var bool
      */
     public $autoPay;
@@ -77,7 +87,14 @@ class CreateNodeRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var bool
+     */
+    public $shardDirect;
     protected $_name = [
+        'accountName'          => 'AccountName',
+        'accountPassword'      => 'AccountPassword',
         'autoPay'              => 'AutoPay',
         'businessInfo'         => 'BusinessInfo',
         'clientToken'          => 'ClientToken',
@@ -92,6 +109,7 @@ class CreateNodeRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'shardDirect'          => 'ShardDirect',
     ];
 
     public function validate()
@@ -101,6 +119,12 @@ class CreateNodeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountPassword) {
+            $res['AccountPassword'] = $this->accountPassword;
+        }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
@@ -143,6 +167,9 @@ class CreateNodeRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+        if (null !== $this->shardDirect) {
+            $res['ShardDirect'] = $this->shardDirect;
+        }
 
         return $res;
     }
@@ -155,6 +182,12 @@ class CreateNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountPassword'])) {
+            $model->accountPassword = $map['AccountPassword'];
+        }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
@@ -196,6 +229,9 @@ class CreateNodeRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['ShardDirect'])) {
+            $model->shardDirect = $map['ShardDirect'];
         }
 
         return $model;

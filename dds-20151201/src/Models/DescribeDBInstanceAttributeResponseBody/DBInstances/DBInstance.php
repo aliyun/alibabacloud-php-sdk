@@ -91,6 +91,11 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $hiddenZoneId;
+
+    /**
+     * @var string
+     */
     public $kindCode;
 
     /**
@@ -174,6 +179,11 @@ class DBInstance extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $secondaryZoneId;
+
+    /**
      * @var shardList
      */
     public $shardList;
@@ -228,6 +238,7 @@ class DBInstance extends Model
         'engine'                      => 'Engine',
         'engineVersion'               => 'EngineVersion',
         'expireTime'                  => 'ExpireTime',
+        'hiddenZoneId'                => 'HiddenZoneId',
         'kindCode'                    => 'KindCode',
         'lastDowngradeTime'           => 'LastDowngradeTime',
         'lockMode'                    => 'LockMode',
@@ -245,6 +256,7 @@ class DBInstance extends Model
         'replicaSets'                 => 'ReplicaSets',
         'replicationFactor'           => 'ReplicationFactor',
         'resourceGroupId'             => 'ResourceGroupId',
+        'secondaryZoneId'             => 'SecondaryZoneId',
         'shardList'                   => 'ShardList',
         'storageEngine'               => 'StorageEngine',
         'tags'                        => 'Tags',
@@ -307,6 +319,9 @@ class DBInstance extends Model
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+        if (null !== $this->hiddenZoneId) {
+            $res['HiddenZoneId'] = $this->hiddenZoneId;
+        }
         if (null !== $this->kindCode) {
             $res['KindCode'] = $this->kindCode;
         }
@@ -357,6 +372,9 @@ class DBInstance extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->secondaryZoneId) {
+            $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
         if (null !== $this->shardList) {
             $res['ShardList'] = null !== $this->shardList ? $this->shardList->toMap() : null;
@@ -439,6 +457,9 @@ class DBInstance extends Model
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+        if (isset($map['HiddenZoneId'])) {
+            $model->hiddenZoneId = $map['HiddenZoneId'];
+        }
         if (isset($map['KindCode'])) {
             $model->kindCode = $map['KindCode'];
         }
@@ -489,6 +510,9 @@ class DBInstance extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SecondaryZoneId'])) {
+            $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
         if (isset($map['ShardList'])) {
             $model->shardList = shardList::fromMap($map['ShardList']);
