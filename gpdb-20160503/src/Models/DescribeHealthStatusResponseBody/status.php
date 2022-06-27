@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\stat
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgDiskStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgDiskUsagePercent;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgMasterDiskUsagePercentMax;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgMasterStatus;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgSegmentStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\nodeMasterConnectionStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\nodeMasterStatus;
@@ -44,6 +46,16 @@ class status extends Model
     public $adbpgMasterDiskUsagePercentMax;
 
     /**
+     * @var adbpgMasterStatus
+     */
+    public $adbpgMasterStatus;
+
+    /**
+     * @var adbpgSegmentStatus
+     */
+    public $adbpgSegmentStatus;
+
+    /**
      * @var adbpgStatus
      */
     public $adbpgStatus;
@@ -73,6 +85,8 @@ class status extends Model
         'adbpgDiskStatus'                 => 'adbpg_disk_status',
         'adbpgDiskUsagePercent'           => 'adbpg_disk_usage_percent',
         'adbpgMasterDiskUsagePercentMax'  => 'adbpg_master_disk_usage_percent_max',
+        'adbpgMasterStatus'               => 'adbpg_master_status',
+        'adbpgSegmentStatus'              => 'adbpg_segment_status',
         'adbpgStatus'                     => 'adbpg_status',
         'nodeMasterConnectionStatus'      => 'node_master_connection_status',
         'nodeMasterStatus'                => 'node_master_status',
@@ -101,6 +115,12 @@ class status extends Model
         }
         if (null !== $this->adbpgMasterDiskUsagePercentMax) {
             $res['adbpg_master_disk_usage_percent_max'] = null !== $this->adbpgMasterDiskUsagePercentMax ? $this->adbpgMasterDiskUsagePercentMax->toMap() : null;
+        }
+        if (null !== $this->adbpgMasterStatus) {
+            $res['adbpg_master_status'] = null !== $this->adbpgMasterStatus ? $this->adbpgMasterStatus->toMap() : null;
+        }
+        if (null !== $this->adbpgSegmentStatus) {
+            $res['adbpg_segment_status'] = null !== $this->adbpgSegmentStatus ? $this->adbpgSegmentStatus->toMap() : null;
         }
         if (null !== $this->adbpgStatus) {
             $res['adbpg_status'] = null !== $this->adbpgStatus ? $this->adbpgStatus->toMap() : null;
@@ -143,6 +163,12 @@ class status extends Model
         }
         if (isset($map['adbpg_master_disk_usage_percent_max'])) {
             $model->adbpgMasterDiskUsagePercentMax = adbpgMasterDiskUsagePercentMax::fromMap($map['adbpg_master_disk_usage_percent_max']);
+        }
+        if (isset($map['adbpg_master_status'])) {
+            $model->adbpgMasterStatus = adbpgMasterStatus::fromMap($map['adbpg_master_status']);
+        }
+        if (isset($map['adbpg_segment_status'])) {
+            $model->adbpgSegmentStatus = adbpgSegmentStatus::fromMap($map['adbpg_segment_status']);
         }
         if (isset($map['adbpg_status'])) {
             $model->adbpgStatus = adbpgStatus::fromMap($map['adbpg_status']);

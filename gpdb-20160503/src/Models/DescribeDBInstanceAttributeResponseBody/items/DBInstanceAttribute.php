@@ -217,6 +217,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $runningTime;
+
+    /**
+     * @var string
+     */
     public $securityIPList;
 
     /**
@@ -228,6 +233,11 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $segmentCounts;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @var int
@@ -315,9 +325,11 @@ class DBInstanceAttribute extends Model
         'port'                  => 'Port',
         'readDelayTime'         => 'ReadDelayTime',
         'regionId'              => 'RegionId',
+        'runningTime'           => 'RunningTime',
         'securityIPList'        => 'SecurityIPList',
         'segNodeNum'            => 'SegNodeNum',
         'segmentCounts'         => 'SegmentCounts',
+        'startTime'             => 'StartTime',
         'storagePerNode'        => 'StoragePerNode',
         'storageSize'           => 'StorageSize',
         'storageType'           => 'StorageType',
@@ -459,6 +471,9 @@ class DBInstanceAttribute extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->runningTime) {
+            $res['RunningTime'] = $this->runningTime;
+        }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
@@ -467,6 +482,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->segmentCounts) {
             $res['SegmentCounts'] = $this->segmentCounts;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->storagePerNode) {
             $res['StoragePerNode'] = $this->storagePerNode;
@@ -630,6 +648,9 @@ class DBInstanceAttribute extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['RunningTime'])) {
+            $model->runningTime = $map['RunningTime'];
+        }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
         }
@@ -638,6 +659,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['SegmentCounts'])) {
             $model->segmentCounts = $map['SegmentCounts'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['StoragePerNode'])) {
             $model->storagePerNode = $map['StoragePerNode'];

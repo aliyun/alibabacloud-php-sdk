@@ -42,6 +42,16 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceAttributeResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceDataBloatRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceDataBloatResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceDataSkewRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceDataSkewResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceDiagnosisSummaryRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceDiagnosisSummaryResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceErrorLogRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceErrorLogResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceIndexUsageRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceIndexUsageResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceIPArrayListRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceIPArrayListResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoRequest;
@@ -57,6 +67,16 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisDimensionsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisDimensionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisMonitorPerformanceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisMonitorPerformanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisRecordsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisSQLInfoRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisSQLInfoResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsRequest;
@@ -97,6 +117,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionRequest;
@@ -1067,6 +1089,232 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBInstanceDataBloatRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDBInstanceDataBloatResponse
+     */
+    public function describeDBInstanceDataBloatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceDataBloat',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceDataBloatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceDataBloatRequest $request
+     *
+     * @return DescribeDBInstanceDataBloatResponse
+     */
+    public function describeDBInstanceDataBloat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceDataBloatWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstanceDataSkewRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBInstanceDataSkewResponse
+     */
+    public function describeDBInstanceDataSkewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceDataSkew',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceDataSkewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceDataSkewRequest $request
+     *
+     * @return DescribeDBInstanceDataSkewResponse
+     */
+    public function describeDBInstanceDataSkew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceDataSkewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstanceDiagnosisSummaryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDBInstanceDiagnosisSummaryResponse
+     */
+    public function describeDBInstanceDiagnosisSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->rolePreferd)) {
+            $query['RolePreferd'] = $request->rolePreferd;
+        }
+        if (!Utils::isUnset($request->startStatus)) {
+            $query['StartStatus'] = $request->startStatus;
+        }
+        if (!Utils::isUnset($request->syncMode)) {
+            $query['SyncMode'] = $request->syncMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceDiagnosisSummary',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceDiagnosisSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceDiagnosisSummaryRequest $request
+     *
+     * @return DescribeDBInstanceDiagnosisSummaryResponse
+     */
+    public function describeDBInstanceDiagnosisSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceDiagnosisSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstanceErrorLogRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBInstanceErrorLogResponse
+     */
+    public function describeDBInstanceErrorLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->keywords)) {
+            $query['Keywords'] = $request->keywords;
+        }
+        if (!Utils::isUnset($request->logLevel)) {
+            $query['LogLevel'] = $request->logLevel;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceErrorLog',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceErrorLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceErrorLogRequest $request
+     *
+     * @return DescribeDBInstanceErrorLogResponse
+     */
+    public function describeDBInstanceErrorLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceErrorLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBInstanceIPArrayListRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1107,6 +1355,55 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceIPArrayListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstanceIndexUsageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDBInstanceIndexUsageResponse
+     */
+    public function describeDBInstanceIndexUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceIndexUsage',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceIndexUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceIndexUsageRequest $request
+     *
+     * @return DescribeDBInstanceIndexUsageResponse
+     */
+    public function describeDBInstanceIndexUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceIndexUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -1616,6 +1913,269 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDataSharePerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosisDimensionsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDiagnosisDimensionsResponse
+     */
+    public function describeDiagnosisDimensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnosisDimensions',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiagnosisDimensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosisDimensionsRequest $request
+     *
+     * @return DescribeDiagnosisDimensionsResponse
+     */
+    public function describeDiagnosisDimensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosisDimensionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosisMonitorPerformanceRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeDiagnosisMonitorPerformanceResponse
+     */
+    public function describeDiagnosisMonitorPerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnosisMonitorPerformance',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiagnosisMonitorPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosisMonitorPerformanceRequest $request
+     *
+     * @return DescribeDiagnosisMonitorPerformanceResponse
+     */
+    public function describeDiagnosisMonitorPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosisMonitorPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosisRecordsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDiagnosisRecordsResponse
+     */
+    public function describeDiagnosisRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnosisRecords',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiagnosisRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosisRecordsRequest $request
+     *
+     * @return DescribeDiagnosisRecordsResponse
+     */
+    public function describeDiagnosisRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosisRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosisSQLInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDiagnosisSQLInfoResponse
+     */
+    public function describeDiagnosisSQLInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->queryID)) {
+            $query['QueryID'] = $request->queryID;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnosisSQLInfo',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiagnosisSQLInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosisSQLInfoRequest $request
+     *
+     * @return DescribeDiagnosisSQLInfoResponse
+     */
+    public function describeDiagnosisSQLInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosisSQLInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDownloadRecordsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDownloadRecordsResponse
+     */
+    public function describeDownloadRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDownloadRecords',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDownloadRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDownloadRecordsRequest $request
+     *
+     * @return DescribeDownloadRecordsResponse
+     */
+    public function describeDownloadRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -2761,6 +3321,67 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserEncryptionKeyListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DownloadDiagnosisRecordsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DownloadDiagnosisRecordsResponse
+     */
+    public function downloadDiagnosisRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadDiagnosisRecords',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadDiagnosisRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DownloadDiagnosisRecordsRequest $request
+     *
+     * @return DownloadDiagnosisRecordsResponse
+     */
+    public function downloadDiagnosisRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadDiagnosisRecordsWithOptions($request, $runtime);
     }
 
     /**
