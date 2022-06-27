@@ -68,6 +68,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListContainerStatusRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListContainerStatusResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListDeployableInstancesRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListDeployableInstancesResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListGameServerIpRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListGameServerIpResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListGamesRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListGamesResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListGameVersionsRequest;
@@ -1676,6 +1678,52 @@ class CloudGameAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDeployableInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGameServerIpRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListGameServerIpResponse
+     */
+    public function listGameServerIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGameServerIp',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGameServerIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGameServerIpRequest $request
+     *
+     * @return ListGameServerIpResponse
+     */
+    public function listGameServerIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGameServerIpWithOptions($request, $runtime);
     }
 
     /**
