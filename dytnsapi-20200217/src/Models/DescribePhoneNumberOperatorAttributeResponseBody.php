@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationResponseBody\data;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOperatorAttributeResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ThreeElementsVerificationResponseBody extends Model
+class DescribePhoneNumberOperatorAttributeResponseBody extends Model
 {
     /**
      * @var string
@@ -61,7 +61,7 @@ class ThreeElementsVerificationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ThreeElementsVerificationResponseBody
+     * @return DescribePhoneNumberOperatorAttributeResponseBody
      */
     public static function fromMap($map = [])
     {
