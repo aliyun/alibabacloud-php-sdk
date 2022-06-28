@@ -27,12 +27,16 @@ use AlibabaCloud\SDK\XgipPop\V20220520\Models\ModifyApplicationRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ModifyApplicationResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderFreeFlowProductRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderFreeFlowProductResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderQosProductRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderQosProductResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SaveApplicationInfoRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SaveApplicationInfoResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkValidateStatusRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkValidateStatusResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidateStatusRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidateStatusResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidControllerAuthorRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidControllerAuthorResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -585,6 +589,93 @@ class XgipPop extends OpenApiClient
     }
 
     /**
+     * @param OrderQosProductRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OrderQosProductResponse
+     */
+    public function orderQosProductWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->provice)) {
+            $query['Provice'] = $request->provice;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $body['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $body['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->IPv6)) {
+            $body['IPv6'] = $request->IPv6;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ipType)) {
+            $body['IpType'] = $request->ipType;
+        }
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $body['MobileNumber'] = $request->mobileNumber;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $body['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->privateIpv4)) {
+            $body['PrivateIpv4'] = $request->privateIpv4;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $body['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->publicIpv4)) {
+            $body['PublicIpv4'] = $request->publicIpv4;
+        }
+        if (!Utils::isUnset($request->qosRequestId)) {
+            $body['QosRequestId'] = $request->qosRequestId;
+        }
+        if (!Utils::isUnset($request->targetIpList)) {
+            $body['TargetIpList'] = $request->targetIpList;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->unitNum)) {
+            $body['UnitNum'] = $request->unitNum;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'OrderQosProduct',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OrderQosProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OrderQosProductRequest $request
+     *
+     * @return OrderQosProductResponse
+     */
+    public function orderQosProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->orderQosProductWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveApplicationInfoRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -680,6 +771,46 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sdkValidateStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ValidControllerAuthorRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ValidControllerAuthorResponse
+     */
+    public function validControllerAuthorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidControllerAuthor',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ValidControllerAuthorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ValidControllerAuthorRequest $request
+     *
+     * @return ValidControllerAuthorResponse
+     */
+    public function validControllerAuthor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validControllerAuthorWithOptions($request, $runtime);
     }
 
     /**
