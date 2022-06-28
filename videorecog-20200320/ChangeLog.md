@@ -1,3 +1,6 @@
+2022-06-28 Version: 1.0.4
+- Update RecognizeVideoCastCrewList.
+
 2022-03-14 Version: 1.0.3
 - AMP version.
 

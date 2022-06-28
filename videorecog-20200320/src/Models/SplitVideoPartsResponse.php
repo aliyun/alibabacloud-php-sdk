@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Videorecog\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAsyncJobResultResponse extends Model
+class SplitVideoPartsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetAsyncJobResultResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetAsyncJobResultResponseBody
+     * @var SplitVideoPartsResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class GetAsyncJobResultResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetAsyncJobResultResponse
+     * @return SplitVideoPartsResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class GetAsyncJobResultResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetAsyncJobResultResponseBody::fromMap($map['body']);
+            $model->body = SplitVideoPartsResponseBody::fromMap($map['body']);
         }
 
         return $model;
