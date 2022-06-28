@@ -49,6 +49,11 @@ class items extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $savingsType;
@@ -71,6 +76,7 @@ class items extends Model
         'discountRate'     => 'DiscountRate',
         'endTime'          => 'EndTime',
         'instanceId'       => 'InstanceId',
+        'ownerId'          => 'OwnerId',
         'savingsType'      => 'SavingsType',
         'startTime'        => 'StartTime',
         'userId'           => 'UserId',
@@ -106,6 +112,9 @@ class items extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->savingsType) {
             $res['SavingsType'] = $this->savingsType;
@@ -151,6 +160,9 @@ class items extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SavingsType'])) {
             $model->savingsType = $map['SavingsType'];
