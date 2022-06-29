@@ -8148,6 +8148,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->isForce)) {
             $query['IsForce'] = $request->isForce;
         }
+        if (!Utils::isUnset($request->isHttpRedirectToHttps)) {
+            $query['IsHttpRedirectToHttps'] = $request->isHttpRedirectToHttps;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

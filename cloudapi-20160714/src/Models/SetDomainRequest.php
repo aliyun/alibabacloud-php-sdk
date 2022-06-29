@@ -32,12 +32,18 @@ class SetDomainRequest extends Model
      * @var bool
      */
     public $isForce;
+
+    /**
+     * @var bool
+     */
+    public $isHttpRedirectToHttps;
     protected $_name = [
-        'bindStageName'    => 'BindStageName',
-        'customDomainType' => 'CustomDomainType',
-        'domainName'       => 'DomainName',
-        'groupId'          => 'GroupId',
-        'isForce'          => 'IsForce',
+        'bindStageName'         => 'BindStageName',
+        'customDomainType'      => 'CustomDomainType',
+        'domainName'            => 'DomainName',
+        'groupId'               => 'GroupId',
+        'isForce'               => 'IsForce',
+        'isHttpRedirectToHttps' => 'IsHttpRedirectToHttps',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class SetDomainRequest extends Model
         }
         if (null !== $this->isForce) {
             $res['IsForce'] = $this->isForce;
+        }
+        if (null !== $this->isHttpRedirectToHttps) {
+            $res['IsHttpRedirectToHttps'] = $this->isHttpRedirectToHttps;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class SetDomainRequest extends Model
         }
         if (isset($map['IsForce'])) {
             $model->isForce = $map['IsForce'];
+        }
+        if (isset($map['IsHttpRedirectToHttps'])) {
+            $model->isHttpRedirectToHttps = $map['IsHttpRedirectToHttps'];
         }
 
         return $model;
