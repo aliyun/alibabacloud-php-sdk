@@ -15,9 +15,19 @@ class QuerySmsSignListResponseBody extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -28,11 +38,19 @@ class QuerySmsSignListResponseBody extends Model
      * @var smsSignList[]
      */
     public $smsSignList;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'code'        => 'Code',
+        'currentPage' => 'CurrentPage',
         'message'     => 'Message',
+        'pageSize'    => 'PageSize',
         'requestId'   => 'RequestId',
         'smsSignList' => 'SmsSignList',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -45,8 +63,14 @@ class QuerySmsSignListResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -59,6 +83,9 @@ class QuerySmsSignListResponseBody extends Model
                     $res['SmsSignList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,8 +102,14 @@ class QuerySmsSignListResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -89,6 +122,9 @@ class QuerySmsSignListResponseBody extends Model
                     $model->smsSignList[$n++] = null !== $item ? smsSignList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
