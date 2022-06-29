@@ -2737,6 +2737,12 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->xFcAccountId)) {
             $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),

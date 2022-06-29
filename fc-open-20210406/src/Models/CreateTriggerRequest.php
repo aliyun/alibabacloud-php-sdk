@@ -35,9 +35,7 @@ class CreateTriggerRequest extends Model
     public $sourceArn;
 
     /**
-     * @description trigger配置，针对不同的trigger类型，trigger配置会有所不同
-     *
-     * @var string
+     * @var mixed
      */
     public $triggerConfig;
 
