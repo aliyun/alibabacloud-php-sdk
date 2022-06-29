@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowProjectUserRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowProjectUserResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteLibrariesRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteLibrariesResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeClusterV2Request;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeClusterV2Response;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowCategoryTreeRequest;
@@ -46,6 +48,8 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeLibraryDetailRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeLibraryDetailResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeLibraryInstallTaskDetailRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeLibraryInstallTaskDetailResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\InstallLibrariesRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\InstallLibrariesResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\KillFlowJobRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\KillFlowJobResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListClustersRequest;
@@ -60,6 +64,8 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowProjectUserRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowProjectUserResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibrariesRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibrariesResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibraryInstallTasksRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibraryInstallTasksResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibraryStatusRequest;
@@ -84,6 +90,8 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\SubmitFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\SubmitFlowResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\UninstallLibrariesRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\UninstallLibrariesResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\UpdateLibraryInstallTaskStatusRequest;
@@ -1002,6 +1010,55 @@ class Ddi extends OpenApiClient
     }
 
     /**
+     * @param DeleteLibrariesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteLibrariesResponse
+     */
+    public function deleteLibrariesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->libraryBizIdList)) {
+            $query['LibraryBizIdList'] = $request->libraryBizIdList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLibraries',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLibrariesRequest $request
+     *
+     * @return DeleteLibrariesResponse
+     */
+    public function deleteLibraries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLibrariesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeClusterV2Request $request
      * @param RuntimeOptions           $runtime
      *
@@ -1397,6 +1454,58 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLibraryInstallTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InstallLibrariesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InstallLibrariesResponse
+     */
+    public function installLibrariesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterBizIdList)) {
+            $query['ClusterBizIdList'] = $request->clusterBizIdList;
+        }
+        if (!Utils::isUnset($request->libraryBizId)) {
+            $query['LibraryBizId'] = $request->libraryBizId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallLibraries',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InstallLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InstallLibrariesRequest $request
+     *
+     * @return InstallLibrariesResponse
+     */
+    public function installLibraries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installLibrariesWithOptions($request, $runtime);
     }
 
     /**
@@ -1848,6 +1957,76 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFlowProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLibrariesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListLibrariesResponse
+     */
+    public function listLibrariesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterBizId)) {
+            $query['ClusterBizId'] = $request->clusterBizId;
+        }
+        if (!Utils::isUnset($request->currentSize)) {
+            $query['CurrentSize'] = $request->currentSize;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->orderField)) {
+            $query['OrderField'] = $request->orderField;
+        }
+        if (!Utils::isUnset($request->orderMode)) {
+            $query['OrderMode'] = $request->orderMode;
+        }
+        if (!Utils::isUnset($request->pageCount)) {
+            $query['PageCount'] = $request->pageCount;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLibraries',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLibrariesRequest $request
+     *
+     * @return ListLibrariesResponse
+     */
+    public function listLibraries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLibrariesWithOptions($request, $runtime);
     }
 
     /**
@@ -2604,6 +2783,58 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UninstallLibrariesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UninstallLibrariesResponse
+     */
+    public function uninstallLibrariesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterBizIdList)) {
+            $query['ClusterBizIdList'] = $request->clusterBizIdList;
+        }
+        if (!Utils::isUnset($request->libraryBizId)) {
+            $query['LibraryBizId'] = $request->libraryBizId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UninstallLibraries',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UninstallLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UninstallLibrariesRequest $request
+     *
+     * @return UninstallLibrariesResponse
+     */
+    public function uninstallLibraries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallLibrariesWithOptions($request, $runtime);
     }
 
     /**
