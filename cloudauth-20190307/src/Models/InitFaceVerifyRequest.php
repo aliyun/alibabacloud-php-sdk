@@ -56,6 +56,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $encryptType;
+
+    /**
+     * @var string
+     */
     public $faceContrastPicture;
 
     /**
@@ -127,6 +132,7 @@ class InitFaceVerifyRequest extends Model
         'certifyId'              => 'CertifyId',
         'certifyUrlType'         => 'CertifyUrlType',
         'crop'                   => 'Crop',
+        'encryptType'            => 'EncryptType',
         'faceContrastPicture'    => 'FaceContrastPicture',
         'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
         'ip'                     => 'Ip',
@@ -175,6 +181,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
+        }
+        if (null !== $this->encryptType) {
+            $res['EncryptType'] = $this->encryptType;
         }
         if (null !== $this->faceContrastPicture) {
             $res['FaceContrastPicture'] = $this->faceContrastPicture;
@@ -253,6 +262,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];
+        }
+        if (isset($map['EncryptType'])) {
+            $model->encryptType = $map['EncryptType'];
         }
         if (isset($map['FaceContrastPicture'])) {
             $model->faceContrastPicture = $map['FaceContrastPicture'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudauth\V20190307;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFaceVerifyRequest;
@@ -20,7 +21,6 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyResponse;
-use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultResponse;
@@ -45,14 +45,14 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
-use AlibabaCloud\Tea\RpcUtils\RpcUtils;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Cloudauth extends Rpc
+class Cloudauth extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -63,16 +63,96 @@ class Cloudauth extends Rpc
     }
 
     /**
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    {
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
+
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
      * @param CompareFaceVerifyRequest $request
      * @param RuntimeOptions           $runtime
      *
      * @return CompareFaceVerifyResponse
      */
-    public function compareFaceVerify($request, $runtime)
+    public function compareFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->crop)) {
+            $body['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->outerOrderNo)) {
+            $body['OuterOrderNo'] = $request->outerOrderNo;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $body['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->sourceCertifyId)) {
+            $body['SourceCertifyId'] = $request->sourceCertifyId;
+        }
+        if (!Utils::isUnset($request->sourceFaceContrastPicture)) {
+            $body['SourceFaceContrastPicture'] = $request->sourceFaceContrastPicture;
+        }
+        if (!Utils::isUnset($request->sourceFaceContrastPictureUrl)) {
+            $body['SourceFaceContrastPictureUrl'] = $request->sourceFaceContrastPictureUrl;
+        }
+        if (!Utils::isUnset($request->sourceOssBucketName)) {
+            $body['SourceOssBucketName'] = $request->sourceOssBucketName;
+        }
+        if (!Utils::isUnset($request->sourceOssObjectName)) {
+            $body['SourceOssObjectName'] = $request->sourceOssObjectName;
+        }
+        if (!Utils::isUnset($request->targetCertifyId)) {
+            $body['TargetCertifyId'] = $request->targetCertifyId;
+        }
+        if (!Utils::isUnset($request->targetFaceContrastPicture)) {
+            $body['TargetFaceContrastPicture'] = $request->targetFaceContrastPicture;
+        }
+        if (!Utils::isUnset($request->targetFaceContrastPictureUrl)) {
+            $body['TargetFaceContrastPictureUrl'] = $request->targetFaceContrastPictureUrl;
+        }
+        if (!Utils::isUnset($request->targetOssBucketName)) {
+            $body['TargetOssBucketName'] = $request->targetOssBucketName;
+        }
+        if (!Utils::isUnset($request->targetOssObjectName)) {
+            $body['TargetOssObjectName'] = $request->targetOssObjectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CompareFaceVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CompareFaceVerifyResponse::fromMap($this->doRequest('CompareFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CompareFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -80,11 +160,11 @@ class Cloudauth extends Rpc
      *
      * @return CompareFaceVerifyResponse
      */
-    public function compareFaceVerifySimply($request)
+    public function compareFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->compareFaceVerify($request, $runtime);
+        return $this->compareFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -93,11 +173,38 @@ class Cloudauth extends Rpc
      *
      * @return CompareFacesResponse
      */
-    public function compareFaces($request, $runtime)
+    public function compareFacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->sourceImageType)) {
+            $body['SourceImageType'] = $request->sourceImageType;
+        }
+        if (!Utils::isUnset($request->sourceImageValue)) {
+            $body['SourceImageValue'] = $request->sourceImageValue;
+        }
+        if (!Utils::isUnset($request->targetImageType)) {
+            $body['TargetImageType'] = $request->targetImageType;
+        }
+        if (!Utils::isUnset($request->targetImageValue)) {
+            $body['TargetImageValue'] = $request->targetImageValue;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CompareFaces',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CompareFacesResponse::fromMap($this->doRequest('CompareFaces', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CompareFacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -105,11 +212,11 @@ class Cloudauth extends Rpc
      *
      * @return CompareFacesResponse
      */
-    public function compareFacesSimply($request)
+    public function compareFaces($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->compareFaces($request, $runtime);
+        return $this->compareFacesWithOptions($request, $runtime);
     }
 
     /**
@@ -118,11 +225,85 @@ class Cloudauth extends Rpc
      *
      * @return ContrastFaceVerifyResponse
      */
-    public function contrastFaceVerify($request, $runtime)
+    public function contrastFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->certName)) {
+            $body['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certNo)) {
+            $body['CertNo'] = $request->certNo;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $body['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->certifyId)) {
+            $body['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->crop)) {
+            $body['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->deviceToken)) {
+            $body['DeviceToken'] = $request->deviceToken;
+        }
+        if (!Utils::isUnset($request->encryptType)) {
+            $body['EncryptType'] = $request->encryptType;
+        }
+        if (!Utils::isUnset($request->faceContrastFile)) {
+            $body['FaceContrastFile'] = $request->faceContrastFile;
+        }
+        if (!Utils::isUnset($request->faceContrastPicture)) {
+            $body['FaceContrastPicture'] = $request->faceContrastPicture;
+        }
+        if (!Utils::isUnset($request->faceContrastPictureUrl)) {
+            $body['FaceContrastPictureUrl'] = $request->faceContrastPictureUrl;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $body['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $body['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $body['OssBucketName'] = $request->ossBucketName;
+        }
+        if (!Utils::isUnset($request->ossObjectName)) {
+            $body['OssObjectName'] = $request->ossObjectName;
+        }
+        if (!Utils::isUnset($request->outerOrderNo)) {
+            $body['OuterOrderNo'] = $request->outerOrderNo;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $body['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ContrastFaceVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ContrastFaceVerifyResponse::fromMap($this->doRequest('ContrastFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return ContrastFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -130,11 +311,11 @@ class Cloudauth extends Rpc
      *
      * @return ContrastFaceVerifyResponse
      */
-    public function contrastFaceVerifySimply($request)
+    public function contrastFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->contrastFaceVerify($request, $runtime);
+        return $this->contrastFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -148,9 +329,9 @@ class Cloudauth extends Rpc
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
@@ -183,13 +364,13 @@ class Cloudauth extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
         $contrastFaceVerifyReq = new ContrastFaceVerifyRequest([]);
-        RpcUtils::convert($request, $contrastFaceVerifyReq);
+        OpenApiUtilClient::convert($request, $contrastFaceVerifyReq);
         if (!Utils::isUnset($request->faceContrastFileObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->objectKey,
@@ -212,7 +393,7 @@ class Cloudauth extends Rpc
             $contrastFaceVerifyReq->faceContrastFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
         }
 
-        return $this->contrastFaceVerify($contrastFaceVerifyReq, $runtime);
+        return $this->contrastFaceVerifyWithOptions($contrastFaceVerifyReq, $runtime);
     }
 
     /**
@@ -221,11 +402,38 @@ class Cloudauth extends Rpc
      *
      * @return CreateAuthKeyResponse
      */
-    public function createAuthKey($request, $runtime)
+    public function createAuthKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authYears)) {
+            $query['AuthYears'] = $request->authYears;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->test)) {
+            $query['Test'] = $request->test;
+        }
+        if (!Utils::isUnset($request->userDeviceId)) {
+            $query['UserDeviceId'] = $request->userDeviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAuthKey',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateAuthKeyResponse::fromMap($this->doRequest('CreateAuthKey', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateAuthKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -233,11 +441,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateAuthKeyResponse
      */
-    public function createAuthKeySimply($request)
+    public function createAuthKey($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createAuthKey($request, $runtime);
+        return $this->createAuthKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -246,11 +454,44 @@ class Cloudauth extends Rpc
      *
      * @return CreateVerifySettingResponse
      */
-    public function createVerifySetting($request, $runtime)
+    public function createVerifySettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizName)) {
+            $query['BizName'] = $request->bizName;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->guideStep)) {
+            $query['GuideStep'] = $request->guideStep;
+        }
+        if (!Utils::isUnset($request->privacyStep)) {
+            $query['PrivacyStep'] = $request->privacyStep;
+        }
+        if (!Utils::isUnset($request->resultStep)) {
+            $query['ResultStep'] = $request->resultStep;
+        }
+        if (!Utils::isUnset($request->solution)) {
+            $query['Solution'] = $request->solution;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVerifySetting',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateVerifySettingResponse::fromMap($this->doRequest('CreateVerifySetting', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return CreateVerifySettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -258,11 +499,11 @@ class Cloudauth extends Rpc
      *
      * @return CreateVerifySettingResponse
      */
-    public function createVerifySettingSimply($request)
+    public function createVerifySetting($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createVerifySetting($request, $runtime);
+        return $this->createVerifySettingWithOptions($request, $runtime);
     }
 
     /**
@@ -271,11 +512,47 @@ class Cloudauth extends Rpc
      *
      * @return DescribeDeviceInfoResponse
      */
-    public function describeDeviceInfo($request, $runtime)
+    public function describeDeviceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->expiredEndDay)) {
+            $query['ExpiredEndDay'] = $request->expiredEndDay;
+        }
+        if (!Utils::isUnset($request->expiredStartDay)) {
+            $query['ExpiredStartDay'] = $request->expiredStartDay;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userDeviceId)) {
+            $query['UserDeviceId'] = $request->userDeviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeviceInfo',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeDeviceInfoResponse::fromMap($this->doRequest('DescribeDeviceInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -283,11 +560,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeDeviceInfoResponse
      */
-    public function describeDeviceInfoSimply($request)
+    public function describeDeviceInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDeviceInfo($request, $runtime);
+        return $this->describeDeviceInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -296,11 +573,35 @@ class Cloudauth extends Rpc
      *
      * @return DescribeFaceVerifyResponse
      */
-    public function describeFaceVerify($request, $runtime)
+    public function describeFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certifyId)) {
+            $query['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->pictureReturnType)) {
+            $query['PictureReturnType'] = $request->pictureReturnType;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFaceVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeFaceVerifyResponse::fromMap($this->doRequest('DescribeFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -308,36 +609,44 @@ class Cloudauth extends Rpc
      *
      * @return DescribeFaceVerifyResponse
      */
-    public function describeFaceVerifySimply($request)
+    public function describeFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeFaceVerify($request, $runtime);
+        return $this->describeFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeOssUploadTokenRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeOssUploadTokenResponse
      */
-    public function describeOssUploadToken($request, $runtime)
+    public function describeOssUploadTokenWithOptions($runtime)
     {
-        Utils::validateModel($request);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeOssUploadToken',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeOssUploadTokenResponse::fromMap($this->doRequest('DescribeOssUploadToken', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeOssUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeOssUploadTokenRequest $request
-     *
      * @return DescribeOssUploadTokenResponse
      */
-    public function describeOssUploadTokenSimply($request)
+    public function describeOssUploadToken()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeOssUploadToken($request, $runtime);
+        return $this->describeOssUploadTokenWithOptions($runtime);
     }
 
     /**
@@ -346,11 +655,32 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyResultResponse
      */
-    public function describeVerifyResult($request, $runtime)
+    public function describeVerifyResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVerifyResult',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeVerifyResultResponse::fromMap($this->doRequest('DescribeVerifyResult', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -358,11 +688,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyResultResponse
      */
-    public function describeVerifyResultSimply($request)
+    public function describeVerifyResult($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifyResult($request, $runtime);
+        return $this->describeVerifyResultWithOptions($request, $runtime);
     }
 
     /**
@@ -371,11 +701,29 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifySDKResponse
      */
-    public function describeVerifySDK($request, $runtime)
+    public function describeVerifySDKWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVerifySDK',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeVerifySDKResponse::fromMap($this->doRequest('DescribeVerifySDK', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifySDKResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -383,11 +731,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifySDKResponse
      */
-    public function describeVerifySDKSimply($request)
+    public function describeVerifySDK($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifySDK($request, $runtime);
+        return $this->describeVerifySDKWithOptions($request, $runtime);
     }
 
     /**
@@ -396,11 +744,71 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyTokenResponse
      */
-    public function describeVerifyToken($request, $runtime)
+    public function describeVerifyTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->callbackSeed)) {
+            $query['CallbackSeed'] = $request->callbackSeed;
+        }
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $query['CallbackUrl'] = $request->callbackUrl;
+        }
+        if (!Utils::isUnset($request->faceRetainedImageUrl)) {
+            $query['FaceRetainedImageUrl'] = $request->faceRetainedImageUrl;
+        }
+        if (!Utils::isUnset($request->failedRedirectUrl)) {
+            $query['FailedRedirectUrl'] = $request->failedRedirectUrl;
+        }
+        if (!Utils::isUnset($request->idCardBackImageUrl)) {
+            $query['IdCardBackImageUrl'] = $request->idCardBackImageUrl;
+        }
+        if (!Utils::isUnset($request->idCardFrontImageUrl)) {
+            $query['IdCardFrontImageUrl'] = $request->idCardFrontImageUrl;
+        }
+        if (!Utils::isUnset($request->idCardNumber)) {
+            $query['IdCardNumber'] = $request->idCardNumber;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->passedRedirectUrl)) {
+            $query['PassedRedirectUrl'] = $request->passedRedirectUrl;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userIp)) {
+            $query['UserIp'] = $request->userIp;
+        }
+        if (!Utils::isUnset($request->userPhoneNumber)) {
+            $query['UserPhoneNumber'] = $request->userPhoneNumber;
+        }
+        if (!Utils::isUnset($request->userRegistTime)) {
+            $query['UserRegistTime'] = $request->userRegistTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVerifyToken',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeVerifyTokenResponse::fromMap($this->doRequest('DescribeVerifyToken', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DescribeVerifyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -408,11 +816,11 @@ class Cloudauth extends Rpc
      *
      * @return DescribeVerifyTokenResponse
      */
-    public function describeVerifyTokenSimply($request)
+    public function describeVerifyToken($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVerifyToken($request, $runtime);
+        return $this->describeVerifyTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -421,11 +829,32 @@ class Cloudauth extends Rpc
      *
      * @return DetectFaceAttributesResponse
      */
-    public function detectFaceAttributes($request, $runtime)
+    public function detectFaceAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $body['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->materialValue)) {
+            $body['MaterialValue'] = $request->materialValue;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectFaceAttributes',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DetectFaceAttributesResponse::fromMap($this->doRequest('DetectFaceAttributes', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return DetectFaceAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -433,11 +862,11 @@ class Cloudauth extends Rpc
      *
      * @return DetectFaceAttributesResponse
      */
-    public function detectFaceAttributesSimply($request)
+    public function detectFaceAttributes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->detectFaceAttributes($request, $runtime);
+        return $this->detectFaceAttributesWithOptions($request, $runtime);
     }
 
     /**
@@ -446,11 +875,97 @@ class Cloudauth extends Rpc
      *
      * @return InitFaceVerifyResponse
      */
-    public function initFaceVerify($request, $runtime)
+    public function initFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callbackToken)) {
+            $query['CallbackToken'] = $request->callbackToken;
+        }
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $query['CallbackUrl'] = $request->callbackUrl;
+        }
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certNo)) {
+            $query['CertNo'] = $request->certNo;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->certifyId)) {
+            $query['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->certifyUrlType)) {
+            $query['CertifyUrlType'] = $request->certifyUrlType;
+        }
+        if (!Utils::isUnset($request->encryptType)) {
+            $query['EncryptType'] = $request->encryptType;
+        }
+        if (!Utils::isUnset($request->faceContrastPictureUrl)) {
+            $query['FaceContrastPictureUrl'] = $request->faceContrastPictureUrl;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->metaInfo)) {
+            $query['MetaInfo'] = $request->metaInfo;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $query['OssBucketName'] = $request->ossBucketName;
+        }
+        if (!Utils::isUnset($request->ossObjectName)) {
+            $query['OssObjectName'] = $request->ossObjectName;
+        }
+        if (!Utils::isUnset($request->outerOrderNo)) {
+            $query['OuterOrderNo'] = $request->outerOrderNo;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->returnUrl)) {
+            $query['ReturnUrl'] = $request->returnUrl;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->authId)) {
+            $body['AuthId'] = $request->authId;
+        }
+        if (!Utils::isUnset($request->crop)) {
+            $body['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->faceContrastPicture)) {
+            $body['FaceContrastPicture'] = $request->faceContrastPicture;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $body['Model'] = $request->model;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InitFaceVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return InitFaceVerifyResponse::fromMap($this->doRequest('InitFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return InitFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -458,11 +973,11 @@ class Cloudauth extends Rpc
      *
      * @return InitFaceVerifyResponse
      */
-    public function initFaceVerifySimply($request)
+    public function initFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->initFaceVerify($request, $runtime);
+        return $this->initFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -471,11 +986,70 @@ class Cloudauth extends Rpc
      *
      * @return LivenessFaceVerifyResponse
      */
-    public function livenessFaceVerify($request, $runtime)
+    public function livenessFaceVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->certifyId)) {
+            $body['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->crop)) {
+            $body['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->deviceToken)) {
+            $body['DeviceToken'] = $request->deviceToken;
+        }
+        if (!Utils::isUnset($request->faceContrastPicture)) {
+            $body['FaceContrastPicture'] = $request->faceContrastPicture;
+        }
+        if (!Utils::isUnset($request->faceContrastPictureUrl)) {
+            $body['FaceContrastPictureUrl'] = $request->faceContrastPictureUrl;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $body['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $body['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $body['OssBucketName'] = $request->ossBucketName;
+        }
+        if (!Utils::isUnset($request->ossObjectName)) {
+            $body['OssObjectName'] = $request->ossObjectName;
+        }
+        if (!Utils::isUnset($request->outerOrderNo)) {
+            $body['OuterOrderNo'] = $request->outerOrderNo;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $body['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'LivenessFaceVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return LivenessFaceVerifyResponse::fromMap($this->doRequest('LivenessFaceVerify', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return LivenessFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -483,11 +1057,11 @@ class Cloudauth extends Rpc
      *
      * @return LivenessFaceVerifyResponse
      */
-    public function livenessFaceVerifySimply($request)
+    public function livenessFaceVerify($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->livenessFaceVerify($request, $runtime);
+        return $this->livenessFaceVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -496,11 +1070,41 @@ class Cloudauth extends Rpc
      *
      * @return ModifyDeviceInfoResponse
      */
-    public function modifyDeviceInfo($request, $runtime)
+    public function modifyDeviceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->expiredDay)) {
+            $query['ExpiredDay'] = $request->expiredDay;
+        }
+        if (!Utils::isUnset($request->userDeviceId)) {
+            $query['UserDeviceId'] = $request->userDeviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDeviceInfo',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyDeviceInfoResponse::fromMap($this->doRequest('ModifyDeviceInfo', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return ModifyDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -508,11 +1112,11 @@ class Cloudauth extends Rpc
      *
      * @return ModifyDeviceInfoResponse
      */
-    public function modifyDeviceInfoSimply($request)
+    public function modifyDeviceInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyDeviceInfo($request, $runtime);
+        return $this->modifyDeviceInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -521,11 +1125,50 @@ class Cloudauth extends Rpc
      *
      * @return VerifyMaterialResponse
      */
-    public function verifyMaterial($request, $runtime)
+    public function verifyMaterialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->faceImageUrl)) {
+            $query['FaceImageUrl'] = $request->faceImageUrl;
+        }
+        if (!Utils::isUnset($request->idCardBackImageUrl)) {
+            $query['IdCardBackImageUrl'] = $request->idCardBackImageUrl;
+        }
+        if (!Utils::isUnset($request->idCardFrontImageUrl)) {
+            $query['IdCardFrontImageUrl'] = $request->idCardFrontImageUrl;
+        }
+        if (!Utils::isUnset($request->idCardNumber)) {
+            $query['IdCardNumber'] = $request->idCardNumber;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyMaterial',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return VerifyMaterialResponse::fromMap($this->doRequest('VerifyMaterial', 'HTTPS', 'POST', '2019-03-07', 'AK', null, Tea::merge($request), $runtime));
+        return VerifyMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -533,33 +1176,10 @@ class Cloudauth extends Rpc
      *
      * @return VerifyMaterialResponse
      */
-    public function verifyMaterialSimply($request)
+    public function verifyMaterial($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->verifyMaterial($request, $runtime);
-    }
-
-    /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
-    {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
-
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return $this->verifyMaterialWithOptions($request, $runtime);
     }
 }

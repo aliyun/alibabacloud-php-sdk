@@ -41,6 +41,11 @@ class ContrastFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $encryptType;
+
+    /**
+     * @var string
+     */
     public $faceContrastFile;
 
     /**
@@ -104,6 +109,7 @@ class ContrastFaceVerifyRequest extends Model
         'certifyId'              => 'CertifyId',
         'crop'                   => 'Crop',
         'deviceToken'            => 'DeviceToken',
+        'encryptType'            => 'EncryptType',
         'faceContrastFile'       => 'FaceContrastFile',
         'faceContrastPicture'    => 'FaceContrastPicture',
         'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
@@ -142,6 +148,9 @@ class ContrastFaceVerifyRequest extends Model
         }
         if (null !== $this->deviceToken) {
             $res['DeviceToken'] = $this->deviceToken;
+        }
+        if (null !== $this->encryptType) {
+            $res['EncryptType'] = $this->encryptType;
         }
         if (null !== $this->faceContrastFile) {
             $res['FaceContrastFile'] = $this->faceContrastFile;
@@ -208,6 +217,9 @@ class ContrastFaceVerifyRequest extends Model
         }
         if (isset($map['DeviceToken'])) {
             $model->deviceToken = $map['DeviceToken'];
+        }
+        if (isset($map['EncryptType'])) {
+            $model->encryptType = $map['EncryptType'];
         }
         if (isset($map['FaceContrastFile'])) {
             $model->faceContrastFile = $map['FaceContrastFile'];
