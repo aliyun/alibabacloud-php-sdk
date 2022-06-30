@@ -12,21 +12,21 @@ class tagKeyValueParamList extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $key;
 
     /**
      * @var tagValueParamList[]
      */
     public $tagValueParamList;
-
-    /**
-     * @var string
-     */
-    public $description;
     protected $_name = [
+        'description'       => 'Description',
         'key'               => 'Key',
         'tagValueParamList' => 'TagValueParamList',
-        'description'       => 'Description',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class tagKeyValueParamList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -47,9 +50,6 @@ class tagKeyValueParamList extends Model
                     $res['TagValueParamList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class tagKeyValueParamList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
@@ -74,9 +77,6 @@ class tagKeyValueParamList extends Model
                     $model->tagValueParamList[$n++] = null !== $item ? tagValueParamList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
 
         return $model;

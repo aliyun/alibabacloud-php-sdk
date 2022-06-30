@@ -11,15 +11,15 @@ class tagValueParamList extends Model
     /**
      * @var string
      */
-    public $value;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $value;
     protected $_name = [
-        'value'       => 'Value',
         'description' => 'Description',
+        'value'       => 'Value',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class tagValueParamList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class tagValueParamList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponseBody extends Model
 {
     /**
+     * @var keys
+     */
+    public $keys;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -18,15 +23,10 @@ class ListTagKeysResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var keys
-     */
-    public $keys;
     protected $_name = [
+        'keys'      => 'Keys',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'keys'      => 'Keys',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ListTagKeysResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keys) {
+            $res['Keys'] = null !== $this->keys ? $this->keys->toMap() : null;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->keys) {
-            $res['Keys'] = null !== $this->keys ? $this->keys->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ListTagKeysResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Keys'])) {
+            $model->keys = keys::fromMap($map['Keys']);
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Keys'])) {
-            $model->keys = keys::fromMap($map['Keys']);
         }
 
         return $model;
