@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppSessionsResponseBody;
 
-use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppSessionsResponseBody\appSessions\bizInfo;
 use AlibabaCloud\Tea\Model;
 
 class appSessions extends Model
@@ -22,11 +21,6 @@ class appSessions extends Model
      * @var string
      */
     public $appVersion;
-
-    /**
-     * @var bizInfo[]
-     */
-    public $bizInfo;
 
     /**
      * @description 自定义会话id
@@ -51,7 +45,6 @@ class appSessions extends Model
     protected $_name = [
         'appId'             => 'AppId',
         'appVersion'        => 'AppVersion',
-        'bizInfo'           => 'BizInfo',
         'customSessionId'   => 'CustomSessionId',
         'platformSessionId' => 'PlatformSessionId',
         'status'            => 'Status',
@@ -69,15 +62,6 @@ class appSessions extends Model
         }
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
-        }
-        if (null !== $this->bizInfo) {
-            $res['BizInfo'] = [];
-            if (null !== $this->bizInfo && \is_array($this->bizInfo)) {
-                $n = 0;
-                foreach ($this->bizInfo as $item) {
-                    $res['BizInfo'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->customSessionId) {
             $res['CustomSessionId'] = $this->customSessionId;
@@ -105,15 +89,6 @@ class appSessions extends Model
         }
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
-        }
-        if (isset($map['BizInfo'])) {
-            if (!empty($map['BizInfo'])) {
-                $model->bizInfo = [];
-                $n              = 0;
-                foreach ($map['BizInfo'] as $item) {
-                    $model->bizInfo[$n++] = null !== $item ? bizInfo::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['CustomSessionId'])) {
             $model->customSessionId = $map['CustomSessionId'];

@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\CGCS\V20211111\Models;
 
-use AlibabaCloud\SDK\CGCS\V20211111\Models\StopAppSessionRequest\stopParam;
 use AlibabaCloud\Tea\Model;
 
 class StopAppSessionRequest extends Model
@@ -22,15 +21,9 @@ class StopAppSessionRequest extends Model
      * @var string
      */
     public $platformSessionId;
-
-    /**
-     * @var stopParam[]
-     */
-    public $stopParam;
     protected $_name = [
         'customSessionId'   => 'CustomSessionId',
         'platformSessionId' => 'PlatformSessionId',
-        'stopParam'         => 'StopParam',
     ];
 
     public function validate()
@@ -45,15 +38,6 @@ class StopAppSessionRequest extends Model
         }
         if (null !== $this->platformSessionId) {
             $res['PlatformSessionId'] = $this->platformSessionId;
-        }
-        if (null !== $this->stopParam) {
-            $res['StopParam'] = [];
-            if (null !== $this->stopParam && \is_array($this->stopParam)) {
-                $n = 0;
-                foreach ($this->stopParam as $item) {
-                    $res['StopParam'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -72,15 +56,6 @@ class StopAppSessionRequest extends Model
         }
         if (isset($map['PlatformSessionId'])) {
             $model->platformSessionId = $map['PlatformSessionId'];
-        }
-        if (isset($map['StopParam'])) {
-            if (!empty($map['StopParam'])) {
-                $model->stopParam = [];
-                $n                = 0;
-                foreach ($map['StopParam'] as $item) {
-                    $model->stopParam[$n++] = null !== $item ? stopParam::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;
