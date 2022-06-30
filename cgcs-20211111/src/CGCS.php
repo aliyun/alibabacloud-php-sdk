@@ -14,14 +14,23 @@ use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionShrinkRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionSyncRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionSyncResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppVersionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateCapacityReservationRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateCapacityReservationResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateDatasetDeployTaskRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateDatasetDeployTaskResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateProjectRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateProjectShrinkRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppVersionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteProjectRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAdaptationRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAdaptationResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppRequest;
@@ -32,6 +41,8 @@ use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppVersionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppVersionResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetDatasetResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetProjectRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetProjectResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppSessionsRequest;
@@ -42,8 +53,20 @@ use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyAppRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyAppVersionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyProjectRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyProjectResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ModifyProjectShrinkRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\PageQueryProjectAppsRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\PageQueryProjectAppsResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\PageQueryProjectRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\PageQueryProjectResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\QueryOfflineTaskProgressRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\QueryOfflineTaskProgressResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\RefreshDistrictMetaResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\StopAppSessionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\StopAppSessionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\SubmitOfflineTaskRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\SubmitOfflineTaskResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -266,6 +289,79 @@ class CGCS extends OpenApiClient
     }
 
     /**
+     * @param CreateAppSessionSyncRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateAppSessionSyncResponse
+     */
+    public function createAppSessionSyncWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['AppVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->clientIp)) {
+            $query['ClientIp'] = $request->clientIp;
+        }
+        if (!Utils::isUnset($request->customSessionId)) {
+            $query['CustomSessionId'] = $request->customSessionId;
+        }
+        if (!Utils::isUnset($request->customUserId)) {
+            $query['CustomUserId'] = $request->customUserId;
+        }
+        if (!Utils::isUnset($request->districtId)) {
+            $query['DistrictId'] = $request->districtId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->speedInfo)) {
+            $query['SpeedInfo'] = $request->speedInfo;
+        }
+        if (!Utils::isUnset($request->startParameters)) {
+            $query['StartParameters'] = $request->startParameters;
+        }
+        if (!Utils::isUnset($request->systemInfo)) {
+            $query['SystemInfo'] = $request->systemInfo;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppSessionSync',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppSessionSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAppSessionSyncRequest $request
+     *
+     * @return CreateAppSessionSyncResponse
+     */
+    public function createAppSessionSync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppSessionSyncWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateAppVersionRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -309,6 +405,67 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCapacityReservationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateCapacityReservationResponse
+     */
+    public function createCapacityReservationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['AppVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->districtId)) {
+            $query['DistrictId'] = $request->districtId;
+        }
+        if (!Utils::isUnset($request->expectResourceReadyTime)) {
+            $query['ExpectResourceReadyTime'] = $request->expectResourceReadyTime;
+        }
+        if (!Utils::isUnset($request->expectSessionCapacity)) {
+            $query['ExpectSessionCapacity'] = $request->expectSessionCapacity;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCapacityReservation',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCapacityReservationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCapacityReservationRequest $request
+     *
+     * @return CreateCapacityReservationResponse
+     */
+    public function createCapacityReservation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCapacityReservationWithOptions($request, $runtime);
     }
 
     /**
@@ -370,6 +527,72 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDatasetDeployTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateProjectRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateProjectShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->boundAppIdList)) {
+            $request->boundAppIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->boundAppIdList, 'BoundAppIdList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->projectQuotaLimit)) {
+            $request->projectQuotaLimitShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->projectQuotaLimit), 'ProjectQuotaLimit', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->boundAppIdListShrink)) {
+            $body['BoundAppIdList'] = $request->boundAppIdListShrink;
+        }
+        if (!Utils::isUnset($request->operatorId)) {
+            $body['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->operatorType)) {
+            $body['OperatorType'] = $request->operatorType;
+        }
+        if (!Utils::isUnset($request->projectMemo)) {
+            $body['ProjectMemo'] = $request->projectMemo;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->projectQuotaLimitShrink)) {
+            $body['ProjectQuotaLimit'] = $request->projectQuotaLimitShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProject',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -456,6 +679,55 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->operatorId)) {
+            $body['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->operatorType)) {
+            $body['OperatorType'] = $request->operatorType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProject',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -677,6 +949,55 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetProjectRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProjectResponse
+     */
+    public function getProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->operatorId)) {
+            $body['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->operatorType)) {
+            $body['OperatorType'] = $request->operatorType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProject',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetProjectRequest $request
+     *
+     * @return GetProjectResponse
+     */
+    public function getProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -925,6 +1246,264 @@ class CGCS extends OpenApiClient
     }
 
     /**
+     * @param ModifyProjectRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyProjectResponse
+     */
+    public function modifyProjectWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyProjectShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->boundAppIdList)) {
+            $request->boundAppIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->boundAppIdList, 'BoundAppIdList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->projectQuotaLimit)) {
+            $request->projectQuotaLimitShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->projectQuotaLimit), 'ProjectQuotaLimit', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->boundAppIdListShrink)) {
+            $body['BoundAppIdList'] = $request->boundAppIdListShrink;
+        }
+        if (!Utils::isUnset($request->operatorId)) {
+            $body['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->operatorType)) {
+            $body['OperatorType'] = $request->operatorType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectMemo)) {
+            $body['ProjectMemo'] = $request->projectMemo;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->projectQuotaLimitShrink)) {
+            $body['ProjectQuotaLimit'] = $request->projectQuotaLimitShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyProject',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyProjectRequest $request
+     *
+     * @return ModifyProjectResponse
+     */
+    public function modifyProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PageQueryProjectRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PageQueryProjectResponse
+     */
+    public function pageQueryProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->keySearch)) {
+            $body['KeySearch'] = $request->keySearch;
+        }
+        if (!Utils::isUnset($request->operatorId)) {
+            $body['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->operatorType)) {
+            $body['OperatorType'] = $request->operatorType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PageQueryProject',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PageQueryProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PageQueryProjectRequest $request
+     *
+     * @return PageQueryProjectResponse
+     */
+    public function pageQueryProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pageQueryProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PageQueryProjectAppsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PageQueryProjectAppsResponse
+     */
+    public function pageQueryProjectAppsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->operatorId)) {
+            $body['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->operatorType)) {
+            $body['OperatorType'] = $request->operatorType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PageQueryProjectApps',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PageQueryProjectAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PageQueryProjectAppsRequest $request
+     *
+     * @return PageQueryProjectAppsResponse
+     */
+    public function pageQueryProjectApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pageQueryProjectAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryOfflineTaskProgressRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryOfflineTaskProgressResponse
+     */
+    public function queryOfflineTaskProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $body['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOfflineTaskProgress',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOfflineTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOfflineTaskProgressRequest $request
+     *
+     * @return QueryOfflineTaskProgressResponse
+     */
+    public function queryOfflineTaskProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryOfflineTaskProgressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return RefreshDistrictMetaResponse
+     */
+    public function refreshDistrictMetaWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'RefreshDistrictMeta',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshDistrictMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return RefreshDistrictMetaResponse
+     */
+    public function refreshDistrictMeta()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshDistrictMetaWithOptions($runtime);
+    }
+
+    /**
      * @param StopAppSessionRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -939,6 +1518,9 @@ class CGCS extends OpenApiClient
         }
         if (!Utils::isUnset($request->platformSessionId)) {
             $query['PlatformSessionId'] = $request->platformSessionId;
+        }
+        if (!Utils::isUnset($request->stopParam)) {
+            $query['StopParam'] = $request->stopParam;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -968,5 +1550,66 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopAppSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitOfflineTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubmitOfflineTaskResponse
+     */
+    public function submitOfflineTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->env)) {
+            $body['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->uri)) {
+            $body['Uri'] = $request->uri;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $body['VersionId'] = $request->versionId;
+        }
+        if (!Utils::isUnset($request->versionName)) {
+            $body['VersionName'] = $request->versionName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitOfflineTask',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitOfflineTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitOfflineTaskRequest $request
+     *
+     * @return SubmitOfflineTaskResponse
+     */
+    public function submitOfflineTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitOfflineTaskWithOptions($request, $runtime);
     }
 }

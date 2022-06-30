@@ -67,6 +67,11 @@ class versions extends Model
      * @var string
      */
     public $gmtModified;
+
+    /**
+     * @var int
+     */
+    public $tenantId;
     protected $_name = [
         'appId'                => 'AppId',
         'appVersionId'         => 'AppVersionId',
@@ -80,6 +85,7 @@ class versions extends Model
         'fileUploadType'       => 'FileUploadType',
         'gmtCreate'            => 'GmtCreate',
         'gmtModified'          => 'GmtModified',
+        'tenantId'             => 'TenantId',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class versions extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -172,6 +181,9 @@ class versions extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;
