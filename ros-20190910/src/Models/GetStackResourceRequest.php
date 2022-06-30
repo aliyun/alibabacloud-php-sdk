@@ -24,6 +24,11 @@ class GetStackResourceRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $resourceAttributes;
+
+    /**
      * @var bool
      */
     public $showResourceAttributes;
@@ -36,6 +41,7 @@ class GetStackResourceRequest extends Model
         'clientToken'            => 'ClientToken',
         'logicalResourceId'      => 'LogicalResourceId',
         'regionId'               => 'RegionId',
+        'resourceAttributes'     => 'ResourceAttributes',
         'showResourceAttributes' => 'ShowResourceAttributes',
         'stackId'                => 'StackId',
     ];
@@ -55,6 +61,9 @@ class GetStackResourceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceAttributes) {
+            $res['ResourceAttributes'] = $this->resourceAttributes;
         }
         if (null !== $this->showResourceAttributes) {
             $res['ShowResourceAttributes'] = $this->showResourceAttributes;
@@ -82,6 +91,11 @@ class GetStackResourceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceAttributes'])) {
+            if (!empty($map['ResourceAttributes'])) {
+                $model->resourceAttributes = $map['ResourceAttributes'];
+            }
         }
         if (isset($map['ShowResourceAttributes'])) {
             $model->showResourceAttributes = $map['ShowResourceAttributes'];

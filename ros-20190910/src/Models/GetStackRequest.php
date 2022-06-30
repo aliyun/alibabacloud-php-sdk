@@ -16,6 +16,11 @@ class GetStackRequest extends Model
     /**
      * @var string
      */
+    public $logOption;
+
+    /**
+     * @var string
+     */
     public $outputOption;
 
     /**
@@ -34,6 +39,7 @@ class GetStackRequest extends Model
     public $stackId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'logOption'            => 'LogOption',
         'outputOption'         => 'OutputOption',
         'regionId'             => 'RegionId',
         'showResourceProgress' => 'ShowResourceProgress',
@@ -49,6 +55,9 @@ class GetStackRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->logOption) {
+            $res['LogOption'] = $this->logOption;
         }
         if (null !== $this->outputOption) {
             $res['OutputOption'] = $this->outputOption;
@@ -76,6 +85,9 @@ class GetStackRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['LogOption'])) {
+            $model->logOption = $map['LogOption'];
         }
         if (isset($map['OutputOption'])) {
             $model->outputOption = $map['OutputOption'];

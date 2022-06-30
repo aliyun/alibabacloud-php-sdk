@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\outputs;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\resourceTypes;
 use AlibabaCloud\Tea\Model;
 
 class ValidateTemplateResponseBody extends Model
@@ -28,11 +29,17 @@ class ValidateTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var resourceTypes
+     */
+    public $resourceTypes;
     protected $_name = [
-        'description' => 'Description',
-        'outputs'     => 'Outputs',
-        'parameters'  => 'Parameters',
-        'requestId'   => 'RequestId',
+        'description'   => 'Description',
+        'outputs'       => 'Outputs',
+        'parameters'    => 'Parameters',
+        'requestId'     => 'RequestId',
+        'resourceTypes' => 'ResourceTypes',
     ];
 
     public function validate()
@@ -59,6 +66,9 @@ class ValidateTemplateResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceTypes) {
+            $res['ResourceTypes'] = null !== $this->resourceTypes ? $this->resourceTypes->toMap() : null;
         }
 
         return $res;
@@ -91,6 +101,9 @@ class ValidateTemplateResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceTypes'])) {
+            $model->resourceTypes = resourceTypes::fromMap($map['ResourceTypes']);
         }
 
         return $model;

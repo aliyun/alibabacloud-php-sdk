@@ -1779,6 +1779,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->logOption)) {
+            $query['LogOption'] = $request->logOption;
+        }
         if (!Utils::isUnset($request->outputOption)) {
             $query['OutputOption'] = $request->outputOption;
         }
@@ -2078,6 +2081,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceAttributes)) {
+            $query['ResourceAttributes'] = $request->resourceAttributes;
         }
         if (!Utils::isUnset($request->showResourceAttributes)) {
             $query['ShowResourceAttributes'] = $request->showResourceAttributes;
