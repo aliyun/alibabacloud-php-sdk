@@ -11,7 +11,7 @@ class defenseCountStatistics extends Model
     /**
      * @var int
      */
-    public $maxUsableDefenseCountCurrentMonth;
+    public $defenseCountTotalUsageOfCurrentMonth;
 
     /**
      * @var int
@@ -21,11 +21,17 @@ class defenseCountStatistics extends Model
     /**
      * @var int
      */
-    public $defenseCountTotalUsageOfCurrentMonth;
+    public $maxUsableDefenseCountCurrentMonth;
+
+    /**
+     * @var int
+     */
+    public $secHighSpeedCountRemain;
     protected $_name = [
-        'maxUsableDefenseCountCurrentMonth'    => 'MaxUsableDefenseCountCurrentMonth',
-        'flowPackCountRemain'                  => 'FlowPackCountRemain',
         'defenseCountTotalUsageOfCurrentMonth' => 'DefenseCountTotalUsageOfCurrentMonth',
+        'flowPackCountRemain'                  => 'FlowPackCountRemain',
+        'maxUsableDefenseCountCurrentMonth'    => 'MaxUsableDefenseCountCurrentMonth',
+        'secHighSpeedCountRemain'              => 'SecHighSpeedCountRemain',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class defenseCountStatistics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxUsableDefenseCountCurrentMonth) {
-            $res['MaxUsableDefenseCountCurrentMonth'] = $this->maxUsableDefenseCountCurrentMonth;
+        if (null !== $this->defenseCountTotalUsageOfCurrentMonth) {
+            $res['DefenseCountTotalUsageOfCurrentMonth'] = $this->defenseCountTotalUsageOfCurrentMonth;
         }
         if (null !== $this->flowPackCountRemain) {
             $res['FlowPackCountRemain'] = $this->flowPackCountRemain;
         }
-        if (null !== $this->defenseCountTotalUsageOfCurrentMonth) {
-            $res['DefenseCountTotalUsageOfCurrentMonth'] = $this->defenseCountTotalUsageOfCurrentMonth;
+        if (null !== $this->maxUsableDefenseCountCurrentMonth) {
+            $res['MaxUsableDefenseCountCurrentMonth'] = $this->maxUsableDefenseCountCurrentMonth;
+        }
+        if (null !== $this->secHighSpeedCountRemain) {
+            $res['SecHighSpeedCountRemain'] = $this->secHighSpeedCountRemain;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class defenseCountStatistics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxUsableDefenseCountCurrentMonth'])) {
-            $model->maxUsableDefenseCountCurrentMonth = $map['MaxUsableDefenseCountCurrentMonth'];
+        if (isset($map['DefenseCountTotalUsageOfCurrentMonth'])) {
+            $model->defenseCountTotalUsageOfCurrentMonth = $map['DefenseCountTotalUsageOfCurrentMonth'];
         }
         if (isset($map['FlowPackCountRemain'])) {
             $model->flowPackCountRemain = $map['FlowPackCountRemain'];
         }
-        if (isset($map['DefenseCountTotalUsageOfCurrentMonth'])) {
-            $model->defenseCountTotalUsageOfCurrentMonth = $map['DefenseCountTotalUsageOfCurrentMonth'];
+        if (isset($map['MaxUsableDefenseCountCurrentMonth'])) {
+            $model->maxUsableDefenseCountCurrentMonth = $map['MaxUsableDefenseCountCurrentMonth'];
+        }
+        if (isset($map['SecHighSpeedCountRemain'])) {
+            $model->secHighSpeedCountRemain = $map['SecHighSpeedCountRemain'];
         }
 
         return $model;

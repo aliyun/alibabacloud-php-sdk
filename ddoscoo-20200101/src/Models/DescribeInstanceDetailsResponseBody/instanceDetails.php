@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class instanceDetails extends Model
 {
     /**
-     * @var string
+     * @var eipInfos[]
      */
-    public $line;
+    public $eipInfos;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class instanceDetails extends Model
     public $instanceId;
 
     /**
-     * @var eipInfos[]
+     * @var string
      */
-    public $eipInfos;
+    public $line;
     protected $_name = [
-        'line'       => 'Line',
-        'instanceId' => 'InstanceId',
         'eipInfos'   => 'EipInfos',
+        'instanceId' => 'InstanceId',
+        'line'       => 'Line',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class instanceDetails extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->line) {
-            $res['Line'] = $this->line;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->eipInfos) {
             $res['EipInfos'] = [];
             if (null !== $this->eipInfos && \is_array($this->eipInfos)) {
@@ -50,6 +44,12 @@ class instanceDetails extends Model
                     $res['EipInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class instanceDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Line'])) {
-            $model->line = $map['Line'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['EipInfos'])) {
             if (!empty($map['EipInfos'])) {
                 $model->eipInfos = [];
@@ -77,6 +71,12 @@ class instanceDetails extends Model
                     $model->eipInfos[$n++] = null !== $item ? eipInfos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
         }
 
         return $model;

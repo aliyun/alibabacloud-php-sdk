@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class blackholeStatus extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $endTime;
+    public $blackStatus;
 
     /**
      * @var int
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class blackholeStatus extends Model
     public $ip;
 
     /**
-     * @var string
+     * @var int
      */
-    public $blackStatus;
+    public $startTime;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'startTime'   => 'StartTime',
-        'ip'          => 'Ip',
         'blackStatus' => 'BlackStatus',
+        'endTime'     => 'EndTime',
+        'ip'          => 'Ip',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class blackholeStatus extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->blackStatus) {
+            $res['BlackStatus'] = $this->blackStatus;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
-        if (null !== $this->blackStatus) {
-            $res['BlackStatus'] = $this->blackStatus;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class blackholeStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BlackStatus'])) {
+            $model->blackStatus = $map['BlackStatus'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
-        if (isset($map['BlackStatus'])) {
-            $model->blackStatus = $map['BlackStatus'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

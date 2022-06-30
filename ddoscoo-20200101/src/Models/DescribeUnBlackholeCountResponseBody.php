@@ -11,7 +11,7 @@ class DescribeUnBlackholeCountResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $remainCount;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeUnBlackholeCountResponseBody extends Model
     /**
      * @var int
      */
-    public $remainCount;
+    public $totalCount;
     protected $_name = [
-        'totalCount'  => 'TotalCount',
-        'requestId'   => 'RequestId',
         'remainCount' => 'RemainCount',
+        'requestId'   => 'RequestId',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeUnBlackholeCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->remainCount) {
+            $res['RemainCount'] = $this->remainCount;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->remainCount) {
-            $res['RemainCount'] = $this->remainCount;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeUnBlackholeCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['RemainCount'])) {
+            $model->remainCount = $map['RemainCount'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['RemainCount'])) {
-            $model->remainCount = $map['RemainCount'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -9,23 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebAccessModeRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $accessMode;
 
     /**
      * @var string
      */
     public $domain;
-
-    /**
-     * @var int
-     */
-    public $accessMode;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'domain'     => 'Domain',
         'accessMode' => 'AccessMode',
+        'domain'     => 'Domain',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class ModifyWebAccessModeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->accessMode) {
+            $res['AccessMode'] = $this->accessMode;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->accessMode) {
-            $res['AccessMode'] = $this->accessMode;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class ModifyWebAccessModeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['AccessMode'])) {
+            $model->accessMode = $map['AccessMode'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
-        }
-        if (isset($map['AccessMode'])) {
-            $model->accessMode = $map['AccessMode'];
         }
 
         return $model;

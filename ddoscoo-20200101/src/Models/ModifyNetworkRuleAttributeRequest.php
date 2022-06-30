@@ -11,12 +11,7 @@ class ModifyNetworkRuleAttributeRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $config;
 
     /**
      * @var string
@@ -31,13 +26,12 @@ class ModifyNetworkRuleAttributeRequest extends Model
     /**
      * @var string
      */
-    public $config;
+    public $instanceId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'instanceId'      => 'InstanceId',
+        'config'          => 'Config',
         'forwardProtocol' => 'ForwardProtocol',
         'frontendPort'    => 'FrontendPort',
-        'config'          => 'Config',
+        'instanceId'      => 'InstanceId',
     ];
 
     public function validate()
@@ -47,11 +41,8 @@ class ModifyNetworkRuleAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->forwardProtocol) {
             $res['ForwardProtocol'] = $this->forwardProtocol;
@@ -59,8 +50,8 @@ class ModifyNetworkRuleAttributeRequest extends Model
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
         }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -74,11 +65,8 @@ class ModifyNetworkRuleAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
         if (isset($map['ForwardProtocol'])) {
             $model->forwardProtocol = $map['ForwardProtocol'];
@@ -86,8 +74,8 @@ class ModifyNetworkRuleAttributeRequest extends Model
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
         }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

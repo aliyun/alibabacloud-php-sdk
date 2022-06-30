@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class areas extends Model
 {
     /**
-     * @var int
-     */
-    public $inPkts;
-
-    /**
      * @var string
      */
     public $area;
+
+    /**
+     * @var int
+     */
+    public $inPkts;
     protected $_name = [
-        'inPkts' => 'InPkts',
         'area'   => 'Area',
+        'inPkts' => 'InPkts',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class areas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->inPkts) {
-            $res['InPkts'] = $this->inPkts;
-        }
         if (null !== $this->area) {
             $res['Area'] = $this->area;
+        }
+        if (null !== $this->inPkts) {
+            $res['InPkts'] = $this->inPkts;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class areas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InPkts'])) {
-            $model->inPkts = $map['InPkts'];
-        }
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
+        }
+        if (isset($map['InPkts'])) {
+            $model->inPkts = $map['InPkts'];
         }
 
         return $model;

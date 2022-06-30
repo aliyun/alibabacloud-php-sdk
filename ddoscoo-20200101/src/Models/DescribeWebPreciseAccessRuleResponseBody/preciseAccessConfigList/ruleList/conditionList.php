@@ -11,7 +11,7 @@ class conditionList extends Model
     /**
      * @var string
      */
-    public $matchMethod;
+    public $content;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class conditionList extends Model
     /**
      * @var string
      */
-    public $content;
+    public $headerName;
 
     /**
      * @var string
      */
-    public $headerName;
+    public $matchMethod;
     protected $_name = [
-        'matchMethod' => 'MatchMethod',
-        'field'       => 'Field',
         'content'     => 'Content',
+        'field'       => 'Field',
         'headerName'  => 'HeaderName',
+        'matchMethod' => 'MatchMethod',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class conditionList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->matchMethod) {
-            $res['MatchMethod'] = $this->matchMethod;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->headerName) {
             $res['HeaderName'] = $this->headerName;
+        }
+        if (null !== $this->matchMethod) {
+            $res['MatchMethod'] = $this->matchMethod;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class conditionList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MatchMethod'])) {
-            $model->matchMethod = $map['MatchMethod'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['HeaderName'])) {
             $model->headerName = $map['HeaderName'];
+        }
+        if (isset($map['MatchMethod'])) {
+            $model->matchMethod = $map['MatchMethod'];
         }
 
         return $model;

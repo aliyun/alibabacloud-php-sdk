@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCcProtectSwitchResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var protectSwitchList[]
      */
     public $protectSwitchList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'protectSwitchList' => 'ProtectSwitchList',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->protectSwitchList) {
             $res['ProtectSwitchList'] = [];
             if (null !== $this->protectSwitchList && \is_array($this->protectSwitchList)) {
@@ -41,6 +38,9 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
                     $res['ProtectSwitchList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ProtectSwitchList'])) {
             if (!empty($map['ProtectSwitchList'])) {
                 $model->protectSwitchList = [];
@@ -65,6 +62,9 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
                     $model->protectSwitchList[$n++] = null !== $item ? protectSwitchList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

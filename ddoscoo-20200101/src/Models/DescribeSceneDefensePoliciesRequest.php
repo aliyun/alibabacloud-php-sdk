@@ -11,12 +11,7 @@ class DescribeSceneDefensePoliciesRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $template;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -26,12 +21,11 @@ class DescribeSceneDefensePoliciesRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $template;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'template'        => 'Template',
-        'status'          => 'Status',
         'resourceGroupId' => 'ResourceGroupId',
+        'status'          => 'Status',
+        'template'        => 'Template',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class DescribeSceneDefensePoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->template) {
-            $res['Template'] = $this->template;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->template) {
+            $res['Template'] = $this->template;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class DescribeSceneDefensePoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Template'])) {
-            $model->template = $map['Template'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['Template'])) {
+            $model->template = $map['Template'];
         }
 
         return $model;

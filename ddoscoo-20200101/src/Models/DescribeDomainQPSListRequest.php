@@ -11,17 +11,7 @@ class DescribeDomainQPSListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
+    public $domain;
 
     /**
      * @var int
@@ -36,14 +26,18 @@ class DescribeDomainQPSListRequest extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'domain'          => 'Domain',
         'endTime'         => 'EndTime',
         'interval'        => 'Interval',
-        'domain'          => 'Domain',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -53,14 +47,8 @@ class DescribeDomainQPSListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -68,8 +56,11 @@ class DescribeDomainQPSListRequest extends Model
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,14 +74,8 @@ class DescribeDomainQPSListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -98,8 +83,11 @@ class DescribeDomainQPSListRequest extends Model
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -11,27 +11,21 @@ class AddAutoCcBlacklistRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $blacklist;
 
     /**
      * @var int
      */
     public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'instanceId' => 'InstanceId',
         'blacklist'  => 'Blacklist',
         'expireTime' => 'ExpireTime',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class AddAutoCcBlacklistRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->blacklist) {
             $res['Blacklist'] = $this->blacklist;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class AddAutoCcBlacklistRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Blacklist'])) {
             $model->blacklist = $map['Blacklist'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

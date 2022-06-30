@@ -13,7 +13,7 @@ class schedulerRules extends Model
     /**
      * @var string
      */
-    public $ruleType;
+    public $cname;
 
     /**
      * @var param
@@ -23,23 +23,23 @@ class schedulerRules extends Model
     /**
      * @var string
      */
-    public $cname;
+    public $ruleName;
+
+    /**
+     * @var string
+     */
+    public $ruleType;
 
     /**
      * @var rules[]
      */
     public $rules;
-
-    /**
-     * @var string
-     */
-    public $ruleName;
     protected $_name = [
-        'ruleType' => 'RuleType',
-        'param'    => 'Param',
         'cname'    => 'Cname',
-        'rules'    => 'Rules',
+        'param'    => 'Param',
         'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
+        'rules'    => 'Rules',
     ];
 
     public function validate()
@@ -49,14 +49,17 @@ class schedulerRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleType) {
-            $res['RuleType'] = $this->ruleType;
+        if (null !== $this->cname) {
+            $res['Cname'] = $this->cname;
         }
         if (null !== $this->param) {
             $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
         }
-        if (null !== $this->cname) {
-            $res['Cname'] = $this->cname;
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
         }
         if (null !== $this->rules) {
             $res['Rules'] = [];
@@ -66,9 +69,6 @@ class schedulerRules extends Model
                     $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
         }
 
         return $res;
@@ -82,14 +82,17 @@ class schedulerRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleType'])) {
-            $model->ruleType = $map['RuleType'];
+        if (isset($map['Cname'])) {
+            $model->cname = $map['Cname'];
         }
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
         }
-        if (isset($map['Cname'])) {
-            $model->cname = $map['Cname'];
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
         }
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
@@ -99,9 +102,6 @@ class schedulerRules extends Model
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class autoCcBlacklist extends Model
     /**
      * @var string
      */
-    public $type;
+    public $destIp;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class autoCcBlacklist extends Model
     /**
      * @var string
      */
-    public $destIp;
+    public $type;
     protected $_name = [
-        'type'     => 'Type',
+        'destIp'   => 'DestIp',
         'endTime'  => 'EndTime',
         'sourceIp' => 'SourceIp',
-        'destIp'   => 'DestIp',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class autoCcBlacklist extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->destIp) {
+            $res['DestIp'] = $this->destIp;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -50,8 +50,8 @@ class autoCcBlacklist extends Model
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-        if (null !== $this->destIp) {
-            $res['DestIp'] = $this->destIp;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class autoCcBlacklist extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['DestIp'])) {
+            $model->destIp = $map['DestIp'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -74,8 +74,8 @@ class autoCcBlacklist extends Model
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-        if (isset($map['DestIp'])) {
-            $model->destIp = $map['DestIp'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

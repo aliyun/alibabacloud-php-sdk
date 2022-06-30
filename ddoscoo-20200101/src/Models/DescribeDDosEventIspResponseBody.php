@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosEventIspResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var isps[]
      */
     public $isps;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'isps'      => 'Isps',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeDDosEventIspResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->isps) {
             $res['Isps'] = [];
             if (null !== $this->isps && \is_array($this->isps)) {
@@ -41,6 +38,9 @@ class DescribeDDosEventIspResponseBody extends Model
                     $res['Isps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeDDosEventIspResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Isps'])) {
             if (!empty($map['Isps'])) {
                 $model->isps = [];
@@ -65,6 +62,9 @@ class DescribeDDosEventIspResponseBody extends Model
                     $model->isps[$n++] = null !== $item ? isps::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

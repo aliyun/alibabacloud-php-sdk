@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainOverviewResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $maxHttp;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class DescribeDomainOverviewResponseBody extends Model
     public $maxHttps;
 
     /**
-     * @var int
+     * @var string
      */
-    public $maxHttp;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'maxHttps'  => 'MaxHttps',
         'maxHttp'   => 'MaxHttp',
+        'maxHttps'  => 'MaxHttps',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeDomainOverviewResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->maxHttp) {
+            $res['MaxHttp'] = $this->maxHttp;
         }
         if (null !== $this->maxHttps) {
             $res['MaxHttps'] = $this->maxHttps;
         }
-        if (null !== $this->maxHttp) {
-            $res['MaxHttp'] = $this->maxHttp;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeDomainOverviewResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['MaxHttp'])) {
+            $model->maxHttp = $map['MaxHttp'];
         }
         if (isset($map['MaxHttps'])) {
             $model->maxHttps = $map['MaxHttps'];
         }
-        if (isset($map['MaxHttp'])) {
-            $model->maxHttp = $map['MaxHttp'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -16,17 +16,7 @@ class connsList extends Model
     /**
      * @var int
      */
-    public $inActConns;
-
-    /**
-     * @var int
-     */
-    public $index;
-
-    /**
-     * @var int
-     */
-    public $time;
+    public $conns;
 
     /**
      * @var int
@@ -36,14 +26,18 @@ class connsList extends Model
     /**
      * @var int
      */
-    public $conns;
+    public $inActConns;
+
+    /**
+     * @var int
+     */
+    public $index;
     protected $_name = [
         'actConns'   => 'ActConns',
+        'conns'      => 'Conns',
+        'cps'        => 'Cps',
         'inActConns' => 'InActConns',
         'index'      => 'Index',
-        'time'       => 'Time',
-        'cps'        => 'Cps',
-        'conns'      => 'Conns',
     ];
 
     public function validate()
@@ -56,20 +50,17 @@ class connsList extends Model
         if (null !== $this->actConns) {
             $res['ActConns'] = $this->actConns;
         }
+        if (null !== $this->conns) {
+            $res['Conns'] = $this->conns;
+        }
+        if (null !== $this->cps) {
+            $res['Cps'] = $this->cps;
+        }
         if (null !== $this->inActConns) {
             $res['InActConns'] = $this->inActConns;
         }
         if (null !== $this->index) {
             $res['Index'] = $this->index;
-        }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
-        if (null !== $this->cps) {
-            $res['Cps'] = $this->cps;
-        }
-        if (null !== $this->conns) {
-            $res['Conns'] = $this->conns;
         }
 
         return $res;
@@ -86,20 +77,17 @@ class connsList extends Model
         if (isset($map['ActConns'])) {
             $model->actConns = $map['ActConns'];
         }
+        if (isset($map['Conns'])) {
+            $model->conns = $map['Conns'];
+        }
+        if (isset($map['Cps'])) {
+            $model->cps = $map['Cps'];
+        }
         if (isset($map['InActConns'])) {
             $model->inActConns = $map['InActConns'];
         }
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
-        }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
-        if (isset($map['Cps'])) {
-            $model->cps = $map['Cps'];
-        }
-        if (isset($map['Conns'])) {
-            $model->conns = $map['Conns'];
         }
 
         return $model;

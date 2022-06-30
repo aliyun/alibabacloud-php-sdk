@@ -12,7 +12,7 @@ class DescribeTagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $nextToken;
 
     /**
      * @var string
@@ -25,31 +25,25 @@ class DescribeTagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var string[]
      */
     public $resourceIds;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
 
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
+        'nextToken'       => 'NextToken',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceType'    => 'ResourceType',
-        'nextToken'       => 'NextToken',
         'resourceIds'     => 'ResourceIds',
+        'resourceType'    => 'ResourceType',
         'tags'            => 'Tags',
     ];
 
@@ -60,8 +54,8 @@ class DescribeTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -69,14 +63,11 @@ class DescribeTagResourcesRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->resourceIds) {
             $res['ResourceIds'] = $this->resourceIds;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -99,8 +90,8 @@ class DescribeTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -108,16 +99,13 @@ class DescribeTagResourcesRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
                 $model->resourceIds = $map['ResourceIds'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

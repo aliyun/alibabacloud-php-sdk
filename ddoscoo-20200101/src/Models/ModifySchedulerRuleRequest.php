@@ -11,17 +11,12 @@ class ModifySchedulerRuleRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $param;
 
     /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $rules;
 
     /**
      * @var string
@@ -36,14 +31,13 @@ class ModifySchedulerRuleRequest extends Model
     /**
      * @var string
      */
-    public $param;
+    public $rules;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
+        'param'           => 'Param',
         'resourceGroupId' => 'ResourceGroupId',
-        'rules'           => 'Rules',
         'ruleName'        => 'RuleName',
         'ruleType'        => 'RuleType',
-        'param'           => 'Param',
+        'rules'           => 'Rules',
     ];
 
     public function validate()
@@ -53,14 +47,11 @@ class ModifySchedulerRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->param) {
+            $res['Param'] = $this->param;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->rules) {
-            $res['Rules'] = $this->rules;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -68,8 +59,8 @@ class ModifySchedulerRuleRequest extends Model
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
-        if (null !== $this->param) {
-            $res['Param'] = $this->param;
+        if (null !== $this->rules) {
+            $res['Rules'] = $this->rules;
         }
 
         return $res;
@@ -83,14 +74,11 @@ class ModifySchedulerRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Param'])) {
+            $model->param = $map['Param'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Rules'])) {
-            $model->rules = $map['Rules'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
@@ -98,8 +86,8 @@ class ModifySchedulerRuleRequest extends Model
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
-        if (isset($map['Param'])) {
-            $model->param = $map['Param'];
+        if (isset($map['Rules'])) {
+            $model->rules = $map['Rules'];
         }
 
         return $model;

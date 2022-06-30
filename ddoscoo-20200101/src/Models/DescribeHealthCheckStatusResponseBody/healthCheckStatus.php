@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class healthCheckStatus extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
     public $frontendPort;
@@ -22,23 +17,28 @@ class healthCheckStatus extends Model
     /**
      * @var string
      */
-    public $protocol;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $protocol;
 
     /**
      * @var realServerStatusList[]
      */
     public $realServerStatusList;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'               => 'Status',
         'frontendPort'         => 'FrontendPort',
-        'protocol'             => 'Protocol',
         'instanceId'           => 'InstanceId',
+        'protocol'             => 'Protocol',
         'realServerStatusList' => 'RealServerStatusList',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -48,17 +48,14 @@ class healthCheckStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
         }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->realServerStatusList) {
             $res['RealServerStatusList'] = [];
@@ -68,6 +65,9 @@ class healthCheckStatus extends Model
                     $res['RealServerStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -81,17 +81,14 @@ class healthCheckStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
         }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
         if (isset($map['RealServerStatusList'])) {
             if (!empty($map['RealServerStatusList'])) {
@@ -101,6 +98,9 @@ class healthCheckStatus extends Model
                     $model->realServerStatusList[$n++] = null !== $item ? realServerStatusList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class instances extends Model
     /**
      * @var int
      */
-    public $status;
+    public $createTime;
 
     /**
      * @var int
@@ -26,22 +26,12 @@ class instances extends Model
     /**
      * @var int
      */
-    public $expireTime;
-
-    /**
-     * @var string
-     */
-    public $remark;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var int
-     */
     public $enabled;
+
+    /**
+     * @var int
+     */
+    public $expireTime;
 
     /**
      * @var string
@@ -51,17 +41,33 @@ class instances extends Model
     /**
      * @var string
      */
-    public $connInstanceId;
+    public $ipMode;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'         => 'Status',
-        'debtStatus'     => 'DebtStatus',
-        'edition'        => 'Edition',
-        'expireTime'     => 'ExpireTime',
-        'remark'         => 'Remark',
-        'createTime'     => 'CreateTime',
-        'enabled'        => 'Enabled',
-        'instanceId'     => 'InstanceId',
-        'connInstanceId' => 'ConnInstanceId',
+        'createTime' => 'CreateTime',
+        'debtStatus' => 'DebtStatus',
+        'edition'    => 'Edition',
+        'enabled'    => 'Enabled',
+        'expireTime' => 'ExpireTime',
+        'instanceId' => 'InstanceId',
+        'ipMode'     => 'IpMode',
+        'ipVersion'  => 'IpVersion',
+        'remark'     => 'Remark',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -71,8 +77,8 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->debtStatus) {
             $res['DebtStatus'] = $this->debtStatus;
@@ -80,23 +86,26 @@ class instances extends Model
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
         }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->connInstanceId) {
-            $res['ConnInstanceId'] = $this->connInstanceId;
+        if (null !== $this->ipMode) {
+            $res['IpMode'] = $this->ipMode;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -110,8 +119,8 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['DebtStatus'])) {
             $model->debtStatus = $map['DebtStatus'];
@@ -119,23 +128,26 @@ class instances extends Model
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
         }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ConnInstanceId'])) {
-            $model->connInstanceId = $map['ConnInstanceId'];
+        if (isset($map['IpMode'])) {
+            $model->ipMode = $map['IpMode'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

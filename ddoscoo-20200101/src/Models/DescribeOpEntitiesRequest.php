@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeOpEntitiesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @var int
      */
-    public $entityType;
+    public $endTime;
 
     /**
      * @var string
@@ -31,12 +21,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @var int
      */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
+    public $entityType;
 
     /**
      * @var int
@@ -47,15 +32,24 @@ class DescribeOpEntitiesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
-        'entityType'      => 'EntityType',
-        'entityObject'    => 'EntityObject',
-        'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
+        'entityObject'    => 'EntityObject',
+        'entityType'      => 'EntityType',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -65,29 +59,26 @@ class DescribeOpEntitiesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->entityType) {
-            $res['EntityType'] = $this->entityType;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->entityObject) {
             $res['EntityObject'] = $this->entityObject;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->entityType) {
+            $res['EntityType'] = $this->entityType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -101,29 +92,26 @@ class DescribeOpEntitiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['EntityType'])) {
-            $model->entityType = $map['EntityType'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['EntityObject'])) {
             $model->entityObject = $map['EntityObject'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['EntityType'])) {
+            $model->entityType = $map['EntityType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

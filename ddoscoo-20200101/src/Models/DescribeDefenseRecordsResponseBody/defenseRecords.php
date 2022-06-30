@@ -11,17 +11,12 @@ class defenseRecords extends Model
     /**
      * @var int
      */
+    public $attackPeak;
+
+    /**
+     * @var int
+     */
     public $endTime;
-
-    /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $startTime;
 
     /**
      * @var int
@@ -36,14 +31,19 @@ class defenseRecords extends Model
     /**
      * @var int
      */
-    public $attackPeak;
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
+        'attackPeak' => 'AttackPeak',
         'endTime'    => 'EndTime',
-        'status'     => 'Status',
-        'startTime'  => 'StartTime',
         'eventCount' => 'EventCount',
         'instanceId' => 'InstanceId',
-        'attackPeak' => 'AttackPeak',
+        'startTime'  => 'StartTime',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class defenseRecords extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attackPeak) {
+            $res['AttackPeak'] = $this->attackPeak;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->eventCount) {
             $res['EventCount'] = $this->eventCount;
@@ -68,8 +65,11 @@ class defenseRecords extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->attackPeak) {
-            $res['AttackPeak'] = $this->attackPeak;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,14 +83,11 @@ class defenseRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttackPeak'])) {
+            $model->attackPeak = $map['AttackPeak'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EventCount'])) {
             $model->eventCount = $map['EventCount'];
@@ -98,8 +95,11 @@ class defenseRecords extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['AttackPeak'])) {
-            $model->attackPeak = $map['AttackPeak'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

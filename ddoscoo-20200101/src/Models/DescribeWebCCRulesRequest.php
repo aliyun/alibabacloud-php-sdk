@@ -11,22 +11,7 @@ class DescribeWebCCRulesRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $domain;
-
-    /**
-     * @var int
-     */
-    public $offset;
 
     /**
      * @var int
@@ -39,17 +24,14 @@ class DescribeWebCCRulesRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isOffset;
+    public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
-        'offset'          => 'Offset',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'isOffset'        => 'IsOffset',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -59,17 +41,8 @@ class DescribeWebCCRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->offset) {
-            $res['Offset'] = $this->offset;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -77,8 +50,8 @@ class DescribeWebCCRulesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->isOffset) {
-            $res['IsOffset'] = $this->isOffset;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -92,17 +65,8 @@ class DescribeWebCCRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
-        }
-        if (isset($map['Offset'])) {
-            $model->offset = $map['Offset'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -110,8 +74,8 @@ class DescribeWebCCRulesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['IsOffset'])) {
-            $model->isOffset = $map['IsOffset'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

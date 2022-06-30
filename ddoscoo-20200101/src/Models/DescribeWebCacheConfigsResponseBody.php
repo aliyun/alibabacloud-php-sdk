@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCacheConfigsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var domainCacheConfigs[]
      */
     public $domainCacheConfigs;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
         'domainCacheConfigs' => 'DomainCacheConfigs',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeWebCacheConfigsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainCacheConfigs) {
             $res['DomainCacheConfigs'] = [];
             if (null !== $this->domainCacheConfigs && \is_array($this->domainCacheConfigs)) {
@@ -41,6 +38,9 @@ class DescribeWebCacheConfigsResponseBody extends Model
                     $res['DomainCacheConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeWebCacheConfigsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainCacheConfigs'])) {
             if (!empty($map['DomainCacheConfigs'])) {
                 $model->domainCacheConfigs = [];
@@ -65,6 +62,9 @@ class DescribeWebCacheConfigsResponseBody extends Model
                     $model->domainCacheConfigs[$n++] = null !== $item ? domainCacheConfigs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

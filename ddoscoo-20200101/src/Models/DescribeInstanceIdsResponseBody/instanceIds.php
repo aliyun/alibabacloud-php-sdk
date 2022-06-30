@@ -16,16 +16,28 @@ class instanceIds extends Model
     /**
      * @var string
      */
-    public $remark;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $ipMode;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
+     * @var string
+     */
+    public $remark;
     protected $_name = [
         'edition'    => 'Edition',
-        'remark'     => 'Remark',
         'instanceId' => 'InstanceId',
+        'ipMode'     => 'IpMode',
+        'ipVersion'  => 'IpVersion',
+        'remark'     => 'Remark',
     ];
 
     public function validate()
@@ -38,11 +50,17 @@ class instanceIds extends Model
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
         }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ipMode) {
+            $res['IpMode'] = $this->ipMode;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
@@ -59,11 +77,17 @@ class instanceIds extends Model
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
         }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IpMode'])) {
+            $model->ipMode = $map['IpMode'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         return $model;

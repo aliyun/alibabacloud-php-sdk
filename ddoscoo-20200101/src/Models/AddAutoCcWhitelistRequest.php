@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddAutoCcWhitelistRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $expireTime;
 
     /**
      * @var string
@@ -22,16 +22,10 @@ class AddAutoCcWhitelistRequest extends Model
      * @var string
      */
     public $whitelist;
-
-    /**
-     * @var int
-     */
-    public $expireTime;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
+        'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
         'whitelist'  => 'Whitelist',
-        'expireTime' => 'ExpireTime',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class AddAutoCcWhitelistRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->whitelist) {
             $res['Whitelist'] = $this->whitelist;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class AddAutoCcWhitelistRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Whitelist'])) {
             $model->whitelist = $map['Whitelist'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
         }
 
         return $model;

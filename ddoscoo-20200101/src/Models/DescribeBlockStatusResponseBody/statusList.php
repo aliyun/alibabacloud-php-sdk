@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class statusList extends Model
 {
     /**
-     * @var string
-     */
-    public $ip;
-
-    /**
      * @var blockStatusList[]
      */
     public $blockStatusList;
+
+    /**
+     * @var string
+     */
+    public $ip;
     protected $_name = [
-        'ip'              => 'Ip',
         'blockStatusList' => 'BlockStatusList',
+        'ip'              => 'Ip',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class statusList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->blockStatusList) {
             $res['BlockStatusList'] = [];
             if (null !== $this->blockStatusList && \is_array($this->blockStatusList)) {
@@ -41,6 +38,9 @@ class statusList extends Model
                     $res['BlockStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class statusList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['BlockStatusList'])) {
             if (!empty($map['BlockStatusList'])) {
                 $model->blockStatusList = [];
@@ -65,6 +62,9 @@ class statusList extends Model
                     $model->blockStatusList[$n++] = null !== $item ? blockStatusList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         return $model;

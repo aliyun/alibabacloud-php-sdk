@@ -11,12 +11,12 @@ class DescribePortConnsCountResponseBody extends Model
     /**
      * @var int
      */
-    public $conns;
+    public $actConns;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $conns;
 
     /**
      * @var int
@@ -29,15 +29,15 @@ class DescribePortConnsCountResponseBody extends Model
     public $inActConns;
 
     /**
-     * @var int
+     * @var string
      */
-    public $actConns;
+    public $requestId;
     protected $_name = [
+        'actConns'   => 'ActConns',
         'conns'      => 'Conns',
-        'requestId'  => 'RequestId',
         'cps'        => 'Cps',
         'inActConns' => 'InActConns',
-        'actConns'   => 'ActConns',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class DescribePortConnsCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->actConns) {
+            $res['ActConns'] = $this->actConns;
+        }
         if (null !== $this->conns) {
             $res['Conns'] = $this->conns;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->cps) {
             $res['Cps'] = $this->cps;
@@ -59,8 +59,8 @@ class DescribePortConnsCountResponseBody extends Model
         if (null !== $this->inActConns) {
             $res['InActConns'] = $this->inActConns;
         }
-        if (null !== $this->actConns) {
-            $res['ActConns'] = $this->actConns;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class DescribePortConnsCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActConns'])) {
+            $model->actConns = $map['ActConns'];
+        }
         if (isset($map['Conns'])) {
             $model->conns = $map['Conns'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Cps'])) {
             $model->cps = $map['Cps'];
@@ -86,8 +86,8 @@ class DescribePortConnsCountResponseBody extends Model
         if (isset($map['InActConns'])) {
             $model->inActConns = $map['InActConns'];
         }
-        if (isset($map['ActConns'])) {
-            $model->actConns = $map['ActConns'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

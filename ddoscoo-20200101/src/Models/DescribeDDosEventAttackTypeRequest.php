@@ -11,27 +11,21 @@ class DescribeDDosEventAttackTypeRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $eventType;
-
-    /**
-     * @var int
-     */
-    public $startTime;
 
     /**
      * @var string
      */
     public $ip;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
         'eventType' => 'EventType',
-        'startTime' => 'StartTime',
         'ip'        => 'Ip',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class DescribeDDosEventAttackTypeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class DescribeDDosEventAttackTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

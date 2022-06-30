@@ -16,22 +16,17 @@ class asyncTasks extends Model
     /**
      * @var int
      */
-    public $taskType;
+    public $startTime;
 
     /**
      * @var int
      */
-    public $startTime;
+    public $taskId;
 
     /**
      * @var string
      */
     public $taskParams;
-
-    /**
-     * @var int
-     */
-    public $taskStatus;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class asyncTasks extends Model
     /**
      * @var int
      */
-    public $taskId;
+    public $taskStatus;
+
+    /**
+     * @var int
+     */
+    public $taskType;
     protected $_name = [
         'endTime'    => 'EndTime',
-        'taskType'   => 'TaskType',
         'startTime'  => 'StartTime',
-        'taskParams' => 'TaskParams',
-        'taskStatus' => 'TaskStatus',
-        'taskResult' => 'TaskResult',
         'taskId'     => 'TaskId',
+        'taskParams' => 'TaskParams',
+        'taskResult' => 'TaskResult',
+        'taskStatus' => 'TaskStatus',
+        'taskType'   => 'TaskType',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class asyncTasks extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->taskParams) {
             $res['TaskParams'] = $this->taskParams;
         }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
         if (null !== $this->taskResult) {
             $res['TaskResult'] = $this->taskResult;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class asyncTasks extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['TaskParams'])) {
             $model->taskParams = $map['TaskParams'];
         }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
         if (isset($map['TaskResult'])) {
             $model->taskResult = $map['TaskResult'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

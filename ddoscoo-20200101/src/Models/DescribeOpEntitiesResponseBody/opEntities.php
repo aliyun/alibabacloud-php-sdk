@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class opEntities extends Model
 {
     /**
-     * @var int
-     */
-    public $entityType;
-
-    /**
      * @var string
      */
     public $entityObject;
@@ -21,7 +16,17 @@ class opEntities extends Model
     /**
      * @var int
      */
+    public $entityType;
+
+    /**
+     * @var int
+     */
     public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $opAccount;
 
     /**
      * @var int
@@ -31,18 +36,13 @@ class opEntities extends Model
     /**
      * @var string
      */
-    public $opAccount;
-
-    /**
-     * @var string
-     */
     public $opDesc;
     protected $_name = [
-        'entityType'   => 'EntityType',
         'entityObject' => 'EntityObject',
+        'entityType'   => 'EntityType',
         'gmtCreate'    => 'GmtCreate',
-        'opAction'     => 'OpAction',
         'opAccount'    => 'OpAccount',
+        'opAction'     => 'OpAction',
         'opDesc'       => 'OpDesc',
     ];
 
@@ -53,20 +53,20 @@ class opEntities extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->entityType) {
-            $res['EntityType'] = $this->entityType;
-        }
         if (null !== $this->entityObject) {
             $res['EntityObject'] = $this->entityObject;
+        }
+        if (null !== $this->entityType) {
+            $res['EntityType'] = $this->entityType;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->opAction) {
-            $res['OpAction'] = $this->opAction;
-        }
         if (null !== $this->opAccount) {
             $res['OpAccount'] = $this->opAccount;
+        }
+        if (null !== $this->opAction) {
+            $res['OpAction'] = $this->opAction;
         }
         if (null !== $this->opDesc) {
             $res['OpDesc'] = $this->opDesc;
@@ -83,20 +83,20 @@ class opEntities extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EntityType'])) {
-            $model->entityType = $map['EntityType'];
-        }
         if (isset($map['EntityObject'])) {
             $model->entityObject = $map['EntityObject'];
+        }
+        if (isset($map['EntityType'])) {
+            $model->entityType = $map['EntityType'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['OpAction'])) {
-            $model->opAction = $map['OpAction'];
-        }
         if (isset($map['OpAccount'])) {
             $model->opAccount = $map['OpAccount'];
+        }
+        if (isset($map['OpAction'])) {
+            $model->opAction = $map['OpAction'];
         }
         if (isset($map['OpDesc'])) {
             $model->opDesc = $map['OpDesc'];

@@ -11,27 +11,27 @@ class portAutoCcStatus extends Model
     /**
      * @var string
      */
-    public $switch;
-
-    /**
-     * @var string
-     */
     public $mode;
 
     /**
      * @var string
      */
-    public $webSwitch;
+    public $switch;
 
     /**
      * @var string
      */
     public $webMode;
+
+    /**
+     * @var string
+     */
+    public $webSwitch;
     protected $_name = [
-        'switch'    => 'Switch',
         'mode'      => 'Mode',
-        'webSwitch' => 'WebSwitch',
+        'switch'    => 'Switch',
         'webMode'   => 'WebMode',
+        'webSwitch' => 'WebSwitch',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class portAutoCcStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->switch) {
-            $res['Switch'] = $this->switch;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->webSwitch) {
-            $res['WebSwitch'] = $this->webSwitch;
+        if (null !== $this->switch) {
+            $res['Switch'] = $this->switch;
         }
         if (null !== $this->webMode) {
             $res['WebMode'] = $this->webMode;
+        }
+        if (null !== $this->webSwitch) {
+            $res['WebSwitch'] = $this->webSwitch;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class portAutoCcStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Switch'])) {
-            $model->switch = $map['Switch'];
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['WebSwitch'])) {
-            $model->webSwitch = $map['WebSwitch'];
+        if (isset($map['Switch'])) {
+            $model->switch = $map['Switch'];
         }
         if (isset($map['WebMode'])) {
             $model->webMode = $map['WebMode'];
+        }
+        if (isset($map['WebSwitch'])) {
+            $model->webSwitch = $map['WebSwitch'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeL7RsPolicyResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var attributes[]
      */
     public $attributes;
@@ -23,10 +18,15 @@ class DescribeL7RsPolicyResponseBody extends Model
      * @var string
      */
     public $proxyMode;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'attributes' => 'Attributes',
         'proxyMode'  => 'ProxyMode',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class DescribeL7RsPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->attributes) {
             $res['Attributes'] = [];
             if (null !== $this->attributes && \is_array($this->attributes)) {
@@ -50,6 +47,9 @@ class DescribeL7RsPolicyResponseBody extends Model
         }
         if (null !== $this->proxyMode) {
             $res['ProxyMode'] = $this->proxyMode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class DescribeL7RsPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
@@ -77,6 +74,9 @@ class DescribeL7RsPolicyResponseBody extends Model
         }
         if (isset($map['ProxyMode'])) {
             $model->proxyMode = $map['ProxyMode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

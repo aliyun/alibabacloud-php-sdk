@@ -9,23 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCnameReusesRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $sourceIp;
+    public $domains;
 
     /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string[]
-     */
-    public $domains;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domains'         => 'Domains',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DescribeCnameReusesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->domains) {
+            $res['Domains'] = $this->domains;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
         }
 
         return $res;
@@ -56,16 +47,13 @@ class DescribeCnameReusesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = $map['Domains'];
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

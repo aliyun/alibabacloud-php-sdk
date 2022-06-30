@@ -11,12 +11,17 @@ class domainQPSList extends Model
     /**
      * @var int
      */
-    public $index;
+    public $attackQps;
 
     /**
      * @var int
      */
-    public $time;
+    public $cacheHits;
+
+    /**
+     * @var int
+     */
+    public $index;
 
     /**
      * @var int
@@ -26,7 +31,7 @@ class domainQPSList extends Model
     /**
      * @var int
      */
-    public $attackQps;
+    public $maxNormalQps;
 
     /**
      * @var int
@@ -36,12 +41,7 @@ class domainQPSList extends Model
     /**
      * @var int
      */
-    public $maxNormalQps;
-
-    /**
-     * @var int
-     */
-    public $totalQps;
+    public $time;
 
     /**
      * @var int
@@ -51,17 +51,17 @@ class domainQPSList extends Model
     /**
      * @var int
      */
-    public $cacheHits;
+    public $totalQps;
     protected $_name = [
-        'index'        => 'Index',
-        'time'         => 'Time',
-        'maxAttackQps' => 'MaxAttackQps',
         'attackQps'    => 'AttackQps',
-        'maxQps'       => 'MaxQps',
-        'maxNormalQps' => 'MaxNormalQps',
-        'totalQps'     => 'TotalQps',
-        'totalCount'   => 'TotalCount',
         'cacheHits'    => 'CacheHits',
+        'index'        => 'Index',
+        'maxAttackQps' => 'MaxAttackQps',
+        'maxNormalQps' => 'MaxNormalQps',
+        'maxQps'       => 'MaxQps',
+        'time'         => 'Time',
+        'totalCount'   => 'TotalCount',
+        'totalQps'     => 'TotalQps',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class domainQPSList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attackQps) {
+            $res['AttackQps'] = $this->attackQps;
+        }
+        if (null !== $this->cacheHits) {
+            $res['CacheHits'] = $this->cacheHits;
+        }
         if (null !== $this->index) {
             $res['Index'] = $this->index;
-        }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
         }
         if (null !== $this->maxAttackQps) {
             $res['MaxAttackQps'] = $this->maxAttackQps;
         }
-        if (null !== $this->attackQps) {
-            $res['AttackQps'] = $this->attackQps;
+        if (null !== $this->maxNormalQps) {
+            $res['MaxNormalQps'] = $this->maxNormalQps;
         }
         if (null !== $this->maxQps) {
             $res['MaxQps'] = $this->maxQps;
         }
-        if (null !== $this->maxNormalQps) {
-            $res['MaxNormalQps'] = $this->maxNormalQps;
-        }
-        if (null !== $this->totalQps) {
-            $res['TotalQps'] = $this->totalQps;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-        if (null !== $this->cacheHits) {
-            $res['CacheHits'] = $this->cacheHits;
+        if (null !== $this->totalQps) {
+            $res['TotalQps'] = $this->totalQps;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class domainQPSList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttackQps'])) {
+            $model->attackQps = $map['AttackQps'];
+        }
+        if (isset($map['CacheHits'])) {
+            $model->cacheHits = $map['CacheHits'];
+        }
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
-        }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
         }
         if (isset($map['MaxAttackQps'])) {
             $model->maxAttackQps = $map['MaxAttackQps'];
         }
-        if (isset($map['AttackQps'])) {
-            $model->attackQps = $map['AttackQps'];
+        if (isset($map['MaxNormalQps'])) {
+            $model->maxNormalQps = $map['MaxNormalQps'];
         }
         if (isset($map['MaxQps'])) {
             $model->maxQps = $map['MaxQps'];
         }
-        if (isset($map['MaxNormalQps'])) {
-            $model->maxNormalQps = $map['MaxNormalQps'];
-        }
-        if (isset($map['TotalQps'])) {
-            $model->totalQps = $map['TotalQps'];
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-        if (isset($map['CacheHits'])) {
-            $model->cacheHits = $map['CacheHits'];
+        if (isset($map['TotalQps'])) {
+            $model->totalQps = $map['TotalQps'];
         }
 
         return $model;

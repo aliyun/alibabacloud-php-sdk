@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePortFlowListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var portFlowList[]
      */
     public $portFlowList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'portFlowList' => 'PortFlowList',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribePortFlowListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->portFlowList) {
             $res['PortFlowList'] = [];
             if (null !== $this->portFlowList && \is_array($this->portFlowList)) {
@@ -41,6 +38,9 @@ class DescribePortFlowListResponseBody extends Model
                     $res['PortFlowList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribePortFlowListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PortFlowList'])) {
             if (!empty($map['PortFlowList'])) {
                 $model->portFlowList = [];
@@ -65,6 +62,9 @@ class DescribePortFlowListResponseBody extends Model
                     $model->portFlowList[$n++] = null !== $item ? portFlowList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

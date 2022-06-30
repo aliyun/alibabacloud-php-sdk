@@ -11,12 +11,12 @@ class instanceStatistics extends Model
     /**
      * @var int
      */
-    public $domainUsage;
+    public $defenseCountUsage;
 
     /**
      * @var int
      */
-    public $defenseCountUsage;
+    public $domainUsage;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class instanceStatistics extends Model
     /**
      * @var int
      */
-    public $siteUsage;
+    public $portUsage;
 
     /**
      * @var int
      */
-    public $portUsage;
+    public $siteUsage;
     protected $_name = [
-        'domainUsage'       => 'DomainUsage',
         'defenseCountUsage' => 'DefenseCountUsage',
+        'domainUsage'       => 'DomainUsage',
         'instanceId'        => 'InstanceId',
-        'siteUsage'         => 'SiteUsage',
         'portUsage'         => 'PortUsage',
+        'siteUsage'         => 'SiteUsage',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class instanceStatistics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainUsage) {
-            $res['DomainUsage'] = $this->domainUsage;
-        }
         if (null !== $this->defenseCountUsage) {
             $res['DefenseCountUsage'] = $this->defenseCountUsage;
+        }
+        if (null !== $this->domainUsage) {
+            $res['DomainUsage'] = $this->domainUsage;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->siteUsage) {
-            $res['SiteUsage'] = $this->siteUsage;
-        }
         if (null !== $this->portUsage) {
             $res['PortUsage'] = $this->portUsage;
+        }
+        if (null !== $this->siteUsage) {
+            $res['SiteUsage'] = $this->siteUsage;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class instanceStatistics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainUsage'])) {
-            $model->domainUsage = $map['DomainUsage'];
-        }
         if (isset($map['DefenseCountUsage'])) {
             $model->defenseCountUsage = $map['DefenseCountUsage'];
+        }
+        if (isset($map['DomainUsage'])) {
+            $model->domainUsage = $map['DomainUsage'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SiteUsage'])) {
-            $model->siteUsage = $map['SiteUsage'];
-        }
         if (isset($map['PortUsage'])) {
             $model->portUsage = $map['PortUsage'];
+        }
+        if (isset($map['SiteUsage'])) {
+            $model->siteUsage = $map['SiteUsage'];
         }
 
         return $model;

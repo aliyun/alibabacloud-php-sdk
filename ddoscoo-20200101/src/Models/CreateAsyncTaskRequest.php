@@ -11,33 +11,21 @@ class CreateAsyncTaskRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
-
-    /**
-     * @var int
-     */
-    public $taskType;
 
     /**
      * @var string
      */
     public $taskParams;
+
+    /**
+     * @var int
+     */
+    public $taskType;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'lang'            => 'Lang',
         'resourceGroupId' => 'ResourceGroupId',
-        'taskType'        => 'TaskType',
         'taskParams'      => 'TaskParams',
+        'taskType'        => 'TaskType',
     ];
 
     public function validate()
@@ -47,20 +35,14 @@ class CreateAsyncTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->taskParams) {
             $res['TaskParams'] = $this->taskParams;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -74,20 +56,14 @@ class CreateAsyncTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['TaskParams'])) {
             $model->taskParams = $map['TaskParams'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

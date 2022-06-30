@@ -11,15 +11,27 @@ class eipInfos extends Model
     /**
      * @var string
      */
-    public $status;
+    public $eip;
 
     /**
      * @var string
      */
-    public $eip;
+    public $ipMode;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status' => 'Status',
-        'eip'    => 'Eip',
+        'eip'       => 'Eip',
+        'ipMode'    => 'IpMode',
+        'ipVersion' => 'IpVersion',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -29,11 +41,17 @@ class eipInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->eip) {
             $res['Eip'] = $this->eip;
+        }
+        if (null !== $this->ipMode) {
+            $res['IpMode'] = $this->ipMode;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +65,17 @@ class eipInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Eip'])) {
             $model->eip = $map['Eip'];
+        }
+        if (isset($map['IpMode'])) {
+            $model->ipMode = $map['IpMode'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

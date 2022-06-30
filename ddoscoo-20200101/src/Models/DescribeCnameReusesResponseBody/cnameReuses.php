@@ -11,20 +11,20 @@ class cnameReuses extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $cname;
 
     /**
      * @var string
      */
-    public $cname;
+    public $domain;
 
     /**
      * @var int
      */
     public $enable;
     protected $_name = [
-        'domain' => 'Domain',
         'cname'  => 'Cname',
+        'domain' => 'Domain',
         'enable' => 'Enable',
     ];
 
@@ -35,11 +35,11 @@ class cnameReuses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
@@ -56,11 +56,11 @@ class cnameReuses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];

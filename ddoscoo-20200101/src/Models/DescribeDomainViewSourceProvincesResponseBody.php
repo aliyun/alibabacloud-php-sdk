@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainViewSourceProvincesResponseBody extends Model
 {
     /**
-     * @var sourceProvinces[]
-     */
-    public $sourceProvinces;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var sourceProvinces[]
+     */
+    public $sourceProvinces;
     protected $_name = [
-        'sourceProvinces' => 'SourceProvinces',
         'requestId'       => 'RequestId',
+        'sourceProvinces' => 'SourceProvinces',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class DescribeDomainViewSourceProvincesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->sourceProvinces) {
             $res['SourceProvinces'] = [];
             if (null !== $this->sourceProvinces && \is_array($this->sourceProvinces)) {
@@ -38,9 +41,6 @@ class DescribeDomainViewSourceProvincesResponseBody extends Model
                     $res['SourceProvinces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class DescribeDomainViewSourceProvincesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SourceProvinces'])) {
             if (!empty($map['SourceProvinces'])) {
                 $model->sourceProvinces = [];
@@ -62,9 +65,6 @@ class DescribeDomainViewSourceProvincesResponseBody extends Model
                     $model->sourceProvinces[$n++] = null !== $item ? sourceProvinces::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

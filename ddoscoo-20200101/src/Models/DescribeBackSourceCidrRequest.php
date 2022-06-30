@@ -11,21 +11,15 @@ class DescribeBackSourceCidrRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $line;
 
     /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $line;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'line'            => 'Line',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DescribeBackSourceCidrRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->line) {
-            $res['Line'] = $this->line;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class DescribeBackSourceCidrRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Line'])) {
-            $model->line = $map['Line'];
         }
 
         return $model;

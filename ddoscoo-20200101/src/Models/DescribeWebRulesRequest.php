@@ -11,12 +11,7 @@ class DescribeWebRulesRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $cname;
 
     /**
      * @var string
@@ -24,9 +19,9 @@ class DescribeWebRulesRequest extends Model
     public $domain;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $queryDomainPattern;
+    public $instanceIds;
 
     /**
      * @var int
@@ -39,17 +34,22 @@ class DescribeWebRulesRequest extends Model
     public $pageSize;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceIds;
+    public $queryDomainPattern;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'sourceIp'           => 'SourceIp',
-        'resourceGroupId'    => 'ResourceGroupId',
+        'cname'              => 'Cname',
         'domain'             => 'Domain',
-        'queryDomainPattern' => 'QueryDomainPattern',
+        'instanceIds'        => 'InstanceIds',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
-        'instanceIds'        => 'InstanceIds',
+        'queryDomainPattern' => 'QueryDomainPattern',
+        'resourceGroupId'    => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -59,17 +59,14 @@ class DescribeWebRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->cname) {
+            $res['Cname'] = $this->cname;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->queryDomainPattern) {
-            $res['QueryDomainPattern'] = $this->queryDomainPattern;
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -77,8 +74,11 @@ class DescribeWebRulesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->queryDomainPattern) {
+            $res['QueryDomainPattern'] = $this->queryDomainPattern;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -92,17 +92,16 @@ class DescribeWebRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['Cname'])) {
+            $model->cname = $map['Cname'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['QueryDomainPattern'])) {
-            $model->queryDomainPattern = $map['QueryDomainPattern'];
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -110,10 +109,11 @@ class DescribeWebRulesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['QueryDomainPattern'])) {
+            $model->queryDomainPattern = $map['QueryDomainPattern'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

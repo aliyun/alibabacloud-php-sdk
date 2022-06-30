@@ -11,7 +11,7 @@ class certs extends Model
     /**
      * @var string
      */
-    public $endDate;
+    public $common;
 
     /**
      * @var bool
@@ -21,7 +21,12 @@ class certs extends Model
     /**
      * @var string
      */
-    public $startDate;
+    public $endDate;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var string
@@ -36,20 +41,15 @@ class certs extends Model
     /**
      * @var string
      */
-    public $common;
-
-    /**
-     * @var int
-     */
-    public $id;
+    public $startDate;
     protected $_name = [
-        'endDate'       => 'EndDate',
+        'common'        => 'Common',
         'domainRelated' => 'DomainRelated',
-        'startDate'     => 'StartDate',
+        'endDate'       => 'EndDate',
+        'id'            => 'Id',
         'issuer'        => 'Issuer',
         'name'          => 'Name',
-        'common'        => 'Common',
-        'id'            => 'Id',
+        'startDate'     => 'StartDate',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class certs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
+        if (null !== $this->common) {
+            $res['Common'] = $this->common;
         }
         if (null !== $this->domainRelated) {
             $res['DomainRelated'] = $this->domainRelated;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
@@ -74,11 +77,8 @@ class certs extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->common) {
-            $res['Common'] = $this->common;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class certs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
+        if (isset($map['Common'])) {
+            $model->common = $map['Common'];
         }
         if (isset($map['DomainRelated'])) {
             $model->domainRelated = $map['DomainRelated'];
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
@@ -107,11 +110,8 @@ class certs extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Common'])) {
-            $model->common = $map['Common'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

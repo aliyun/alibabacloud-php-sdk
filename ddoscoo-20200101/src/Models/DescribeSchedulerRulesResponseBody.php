@@ -12,21 +12,21 @@ class DescribeSchedulerRulesResponseBody extends Model
     /**
      * @var string
      */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var schedulerRules[]
      */
     public $schedulerRules;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
         'requestId'      => 'RequestId',
         'schedulerRules' => 'SchedulerRules',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class DescribeSchedulerRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,6 +47,9 @@ class DescribeSchedulerRulesResponseBody extends Model
                     $res['SchedulerRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class DescribeSchedulerRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -77,6 +74,9 @@ class DescribeSchedulerRulesResponseBody extends Model
                     $model->schedulerRules[$n++] = null !== $item ? schedulerRules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

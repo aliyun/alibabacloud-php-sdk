@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosEventMaxResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $qps;
-
-    /**
      * @var int
      */
     public $cps;
@@ -27,11 +17,21 @@ class DescribeDDosEventMaxResponseBody extends Model
      * @var int
      */
     public $mbps;
+
+    /**
+     * @var int
+     */
+    public $qps;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'qps'       => 'Qps',
         'cps'       => 'Cps',
         'mbps'      => 'Mbps',
+        'qps'       => 'Qps',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeDDosEventMaxResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->qps) {
-            $res['Qps'] = $this->qps;
-        }
         if (null !== $this->cps) {
             $res['Cps'] = $this->cps;
         }
         if (null !== $this->mbps) {
             $res['Mbps'] = $this->mbps;
+        }
+        if (null !== $this->qps) {
+            $res['Qps'] = $this->qps;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeDDosEventMaxResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Qps'])) {
-            $model->qps = $map['Qps'];
-        }
         if (isset($map['Cps'])) {
             $model->cps = $map['Cps'];
         }
         if (isset($map['Mbps'])) {
             $model->mbps = $map['Mbps'];
+        }
+        if (isset($map['Qps'])) {
+            $model->qps = $map['Qps'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

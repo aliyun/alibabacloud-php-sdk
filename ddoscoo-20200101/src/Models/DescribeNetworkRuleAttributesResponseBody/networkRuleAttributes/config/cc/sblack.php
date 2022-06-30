@@ -11,12 +11,7 @@ class sblack extends Model
     /**
      * @var int
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $expires;
+    public $cnt;
 
     /**
      * @var int
@@ -26,12 +21,17 @@ class sblack extends Model
     /**
      * @var int
      */
-    public $cnt;
+    public $expires;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'type'    => 'Type',
-        'expires' => 'Expires',
-        'during'  => 'During',
         'cnt'     => 'Cnt',
+        'during'  => 'During',
+        'expires' => 'Expires',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class sblack extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->expires) {
-            $res['Expires'] = $this->expires;
+        if (null !== $this->cnt) {
+            $res['Cnt'] = $this->cnt;
         }
         if (null !== $this->during) {
             $res['During'] = $this->during;
         }
-        if (null !== $this->cnt) {
-            $res['Cnt'] = $this->cnt;
+        if (null !== $this->expires) {
+            $res['Expires'] = $this->expires;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class sblack extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Expires'])) {
-            $model->expires = $map['Expires'];
+        if (isset($map['Cnt'])) {
+            $model->cnt = $map['Cnt'];
         }
         if (isset($map['During'])) {
             $model->during = $map['During'];
         }
-        if (isset($map['Cnt'])) {
-            $model->cnt = $map['Cnt'];
+        if (isset($map['Expires'])) {
+            $model->expires = $map['Expires'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

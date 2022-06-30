@@ -11,15 +11,15 @@ class realServerStatusList extends Model
     /**
      * @var string
      */
-    public $status;
+    public $address;
 
     /**
      * @var string
      */
-    public $address;
+    public $status;
     protected $_name = [
-        'status'  => 'Status',
         'address' => 'Address',
+        'status'  => 'Status',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class realServerStatusList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class realServerStatusList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

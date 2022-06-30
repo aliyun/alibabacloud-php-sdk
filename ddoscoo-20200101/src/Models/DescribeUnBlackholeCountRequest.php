@@ -11,14 +11,8 @@ class DescribeUnBlackholeCountRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -29,9 +23,6 @@ class DescribeUnBlackholeCountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -47,9 +38,6 @@ class DescribeUnBlackholeCountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

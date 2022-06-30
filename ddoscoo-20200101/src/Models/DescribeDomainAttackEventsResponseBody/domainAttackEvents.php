@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class domainAttackEvents extends Model
 {
     /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $domain;
@@ -26,12 +16,22 @@ class domainAttackEvents extends Model
     /**
      * @var int
      */
+    public $endTime;
+
+    /**
+     * @var int
+     */
     public $maxQps;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
         'domain'    => 'Domain',
+        'endTime'   => 'EndTime',
         'maxQps'    => 'MaxQps',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class domainAttackEvents extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->maxQps) {
             $res['MaxQps'] = $this->maxQps;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class domainAttackEvents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['MaxQps'])) {
             $model->maxQps = $map['MaxQps'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

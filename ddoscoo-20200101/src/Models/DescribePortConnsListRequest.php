@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribePortConnsListRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @var int
      */
     public $endTime;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $startTime;
+    public $instanceIds;
 
     /**
      * @var int
@@ -39,17 +29,21 @@ class DescribePortConnsListRequest extends Model
     public $port;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceIds;
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'endTime'         => 'EndTime',
-        'startTime'       => 'StartTime',
+        'instanceIds'     => 'InstanceIds',
         'interval'        => 'Interval',
         'port'            => 'Port',
-        'instanceIds'     => 'InstanceIds',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -59,17 +53,11 @@ class DescribePortConnsListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
@@ -77,8 +65,11 @@ class DescribePortConnsListRequest extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -92,17 +83,13 @@ class DescribePortConnsListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
@@ -110,10 +97,11 @@ class DescribePortConnsListRequest extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

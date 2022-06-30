@@ -11,17 +11,7 @@ class AssociateWebCertRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $domain;
+    public $cert;
 
     /**
      * @var int
@@ -36,20 +26,24 @@ class AssociateWebCertRequest extends Model
     /**
      * @var string
      */
-    public $cert;
+    public $domain;
 
     /**
      * @var string
      */
     public $key;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
-        'domain'          => 'Domain',
+        'cert'            => 'Cert',
         'certId'          => 'CertId',
         'certName'        => 'CertName',
-        'cert'            => 'Cert',
+        'domain'          => 'Domain',
         'key'             => 'Key',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -59,14 +53,8 @@ class AssociateWebCertRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->cert) {
+            $res['Cert'] = $this->cert;
         }
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
@@ -74,11 +62,14 @@ class AssociateWebCertRequest extends Model
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
-        if (null !== $this->cert) {
-            $res['Cert'] = $this->cert;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -92,14 +83,8 @@ class AssociateWebCertRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['Cert'])) {
+            $model->cert = $map['Cert'];
         }
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
@@ -107,11 +92,14 @@ class AssociateWebCertRequest extends Model
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
-        if (isset($map['Cert'])) {
-            $model->cert = $map['Cert'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

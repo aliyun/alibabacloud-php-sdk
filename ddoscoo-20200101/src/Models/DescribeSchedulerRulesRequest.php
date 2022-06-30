@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeSchedulerRulesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $ruleName;
-
-    /**
-     * @var int
-     */
-    public $offset;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -39,17 +19,19 @@ class DescribeSchedulerRulesRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isOffset;
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
-        'ruleName'        => 'RuleName',
-        'offset'          => 'Offset',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'isOffset'        => 'IsOffset',
+        'resourceGroupId' => 'ResourceGroupId',
+        'ruleName'        => 'RuleName',
     ];
 
     public function validate()
@@ -59,26 +41,17 @@ class DescribeSchedulerRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
-        if (null !== $this->offset) {
-            $res['Offset'] = $this->offset;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->isOffset) {
-            $res['IsOffset'] = $this->isOffset;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
 
         return $res;
@@ -92,26 +65,17 @@ class DescribeSchedulerRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
-        if (isset($map['Offset'])) {
-            $model->offset = $map['Offset'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['IsOffset'])) {
-            $model->isOffset = $map['IsOffset'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
 
         return $model;

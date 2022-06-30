@@ -11,21 +11,15 @@ class DeleteAutoCcBlacklistRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $blacklist;
 
     /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $blacklist;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'instanceId' => 'InstanceId',
         'blacklist'  => 'Blacklist',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DeleteAutoCcBlacklistRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->blacklist) {
+            $res['Blacklist'] = $this->blacklist;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->blacklist) {
-            $res['Blacklist'] = $this->blacklist;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class DeleteAutoCcBlacklistRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Blacklist'])) {
+            $model->blacklist = $map['Blacklist'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Blacklist'])) {
-            $model->blacklist = $map['Blacklist'];
         }
 
         return $model;

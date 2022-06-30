@@ -11,21 +11,15 @@ class EnableWebCCRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $domain;
 
     /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $domain;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class EnableWebCCRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class EnableWebCCRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
         }
 
         return $model;

@@ -18,6 +18,11 @@ class config extends Model
     public $cc;
 
     /**
+     * @var string
+     */
+    public $nodataConn;
+
+    /**
      * @var payloadLen
      */
     public $payloadLen;
@@ -40,19 +45,14 @@ class config extends Model
     /**
      * @var string
      */
-    public $nodataConn;
-
-    /**
-     * @var string
-     */
     public $synproxy;
     protected $_name = [
         'cc'                 => 'Cc',
+        'nodataConn'         => 'NodataConn',
         'payloadLen'         => 'PayloadLen',
         'persistenceTimeout' => 'PersistenceTimeout',
         'sla'                => 'Sla',
         'slimit'             => 'Slimit',
-        'nodataConn'         => 'NodataConn',
         'synproxy'           => 'Synproxy',
     ];
 
@@ -66,6 +66,9 @@ class config extends Model
         if (null !== $this->cc) {
             $res['Cc'] = null !== $this->cc ? $this->cc->toMap() : null;
         }
+        if (null !== $this->nodataConn) {
+            $res['NodataConn'] = $this->nodataConn;
+        }
         if (null !== $this->payloadLen) {
             $res['PayloadLen'] = null !== $this->payloadLen ? $this->payloadLen->toMap() : null;
         }
@@ -77,9 +80,6 @@ class config extends Model
         }
         if (null !== $this->slimit) {
             $res['Slimit'] = null !== $this->slimit ? $this->slimit->toMap() : null;
-        }
-        if (null !== $this->nodataConn) {
-            $res['NodataConn'] = $this->nodataConn;
         }
         if (null !== $this->synproxy) {
             $res['Synproxy'] = $this->synproxy;
@@ -99,6 +99,9 @@ class config extends Model
         if (isset($map['Cc'])) {
             $model->cc = cc::fromMap($map['Cc']);
         }
+        if (isset($map['NodataConn'])) {
+            $model->nodataConn = $map['NodataConn'];
+        }
         if (isset($map['PayloadLen'])) {
             $model->payloadLen = payloadLen::fromMap($map['PayloadLen']);
         }
@@ -110,9 +113,6 @@ class config extends Model
         }
         if (isset($map['Slimit'])) {
             $model->slimit = slimit::fromMap($map['Slimit']);
-        }
-        if (isset($map['NodataConn'])) {
-            $model->nodataConn = $map['NodataConn'];
         }
         if (isset($map['Synproxy'])) {
             $model->synproxy = $map['Synproxy'];

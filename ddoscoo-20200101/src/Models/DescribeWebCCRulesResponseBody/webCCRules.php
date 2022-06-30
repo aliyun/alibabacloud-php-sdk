@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class webCCRules extends Model
 {
     /**
-     * @var int
-     */
-    public $ttl;
-
-    /**
      * @var string
      */
     public $act;
+
+    /**
+     * @var int
+     */
+    public $count;
 
     /**
      * @var int
@@ -34,22 +34,22 @@ class webCCRules extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $ttl;
+
+    /**
      * @var string
      */
     public $uri;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
-        'ttl'      => 'Ttl',
         'act'      => 'Act',
+        'count'    => 'Count',
         'interval' => 'Interval',
         'mode'     => 'Mode',
         'name'     => 'Name',
+        'ttl'      => 'Ttl',
         'uri'      => 'Uri',
-        'count'    => 'Count',
     ];
 
     public function validate()
@@ -59,11 +59,11 @@ class webCCRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ttl) {
-            $res['Ttl'] = $this->ttl;
-        }
         if (null !== $this->act) {
             $res['Act'] = $this->act;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
@@ -74,11 +74,11 @@ class webCCRules extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->ttl) {
+            $res['Ttl'] = $this->ttl;
+        }
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -92,11 +92,11 @@ class webCCRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ttl'])) {
-            $model->ttl = $map['Ttl'];
-        }
         if (isset($map['Act'])) {
             $model->act = $map['Act'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
@@ -107,11 +107,11 @@ class webCCRules extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Ttl'])) {
+            $model->ttl = $map['Ttl'];
+        }
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

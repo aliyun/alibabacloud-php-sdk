@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionBlockSwitch;
+    public $countries;
 
     /**
      * @var string[]
@@ -19,13 +19,13 @@ class config extends Model
     public $provinces;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $countries;
+    public $regionBlockSwitch;
     protected $_name = [
-        'regionBlockSwitch' => 'RegionBlockSwitch',
-        'provinces'         => 'Provinces',
         'countries'         => 'Countries',
+        'provinces'         => 'Provinces',
+        'regionBlockSwitch' => 'RegionBlockSwitch',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class config extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionBlockSwitch) {
-            $res['RegionBlockSwitch'] = $this->regionBlockSwitch;
+        if (null !== $this->countries) {
+            $res['Countries'] = $this->countries;
         }
         if (null !== $this->provinces) {
             $res['Provinces'] = $this->provinces;
         }
-        if (null !== $this->countries) {
-            $res['Countries'] = $this->countries;
+        if (null !== $this->regionBlockSwitch) {
+            $res['RegionBlockSwitch'] = $this->regionBlockSwitch;
         }
 
         return $res;
@@ -56,18 +56,18 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionBlockSwitch'])) {
-            $model->regionBlockSwitch = $map['RegionBlockSwitch'];
+        if (isset($map['Countries'])) {
+            if (!empty($map['Countries'])) {
+                $model->countries = $map['Countries'];
+            }
         }
         if (isset($map['Provinces'])) {
             if (!empty($map['Provinces'])) {
                 $model->provinces = $map['Provinces'];
             }
         }
-        if (isset($map['Countries'])) {
-            if (!empty($map['Countries'])) {
-                $model->countries = $map['Countries'];
-            }
+        if (isset($map['RegionBlockSwitch'])) {
+            $model->regionBlockSwitch = $map['RegionBlockSwitch'];
         }
 
         return $model;

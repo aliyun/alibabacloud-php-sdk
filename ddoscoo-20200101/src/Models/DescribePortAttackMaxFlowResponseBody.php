@@ -11,21 +11,21 @@ class DescribePortAttackMaxFlowResponseBody extends Model
     /**
      * @var int
      */
+    public $bps;
+
+    /**
+     * @var int
+     */
     public $pps;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $bps;
     protected $_name = [
+        'bps'       => 'Bps',
         'pps'       => 'Pps',
         'requestId' => 'RequestId',
-        'bps'       => 'Bps',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribePortAttackMaxFlowResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bps) {
+            $res['Bps'] = $this->bps;
+        }
         if (null !== $this->pps) {
             $res['Pps'] = $this->pps;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->bps) {
-            $res['Bps'] = $this->bps;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribePortAttackMaxFlowResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bps'])) {
+            $model->bps = $map['Bps'];
+        }
         if (isset($map['Pps'])) {
             $model->pps = $map['Pps'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Bps'])) {
-            $model->bps = $map['Bps'];
         }
 
         return $model;

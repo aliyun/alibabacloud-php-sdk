@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConfigWebIpSetRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $blackList;
 
     /**
      * @var string
@@ -24,19 +19,18 @@ class ConfigWebIpSetRequest extends Model
     public $domain;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $blackList;
+    public $resourceGroupId;
 
     /**
      * @var string[]
      */
     public $whiteList;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
-        'domain'          => 'Domain',
         'blackList'       => 'BlackList',
+        'domain'          => 'Domain',
+        'resourceGroupId' => 'ResourceGroupId',
         'whiteList'       => 'WhiteList',
     ];
 
@@ -47,17 +41,14 @@ class ConfigWebIpSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->blackList) {
+            $res['BlackList'] = $this->blackList;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->blackList) {
-            $res['BlackList'] = $this->blackList;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->whiteList) {
             $res['WhiteList'] = $this->whiteList;
@@ -74,19 +65,16 @@ class ConfigWebIpSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['BlackList'])) {
             if (!empty($map['BlackList'])) {
                 $model->blackList = $map['BlackList'];
             }
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['WhiteList'])) {
             if (!empty($map['WhiteList'])) {

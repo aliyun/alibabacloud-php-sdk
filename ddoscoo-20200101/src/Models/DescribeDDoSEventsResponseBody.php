@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDoSEventsResponseBody extends Model
 {
     /**
+     * @var DDoSEvents[]
+     */
+    public $DDoSEvents;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeDDoSEventsResponseBody extends Model
      * @var int
      */
     public $total;
-
-    /**
-     * @var DDoSEvents[]
-     */
-    public $DDoSEvents;
     protected $_name = [
+        'DDoSEvents' => 'DDoSEvents',
         'requestId'  => 'RequestId',
         'total'      => 'Total',
-        'DDoSEvents' => 'DDoSEvents',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeDDoSEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->DDoSEvents) {
             $res['DDoSEvents'] = [];
             if (null !== $this->DDoSEvents && \is_array($this->DDoSEvents)) {
@@ -50,6 +44,12 @@ class DescribeDDoSEventsResponseBody extends Model
                     $res['DDoSEvents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeDDoSEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['DDoSEvents'])) {
             if (!empty($map['DDoSEvents'])) {
                 $model->DDoSEvents = [];
@@ -77,6 +71,12 @@ class DescribeDDoSEventsResponseBody extends Model
                     $model->DDoSEvents[$n++] = null !== $item ? DDoSEvents::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

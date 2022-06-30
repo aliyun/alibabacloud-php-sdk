@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class blockStatusList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $endTime;
+    public $blockStatus;
 
     /**
      * @var int
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class blockStatusList extends Model
     public $line;
 
     /**
-     * @var string
+     * @var int
      */
-    public $blockStatus;
+    public $startTime;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'startTime'   => 'StartTime',
-        'line'        => 'Line',
         'blockStatus' => 'BlockStatus',
+        'endTime'     => 'EndTime',
+        'line'        => 'Line',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class blockStatusList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->blockStatus) {
+            $res['BlockStatus'] = $this->blockStatus;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->line) {
             $res['Line'] = $this->line;
         }
-        if (null !== $this->blockStatus) {
-            $res['BlockStatus'] = $this->blockStatus;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class blockStatusList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BlockStatus'])) {
+            $model->blockStatus = $map['BlockStatus'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
         }
-        if (isset($map['BlockStatus'])) {
-            $model->blockStatus = $map['BlockStatus'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

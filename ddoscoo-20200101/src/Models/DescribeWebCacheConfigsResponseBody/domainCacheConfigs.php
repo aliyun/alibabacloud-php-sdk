@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class domainCacheConfigs extends Model
 {
     /**
-     * @var string
-     */
-    public $domain;
-
-    /**
      * @var customRules[]
      */
     public $customRules;
@@ -22,17 +17,22 @@ class domainCacheConfigs extends Model
     /**
      * @var string
      */
-    public $mode;
+    public $domain;
 
     /**
      * @var int
      */
     public $enable;
+
+    /**
+     * @var string
+     */
+    public $mode;
     protected $_name = [
-        'domain'      => 'Domain',
         'customRules' => 'CustomRules',
-        'mode'        => 'Mode',
+        'domain'      => 'Domain',
         'enable'      => 'Enable',
+        'mode'        => 'Mode',
     ];
 
     public function validate()
@@ -42,9 +42,6 @@ class domainCacheConfigs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->customRules) {
             $res['CustomRules'] = [];
             if (null !== $this->customRules && \is_array($this->customRules)) {
@@ -54,11 +51,14 @@ class domainCacheConfigs extends Model
                 }
             }
         }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -72,9 +72,6 @@ class domainCacheConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['CustomRules'])) {
             if (!empty($map['CustomRules'])) {
                 $model->customRules = [];
@@ -84,11 +81,14 @@ class domainCacheConfigs extends Model
                 }
             }
         }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         return $model;

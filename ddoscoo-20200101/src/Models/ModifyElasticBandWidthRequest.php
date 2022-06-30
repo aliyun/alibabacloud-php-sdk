@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyElasticBandWidthRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
     public $elasticBandwidth;
@@ -23,7 +18,6 @@ class ModifyElasticBandWidthRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'sourceIp'         => 'SourceIp',
         'elasticBandwidth' => 'ElasticBandwidth',
         'instanceId'       => 'InstanceId',
     ];
@@ -35,9 +29,6 @@ class ModifyElasticBandWidthRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->elasticBandwidth) {
             $res['ElasticBandwidth'] = $this->elasticBandwidth;
         }
@@ -56,9 +47,6 @@ class ModifyElasticBandWidthRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ElasticBandwidth'])) {
             $model->elasticBandwidth = $map['ElasticBandwidth'];
         }

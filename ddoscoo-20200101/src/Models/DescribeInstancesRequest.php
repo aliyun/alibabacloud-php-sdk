@@ -10,14 +10,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $edition;
+
+    /**
+     * @var int
+     */
+    public $enabled;
+
+    /**
+     * @var int
+     */
+    public $expireEndTime;
+
+    /**
+     * @var int
+     */
+    public $expireStartTime;
+
+    /**
+     * @var string[]
+     */
+    public $instanceIds;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $ip;
 
     /**
      * @var string
@@ -32,37 +52,12 @@ class DescribeInstancesRequest extends Model
     /**
      * @var string
      */
-    public $ip;
+    public $remark;
 
     /**
      * @var string
      */
-    public $remark;
-
-    /**
-     * @var int
-     */
-    public $edition;
-
-    /**
-     * @var int
-     */
-    public $enabled;
-
-    /**
-     * @var int
-     */
-    public $expireStartTime;
-
-    /**
-     * @var int
-     */
-    public $expireEndTime;
-
-    /**
-     * @var string[]
-     */
-    public $instanceIds;
+    public $resourceGroupId;
 
     /**
      * @var int[]
@@ -74,17 +69,16 @@ class DescribeInstancesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'ip'              => 'Ip',
-        'remark'          => 'Remark',
         'edition'         => 'Edition',
         'enabled'         => 'Enabled',
-        'expireStartTime' => 'ExpireStartTime',
         'expireEndTime'   => 'ExpireEndTime',
+        'expireStartTime' => 'ExpireStartTime',
         'instanceIds'     => 'InstanceIds',
+        'ip'              => 'Ip',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'remark'          => 'Remark',
+        'resourceGroupId' => 'ResourceGroupId',
         'status'          => 'Status',
         'tag'             => 'Tag',
     ];
@@ -96,11 +90,23 @@ class DescribeInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->expireEndTime) {
+            $res['ExpireEndTime'] = $this->expireEndTime;
+        }
+        if (null !== $this->expireStartTime) {
+            $res['ExpireStartTime'] = $this->expireStartTime;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -108,26 +114,11 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-        if (null !== $this->edition) {
-            $res['Edition'] = $this->edition;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->expireStartTime) {
-            $res['ExpireStartTime'] = $this->expireStartTime;
-        }
-        if (null !== $this->expireEndTime) {
-            $res['ExpireEndTime'] = $this->expireEndTime;
-        }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -153,11 +144,25 @@ class DescribeInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['ExpireEndTime'])) {
+            $model->expireEndTime = $map['ExpireEndTime'];
+        }
+        if (isset($map['ExpireStartTime'])) {
+            $model->expireStartTime = $map['ExpireStartTime'];
+        }
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -165,28 +170,11 @@ class DescribeInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-        if (isset($map['Edition'])) {
-            $model->edition = $map['Edition'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['ExpireStartTime'])) {
-            $model->expireStartTime = $map['ExpireStartTime'];
-        }
-        if (isset($map['ExpireEndTime'])) {
-            $model->expireEndTime = $map['ExpireEndTime'];
-        }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {

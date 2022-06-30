@@ -11,17 +11,7 @@ class DescribeDomainStatusCodeListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
+    public $domain;
 
     /**
      * @var int
@@ -36,20 +26,24 @@ class DescribeDomainStatusCodeListRequest extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $queryType;
 
     /**
      * @var string
      */
-    public $queryType;
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'domain'          => 'Domain',
         'endTime'         => 'EndTime',
         'interval'        => 'Interval',
-        'domain'          => 'Domain',
         'queryType'       => 'QueryType',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -59,14 +53,8 @@ class DescribeDomainStatusCodeListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -74,11 +62,14 @@ class DescribeDomainStatusCodeListRequest extends Model
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -92,14 +83,8 @@ class DescribeDomainStatusCodeListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -107,11 +92,14 @@ class DescribeDomainStatusCodeListRequest extends Model
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

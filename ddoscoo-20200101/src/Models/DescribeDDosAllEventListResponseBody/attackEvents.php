@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class attackEvents extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $endTime;
+    public $area;
 
     /**
      * @var int
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class attackEvents extends Model
     public $eventType;
 
     /**
-     * @var int
-     */
-    public $mbps;
-
-    /**
      * @var string
      */
     public $ip;
+
+    /**
+     * @var int
+     */
+    public $mbps;
 
     /**
      * @var string
@@ -42,14 +42,20 @@ class attackEvents extends Model
      * @var int
      */
     public $pps;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
+        'area'      => 'Area',
         'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
         'eventType' => 'EventType',
-        'mbps'      => 'Mbps',
         'ip'        => 'Ip',
+        'mbps'      => 'Mbps',
         'port'      => 'Port',
         'pps'       => 'Pps',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -59,26 +65,29 @@ class attackEvents extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->area) {
+            $res['Area'] = $this->area;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
-        if (null !== $this->mbps) {
-            $res['Mbps'] = $this->mbps;
-        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->mbps) {
+            $res['Mbps'] = $this->mbps;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
         if (null !== $this->pps) {
             $res['Pps'] = $this->pps;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -92,26 +101,29 @@ class attackEvents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Area'])) {
+            $model->area = $map['Area'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
-        if (isset($map['Mbps'])) {
-            $model->mbps = $map['Mbps'];
-        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+        if (isset($map['Mbps'])) {
+            $model->mbps = $map['Mbps'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
         if (isset($map['Pps'])) {
             $model->pps = $map['Pps'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

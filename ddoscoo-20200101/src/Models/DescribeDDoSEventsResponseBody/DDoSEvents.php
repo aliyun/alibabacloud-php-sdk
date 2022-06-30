@@ -11,22 +11,17 @@ class DDoSEvents extends Model
     /**
      * @var int
      */
-    public $endTime;
+    public $bps;
 
     /**
      * @var int
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
      */
     public $eventType;
-
-    /**
-     * @var string
-     */
-    public $region;
 
     /**
      * @var string
@@ -41,21 +36,26 @@ class DDoSEvents extends Model
     /**
      * @var int
      */
-    public $bps;
+    public $pps;
+
+    /**
+     * @var string
+     */
+    public $region;
 
     /**
      * @var int
      */
-    public $pps;
+    public $startTime;
     protected $_name = [
+        'bps'       => 'Bps',
         'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
         'eventType' => 'EventType',
-        'region'    => 'Region',
         'ip'        => 'Ip',
         'port'      => 'Port',
-        'bps'       => 'Bps',
         'pps'       => 'Pps',
+        'region'    => 'Region',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -65,17 +65,14 @@ class DDoSEvents extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bps) {
+            $res['Bps'] = $this->bps;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -83,11 +80,14 @@ class DDoSEvents extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->bps) {
-            $res['Bps'] = $this->bps;
-        }
         if (null !== $this->pps) {
             $res['Pps'] = $this->pps;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -101,17 +101,14 @@ class DDoSEvents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bps'])) {
+            $model->bps = $map['Bps'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
@@ -119,11 +116,14 @@ class DDoSEvents extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['Bps'])) {
-            $model->bps = $map['Bps'];
-        }
         if (isset($map['Pps'])) {
             $model->pps = $map['Pps'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

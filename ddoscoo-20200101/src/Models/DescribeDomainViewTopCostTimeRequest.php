@@ -11,7 +11,12 @@ class DescribeDomainViewTopCostTimeRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $domain;
+
+    /**
+     * @var int
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -26,23 +31,12 @@ class DescribeDomainViewTopCostTimeRequest extends Model
     /**
      * @var int
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $domain;
-
-    /**
-     * @var int
-     */
     public $top;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
+        'domain'          => 'Domain',
+        'endTime'         => 'EndTime',
         'resourceGroupId' => 'ResourceGroupId',
         'startTime'       => 'StartTime',
-        'endTime'         => 'EndTime',
-        'domain'          => 'Domain',
         'top'             => 'Top',
     ];
 
@@ -53,20 +47,17 @@ class DescribeDomainViewTopCostTimeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
         }
         if (null !== $this->top) {
             $res['Top'] = $this->top;
@@ -83,20 +74,17 @@ class DescribeDomainViewTopCostTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
         }
         if (isset($map['Top'])) {
             $model->top = $map['Top'];

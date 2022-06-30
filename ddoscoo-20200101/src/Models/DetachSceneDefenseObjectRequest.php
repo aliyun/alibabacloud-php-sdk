@@ -11,27 +11,21 @@ class DetachSceneDefenseObjectRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $policyId;
-
-    /**
-     * @var string
-     */
     public $objectType;
 
     /**
      * @var string
      */
     public $objects;
+
+    /**
+     * @var string
+     */
+    public $policyId;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'policyId'   => 'PolicyId',
         'objectType' => 'ObjectType',
         'objects'    => 'Objects',
+        'policyId'   => 'PolicyId',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class DetachSceneDefenseObjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
         if (null !== $this->objects) {
             $res['Objects'] = $this->objects;
+        }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class DetachSceneDefenseObjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
-        }
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }
         if (isset($map['Objects'])) {
             $model->objects = $map['Objects'];
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
 
         return $model;

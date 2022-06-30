@@ -11,16 +11,6 @@ class ModifyHealthCheckConfigRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $forwardProtocol;
 
     /**
@@ -32,12 +22,16 @@ class ModifyHealthCheckConfigRequest extends Model
      * @var string
      */
     public $healthCheck;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'instanceId'      => 'InstanceId',
         'forwardProtocol' => 'ForwardProtocol',
         'frontendPort'    => 'FrontendPort',
         'healthCheck'     => 'HealthCheck',
+        'instanceId'      => 'InstanceId',
     ];
 
     public function validate()
@@ -47,12 +41,6 @@ class ModifyHealthCheckConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->forwardProtocol) {
             $res['ForwardProtocol'] = $this->forwardProtocol;
         }
@@ -61,6 +49,9 @@ class ModifyHealthCheckConfigRequest extends Model
         }
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = $this->healthCheck;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -74,12 +65,6 @@ class ModifyHealthCheckConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ForwardProtocol'])) {
             $model->forwardProtocol = $map['ForwardProtocol'];
         }
@@ -88,6 +73,9 @@ class ModifyHealthCheckConfigRequest extends Model
         }
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = $map['HealthCheck'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

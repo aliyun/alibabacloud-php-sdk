@@ -14,18 +14,18 @@ class attackList extends Model
     public $attack;
 
     /**
-     * @var string
-     */
-    public $domain;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $domain;
     protected $_name = [
         'attack' => 'Attack',
-        'domain' => 'Domain',
         'count'  => 'Count',
+        'domain' => 'Domain',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class attackList extends Model
         if (null !== $this->attack) {
             $res['Attack'] = $this->attack;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class attackList extends Model
         if (isset($map['Attack'])) {
             $model->attack = $map['Attack'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         return $model;

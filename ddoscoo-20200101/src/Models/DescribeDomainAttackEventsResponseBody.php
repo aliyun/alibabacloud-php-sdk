@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainAttackEventsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var domainAttackEvents[]
      */
     public $domainAttackEvents;
@@ -23,10 +18,15 @@ class DescribeDomainAttackEventsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'         => 'TotalCount',
         'domainAttackEvents' => 'DomainAttackEvents',
         'requestId'          => 'RequestId',
+        'totalCount'         => 'TotalCount',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class DescribeDomainAttackEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->domainAttackEvents) {
             $res['DomainAttackEvents'] = [];
             if (null !== $this->domainAttackEvents && \is_array($this->domainAttackEvents)) {
@@ -50,6 +47,9 @@ class DescribeDomainAttackEventsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class DescribeDomainAttackEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['DomainAttackEvents'])) {
             if (!empty($map['DomainAttackEvents'])) {
                 $model->domainAttackEvents = [];
@@ -77,6 +74,9 @@ class DescribeDomainAttackEventsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

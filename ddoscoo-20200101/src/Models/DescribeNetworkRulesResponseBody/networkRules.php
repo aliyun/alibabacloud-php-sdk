@@ -11,7 +11,17 @@ class networkRules extends Model
     /**
      * @var int
      */
+    public $backendPort;
+
+    /**
+     * @var int
+     */
     public $frontendPort;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var bool
@@ -27,23 +37,13 @@ class networkRules extends Model
      * @var string[]
      */
     public $realServers;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $backendPort;
     protected $_name = [
+        'backendPort'  => 'BackendPort',
         'frontendPort' => 'FrontendPort',
+        'instanceId'   => 'InstanceId',
         'isAutoCreate' => 'IsAutoCreate',
         'protocol'     => 'Protocol',
         'realServers'  => 'RealServers',
-        'instanceId'   => 'InstanceId',
-        'backendPort'  => 'BackendPort',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class networkRules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendPort) {
+            $res['BackendPort'] = $this->backendPort;
+        }
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->isAutoCreate) {
             $res['IsAutoCreate'] = $this->isAutoCreate;
@@ -64,12 +70,6 @@ class networkRules extends Model
         }
         if (null !== $this->realServers) {
             $res['RealServers'] = $this->realServers;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->backendPort) {
-            $res['BackendPort'] = $this->backendPort;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class networkRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendPort'])) {
+            $model->backendPort = $map['BackendPort'];
+        }
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IsAutoCreate'])) {
             $model->isAutoCreate = $map['IsAutoCreate'];
@@ -96,12 +102,6 @@ class networkRules extends Model
             if (!empty($map['RealServers'])) {
                 $model->realServers = $map['RealServers'];
             }
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['BackendPort'])) {
-            $model->backendPort = $map['BackendPort'];
         }
 
         return $model;

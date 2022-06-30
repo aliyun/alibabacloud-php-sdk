@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeHealthCheckListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var healthCheckList[]
      */
     public $healthCheckList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'healthCheckList' => 'HealthCheckList',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeHealthCheckListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->healthCheckList) {
             $res['HealthCheckList'] = [];
             if (null !== $this->healthCheckList && \is_array($this->healthCheckList)) {
@@ -41,6 +38,9 @@ class DescribeHealthCheckListResponseBody extends Model
                     $res['HealthCheckList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeHealthCheckListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HealthCheckList'])) {
             if (!empty($map['HealthCheckList'])) {
                 $model->healthCheckList = [];
@@ -65,6 +62,9 @@ class DescribeHealthCheckListResponseBody extends Model
                     $model->healthCheckList[$n++] = null !== $item ? healthCheckList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

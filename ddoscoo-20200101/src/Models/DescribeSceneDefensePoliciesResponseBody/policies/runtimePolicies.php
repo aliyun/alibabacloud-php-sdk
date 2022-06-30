@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class runtimePolicies extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $oldValue;
-
-    /**
      * @var string
      */
     public $newValue;
@@ -27,11 +17,21 @@ class runtimePolicies extends Model
      * @var int
      */
     public $policyType;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $oldValue;
     protected $_name = [
-        'status'     => 'Status',
-        'oldValue'   => 'oldValue',
         'newValue'   => 'NewValue',
         'policyType' => 'PolicyType',
+        'status'     => 'Status',
+        'oldValue'   => 'oldValue',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class runtimePolicies extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->oldValue) {
-            $res['oldValue'] = $this->oldValue;
-        }
         if (null !== $this->newValue) {
             $res['NewValue'] = $this->newValue;
         }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->oldValue) {
+            $res['oldValue'] = $this->oldValue;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class runtimePolicies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['oldValue'])) {
-            $model->oldValue = $map['oldValue'];
-        }
         if (isset($map['NewValue'])) {
             $model->newValue = $map['NewValue'];
         }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['oldValue'])) {
+            $model->oldValue = $map['oldValue'];
         }
 
         return $model;

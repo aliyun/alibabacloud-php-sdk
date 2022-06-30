@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class protectSwitchList extends Model
 {
     /**
-     * @var int
-     */
-    public $blackWhiteListEnable;
-
-    /**
-     * @var string
-     */
-    public $aiTemplate;
-
-    /**
-     * @var int
-     */
-    public $preciseRuleEnable;
-
-    /**
-     * @var string
-     */
-    public $domain;
-
-    /**
      * @var string
      */
     public $aiMode;
@@ -39,14 +19,14 @@ class protectSwitchList extends Model
     public $aiRuleEnable;
 
     /**
-     * @var int
-     */
-    public $regionBlockEnable;
-
-    /**
      * @var string
      */
-    public $ccTemplate;
+    public $aiTemplate;
+
+    /**
+     * @var int
+     */
+    public $blackWhiteListEnable;
 
     /**
      * @var int
@@ -57,17 +37,37 @@ class protectSwitchList extends Model
      * @var int
      */
     public $ccEnable;
+
+    /**
+     * @var string
+     */
+    public $ccTemplate;
+
+    /**
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @var int
+     */
+    public $preciseRuleEnable;
+
+    /**
+     * @var int
+     */
+    public $regionBlockEnable;
     protected $_name = [
-        'blackWhiteListEnable' => 'BlackWhiteListEnable',
-        'aiTemplate'           => 'AiTemplate',
-        'preciseRuleEnable'    => 'PreciseRuleEnable',
-        'domain'               => 'Domain',
         'aiMode'               => 'AiMode',
         'aiRuleEnable'         => 'AiRuleEnable',
-        'regionBlockEnable'    => 'RegionBlockEnable',
-        'ccTemplate'           => 'CcTemplate',
+        'aiTemplate'           => 'AiTemplate',
+        'blackWhiteListEnable' => 'BlackWhiteListEnable',
         'ccCustomRuleEnable'   => 'CcCustomRuleEnable',
         'ccEnable'             => 'CcEnable',
+        'ccTemplate'           => 'CcTemplate',
+        'domain'               => 'Domain',
+        'preciseRuleEnable'    => 'PreciseRuleEnable',
+        'regionBlockEnable'    => 'RegionBlockEnable',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class protectSwitchList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->blackWhiteListEnable) {
-            $res['BlackWhiteListEnable'] = $this->blackWhiteListEnable;
-        }
-        if (null !== $this->aiTemplate) {
-            $res['AiTemplate'] = $this->aiTemplate;
-        }
-        if (null !== $this->preciseRuleEnable) {
-            $res['PreciseRuleEnable'] = $this->preciseRuleEnable;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->aiMode) {
             $res['AiMode'] = $this->aiMode;
         }
         if (null !== $this->aiRuleEnable) {
             $res['AiRuleEnable'] = $this->aiRuleEnable;
         }
-        if (null !== $this->regionBlockEnable) {
-            $res['RegionBlockEnable'] = $this->regionBlockEnable;
+        if (null !== $this->aiTemplate) {
+            $res['AiTemplate'] = $this->aiTemplate;
         }
-        if (null !== $this->ccTemplate) {
-            $res['CcTemplate'] = $this->ccTemplate;
+        if (null !== $this->blackWhiteListEnable) {
+            $res['BlackWhiteListEnable'] = $this->blackWhiteListEnable;
         }
         if (null !== $this->ccCustomRuleEnable) {
             $res['CcCustomRuleEnable'] = $this->ccCustomRuleEnable;
         }
         if (null !== $this->ccEnable) {
             $res['CcEnable'] = $this->ccEnable;
+        }
+        if (null !== $this->ccTemplate) {
+            $res['CcTemplate'] = $this->ccTemplate;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->preciseRuleEnable) {
+            $res['PreciseRuleEnable'] = $this->preciseRuleEnable;
+        }
+        if (null !== $this->regionBlockEnable) {
+            $res['RegionBlockEnable'] = $this->regionBlockEnable;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class protectSwitchList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BlackWhiteListEnable'])) {
-            $model->blackWhiteListEnable = $map['BlackWhiteListEnable'];
-        }
-        if (isset($map['AiTemplate'])) {
-            $model->aiTemplate = $map['AiTemplate'];
-        }
-        if (isset($map['PreciseRuleEnable'])) {
-            $model->preciseRuleEnable = $map['PreciseRuleEnable'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['AiMode'])) {
             $model->aiMode = $map['AiMode'];
         }
         if (isset($map['AiRuleEnable'])) {
             $model->aiRuleEnable = $map['AiRuleEnable'];
         }
-        if (isset($map['RegionBlockEnable'])) {
-            $model->regionBlockEnable = $map['RegionBlockEnable'];
+        if (isset($map['AiTemplate'])) {
+            $model->aiTemplate = $map['AiTemplate'];
         }
-        if (isset($map['CcTemplate'])) {
-            $model->ccTemplate = $map['CcTemplate'];
+        if (isset($map['BlackWhiteListEnable'])) {
+            $model->blackWhiteListEnable = $map['BlackWhiteListEnable'];
         }
         if (isset($map['CcCustomRuleEnable'])) {
             $model->ccCustomRuleEnable = $map['CcCustomRuleEnable'];
         }
         if (isset($map['CcEnable'])) {
             $model->ccEnable = $map['CcEnable'];
+        }
+        if (isset($map['CcTemplate'])) {
+            $model->ccTemplate = $map['CcTemplate'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['PreciseRuleEnable'])) {
+            $model->preciseRuleEnable = $map['PreciseRuleEnable'];
+        }
+        if (isset($map['RegionBlockEnable'])) {
+            $model->regionBlockEnable = $map['RegionBlockEnable'];
         }
 
         return $model;

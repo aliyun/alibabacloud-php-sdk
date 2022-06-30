@@ -11,20 +11,20 @@ class CreateSchedulerRuleResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $cname;
 
     /**
      * @var string
      */
-    public $cname;
+    public $requestId;
 
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'requestId' => 'RequestId',
         'cname'     => 'Cname',
+        'requestId' => 'RequestId',
         'ruleName'  => 'RuleName',
     ];
 
@@ -35,11 +35,11 @@ class CreateSchedulerRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -56,11 +56,11 @@ class CreateSchedulerRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoCcBlacklistResponseBody extends Model
 {
     /**
-     * @var int
+     * @var autoCcBlacklist[]
      */
-    public $totalCount;
+    public $autoCcBlacklist;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeAutoCcBlacklistResponseBody extends Model
     public $requestId;
 
     /**
-     * @var autoCcBlacklist[]
+     * @var int
      */
-    public $autoCcBlacklist;
+    public $totalCount;
     protected $_name = [
-        'totalCount'      => 'TotalCount',
-        'requestId'       => 'RequestId',
         'autoCcBlacklist' => 'AutoCcBlacklist',
+        'requestId'       => 'RequestId',
+        'totalCount'      => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeAutoCcBlacklistResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->autoCcBlacklist) {
             $res['AutoCcBlacklist'] = [];
             if (null !== $this->autoCcBlacklist && \is_array($this->autoCcBlacklist)) {
@@ -50,6 +44,12 @@ class DescribeAutoCcBlacklistResponseBody extends Model
                     $res['AutoCcBlacklist'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeAutoCcBlacklistResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AutoCcBlacklist'])) {
             if (!empty($map['AutoCcBlacklist'])) {
                 $model->autoCcBlacklist = [];
@@ -77,6 +71,12 @@ class DescribeAutoCcBlacklistResponseBody extends Model
                     $model->autoCcBlacklist[$n++] = null !== $item ? autoCcBlacklist::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

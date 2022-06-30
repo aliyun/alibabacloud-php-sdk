@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebAccessModeResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var domainModes[]
      */
     public $domainModes;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'domainModes' => 'DomainModes',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeWebAccessModeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainModes) {
             $res['DomainModes'] = [];
             if (null !== $this->domainModes && \is_array($this->domainModes)) {
@@ -41,6 +38,9 @@ class DescribeWebAccessModeResponseBody extends Model
                     $res['DomainModes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeWebAccessModeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainModes'])) {
             if (!empty($map['DomainModes'])) {
                 $model->domainModes = [];
@@ -65,6 +62,9 @@ class DescribeWebAccessModeResponseBody extends Model
                     $model->domainModes[$n++] = null !== $item ? domainModes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

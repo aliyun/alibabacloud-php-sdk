@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class urlList extends Model
 {
     /**
-     * @var string
-     */
-    public $domain;
-
-    /**
      * @var float
      */
     public $costTime;
@@ -21,10 +16,15 @@ class urlList extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $url;
     protected $_name = [
-        'domain'   => 'Domain',
         'costTime' => 'CostTime',
+        'domain'   => 'Domain',
         'url'      => 'Url',
     ];
 
@@ -35,11 +35,11 @@ class urlList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->costTime) {
             $res['CostTime'] = $this->costTime;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -56,11 +56,11 @@ class urlList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['CostTime'])) {
             $model->costTime = $map['CostTime'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

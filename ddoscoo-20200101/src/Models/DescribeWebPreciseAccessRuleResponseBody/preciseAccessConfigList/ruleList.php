@@ -15,9 +15,9 @@ class ruleList extends Model
     public $action;
 
     /**
-     * @var string
+     * @var conditionList[]
      */
-    public $owner;
+    public $conditionList;
 
     /**
      * @var int
@@ -30,15 +30,15 @@ class ruleList extends Model
     public $name;
 
     /**
-     * @var conditionList[]
+     * @var string
      */
-    public $conditionList;
+    public $owner;
     protected $_name = [
         'action'        => 'Action',
-        'owner'         => 'Owner',
+        'conditionList' => 'ConditionList',
         'expires'       => 'Expires',
         'name'          => 'Name',
-        'conditionList' => 'ConditionList',
+        'owner'         => 'Owner',
     ];
 
     public function validate()
@@ -51,15 +51,6 @@ class ruleList extends Model
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->expires) {
-            $res['Expires'] = $this->expires;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->conditionList) {
             $res['ConditionList'] = [];
             if (null !== $this->conditionList && \is_array($this->conditionList)) {
@@ -68,6 +59,15 @@ class ruleList extends Model
                     $res['ConditionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->expires) {
+            $res['Expires'] = $this->expires;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         return $res;
@@ -84,15 +84,6 @@ class ruleList extends Model
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['Expires'])) {
-            $model->expires = $map['Expires'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['ConditionList'])) {
             if (!empty($map['ConditionList'])) {
                 $model->conditionList = [];
@@ -101,6 +92,15 @@ class ruleList extends Model
                     $model->conditionList[$n++] = null !== $item ? conditionList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Expires'])) {
+            $model->expires = $map['Expires'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         return $model;

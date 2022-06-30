@@ -11,7 +11,12 @@ class ModifyWebPreciseAccessRuleRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $domain;
+
+    /**
+     * @var int
+     */
+    public $expires;
 
     /**
      * @var string
@@ -21,23 +26,12 @@ class ModifyWebPreciseAccessRuleRequest extends Model
     /**
      * @var string
      */
-    public $domain;
-
-    /**
-     * @var string
-     */
     public $rules;
-
-    /**
-     * @var int
-     */
-    public $expires;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
-        'rules'           => 'Rules',
         'expires'         => 'Expires',
+        'resourceGroupId' => 'ResourceGroupId',
+        'rules'           => 'Rules',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class ModifyWebPreciseAccessRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->expires) {
+            $res['Expires'] = $this->expires;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->rules) {
             $res['Rules'] = $this->rules;
-        }
-        if (null !== $this->expires) {
-            $res['Expires'] = $this->expires;
         }
 
         return $res;
@@ -74,20 +65,17 @@ class ModifyWebPreciseAccessRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['Expires'])) {
+            $model->expires = $map['Expires'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Rules'])) {
             $model->rules = $map['Rules'];
-        }
-        if (isset($map['Expires'])) {
-            $model->expires = $map['Expires'];
         }
 
         return $model;

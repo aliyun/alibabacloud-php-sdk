@@ -11,12 +11,7 @@ class slimit extends Model
     /**
      * @var int
      */
-    public $maxconnEnable;
-
-    /**
-     * @var int
-     */
-    public $cpsEnable;
+    public $bps;
 
     /**
      * @var int
@@ -26,12 +21,12 @@ class slimit extends Model
     /**
      * @var int
      */
-    public $pps;
+    public $cpsEnable;
 
     /**
      * @var int
      */
-    public $bps;
+    public $cpsMode;
 
     /**
      * @var int
@@ -41,15 +36,20 @@ class slimit extends Model
     /**
      * @var int
      */
-    public $cpsMode;
+    public $maxconnEnable;
+
+    /**
+     * @var int
+     */
+    public $pps;
     protected $_name = [
-        'maxconnEnable' => 'MaxconnEnable',
-        'cpsEnable'     => 'CpsEnable',
-        'cps'           => 'Cps',
-        'pps'           => 'Pps',
         'bps'           => 'Bps',
-        'maxconn'       => 'Maxconn',
+        'cps'           => 'Cps',
+        'cpsEnable'     => 'CpsEnable',
         'cpsMode'       => 'CpsMode',
+        'maxconn'       => 'Maxconn',
+        'maxconnEnable' => 'MaxconnEnable',
+        'pps'           => 'Pps',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class slimit extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxconnEnable) {
-            $res['MaxconnEnable'] = $this->maxconnEnable;
-        }
-        if (null !== $this->cpsEnable) {
-            $res['CpsEnable'] = $this->cpsEnable;
+        if (null !== $this->bps) {
+            $res['Bps'] = $this->bps;
         }
         if (null !== $this->cps) {
             $res['Cps'] = $this->cps;
         }
-        if (null !== $this->pps) {
-            $res['Pps'] = $this->pps;
+        if (null !== $this->cpsEnable) {
+            $res['CpsEnable'] = $this->cpsEnable;
         }
-        if (null !== $this->bps) {
-            $res['Bps'] = $this->bps;
+        if (null !== $this->cpsMode) {
+            $res['CpsMode'] = $this->cpsMode;
         }
         if (null !== $this->maxconn) {
             $res['Maxconn'] = $this->maxconn;
         }
-        if (null !== $this->cpsMode) {
-            $res['CpsMode'] = $this->cpsMode;
+        if (null !== $this->maxconnEnable) {
+            $res['MaxconnEnable'] = $this->maxconnEnable;
+        }
+        if (null !== $this->pps) {
+            $res['Pps'] = $this->pps;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class slimit extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxconnEnable'])) {
-            $model->maxconnEnable = $map['MaxconnEnable'];
-        }
-        if (isset($map['CpsEnable'])) {
-            $model->cpsEnable = $map['CpsEnable'];
+        if (isset($map['Bps'])) {
+            $model->bps = $map['Bps'];
         }
         if (isset($map['Cps'])) {
             $model->cps = $map['Cps'];
         }
-        if (isset($map['Pps'])) {
-            $model->pps = $map['Pps'];
+        if (isset($map['CpsEnable'])) {
+            $model->cpsEnable = $map['CpsEnable'];
         }
-        if (isset($map['Bps'])) {
-            $model->bps = $map['Bps'];
+        if (isset($map['CpsMode'])) {
+            $model->cpsMode = $map['CpsMode'];
         }
         if (isset($map['Maxconn'])) {
             $model->maxconn = $map['Maxconn'];
         }
-        if (isset($map['CpsMode'])) {
-            $model->cpsMode = $map['CpsMode'];
+        if (isset($map['MaxconnEnable'])) {
+            $model->maxconnEnable = $map['MaxconnEnable'];
+        }
+        if (isset($map['Pps'])) {
+            $model->pps = $map['Pps'];
         }
 
         return $model;

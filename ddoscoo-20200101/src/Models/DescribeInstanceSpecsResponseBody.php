@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var instanceSpecs[]
      */
     public $instanceSpecs;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'instanceSpecs' => 'InstanceSpecs',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeInstanceSpecsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceSpecs) {
             $res['InstanceSpecs'] = [];
             if (null !== $this->instanceSpecs && \is_array($this->instanceSpecs)) {
@@ -41,6 +38,9 @@ class DescribeInstanceSpecsResponseBody extends Model
                     $res['InstanceSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeInstanceSpecsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceSpecs'])) {
             if (!empty($map['InstanceSpecs'])) {
                 $model->instanceSpecs = [];
@@ -65,6 +62,9 @@ class DescribeInstanceSpecsResponseBody extends Model
                     $model->instanceSpecs[$n++] = null !== $item ? instanceSpecs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

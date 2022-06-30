@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class isps extends Model
 {
     /**
-     * @var string
-     */
-    public $ispId;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $ispId;
     protected $_name = [
-        'ispId' => 'IspId',
         'count' => 'Count',
+        'ispId' => 'IspId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class isps extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ispId) {
-            $res['IspId'] = $this->ispId;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->ispId) {
+            $res['IspId'] = $this->ispId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class isps extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IspId'])) {
-            $model->ispId = $map['IspId'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['IspId'])) {
+            $model->ispId = $map['IspId'];
         }
 
         return $model;

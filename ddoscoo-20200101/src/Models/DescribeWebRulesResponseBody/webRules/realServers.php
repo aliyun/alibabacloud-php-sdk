@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class realServers extends Model
 {
     /**
-     * @var int
-     */
-    public $rsType;
-
-    /**
      * @var string
      */
     public $realServer;
+
+    /**
+     * @var int
+     */
+    public $rsType;
     protected $_name = [
-        'rsType'     => 'RsType',
         'realServer' => 'RealServer',
+        'rsType'     => 'RsType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class realServers extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rsType) {
-            $res['RsType'] = $this->rsType;
-        }
         if (null !== $this->realServer) {
             $res['RealServer'] = $this->realServer;
+        }
+        if (null !== $this->rsType) {
+            $res['RsType'] = $this->rsType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class realServers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RsType'])) {
-            $model->rsType = $map['RsType'];
-        }
         if (isset($map['RealServer'])) {
             $model->realServer = $map['RealServer'];
+        }
+        if (isset($map['RsType'])) {
+            $model->rsType = $map['RsType'];
         }
 
         return $model;

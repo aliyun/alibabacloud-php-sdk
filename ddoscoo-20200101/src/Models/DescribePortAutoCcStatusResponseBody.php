@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePortAutoCcStatusResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var portAutoCcStatus[]
      */
     public $portAutoCcStatus;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'portAutoCcStatus' => 'PortAutoCcStatus',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribePortAutoCcStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->portAutoCcStatus) {
             $res['PortAutoCcStatus'] = [];
             if (null !== $this->portAutoCcStatus && \is_array($this->portAutoCcStatus)) {
@@ -41,6 +38,9 @@ class DescribePortAutoCcStatusResponseBody extends Model
                     $res['PortAutoCcStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribePortAutoCcStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PortAutoCcStatus'])) {
             if (!empty($map['PortAutoCcStatus'])) {
                 $model->portAutoCcStatus = [];
@@ -65,6 +62,9 @@ class DescribePortAutoCcStatusResponseBody extends Model
                     $model->portAutoCcStatus[$n++] = null !== $item ? portAutoCcStatus::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebRulesResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalCount;
@@ -18,15 +23,10 @@ class DescribeWebRulesResponseBody extends Model
      * @var webRules[]
      */
     public $webRules;
-
-    /**
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
+        'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
         'webRules'   => 'WebRules',
-        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class DescribeWebRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -47,9 +50,6 @@ class DescribeWebRulesResponseBody extends Model
                     $res['WebRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class DescribeWebRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
@@ -74,9 +77,6 @@ class DescribeWebRulesResponseBody extends Model
                     $model->webRules[$n++] = null !== $item ? webRules::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

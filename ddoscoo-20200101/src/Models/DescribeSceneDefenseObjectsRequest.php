@@ -11,11 +11,6 @@ class DescribeSceneDefenseObjectsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $policyId;
 
     /**
@@ -23,7 +18,6 @@ class DescribeSceneDefenseObjectsRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'policyId'        => 'PolicyId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
@@ -35,9 +29,6 @@ class DescribeSceneDefenseObjectsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
@@ -56,9 +47,6 @@ class DescribeSceneDefenseObjectsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSceneDefensePolicyRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $endTime;
 
     /**
      * @var string
@@ -19,25 +19,19 @@ class CreateSceneDefensePolicyRequest extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $template;
-
-    /**
      * @var int
      */
     public $startTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $endTime;
+    public $template;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
-        'name'      => 'Name',
-        'template'  => 'Template',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
+        'name'      => 'Name',
+        'startTime' => 'StartTime',
+        'template'  => 'Template',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class CreateSceneDefensePolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->template) {
-            $res['Template'] = $this->template;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->template) {
+            $res['Template'] = $this->template;
         }
 
         return $res;
@@ -74,20 +65,17 @@ class CreateSceneDefensePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Template'])) {
-            $model->template = $map['Template'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['Template'])) {
+            $model->template = $map['Template'];
         }
 
         return $model;

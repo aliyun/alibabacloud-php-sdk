@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkRulesResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var networkRules[]
      */
     public $networkRules;
@@ -23,10 +18,15 @@ class DescribeNetworkRulesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'   => 'TotalCount',
         'networkRules' => 'NetworkRules',
         'requestId'    => 'RequestId',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class DescribeNetworkRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->networkRules) {
             $res['NetworkRules'] = [];
             if (null !== $this->networkRules && \is_array($this->networkRules)) {
@@ -50,6 +47,9 @@ class DescribeNetworkRulesResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class DescribeNetworkRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['NetworkRules'])) {
             if (!empty($map['NetworkRules'])) {
                 $model->networkRules = [];
@@ -77,6 +74,9 @@ class DescribeNetworkRulesResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

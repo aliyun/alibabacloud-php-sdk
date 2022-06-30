@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAsyncTasksResponseBody extends Model
 {
     /**
-     * @var int
+     * @var asyncTasks[]
      */
-    public $totalCount;
+    public $asyncTasks;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeAsyncTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @var asyncTasks[]
+     * @var int
      */
-    public $asyncTasks;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
         'asyncTasks' => 'AsyncTasks',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeAsyncTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->asyncTasks) {
             $res['AsyncTasks'] = [];
             if (null !== $this->asyncTasks && \is_array($this->asyncTasks)) {
@@ -50,6 +44,12 @@ class DescribeAsyncTasksResponseBody extends Model
                     $res['AsyncTasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeAsyncTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AsyncTasks'])) {
             if (!empty($map['AsyncTasks'])) {
                 $model->asyncTasks = [];
@@ -77,6 +71,12 @@ class DescribeAsyncTasksResponseBody extends Model
                     $model->asyncTasks[$n++] = null !== $item ? asyncTasks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AddAutoCcBlacklistRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AddAutoCcBlacklistResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AddAutoCcWhitelistRequest;
@@ -15,18 +16,30 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AttachSceneDefenseObjectRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AttachSceneDefenseObjectResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7RsPolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7RsPolicyResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RemarkRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RemarkResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RuleBakModeRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RuleBakModeResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RulePolicyRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RulePolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigNetworkRegionBlockRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigNetworkRegionBlockResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigNetworkRulesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigNetworkRulesResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigUdpReflectRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigUdpReflectResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebCCTemplateRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebCCTemplateResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebIpSetRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebIpSetResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateAsyncTaskRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateAsyncTaskResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateDomainResourceRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateDomainResourceResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateNetworkRulesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateNetworkRulesResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreatePortRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreatePortResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateSceneDefensePolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateSceneDefensePolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateSchedulerRuleRequest;
@@ -43,8 +56,12 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteAutoCcBlacklistRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteAutoCcBlacklistResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteAutoCcWhitelistRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteAutoCcWhitelistResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteDomainResourceRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteDomainResourceResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteNetworkRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteNetworkRuleResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeletePortRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeletePortResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteSceneDefensePolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteSceneDefensePolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteSchedulerRuleRequest;
@@ -61,6 +78,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebRuleResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeAsyncTasksRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeAsyncTasksResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeAttackAnalysisMaxQpsRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeAttackAnalysisMaxQpsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeAutoCcBlacklistRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeAutoCcBlacklistResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeAutoCcListCountRequest;
@@ -103,6 +122,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQPSListRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQPSListResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQpsWithCacheRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQpsWithCacheResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainResourceRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainResourceResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainStatusCodeCountRequest;
@@ -139,6 +160,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7RsPolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7RsPolicyResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeLayer4RulePolicyRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeLayer4RulePolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeLogStoreExistStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeLogStoreExistStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeNetworkRegionBlockRequest;
@@ -161,6 +184,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortFlowListRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortFlowListResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortMaxConnsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortMaxConnsResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortViewSourceCountriesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortViewSourceCountriesResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortViewSourceIspsRequest;
@@ -181,10 +206,14 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSlsOpenStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSlsOpenStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeStsGrantStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeStsGrantStatusResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSystemLogRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSystemLogResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagKeysRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagKeysResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagResourcesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagResourcesResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeUdpReflectRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeUdpReflectResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeUnBlackholeCountRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeUnBlackholeCountResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeUnBlockCountRequest;
@@ -243,6 +272,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyBlockStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyBlockStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyCnameReuseRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyCnameReuseResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyDomainResourceRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyDomainResourceResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBandWidthRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBandWidthResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyFullLogTtlRequest;
@@ -257,6 +288,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyNetworkRuleAttributeRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyNetworkRuleAttributeResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortAutoCcStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortAutoCcStatusResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifySceneDefensePolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifySceneDefensePolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifySchedulerRuleRequest;
@@ -296,6 +329,7 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\SwitchSchedulerRuleResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Ddoscoo extends OpenApiClient
@@ -340,11 +374,32 @@ class Ddoscoo extends OpenApiClient
     public function addAutoCcBlacklistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->blacklist)) {
+            $query['Blacklist'] = $request->blacklist;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAutoCcBlacklist',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddAutoCcBlacklistResponse::fromMap($this->doRPCRequest('AddAutoCcBlacklist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -368,11 +423,32 @@ class Ddoscoo extends OpenApiClient
     public function addAutoCcWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->whitelist)) {
+            $query['Whitelist'] = $request->whitelist;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAutoCcWhitelist',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddAutoCcWhitelistResponse::fromMap($this->doRPCRequest('AddAutoCcWhitelist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -396,11 +472,41 @@ class Ddoscoo extends OpenApiClient
     public function associateWebCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cert)) {
+            $query['Cert'] = $request->cert;
+        }
+        if (!Utils::isUnset($request->certId)) {
+            $query['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateWebCert',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssociateWebCertResponse::fromMap($this->doRPCRequest('AssociateWebCert', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateWebCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -424,11 +530,32 @@ class Ddoscoo extends OpenApiClient
     public function attachSceneDefenseObjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->objects)) {
+            $query['Objects'] = $request->objects;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachSceneDefenseObject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachSceneDefenseObjectResponse::fromMap($this->doRPCRequest('AttachSceneDefenseObject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachSceneDefenseObjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -452,11 +579,32 @@ class Ddoscoo extends OpenApiClient
     public function configL7RsPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigL7RsPolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfigL7RsPolicyResponse::fromMap($this->doRPCRequest('ConfigL7RsPolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfigL7RsPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -472,6 +620,138 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param ConfigLayer4RemarkRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConfigLayer4RemarkResponse
+     */
+    public function configLayer4RemarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listeners)) {
+            $query['Listeners'] = $request->listeners;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigLayer4Remark',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigLayer4RemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfigLayer4RemarkRequest $request
+     *
+     * @return ConfigLayer4RemarkResponse
+     */
+    public function configLayer4Remark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configLayer4RemarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfigLayer4RuleBakModeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ConfigLayer4RuleBakModeResponse
+     */
+    public function configLayer4RuleBakModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bakMode)) {
+            $query['BakMode'] = $request->bakMode;
+        }
+        if (!Utils::isUnset($request->listeners)) {
+            $query['Listeners'] = $request->listeners;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigLayer4RuleBakMode',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigLayer4RuleBakModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfigLayer4RuleBakModeRequest $request
+     *
+     * @return ConfigLayer4RuleBakModeResponse
+     */
+    public function configLayer4RuleBakMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configLayer4RuleBakModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfigLayer4RulePolicyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ConfigLayer4RulePolicyResponse
+     */
+    public function configLayer4RulePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listeners)) {
+            $query['Listeners'] = $request->listeners;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigLayer4RulePolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigLayer4RulePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfigLayer4RulePolicyRequest $request
+     *
+     * @return ConfigLayer4RulePolicyResponse
+     */
+    public function configLayer4RulePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configLayer4RulePolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ConfigNetworkRegionBlockRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -480,11 +760,29 @@ class Ddoscoo extends OpenApiClient
     public function configNetworkRegionBlockWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigNetworkRegionBlock',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfigNetworkRegionBlockResponse::fromMap($this->doRPCRequest('ConfigNetworkRegionBlock', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfigNetworkRegionBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -508,11 +806,26 @@ class Ddoscoo extends OpenApiClient
     public function configNetworkRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkRules)) {
+            $query['NetworkRules'] = $request->networkRules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigNetworkRules',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfigNetworkRulesResponse::fromMap($this->doRPCRequest('ConfigNetworkRules', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfigNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -528,6 +841,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param ConfigUdpReflectRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ConfigUdpReflectResponse
+     */
+    public function configUdpReflectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigUdpReflect',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigUdpReflectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfigUdpReflectRequest $request
+     *
+     * @return ConfigUdpReflectResponse
+     */
+    public function configUdpReflect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configUdpReflectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ConfigWebCCTemplateRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -536,11 +898,32 @@ class Ddoscoo extends OpenApiClient
     public function configWebCCTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $query['Template'] = $request->template;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigWebCCTemplate',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfigWebCCTemplateResponse::fromMap($this->doRPCRequest('ConfigWebCCTemplate', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfigWebCCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -564,11 +947,35 @@ class Ddoscoo extends OpenApiClient
     public function configWebIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->blackList)) {
+            $query['BlackList'] = $request->blackList;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->whiteList)) {
+            $query['WhiteList'] = $request->whiteList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigWebIpSet',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfigWebIpSetResponse::fromMap($this->doRPCRequest('ConfigWebIpSet', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfigWebIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -592,11 +999,32 @@ class Ddoscoo extends OpenApiClient
     public function createAsyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->taskParams)) {
+            $query['TaskParams'] = $request->taskParams;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAsyncTask',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAsyncTaskResponse::fromMap($this->doRPCRequest('CreateAsyncTask', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -612,6 +1040,64 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param CreateDomainResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDomainResourceResponse
+     */
+    public function createDomainResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->httpsExt)) {
+            $query['HttpsExt'] = $request->httpsExt;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->proxyTypes)) {
+            $query['ProxyTypes'] = $request->proxyTypes;
+        }
+        if (!Utils::isUnset($request->realServers)) {
+            $query['RealServers'] = $request->realServers;
+        }
+        if (!Utils::isUnset($request->rsType)) {
+            $query['RsType'] = $request->rsType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomainResource',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDomainResourceRequest $request
+     *
+     * @return CreateDomainResourceResponse
+     */
+    public function createDomainResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDomainResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateNetworkRulesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -620,11 +1106,26 @@ class Ddoscoo extends OpenApiClient
     public function createNetworkRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkRules)) {
+            $query['NetworkRules'] = $request->networkRules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNetworkRules',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateNetworkRulesResponse::fromMap($this->doRPCRequest('CreateNetworkRules', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -640,6 +1141,61 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param CreatePortRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreatePortResponse
+     */
+    public function createPortWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendPort)) {
+            $query['BackendPort'] = $request->backendPort;
+        }
+        if (!Utils::isUnset($request->frontendPort)) {
+            $query['FrontendPort'] = $request->frontendPort;
+        }
+        if (!Utils::isUnset($request->frontendProtocol)) {
+            $query['FrontendProtocol'] = $request->frontendProtocol;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->realServers)) {
+            $query['RealServers'] = $request->realServers;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePort',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePortResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePortRequest $request
+     *
+     * @return CreatePortResponse
+     */
+    public function createPort($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPortWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateSceneDefensePolicyRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -648,11 +1204,35 @@ class Ddoscoo extends OpenApiClient
     public function createSceneDefensePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $query['Template'] = $request->template;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSceneDefensePolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSceneDefensePolicyResponse::fromMap($this->doRPCRequest('CreateSceneDefensePolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -676,11 +1256,38 @@ class Ddoscoo extends OpenApiClient
     public function createSchedulerRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->param)) {
+            $query['Param'] = $request->param;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSchedulerRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSchedulerRuleResponse::fromMap($this->doRPCRequest('CreateSchedulerRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -704,11 +1311,38 @@ class Ddoscoo extends OpenApiClient
     public function createTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTagResources',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTagResourcesResponse::fromMap($this->doRPCRequest('CreateTagResources', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -732,11 +1366,50 @@ class Ddoscoo extends OpenApiClient
     public function createWebCCRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->act)) {
+            $query['Act'] = $request->act;
+        }
+        if (!Utils::isUnset($request->count)) {
+            $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
+        }
+        if (!Utils::isUnset($request->uri)) {
+            $query['Uri'] = $request->uri;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWebCCRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateWebCCRuleResponse::fromMap($this->doRPCRequest('CreateWebCCRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -760,11 +1433,44 @@ class Ddoscoo extends OpenApiClient
     public function createWebRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseId)) {
+            $query['DefenseId'] = $request->defenseId;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->httpsExt)) {
+            $query['HttpsExt'] = $request->httpsExt;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->rsType)) {
+            $query['RsType'] = $request->rsType;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWebRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateWebRuleResponse::fromMap($this->doRPCRequest('CreateWebRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -788,11 +1494,29 @@ class Ddoscoo extends OpenApiClient
     public function deleteAsyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAsyncTask',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAsyncTaskResponse::fromMap($this->doRPCRequest('DeleteAsyncTask', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -816,11 +1540,29 @@ class Ddoscoo extends OpenApiClient
     public function deleteAutoCcBlacklistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->blacklist)) {
+            $query['Blacklist'] = $request->blacklist;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAutoCcBlacklist',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAutoCcBlacklistResponse::fromMap($this->doRPCRequest('DeleteAutoCcBlacklist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -844,11 +1586,29 @@ class Ddoscoo extends OpenApiClient
     public function deleteAutoCcWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->whitelist)) {
+            $query['Whitelist'] = $request->whitelist;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAutoCcWhitelist',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAutoCcWhitelistResponse::fromMap($this->doRPCRequest('DeleteAutoCcWhitelist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -864,6 +1624,49 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DeleteDomainResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDomainResourceResponse
+     */
+    public function deleteDomainResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomainResource',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDomainResourceRequest $request
+     *
+     * @return DeleteDomainResourceResponse
+     */
+    public function deleteDomainResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDomainResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteNetworkRuleRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -872,11 +1675,26 @@ class Ddoscoo extends OpenApiClient
     public function deleteNetworkRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkRule)) {
+            $query['NetworkRule'] = $request->networkRule;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNetworkRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteNetworkRuleResponse::fromMap($this->doRPCRequest('DeleteNetworkRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -892,6 +1710,61 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DeletePortRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeletePortResponse
+     */
+    public function deletePortWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendPort)) {
+            $query['BackendPort'] = $request->backendPort;
+        }
+        if (!Utils::isUnset($request->frontendPort)) {
+            $query['FrontendPort'] = $request->frontendPort;
+        }
+        if (!Utils::isUnset($request->frontendProtocol)) {
+            $query['FrontendProtocol'] = $request->frontendProtocol;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->realServers)) {
+            $query['RealServers'] = $request->realServers;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePort',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePortResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePortRequest $request
+     *
+     * @return DeletePortResponse
+     */
+    public function deletePort($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePortWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteSceneDefensePolicyRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -900,11 +1773,26 @@ class Ddoscoo extends OpenApiClient
     public function deleteSceneDefensePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSceneDefensePolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSceneDefensePolicyResponse::fromMap($this->doRPCRequest('DeleteSceneDefensePolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -928,11 +1816,29 @@ class Ddoscoo extends OpenApiClient
     public function deleteSchedulerRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSchedulerRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSchedulerRuleResponse::fromMap($this->doRPCRequest('DeleteSchedulerRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -956,11 +1862,41 @@ class Ddoscoo extends OpenApiClient
     public function deleteTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTagResources',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTagResourcesResponse::fromMap($this->doRPCRequest('DeleteTagResources', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -976,34 +1912,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteWebCacheCustomRuleRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DeleteWebCacheCustomRuleResponse
-     */
-    public function deleteWebCacheCustomRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteWebCacheCustomRuleResponse::fromMap($this->doRPCRequest('DeleteWebCacheCustomRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteWebCacheCustomRuleRequest $request
-     *
-     * @return DeleteWebCacheCustomRuleResponse
-     */
-    public function deleteWebCacheCustomRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteWebCacheCustomRuleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteWebCCRuleRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1012,11 +1920,32 @@ class Ddoscoo extends OpenApiClient
     public function deleteWebCCRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebCCRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteWebCCRuleResponse::fromMap($this->doRPCRequest('DeleteWebCCRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1032,6 +1961,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DeleteWebCacheCustomRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteWebCacheCustomRuleResponse
+     */
+    public function deleteWebCacheCustomRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleNames)) {
+            $query['RuleNames'] = $request->ruleNames;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebCacheCustomRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWebCacheCustomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWebCacheCustomRuleRequest $request
+     *
+     * @return DeleteWebCacheCustomRuleResponse
+     */
+    public function deleteWebCacheCustomRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebCacheCustomRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteWebPreciseAccessRuleRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1040,11 +2018,32 @@ class Ddoscoo extends OpenApiClient
     public function deleteWebPreciseAccessRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleNames)) {
+            $query['RuleNames'] = $request->ruleNames;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebPreciseAccessRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteWebPreciseAccessRuleResponse::fromMap($this->doRPCRequest('DeleteWebPreciseAccessRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1068,11 +2067,29 @@ class Ddoscoo extends OpenApiClient
     public function deleteWebRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteWebRuleResponse::fromMap($this->doRPCRequest('DeleteWebRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1096,11 +2113,32 @@ class Ddoscoo extends OpenApiClient
     public function describeAsyncTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAsyncTasks',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAsyncTasksResponse::fromMap($this->doRPCRequest('DescribeAsyncTasks', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1116,6 +2154,52 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribeAttackAnalysisMaxQpsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAttackAnalysisMaxQpsResponse
+     */
+    public function describeAttackAnalysisMaxQpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAttackAnalysisMaxQps',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAttackAnalysisMaxQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAttackAnalysisMaxQpsRequest $request
+     *
+     * @return DescribeAttackAnalysisMaxQpsResponse
+     */
+    public function describeAttackAnalysisMaxQps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAttackAnalysisMaxQpsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAutoCcBlacklistRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1124,11 +2208,35 @@ class Ddoscoo extends OpenApiClient
     public function describeAutoCcBlacklistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAutoCcBlacklist',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAutoCcBlacklistResponse::fromMap($this->doRPCRequest('DescribeAutoCcBlacklist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1152,11 +2260,29 @@ class Ddoscoo extends OpenApiClient
     public function describeAutoCcListCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAutoCcListCount',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAutoCcListCountResponse::fromMap($this->doRPCRequest('DescribeAutoCcListCount', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAutoCcListCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1180,11 +2306,35 @@ class Ddoscoo extends OpenApiClient
     public function describeAutoCcWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAutoCcWhitelist',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAutoCcWhitelistResponse::fromMap($this->doRPCRequest('DescribeAutoCcWhitelist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1208,11 +2358,29 @@ class Ddoscoo extends OpenApiClient
     public function describeBackSourceCidrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackSourceCidr',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackSourceCidrResponse::fromMap($this->doRPCRequest('DescribeBackSourceCidr', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackSourceCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1236,11 +2404,26 @@ class Ddoscoo extends OpenApiClient
     public function describeBlackholeStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBlackholeStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBlackholeStatusResponse::fromMap($this->doRPCRequest('DescribeBlackholeStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBlackholeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1264,11 +2447,29 @@ class Ddoscoo extends OpenApiClient
     public function describeBlockStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBlockStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBlockStatusResponse::fromMap($this->doRPCRequest('DescribeBlockStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBlockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1292,11 +2493,29 @@ class Ddoscoo extends OpenApiClient
     public function describeCertsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCerts',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCertsResponse::fromMap($this->doRPCRequest('DescribeCerts', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1320,11 +2539,29 @@ class Ddoscoo extends OpenApiClient
     public function describeCnameReusesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCnameReuses',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCnameReusesResponse::fromMap($this->doRPCRequest('DescribeCnameReuses', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCnameReusesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1340,6 +2577,64 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribeDDoSEventsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDDoSEventsResponse
+     */
+    public function describeDDoSEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDoSEvents',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDDoSEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDDoSEventsRequest $request
+     *
+     * @return DescribeDDoSEventsResponse
+     */
+    public function describeDDoSEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDDoSEventsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDDosAllEventListRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1348,11 +2643,38 @@ class Ddoscoo extends OpenApiClient
     public function describeDDosAllEventListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDosAllEventList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDDosAllEventListResponse::fromMap($this->doRPCRequest('DescribeDDosAllEventList', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDDosAllEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1376,11 +2698,32 @@ class Ddoscoo extends OpenApiClient
     public function describeDDosEventAreaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDosEventArea',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDDosEventAreaResponse::fromMap($this->doRPCRequest('DescribeDDosEventArea', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDDosEventAreaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1404,11 +2747,32 @@ class Ddoscoo extends OpenApiClient
     public function describeDDosEventAttackTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDosEventAttackType',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDDosEventAttackTypeResponse::fromMap($this->doRPCRequest('DescribeDDosEventAttackType', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDDosEventAttackTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1432,11 +2796,32 @@ class Ddoscoo extends OpenApiClient
     public function describeDDosEventIspWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDosEventIsp',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDDosEventIspResponse::fromMap($this->doRPCRequest('DescribeDDosEventIsp', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDDosEventIspResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1460,11 +2845,29 @@ class Ddoscoo extends OpenApiClient
     public function describeDDosEventMaxWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDosEventMax',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDDosEventMaxResponse::fromMap($this->doRPCRequest('DescribeDDosEventMax', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDDosEventMaxResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1480,34 +2883,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDoSEventsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeDDoSEventsResponse
-     */
-    public function describeDDoSEventsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDDoSEventsResponse::fromMap($this->doRPCRequest('DescribeDDoSEvents', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDDoSEventsRequest $request
-     *
-     * @return DescribeDDoSEventsResponse
-     */
-    public function describeDDoSEvents($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDDoSEventsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDDosEventSrcIpRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1516,11 +2891,35 @@ class Ddoscoo extends OpenApiClient
     public function describeDDosEventSrcIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->range)) {
+            $query['Range'] = $request->range;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDosEventSrcIp',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDDosEventSrcIpResponse::fromMap($this->doRPCRequest('DescribeDDosEventSrcIp', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDDosEventSrcIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1544,11 +2943,26 @@ class Ddoscoo extends OpenApiClient
     public function describeDefenseCountStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseCountStatistics',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDefenseCountStatisticsResponse::fromMap($this->doRPCRequest('DescribeDefenseCountStatistics', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDefenseCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1572,11 +2986,41 @@ class Ddoscoo extends OpenApiClient
     public function describeDefenseRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseRecords',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDefenseRecordsResponse::fromMap($this->doRPCRequest('DescribeDefenseRecords', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDefenseRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1600,11 +3044,41 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainAttackEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainAttackEvents',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainAttackEventsResponse::fromMap($this->doRPCRequest('DescribeDomainAttackEvents', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainAttackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1628,11 +3102,35 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainOverviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainOverview',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainOverviewResponse::fromMap($this->doRPCRequest('DescribeDomainOverview', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1656,11 +3154,38 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainQPSListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainQPSList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainQPSListResponse::fromMap($this->doRPCRequest('DescribeDomainQPSList', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainQPSListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1684,11 +3209,35 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainQpsWithCacheWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainQpsWithCache',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainQpsWithCacheResponse::fromMap($this->doRPCRequest('DescribeDomainQpsWithCache', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainQpsWithCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1704,31 +3253,58 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeDomainResourceRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainResourceResponse
      */
-    public function describeDomainsWithOptions($request, $runtime)
+    public function describeDomainResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryDomainPattern)) {
+            $query['QueryDomainPattern'] = $request->queryDomainPattern;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainResource',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainsResponse::fromMap($this->doRPCRequest('DescribeDomains', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDomainsRequest $request
+     * @param DescribeDomainResourceRequest $request
      *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainResourceResponse
      */
-    public function describeDomains($request)
+    public function describeDomainResource($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDomainsWithOptions($request, $runtime);
+        return $this->describeDomainResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -1740,11 +3316,35 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainStatusCodeCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainStatusCodeCount',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainStatusCodeCountResponse::fromMap($this->doRPCRequest('DescribeDomainStatusCodeCount', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainStatusCodeCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1768,11 +3368,41 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainStatusCodeListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainStatusCodeList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainStatusCodeListResponse::fromMap($this->doRPCRequest('DescribeDomainStatusCodeList', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainStatusCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1796,11 +3426,32 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainTopAttackListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTopAttackList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainTopAttackListResponse::fromMap($this->doRPCRequest('DescribeDomainTopAttackList', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainTopAttackListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1824,11 +3475,35 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainViewSourceCountriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainViewSourceCountries',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainViewSourceCountriesResponse::fromMap($this->doRPCRequest('DescribeDomainViewSourceCountries', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainViewSourceCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1852,11 +3527,35 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainViewSourceProvincesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainViewSourceProvinces',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainViewSourceProvincesResponse::fromMap($this->doRPCRequest('DescribeDomainViewSourceProvinces', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainViewSourceProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1880,11 +3579,38 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainViewTopCostTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->top)) {
+            $query['Top'] = $request->top;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainViewTopCostTime',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainViewTopCostTimeResponse::fromMap($this->doRPCRequest('DescribeDomainViewTopCostTime', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainViewTopCostTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1908,11 +3634,38 @@ class Ddoscoo extends OpenApiClient
     public function describeDomainViewTopUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->top)) {
+            $query['Top'] = $request->top;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainViewTopUrl',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainViewTopUrlResponse::fromMap($this->doRPCRequest('DescribeDomainViewTopUrl', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainViewTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1928,6 +3681,52 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribeDomainsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDomainsResponse
+     */
+    public function describeDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomains',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainsRequest $request
+     *
+     * @return DescribeDomainsResponse
+     */
+    public function describeDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeElasticBandwidthSpecRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1936,11 +3735,26 @@ class Ddoscoo extends OpenApiClient
     public function describeElasticBandwidthSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeElasticBandwidthSpec',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeElasticBandwidthSpecResponse::fromMap($this->doRPCRequest('DescribeElasticBandwidthSpec', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeElasticBandwidthSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1964,11 +3778,26 @@ class Ddoscoo extends OpenApiClient
     public function describeHealthCheckListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkRules)) {
+            $query['NetworkRules'] = $request->networkRules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHealthCheckList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHealthCheckListResponse::fromMap($this->doRPCRequest('DescribeHealthCheckList', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHealthCheckListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1992,11 +3821,26 @@ class Ddoscoo extends OpenApiClient
     public function describeHealthCheckStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkRules)) {
+            $query['NetworkRules'] = $request->networkRules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHealthCheckStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHealthCheckStatusResponse::fromMap($this->doRPCRequest('DescribeHealthCheckStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHealthCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2020,11 +3864,26 @@ class Ddoscoo extends OpenApiClient
     public function describeInstanceDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceDetails',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceDetailsResponse::fromMap($this->doRPCRequest('DescribeInstanceDetails', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2048,11 +3907,32 @@ class Ddoscoo extends OpenApiClient
     public function describeInstanceIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->edition)) {
+            $query['Edition'] = $request->edition;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceIds',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceIdsResponse::fromMap($this->doRPCRequest('DescribeInstanceIds', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2068,34 +3948,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeInstancesResponse
-     */
-    public function describeInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstancesResponse::fromMap($this->doRPCRequest('DescribeInstances', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstancesRequest $request
-     *
-     * @return DescribeInstancesResponse
-     */
-    public function describeInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeInstanceSpecsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2104,11 +3956,26 @@ class Ddoscoo extends OpenApiClient
     public function describeInstanceSpecsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSpecs',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceSpecsResponse::fromMap($this->doRPCRequest('DescribeInstanceSpecs', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2132,11 +3999,26 @@ class Ddoscoo extends OpenApiClient
     public function describeInstanceStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceStatistics',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceStatisticsResponse::fromMap($this->doRPCRequest('DescribeInstanceStatistics', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2160,11 +4042,29 @@ class Ddoscoo extends OpenApiClient
     public function describeInstanceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceStatusResponse::fromMap($this->doRPCRequest('DescribeInstanceStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2180,6 +4080,82 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
+     */
+    public function describeInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->edition)) {
+            $query['Edition'] = $request->edition;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->expireEndTime)) {
+            $query['ExpireEndTime'] = $request->expireEndTime;
+        }
+        if (!Utils::isUnset($request->expireStartTime)) {
+            $query['ExpireStartTime'] = $request->expireStartTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstances',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
+     */
+    public function describeInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeL7RsPolicyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2188,11 +4164,32 @@ class Ddoscoo extends OpenApiClient
     public function describeL7RsPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->realServers)) {
+            $query['RealServers'] = $request->realServers;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeL7RsPolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeL7RsPolicyResponse::fromMap($this->doRPCRequest('DescribeL7RsPolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeL7RsPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2208,6 +4205,49 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribeLayer4RulePolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLayer4RulePolicyResponse
+     */
+    public function describeLayer4RulePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listeners)) {
+            $query['Listeners'] = $request->listeners;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLayer4RulePolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLayer4RulePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLayer4RulePolicyRequest $request
+     *
+     * @return DescribeLayer4RulePolicyResponse
+     */
+    public function describeLayer4RulePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLayer4RulePolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeLogStoreExistStatusRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2216,11 +4256,26 @@ class Ddoscoo extends OpenApiClient
     public function describeLogStoreExistStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogStoreExistStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLogStoreExistStatusResponse::fromMap($this->doRPCRequest('DescribeLogStoreExistStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLogStoreExistStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2244,11 +4299,26 @@ class Ddoscoo extends OpenApiClient
     public function describeNetworkRegionBlockWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNetworkRegionBlock',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNetworkRegionBlockResponse::fromMap($this->doRPCRequest('DescribeNetworkRegionBlock', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNetworkRegionBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2272,11 +4342,26 @@ class Ddoscoo extends OpenApiClient
     public function describeNetworkRuleAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkRules)) {
+            $query['NetworkRules'] = $request->networkRules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNetworkRuleAttributes',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNetworkRuleAttributesResponse::fromMap($this->doRPCRequest('DescribeNetworkRuleAttributes', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNetworkRuleAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2300,11 +4385,38 @@ class Ddoscoo extends OpenApiClient
     public function describeNetworkRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forwardProtocol)) {
+            $query['ForwardProtocol'] = $request->forwardProtocol;
+        }
+        if (!Utils::isUnset($request->frontendPort)) {
+            $query['FrontendPort'] = $request->frontendPort;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNetworkRules',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNetworkRulesResponse::fromMap($this->doRPCRequest('DescribeNetworkRules', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2328,11 +4440,44 @@ class Ddoscoo extends OpenApiClient
     public function describeOpEntitiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->entityObject)) {
+            $query['EntityObject'] = $request->entityObject;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOpEntities',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeOpEntitiesResponse::fromMap($this->doRPCRequest('DescribeOpEntities', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeOpEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2348,6 +4493,61 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribePortRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribePortResponse
+     */
+    public function describePortWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->frontendPort)) {
+            $query['FrontendPort'] = $request->frontendPort;
+        }
+        if (!Utils::isUnset($request->frontendProtocol)) {
+            $query['FrontendProtocol'] = $request->frontendProtocol;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePort',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePortResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePortRequest $request
+     *
+     * @return DescribePortResponse
+     */
+    public function describePort($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePortWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePortAttackMaxFlowRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2356,11 +4556,35 @@ class Ddoscoo extends OpenApiClient
     public function describePortAttackMaxFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortAttackMaxFlow',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortAttackMaxFlowResponse::fromMap($this->doRPCRequest('DescribePortAttackMaxFlow', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortAttackMaxFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2384,11 +4608,26 @@ class Ddoscoo extends OpenApiClient
     public function describePortAutoCcStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortAutoCcStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortAutoCcStatusResponse::fromMap($this->doRPCRequest('DescribePortAutoCcStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortAutoCcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2412,11 +4651,38 @@ class Ddoscoo extends OpenApiClient
     public function describePortConnsCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortConnsCount',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortConnsCountResponse::fromMap($this->doRPCRequest('DescribePortConnsCount', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortConnsCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2440,11 +4706,41 @@ class Ddoscoo extends OpenApiClient
     public function describePortConnsListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortConnsList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortConnsListResponse::fromMap($this->doRPCRequest('DescribePortConnsList', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortConnsListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2468,11 +4764,38 @@ class Ddoscoo extends OpenApiClient
     public function describePortFlowListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortFlowList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortFlowListResponse::fromMap($this->doRPCRequest('DescribePortFlowList', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortFlowListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2496,11 +4819,35 @@ class Ddoscoo extends OpenApiClient
     public function describePortMaxConnsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortMaxConns',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortMaxConnsResponse::fromMap($this->doRPCRequest('DescribePortMaxConns', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortMaxConnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2524,11 +4871,35 @@ class Ddoscoo extends OpenApiClient
     public function describePortViewSourceCountriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortViewSourceCountries',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortViewSourceCountriesResponse::fromMap($this->doRPCRequest('DescribePortViewSourceCountries', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortViewSourceCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2552,11 +4923,35 @@ class Ddoscoo extends OpenApiClient
     public function describePortViewSourceIspsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortViewSourceIsps',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortViewSourceIspsResponse::fromMap($this->doRPCRequest('DescribePortViewSourceIsps', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortViewSourceIspsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2580,11 +4975,35 @@ class Ddoscoo extends OpenApiClient
     public function describePortViewSourceProvincesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortViewSourceProvinces',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePortViewSourceProvincesResponse::fromMap($this->doRPCRequest('DescribePortViewSourceProvinces', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePortViewSourceProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2608,11 +5027,29 @@ class Ddoscoo extends OpenApiClient
     public function describeSceneDefenseObjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSceneDefenseObjects',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSceneDefenseObjectsResponse::fromMap($this->doRPCRequest('DescribeSceneDefenseObjects', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSceneDefenseObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2636,11 +5073,32 @@ class Ddoscoo extends OpenApiClient
     public function describeSceneDefensePoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $query['Template'] = $request->template;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSceneDefensePolicies',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSceneDefensePoliciesResponse::fromMap($this->doRPCRequest('DescribeSceneDefensePolicies', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSceneDefensePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2664,11 +5122,35 @@ class Ddoscoo extends OpenApiClient
     public function describeSchedulerRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSchedulerRules',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSchedulerRulesResponse::fromMap($this->doRPCRequest('DescribeSchedulerRules', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSchedulerRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2692,11 +5174,26 @@ class Ddoscoo extends OpenApiClient
     public function describeSlsAuthStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlsAuthStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSlsAuthStatusResponse::fromMap($this->doRPCRequest('DescribeSlsAuthStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2720,11 +5217,26 @@ class Ddoscoo extends OpenApiClient
     public function describeSlsLogstoreInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlsLogstoreInfo',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSlsLogstoreInfoResponse::fromMap($this->doRPCRequest('DescribeSlsLogstoreInfo', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSlsLogstoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2748,11 +5260,26 @@ class Ddoscoo extends OpenApiClient
     public function describeSlsOpenStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlsOpenStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSlsOpenStatusResponse::fromMap($this->doRPCRequest('DescribeSlsOpenStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSlsOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2776,11 +5303,29 @@ class Ddoscoo extends OpenApiClient
     public function describeStsGrantStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStsGrantStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeStsGrantStatusResponse::fromMap($this->doRPCRequest('DescribeStsGrantStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeStsGrantStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2796,6 +5341,64 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribeSystemLogRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSystemLogResponse
+     */
+    public function describeSystemLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->entityObject)) {
+            $query['EntityObject'] = $request->entityObject;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSystemLog',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSystemLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSystemLogRequest $request
+     *
+     * @return DescribeSystemLogResponse
+     */
+    public function describeSystemLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSystemLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeTagKeysRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2804,11 +5407,38 @@ class Ddoscoo extends OpenApiClient
     public function describeTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTagKeys',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTagKeysResponse::fromMap($this->doRPCRequest('DescribeTagKeys', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2832,11 +5462,41 @@ class Ddoscoo extends OpenApiClient
     public function describeTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTagResources',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTagResourcesResponse::fromMap($this->doRPCRequest('DescribeTagResources', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2852,6 +5512,52 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribeUdpReflectRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeUdpReflectResponse
+     */
+    public function describeUdpReflectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUdpReflect',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUdpReflectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUdpReflectRequest $request
+     *
+     * @return DescribeUdpReflectResponse
+     */
+    public function describeUdpReflect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUdpReflectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeUnBlackholeCountRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2860,11 +5566,26 @@ class Ddoscoo extends OpenApiClient
     public function describeUnBlackholeCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUnBlackholeCount',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUnBlackholeCountResponse::fromMap($this->doRPCRequest('DescribeUnBlackholeCount', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUnBlackholeCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2888,11 +5609,26 @@ class Ddoscoo extends OpenApiClient
     public function describeUnBlockCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUnBlockCount',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUnBlockCountResponse::fromMap($this->doRPCRequest('DescribeUnBlockCount', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUnBlockCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2916,11 +5652,32 @@ class Ddoscoo extends OpenApiClient
     public function describeWebAccessLogDispatchStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebAccessLogDispatchStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebAccessLogDispatchStatusResponse::fromMap($this->doRPCRequest('DescribeWebAccessLogDispatchStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebAccessLogDispatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2944,11 +5701,26 @@ class Ddoscoo extends OpenApiClient
     public function describeWebAccessLogEmptyCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebAccessLogEmptyCount',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebAccessLogEmptyCountResponse::fromMap($this->doRPCRequest('DescribeWebAccessLogEmptyCount', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebAccessLogEmptyCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2972,11 +5744,29 @@ class Ddoscoo extends OpenApiClient
     public function describeWebAccessLogStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebAccessLogStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebAccessLogStatusResponse::fromMap($this->doRPCRequest('DescribeWebAccessLogStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebAccessLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3000,11 +5790,26 @@ class Ddoscoo extends OpenApiClient
     public function describeWebAccessModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebAccessMode',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebAccessModeResponse::fromMap($this->doRPCRequest('DescribeWebAccessMode', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3028,11 +5833,29 @@ class Ddoscoo extends OpenApiClient
     public function describeWebAreaBlockConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebAreaBlockConfigs',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebAreaBlockConfigsResponse::fromMap($this->doRPCRequest('DescribeWebAreaBlockConfigs', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebAreaBlockConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3048,6 +5871,58 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribeWebCCRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeWebCCRulesResponse
+     */
+    public function describeWebCCRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebCCRules',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebCCRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWebCCRulesRequest $request
+     *
+     * @return DescribeWebCCRulesResponse
+     */
+    public function describeWebCCRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWebCCRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeWebCacheConfigsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3056,11 +5931,29 @@ class Ddoscoo extends OpenApiClient
     public function describeWebCacheConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebCacheConfigs',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebCacheConfigsResponse::fromMap($this->doRPCRequest('DescribeWebCacheConfigs', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebCacheConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3084,11 +5977,29 @@ class Ddoscoo extends OpenApiClient
     public function describeWebCcProtectSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebCcProtectSwitch',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebCcProtectSwitchResponse::fromMap($this->doRPCRequest('DescribeWebCcProtectSwitch', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebCcProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3104,34 +6015,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebCCRulesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeWebCCRulesResponse
-     */
-    public function describeWebCCRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeWebCCRulesResponse::fromMap($this->doRPCRequest('DescribeWebCCRules', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeWebCCRulesRequest $request
-     *
-     * @return DescribeWebCCRulesResponse
-     */
-    public function describeWebCCRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeWebCCRulesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeWebCustomPortsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3140,11 +6023,26 @@ class Ddoscoo extends OpenApiClient
     public function describeWebCustomPortsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebCustomPorts',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebCustomPortsResponse::fromMap($this->doRPCRequest('DescribeWebCustomPorts', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebCustomPortsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3168,11 +6066,29 @@ class Ddoscoo extends OpenApiClient
     public function describeWebInstanceRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebInstanceRelations',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebInstanceRelationsResponse::fromMap($this->doRPCRequest('DescribeWebInstanceRelations', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebInstanceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3196,11 +6112,29 @@ class Ddoscoo extends OpenApiClient
     public function describeWebPreciseAccessRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebPreciseAccessRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebPreciseAccessRuleResponse::fromMap($this->doRPCRequest('DescribeWebPreciseAccessRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3224,11 +6158,44 @@ class Ddoscoo extends OpenApiClient
     public function describeWebRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cname)) {
+            $query['Cname'] = $request->cname;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryDomainPattern)) {
+            $query['QueryDomainPattern'] = $request->queryDomainPattern;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebRules',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebRulesResponse::fromMap($this->doRPCRequest('DescribeWebRules', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3252,11 +6219,32 @@ class Ddoscoo extends OpenApiClient
     public function detachSceneDefenseObjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->objects)) {
+            $query['Objects'] = $request->objects;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachSceneDefenseObject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachSceneDefenseObjectResponse::fromMap($this->doRPCRequest('DetachSceneDefenseObject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachSceneDefenseObjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3280,11 +6268,26 @@ class Ddoscoo extends OpenApiClient
     public function disableSceneDefensePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableSceneDefensePolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableSceneDefensePolicyResponse::fromMap($this->doRPCRequest('DisableSceneDefensePolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3308,11 +6311,29 @@ class Ddoscoo extends OpenApiClient
     public function disableWebAccessLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableWebAccessLogConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableWebAccessLogConfigResponse::fromMap($this->doRPCRequest('DisableWebAccessLogConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableWebAccessLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3336,11 +6357,29 @@ class Ddoscoo extends OpenApiClient
     public function disableWebCCWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableWebCC',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableWebCCResponse::fromMap($this->doRPCRequest('DisableWebCC', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableWebCCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3364,11 +6403,29 @@ class Ddoscoo extends OpenApiClient
     public function disableWebCCRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableWebCCRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableWebCCRuleResponse::fromMap($this->doRPCRequest('DisableWebCCRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3392,11 +6449,26 @@ class Ddoscoo extends OpenApiClient
     public function emptyAutoCcBlacklistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EmptyAutoCcBlacklist',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EmptyAutoCcBlacklistResponse::fromMap($this->doRPCRequest('EmptyAutoCcBlacklist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EmptyAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3420,11 +6492,26 @@ class Ddoscoo extends OpenApiClient
     public function emptyAutoCcWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EmptyAutoCcWhitelist',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EmptyAutoCcWhitelistResponse::fromMap($this->doRPCRequest('EmptyAutoCcWhitelist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EmptyAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3448,11 +6535,26 @@ class Ddoscoo extends OpenApiClient
     public function emptySlsLogstoreWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EmptySlsLogstore',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EmptySlsLogstoreResponse::fromMap($this->doRPCRequest('EmptySlsLogstore', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EmptySlsLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3476,11 +6578,26 @@ class Ddoscoo extends OpenApiClient
     public function enableSceneDefensePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableSceneDefensePolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableSceneDefensePolicyResponse::fromMap($this->doRPCRequest('EnableSceneDefensePolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3504,11 +6621,29 @@ class Ddoscoo extends OpenApiClient
     public function enableWebAccessLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableWebAccessLogConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableWebAccessLogConfigResponse::fromMap($this->doRPCRequest('EnableWebAccessLogConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableWebAccessLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3532,11 +6667,29 @@ class Ddoscoo extends OpenApiClient
     public function enableWebCCWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableWebCC',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableWebCCResponse::fromMap($this->doRPCRequest('EnableWebCC', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableWebCCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3560,11 +6713,29 @@ class Ddoscoo extends OpenApiClient
     public function enableWebCCRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableWebCCRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableWebCCRuleResponse::fromMap($this->doRPCRequest('EnableWebCCRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3588,11 +6759,29 @@ class Ddoscoo extends OpenApiClient
     public function modifyBlackholeStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->blackholeStatus)) {
+            $query['BlackholeStatus'] = $request->blackholeStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBlackholeStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBlackholeStatusResponse::fromMap($this->doRPCRequest('ModifyBlackholeStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBlackholeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3616,11 +6805,35 @@ class Ddoscoo extends OpenApiClient
     public function modifyBlockStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lines)) {
+            $query['Lines'] = $request->lines;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBlockStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBlockStatusResponse::fromMap($this->doRPCRequest('ModifyBlockStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBlockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3644,11 +6857,35 @@ class Ddoscoo extends OpenApiClient
     public function modifyCnameReuseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cname)) {
+            $query['Cname'] = $request->cname;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCnameReuse',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyCnameReuseResponse::fromMap($this->doRPCRequest('ModifyCnameReuse', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyCnameReuseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3664,6 +6901,64 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param ModifyDomainResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyDomainResourceResponse
+     */
+    public function modifyDomainResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->httpsExt)) {
+            $query['HttpsExt'] = $request->httpsExt;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->proxyTypes)) {
+            $query['ProxyTypes'] = $request->proxyTypes;
+        }
+        if (!Utils::isUnset($request->realServers)) {
+            $query['RealServers'] = $request->realServers;
+        }
+        if (!Utils::isUnset($request->rsType)) {
+            $query['RsType'] = $request->rsType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDomainResource',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDomainResourceRequest $request
+     *
+     * @return ModifyDomainResourceResponse
+     */
+    public function modifyDomainResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDomainResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyElasticBandWidthRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3672,11 +6967,29 @@ class Ddoscoo extends OpenApiClient
     public function modifyElasticBandWidthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->elasticBandwidth)) {
+            $query['ElasticBandwidth'] = $request->elasticBandwidth;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyElasticBandWidth',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyElasticBandWidthResponse::fromMap($this->doRPCRequest('ModifyElasticBandWidth', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyElasticBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3700,11 +7013,29 @@ class Ddoscoo extends OpenApiClient
     public function modifyFullLogTtlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFullLogTtl',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyFullLogTtlResponse::fromMap($this->doRPCRequest('ModifyFullLogTtl', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyFullLogTtlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3728,11 +7059,35 @@ class Ddoscoo extends OpenApiClient
     public function modifyHealthCheckConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forwardProtocol)) {
+            $query['ForwardProtocol'] = $request->forwardProtocol;
+        }
+        if (!Utils::isUnset($request->frontendPort)) {
+            $query['FrontendPort'] = $request->frontendPort;
+        }
+        if (!Utils::isUnset($request->healthCheck)) {
+            $query['HealthCheck'] = $request->healthCheck;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHealthCheckConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyHealthCheckConfigResponse::fromMap($this->doRPCRequest('ModifyHealthCheckConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyHealthCheckConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3756,11 +7111,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyHttp2EnableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHttp2Enable',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyHttp2EnableResponse::fromMap($this->doRPCRequest('ModifyHttp2Enable', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyHttp2EnableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3784,11 +7160,29 @@ class Ddoscoo extends OpenApiClient
     public function modifyInstanceRemarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceRemark',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceRemarkResponse::fromMap($this->doRPCRequest('ModifyInstanceRemark', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3812,11 +7206,35 @@ class Ddoscoo extends OpenApiClient
     public function modifyNetworkRuleAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->forwardProtocol)) {
+            $query['ForwardProtocol'] = $request->forwardProtocol;
+        }
+        if (!Utils::isUnset($request->frontendPort)) {
+            $query['FrontendPort'] = $request->frontendPort;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyNetworkRuleAttribute',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyNetworkRuleAttributeResponse::fromMap($this->doRPCRequest('ModifyNetworkRuleAttribute', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyNetworkRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3832,6 +7250,61 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param ModifyPortRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ModifyPortResponse
+     */
+    public function modifyPortWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendPort)) {
+            $query['BackendPort'] = $request->backendPort;
+        }
+        if (!Utils::isUnset($request->frontendPort)) {
+            $query['FrontendPort'] = $request->frontendPort;
+        }
+        if (!Utils::isUnset($request->frontendProtocol)) {
+            $query['FrontendProtocol'] = $request->frontendProtocol;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->realServers)) {
+            $query['RealServers'] = $request->realServers;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPort',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPortResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPortRequest $request
+     *
+     * @return ModifyPortResponse
+     */
+    public function modifyPort($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPortWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyPortAutoCcStatusRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3840,11 +7313,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyPortAutoCcStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->switch_)) {
+            $query['Switch'] = $request->switch_;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPortAutoCcStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyPortAutoCcStatusResponse::fromMap($this->doRPCRequest('ModifyPortAutoCcStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPortAutoCcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3868,11 +7362,38 @@ class Ddoscoo extends OpenApiClient
     public function modifySceneDefensePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $query['Template'] = $request->template;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySceneDefensePolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySceneDefensePolicyResponse::fromMap($this->doRPCRequest('ModifySceneDefensePolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3896,11 +7417,38 @@ class Ddoscoo extends OpenApiClient
     public function modifySchedulerRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->param)) {
+            $query['Param'] = $request->param;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySchedulerRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySchedulerRuleResponse::fromMap($this->doRPCRequest('ModifySchedulerRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3924,11 +7472,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyTlsConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTlsConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyTlsConfigResponse::fromMap($this->doRPCRequest('ModifyTlsConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyTlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3944,34 +7513,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebAccessModeRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyWebAccessModeResponse
-     */
-    public function modifyWebAccessModeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyWebAccessModeResponse::fromMap($this->doRPCRequest('ModifyWebAccessMode', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyWebAccessModeRequest $request
-     *
-     * @return ModifyWebAccessModeResponse
-     */
-    public function modifyWebAccessMode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyWebAccessModeWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyWebAIProtectModeRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3980,11 +7521,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebAIProtectModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebAIProtectMode',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebAIProtectModeResponse::fromMap($this->doRPCRequest('ModifyWebAIProtectMode', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebAIProtectModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4008,11 +7570,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebAIProtectSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebAIProtectSwitch',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebAIProtectSwitchResponse::fromMap($this->doRPCRequest('ModifyWebAIProtectSwitch', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebAIProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4028,6 +7611,52 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param ModifyWebAccessModeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyWebAccessModeResponse
+     */
+    public function modifyWebAccessModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebAccessMode',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyWebAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyWebAccessModeRequest $request
+     *
+     * @return ModifyWebAccessModeResponse
+     */
+    public function modifyWebAccessMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWebAccessModeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyWebAreaBlockRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4036,11 +7665,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebAreaBlockWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->regions)) {
+            $query['Regions'] = $request->regions;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebAreaBlock',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebAreaBlockResponse::fromMap($this->doRPCRequest('ModifyWebAreaBlock', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebAreaBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4064,11 +7714,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebAreaBlockSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebAreaBlockSwitch',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebAreaBlockSwitchResponse::fromMap($this->doRPCRequest('ModifyWebAreaBlockSwitch', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebAreaBlockSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4084,6 +7755,73 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param ModifyWebCCRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyWebCCRuleResponse
+     */
+    public function modifyWebCCRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->act)) {
+            $query['Act'] = $request->act;
+        }
+        if (!Utils::isUnset($request->count)) {
+            $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
+        }
+        if (!Utils::isUnset($request->uri)) {
+            $query['Uri'] = $request->uri;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebCCRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyWebCCRuleRequest $request
+     *
+     * @return ModifyWebCCRuleResponse
+     */
+    public function modifyWebCCRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWebCCRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyWebCacheCustomRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -4092,11 +7830,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebCacheCustomRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebCacheCustomRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebCacheCustomRuleResponse::fromMap($this->doRPCRequest('ModifyWebCacheCustomRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebCacheCustomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4120,11 +7879,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebCacheModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebCacheMode',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebCacheModeResponse::fromMap($this->doRPCRequest('ModifyWebCacheMode', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebCacheModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4148,11 +7928,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebCacheSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebCacheSwitch',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebCacheSwitchResponse::fromMap($this->doRPCRequest('ModifyWebCacheSwitch', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebCacheSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4168,34 +7969,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebCCRuleRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifyWebCCRuleResponse
-     */
-    public function modifyWebCCRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyWebCCRuleResponse::fromMap($this->doRPCRequest('ModifyWebCCRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyWebCCRuleRequest $request
-     *
-     * @return ModifyWebCCRuleResponse
-     */
-    public function modifyWebCCRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyWebCCRuleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyWebIpSetSwitchRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -4204,11 +7977,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebIpSetSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebIpSetSwitch',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebIpSetSwitchResponse::fromMap($this->doRPCRequest('ModifyWebIpSetSwitch', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebIpSetSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4232,11 +8026,35 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebPreciseAccessRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->expires)) {
+            $query['Expires'] = $request->expires;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebPreciseAccessRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebPreciseAccessRuleResponse::fromMap($this->doRPCRequest('ModifyWebPreciseAccessRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4260,11 +8078,32 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebPreciseAccessSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebPreciseAccessSwitch',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebPreciseAccessSwitchResponse::fromMap($this->doRPCRequest('ModifyWebPreciseAccessSwitch', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebPreciseAccessSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4288,11 +8127,44 @@ class Ddoscoo extends OpenApiClient
     public function modifyWebRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->httpsExt)) {
+            $query['HttpsExt'] = $request->httpsExt;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->proxyTypes)) {
+            $query['ProxyTypes'] = $request->proxyTypes;
+        }
+        if (!Utils::isUnset($request->realServers)) {
+            $query['RealServers'] = $request->realServers;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->rsType)) {
+            $query['RsType'] = $request->rsType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebRuleResponse::fromMap($this->doRPCRequest('ModifyWebRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4316,11 +8188,26 @@ class Ddoscoo extends OpenApiClient
     public function releaseInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseInstance',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseInstanceResponse::fromMap($this->doRPCRequest('ReleaseInstance', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4344,11 +8231,32 @@ class Ddoscoo extends OpenApiClient
     public function switchSchedulerRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->switchData)) {
+            $query['SwitchData'] = $request->switchData;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchSchedulerRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SwitchSchedulerRuleResponse::fromMap($this->doRPCRequest('SwitchSchedulerRule', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SwitchSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

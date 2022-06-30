@@ -15,9 +15,9 @@ class healthCheckList extends Model
     public $frontendPort;
 
     /**
-     * @var string
+     * @var healthCheck
      */
-    public $protocol;
+    public $healthCheck;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class healthCheckList extends Model
     public $instanceId;
 
     /**
-     * @var healthCheck
+     * @var string
      */
-    public $healthCheck;
+    public $protocol;
     protected $_name = [
         'frontendPort' => 'FrontendPort',
-        'protocol'     => 'Protocol',
-        'instanceId'   => 'InstanceId',
         'healthCheck'  => 'HealthCheck',
+        'instanceId'   => 'InstanceId',
+        'protocol'     => 'Protocol',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class healthCheckList extends Model
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
         }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
+        if (null !== $this->healthCheck) {
+            $res['HealthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->healthCheck) {
-            $res['HealthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toMap() : null;
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class healthCheckList extends Model
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
         }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
+        if (isset($map['HealthCheck'])) {
+            $model->healthCheck = healthCheck::fromMap($map['HealthCheck']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['HealthCheck'])) {
-            $model->healthCheck = healthCheck::fromMap($map['HealthCheck']);
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class sla extends Model
     /**
      * @var int
      */
-    public $maxconnEnable;
+    public $cps;
 
     /**
      * @var int
@@ -21,17 +21,17 @@ class sla extends Model
     /**
      * @var int
      */
-    public $cps;
+    public $maxconn;
 
     /**
      * @var int
      */
-    public $maxconn;
+    public $maxconnEnable;
     protected $_name = [
-        'maxconnEnable' => 'MaxconnEnable',
-        'cpsEnable'     => 'CpsEnable',
         'cps'           => 'Cps',
+        'cpsEnable'     => 'CpsEnable',
         'maxconn'       => 'Maxconn',
+        'maxconnEnable' => 'MaxconnEnable',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class sla extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxconnEnable) {
-            $res['MaxconnEnable'] = $this->maxconnEnable;
+        if (null !== $this->cps) {
+            $res['Cps'] = $this->cps;
         }
         if (null !== $this->cpsEnable) {
             $res['CpsEnable'] = $this->cpsEnable;
         }
-        if (null !== $this->cps) {
-            $res['Cps'] = $this->cps;
-        }
         if (null !== $this->maxconn) {
             $res['Maxconn'] = $this->maxconn;
+        }
+        if (null !== $this->maxconnEnable) {
+            $res['MaxconnEnable'] = $this->maxconnEnable;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class sla extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxconnEnable'])) {
-            $model->maxconnEnable = $map['MaxconnEnable'];
+        if (isset($map['Cps'])) {
+            $model->cps = $map['Cps'];
         }
         if (isset($map['CpsEnable'])) {
             $model->cpsEnable = $map['CpsEnable'];
         }
-        if (isset($map['Cps'])) {
-            $model->cps = $map['Cps'];
-        }
         if (isset($map['Maxconn'])) {
             $model->maxconn = $map['Maxconn'];
+        }
+        if (isset($map['MaxconnEnable'])) {
+            $model->maxconnEnable = $map['MaxconnEnable'];
         }
 
         return $model;

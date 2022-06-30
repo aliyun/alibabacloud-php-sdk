@@ -11,21 +11,15 @@ class ConfigNetworkRegionBlockRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $config;
 
     /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $config;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'instanceId' => 'InstanceId',
         'config'     => 'Config',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class ConfigNetworkRegionBlockRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class ConfigNetworkRegionBlockRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
         }
 
         return $model;

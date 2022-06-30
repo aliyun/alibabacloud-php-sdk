@@ -11,27 +11,7 @@ class ModifyWebRuleRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $domain;
-
-    /**
-     * @var string
-     */
-    public $proxyTypes;
-
-    /**
-     * @var int
-     */
-    public $rsType;
 
     /**
      * @var string
@@ -41,21 +21,35 @@ class ModifyWebRuleRequest extends Model
     /**
      * @var string[]
      */
-    public $realServers;
+    public $instanceIds;
+
+    /**
+     * @var string
+     */
+    public $proxyTypes;
 
     /**
      * @var string[]
      */
-    public $instanceIds;
+    public $realServers;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $rsType;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
-        'proxyTypes'      => 'ProxyTypes',
-        'rsType'          => 'RsType',
         'httpsExt'        => 'HttpsExt',
-        'realServers'     => 'RealServers',
         'instanceIds'     => 'InstanceIds',
+        'proxyTypes'      => 'ProxyTypes',
+        'realServers'     => 'RealServers',
+        'resourceGroupId' => 'ResourceGroupId',
+        'rsType'          => 'RsType',
     ];
 
     public function validate()
@@ -65,29 +59,26 @@ class ModifyWebRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->proxyTypes) {
-            $res['ProxyTypes'] = $this->proxyTypes;
-        }
-        if (null !== $this->rsType) {
-            $res['RsType'] = $this->rsType;
         }
         if (null !== $this->httpsExt) {
             $res['HttpsExt'] = $this->httpsExt;
         }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->proxyTypes) {
+            $res['ProxyTypes'] = $this->proxyTypes;
+        }
         if (null !== $this->realServers) {
             $res['RealServers'] = $this->realServers;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->rsType) {
+            $res['RsType'] = $this->rsType;
         }
 
         return $res;
@@ -101,33 +92,30 @@ class ModifyWebRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['ProxyTypes'])) {
-            $model->proxyTypes = $map['ProxyTypes'];
-        }
-        if (isset($map['RsType'])) {
-            $model->rsType = $map['RsType'];
-        }
         if (isset($map['HttpsExt'])) {
             $model->httpsExt = $map['HttpsExt'];
+        }
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
+        }
+        if (isset($map['ProxyTypes'])) {
+            $model->proxyTypes = $map['ProxyTypes'];
         }
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {
                 $model->realServers = $map['RealServers'];
             }
         }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RsType'])) {
+            $model->rsType = $map['RsType'];
         }
 
         return $model;

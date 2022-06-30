@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceIdsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @var int
      */
     public $edition;
@@ -27,11 +17,15 @@ class DescribeInstanceIdsRequest extends Model
      * @var string[]
      */
     public $instanceIds;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'edition'         => 'Edition',
         'instanceIds'     => 'InstanceIds',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class DescribeInstanceIdsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -65,12 +56,6 @@ class DescribeInstanceIdsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
         }
@@ -78,6 +63,9 @@ class DescribeInstanceIdsRequest extends Model
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = $map['InstanceIds'];
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

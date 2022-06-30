@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyBlockStatusRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
     public $duration;
@@ -37,13 +22,16 @@ class ModifyBlockStatusRequest extends Model
      * @var string[]
      */
     public $lines;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'lang'       => 'Lang',
-        'status'     => 'Status',
         'duration'   => 'Duration',
         'instanceId' => 'InstanceId',
         'lines'      => 'Lines',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -53,15 +41,6 @@ class ModifyBlockStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
@@ -70,6 +49,9 @@ class ModifyBlockStatusRequest extends Model
         }
         if (null !== $this->lines) {
             $res['Lines'] = $this->lines;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,15 +65,6 @@ class ModifyBlockStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
@@ -102,6 +75,9 @@ class ModifyBlockStatusRequest extends Model
             if (!empty($map['Lines'])) {
                 $model->lines = $map['Lines'];
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
