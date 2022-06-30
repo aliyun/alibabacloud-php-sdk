@@ -13,8 +13,11 @@ use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionShrinkRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppVersionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateDatasetDeployTaskRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateDatasetDeployTaskResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppVersionRequest;
@@ -27,6 +30,8 @@ use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppSessionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppSessionResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppVersionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetDatasetRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppSessionsRequest;
@@ -177,14 +182,22 @@ class CGCS extends OpenApiClient
     }
 
     /**
-     * @param CreateAppSessionRequest $request
+     * @param CreateAppSessionRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return CreateAppSessionResponse
      */
-    public function createAppSessionWithOptions($request, $runtime)
+    public function createAppSessionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateAppSessionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resultStore)) {
+            $request->resultStoreShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->resultStore), 'ResultStore', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->startParametersV2)) {
+            $request->startParametersV2Shrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->startParametersV2, 'StartParametersV2', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
@@ -201,11 +214,20 @@ class CGCS extends OpenApiClient
         if (!Utils::isUnset($request->customUserId)) {
             $query['CustomUserId'] = $request->customUserId;
         }
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
         if (!Utils::isUnset($request->enablePostpaid)) {
             $query['EnablePostpaid'] = $request->enablePostpaid;
         }
+        if (!Utils::isUnset($request->resultStoreShrink)) {
+            $query['ResultStore'] = $request->resultStoreShrink;
+        }
         if (!Utils::isUnset($request->startParameters)) {
             $query['StartParameters'] = $request->startParameters;
+        }
+        if (!Utils::isUnset($request->startParametersV2Shrink)) {
+            $query['StartParametersV2'] = $request->startParametersV2Shrink;
         }
         if (!Utils::isUnset($request->systemInfo)) {
             $query['SystemInfo'] = $request->systemInfo;
@@ -287,6 +309,67 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDatasetDeployTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateDatasetDeployTaskResponse
+     */
+    public function createDatasetDeployTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->customParam)) {
+            $query['CustomParam'] = $request->customParam;
+        }
+        if (!Utils::isUnset($request->needUnzip)) {
+            $query['NeedUnzip'] = $request->needUnzip;
+        }
+        if (!Utils::isUnset($request->ossBucket)) {
+            $query['OssBucket'] = $request->ossBucket;
+        }
+        if (!Utils::isUnset($request->ossFilePath)) {
+            $query['OssFilePath'] = $request->ossFilePath;
+        }
+        if (!Utils::isUnset($request->ossRegionId)) {
+            $query['OssRegionId'] = $request->ossRegionId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDatasetDeployTask',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDatasetDeployTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDatasetDeployTaskRequest $request
+     *
+     * @return CreateDatasetDeployTaskResponse
+     */
+    public function createDatasetDeployTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasetDeployTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -551,6 +634,49 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDatasetRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataset',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDatasetRequest $request
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatasetWithOptions($request, $runtime);
     }
 
     /**

@@ -2,15 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest;
+namespace AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionShrinkRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class startParameters extends Model
+class systemInfo extends Model
 {
     /**
-     * @description key
-     *
      * @var string
      */
     public $key;
@@ -44,7 +42,7 @@ class startParameters extends Model
     /**
      * @param array $map
      *
-     * @return startParameters
+     * @return systemInfo
      */
     public static function fromMap($map = [])
     {

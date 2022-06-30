@@ -6,20 +6,24 @@ namespace AlibabaCloud\SDK\CGCS\V20211111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateAppVersionResponseBody extends Model
+class CreateDatasetDeployTaskResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $appVersionId;
-
-    /**
+     * @description 请求id
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 应用版本
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
-        'appVersionId' => 'AppVersionId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class CreateAppVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appVersionId) {
-            $res['AppVersionId'] = $this->appVersionId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -42,16 +46,16 @@ class CreateAppVersionResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAppVersionResponseBody
+     * @return CreateDatasetDeployTaskResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppVersionId'])) {
-            $model->appVersionId = $map['AppVersionId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

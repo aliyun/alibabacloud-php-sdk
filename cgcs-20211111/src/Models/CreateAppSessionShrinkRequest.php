@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\CGCS\V20211111\Models;
 
-use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest\resultStore;
-use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest\startParameters;
-use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest\startParametersV2;
-use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest\systemInfo;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionShrinkRequest\startParameters;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionShrinkRequest\systemInfo;
 use AlibabaCloud\Tea\Model;
 
-class CreateAppSessionRequest extends Model
+class CreateAppSessionShrinkRequest extends Model
 {
     /**
      * @description 应用ID
@@ -58,9 +56,9 @@ class CreateAppSessionRequest extends Model
     public $enablePostpaid;
 
     /**
-     * @var resultStore
+     * @var string
      */
-    public $resultStore;
+    public $resultStoreShrink;
 
     /**
      * @description 启动参数
@@ -70,9 +68,9 @@ class CreateAppSessionRequest extends Model
     public $startParameters;
 
     /**
-     * @var startParametersV2[]
+     * @var string
      */
-    public $startParametersV2;
+    public $startParametersV2Shrink;
 
     /**
      * @description 系统信息：如端侧机型等信息
@@ -86,18 +84,18 @@ class CreateAppSessionRequest extends Model
      */
     public $timeout;
     protected $_name = [
-        'appId'             => 'AppId',
-        'appVersion'        => 'AppVersion',
-        'clientIp'          => 'ClientIp',
-        'customSessionId'   => 'CustomSessionId',
-        'customUserId'      => 'CustomUserId',
-        'datasetId'         => 'DatasetId',
-        'enablePostpaid'    => 'EnablePostpaid',
-        'resultStore'       => 'ResultStore',
-        'startParameters'   => 'StartParameters',
-        'startParametersV2' => 'StartParametersV2',
-        'systemInfo'        => 'SystemInfo',
-        'timeout'           => 'Timeout',
+        'appId'                   => 'AppId',
+        'appVersion'              => 'AppVersion',
+        'clientIp'                => 'ClientIp',
+        'customSessionId'         => 'CustomSessionId',
+        'customUserId'            => 'CustomUserId',
+        'datasetId'               => 'DatasetId',
+        'enablePostpaid'          => 'EnablePostpaid',
+        'resultStoreShrink'       => 'ResultStore',
+        'startParameters'         => 'StartParameters',
+        'startParametersV2Shrink' => 'StartParametersV2',
+        'systemInfo'              => 'SystemInfo',
+        'timeout'                 => 'Timeout',
     ];
 
     public function validate()
@@ -128,8 +126,8 @@ class CreateAppSessionRequest extends Model
         if (null !== $this->enablePostpaid) {
             $res['EnablePostpaid'] = $this->enablePostpaid;
         }
-        if (null !== $this->resultStore) {
-            $res['ResultStore'] = null !== $this->resultStore ? $this->resultStore->toMap() : null;
+        if (null !== $this->resultStoreShrink) {
+            $res['ResultStore'] = $this->resultStoreShrink;
         }
         if (null !== $this->startParameters) {
             $res['StartParameters'] = [];
@@ -140,14 +138,8 @@ class CreateAppSessionRequest extends Model
                 }
             }
         }
-        if (null !== $this->startParametersV2) {
-            $res['StartParametersV2'] = [];
-            if (null !== $this->startParametersV2 && \is_array($this->startParametersV2)) {
-                $n = 0;
-                foreach ($this->startParametersV2 as $item) {
-                    $res['StartParametersV2'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->startParametersV2Shrink) {
+            $res['StartParametersV2'] = $this->startParametersV2Shrink;
         }
         if (null !== $this->systemInfo) {
             $res['SystemInfo'] = [];
@@ -168,7 +160,7 @@ class CreateAppSessionRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateAppSessionRequest
+     * @return CreateAppSessionShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -195,7 +187,7 @@ class CreateAppSessionRequest extends Model
             $model->enablePostpaid = $map['EnablePostpaid'];
         }
         if (isset($map['ResultStore'])) {
-            $model->resultStore = resultStore::fromMap($map['ResultStore']);
+            $model->resultStoreShrink = $map['ResultStore'];
         }
         if (isset($map['StartParameters'])) {
             if (!empty($map['StartParameters'])) {
@@ -207,13 +199,7 @@ class CreateAppSessionRequest extends Model
             }
         }
         if (isset($map['StartParametersV2'])) {
-            if (!empty($map['StartParametersV2'])) {
-                $model->startParametersV2 = [];
-                $n                        = 0;
-                foreach ($map['StartParametersV2'] as $item) {
-                    $model->startParametersV2[$n++] = null !== $item ? startParametersV2::fromMap($item) : $item;
-                }
-            }
+            $model->startParametersV2Shrink = $map['StartParametersV2'];
         }
         if (isset($map['SystemInfo'])) {
             if (!empty($map['SystemInfo'])) {

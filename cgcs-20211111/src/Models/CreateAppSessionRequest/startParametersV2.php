@@ -6,17 +6,15 @@ namespace AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class startParameters extends Model
+class startParametersV2 extends Model
 {
     /**
-     * @description key
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @var string
+     * @var mixed
      */
     public $value;
     protected $_name = [
@@ -44,7 +42,7 @@ class startParameters extends Model
     /**
      * @param array $map
      *
-     * @return startParameters
+     * @return startParametersV2
      */
     public static function fromMap($map = [])
     {
