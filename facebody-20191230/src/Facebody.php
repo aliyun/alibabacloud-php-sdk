@@ -127,6 +127,7 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyDbsRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyDbsResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyPersonRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyPersonResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceDbsRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceDbsResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceEntitiesRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceEntitiesResponse;
@@ -4376,13 +4377,24 @@ class Facebody extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param ListFaceDbsRequest $request
+     * @param RuntimeOptions     $runtime
      *
      * @return ListFaceDbsResponse
      */
-    public function listFaceDbsWithOptions($runtime)
+    public function listFaceDbsWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $body['Offset'] = $request->offset;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
         $params = new Params([
             'action'      => 'ListFaceDbs',
             'version'     => '2019-12-30',
@@ -4399,13 +4411,15 @@ class Facebody extends OpenApiClient
     }
 
     /**
+     * @param ListFaceDbsRequest $request
+     *
      * @return ListFaceDbsResponse
      */
-    public function listFaceDbs()
+    public function listFaceDbs($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listFaceDbsWithOptions($runtime);
+        return $this->listFaceDbsWithOptions($request, $runtime);
     }
 
     /**
