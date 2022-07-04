@@ -93,8 +93,6 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetSwitchInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetSwitchInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedInfoResponse;
-use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedStausRequest;
-use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedStausResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReadableResourcesListByUserIdRequest;
@@ -2289,49 +2287,6 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryEmbeddedInfoWithOptions($runtime);
-    }
-
-    /**
-     * @param QueryEmbeddedStausRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return QueryEmbeddedStausResponse
-     */
-    public function queryEmbeddedStausWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->worksId)) {
-            $query['WorksId'] = $request->worksId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEmbeddedStaus',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryEmbeddedStausResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryEmbeddedStausRequest $request
-     *
-     * @return QueryEmbeddedStausResponse
-     */
-    public function queryEmbeddedStaus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryEmbeddedStausWithOptions($request, $runtime);
     }
 
     /**
