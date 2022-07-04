@@ -354,6 +354,9 @@ class Dysmsapi extends OpenApiClient
             $request->templateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->factorys)) {
+            $query['Factorys'] = $request->factorys;
+        }
         if (!Utils::isUnset($request->memo)) {
             $query['Memo'] = $request->memo;
         }
@@ -561,11 +564,23 @@ class Dysmsapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cardCodeType)) {
+            $query['CardCodeType'] = $request->cardCodeType;
+        }
+        if (!Utils::isUnset($request->cardLinkType)) {
+            $query['CardLinkType'] = $request->cardLinkType;
+        }
         if (!Utils::isUnset($request->cardTemplateCode)) {
             $query['CardTemplateCode'] = $request->cardTemplateCode;
         }
         if (!Utils::isUnset($request->cardTemplateParamJson)) {
             $query['CardTemplateParamJson'] = $request->cardTemplateParamJson;
+        }
+        if (!Utils::isUnset($request->customShortCodeJson)) {
+            $query['CustomShortCodeJson'] = $request->customShortCodeJson;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
         }
         if (!Utils::isUnset($request->outId)) {
             $query['OutId'] = $request->outId;

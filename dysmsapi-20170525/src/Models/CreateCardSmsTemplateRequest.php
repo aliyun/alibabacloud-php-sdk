@@ -11,6 +11,11 @@ class CreateCardSmsTemplateRequest extends Model
     /**
      * @var string
      */
+    public $factorys;
+
+    /**
+     * @var string
+     */
     public $memo;
 
     /**
@@ -23,6 +28,7 @@ class CreateCardSmsTemplateRequest extends Model
      */
     public $templateName;
     protected $_name = [
+        'factorys'     => 'Factorys',
         'memo'         => 'Memo',
         'template'     => 'Template',
         'templateName' => 'TemplateName',
@@ -35,6 +41,9 @@ class CreateCardSmsTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->factorys) {
+            $res['Factorys'] = $this->factorys;
+        }
         if (null !== $this->memo) {
             $res['Memo'] = $this->memo;
         }
@@ -56,6 +65,9 @@ class CreateCardSmsTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Factorys'])) {
+            $model->factorys = $map['Factorys'];
+        }
         if (isset($map['Memo'])) {
             $model->memo = $map['Memo'];
         }
