@@ -29,6 +29,11 @@ class ModifyDefenseThresholdRequest extends Model
     public $instanceType;
 
     /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
      * @var bool
      */
     public $isAuto;
@@ -42,6 +47,7 @@ class ModifyDefenseThresholdRequest extends Model
         'ddosRegionId' => 'DdosRegionId',
         'instanceId'   => 'InstanceId',
         'instanceType' => 'InstanceType',
+        'internetIp'   => 'InternetIp',
         'isAuto'       => 'IsAuto',
         'pps'          => 'Pps',
     ];
@@ -64,6 +70,9 @@ class ModifyDefenseThresholdRequest extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
         }
         if (null !== $this->isAuto) {
             $res['IsAuto'] = $this->isAuto;
@@ -94,6 +103,9 @@ class ModifyDefenseThresholdRequest extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
         }
         if (isset($map['IsAuto'])) {
             $model->isAuto = $map['IsAuto'];

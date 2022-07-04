@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosThresholdResponseBody\thresholds;
+namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeIpDdosThresholdResponseBody;
 
 use AlibabaCloud\Tea\Model;
 

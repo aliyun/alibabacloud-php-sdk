@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeCapRequest extends Model
+class DescribeIpDdosThresholdRequest extends Model
 {
-    /**
-     * @var int
-     */
-    public $begTime;
-
     /**
      * @var string
      */
     public $ddosRegionId;
+
+    /**
+     * @var string
+     */
+    public $ddosType;
 
     /**
      * @var string
@@ -33,8 +33,8 @@ class DescribeCapRequest extends Model
      */
     public $internetIp;
     protected $_name = [
-        'begTime'      => 'BegTime',
         'ddosRegionId' => 'DdosRegionId',
+        'ddosType'     => 'DdosType',
         'instanceId'   => 'InstanceId',
         'instanceType' => 'InstanceType',
         'internetIp'   => 'InternetIp',
@@ -47,11 +47,11 @@ class DescribeCapRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->begTime) {
-            $res['BegTime'] = $this->begTime;
-        }
         if (null !== $this->ddosRegionId) {
             $res['DdosRegionId'] = $this->ddosRegionId;
+        }
+        if (null !== $this->ddosType) {
+            $res['DdosType'] = $this->ddosType;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -69,16 +69,16 @@ class DescribeCapRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeCapRequest
+     * @return DescribeIpDdosThresholdRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BegTime'])) {
-            $model->begTime = $map['BegTime'];
-        }
         if (isset($map['DdosRegionId'])) {
             $model->ddosRegionId = $map['DdosRegionId'];
+        }
+        if (isset($map['DdosType'])) {
+            $model->ddosType = $map['DdosType'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDdosStatusResponse extends Model
+class DescribeIpDdosThresholdResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ModifyDdosStatusResponse extends Model
     public $statusCode;
 
     /**
-     * @var ModifyDdosStatusResponseBody
+     * @var DescribeIpDdosThresholdResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ModifyDdosStatusResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDdosStatusResponse
+     * @return DescribeIpDdosThresholdResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ModifyDdosStatusResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyDdosStatusResponseBody::fromMap($map['body']);
+            $model->body = DescribeIpDdosThresholdResponseBody::fromMap($map['body']);
         }
 
         return $model;

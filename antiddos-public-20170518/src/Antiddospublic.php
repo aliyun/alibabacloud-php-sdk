@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeBgpPackByIpRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeBgpPackByIpResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeCapRequest;
@@ -17,8 +18,14 @@ use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosEventListReques
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosEventListResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosThresholdRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosThresholdResponse;
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeInstanceIpAddressRequest;
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeInstanceIpAddressResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeInstanceResponse;
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeIpDdosThresholdRequest;
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeIpDdosThresholdResponse;
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeIpLocationServiceRequest;
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeIpLocationServiceResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\ModifyDdosStatusRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\ModifyDdosStatusResponse;
@@ -27,6 +34,7 @@ use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\ModifyDefenseThresholdRespo
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Antiddospublic extends OpenApiClient
@@ -71,11 +79,29 @@ class Antiddospublic extends OpenApiClient
     public function describeBgpPackByIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBgpPackByIp',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBgpPackByIpResponse::fromMap($this->doRPCRequest('DescribeBgpPackByIp', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBgpPackByIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -99,11 +125,38 @@ class Antiddospublic extends OpenApiClient
     public function describeCapWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->begTime)) {
+            $query['BegTime'] = $request->begTime;
+        }
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCap',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCapResponse::fromMap($this->doRPCRequest('DescribeCap', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -127,11 +180,29 @@ class Antiddospublic extends OpenApiClient
     public function describeDdosCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDdosCount',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDdosCountResponse::fromMap($this->doRPCRequest('DescribeDdosCount', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDdosCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -155,11 +226,26 @@ class Antiddospublic extends OpenApiClient
     public function describeDdosCreditWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDdosCredit',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDdosCreditResponse::fromMap($this->doRPCRequest('DescribeDdosCredit', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDdosCreditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -183,11 +269,41 @@ class Antiddospublic extends OpenApiClient
     public function describeDdosEventListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDdosEventList',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDdosEventListResponse::fromMap($this->doRPCRequest('DescribeDdosEventList', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDdosEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -211,11 +327,35 @@ class Antiddospublic extends OpenApiClient
     public function describeDdosThresholdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->ddosType)) {
+            $query['DdosType'] = $request->ddosType;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDdosThreshold',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDdosThresholdResponse::fromMap($this->doRPCRequest('DescribeDdosThreshold', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDdosThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -239,11 +379,47 @@ class Antiddospublic extends OpenApiClient
     public function describeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->ddosStatus)) {
+            $query['DdosStatus'] = $request->ddosStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceIp)) {
+            $query['InstanceIp'] = $request->instanceIp;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstance',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceResponse::fromMap($this->doRPCRequest('DescribeInstance', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -259,15 +435,188 @@ class Antiddospublic extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceIpAddressRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeInstanceIpAddressResponse
+     */
+    public function describeInstanceIpAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->ddosStatus)) {
+            $query['DdosStatus'] = $request->ddosStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceIp)) {
+            $query['InstanceIp'] = $request->instanceIp;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceIpAddress',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceIpAddressRequest $request
+     *
+     * @return DescribeInstanceIpAddressResponse
+     */
+    public function describeInstanceIpAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceIpAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeIpDdosThresholdRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeIpDdosThresholdResponse
+     */
+    public function describeIpDdosThresholdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->ddosType)) {
+            $query['DdosType'] = $request->ddosType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpDdosThreshold',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIpDdosThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIpDdosThresholdRequest $request
+     *
+     * @return DescribeIpDdosThresholdResponse
+     */
+    public function describeIpDdosThreshold($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIpDdosThresholdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeIpLocationServiceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeIpLocationServiceResponse
+     */
+    public function describeIpLocationServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpLocationService',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIpLocationServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIpLocationServiceRequest $request
+     *
+     * @return DescribeIpLocationServiceResponse
+     */
+    public function describeIpLocationService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIpLocationServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -289,11 +638,32 @@ class Antiddospublic extends OpenApiClient
     public function modifyDdosStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDdosStatus',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDdosStatusResponse::fromMap($this->doRPCRequest('ModifyDdosStatus', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDdosStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -317,11 +687,44 @@ class Antiddospublic extends OpenApiClient
     public function modifyDefenseThresholdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bps)) {
+            $query['Bps'] = $request->bps;
+        }
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
+        if (!Utils::isUnset($request->isAuto)) {
+            $query['IsAuto'] = $request->isAuto;
+        }
+        if (!Utils::isUnset($request->pps)) {
+            $query['Pps'] = $request->pps;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDefenseThreshold',
+            'version'     => '2017-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDefenseThresholdResponse::fromMap($this->doRPCRequest('ModifyDefenseThreshold', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDefenseThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
