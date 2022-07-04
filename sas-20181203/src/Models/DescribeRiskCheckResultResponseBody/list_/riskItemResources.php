@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class riskItemResources extends Model
 {
     /**
-     * @var string[]
+     * @var mixed[]
      */
     public $contentResource;
 

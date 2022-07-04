@@ -258,6 +258,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulWhitelistRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulWhitelistResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWarningExportInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWarningExportInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWarningMachinesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWarningMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockBindListRequest;
@@ -7499,6 +7501,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVulWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWarningExportInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeWarningExportInfoResponse
+     */
+    public function describeWarningExportInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exportId)) {
+            $query['ExportId'] = $request->exportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWarningExportInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWarningExportInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWarningExportInfoRequest $request
+     *
+     * @return DescribeWarningExportInfoResponse
+     */
+    public function describeWarningExportInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWarningExportInfoWithOptions($request, $runtime);
     }
 
     /**

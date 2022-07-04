@@ -14,8 +14,6 @@ class CreateFileDetectResponseBody extends Model
     public $hashKey;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
