@@ -29,6 +29,11 @@ class CreateLogStoreRequest extends Model
     public $encryptConf;
 
     /**
+     * @var int
+     */
+    public $hotTtl;
+
+    /**
      * @var string
      */
     public $logstoreName;
@@ -44,6 +49,11 @@ class CreateLogStoreRequest extends Model
     public $shardCount;
 
     /**
+     * @var string
+     */
+    public $telemetryType;
+
+    /**
      * @var int
      */
     public $ttl;
@@ -52,9 +62,11 @@ class CreateLogStoreRequest extends Model
         'autoSplit'      => 'autoSplit',
         'enableTracking' => 'enable_tracking',
         'encryptConf'    => 'encrypt_conf',
+        'hotTtl'         => 'hot_ttl',
         'logstoreName'   => 'logstoreName',
         'maxSplitShard'  => 'maxSplitShard',
         'shardCount'     => 'shardCount',
+        'telemetryType'  => 'telemetryType',
         'ttl'            => 'ttl',
     ];
 
@@ -77,6 +89,9 @@ class CreateLogStoreRequest extends Model
         if (null !== $this->encryptConf) {
             $res['encrypt_conf'] = null !== $this->encryptConf ? $this->encryptConf->toMap() : null;
         }
+        if (null !== $this->hotTtl) {
+            $res['hot_ttl'] = $this->hotTtl;
+        }
         if (null !== $this->logstoreName) {
             $res['logstoreName'] = $this->logstoreName;
         }
@@ -85,6 +100,9 @@ class CreateLogStoreRequest extends Model
         }
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
+        }
+        if (null !== $this->telemetryType) {
+            $res['telemetryType'] = $this->telemetryType;
         }
         if (null !== $this->ttl) {
             $res['ttl'] = $this->ttl;
@@ -113,6 +131,9 @@ class CreateLogStoreRequest extends Model
         if (isset($map['encrypt_conf'])) {
             $model->encryptConf = EncryptConf::fromMap($map['encrypt_conf']);
         }
+        if (isset($map['hot_ttl'])) {
+            $model->hotTtl = $map['hot_ttl'];
+        }
         if (isset($map['logstoreName'])) {
             $model->logstoreName = $map['logstoreName'];
         }
@@ -121,6 +142,9 @@ class CreateLogStoreRequest extends Model
         }
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];
+        }
+        if (isset($map['telemetryType'])) {
+            $model->telemetryType = $map['telemetryType'];
         }
         if (isset($map['ttl'])) {
             $model->ttl = $map['ttl'];

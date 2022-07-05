@@ -29,9 +29,9 @@ class UpdateLogStoreRequest extends Model
     public $encryptConf;
 
     /**
-     * @var string
+     * @var int
      */
-    public $logstore;
+    public $hotTtl;
 
     /**
      * @var string
@@ -49,6 +49,11 @@ class UpdateLogStoreRequest extends Model
     public $shardCount;
 
     /**
+     * @var string
+     */
+    public $telemetryType;
+
+    /**
      * @var int
      */
     public $ttl;
@@ -57,10 +62,11 @@ class UpdateLogStoreRequest extends Model
         'autoSplit'      => 'autoSplit',
         'enableTracking' => 'enable_tracking',
         'encryptConf'    => 'encrypt_conf',
-        'logstore'       => 'logstore',
+        'hotTtl'         => 'hot_ttl',
         'logstoreName'   => 'logstoreName',
         'maxSplitShard'  => 'maxSplitShard',
         'shardCount'     => 'shardCount',
+        'telemetryType'  => 'telemetryType',
         'ttl'            => 'ttl',
     ];
 
@@ -83,8 +89,8 @@ class UpdateLogStoreRequest extends Model
         if (null !== $this->encryptConf) {
             $res['encrypt_conf'] = null !== $this->encryptConf ? $this->encryptConf->toMap() : null;
         }
-        if (null !== $this->logstore) {
-            $res['logstore'] = $this->logstore;
+        if (null !== $this->hotTtl) {
+            $res['hot_ttl'] = $this->hotTtl;
         }
         if (null !== $this->logstoreName) {
             $res['logstoreName'] = $this->logstoreName;
@@ -94,6 +100,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
+        }
+        if (null !== $this->telemetryType) {
+            $res['telemetryType'] = $this->telemetryType;
         }
         if (null !== $this->ttl) {
             $res['ttl'] = $this->ttl;
@@ -122,8 +131,8 @@ class UpdateLogStoreRequest extends Model
         if (isset($map['encrypt_conf'])) {
             $model->encryptConf = EncryptConf::fromMap($map['encrypt_conf']);
         }
-        if (isset($map['logstore'])) {
-            $model->logstore = $map['logstore'];
+        if (isset($map['hot_ttl'])) {
+            $model->hotTtl = $map['hot_ttl'];
         }
         if (isset($map['logstoreName'])) {
             $model->logstoreName = $map['logstoreName'];
@@ -133,6 +142,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];
+        }
+        if (isset($map['telemetryType'])) {
+            $model->telemetryType = $map['telemetryType'];
         }
         if (isset($map['ttl'])) {
             $model->ttl = $map['ttl'];

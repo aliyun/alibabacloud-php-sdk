@@ -6,26 +6,27 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteSavedSearchResponse extends Model
+class GetCursorResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @description 游标位置。
+     *
+     * @var string
      */
-    public $headers;
+    public $cursor;
     protected $_name = [
-        'headers' => 'headers',
+        'cursor' => 'cursor',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->cursor) {
+            $res['cursor'] = $this->cursor;
         }
 
         return $res;
@@ -34,13 +35,13 @@ class DeleteSavedSearchResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteSavedSearchResponse
+     * @return GetCursorResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['cursor'])) {
+            $model->cursor = $map['cursor'];
         }
 
         return $model;

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class Shard extends Model
 {
     /**
-     * @description createTime
+     * @description Shard的创建时间。Unix时间戳格式，表示从1970-1-1 00:00:00 UTC计算起的秒数。
      *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description exclusiveEndKey
+     * @description 指定Shard范围的结束值，Shard范围中不包含该值。即 shard 包含MD5值在 [inclusiveBeginKey, exclusiveEndKey) 之间的日志。
      *
      * @var string
      */
     public $exclusiveEndKey;
 
     /**
-     * @description inclusiveBeginKey
+     * @description 指定Shard范围的起始值，Shard范围中包含该值。即 shard 包含MD5值在 [inclusiveBeginKey, exclusiveEndKey) 之间的日志。
      *
      * @var string
      */
@@ -34,10 +34,10 @@ class Shard extends Model
      *
      * @var int
      */
-    public $shardId;
+    public $shardID;
 
     /**
-     * @description status
+     * @description shard 的读写状态，readwrite 或者 readonly。
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class Shard extends Model
         'createTime'        => 'createTime',
         'exclusiveEndKey'   => 'exclusiveEndKey',
         'inclusiveBeginKey' => 'inclusiveBeginKey',
-        'shardId'           => 'shardId',
+        'shardID'           => 'shardID',
         'status'            => 'status',
     ];
 
@@ -66,8 +66,8 @@ class Shard extends Model
         if (null !== $this->inclusiveBeginKey) {
             $res['inclusiveBeginKey'] = $this->inclusiveBeginKey;
         }
-        if (null !== $this->shardId) {
-            $res['shardId'] = $this->shardId;
+        if (null !== $this->shardID) {
+            $res['shardID'] = $this->shardID;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -93,8 +93,8 @@ class Shard extends Model
         if (isset($map['inclusiveBeginKey'])) {
             $model->inclusiveBeginKey = $map['inclusiveBeginKey'];
         }
-        if (isset($map['shardId'])) {
-            $model->shardId = $map['shardId'];
+        if (isset($map['shardID'])) {
+            $model->shardID = $map['shardID'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

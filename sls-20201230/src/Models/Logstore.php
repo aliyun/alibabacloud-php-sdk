@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class Logstore extends Model
 {
     /**
-     * @description append client ip and receive time
+     * @description 接收日志后，自动添加客户端外网IP和日志到达时间
      *
      * @var bool
      */
     public $appendMeta;
 
     /**
-     * @description auto spilt shard
+     * @description 是否开启 shard 自动分裂。当写入数据量超过已有分区（Shard）写入服务能力且持续5分钟以上时，开启自动分裂功能可自动根据数据量增加分区数量
      *
      * @var bool
      */
     public $autoSplit;
 
     /**
-     * @description create time
+     * @description 创建时间。
      *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description enable web tracking
+     * @description WebTracking功能支持快速采集各种浏览器以及iOS/Android/APP访问信息，默认关闭
      *
      * @var bool
      */
@@ -44,28 +44,35 @@ class Logstore extends Model
     public $encryptConf;
 
     /**
-     * @description last modify time
+     * @description 必须在 (30, ttl) 之间
+     *
+     * @var int
+     */
+    public $hotTtl;
+
+    /**
+     * @description 最后修改时间。
      *
      * @var int
      */
     public $lastModifyTime;
 
     /**
-     * @description logstore name
+     * @description logstore 的名称。
      *
      * @var string
      */
     public $logstoreName;
 
     /**
-     * @description max split shard
+     * @description 最大 shard 数量。
      *
      * @var int
      */
     public $maxSplitShard;
 
     /**
-     * @description shard count
+     * @description shard 数量。
      *
      * @var int
      */
@@ -79,7 +86,7 @@ class Logstore extends Model
     public $telemetryType;
 
     /**
-     * @description ttl
+     * @description 数据保存的天数。
      *
      * @var int
      */
@@ -90,6 +97,7 @@ class Logstore extends Model
         'createTime'     => 'createTime',
         'enableTracking' => 'enable_tracking',
         'encryptConf'    => 'encrypt_conf',
+        'hotTtl'         => 'hot_ttl',
         'lastModifyTime' => 'lastModifyTime',
         'logstoreName'   => 'logstoreName',
         'maxSplitShard'  => 'maxSplitShard',
@@ -119,6 +127,9 @@ class Logstore extends Model
         }
         if (null !== $this->encryptConf) {
             $res['encrypt_conf'] = null !== $this->encryptConf ? $this->encryptConf->toMap() : null;
+        }
+        if (null !== $this->hotTtl) {
+            $res['hot_ttl'] = $this->hotTtl;
         }
         if (null !== $this->lastModifyTime) {
             $res['lastModifyTime'] = $this->lastModifyTime;
@@ -164,6 +175,9 @@ class Logstore extends Model
         }
         if (isset($map['encrypt_conf'])) {
             $model->encryptConf = EncryptConf::fromMap($map['encrypt_conf']);
+        }
+        if (isset($map['hot_ttl'])) {
+            $model->hotTtl = $map['hot_ttl'];
         }
         if (isset($map['lastModifyTime'])) {
             $model->lastModifyTime = $map['lastModifyTime'];

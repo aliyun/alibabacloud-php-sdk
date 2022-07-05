@@ -16,7 +16,7 @@ class EncryptConf extends Model
     public $enable;
 
     /**
-     * @description encrypt_type
+     * @description 加密算法，只支持default和m4。当 enable 为 true 时，此项必选。
      *
      * @var string
      */
