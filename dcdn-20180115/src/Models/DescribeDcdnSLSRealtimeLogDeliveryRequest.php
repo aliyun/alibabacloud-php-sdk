@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $businessType;
-
-    /**
      * @var int
      */
     public $ownerId;
@@ -23,9 +18,8 @@ class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
      */
     public $projectName;
     protected $_name = [
-        'businessType' => 'BusinessType',
-        'ownerId'      => 'OwnerId',
-        'projectName'  => 'ProjectName',
+        'ownerId'     => 'OwnerId',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->businessType) {
-            $res['BusinessType'] = $this->businessType;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -56,9 +47,6 @@ class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BusinessType'])) {
-            $model->businessType = $map['BusinessType'];
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

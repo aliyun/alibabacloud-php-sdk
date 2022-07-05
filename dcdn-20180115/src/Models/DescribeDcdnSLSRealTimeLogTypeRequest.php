@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteDcdnRealTimeLogProjectRequest extends Model
+class DescribeDcdnSLSRealTimeLogTypeRequest extends Model
 {
     /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $projectName;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'projectName' => 'ProjectName',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()
@@ -32,9 +26,6 @@ class DeleteDcdnRealTimeLogProjectRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
 
         return $res;
     }
@@ -42,16 +33,13 @@ class DeleteDcdnRealTimeLogProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDcdnRealTimeLogProjectRequest
+     * @return DescribeDcdnSLSRealTimeLogTypeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

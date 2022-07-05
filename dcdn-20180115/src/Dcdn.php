@@ -226,6 +226,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealTimeLogTypeRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealTimeLogTypeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListRequest;
@@ -1634,6 +1636,9 @@ class Dcdn extends OpenApiClient
             $query['OwnerId'] = $request->ownerId;
         }
         $body = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $body['BusinessType'] = $request->businessType;
+        }
         if (!Utils::isUnset($request->region)) {
             $body['Region'] = $request->region;
         }
@@ -1931,9 +1936,6 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
-        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
@@ -6040,6 +6042,46 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnSLSRealTimeLogTypeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDcdnSLSRealTimeLogTypeResponse
+     */
+    public function describeDcdnSLSRealTimeLogTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSLSRealTimeLogType',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnSLSRealTimeLogTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnSLSRealTimeLogTypeRequest $request
+     *
+     * @return DescribeDcdnSLSRealTimeLogTypeResponse
+     */
+    public function describeDcdnSLSRealTimeLogType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSLSRealTimeLogTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnSLSRealtimeLogDeliveryRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -6049,9 +6091,6 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
-        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }

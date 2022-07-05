@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
+namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealTimeLogTypeResponseBody\content;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateSlrAndSlsProjectRequest extends Model
+class business extends Model
 {
     /**
      * @var string
@@ -14,18 +14,12 @@ class CreateSlrAndSlsProjectRequest extends Model
     public $businessType;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $region;
+    public $desc;
     protected $_name = [
         'businessType' => 'BusinessType',
-        'ownerId'      => 'OwnerId',
-        'region'       => 'Region',
+        'desc'         => 'Desc',
     ];
 
     public function validate()
@@ -38,11 +32,8 @@ class CreateSlrAndSlsProjectRequest extends Model
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
         }
 
         return $res;
@@ -51,7 +42,7 @@ class CreateSlrAndSlsProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateSlrAndSlsProjectRequest
+     * @return business
      */
     public static function fromMap($map = [])
     {
@@ -59,11 +50,8 @@ class CreateSlrAndSlsProjectRequest extends Model
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
         }
 
         return $model;

@@ -56,6 +56,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'businessType' => 'BusinessType',
@@ -67,6 +72,7 @@ class content extends Model
         'SLSProject'   => 'SLSProject',
         'SLSRegion'    => 'SLSRegion',
         'samplingRate' => 'SamplingRate',
+        'status'       => 'Status',
         'type'         => 'Type',
     ];
 
@@ -103,6 +109,9 @@ class content extends Model
         }
         if (null !== $this->samplingRate) {
             $res['SamplingRate'] = $this->samplingRate;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -145,6 +154,9 @@ class content extends Model
         }
         if (isset($map['SamplingRate'])) {
             $model->samplingRate = $map['SamplingRate'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
