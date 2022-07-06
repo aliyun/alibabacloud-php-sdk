@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Imarketing\V20220704;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceShrinkRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetUserFinishedAdRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetUserFinishedAdResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingRequest;
@@ -49,6 +52,93 @@ class Imarketing extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateDeviceRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDeviceResponse
+     */
+    public function createDeviceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDeviceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extraMap)) {
+            $request->extraMapShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extraMap, 'ExtraMap', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $body['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->city)) {
+            $body['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->deviceModelNumber)) {
+            $body['DeviceModelNumber'] = $request->deviceModelNumber;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->deviceType)) {
+            $body['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->district)) {
+            $body['District'] = $request->district;
+        }
+        if (!Utils::isUnset($request->extraMapShrink)) {
+            $body['ExtraMap'] = $request->extraMapShrink;
+        }
+        if (!Utils::isUnset($request->firstScene)) {
+            $body['FirstScene'] = $request->firstScene;
+        }
+        if (!Utils::isUnset($request->floor)) {
+            $body['Floor'] = $request->floor;
+        }
+        if (!Utils::isUnset($request->locationName)) {
+            $body['LocationName'] = $request->locationName;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $body['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->outerCode)) {
+            $body['OuterCode'] = $request->outerCode;
+        }
+        if (!Utils::isUnset($request->province)) {
+            $body['Province'] = $request->province;
+        }
+        if (!Utils::isUnset($request->secondScene)) {
+            $body['SecondScene'] = $request->secondScene;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDevice',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDeviceRequest $request
+     *
+     * @return CreateDeviceResponse
+     */
+    public function createDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDeviceWithOptions($request, $runtime);
     }
 
     /**
