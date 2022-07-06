@@ -191,14 +191,14 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sceneType)) {
-            $query['SceneType'] = $request->sceneType;
-        }
         if (!Utils::isUnset($request->signName)) {
             $query['SignName'] = $request->signName;
         }
         if (!Utils::isUnset($request->signSource)) {
             $query['SignSource'] = $request->signSource;
+        }
+        if (!Utils::isUnset($request->signType)) {
+            $query['SignType'] = $request->signType;
         }
         $body = [];
         if (!Utils::isUnset($request->signFileList)) {
@@ -804,14 +804,14 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sceneType)) {
-            $query['SceneType'] = $request->sceneType;
-        }
         if (!Utils::isUnset($request->signName)) {
             $query['SignName'] = $request->signName;
         }
         if (!Utils::isUnset($request->signSource)) {
             $query['SignSource'] = $request->signSource;
+        }
+        if (!Utils::isUnset($request->signType)) {
+            $query['SignType'] = $request->signType;
         }
         $body = [];
         if (!Utils::isUnset($request->signFileList)) {

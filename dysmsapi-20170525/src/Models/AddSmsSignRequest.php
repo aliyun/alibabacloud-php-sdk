@@ -30,11 +30,6 @@ class AddSmsSignRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
-     */
-    public $sceneType;
-
-    /**
      * @var signFileList[]
      */
     public $signFileList;
@@ -48,15 +43,20 @@ class AddSmsSignRequest extends Model
      * @var int
      */
     public $signSource;
+
+    /**
+     * @var int
+     */
+    public $signType;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'remark'               => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'sceneType'            => 'SceneType',
         'signFileList'         => 'SignFileList',
         'signName'             => 'SignName',
         'signSource'           => 'SignSource',
+        'signType'             => 'SignType',
     ];
 
     public function validate()
@@ -78,9 +78,6 @@ class AddSmsSignRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->sceneType) {
-            $res['SceneType'] = $this->sceneType;
-        }
         if (null !== $this->signFileList) {
             $res['SignFileList'] = [];
             if (null !== $this->signFileList && \is_array($this->signFileList)) {
@@ -95,6 +92,9 @@ class AddSmsSignRequest extends Model
         }
         if (null !== $this->signSource) {
             $res['SignSource'] = $this->signSource;
+        }
+        if (null !== $this->signType) {
+            $res['SignType'] = $this->signType;
         }
 
         return $res;
@@ -120,9 +120,6 @@ class AddSmsSignRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['SceneType'])) {
-            $model->sceneType = $map['SceneType'];
-        }
         if (isset($map['SignFileList'])) {
             if (!empty($map['SignFileList'])) {
                 $model->signFileList = [];
@@ -137,6 +134,9 @@ class AddSmsSignRequest extends Model
         }
         if (isset($map['SignSource'])) {
             $model->signSource = $map['SignSource'];
+        }
+        if (isset($map['SignType'])) {
+            $model->signType = $map['SignType'];
         }
 
         return $model;
