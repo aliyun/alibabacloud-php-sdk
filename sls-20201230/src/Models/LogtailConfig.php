@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\Config\inputDetail;
-use AlibabaCloud\SDK\Sls\V20201230\Models\Config\outputDetail;
+use AlibabaCloud\SDK\Sls\V20201230\Models\LogtailConfig\inputDetail;
+use AlibabaCloud\SDK\Sls\V20201230\Models\LogtailConfig\outputDetail;
 use AlibabaCloud\Tea\Model;
 
-class Config extends Model
+class LogtailConfig extends Model
 {
     /**
      * @description configName
@@ -114,7 +114,7 @@ class Config extends Model
     /**
      * @param array $map
      *
-     * @return Config
+     * @return LogtailConfig
      */
     public static function fromMap($map = [])
     {

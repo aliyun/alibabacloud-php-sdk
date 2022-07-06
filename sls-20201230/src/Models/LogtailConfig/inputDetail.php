@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sls\V20201230\Models\Config;
+namespace AlibabaCloud\SDK\Sls\V20201230\Models\LogtailConfig;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\Config\inputDetail\sensitiveKeys;
+use AlibabaCloud\SDK\Sls\V20201230\Models\LogtailConfig\inputDetail\sensitiveKeys;
 use AlibabaCloud\Tea\Model;
 
 class inputDetail extends Model
