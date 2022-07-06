@@ -191,6 +191,9 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->sceneType)) {
+            $query['SceneType'] = $request->sceneType;
+        }
         if (!Utils::isUnset($request->signName)) {
             $query['SignName'] = $request->signName;
         }
@@ -800,6 +803,9 @@ class Dysmsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sceneType)) {
+            $query['SceneType'] = $request->sceneType;
         }
         if (!Utils::isUnset($request->signName)) {
             $query['SignName'] = $request->signName;

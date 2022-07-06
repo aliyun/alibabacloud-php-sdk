@@ -30,6 +30,11 @@ class AddSmsSignRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var int
+     */
+    public $sceneType;
+
+    /**
      * @var signFileList[]
      */
     public $signFileList;
@@ -48,6 +53,7 @@ class AddSmsSignRequest extends Model
         'remark'               => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'sceneType'            => 'SceneType',
         'signFileList'         => 'SignFileList',
         'signName'             => 'SignName',
         'signSource'           => 'SignSource',
@@ -71,6 +77,9 @@ class AddSmsSignRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sceneType) {
+            $res['SceneType'] = $this->sceneType;
         }
         if (null !== $this->signFileList) {
             $res['SignFileList'] = [];
@@ -110,6 +119,9 @@ class AddSmsSignRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SceneType'])) {
+            $model->sceneType = $map['SceneType'];
         }
         if (isset($map['SignFileList'])) {
             if (!empty($map['SignFileList'])) {
