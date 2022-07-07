@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ExecJobRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ExecJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsRequest;
@@ -2097,6 +2099,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->memory)) {
             $query['Memory'] = $request->memory;
         }
+        if (!Utils::isUnset($request->workload)) {
+            $query['Workload'] = $request->workload;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -2697,6 +2702,73 @@ class Sae extends OpenApiClient
         ]);
 
         return EnableApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExecJobRequest $request
+     *
+     * @return ExecJobResponse
+     */
+    public function execJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->execJobWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ExecJobRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ExecJobResponse
+     */
+    public function execJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->command)) {
+            $query['Command'] = $request->command;
+        }
+        if (!Utils::isUnset($request->commandArgs)) {
+            $query['CommandArgs'] = $request->commandArgs;
+        }
+        if (!Utils::isUnset($request->envs)) {
+            $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->jarStartArgs)) {
+            $query['JarStartArgs'] = $request->jarStartArgs;
+        }
+        if (!Utils::isUnset($request->jarStartOptions)) {
+            $query['JarStartOptions'] = $request->jarStartOptions;
+        }
+        if (!Utils::isUnset($request->warStartOptions)) {
+            $query['WarStartOptions'] = $request->warStartOptions;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecJob',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/execJob',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

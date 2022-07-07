@@ -19,13 +19,19 @@ class defaultRule extends Model
     public $appName;
 
     /**
+     * @var string
+     */
+    public $backendProtocol;
+
+    /**
      * @var int
      */
     public $containerPort;
     protected $_name = [
-        'appId'         => 'AppId',
-        'appName'       => 'AppName',
-        'containerPort' => 'ContainerPort',
+        'appId'           => 'AppId',
+        'appName'         => 'AppName',
+        'backendProtocol' => 'BackendProtocol',
+        'containerPort'   => 'ContainerPort',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class defaultRule extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->backendProtocol) {
+            $res['BackendProtocol'] = $this->backendProtocol;
         }
         if (null !== $this->containerPort) {
             $res['ContainerPort'] = $this->containerPort;
@@ -61,6 +70,9 @@ class defaultRule extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['BackendProtocol'])) {
+            $model->backendProtocol = $map['BackendProtocol'];
         }
         if (isset($map['ContainerPort'])) {
             $model->containerPort = $map['ContainerPort'];

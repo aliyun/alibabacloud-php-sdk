@@ -14,6 +14,11 @@ class instances extends Model
     public $createTimeStamp;
 
     /**
+     * @var bool
+     */
+    public $debugStatus;
+
+    /**
      * @var string
      */
     public $eip;
@@ -69,6 +74,7 @@ class instances extends Model
     public $vSwitchId;
     protected $_name = [
         'createTimeStamp'           => 'CreateTimeStamp',
+        'debugStatus'               => 'DebugStatus',
         'eip'                       => 'Eip',
         'finishTimeStamp'           => 'FinishTimeStamp',
         'groupId'                   => 'GroupId',
@@ -91,6 +97,9 @@ class instances extends Model
         $res = [];
         if (null !== $this->createTimeStamp) {
             $res['CreateTimeStamp'] = $this->createTimeStamp;
+        }
+        if (null !== $this->debugStatus) {
+            $res['DebugStatus'] = $this->debugStatus;
         }
         if (null !== $this->eip) {
             $res['Eip'] = $this->eip;
@@ -139,6 +148,9 @@ class instances extends Model
         $model = new self();
         if (isset($map['CreateTimeStamp'])) {
             $model->createTimeStamp = $map['CreateTimeStamp'];
+        }
+        if (isset($map['DebugStatus'])) {
+            $model->debugStatus = $map['DebugStatus'];
         }
         if (isset($map['Eip'])) {
             $model->eip = $map['Eip'];

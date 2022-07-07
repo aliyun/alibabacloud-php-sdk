@@ -17,9 +17,15 @@ class DescribeConfigurationPriceRequest extends Model
      * @var int
      */
     public $memory;
+
+    /**
+     * @var string
+     */
+    public $workload;
     protected $_name = [
-        'cpu'    => 'Cpu',
-        'memory' => 'Memory',
+        'cpu'      => 'Cpu',
+        'memory'   => 'Memory',
+        'workload' => 'Workload',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeConfigurationPriceRequest extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->workload) {
+            $res['Workload'] = $this->workload;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeConfigurationPriceRequest extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['Workload'])) {
+            $model->workload = $map['Workload'];
         }
 
         return $model;
