@@ -12,17 +12,12 @@ class AddAddressBookRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $addressList;
+
+    /**
+     * @var string
+     */
+    public $autoAddTagEcs;
 
     /**
      * @var string
@@ -42,27 +37,32 @@ class AddAddressBookRequest extends Model
     /**
      * @var string
      */
-    public $autoAddTagEcs;
+    public $lang;
 
     /**
      * @var string
      */
-    public $tagRelation;
+    public $sourceIp;
 
     /**
      * @var tagList[]
      */
     public $tagList;
+
+    /**
+     * @var string
+     */
+    public $tagRelation;
     protected $_name = [
-        'sourceIp'      => 'SourceIp',
-        'lang'          => 'Lang',
         'addressList'   => 'AddressList',
+        'autoAddTagEcs' => 'AutoAddTagEcs',
         'description'   => 'Description',
         'groupName'     => 'GroupName',
         'groupType'     => 'GroupType',
-        'autoAddTagEcs' => 'AutoAddTagEcs',
-        'tagRelation'   => 'TagRelation',
+        'lang'          => 'Lang',
+        'sourceIp'      => 'SourceIp',
         'tagList'       => 'TagList',
+        'tagRelation'   => 'TagRelation',
     ];
 
     public function validate()
@@ -72,14 +72,11 @@ class AddAddressBookRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->addressList) {
             $res['AddressList'] = $this->addressList;
+        }
+        if (null !== $this->autoAddTagEcs) {
+            $res['AutoAddTagEcs'] = $this->autoAddTagEcs;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -90,11 +87,11 @@ class AddAddressBookRequest extends Model
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
         }
-        if (null !== $this->autoAddTagEcs) {
-            $res['AutoAddTagEcs'] = $this->autoAddTagEcs;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
-        if (null !== $this->tagRelation) {
-            $res['TagRelation'] = $this->tagRelation;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->tagList) {
             $res['TagList'] = [];
@@ -104,6 +101,9 @@ class AddAddressBookRequest extends Model
                     $res['TagList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->tagRelation) {
+            $res['TagRelation'] = $this->tagRelation;
         }
 
         return $res;
@@ -117,14 +117,11 @@ class AddAddressBookRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['AddressList'])) {
             $model->addressList = $map['AddressList'];
+        }
+        if (isset($map['AutoAddTagEcs'])) {
+            $model->autoAddTagEcs = $map['AutoAddTagEcs'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -135,11 +132,11 @@ class AddAddressBookRequest extends Model
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
         }
-        if (isset($map['AutoAddTagEcs'])) {
-            $model->autoAddTagEcs = $map['AutoAddTagEcs'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
-        if (isset($map['TagRelation'])) {
-            $model->tagRelation = $map['TagRelation'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
@@ -149,6 +146,9 @@ class AddAddressBookRequest extends Model
                     $model->tagList[$n++] = null !== $item ? tagList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TagRelation'])) {
+            $model->tagRelation = $map['TagRelation'];
         }
 
         return $model;

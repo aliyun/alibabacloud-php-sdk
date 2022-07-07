@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class acls extends Model
 {
     /**
+     * @var string[]
+     */
+    public $addressList;
+
+    /**
      * @var int
      */
     public $addressListCount;
-
-    /**
-     * @var string
-     */
-    public $groupUuid;
 
     /**
      * @var int
@@ -35,11 +35,6 @@ class acls extends Model
     public $groupName;
 
     /**
-     * @var int
-     */
-    public $referenceCount;
-
-    /**
      * @var string
      */
     public $groupType;
@@ -47,12 +42,12 @@ class acls extends Model
     /**
      * @var string
      */
-    public $tagRelation;
+    public $groupUuid;
 
     /**
      * @var int
      */
-    public $global;
+    public $referenceCount;
 
     /**
      * @var tagList[]
@@ -60,21 +55,20 @@ class acls extends Model
     public $tagList;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $addressList;
+    public $tagRelation;
     protected $_name = [
+        'addressList'      => 'AddressList',
         'addressListCount' => 'AddressListCount',
-        'groupUuid'        => 'GroupUuid',
         'autoAddTagEcs'    => 'AutoAddTagEcs',
         'description'      => 'Description',
         'groupName'        => 'GroupName',
-        'referenceCount'   => 'ReferenceCount',
         'groupType'        => 'GroupType',
-        'tagRelation'      => 'TagRelation',
-        'global'           => 'Global',
+        'groupUuid'        => 'GroupUuid',
+        'referenceCount'   => 'ReferenceCount',
         'tagList'          => 'TagList',
-        'addressList'      => 'AddressList',
+        'tagRelation'      => 'TagRelation',
     ];
 
     public function validate()
@@ -84,11 +78,11 @@ class acls extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressList) {
+            $res['AddressList'] = $this->addressList;
+        }
         if (null !== $this->addressListCount) {
             $res['AddressListCount'] = $this->addressListCount;
-        }
-        if (null !== $this->groupUuid) {
-            $res['GroupUuid'] = $this->groupUuid;
         }
         if (null !== $this->autoAddTagEcs) {
             $res['AutoAddTagEcs'] = $this->autoAddTagEcs;
@@ -99,17 +93,14 @@ class acls extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->referenceCount) {
-            $res['ReferenceCount'] = $this->referenceCount;
-        }
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
         }
-        if (null !== $this->tagRelation) {
-            $res['TagRelation'] = $this->tagRelation;
+        if (null !== $this->groupUuid) {
+            $res['GroupUuid'] = $this->groupUuid;
         }
-        if (null !== $this->global) {
-            $res['Global'] = $this->global;
+        if (null !== $this->referenceCount) {
+            $res['ReferenceCount'] = $this->referenceCount;
         }
         if (null !== $this->tagList) {
             $res['TagList'] = [];
@@ -120,8 +111,8 @@ class acls extends Model
                 }
             }
         }
-        if (null !== $this->addressList) {
-            $res['AddressList'] = $this->addressList;
+        if (null !== $this->tagRelation) {
+            $res['TagRelation'] = $this->tagRelation;
         }
 
         return $res;
@@ -135,11 +126,13 @@ class acls extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressList'])) {
+            if (!empty($map['AddressList'])) {
+                $model->addressList = $map['AddressList'];
+            }
+        }
         if (isset($map['AddressListCount'])) {
             $model->addressListCount = $map['AddressListCount'];
-        }
-        if (isset($map['GroupUuid'])) {
-            $model->groupUuid = $map['GroupUuid'];
         }
         if (isset($map['AutoAddTagEcs'])) {
             $model->autoAddTagEcs = $map['AutoAddTagEcs'];
@@ -150,17 +143,14 @@ class acls extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['ReferenceCount'])) {
-            $model->referenceCount = $map['ReferenceCount'];
-        }
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
         }
-        if (isset($map['TagRelation'])) {
-            $model->tagRelation = $map['TagRelation'];
+        if (isset($map['GroupUuid'])) {
+            $model->groupUuid = $map['GroupUuid'];
         }
-        if (isset($map['Global'])) {
-            $model->global = $map['Global'];
+        if (isset($map['ReferenceCount'])) {
+            $model->referenceCount = $map['ReferenceCount'];
         }
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
@@ -171,10 +161,8 @@ class acls extends Model
                 }
             }
         }
-        if (isset($map['AddressList'])) {
-            if (!empty($map['AddressList'])) {
-                $model->addressList = $map['AddressList'];
-            }
+        if (isset($map['TagRelation'])) {
+            $model->tagRelation = $map['TagRelation'];
         }
 
         return $model;

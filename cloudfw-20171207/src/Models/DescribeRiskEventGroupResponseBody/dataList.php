@@ -15,17 +15,7 @@ class dataList extends Model
     /**
      * @var string
      */
-    public $direction;
-
-    /**
-     * @var string
-     */
-    public $eventName;
-
-    /**
-     * @var string
-     */
-    public $dstIP;
+    public $attackApp;
 
     /**
      * @var int
@@ -35,12 +25,22 @@ class dataList extends Model
     /**
      * @var string
      */
-    public $tag;
+    public $description;
 
     /**
      * @var string
      */
-    public $ruleId;
+    public $direction;
+
+    /**
+     * @var string
+     */
+    public $dstIP;
+
+    /**
+     * @var int
+     */
+    public $eventCount;
 
     /**
      * @var string
@@ -50,7 +50,7 @@ class dataList extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $eventName;
 
     /**
      * @var int
@@ -58,39 +58,9 @@ class dataList extends Model
     public $firstEventTime;
 
     /**
-     * @var string
+     * @var IPLocationInfo
      */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $eventCount;
-
-    /**
-     * @var int
-     */
-    public $vulLevel;
-
-    /**
-     * @var string
-     */
-    public $attackApp;
-
-    /**
-     * @var int
-     */
-    public $ruleSource;
-
-    /**
-     * @var int
-     */
-    public $ruleResult;
-
-    /**
-     * @var string
-     */
-    public $srcIP;
+    public $IPLocationInfo;
 
     /**
      * @var int
@@ -103,14 +73,39 @@ class dataList extends Model
     public $resourcePrivateIPList;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $ruleId;
+
+    /**
+     * @var int
+     */
+    public $ruleResult;
+
+    /**
+     * @var int
+     */
+    public $ruleSource;
+
+    /**
+     * @var string
+     */
+    public $srcIP;
+
+    /**
      * @var string[]
      */
     public $srcPrivateIPList;
 
     /**
-     * @var vpcSrcInfo
+     * @var string
      */
-    public $vpcSrcInfo;
+    public $tag;
 
     /**
      * @var vpcDstInfo
@@ -118,32 +113,37 @@ class dataList extends Model
     public $vpcDstInfo;
 
     /**
-     * @var IPLocationInfo
+     * @var vpcSrcInfo
      */
-    public $IPLocationInfo;
+    public $vpcSrcInfo;
+
+    /**
+     * @var int
+     */
+    public $vulLevel;
     protected $_name = [
-        'direction'             => 'Direction',
-        'eventName'             => 'EventName',
-        'dstIP'                 => 'DstIP',
-        'attackType'            => 'AttackType',
-        'tag'                   => 'Tag',
-        'ruleId'                => 'RuleId',
-        'eventId'               => 'EventId',
-        'resourceType'          => 'ResourceType',
-        'firstEventTime'        => 'FirstEventTime',
-        'description'           => 'Description',
-        'eventCount'            => 'EventCount',
-        'vulLevel'              => 'VulLevel',
         'attackApp'             => 'AttackApp',
-        'ruleSource'            => 'RuleSource',
-        'ruleResult'            => 'RuleResult',
-        'srcIP'                 => 'SrcIP',
+        'attackType'            => 'AttackType',
+        'description'           => 'Description',
+        'direction'             => 'Direction',
+        'dstIP'                 => 'DstIP',
+        'eventCount'            => 'EventCount',
+        'eventId'               => 'EventId',
+        'eventName'             => 'EventName',
+        'firstEventTime'        => 'FirstEventTime',
+        'IPLocationInfo'        => 'IPLocationInfo',
         'lastEventTime'         => 'LastEventTime',
         'resourcePrivateIPList' => 'ResourcePrivateIPList',
+        'resourceType'          => 'ResourceType',
+        'ruleId'                => 'RuleId',
+        'ruleResult'            => 'RuleResult',
+        'ruleSource'            => 'RuleSource',
+        'srcIP'                 => 'SrcIP',
         'srcPrivateIPList'      => 'SrcPrivateIPList',
-        'vpcSrcInfo'            => 'VpcSrcInfo',
+        'tag'                   => 'Tag',
         'vpcDstInfo'            => 'VpcDstInfo',
-        'IPLocationInfo'        => 'IPLocationInfo',
+        'vpcSrcInfo'            => 'VpcSrcInfo',
+        'vulLevel'              => 'VulLevel',
     ];
 
     public function validate()
@@ -153,53 +153,35 @@ class dataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
-        }
-        if (null !== $this->eventName) {
-            $res['EventName'] = $this->eventName;
-        }
-        if (null !== $this->dstIP) {
-            $res['DstIP'] = $this->dstIP;
+        if (null !== $this->attackApp) {
+            $res['AttackApp'] = $this->attackApp;
         }
         if (null !== $this->attackType) {
             $res['AttackType'] = $this->attackType;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
-        }
-        if (null !== $this->eventId) {
-            $res['EventId'] = $this->eventId;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->firstEventTime) {
-            $res['FirstEventTime'] = $this->firstEventTime;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
+        }
+        if (null !== $this->dstIP) {
+            $res['DstIP'] = $this->dstIP;
         }
         if (null !== $this->eventCount) {
             $res['EventCount'] = $this->eventCount;
         }
-        if (null !== $this->vulLevel) {
-            $res['VulLevel'] = $this->vulLevel;
+        if (null !== $this->eventId) {
+            $res['EventId'] = $this->eventId;
         }
-        if (null !== $this->attackApp) {
-            $res['AttackApp'] = $this->attackApp;
+        if (null !== $this->eventName) {
+            $res['EventName'] = $this->eventName;
         }
-        if (null !== $this->ruleSource) {
-            $res['RuleSource'] = $this->ruleSource;
+        if (null !== $this->firstEventTime) {
+            $res['FirstEventTime'] = $this->firstEventTime;
         }
-        if (null !== $this->ruleResult) {
-            $res['RuleResult'] = $this->ruleResult;
-        }
-        if (null !== $this->srcIP) {
-            $res['SrcIP'] = $this->srcIP;
+        if (null !== $this->IPLocationInfo) {
+            $res['IPLocationInfo'] = null !== $this->IPLocationInfo ? $this->IPLocationInfo->toMap() : null;
         }
         if (null !== $this->lastEventTime) {
             $res['LastEventTime'] = $this->lastEventTime;
@@ -213,17 +195,35 @@ class dataList extends Model
                 }
             }
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->ruleResult) {
+            $res['RuleResult'] = $this->ruleResult;
+        }
+        if (null !== $this->ruleSource) {
+            $res['RuleSource'] = $this->ruleSource;
+        }
+        if (null !== $this->srcIP) {
+            $res['SrcIP'] = $this->srcIP;
+        }
         if (null !== $this->srcPrivateIPList) {
             $res['SrcPrivateIPList'] = $this->srcPrivateIPList;
         }
-        if (null !== $this->vpcSrcInfo) {
-            $res['VpcSrcInfo'] = null !== $this->vpcSrcInfo ? $this->vpcSrcInfo->toMap() : null;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
         if (null !== $this->vpcDstInfo) {
             $res['VpcDstInfo'] = null !== $this->vpcDstInfo ? $this->vpcDstInfo->toMap() : null;
         }
-        if (null !== $this->IPLocationInfo) {
-            $res['IPLocationInfo'] = null !== $this->IPLocationInfo ? $this->IPLocationInfo->toMap() : null;
+        if (null !== $this->vpcSrcInfo) {
+            $res['VpcSrcInfo'] = null !== $this->vpcSrcInfo ? $this->vpcSrcInfo->toMap() : null;
+        }
+        if (null !== $this->vulLevel) {
+            $res['VulLevel'] = $this->vulLevel;
         }
 
         return $res;
@@ -237,53 +237,35 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
-        }
-        if (isset($map['EventName'])) {
-            $model->eventName = $map['EventName'];
-        }
-        if (isset($map['DstIP'])) {
-            $model->dstIP = $map['DstIP'];
+        if (isset($map['AttackApp'])) {
+            $model->attackApp = $map['AttackApp'];
         }
         if (isset($map['AttackType'])) {
             $model->attackType = $map['AttackType'];
         }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
-        }
-        if (isset($map['EventId'])) {
-            $model->eventId = $map['EventId'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['FirstEventTime'])) {
-            $model->firstEventTime = $map['FirstEventTime'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
+        }
+        if (isset($map['DstIP'])) {
+            $model->dstIP = $map['DstIP'];
         }
         if (isset($map['EventCount'])) {
             $model->eventCount = $map['EventCount'];
         }
-        if (isset($map['VulLevel'])) {
-            $model->vulLevel = $map['VulLevel'];
+        if (isset($map['EventId'])) {
+            $model->eventId = $map['EventId'];
         }
-        if (isset($map['AttackApp'])) {
-            $model->attackApp = $map['AttackApp'];
+        if (isset($map['EventName'])) {
+            $model->eventName = $map['EventName'];
         }
-        if (isset($map['RuleSource'])) {
-            $model->ruleSource = $map['RuleSource'];
+        if (isset($map['FirstEventTime'])) {
+            $model->firstEventTime = $map['FirstEventTime'];
         }
-        if (isset($map['RuleResult'])) {
-            $model->ruleResult = $map['RuleResult'];
-        }
-        if (isset($map['SrcIP'])) {
-            $model->srcIP = $map['SrcIP'];
+        if (isset($map['IPLocationInfo'])) {
+            $model->IPLocationInfo = IPLocationInfo::fromMap($map['IPLocationInfo']);
         }
         if (isset($map['LastEventTime'])) {
             $model->lastEventTime = $map['LastEventTime'];
@@ -297,19 +279,37 @@ class dataList extends Model
                 }
             }
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['RuleResult'])) {
+            $model->ruleResult = $map['RuleResult'];
+        }
+        if (isset($map['RuleSource'])) {
+            $model->ruleSource = $map['RuleSource'];
+        }
+        if (isset($map['SrcIP'])) {
+            $model->srcIP = $map['SrcIP'];
+        }
         if (isset($map['SrcPrivateIPList'])) {
             if (!empty($map['SrcPrivateIPList'])) {
                 $model->srcPrivateIPList = $map['SrcPrivateIPList'];
             }
         }
-        if (isset($map['VpcSrcInfo'])) {
-            $model->vpcSrcInfo = vpcSrcInfo::fromMap($map['VpcSrcInfo']);
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
         if (isset($map['VpcDstInfo'])) {
             $model->vpcDstInfo = vpcDstInfo::fromMap($map['VpcDstInfo']);
         }
-        if (isset($map['IPLocationInfo'])) {
-            $model->IPLocationInfo = IPLocationInfo::fromMap($map['IPLocationInfo']);
+        if (isset($map['VpcSrcInfo'])) {
+            $model->vpcSrcInfo = vpcSrcInfo::fromMap($map['VpcSrcInfo']);
+        }
+        if (isset($map['VulLevel'])) {
+            $model->vulLevel = $map['VulLevel'];
         }
 
         return $model;

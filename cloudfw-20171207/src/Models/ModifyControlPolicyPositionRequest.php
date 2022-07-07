@@ -11,17 +11,12 @@ class ModifyControlPolicyPositionRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $direction;
 
     /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $direction;
 
     /**
      * @var string
@@ -32,12 +27,17 @@ class ModifyControlPolicyPositionRequest extends Model
      * @var string
      */
     public $oldOrder;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
-        'lang'      => 'Lang',
         'direction' => 'Direction',
+        'lang'      => 'Lang',
         'newOrder'  => 'NewOrder',
         'oldOrder'  => 'OldOrder',
+        'sourceIp'  => 'SourceIp',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ModifyControlPolicyPositionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
         }
         if (null !== $this->newOrder) {
             $res['NewOrder'] = $this->newOrder;
         }
         if (null !== $this->oldOrder) {
             $res['OldOrder'] = $this->oldOrder;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ModifyControlPolicyPositionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
         }
         if (isset($map['NewOrder'])) {
             $model->newOrder = $map['NewOrder'];
         }
         if (isset($map['OldOrder'])) {
             $model->oldOrder = $map['OldOrder'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

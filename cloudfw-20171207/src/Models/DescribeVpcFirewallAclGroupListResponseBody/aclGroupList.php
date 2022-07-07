@@ -17,9 +17,15 @@ class aclGroupList extends Model
      * @var string
      */
     public $aclGroupName;
+
+    /**
+     * @var string
+     */
+    public $memberUid;
     protected $_name = [
         'aclGroupId'   => 'AclGroupId',
         'aclGroupName' => 'AclGroupName',
+        'memberUid'    => 'MemberUid',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class aclGroupList extends Model
         }
         if (null !== $this->aclGroupName) {
             $res['AclGroupName'] = $this->aclGroupName;
+        }
+        if (null !== $this->memberUid) {
+            $res['MemberUid'] = $this->memberUid;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class aclGroupList extends Model
         }
         if (isset($map['AclGroupName'])) {
             $model->aclGroupName = $map['AclGroupName'];
+        }
+        if (isset($map['MemberUid'])) {
+            $model->memberUid = $map['MemberUid'];
         }
 
         return $model;

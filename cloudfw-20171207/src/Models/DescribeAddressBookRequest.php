@@ -11,17 +11,22 @@ class DescribeAddressBookRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
+    public $containPort;
 
     /**
      * @var string
      */
     public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $groupType;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var string
@@ -36,20 +41,15 @@ class DescribeAddressBookRequest extends Model
     /**
      * @var string
      */
-    public $groupType;
-
-    /**
-     * @var string
-     */
-    public $containPort;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
-        'lang'        => 'Lang',
+        'containPort' => 'ContainPort',
         'currentPage' => 'CurrentPage',
+        'groupType'   => 'GroupType',
+        'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
         'query'       => 'Query',
-        'groupType'   => 'GroupType',
-        'containPort' => 'ContainPort',
+        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class DescribeAddressBookRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->containPort) {
+            $res['ContainPort'] = $this->containPort;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -74,11 +77,8 @@ class DescribeAddressBookRequest extends Model
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
-        if (null !== $this->groupType) {
-            $res['GroupType'] = $this->groupType;
-        }
-        if (null !== $this->containPort) {
-            $res['ContainPort'] = $this->containPort;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class DescribeAddressBookRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['ContainPort'])) {
+            $model->containPort = $map['ContainPort'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -107,11 +110,8 @@ class DescribeAddressBookRequest extends Model
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }
-        if (isset($map['GroupType'])) {
-            $model->groupType = $map['GroupType'];
-        }
-        if (isset($map['ContainPort'])) {
-            $model->containPort = $map['ContainPort'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

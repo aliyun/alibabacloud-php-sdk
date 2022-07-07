@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class PutDisableFwSwitchRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $sourceIp;
+    public $ipaddrList;
 
     /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string[]
-     */
-    public $ipaddrList;
 
     /**
      * @var string[]
@@ -32,12 +27,17 @@ class PutDisableFwSwitchRequest extends Model
      * @var string[]
      */
     public $resourceTypeList;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'         => 'SourceIp',
-        'lang'             => 'Lang',
         'ipaddrList'       => 'IpaddrList',
+        'lang'             => 'Lang',
         'regionList'       => 'RegionList',
         'resourceTypeList' => 'ResourceTypeList',
+        'sourceIp'         => 'SourceIp',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class PutDisableFwSwitchRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->ipaddrList) {
+            $res['IpaddrList'] = $this->ipaddrList;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->ipaddrList) {
-            $res['IpaddrList'] = $this->ipaddrList;
         }
         if (null !== $this->regionList) {
             $res['RegionList'] = $this->regionList;
         }
         if (null !== $this->resourceTypeList) {
             $res['ResourceTypeList'] = $this->resourceTypeList;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -74,16 +74,13 @@ class PutDisableFwSwitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['IpaddrList'])) {
             if (!empty($map['IpaddrList'])) {
                 $model->ipaddrList = $map['IpaddrList'];
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {
@@ -94,6 +91,9 @@ class PutDisableFwSwitchRequest extends Model
             if (!empty($map['ResourceTypeList'])) {
                 $model->resourceTypeList = $map['ResourceTypeList'];
             }
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

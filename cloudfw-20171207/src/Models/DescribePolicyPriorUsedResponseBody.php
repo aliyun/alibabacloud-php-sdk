@@ -14,18 +14,18 @@ class DescribePolicyPriorUsedResponseBody extends Model
     public $end;
 
     /**
-     * @var int
-     */
-    public $start;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $start;
     protected $_name = [
         'end'       => 'End',
-        'start'     => 'Start',
         'requestId' => 'RequestId',
+        'start'     => 'Start',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribePolicyPriorUsedResponseBody extends Model
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
-        if (null !== $this->start) {
-            $res['Start'] = $this->start;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->start) {
+            $res['Start'] = $this->start;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribePolicyPriorUsedResponseBody extends Model
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
-        if (isset($map['Start'])) {
-            $model->start = $map['Start'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Start'])) {
+            $model->start = $map['Start'];
         }
 
         return $model;

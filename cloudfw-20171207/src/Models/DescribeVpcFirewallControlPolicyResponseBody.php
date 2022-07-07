@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallControlPolicyResponseBody extends Model
 {
     /**
-     * @var string
+     * @var policys[]
      */
-    public $totalCount;
+    public $policys;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeVpcFirewallControlPolicyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var policys[]
+     * @var string
      */
-    public $policys;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
         'policys'    => 'Policys',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeVpcFirewallControlPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->policys) {
             $res['Policys'] = [];
             if (null !== $this->policys && \is_array($this->policys)) {
@@ -50,6 +44,12 @@ class DescribeVpcFirewallControlPolicyResponseBody extends Model
                     $res['Policys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeVpcFirewallControlPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Policys'])) {
             if (!empty($map['Policys'])) {
                 $model->policys = [];
@@ -77,6 +71,12 @@ class DescribeVpcFirewallControlPolicyResponseBody extends Model
                     $model->policys[$n++] = null !== $item ? policys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

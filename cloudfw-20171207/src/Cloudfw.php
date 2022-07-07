@@ -5,12 +5,19 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenConfigureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenConfigureResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookRequest;
@@ -19,6 +26,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallCenConfigureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallCenConfigureResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallConfigureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookRequest;
@@ -31,16 +42,34 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAssetIPTrafficInfoRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAssetIPTrafficInfoResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenDetailRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenDetailResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDefaultIPSConfigRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDefaultIPSConfigResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDetailRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDetailResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
@@ -53,10 +82,20 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesRequ
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenConfigureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenConfigureResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenSwitchStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenSwitchStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallConfigureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallControlPolicyPositionRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallControlPolicyPositionResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallDefaultIPSConfigRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallDefaultIPSConfigResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallSwitchStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallSwitchStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutDisableAllFwSwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutDisableAllFwSwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutDisableFwSwitchRequest;
@@ -70,6 +109,7 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountRespon
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Cloudfw extends OpenApiClient
@@ -118,11 +158,50 @@ class Cloudfw extends OpenApiClient
     public function addAddressBookWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressList)) {
+            $query['AddressList'] = $request->addressList;
+        }
+        if (!Utils::isUnset($request->autoAddTagEcs)) {
+            $query['AutoAddTagEcs'] = $request->autoAddTagEcs;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->tagList)) {
+            $query['TagList'] = $request->tagList;
+        }
+        if (!Utils::isUnset($request->tagRelation)) {
+            $query['TagRelation'] = $request->tagRelation;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAddressBook',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddAddressBookResponse::fromMap($this->doRPCRequest('AddAddressBook', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAddressBookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -146,11 +225,77 @@ class Cloudfw extends OpenApiClient
     public function addControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
+        }
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
+        }
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddControlPolicyResponse::fromMap($this->doRPCRequest('AddControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -174,11 +319,26 @@ class Cloudfw extends OpenApiClient
     public function addInstanceMembersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->members)) {
+            $query['Members'] = $request->members;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddInstanceMembers',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddInstanceMembersResponse::fromMap($this->doRPCRequest('AddInstanceMembers', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddInstanceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -194,6 +354,189 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param BatchCopyVpcFirewallControlPolicyRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return BatchCopyVpcFirewallControlPolicyResponse
+     */
+    public function batchCopyVpcFirewallControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->sourceVpcFirewallId)) {
+            $query['SourceVpcFirewallId'] = $request->sourceVpcFirewallId;
+        }
+        if (!Utils::isUnset($request->targetVpcFirewallId)) {
+            $query['TargetVpcFirewallId'] = $request->targetVpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCopyVpcFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchCopyVpcFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchCopyVpcFirewallControlPolicyRequest $request
+     *
+     * @return BatchCopyVpcFirewallControlPolicyResponse
+     */
+    public function batchCopyVpcFirewallControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCopyVpcFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVpcFirewallCenConfigureRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateVpcFirewallCenConfigureResponse
+     */
+    public function createVpcFirewallCenConfigureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
+        }
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->networkInstanceId)) {
+            $query['NetworkInstanceId'] = $request->networkInstanceId;
+        }
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
+        }
+        if (!Utils::isUnset($request->vpcRegion)) {
+            $query['VpcRegion'] = $request->vpcRegion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVpcFirewallCenConfigure',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVpcFirewallCenConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVpcFirewallCenConfigureRequest $request
+     *
+     * @return CreateVpcFirewallCenConfigureResponse
+     */
+    public function createVpcFirewallCenConfigure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpcFirewallCenConfigureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVpcFirewallConfigureRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateVpcFirewallConfigureResponse
+     */
+    public function createVpcFirewallConfigureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->localVpcCidrTableList)) {
+            $query['LocalVpcCidrTableList'] = $request->localVpcCidrTableList;
+        }
+        if (!Utils::isUnset($request->localVpcId)) {
+            $query['LocalVpcId'] = $request->localVpcId;
+        }
+        if (!Utils::isUnset($request->localVpcRegion)) {
+            $query['LocalVpcRegion'] = $request->localVpcRegion;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->peerVpcCidrTableList)) {
+            $query['PeerVpcCidrTableList'] = $request->peerVpcCidrTableList;
+        }
+        if (!Utils::isUnset($request->peerVpcId)) {
+            $query['PeerVpcId'] = $request->peerVpcId;
+        }
+        if (!Utils::isUnset($request->peerVpcRegion)) {
+            $query['PeerVpcRegion'] = $request->peerVpcRegion;
+        }
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVpcFirewallConfigure',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVpcFirewallConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVpcFirewallConfigureRequest $request
+     *
+     * @return CreateVpcFirewallConfigureResponse
+     */
+    public function createVpcFirewallConfigure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpcFirewallConfigureWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVpcFirewallControlPolicyRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -202,11 +545,71 @@ class Cloudfw extends OpenApiClient
     public function createVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
+        }
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
+        }
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVpcFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVpcFirewallControlPolicyResponse::fromMap($this->doRPCRequest('CreateVpcFirewallControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateVpcFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -230,11 +633,32 @@ class Cloudfw extends OpenApiClient
     public function deleteAddressBookWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupUuid)) {
+            $query['GroupUuid'] = $request->groupUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAddressBook',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAddressBookResponse::fromMap($this->doRPCRequest('DeleteAddressBook', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAddressBookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -258,11 +682,35 @@ class Cloudfw extends OpenApiClient
     public function deleteControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteControlPolicyResponse::fromMap($this->doRPCRequest('DeleteControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -286,11 +734,26 @@ class Cloudfw extends OpenApiClient
     public function deleteInstanceMembersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->memberUids)) {
+            $query['MemberUids'] = $request->memberUids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstanceMembers',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteInstanceMembersResponse::fromMap($this->doRPCRequest('DeleteInstanceMembers', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteInstanceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -306,6 +769,104 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DeleteVpcFirewallCenConfigureRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteVpcFirewallCenConfigureResponse
+     */
+    public function deleteVpcFirewallCenConfigureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vpcFirewallIdList)) {
+            $query['VpcFirewallIdList'] = $request->vpcFirewallIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVpcFirewallCenConfigure',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVpcFirewallCenConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVpcFirewallCenConfigureRequest $request
+     *
+     * @return DeleteVpcFirewallCenConfigureResponse
+     */
+    public function deleteVpcFirewallCenConfigure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVpcFirewallCenConfigureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVpcFirewallConfigureRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteVpcFirewallConfigureResponse
+     */
+    public function deleteVpcFirewallConfigureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vpcFirewallIdList)) {
+            $query['VpcFirewallIdList'] = $request->vpcFirewallIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVpcFirewallConfigure',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVpcFirewallConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVpcFirewallConfigureRequest $request
+     *
+     * @return DeleteVpcFirewallConfigureResponse
+     */
+    public function deleteVpcFirewallConfigure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVpcFirewallConfigureWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteVpcFirewallControlPolicyRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -314,11 +875,32 @@ class Cloudfw extends OpenApiClient
     public function deleteVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVpcFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVpcFirewallControlPolicyResponse::fromMap($this->doRPCRequest('DeleteVpcFirewallControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVpcFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -342,11 +924,44 @@ class Cloudfw extends OpenApiClient
     public function describeAddressBookWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->containPort)) {
+            $query['ContainPort'] = $request->containPort;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAddressBook',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAddressBookResponse::fromMap($this->doRPCRequest('DescribeAddressBook', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAddressBookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -370,11 +985,62 @@ class Cloudfw extends OpenApiClient
     public function describeAssetListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->searchItem)) {
+            $query['SearchItem'] = $request->searchItem;
+        }
+        if (!Utils::isUnset($request->sgStatus)) {
+            $query['SgStatus'] = $request->sgStatus;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAssetList',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAssetListResponse::fromMap($this->doRPCRequest('DescribeAssetList', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAssetListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -398,11 +1064,65 @@ class Cloudfw extends OpenApiClient
     public function describeControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeControlPolicyResponse::fromMap($this->doRPCRequest('DescribeControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -426,11 +1146,38 @@ class Cloudfw extends OpenApiClient
     public function describeDomainResolveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainResolve',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainResolveResponse::fromMap($this->doRPCRequest('DescribeDomainResolve', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainResolveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -454,11 +1201,38 @@ class Cloudfw extends OpenApiClient
     public function describeInstanceMembersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->memberDesc)) {
+            $query['MemberDesc'] = $request->memberDesc;
+        }
+        if (!Utils::isUnset($request->memberDisplayName)) {
+            $query['MemberDisplayName'] = $request->memberDisplayName;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceMembers',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceMembersResponse::fromMap($this->doRPCRequest('DescribeInstanceMembers', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -474,6 +1248,264 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeInvadeEventListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInvadeEventListResponse
+     */
+    public function describeInvadeEventListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assetsIP)) {
+            $query['AssetsIP'] = $request->assetsIP;
+        }
+        if (!Utils::isUnset($request->assetsInstanceId)) {
+            $query['AssetsInstanceId'] = $request->assetsInstanceId;
+        }
+        if (!Utils::isUnset($request->assetsInstanceName)) {
+            $query['AssetsInstanceName'] = $request->assetsInstanceName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventKey)) {
+            $query['EventKey'] = $request->eventKey;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->eventUuid)) {
+            $query['EventUuid'] = $request->eventUuid;
+        }
+        if (!Utils::isUnset($request->isIgnore)) {
+            $query['IsIgnore'] = $request->isIgnore;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processStatus)) {
+            $query['ProcessStatus'] = $request->processStatus;
+        }
+        if (!Utils::isUnset($request->processStatusList)) {
+            $query['ProcessStatusList'] = $request->processStatusList;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInvadeEventList',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInvadeEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInvadeEventListRequest $request
+     *
+     * @return DescribeInvadeEventListResponse
+     */
+    public function describeInvadeEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInvadeEventListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOutgoingDestinationIPRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeOutgoingDestinationIPResponse
+     */
+    public function describeOutgoingDestinationIPWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclCoverage)) {
+            $query['AclCoverage'] = $request->aclCoverage;
+        }
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dstIP)) {
+            $query['DstIP'] = $request->dstIP;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->privateIP)) {
+            $query['PrivateIP'] = $request->privateIP;
+        }
+        if (!Utils::isUnset($request->publicIP)) {
+            $query['PublicIP'] = $request->publicIP;
+        }
+        if (!Utils::isUnset($request->securitySuggest)) {
+            $query['SecuritySuggest'] = $request->securitySuggest;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOutgoingDestinationIP',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOutgoingDestinationIPResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOutgoingDestinationIPRequest $request
+     *
+     * @return DescribeOutgoingDestinationIPResponse
+     */
+    public function describeOutgoingDestinationIP($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOutgoingDestinationIPWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOutgoingDomainRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeOutgoingDomainResponse
+     */
+    public function describeOutgoingDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclCoverage)) {
+            $query['AclCoverage'] = $request->aclCoverage;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->publicIP)) {
+            $query['PublicIP'] = $request->publicIP;
+        }
+        if (!Utils::isUnset($request->securitySuggest)) {
+            $query['SecuritySuggest'] = $request->securitySuggest;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOutgoingDomain',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOutgoingDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOutgoingDomainRequest $request
+     *
+     * @return DescribeOutgoingDomainResponse
+     */
+    public function describeOutgoingDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOutgoingDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePolicyAdvancedConfigRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -482,11 +1514,32 @@ class Cloudfw extends OpenApiClient
     public function describePolicyAdvancedConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyAdvancedConfig',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePolicyAdvancedConfigResponse::fromMap($this->doRPCRequest('DescribePolicyAdvancedConfig', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePolicyAdvancedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -510,11 +1563,35 @@ class Cloudfw extends OpenApiClient
     public function describePolicyPriorUsedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyPriorUsed',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePolicyPriorUsedResponse::fromMap($this->doRPCRequest('DescribePolicyPriorUsed', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePolicyPriorUsedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -538,11 +1615,83 @@ class Cloudfw extends OpenApiClient
     public function describeRiskEventGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->attackApp)) {
+            $query['AttackApp'] = $request->attackApp;
+        }
+        if (!Utils::isUnset($request->attackType)) {
+            $query['AttackType'] = $request->attackType;
+        }
+        if (!Utils::isUnset($request->buyVersion)) {
+            $query['BuyVersion'] = $request->buyVersion;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->dstIP)) {
+            $query['DstIP'] = $request->dstIP;
+        }
+        if (!Utils::isUnset($request->dstNetworkInstanceId)) {
+            $query['DstNetworkInstanceId'] = $request->dstNetworkInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->firewallType)) {
+            $query['FirewallType'] = $request->firewallType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->noLocation)) {
+            $query['NoLocation'] = $request->noLocation;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleResult)) {
+            $query['RuleResult'] = $request->ruleResult;
+        }
+        if (!Utils::isUnset($request->ruleSource)) {
+            $query['RuleSource'] = $request->ruleSource;
+        }
+        if (!Utils::isUnset($request->srcIP)) {
+            $query['SrcIP'] = $request->srcIP;
+        }
+        if (!Utils::isUnset($request->srcNetworkInstanceId)) {
+            $query['SrcNetworkInstanceId'] = $request->srcNetworkInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->vulLevel)) {
+            $query['VulLevel'] = $request->vulLevel;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskEventGroup',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRiskEventGroupResponse::fromMap($this->doRPCRequest('DescribeRiskEventGroup', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRiskEventGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -558,6 +1707,46 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeUserAssetIPTrafficInfoRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeUserAssetIPTrafficInfoResponse
+     */
+    public function describeUserAssetIPTrafficInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserAssetIPTrafficInfo',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserAssetIPTrafficInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserAssetIPTrafficInfoRequest $request
+     *
+     * @return DescribeUserAssetIPTrafficInfoResponse
+     */
+    public function describeUserAssetIPTrafficInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserAssetIPTrafficInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVpcFirewallAclGroupListRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -566,11 +1755,38 @@ class Cloudfw extends OpenApiClient
     public function describeVpcFirewallAclGroupListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->firewallConfigureStatus)) {
+            $query['FirewallConfigureStatus'] = $request->firewallConfigureStatus;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallAclGroupList',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVpcFirewallAclGroupListResponse::fromMap($this->doRPCRequest('DescribeVpcFirewallAclGroupList', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVpcFirewallAclGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,6 +1802,137 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeVpcFirewallCenDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeVpcFirewallCenDetailResponse
+     */
+    public function describeVpcFirewallCenDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->networkInstanceId)) {
+            $query['NetworkInstanceId'] = $request->networkInstanceId;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallCenDetail',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpcFirewallCenDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcFirewallCenDetailRequest $request
+     *
+     * @return DescribeVpcFirewallCenDetailResponse
+     */
+    public function describeVpcFirewallCenDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallCenDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpcFirewallCenListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeVpcFirewallCenListResponse
+     */
+    public function describeVpcFirewallCenListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->firewallSwitchStatus)) {
+            $query['FirewallSwitchStatus'] = $request->firewallSwitchStatus;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->networkInstanceId)) {
+            $query['NetworkInstanceId'] = $request->networkInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->routeMode)) {
+            $query['RouteMode'] = $request->routeMode;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallCenList',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpcFirewallCenListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcFirewallCenListRequest $request
+     *
+     * @return DescribeVpcFirewallCenListResponse
+     */
+    public function describeVpcFirewallCenList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallCenListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVpcFirewallControlPolicyRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -594,11 +1941,59 @@ class Cloudfw extends OpenApiClient
     public function describeVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVpcFirewallControlPolicyResponse::fromMap($this->doRPCRequest('DescribeVpcFirewallControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVpcFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -614,6 +2009,177 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeVpcFirewallDefaultIPSConfigRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeVpcFirewallDefaultIPSConfigResponse
+     */
+    public function describeVpcFirewallDefaultIPSConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallDefaultIPSConfig',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpcFirewallDefaultIPSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcFirewallDefaultIPSConfigRequest $request
+     *
+     * @return DescribeVpcFirewallDefaultIPSConfigResponse
+     */
+    public function describeVpcFirewallDefaultIPSConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallDefaultIPSConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpcFirewallDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeVpcFirewallDetailResponse
+     */
+    public function describeVpcFirewallDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->localVpcId)) {
+            $query['LocalVpcId'] = $request->localVpcId;
+        }
+        if (!Utils::isUnset($request->peerVpcId)) {
+            $query['PeerVpcId'] = $request->peerVpcId;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallDetail',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpcFirewallDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcFirewallDetailRequest $request
+     *
+     * @return DescribeVpcFirewallDetailResponse
+     */
+    public function describeVpcFirewallDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpcFirewallListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeVpcFirewallListResponse
+     */
+    public function describeVpcFirewallListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->firewallSwitchStatus)) {
+            $query['FirewallSwitchStatus'] = $request->firewallSwitchStatus;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallList',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpcFirewallListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcFirewallListRequest $request
+     *
+     * @return DescribeVpcFirewallListResponse
+     */
+    public function describeVpcFirewallList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVpcFirewallPolicyPriorUsedRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -622,11 +2188,29 @@ class Cloudfw extends OpenApiClient
     public function describeVpcFirewallPolicyPriorUsedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallPolicyPriorUsed',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVpcFirewallPolicyPriorUsedResponse::fromMap($this->doRPCRequest('DescribeVpcFirewallPolicyPriorUsed', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVpcFirewallPolicyPriorUsedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -650,11 +2234,50 @@ class Cloudfw extends OpenApiClient
     public function modifyAddressBookWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressList)) {
+            $query['AddressList'] = $request->addressList;
+        }
+        if (!Utils::isUnset($request->autoAddTagEcs)) {
+            $query['AutoAddTagEcs'] = $request->autoAddTagEcs;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupUuid)) {
+            $query['GroupUuid'] = $request->groupUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->tagList)) {
+            $query['TagList'] = $request->tagList;
+        }
+        if (!Utils::isUnset($request->tagRelation)) {
+            $query['TagRelation'] = $request->tagRelation;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAddressBook',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAddressBookResponse::fromMap($this->doRPCRequest('ModifyAddressBook', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAddressBookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -678,11 +2301,77 @@ class Cloudfw extends OpenApiClient
     public function modifyControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
+        }
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
+        }
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyControlPolicyResponse::fromMap($this->doRPCRequest('ModifyControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -706,11 +2395,38 @@ class Cloudfw extends OpenApiClient
     public function modifyControlPolicyPositionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
+        }
+        if (!Utils::isUnset($request->oldOrder)) {
+            $query['OldOrder'] = $request->oldOrder;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyControlPolicyPosition',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyControlPolicyPositionResponse::fromMap($this->doRPCRequest('ModifyControlPolicyPosition', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyControlPolicyPositionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -734,11 +2450,26 @@ class Cloudfw extends OpenApiClient
     public function modifyInstanceMemberAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->members)) {
+            $query['Members'] = $request->members;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceMemberAttributes',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceMemberAttributesResponse::fromMap($this->doRPCRequest('ModifyInstanceMemberAttributes', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceMemberAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -762,11 +2493,32 @@ class Cloudfw extends OpenApiClient
     public function modifyPolicyAdvancedConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->internetSwitch)) {
+            $query['InternetSwitch'] = $request->internetSwitch;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPolicyAdvancedConfig',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyPolicyAdvancedConfigResponse::fromMap($this->doRPCRequest('ModifyPolicyAdvancedConfig', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPolicyAdvancedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -782,6 +2534,168 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param ModifyVpcFirewallCenConfigureRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyVpcFirewallCenConfigureResponse
+     */
+    public function modifyVpcFirewallCenConfigureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcFirewallCenConfigure',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpcFirewallCenConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcFirewallCenConfigureRequest $request
+     *
+     * @return ModifyVpcFirewallCenConfigureResponse
+     */
+    public function modifyVpcFirewallCenConfigure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcFirewallCenConfigureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpcFirewallCenSwitchStatusRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyVpcFirewallCenSwitchStatusResponse
+     */
+    public function modifyVpcFirewallCenSwitchStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcFirewallCenSwitchStatus',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpcFirewallCenSwitchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcFirewallCenSwitchStatusRequest $request
+     *
+     * @return ModifyVpcFirewallCenSwitchStatusResponse
+     */
+    public function modifyVpcFirewallCenSwitchStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcFirewallCenSwitchStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpcFirewallConfigureRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyVpcFirewallConfigureResponse
+     */
+    public function modifyVpcFirewallConfigureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->localVpcCidrTableList)) {
+            $query['LocalVpcCidrTableList'] = $request->localVpcCidrTableList;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->peerVpcCidrTableList)) {
+            $query['PeerVpcCidrTableList'] = $request->peerVpcCidrTableList;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcFirewallConfigure',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpcFirewallConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcFirewallConfigureRequest $request
+     *
+     * @return ModifyVpcFirewallConfigureResponse
+     */
+    public function modifyVpcFirewallConfigure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcFirewallConfigureWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyVpcFirewallControlPolicyRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -790,11 +2704,68 @@ class Cloudfw extends OpenApiClient
     public function modifyVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
+        }
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
+        }
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyVpcFirewallControlPolicyResponse::fromMap($this->doRPCRequest('ModifyVpcFirewallControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyVpcFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -818,11 +2789,35 @@ class Cloudfw extends OpenApiClient
     public function modifyVpcFirewallControlPolicyPositionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
+        }
+        if (!Utils::isUnset($request->oldOrder)) {
+            $query['OldOrder'] = $request->oldOrder;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcFirewallControlPolicyPosition',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyVpcFirewallControlPolicyPositionResponse::fromMap($this->doRPCRequest('ModifyVpcFirewallControlPolicyPosition', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyVpcFirewallControlPolicyPositionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -838,6 +2833,119 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param ModifyVpcFirewallDefaultIPSConfigRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyVpcFirewallDefaultIPSConfigResponse
+     */
+    public function modifyVpcFirewallDefaultIPSConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->basicRules)) {
+            $query['BasicRules'] = $request->basicRules;
+        }
+        if (!Utils::isUnset($request->enableAllPatch)) {
+            $query['EnableAllPatch'] = $request->enableAllPatch;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->runMode)) {
+            $query['RunMode'] = $request->runMode;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcFirewallDefaultIPSConfig',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpcFirewallDefaultIPSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcFirewallDefaultIPSConfigRequest $request
+     *
+     * @return ModifyVpcFirewallDefaultIPSConfigResponse
+     */
+    public function modifyVpcFirewallDefaultIPSConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcFirewallDefaultIPSConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpcFirewallSwitchStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyVpcFirewallSwitchStatusResponse
+     */
+    public function modifyVpcFirewallSwitchStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcFirewallSwitchStatus',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpcFirewallSwitchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcFirewallSwitchStatusRequest $request
+     *
+     * @return ModifyVpcFirewallSwitchStatusResponse
+     */
+    public function modifyVpcFirewallSwitchStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcFirewallSwitchStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PutDisableAllFwSwitchRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -846,11 +2954,32 @@ class Cloudfw extends OpenApiClient
     public function putDisableAllFwSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutDisableAllFwSwitch',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutDisableAllFwSwitchResponse::fromMap($this->doRPCRequest('PutDisableAllFwSwitch', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutDisableAllFwSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -874,11 +3003,38 @@ class Cloudfw extends OpenApiClient
     public function putDisableFwSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipaddrList)) {
+            $query['IpaddrList'] = $request->ipaddrList;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->regionList)) {
+            $query['RegionList'] = $request->regionList;
+        }
+        if (!Utils::isUnset($request->resourceTypeList)) {
+            $query['ResourceTypeList'] = $request->resourceTypeList;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutDisableFwSwitch',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutDisableFwSwitchResponse::fromMap($this->doRPCRequest('PutDisableFwSwitch', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutDisableFwSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -902,11 +3058,32 @@ class Cloudfw extends OpenApiClient
     public function putEnableAllFwSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutEnableAllFwSwitch',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutEnableAllFwSwitchResponse::fromMap($this->doRPCRequest('PutEnableAllFwSwitch', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutEnableAllFwSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -930,11 +3107,38 @@ class Cloudfw extends OpenApiClient
     public function putEnableFwSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipaddrList)) {
+            $query['IpaddrList'] = $request->ipaddrList;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->regionList)) {
+            $query['RegionList'] = $request->regionList;
+        }
+        if (!Utils::isUnset($request->resourceTypeList)) {
+            $query['ResourceTypeList'] = $request->resourceTypeList;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutEnableFwSwitch',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutEnableFwSwitchResponse::fromMap($this->doRPCRequest('PutEnableFwSwitch', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutEnableFwSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -958,11 +3162,29 @@ class Cloudfw extends OpenApiClient
     public function resetVpcFirewallRuleHitCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetVpcFirewallRuleHitCount',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetVpcFirewallRuleHitCountResponse::fromMap($this->doRPCRequest('ResetVpcFirewallRuleHitCount', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetVpcFirewallRuleHitCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

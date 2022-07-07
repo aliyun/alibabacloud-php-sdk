@@ -16,22 +16,22 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
     /**
      * @var string
      */
-    public $vpcFirewallId;
-
-    /**
-     * @var string
-     */
     public $newOrder;
 
     /**
      * @var string
      */
     public $oldOrder;
+
+    /**
+     * @var string
+     */
+    public $vpcFirewallId;
     protected $_name = [
         'lang'          => 'Lang',
-        'vpcFirewallId' => 'VpcFirewallId',
         'newOrder'      => 'NewOrder',
         'oldOrder'      => 'OldOrder',
+        'vpcFirewallId' => 'VpcFirewallId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->vpcFirewallId) {
-            $res['VpcFirewallId'] = $this->vpcFirewallId;
-        }
         if (null !== $this->newOrder) {
             $res['NewOrder'] = $this->newOrder;
         }
         if (null !== $this->oldOrder) {
             $res['OldOrder'] = $this->oldOrder;
+        }
+        if (null !== $this->vpcFirewallId) {
+            $res['VpcFirewallId'] = $this->vpcFirewallId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['VpcFirewallId'])) {
-            $model->vpcFirewallId = $map['VpcFirewallId'];
-        }
         if (isset($map['NewOrder'])) {
             $model->newOrder = $map['NewOrder'];
         }
         if (isset($map['OldOrder'])) {
             $model->oldOrder = $map['OldOrder'];
+        }
+        if (isset($map['VpcFirewallId'])) {
+            $model->vpcFirewallId = $map['VpcFirewallId'];
         }
 
         return $model;

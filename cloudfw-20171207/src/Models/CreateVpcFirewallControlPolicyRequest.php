@@ -11,11 +11,6 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $aclAction;
 
     /**
@@ -36,6 +31,16 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
+    public $destPortGroup;
+
+    /**
+     * @var string
+     */
+    public $destPortType;
+
+    /**
+     * @var string
+     */
     public $destination;
 
     /**
@@ -46,12 +51,27 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $vpcFirewallId;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $memberUid;
+
+    /**
+     * @var string
+     */
+    public $newOrder;
 
     /**
      * @var string
      */
     public $proto;
+
+    /**
+     * @var string
+     */
+    public $release;
 
     /**
      * @var string
@@ -66,32 +86,24 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $newOrder;
-
-    /**
-     * @var string
-     */
-    public $destPortType;
-
-    /**
-     * @var string
-     */
-    public $destPortGroup;
+    public $vpcFirewallId;
     protected $_name = [
-        'lang'            => 'Lang',
         'aclAction'       => 'AclAction',
         'applicationName' => 'ApplicationName',
         'description'     => 'Description',
         'destPort'        => 'DestPort',
+        'destPortGroup'   => 'DestPortGroup',
+        'destPortType'    => 'DestPortType',
         'destination'     => 'Destination',
         'destinationType' => 'DestinationType',
-        'vpcFirewallId'   => 'VpcFirewallId',
+        'lang'            => 'Lang',
+        'memberUid'       => 'MemberUid',
+        'newOrder'        => 'NewOrder',
         'proto'           => 'Proto',
+        'release'         => 'Release',
         'source'          => 'Source',
         'sourceType'      => 'SourceType',
-        'newOrder'        => 'NewOrder',
-        'destPortType'    => 'DestPortType',
-        'destPortGroup'   => 'DestPortGroup',
+        'vpcFirewallId'   => 'VpcFirewallId',
     ];
 
     public function validate()
@@ -101,9 +113,6 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->aclAction) {
             $res['AclAction'] = $this->aclAction;
         }
@@ -116,17 +125,32 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (null !== $this->destPort) {
             $res['DestPort'] = $this->destPort;
         }
+        if (null !== $this->destPortGroup) {
+            $res['DestPortGroup'] = $this->destPortGroup;
+        }
+        if (null !== $this->destPortType) {
+            $res['DestPortType'] = $this->destPortType;
+        }
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
-        if (null !== $this->vpcFirewallId) {
-            $res['VpcFirewallId'] = $this->vpcFirewallId;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->memberUid) {
+            $res['MemberUid'] = $this->memberUid;
+        }
+        if (null !== $this->newOrder) {
+            $res['NewOrder'] = $this->newOrder;
         }
         if (null !== $this->proto) {
             $res['Proto'] = $this->proto;
+        }
+        if (null !== $this->release) {
+            $res['Release'] = $this->release;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -134,14 +158,8 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
-        if (null !== $this->newOrder) {
-            $res['NewOrder'] = $this->newOrder;
-        }
-        if (null !== $this->destPortType) {
-            $res['DestPortType'] = $this->destPortType;
-        }
-        if (null !== $this->destPortGroup) {
-            $res['DestPortGroup'] = $this->destPortGroup;
+        if (null !== $this->vpcFirewallId) {
+            $res['VpcFirewallId'] = $this->vpcFirewallId;
         }
 
         return $res;
@@ -155,9 +173,6 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['AclAction'])) {
             $model->aclAction = $map['AclAction'];
         }
@@ -170,17 +185,32 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (isset($map['DestPort'])) {
             $model->destPort = $map['DestPort'];
         }
+        if (isset($map['DestPortGroup'])) {
+            $model->destPortGroup = $map['DestPortGroup'];
+        }
+        if (isset($map['DestPortType'])) {
+            $model->destPortType = $map['DestPortType'];
+        }
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
-        if (isset($map['VpcFirewallId'])) {
-            $model->vpcFirewallId = $map['VpcFirewallId'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['MemberUid'])) {
+            $model->memberUid = $map['MemberUid'];
+        }
+        if (isset($map['NewOrder'])) {
+            $model->newOrder = $map['NewOrder'];
         }
         if (isset($map['Proto'])) {
             $model->proto = $map['Proto'];
+        }
+        if (isset($map['Release'])) {
+            $model->release = $map['Release'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
@@ -188,14 +218,8 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
-        if (isset($map['NewOrder'])) {
-            $model->newOrder = $map['NewOrder'];
-        }
-        if (isset($map['DestPortType'])) {
-            $model->destPortType = $map['DestPortType'];
-        }
-        if (isset($map['DestPortGroup'])) {
-            $model->destPortGroup = $map['DestPortGroup'];
+        if (isset($map['VpcFirewallId'])) {
+            $model->vpcFirewallId = $map['VpcFirewallId'];
         }
 
         return $model;

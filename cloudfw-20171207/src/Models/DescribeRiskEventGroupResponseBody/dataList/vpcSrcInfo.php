@@ -11,12 +11,12 @@ class vpcSrcInfo extends Model
     /**
      * @var string
      */
-    public $ecsInstanceName;
+    public $ecsInstanceId;
 
     /**
      * @var string
      */
-    public $networkInstanceName;
+    public $ecsInstanceName;
 
     /**
      * @var string
@@ -26,17 +26,17 @@ class vpcSrcInfo extends Model
     /**
      * @var string
      */
-    public $ecsInstanceId;
+    public $networkInstanceName;
 
     /**
      * @var string
      */
     public $regionNo;
     protected $_name = [
-        'ecsInstanceName'     => 'EcsInstanceName',
-        'networkInstanceName' => 'NetworkInstanceName',
-        'networkInstanceId'   => 'NetworkInstanceId',
         'ecsInstanceId'       => 'EcsInstanceId',
+        'ecsInstanceName'     => 'EcsInstanceName',
+        'networkInstanceId'   => 'NetworkInstanceId',
+        'networkInstanceName' => 'NetworkInstanceName',
         'regionNo'            => 'RegionNo',
     ];
 
@@ -47,17 +47,17 @@ class vpcSrcInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ecsInstanceId) {
+            $res['EcsInstanceId'] = $this->ecsInstanceId;
+        }
         if (null !== $this->ecsInstanceName) {
             $res['EcsInstanceName'] = $this->ecsInstanceName;
-        }
-        if (null !== $this->networkInstanceName) {
-            $res['NetworkInstanceName'] = $this->networkInstanceName;
         }
         if (null !== $this->networkInstanceId) {
             $res['NetworkInstanceId'] = $this->networkInstanceId;
         }
-        if (null !== $this->ecsInstanceId) {
-            $res['EcsInstanceId'] = $this->ecsInstanceId;
+        if (null !== $this->networkInstanceName) {
+            $res['NetworkInstanceName'] = $this->networkInstanceName;
         }
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
@@ -74,17 +74,17 @@ class vpcSrcInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EcsInstanceId'])) {
+            $model->ecsInstanceId = $map['EcsInstanceId'];
+        }
         if (isset($map['EcsInstanceName'])) {
             $model->ecsInstanceName = $map['EcsInstanceName'];
-        }
-        if (isset($map['NetworkInstanceName'])) {
-            $model->networkInstanceName = $map['NetworkInstanceName'];
         }
         if (isset($map['NetworkInstanceId'])) {
             $model->networkInstanceId = $map['NetworkInstanceId'];
         }
-        if (isset($map['EcsInstanceId'])) {
-            $model->ecsInstanceId = $map['EcsInstanceId'];
+        if (isset($map['NetworkInstanceName'])) {
+            $model->networkInstanceName = $map['NetworkInstanceName'];
         }
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];

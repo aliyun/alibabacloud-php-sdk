@@ -11,7 +11,7 @@ class ModifyPolicyAdvancedConfigRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $internetSwitch;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ModifyPolicyAdvancedConfigRequest extends Model
     /**
      * @var string
      */
-    public $internetSwitch;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'       => 'SourceIp',
-        'lang'           => 'Lang',
         'internetSwitch' => 'InternetSwitch',
+        'lang'           => 'Lang',
+        'sourceIp'       => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ModifyPolicyAdvancedConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->internetSwitch) {
+            $res['InternetSwitch'] = $this->internetSwitch;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->internetSwitch) {
-            $res['InternetSwitch'] = $this->internetSwitch;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ModifyPolicyAdvancedConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['InternetSwitch'])) {
+            $model->internetSwitch = $map['InternetSwitch'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['InternetSwitch'])) {
-            $model->internetSwitch = $map['InternetSwitch'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

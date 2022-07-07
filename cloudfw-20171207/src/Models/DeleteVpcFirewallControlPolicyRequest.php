@@ -11,20 +11,20 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $aclUuid;
 
     /**
      * @var string
      */
-    public $aclUuid;
+    public $lang;
 
     /**
      * @var string
      */
     public $vpcFirewallId;
     protected $_name = [
-        'lang'          => 'Lang',
         'aclUuid'       => 'AclUuid',
+        'lang'          => 'Lang',
         'vpcFirewallId' => 'VpcFirewallId',
     ];
 
@@ -35,11 +35,11 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->vpcFirewallId) {
             $res['VpcFirewallId'] = $this->vpcFirewallId;
@@ -56,11 +56,11 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['VpcFirewallId'])) {
             $model->vpcFirewallId = $map['VpcFirewallId'];

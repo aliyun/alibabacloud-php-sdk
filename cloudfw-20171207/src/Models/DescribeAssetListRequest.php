@@ -11,7 +11,12 @@ class DescribeAssetListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
 
     /**
      * @var string
@@ -19,9 +24,9 @@ class DescribeAssetListRequest extends Model
     public $lang;
 
     /**
-     * @var string
+     * @var int
      */
-    public $currentPage;
+    public $memberUid;
 
     /**
      * @var string
@@ -36,7 +41,7 @@ class DescribeAssetListRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $resourceType;
 
     /**
      * @var string
@@ -46,45 +51,40 @@ class DescribeAssetListRequest extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
     public $sgStatus;
 
     /**
      * @var string
      */
-    public $ipVersion;
+    public $sourceIp;
 
     /**
-     * @var int
+     * @var string
      */
-    public $memberUid;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
 
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'sourceIp'     => 'SourceIp',
-        'lang'         => 'Lang',
         'currentPage'  => 'CurrentPage',
+        'ipVersion'    => 'IpVersion',
+        'lang'         => 'Lang',
+        'memberUid'    => 'MemberUid',
         'pageSize'     => 'PageSize',
         'regionNo'     => 'RegionNo',
-        'status'       => 'Status',
-        'searchItem'   => 'SearchItem',
-        'type'         => 'Type',
         'resourceType' => 'ResourceType',
+        'searchItem'   => 'SearchItem',
         'sgStatus'     => 'SgStatus',
-        'ipVersion'    => 'IpVersion',
-        'memberUid'    => 'MemberUid',
+        'sourceIp'     => 'SourceIp',
+        'status'       => 'Status',
+        'type'         => 'Type',
         'userType'     => 'UserType',
     ];
 
@@ -95,14 +95,17 @@ class DescribeAssetListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->memberUid) {
+            $res['MemberUid'] = $this->memberUid;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -110,26 +113,23 @@ class DescribeAssetListRequest extends Model
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->searchItem) {
             $res['SearchItem'] = $this->searchItem;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->sgStatus) {
             $res['SgStatus'] = $this->sgStatus;
         }
-        if (null !== $this->ipVersion) {
-            $res['IpVersion'] = $this->ipVersion;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
-        if (null !== $this->memberUid) {
-            $res['MemberUid'] = $this->memberUid;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
@@ -146,14 +146,17 @@ class DescribeAssetListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['MemberUid'])) {
+            $model->memberUid = $map['MemberUid'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -161,26 +164,23 @@ class DescribeAssetListRequest extends Model
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['SearchItem'])) {
             $model->searchItem = $map['SearchItem'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['SgStatus'])) {
             $model->sgStatus = $map['SgStatus'];
         }
-        if (isset($map['IpVersion'])) {
-            $model->ipVersion = $map['IpVersion'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
-        if (isset($map['MemberUid'])) {
-            $model->memberUid = $map['MemberUid'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];

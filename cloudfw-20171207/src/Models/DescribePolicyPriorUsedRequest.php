@@ -11,7 +11,12 @@ class DescribePolicyPriorUsedRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $direction;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class DescribePolicyPriorUsedRequest extends Model
     /**
      * @var string
      */
-    public $direction;
-
-    /**
-     * @var string
-     */
-    public $ipVersion;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
-        'lang'      => 'Lang',
         'direction' => 'Direction',
         'ipVersion' => 'IpVersion',
+        'lang'      => 'Lang',
+        'sourceIp'  => 'SourceIp',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribePolicyPriorUsedRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribePolicyPriorUsedRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

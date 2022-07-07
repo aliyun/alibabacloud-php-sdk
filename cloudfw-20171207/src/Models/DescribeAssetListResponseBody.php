@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetListResponseBody extends Model
 {
     /**
-     * @var int
+     * @var assets[]
      */
-    public $totalCount;
+    public $assets;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeAssetListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var assets[]
+     * @var int
      */
-    public $assets;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
         'assets'     => 'Assets',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeAssetListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->assets) {
             $res['Assets'] = [];
             if (null !== $this->assets && \is_array($this->assets)) {
@@ -50,6 +44,12 @@ class DescribeAssetListResponseBody extends Model
                     $res['Assets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeAssetListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
@@ -77,6 +71,12 @@ class DescribeAssetListResponseBody extends Model
                     $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

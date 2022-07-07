@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddressBookResponseBody extends Model
 {
     /**
+     * @var acls[]
+     */
+    public $acls;
+
+    /**
      * @var string
      */
     public $pageNo;
@@ -28,17 +33,12 @@ class DescribeAddressBookResponseBody extends Model
      * @var string
      */
     public $totalCount;
-
-    /**
-     * @var acls[]
-     */
-    public $acls;
     protected $_name = [
+        'acls'       => 'Acls',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'acls'       => 'Acls',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class DescribeAddressBookResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acls) {
+            $res['Acls'] = [];
+            if (null !== $this->acls && \is_array($this->acls)) {
+                $n = 0;
+                foreach ($this->acls as $item) {
+                    $res['Acls'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
@@ -59,15 +68,6 @@ class DescribeAddressBookResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->acls) {
-            $res['Acls'] = [];
-            if (null !== $this->acls && \is_array($this->acls)) {
-                $n = 0;
-                foreach ($this->acls as $item) {
-                    $res['Acls'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -81,6 +81,15 @@ class DescribeAddressBookResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Acls'])) {
+            if (!empty($map['Acls'])) {
+                $model->acls = [];
+                $n           = 0;
+                foreach ($map['Acls'] as $item) {
+                    $model->acls[$n++] = null !== $item ? acls::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
@@ -92,15 +101,6 @@ class DescribeAddressBookResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Acls'])) {
-            if (!empty($map['Acls'])) {
-                $model->acls = [];
-                $n           = 0;
-                foreach ($map['Acls'] as $item) {
-                    $model->acls[$n++] = null !== $item ? acls::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

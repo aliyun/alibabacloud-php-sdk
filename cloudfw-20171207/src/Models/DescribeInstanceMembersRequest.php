@@ -16,12 +16,7 @@ class DescribeInstanceMembersRequest extends Model
     /**
      * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $memberUid;
+    public $memberDesc;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class DescribeInstanceMembersRequest extends Model
     /**
      * @var string
      */
-    public $memberDesc;
+    public $memberUid;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
     protected $_name = [
         'currentPage'       => 'CurrentPage',
-        'pageSize'          => 'PageSize',
-        'memberUid'         => 'MemberUid',
-        'memberDisplayName' => 'MemberDisplayName',
         'memberDesc'        => 'MemberDesc',
+        'memberDisplayName' => 'MemberDisplayName',
+        'memberUid'         => 'MemberUid',
+        'pageSize'          => 'PageSize',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class DescribeInstanceMembersRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->memberUid) {
-            $res['MemberUid'] = $this->memberUid;
+        if (null !== $this->memberDesc) {
+            $res['MemberDesc'] = $this->memberDesc;
         }
         if (null !== $this->memberDisplayName) {
             $res['MemberDisplayName'] = $this->memberDisplayName;
         }
-        if (null !== $this->memberDesc) {
-            $res['MemberDesc'] = $this->memberDesc;
+        if (null !== $this->memberUid) {
+            $res['MemberUid'] = $this->memberUid;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class DescribeInstanceMembersRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['MemberUid'])) {
-            $model->memberUid = $map['MemberUid'];
+        if (isset($map['MemberDesc'])) {
+            $model->memberDesc = $map['MemberDesc'];
         }
         if (isset($map['MemberDisplayName'])) {
             $model->memberDisplayName = $map['MemberDisplayName'];
         }
-        if (isset($map['MemberDesc'])) {
-            $model->memberDesc = $map['MemberDesc'];
+        if (isset($map['MemberUid'])) {
+            $model->memberUid = $map['MemberUid'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

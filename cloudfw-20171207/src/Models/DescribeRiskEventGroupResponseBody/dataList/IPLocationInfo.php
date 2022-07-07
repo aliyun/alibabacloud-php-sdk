@@ -16,22 +16,22 @@ class IPLocationInfo extends Model
     /**
      * @var string
      */
-    public $countryName;
-
-    /**
-     * @var string
-     */
     public $cityName;
 
     /**
      * @var string
      */
     public $countryId;
+
+    /**
+     * @var string
+     */
+    public $countryName;
     protected $_name = [
         'cityId'      => 'CityId',
-        'countryName' => 'CountryName',
         'cityName'    => 'CityName',
         'countryId'   => 'CountryId',
+        'countryName' => 'CountryName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class IPLocationInfo extends Model
         if (null !== $this->cityId) {
             $res['CityId'] = $this->cityId;
         }
-        if (null !== $this->countryName) {
-            $res['CountryName'] = $this->countryName;
-        }
         if (null !== $this->cityName) {
             $res['CityName'] = $this->cityName;
         }
         if (null !== $this->countryId) {
             $res['CountryId'] = $this->countryId;
+        }
+        if (null !== $this->countryName) {
+            $res['CountryName'] = $this->countryName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class IPLocationInfo extends Model
         if (isset($map['CityId'])) {
             $model->cityId = $map['CityId'];
         }
-        if (isset($map['CountryName'])) {
-            $model->countryName = $map['CountryName'];
-        }
         if (isset($map['CityName'])) {
             $model->cityName = $map['CityName'];
         }
         if (isset($map['CountryId'])) {
             $model->countryId = $map['CountryId'];
+        }
+        if (isset($map['CountryName'])) {
+            $model->countryName = $map['CountryName'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $aclAction;
 
     /**
      * @var string
      */
-    public $vpcFirewallId;
+    public $aclUuid;
 
     /**
      * @var string
@@ -26,12 +26,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $source;
+    public $description;
 
     /**
      * @var string
@@ -41,7 +36,17 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $memberUid;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -51,17 +56,30 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $aclAction;
+    public $release;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $vpcFirewallId;
     protected $_name = [
-        'lang'          => 'Lang',
-        'vpcFirewallId' => 'VpcFirewallId',
-        'currentPage'   => 'CurrentPage',
-        'pageSize'      => 'PageSize',
-        'source'        => 'Source',
-        'destination'   => 'Destination',
-        'description'   => 'Description',
-        'proto'         => 'Proto',
         'aclAction'     => 'AclAction',
+        'aclUuid'       => 'AclUuid',
+        'currentPage'   => 'CurrentPage',
+        'description'   => 'Description',
+        'destination'   => 'Destination',
+        'lang'          => 'Lang',
+        'memberUid'     => 'MemberUid',
+        'pageSize'      => 'PageSize',
+        'proto'         => 'Proto',
+        'release'       => 'Release',
+        'source'        => 'Source',
+        'vpcFirewallId' => 'VpcFirewallId',
     ];
 
     public function validate()
@@ -71,32 +89,41 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->aclAction) {
+            $res['AclAction'] = $this->aclAction;
         }
-        if (null !== $this->vpcFirewallId) {
-            $res['VpcFirewallId'] = $this->vpcFirewallId;
+        if (null !== $this->aclUuid) {
+            $res['AclUuid'] = $this->aclUuid;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->memberUid) {
+            $res['MemberUid'] = $this->memberUid;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->proto) {
             $res['Proto'] = $this->proto;
         }
-        if (null !== $this->aclAction) {
-            $res['AclAction'] = $this->aclAction;
+        if (null !== $this->release) {
+            $res['Release'] = $this->release;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->vpcFirewallId) {
+            $res['VpcFirewallId'] = $this->vpcFirewallId;
         }
 
         return $res;
@@ -110,32 +137,41 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['AclAction'])) {
+            $model->aclAction = $map['AclAction'];
         }
-        if (isset($map['VpcFirewallId'])) {
-            $model->vpcFirewallId = $map['VpcFirewallId'];
+        if (isset($map['AclUuid'])) {
+            $model->aclUuid = $map['AclUuid'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['MemberUid'])) {
+            $model->memberUid = $map['MemberUid'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Proto'])) {
             $model->proto = $map['Proto'];
         }
-        if (isset($map['AclAction'])) {
-            $model->aclAction = $map['AclAction'];
+        if (isset($map['Release'])) {
+            $model->release = $map['Release'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['VpcFirewallId'])) {
+            $model->vpcFirewallId = $map['VpcFirewallId'];
         }
 
         return $model;

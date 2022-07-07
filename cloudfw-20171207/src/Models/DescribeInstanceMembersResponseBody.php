@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMembersResponseBody extends Model
 {
     /**
-     * @var string
+     * @var members[]
      */
-    public $requestId;
+    public $members;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeInstanceMembersResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var members[]
+     * @var string
      */
-    public $members;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'pageInfo'  => 'PageInfo',
         'members'   => 'Members',
+        'pageInfo'  => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class DescribeInstanceMembersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->members) {
             $res['Members'] = [];
             if (null !== $this->members && \is_array($this->members)) {
@@ -51,6 +45,12 @@ class DescribeInstanceMembersResponseBody extends Model
                     $res['Members'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class DescribeInstanceMembersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['Members'])) {
             if (!empty($map['Members'])) {
                 $model->members = [];
@@ -78,6 +72,12 @@ class DescribeInstanceMembersResponseBody extends Model
                     $model->members[$n++] = null !== $item ? members::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

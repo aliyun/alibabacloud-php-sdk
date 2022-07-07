@@ -11,12 +11,7 @@ class resourcePrivateIPList extends Model
     /**
      * @var string
      */
-    public $resourceInstanceName;
-
-    /**
-     * @var string
-     */
-    public $resourcePrivateIP;
+    public $regionNo;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class resourcePrivateIPList extends Model
     /**
      * @var string
      */
-    public $regionNo;
+    public $resourceInstanceName;
+
+    /**
+     * @var string
+     */
+    public $resourcePrivateIP;
     protected $_name = [
+        'regionNo'             => 'RegionNo',
+        'resourceInstanceId'   => 'ResourceInstanceId',
         'resourceInstanceName' => 'ResourceInstanceName',
         'resourcePrivateIP'    => 'ResourcePrivateIP',
-        'resourceInstanceId'   => 'ResourceInstanceId',
-        'regionNo'             => 'RegionNo',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class resourcePrivateIPList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionNo) {
+            $res['RegionNo'] = $this->regionNo;
+        }
+        if (null !== $this->resourceInstanceId) {
+            $res['ResourceInstanceId'] = $this->resourceInstanceId;
+        }
         if (null !== $this->resourceInstanceName) {
             $res['ResourceInstanceName'] = $this->resourceInstanceName;
         }
         if (null !== $this->resourcePrivateIP) {
             $res['ResourcePrivateIP'] = $this->resourcePrivateIP;
-        }
-        if (null !== $this->resourceInstanceId) {
-            $res['ResourceInstanceId'] = $this->resourceInstanceId;
-        }
-        if (null !== $this->regionNo) {
-            $res['RegionNo'] = $this->regionNo;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class resourcePrivateIPList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionNo'])) {
+            $model->regionNo = $map['RegionNo'];
+        }
+        if (isset($map['ResourceInstanceId'])) {
+            $model->resourceInstanceId = $map['ResourceInstanceId'];
+        }
         if (isset($map['ResourceInstanceName'])) {
             $model->resourceInstanceName = $map['ResourceInstanceName'];
         }
         if (isset($map['ResourcePrivateIP'])) {
             $model->resourcePrivateIP = $map['ResourcePrivateIP'];
-        }
-        if (isset($map['ResourceInstanceId'])) {
-            $model->resourceInstanceId = $map['ResourceInstanceId'];
-        }
-        if (isset($map['RegionNo'])) {
-            $model->regionNo = $map['RegionNo'];
         }
 
         return $model;

@@ -20,6 +20,11 @@ class DescribeControlPolicyResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var policys[]
+     */
+    public $policys;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -28,17 +33,12 @@ class DescribeControlPolicyResponseBody extends Model
      * @var string
      */
     public $totalCount;
-
-    /**
-     * @var policys[]
-     */
-    public $policys;
     protected $_name = [
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
+        'policys'    => 'Policys',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'policys'    => 'Policys',
     ];
 
     public function validate()
@@ -54,12 +54,6 @@ class DescribeControlPolicyResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->policys) {
             $res['Policys'] = [];
             if (null !== $this->policys && \is_array($this->policys)) {
@@ -68,6 +62,12 @@ class DescribeControlPolicyResponseBody extends Model
                     $res['Policys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -87,12 +87,6 @@ class DescribeControlPolicyResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Policys'])) {
             if (!empty($map['Policys'])) {
                 $model->policys = [];
@@ -101,6 +95,12 @@ class DescribeControlPolicyResponseBody extends Model
                     $model->policys[$n++] = null !== $item ? policys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

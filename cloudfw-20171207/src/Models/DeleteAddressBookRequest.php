@@ -11,7 +11,7 @@ class DeleteAddressBookRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $groupUuid;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DeleteAddressBookRequest extends Model
     /**
      * @var string
      */
-    public $groupUuid;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
-        'lang'      => 'Lang',
         'groupUuid' => 'GroupUuid',
+        'lang'      => 'Lang',
+        'sourceIp'  => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteAddressBookRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->groupUuid) {
+            $res['GroupUuid'] = $this->groupUuid;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->groupUuid) {
-            $res['GroupUuid'] = $this->groupUuid;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteAddressBookRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['GroupUuid'])) {
+            $model->groupUuid = $map['GroupUuid'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['GroupUuid'])) {
-            $model->groupUuid = $map['GroupUuid'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;
