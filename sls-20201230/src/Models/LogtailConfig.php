@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\LogtailConfig\inputDetail;
 use AlibabaCloud\SDK\Sls\V20201230\Models\LogtailConfig\outputDetail;
 use AlibabaCloud\Tea\Model;
 
@@ -27,7 +26,7 @@ class LogtailConfig extends Model
     /**
      * @description inputDetail
      *
-     * @var inputDetail
+     * @var mixed[]
      */
     public $inputDetail;
 
@@ -90,7 +89,7 @@ class LogtailConfig extends Model
             $res['createTime'] = $this->createTime;
         }
         if (null !== $this->inputDetail) {
-            $res['inputDetail'] = null !== $this->inputDetail ? $this->inputDetail->toMap() : null;
+            $res['inputDetail'] = $this->inputDetail;
         }
         if (null !== $this->inputType) {
             $res['inputType'] = $this->inputType;
@@ -126,7 +125,7 @@ class LogtailConfig extends Model
             $model->createTime = $map['createTime'];
         }
         if (isset($map['inputDetail'])) {
-            $model->inputDetail = inputDetail::fromMap($map['inputDetail']);
+            $model->inputDetail = $map['inputDetail'];
         }
         if (isset($map['inputType'])) {
             $model->inputType = $map['inputType'];

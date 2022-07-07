@@ -5,20 +5,33 @@
 namespace AlibabaCloud\SDK\Sls\V20201230;
 
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ApplyConfigToMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedConfigsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorRequest;
@@ -28,16 +41,24 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListSavedSearchRequest;
@@ -48,18 +69,25 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\MergeShardsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\MergeShardsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\RemoveConfigFromMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UnTagResourcesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateCheckPointRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateCheckPointResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchRequest;
@@ -91,6 +119,55 @@ class Sls extends OpenApiClient
             'cn-zhangjiakou' => 'sls.cn-zhangjiakou.aliyuncs.com',
             'eu-central-1'   => 'sls.eu-central-1.aliyuncs.com',
         ];
+    }
+
+    /**
+     * @param string $project
+     * @param string $machineGroup
+     * @param string $configName
+     *
+     * @return ApplyConfigToMachineGroupResponse
+     */
+    public function applyConfigToMachineGroup($project, $machineGroup, $configName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->applyConfigToMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $machineGroup
+     * @param string         $configName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ApplyConfigToMachineGroupResponse
+     */
+    public function applyConfigToMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
+        $configName         = OpenApiUtilClient::getEncodeParam($configName);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyConfigToMachineGroup',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups/' . $machineGroup . '/configs/' . $configName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return ApplyConfigToMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -151,6 +228,57 @@ class Sls extends OpenApiClient
         ]);
 
         return CreateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $project
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
+     */
+    public function createDomain($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDomainWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $project
+     * @param CreateDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
+     */
+    public function createDomainWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $body['domainName'] = $request->domainName;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomain',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/domains',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -301,6 +429,123 @@ class Sls extends OpenApiClient
         ]);
 
         return CreateLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $project
+     * @param CreateLoggingRequest $request
+     *
+     * @return CreateLoggingResponse
+     */
+    public function createLogging($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createLoggingWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $project
+     * @param CreateLoggingRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateLoggingResponse
+     */
+    public function createLoggingWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->loggingDetails)) {
+            $body['loggingDetails'] = $request->loggingDetails;
+        }
+        if (!Utils::isUnset($request->loggingProject)) {
+            $body['loggingProject'] = $request->loggingProject;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLogging',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logging',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateLoggingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $project
+     * @param CreateMachineGroupRequest $request
+     *
+     * @return CreateMachineGroupResponse
+     */
+    public function createMachineGroup($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMachineGroupWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $project
+     * @param CreateMachineGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateMachineGroupResponse
+     */
+    public function createMachineGroupWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->groupAttribute)) {
+            $body['groupAttribute'] = $request->groupAttribute;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $body['groupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $body['groupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->machineIdentifyType)) {
+            $body['machineIdentifyType'] = $request->machineIdentifyType;
+        }
+        if (!Utils::isUnset($request->machineList)) {
+            $body['machineList'] = $request->machineList;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMachineGroup',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -466,6 +711,52 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
+     * @param string $domainName
+     *
+     * @return DeleteDomainResponse
+     */
+    public function deleteDomain($project, $domainName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDomainWithOptions($project, $domainName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $domainName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDomainResponse
+     */
+    public function deleteDomainWithOptions($project, $domainName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $domainName         = OpenApiUtilClient::getEncodeParam($domainName);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomain',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/domains/' . $domainName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
      * @param string $logstore
      *
      * @return DeleteIndexResponse
@@ -559,6 +850,95 @@ class Sls extends OpenApiClient
     /**
      * @param string $project
      *
+     * @return DeleteLoggingResponse
+     */
+    public function deleteLogging($project)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteLoggingWithOptions($project, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteLoggingResponse
+     */
+    public function deleteLoggingWithOptions($project, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLogging',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logging',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteLoggingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $machineGroup
+     *
+     * @return DeleteMachineGroupResponse
+     */
+    public function deleteMachineGroup($project, $machineGroup)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMachineGroupWithOptions($project, $machineGroup, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $machineGroup
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMachineGroupResponse
+     */
+    public function deleteMachineGroupWithOptions($project, $machineGroup, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMachineGroup',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups/' . $machineGroup . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     *
      * @return DeleteProjectResponse
      */
     public function deleteProject($project)
@@ -597,6 +977,109 @@ class Sls extends OpenApiClient
         ]);
 
         return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $machineGroup
+     *
+     * @return GetAppliedConfigsResponse
+     */
+    public function getAppliedConfigs($project, $machineGroup)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAppliedConfigsWithOptions($project, $machineGroup, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $machineGroup
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAppliedConfigsResponse
+     */
+    public function getAppliedConfigsWithOptions($project, $machineGroup, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppliedConfigs',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups/' . $machineGroup . '/configs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppliedConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $project
+     * @param string               $logstore
+     * @param string               $consumerGroup
+     * @param GetCheckPointRequest $request
+     *
+     * @return GetCheckPointResponse
+     */
+    public function getCheckPoint($project, $logstore, $consumerGroup, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $project
+     * @param string               $logstore
+     * @param string               $consumerGroup
+     * @param GetCheckPointRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCheckPointResponse
+     */
+    public function getCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $consumerGroup      = OpenApiUtilClient::getEncodeParam($consumerGroup);
+        $query              = [];
+        if (!Utils::isUnset($request->shard)) {
+            $query['shard'] = $request->shard;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCheckPoint',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
+
+        return GetCheckPointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -944,6 +1427,49 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string $project
+     *
+     * @return GetLoggingResponse
+     */
+    public function getLogging($project)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLoggingWithOptions($project, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLoggingResponse
+     */
+    public function getLoggingWithOptions($project, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetLogging',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logging',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLoggingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
      * @param string         $project
      * @param string         $logstore
      * @param GetLogsRequest $request
@@ -1019,6 +1545,52 @@ class Sls extends OpenApiClient
         ]);
 
         return GetLogsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $machineGroup
+     *
+     * @return GetMachineGroupResponse
+     */
+    public function getMachineGroup($project, $machineGroup)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMachineGroupWithOptions($project, $machineGroup, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $machineGroup
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMachineGroupResponse
+     */
+    public function getMachineGroupWithOptions($project, $machineGroup, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetMachineGroup',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups/' . $machineGroup . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1211,6 +1783,63 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string             $project
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
+     */
+    public function listDomains($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDomainsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $project
+     * @param ListDomainsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
+     */
+    public function listDomainsWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['domainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDomains',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/domains',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
      * @param string               $project
      * @param ListLogStoresRequest $request
      *
@@ -1268,6 +1897,120 @@ class Sls extends OpenApiClient
         ]);
 
         return ListLogStoresResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $project
+     * @param ListMachineGroupRequest $request
+     *
+     * @return ListMachineGroupResponse
+     */
+    public function listMachineGroup($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMachineGroupWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $project
+     * @param ListMachineGroupRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMachineGroupResponse
+     */
+    public function listMachineGroupWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['groupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMachineGroup',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $project
+     * @param string              $machineGroup
+     * @param ListMachinesRequest $request
+     *
+     * @return ListMachinesResponse
+     */
+    public function listMachines($project, $machineGroup, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMachinesWithOptions($project, $machineGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $project
+     * @param string              $machineGroup
+     * @param ListMachinesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListMachinesResponse
+     */
+    public function listMachinesWithOptions($project, $machineGroup, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
+        $query              = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMachines',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups/' . $machineGroup . '/machines',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMachinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1540,6 +2283,55 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string $project
+     * @param string $machineGroup
+     * @param string $configName
+     *
+     * @return RemoveConfigFromMachineGroupResponse
+     */
+    public function removeConfigFromMachineGroup($project, $machineGroup, $configName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeConfigFromMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $machineGroup
+     * @param string         $configName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RemoveConfigFromMachineGroupResponse
+     */
+    public function removeConfigFromMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
+        $configName         = OpenApiUtilClient::getEncodeParam($configName);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveConfigFromMachineGroup',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups/' . $machineGroup . '/configs/' . $configName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return RemoveConfigFromMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
      * @param string            $project
      * @param string            $logstore
      * @param string            $shardID
@@ -1707,6 +2499,77 @@ class Sls extends OpenApiClient
         ]);
 
         return UnTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param string                  $consumerGroup
+     * @param UpdateCheckPointRequest $request
+     *
+     * @return UpdateCheckPointResponse
+     */
+    public function updateCheckPoint($project, $logstore, $consumerGroup, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param string                  $consumerGroup
+     * @param UpdateCheckPointRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCheckPointResponse
+     */
+    public function updateCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $consumerGroup      = OpenApiUtilClient::getEncodeParam($consumerGroup);
+        $query              = [];
+        if (!Utils::isUnset($request->consumer)) {
+            $query['consumer'] = $request->consumer;
+        }
+        if (!Utils::isUnset($request->forceSuccess)) {
+            $query['forceSuccess'] = $request->forceSuccess;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->checkpoint)) {
+            $body['checkpoint'] = $request->checkpoint;
+        }
+        if (!Utils::isUnset($request->shard)) {
+            $body['shard'] = $request->shard;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCheckPoint',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateCheckPointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1920,6 +2783,126 @@ class Sls extends OpenApiClient
         ]);
 
         return UpdateLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $project
+     * @param UpdateLoggingRequest $request
+     *
+     * @return UpdateLoggingResponse
+     */
+    public function updateLogging($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateLoggingWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $project
+     * @param UpdateLoggingRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateLoggingResponse
+     */
+    public function updateLoggingWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->loggingDetails)) {
+            $body['loggingDetails'] = $request->loggingDetails;
+        }
+        if (!Utils::isUnset($request->loggingProject)) {
+            $body['loggingProject'] = $request->loggingProject;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLogging',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logging',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateLoggingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $project
+     * @param string                    $machineGroup
+     * @param UpdateMachineGroupRequest $request
+     *
+     * @return UpdateMachineGroupResponse
+     */
+    public function updateMachineGroup($project, $machineGroup, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMachineGroupWithOptions($project, $machineGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $project
+     * @param string                    $machineGroup
+     * @param UpdateMachineGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateMachineGroupResponse
+     */
+    public function updateMachineGroupWithOptions($project, $machineGroup, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
+        $body               = [];
+        if (!Utils::isUnset($request->groupAttribute)) {
+            $body['groupAttribute'] = $request->groupAttribute;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $body['groupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $body['groupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->machineIdentifyType)) {
+            $body['machineIdentifyType'] = $request->machineIdentifyType;
+        }
+        if (!Utils::isUnset($request->machineList)) {
+            $body['machineList'] = $request->machineList;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMachineGroup',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups/' . $machineGroup . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
