@@ -157,6 +157,11 @@ class DeployApplicationRequest extends Model
     /**
      * @var string
      */
+    public $mseFeatureConfig;
+
+    /**
+     * @var string
+     */
     public $nasId;
 
     /**
@@ -288,6 +293,7 @@ class DeployApplicationRequest extends Model
         'minReadyInstances'                => 'MinReadyInstances',
         'mountDesc'                        => 'MountDesc',
         'mountHost'                        => 'MountHost',
+        'mseFeatureConfig'                 => 'MseFeatureConfig',
         'nasId'                            => 'NasId',
         'openCollectToKafka'               => 'OpenCollectToKafka',
         'ossAkId'                          => 'OssAkId',
@@ -400,6 +406,9 @@ class DeployApplicationRequest extends Model
         }
         if (null !== $this->mountHost) {
             $res['MountHost'] = $this->mountHost;
+        }
+        if (null !== $this->mseFeatureConfig) {
+            $res['MseFeatureConfig'] = $this->mseFeatureConfig;
         }
         if (null !== $this->nasId) {
             $res['NasId'] = $this->nasId;
@@ -556,6 +565,9 @@ class DeployApplicationRequest extends Model
         }
         if (isset($map['MountHost'])) {
             $model->mountHost = $map['MountHost'];
+        }
+        if (isset($map['MseFeatureConfig'])) {
+            $model->mseFeatureConfig = $map['MseFeatureConfig'];
         }
         if (isset($map['NasId'])) {
             $model->nasId = $map['NasId'];

@@ -659,6 +659,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->webContainer)) {
             $query['WebContainer'] = $request->webContainer;
         }
+        if (!Utils::isUnset($request->mseFeatureConfig)) {
+            $query['mseFeatureConfig'] = $request->mseFeatureConfig;
+        }
         $body = [];
         if (!Utils::isUnset($request->acrInstanceId)) {
             $body['AcrInstanceId'] = $request->acrInstanceId;
@@ -1384,6 +1387,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->mountHost)) {
             $query['MountHost'] = $request->mountHost;
+        }
+        if (!Utils::isUnset($request->mseFeatureConfig)) {
+            $query['MseFeatureConfig'] = $request->mseFeatureConfig;
         }
         if (!Utils::isUnset($request->nasId)) {
             $query['NasId'] = $request->nasId;

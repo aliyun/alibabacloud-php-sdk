@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
+use AlibabaCloud\SDK\Sae\V20190506\Models\ExecJobResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class ExecJobResponseBody extends Model
@@ -14,7 +15,7 @@ class ExecJobResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var data
      */
     public $data;
 
@@ -63,7 +64,7 @@ class ExecJobResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -96,7 +97,7 @@ class ExecJobResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

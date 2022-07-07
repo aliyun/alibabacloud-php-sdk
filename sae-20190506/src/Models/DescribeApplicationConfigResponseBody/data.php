@@ -163,6 +163,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $mseFeatureConfig;
+
+    /**
+     * @var string
+     */
     public $namespaceId;
 
     /**
@@ -334,6 +339,7 @@ class data extends Model
         'mountDesc'                     => 'MountDesc',
         'mountHost'                     => 'MountHost',
         'mseApplicationId'              => 'MseApplicationId',
+        'mseFeatureConfig'              => 'MseFeatureConfig',
         'namespaceId'                   => 'NamespaceId',
         'nasId'                         => 'NasId',
         'ossAkId'                       => 'OssAkId',
@@ -466,6 +472,9 @@ class data extends Model
         }
         if (null !== $this->mseApplicationId) {
             $res['MseApplicationId'] = $this->mseApplicationId;
+        }
+        if (null !== $this->mseFeatureConfig) {
+            $res['MseFeatureConfig'] = $this->mseFeatureConfig;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -670,6 +679,9 @@ class data extends Model
         }
         if (isset($map['MseApplicationId'])) {
             $model->mseApplicationId = $map['MseApplicationId'];
+        }
+        if (isset($map['MseFeatureConfig'])) {
+            $model->mseFeatureConfig = $map['MseFeatureConfig'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

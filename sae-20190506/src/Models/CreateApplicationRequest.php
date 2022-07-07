@@ -277,6 +277,11 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $webContainer;
+
+    /**
+     * @var string
+     */
+    public $mseFeatureConfig;
     protected $_name = [
         'acrAssumeRoleArn'              => 'AcrAssumeRoleArn',
         'acrInstanceId'                 => 'AcrInstanceId',
@@ -330,6 +335,7 @@ class CreateApplicationRequest extends Model
         'vpcId'                         => 'VpcId',
         'warStartOptions'               => 'WarStartOptions',
         'webContainer'                  => 'WebContainer',
+        'mseFeatureConfig'              => 'mseFeatureConfig',
     ];
 
     public function validate()
@@ -494,6 +500,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->webContainer) {
             $res['WebContainer'] = $this->webContainer;
+        }
+        if (null !== $this->mseFeatureConfig) {
+            $res['mseFeatureConfig'] = $this->mseFeatureConfig;
         }
 
         return $res;
@@ -662,6 +671,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['WebContainer'])) {
             $model->webContainer = $map['WebContainer'];
+        }
+        if (isset($map['mseFeatureConfig'])) {
+            $model->mseFeatureConfig = $map['mseFeatureConfig'];
         }
 
         return $model;
