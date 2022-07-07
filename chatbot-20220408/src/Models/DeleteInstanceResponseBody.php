@@ -53,7 +53,7 @@ class DeleteInstanceResponseBody extends Model
     /**
      * @description 请求Id
      *
-     * @var int[]
+     * @var string
      */
     public $requestId;
 
