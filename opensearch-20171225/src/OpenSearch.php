@@ -22,6 +22,7 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionInstanceRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionInstanceResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionTaskResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateInterventionDictionaryResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateModelRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateModelResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateQueryProcessorRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateQueryProcessorResponse;
@@ -831,30 +832,38 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string $appGroupIdentity
+     * @param string             $appGroupIdentity
+     * @param CreateModelRequest $request
      *
      * @return CreateModelResponse
      */
-    public function createModel($appGroupIdentity)
+    public function createModel($appGroupIdentity, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createModelWithOptions($appGroupIdentity, $headers, $runtime);
+        return $this->createModelWithOptions($appGroupIdentity, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $appGroupIdentity
+     * @param CreateModelRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return CreateModelResponse
      */
-    public function createModelWithOptions($appGroupIdentity, $headers, $runtime)
+    public function createModelWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $body             = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['body'] = $request->body;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateModel',

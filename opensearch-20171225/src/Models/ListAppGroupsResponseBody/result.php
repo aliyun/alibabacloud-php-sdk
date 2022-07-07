@@ -110,11 +110,6 @@ class result extends Model
     public $quota;
 
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @var int
      */
     public $secondRankAlgoDeploymentId;
@@ -159,7 +154,6 @@ class result extends Model
         'produced'                          => 'produced',
         'projectId'                         => 'projectId',
         'quota'                             => 'quota',
-        'resourceGroupId'                   => 'resourceGroupId',
         'secondRankAlgoDeploymentId'        => 'secondRankAlgoDeploymentId',
         'status'                            => 'status',
         'switchedTime'                      => 'switchedTime',
@@ -233,9 +227,6 @@ class result extends Model
         }
         if (null !== $this->quota) {
             $res['quota'] = null !== $this->quota ? $this->quota->toMap() : null;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->secondRankAlgoDeploymentId) {
             $res['secondRankAlgoDeploymentId'] = $this->secondRankAlgoDeploymentId;
@@ -323,9 +314,6 @@ class result extends Model
         }
         if (isset($map['quota'])) {
             $model->quota = quota::fromMap($map['quota']);
-        }
-        if (isset($map['resourceGroupId'])) {
-            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['secondRankAlgoDeploymentId'])) {
             $model->secondRankAlgoDeploymentId = $map['secondRankAlgoDeploymentId'];
