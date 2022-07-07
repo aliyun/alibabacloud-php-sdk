@@ -78,6 +78,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeIngressResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeInstanceLogRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeInstanceLogResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeInstanceSpecificationsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobStatusRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobStatusResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeNamespaceListRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeNamespaceListResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeNamespaceRequest;
@@ -2337,6 +2339,55 @@ class Sae extends OpenApiClient
         ]);
 
         return DescribeInstanceSpecificationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeJobStatusRequest $request
+     *
+     * @return DescribeJobStatusResponse
+     */
+    public function describeJobStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeJobStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeJobStatusRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeJobStatusResponse
+     */
+    public function describeJobStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJobStatus',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/describeJobStatus',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
