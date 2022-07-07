@@ -11,7 +11,7 @@ class delogos extends Model
     /**
      * @var float
      */
-    public $durtion;
+    public $duration;
 
     /**
      * @var float
@@ -43,7 +43,7 @@ class delogos extends Model
      */
     public $width;
     protected $_name = [
-        'durtion'   => 'Durtion',
+        'duration'  => 'Duration',
         'dx'        => 'Dx',
         'dy'        => 'Dy',
         'height'    => 'Height',
@@ -59,8 +59,8 @@ class delogos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->durtion) {
-            $res['Durtion'] = $this->durtion;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->dx) {
             $res['Dx'] = $this->dx;
@@ -92,8 +92,8 @@ class delogos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Durtion'])) {
-            $model->durtion = $map['Durtion'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['Dx'])) {
             $model->dx = $map['Dx'];

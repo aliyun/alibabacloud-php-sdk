@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryRequest\cover;
 use AlibabaCloud\Tea\Model;
 
 class UpdateStoryRequest extends Model
 {
+    /**
+     * @var cover
+     */
+    public $cover;
+
     /**
      * @var string
      */
@@ -38,6 +44,7 @@ class UpdateStoryRequest extends Model
      */
     public $storyName;
     protected $_name = [
+        'cover'        => 'Cover',
         'customId'     => 'CustomId',
         'customLabels' => 'CustomLabels',
         'datasetName'  => 'DatasetName',
@@ -53,6 +60,9 @@ class UpdateStoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cover) {
+            $res['Cover'] = null !== $this->cover ? $this->cover->toMap() : null;
+        }
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
         }
@@ -83,6 +93,9 @@ class UpdateStoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cover'])) {
+            $model->cover = cover::fromMap($map['Cover']);
+        }
         if (isset($map['CustomId'])) {
             $model->customId = $map['CustomId'];
         }

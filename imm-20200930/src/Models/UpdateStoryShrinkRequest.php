@@ -11,6 +11,11 @@ class UpdateStoryShrinkRequest extends Model
     /**
      * @var string
      */
+    public $coverShrink;
+
+    /**
+     * @var string
+     */
     public $customId;
 
     /**
@@ -38,6 +43,7 @@ class UpdateStoryShrinkRequest extends Model
      */
     public $storyName;
     protected $_name = [
+        'coverShrink'        => 'Cover',
         'customId'           => 'CustomId',
         'customLabelsShrink' => 'CustomLabels',
         'datasetName'        => 'DatasetName',
@@ -53,6 +59,9 @@ class UpdateStoryShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->coverShrink) {
+            $res['Cover'] = $this->coverShrink;
+        }
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
         }
@@ -83,6 +92,9 @@ class UpdateStoryShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cover'])) {
+            $model->coverShrink = $map['Cover'];
+        }
         if (isset($map['CustomId'])) {
             $model->customId = $map['CustomId'];
         }

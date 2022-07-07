@@ -89,6 +89,11 @@ class GetMediaMetaResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $size;
+
+    /**
      * @var float
      */
     public $startTime;
@@ -112,11 +117,6 @@ class GetMediaMetaResponseBody extends Model
      * @var int
      */
     public $videoHeight;
-
-    /**
-     * @var float
-     */
-    public $videoStartTime;
 
     /**
      * @var VideoStream[]
@@ -144,12 +144,12 @@ class GetMediaMetaResponseBody extends Model
         'produceTime'    => 'ProduceTime',
         'programCount'   => 'ProgramCount',
         'requestId'      => 'RequestId',
+        'size'           => 'Size',
         'startTime'      => 'StartTime',
         'streamCount'    => 'StreamCount',
         'subtitles'      => 'Subtitles',
         'title'          => 'Title',
         'videoHeight'    => 'VideoHeight',
-        'videoStartTime' => 'VideoStartTime',
         'videoStreams'   => 'VideoStreams',
         'videoWidth'     => 'VideoWidth',
     ];
@@ -221,6 +221,9 @@ class GetMediaMetaResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -241,9 +244,6 @@ class GetMediaMetaResponseBody extends Model
         }
         if (null !== $this->videoHeight) {
             $res['VideoHeight'] = $this->videoHeight;
-        }
-        if (null !== $this->videoStartTime) {
-            $res['VideoStartTime'] = $this->videoStartTime;
         }
         if (null !== $this->videoStreams) {
             $res['VideoStreams'] = [];
@@ -329,6 +329,9 @@ class GetMediaMetaResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
@@ -349,9 +352,6 @@ class GetMediaMetaResponseBody extends Model
         }
         if (isset($map['VideoHeight'])) {
             $model->videoHeight = $map['VideoHeight'];
-        }
-        if (isset($map['VideoStartTime'])) {
-            $model->videoStartTime = $map['VideoStartTime'];
         }
         if (isset($map['VideoStreams'])) {
             if (!empty($map['VideoStreams'])) {

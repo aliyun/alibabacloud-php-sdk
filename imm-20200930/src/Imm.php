@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Imm\V20200930;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Imm\V20200930\Models\AddStoryFilesRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\AddStoryFilesResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\AddStoryFilesShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\AttachOSSBucketRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\AttachOSSBucketResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchDeleteFileMetaRequest;
@@ -62,6 +65,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetachOSSBucketRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetachOSSBucketResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCodesRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCodesResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCodesShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCroppingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCroppingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCroppingShrinkRequest;
@@ -111,6 +117,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListRegionsRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksShrinkRequest;
@@ -124,6 +132,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\RemoveStoryFilesShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryRequest;
@@ -187,6 +198,63 @@ class Imm extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddStoryFilesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddStoryFilesResponse
+     */
+    public function addStoryFilesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddStoryFilesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->files)) {
+            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $body['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->filesShrink)) {
+            $body['Files'] = $request->filesShrink;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $body['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddStoryFiles',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddStoryFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddStoryFilesRequest $request
+     *
+     * @return AddStoryFilesResponse
+     */
+    public function addStoryFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addStoryFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -1624,6 +1692,60 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param DetectImageCodesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectImageCodesResponse
+     */
+    public function detectImageCodesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetectImageCodesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageCodes',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectImageCodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectImageCodesRequest $request
+     *
+     * @return DetectImageCodesResponse
+     */
+    public function detectImageCodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectImageCodesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetectImageCroppingRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -2748,6 +2870,49 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param ListRegionsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRegions',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRegionsRequest $request
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRegionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTasksRequest $tmpReq
      * @param RuntimeOptions   $runtime
      *
@@ -3110,6 +3275,63 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->refreshWebofficeTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveStoryFilesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveStoryFilesResponse
+     */
+    public function removeStoryFilesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveStoryFilesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->files)) {
+            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $body['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->filesShrink)) {
+            $body['Files'] = $request->filesShrink;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $body['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveStoryFiles',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveStoryFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveStoryFilesRequest $request
+     *
+     * @return RemoveStoryFilesResponse
+     */
+    public function removeStoryFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeStoryFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -3608,10 +3830,16 @@ class Imm extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateStoryShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cover)) {
+            $request->coverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->cover), 'Cover', 'json');
+        }
         if (!Utils::isUnset($tmpReq->customLabels)) {
             $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->coverShrink)) {
+            $body['Cover'] = $request->coverShrink;
+        }
         if (!Utils::isUnset($request->customId)) {
             $body['CustomId'] = $request->customId;
         }

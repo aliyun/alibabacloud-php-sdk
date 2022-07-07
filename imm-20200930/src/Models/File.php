@@ -485,7 +485,7 @@ class File extends Model
     /**
      * @description StartTime
      *
-     * @var string
+     * @var float
      */
     public $startTime;
 
@@ -544,13 +544,6 @@ class File extends Model
      * @var int
      */
     public $videoHeight;
-
-    /**
-     * @description VideoStartTime
-     *
-     * @var float
-     */
-    public $videoStartTime;
 
     /**
      * @description VideoStreams
@@ -643,7 +636,6 @@ class File extends Model
         'URI'                                   => 'URI',
         'updateTime'                            => 'UpdateTime',
         'videoHeight'                           => 'VideoHeight',
-        'videoStartTime'                        => 'VideoStartTime',
         'videoStreams'                          => 'VideoStreams',
         'videoWidth'                            => 'VideoWidth',
     ];
@@ -933,9 +925,6 @@ class File extends Model
         }
         if (null !== $this->videoHeight) {
             $res['VideoHeight'] = $this->videoHeight;
-        }
-        if (null !== $this->videoStartTime) {
-            $res['VideoStartTime'] = $this->videoStartTime;
         }
         if (null !== $this->videoStreams) {
             $res['VideoStreams'] = [];
@@ -1239,9 +1228,6 @@ class File extends Model
         }
         if (isset($map['VideoHeight'])) {
             $model->videoHeight = $map['VideoHeight'];
-        }
-        if (isset($map['VideoStartTime'])) {
-            $model->videoStartTime = $map['VideoStartTime'];
         }
         if (isset($map['VideoStreams'])) {
             if (!empty($map['VideoStreams'])) {
