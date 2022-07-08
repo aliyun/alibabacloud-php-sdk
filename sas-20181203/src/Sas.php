@@ -1674,6 +1674,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->operateErrorCodeList)) {
             $query['OperateErrorCodeList'] = $request->operateErrorCodeList;
         }
+        if (!Utils::isUnset($request->operateTimeEnd)) {
+            $query['OperateTimeEnd'] = $request->operateTimeEnd;
+        }
+        if (!Utils::isUnset($request->operateTimeStart)) {
+            $query['OperateTimeStart'] = $request->operateTimeStart;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -1685,6 +1691,12 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->tacticId)) {
             $query['TacticId'] = $request->tacticId;
+        }
+        if (!Utils::isUnset($request->timeEnd)) {
+            $query['TimeEnd'] = $request->timeEnd;
+        }
+        if (!Utils::isUnset($request->timeStart)) {
+            $query['TimeStart'] = $request->timeStart;
         }
         if (!Utils::isUnset($request->uniqueInfo)) {
             $query['UniqueInfo'] = $request->uniqueInfo;
@@ -6812,6 +6824,12 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->targetType)) {
             $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->timeEnd)) {
+            $query['TimeEnd'] = $request->timeEnd;
+        }
+        if (!Utils::isUnset($request->timeStart)) {
+            $query['TimeStart'] = $request->timeStart;
         }
         if (!Utils::isUnset($request->uniqueInfo)) {
             $query['UniqueInfo'] = $request->uniqueInfo;

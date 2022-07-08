@@ -61,6 +61,16 @@ class DescribeAlarmEventListRequest extends Model
     /**
      * @var string
      */
+    public $operateTimeEnd;
+
+    /**
+     * @var string
+     */
+    public $operateTimeStart;
+
+    /**
+     * @var string
+     */
     public $pageSize;
 
     /**
@@ -77,6 +87,16 @@ class DescribeAlarmEventListRequest extends Model
      * @var string
      */
     public $tacticId;
+
+    /**
+     * @var string
+     */
+    public $timeEnd;
+
+    /**
+     * @var string
+     */
+    public $timeStart;
 
     /**
      * @var string
@@ -98,10 +118,14 @@ class DescribeAlarmEventListRequest extends Model
         'lang'                 => 'Lang',
         'levels'               => 'Levels',
         'operateErrorCodeList' => 'OperateErrorCodeList',
+        'operateTimeEnd'       => 'OperateTimeEnd',
+        'operateTimeStart'     => 'OperateTimeStart',
         'pageSize'             => 'PageSize',
         'remark'               => 'Remark',
         'sourceIp'             => 'SourceIp',
         'tacticId'             => 'TacticId',
+        'timeEnd'              => 'TimeEnd',
+        'timeStart'            => 'TimeStart',
         'uniqueInfo'           => 'UniqueInfo',
         'uuids'                => 'Uuids',
     ];
@@ -143,6 +167,12 @@ class DescribeAlarmEventListRequest extends Model
         if (null !== $this->operateErrorCodeList) {
             $res['OperateErrorCodeList'] = $this->operateErrorCodeList;
         }
+        if (null !== $this->operateTimeEnd) {
+            $res['OperateTimeEnd'] = $this->operateTimeEnd;
+        }
+        if (null !== $this->operateTimeStart) {
+            $res['OperateTimeStart'] = $this->operateTimeStart;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -154,6 +184,12 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (null !== $this->tacticId) {
             $res['TacticId'] = $this->tacticId;
+        }
+        if (null !== $this->timeEnd) {
+            $res['TimeEnd'] = $this->timeEnd;
+        }
+        if (null !== $this->timeStart) {
+            $res['TimeStart'] = $this->timeStart;
         }
         if (null !== $this->uniqueInfo) {
             $res['UniqueInfo'] = $this->uniqueInfo;
@@ -205,6 +241,12 @@ class DescribeAlarmEventListRequest extends Model
                 $model->operateErrorCodeList = $map['OperateErrorCodeList'];
             }
         }
+        if (isset($map['OperateTimeEnd'])) {
+            $model->operateTimeEnd = $map['OperateTimeEnd'];
+        }
+        if (isset($map['OperateTimeStart'])) {
+            $model->operateTimeStart = $map['OperateTimeStart'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -216,6 +258,12 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (isset($map['TacticId'])) {
             $model->tacticId = $map['TacticId'];
+        }
+        if (isset($map['TimeEnd'])) {
+            $model->timeEnd = $map['TimeEnd'];
+        }
+        if (isset($map['TimeStart'])) {
+            $model->timeStart = $map['TimeStart'];
         }
         if (isset($map['UniqueInfo'])) {
             $model->uniqueInfo = $map['UniqueInfo'];

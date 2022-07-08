@@ -81,14 +81,14 @@ class DescribeSuspEventsRequest extends Model
     /**
      * @description 处理时间结束时间
      *
-     * @var int
+     * @var string
      */
     public $operateTimeEnd;
 
     /**
      * @description 处理时间开始时间
      *
-     * @var int
+     * @var string
      */
     public $operateTimeStart;
 
@@ -133,6 +133,20 @@ class DescribeSuspEventsRequest extends Model
     public $targetType;
 
     /**
+     * @description 最新发生结束时间
+     *
+     * @var string
+     */
+    public $timeEnd;
+
+    /**
+     * @description 最新发生开始时间
+     *
+     * @var string
+     */
+    public $timeStart;
+
+    /**
      * @var string
      */
     public $uniqueInfo;
@@ -166,6 +180,8 @@ class DescribeSuspEventsRequest extends Model
         'status'               => 'Status',
         'tacticId'             => 'TacticId',
         'targetType'           => 'TargetType',
+        'timeEnd'              => 'TimeEnd',
+        'timeStart'            => 'TimeStart',
         'uniqueInfo'           => 'UniqueInfo',
         'uuids'                => 'Uuids',
     ];
@@ -248,6 +264,12 @@ class DescribeSuspEventsRequest extends Model
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
+        }
+        if (null !== $this->timeEnd) {
+            $res['TimeEnd'] = $this->timeEnd;
+        }
+        if (null !== $this->timeStart) {
+            $res['TimeStart'] = $this->timeStart;
         }
         if (null !== $this->uniqueInfo) {
             $res['UniqueInfo'] = $this->uniqueInfo;
@@ -340,6 +362,12 @@ class DescribeSuspEventsRequest extends Model
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
+        }
+        if (isset($map['TimeEnd'])) {
+            $model->timeEnd = $map['TimeEnd'];
+        }
+        if (isset($map['TimeStart'])) {
+            $model->timeStart = $map['TimeStart'];
         }
         if (isset($map['UniqueInfo'])) {
             $model->uniqueInfo = $map['UniqueInfo'];
