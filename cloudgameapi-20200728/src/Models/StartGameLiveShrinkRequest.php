@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\CloudGameAPI\V20200728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StartGameLiveRequest extends Model
+class StartGameLiveShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $extension;
+    public $extensionShrink;
 
     /**
      * @var string
@@ -23,7 +23,7 @@ class StartGameLiveRequest extends Model
      */
     public $videoPushAddress;
     protected $_name = [
-        'extension'        => 'Extension',
+        'extensionShrink'  => 'Extension',
         'gameSession'      => 'GameSession',
         'videoPushAddress' => 'VideoPushAddress',
     ];
@@ -35,8 +35,8 @@ class StartGameLiveRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
+        if (null !== $this->extensionShrink) {
+            $res['Extension'] = $this->extensionShrink;
         }
         if (null !== $this->gameSession) {
             $res['GameSession'] = $this->gameSession;
@@ -51,13 +51,13 @@ class StartGameLiveRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartGameLiveRequest
+     * @return StartGameLiveShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
+            $model->extensionShrink = $map['Extension'];
         }
         if (isset($map['GameSession'])) {
             $model->gameSession = $map['GameSession'];

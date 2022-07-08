@@ -102,6 +102,7 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SkipTrialPolicyRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SkipTrialPolicyResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StartGameLiveRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StartGameLiveResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StartGameLiveShrinkRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StopGameLiveRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StopGameLiveResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\StopGameSessionRequest;
@@ -2453,15 +2454,23 @@ class CloudGameAPI extends OpenApiClient
     }
 
     /**
-     * @param StartGameLiveRequest $request
+     * @param StartGameLiveRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return StartGameLiveResponse
      */
-    public function startGameLiveWithOptions($request, $runtime)
+    public function startGameLiveWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new StartGameLiveShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $query['Extension'] = $request->extensionShrink;
+        }
         if (!Utils::isUnset($request->gameSession)) {
             $query['GameSession'] = $request->gameSession;
         }
