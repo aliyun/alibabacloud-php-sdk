@@ -11,27 +11,7 @@ class invocationResult extends Model
     /**
      * @var string
      */
-    public $invocationStatus;
-
-    /**
-     * @var int
-     */
-    public $repeats;
-
-    /**
-     * @var string
-     */
     public $commandId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $output;
 
     /**
      * @var int
@@ -41,7 +21,12 @@ class invocationResult extends Model
     /**
      * @var string
      */
-    public $stopTime;
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorInfo;
 
     /**
      * @var int
@@ -51,22 +36,17 @@ class invocationResult extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $errorInfo;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
     public $finishedTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $invocationStatus;
 
     /**
      * @var string
@@ -81,22 +61,42 @@ class invocationResult extends Model
     /**
      * @var string
      */
+    public $output;
+
+    /**
+     * @var int
+     */
+    public $repeats;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $stopTime;
+
+    /**
+     * @var string
+     */
     public $username;
     protected $_name = [
-        'invocationStatus'   => 'InvocationStatus',
-        'repeats'            => 'Repeats',
         'commandId'          => 'CommandId',
-        'instanceId'         => 'InstanceId',
-        'output'             => 'Output',
         'dropped'            => 'Dropped',
-        'stopTime'           => 'StopTime',
-        'exitCode'           => 'ExitCode',
-        'startTime'          => 'StartTime',
-        'errorInfo'          => 'ErrorInfo',
         'errorCode'          => 'ErrorCode',
+        'errorInfo'          => 'ErrorInfo',
+        'exitCode'           => 'ExitCode',
         'finishedTime'       => 'FinishedTime',
+        'instanceId'         => 'InstanceId',
+        'invocationStatus'   => 'InvocationStatus',
         'invokeId'           => 'InvokeId',
         'invokeRecordStatus' => 'InvokeRecordStatus',
+        'output'             => 'Output',
+        'repeats'            => 'Repeats',
+        'startTime'          => 'StartTime',
+        'stopTime'           => 'StopTime',
         'username'           => 'Username',
     ];
 
@@ -107,47 +107,47 @@ class invocationResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->invocationStatus) {
-            $res['InvocationStatus'] = $this->invocationStatus;
-        }
-        if (null !== $this->repeats) {
-            $res['Repeats'] = $this->repeats;
-        }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->output) {
-            $res['Output'] = $this->output;
         }
         if (null !== $this->dropped) {
             $res['Dropped'] = $this->dropped;
         }
-        if (null !== $this->stopTime) {
-            $res['StopTime'] = $this->stopTime;
-        }
-        if (null !== $this->exitCode) {
-            $res['ExitCode'] = $this->exitCode;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorInfo) {
             $res['ErrorInfo'] = $this->errorInfo;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->exitCode) {
+            $res['ExitCode'] = $this->exitCode;
         }
         if (null !== $this->finishedTime) {
             $res['FinishedTime'] = $this->finishedTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->invocationStatus) {
+            $res['InvocationStatus'] = $this->invocationStatus;
         }
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
         }
         if (null !== $this->invokeRecordStatus) {
             $res['InvokeRecordStatus'] = $this->invokeRecordStatus;
+        }
+        if (null !== $this->output) {
+            $res['Output'] = $this->output;
+        }
+        if (null !== $this->repeats) {
+            $res['Repeats'] = $this->repeats;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->stopTime) {
+            $res['StopTime'] = $this->stopTime;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -164,47 +164,47 @@ class invocationResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InvocationStatus'])) {
-            $model->invocationStatus = $map['InvocationStatus'];
-        }
-        if (isset($map['Repeats'])) {
-            $model->repeats = $map['Repeats'];
-        }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Output'])) {
-            $model->output = $map['Output'];
         }
         if (isset($map['Dropped'])) {
             $model->dropped = $map['Dropped'];
         }
-        if (isset($map['StopTime'])) {
-            $model->stopTime = $map['StopTime'];
-        }
-        if (isset($map['ExitCode'])) {
-            $model->exitCode = $map['ExitCode'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorInfo'])) {
             $model->errorInfo = $map['ErrorInfo'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['ExitCode'])) {
+            $model->exitCode = $map['ExitCode'];
         }
         if (isset($map['FinishedTime'])) {
             $model->finishedTime = $map['FinishedTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InvocationStatus'])) {
+            $model->invocationStatus = $map['InvocationStatus'];
         }
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
         }
         if (isset($map['InvokeRecordStatus'])) {
             $model->invokeRecordStatus = $map['InvokeRecordStatus'];
+        }
+        if (isset($map['Output'])) {
+            $model->output = $map['Output'];
+        }
+        if (isset($map['Repeats'])) {
+            $model->repeats = $map['Repeats'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StopTime'])) {
+            $model->stopTime = $map['StopTime'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

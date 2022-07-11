@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotGroupResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var operationProgressSet
      */
     public $operationProgressSet;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'operationProgressSet' => 'OperationProgressSet',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DeleteSnapshotGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->operationProgressSet) {
             $res['OperationProgressSet'] = null !== $this->operationProgressSet ? $this->operationProgressSet->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DeleteSnapshotGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OperationProgressSet'])) {
             $model->operationProgressSet = operationProgressSet::fromMap($map['OperationProgressSet']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

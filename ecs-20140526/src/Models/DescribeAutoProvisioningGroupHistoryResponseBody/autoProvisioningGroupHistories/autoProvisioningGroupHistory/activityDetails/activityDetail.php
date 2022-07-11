@@ -11,15 +11,15 @@ class activityDetail extends Model
     /**
      * @var string
      */
-    public $status;
+    public $detail;
 
     /**
      * @var string
      */
-    public $detail;
+    public $status;
     protected $_name = [
-        'status' => 'Status',
         'detail' => 'Detail',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class activityDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class activityDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

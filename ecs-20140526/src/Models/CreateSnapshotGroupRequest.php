@@ -4,34 +4,25 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSnapshotGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateSnapshotGroupRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
+    public $description;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $resourceOwnerId;
+    public $diskId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $excludeDiskId;
 
     /**
      * @var string
@@ -56,24 +47,52 @@ class CreateSnapshotGroupRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $ownerAccount;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $excludeDiskId;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'ownerId'                    => 'OwnerId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'ownerAccount'               => 'OwnerAccount',
-        'regionId'                   => 'RegionId',
+        'description'                => 'Description',
+        'diskId'                     => 'DiskId',
+        'excludeDiskId'              => 'ExcludeDiskId',
         'instanceId'                 => 'InstanceId',
         'instantAccess'              => 'InstantAccess',
         'instantAccessRetentionDays' => 'InstantAccessRetentionDays',
         'name'                       => 'Name',
-        'description'                => 'Description',
-        'excludeDiskId'              => 'ExcludeDiskId',
+        'ownerAccount'               => 'OwnerAccount',
+        'ownerId'                    => 'OwnerId',
+        'regionId'                   => 'RegionId',
+        'resourceGroupId'            => 'ResourceGroupId',
+        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
+        'resourceOwnerId'            => 'ResourceOwnerId',
+        'tag'                        => 'Tag',
     ];
 
     public function validate()
@@ -83,20 +102,14 @@ class CreateSnapshotGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->excludeDiskId) {
+            $res['ExcludeDiskId'] = $this->excludeDiskId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -110,11 +123,32 @@ class CreateSnapshotGroupRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->excludeDiskId) {
-            $res['ExcludeDiskId'] = $this->excludeDiskId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -128,20 +162,18 @@ class CreateSnapshotGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['DiskId'])) {
+            if (!empty($map['DiskId'])) {
+                $model->diskId = $map['DiskId'];
+            }
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ExcludeDiskId'])) {
+            if (!empty($map['ExcludeDiskId'])) {
+                $model->excludeDiskId = $map['ExcludeDiskId'];
+            }
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -155,12 +187,31 @@ class CreateSnapshotGroupRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['ExcludeDiskId'])) {
-            if (!empty($map['ExcludeDiskId'])) {
-                $model->excludeDiskId = $map['ExcludeDiskId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
             }
         }
 

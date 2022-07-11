@@ -18,7 +18,7 @@ class tag extends Model
      */
     public $value;
     protected $_name = [
-        'key'   => 'key',
+        'key'   => 'Key',
         'value' => 'Value',
     ];
 
@@ -30,7 +30,7 @@ class tag extends Model
     {
         $res = [];
         if (null !== $this->key) {
-            $res['key'] = $this->key;
+            $res['Key'] = $this->key;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -47,8 +47,8 @@ class tag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['key'])) {
-            $model->key = $map['key'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

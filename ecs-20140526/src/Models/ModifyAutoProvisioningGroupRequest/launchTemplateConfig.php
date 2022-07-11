@@ -11,7 +11,7 @@ class launchTemplateConfig extends Model
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $instanceType;
 
     /**
      * @var float
@@ -26,17 +26,17 @@ class launchTemplateConfig extends Model
     /**
      * @var string
      */
-    public $instanceType;
+    public $vSwitchId;
 
     /**
      * @var float
      */
     public $weightedCapacity;
     protected $_name = [
-        'vSwitchId'        => 'VSwitchId',
+        'instanceType'     => 'InstanceType',
         'maxPrice'         => 'MaxPrice',
         'priority'         => 'Priority',
-        'instanceType'     => 'InstanceType',
+        'vSwitchId'        => 'VSwitchId',
         'weightedCapacity' => 'WeightedCapacity',
     ];
 
@@ -47,8 +47,8 @@ class launchTemplateConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->maxPrice) {
             $res['MaxPrice'] = $this->maxPrice;
@@ -56,8 +56,8 @@ class launchTemplateConfig extends Model
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->weightedCapacity) {
             $res['WeightedCapacity'] = $this->weightedCapacity;
@@ -74,8 +74,8 @@ class launchTemplateConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['MaxPrice'])) {
             $model->maxPrice = $map['MaxPrice'];
@@ -83,8 +83,8 @@ class launchTemplateConfig extends Model
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['WeightedCapacity'])) {
             $model->weightedCapacity = $map['WeightedCapacity'];

@@ -9,9 +9,44 @@ use AlibabaCloud\Tea\Model;
 class CreateCommandRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $commandContent;
+
+    /**
+     * @var string
+     */
+    public $contentEncoding;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var bool
+     */
+    public $enableParameter;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -24,24 +59,9 @@ class CreateCommandRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $timeout;
 
     /**
      * @var string
@@ -51,35 +71,21 @@ class CreateCommandRequest extends Model
     /**
      * @var string
      */
-    public $commandContent;
-
-    /**
-     * @var string
-     */
     public $workingDir;
-
-    /**
-     * @var int
-     */
-    public $timeout;
-
-    /**
-     * @var bool
-     */
-    public $enableParameter;
     protected $_name = [
+        'commandContent'       => 'CommandContent',
+        'contentEncoding'      => 'ContentEncoding',
+        'description'          => 'Description',
+        'enableParameter'      => 'EnableParameter',
+        'name'                 => 'Name',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'name'                 => 'Name',
-        'description'          => 'Description',
-        'type'                 => 'Type',
-        'commandContent'       => 'CommandContent',
-        'workingDir'           => 'WorkingDir',
         'timeout'              => 'Timeout',
-        'enableParameter'      => 'EnableParameter',
+        'type'                 => 'Type',
+        'workingDir'           => 'WorkingDir',
     ];
 
     public function validate()
@@ -89,8 +95,29 @@ class CreateCommandRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commandContent) {
+            $res['CommandContent'] = $this->commandContent;
+        }
+        if (null !== $this->contentEncoding) {
+            $res['ContentEncoding'] = $this->contentEncoding;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableParameter) {
+            $res['EnableParameter'] = $this->enableParameter;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -98,32 +125,14 @@ class CreateCommandRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->commandContent) {
-            $res['CommandContent'] = $this->commandContent;
-        }
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
-        }
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
-        }
-        if (null !== $this->enableParameter) {
-            $res['EnableParameter'] = $this->enableParameter;
         }
 
         return $res;
@@ -137,8 +146,29 @@ class CreateCommandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommandContent'])) {
+            $model->commandContent = $map['CommandContent'];
+        }
+        if (isset($map['ContentEncoding'])) {
+            $model->contentEncoding = $map['ContentEncoding'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EnableParameter'])) {
+            $model->enableParameter = $map['EnableParameter'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -146,32 +176,14 @@ class CreateCommandRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['CommandContent'])) {
-            $model->commandContent = $map['CommandContent'];
-        }
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
-        }
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
-        }
-        if (isset($map['EnableParameter'])) {
-            $model->enableParameter = $map['EnableParameter'];
         }
 
         return $model;

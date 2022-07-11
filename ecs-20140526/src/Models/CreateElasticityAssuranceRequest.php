@@ -16,19 +16,34 @@ class CreateElasticityAssuranceRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $assuranceTimes;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $instanceAmount;
+
+    /**
+     * @var int
+     */
+    public $instanceCpuCoreCount;
+
+    /**
+     * @var string[]
+     */
+    public $instanceType;
 
     /**
      * @var string
@@ -36,19 +51,9 @@ class CreateElasticityAssuranceRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
+    public $ownerId;
 
     /**
      * @var int
@@ -63,27 +68,22 @@ class CreateElasticityAssuranceRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $description;
+    public $resourceGroupId;
 
     /**
      * @var string
      */
-    public $assuranceTimes;
+    public $resourceOwnerAccount;
 
     /**
      * @var int
      */
-    public $instanceAmount;
-
-    /**
-     * @var int
-     */
-    public $instanceCpuCoreCount;
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -91,33 +91,33 @@ class CreateElasticityAssuranceRequest extends Model
     public $startTime;
 
     /**
-     * @var string[]
+     * @var tag[]
      */
-    public $zoneId;
+    public $tag;
 
     /**
      * @var string[]
      */
-    public $instanceType;
+    public $zoneId;
     protected $_name = [
         'privatePoolOptions'   => 'PrivatePoolOptions',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'tag'                  => 'Tag',
-        'period'               => 'Period',
-        'periodUnit'           => 'PeriodUnit',
+        'assuranceTimes'       => 'AssuranceTimes',
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
-        'assuranceTimes'       => 'AssuranceTimes',
         'instanceAmount'       => 'InstanceAmount',
         'instanceCpuCoreCount' => 'InstanceCpuCoreCount',
-        'startTime'            => 'StartTime',
-        'zoneId'               => 'ZoneId',
         'instanceType'         => 'InstanceType',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'period'               => 'Period',
+        'periodUnit'           => 'PeriodUnit',
+        'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'startTime'            => 'StartTime',
+        'tag'                  => 'Tag',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -130,8 +130,41 @@ class CreateElasticityAssuranceRequest extends Model
         if (null !== $this->privatePoolOptions) {
             $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
         }
+        if (null !== $this->assuranceTimes) {
+            $res['AssuranceTimes'] = $this->assuranceTimes;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceAmount) {
+            $res['InstanceAmount'] = $this->instanceAmount;
+        }
+        if (null !== $this->instanceCpuCoreCount) {
+            $res['InstanceCpuCoreCount'] = $this->instanceCpuCoreCount;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -139,14 +172,8 @@ class CreateElasticityAssuranceRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -157,35 +184,8 @@ class CreateElasticityAssuranceRequest extends Model
                 }
             }
         }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->periodUnit) {
-            $res['PeriodUnit'] = $this->periodUnit;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->assuranceTimes) {
-            $res['AssuranceTimes'] = $this->assuranceTimes;
-        }
-        if (null !== $this->instanceAmount) {
-            $res['InstanceAmount'] = $this->instanceAmount;
-        }
-        if (null !== $this->instanceCpuCoreCount) {
-            $res['InstanceCpuCoreCount'] = $this->instanceCpuCoreCount;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -202,8 +202,43 @@ class CreateElasticityAssuranceRequest extends Model
         if (isset($map['PrivatePoolOptions'])) {
             $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
         }
+        if (isset($map['AssuranceTimes'])) {
+            $model->assuranceTimes = $map['AssuranceTimes'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceAmount'])) {
+            $model->instanceAmount = $map['InstanceAmount'];
+        }
+        if (isset($map['InstanceCpuCoreCount'])) {
+            $model->instanceCpuCoreCount = $map['InstanceCpuCoreCount'];
+        }
+        if (isset($map['InstanceType'])) {
+            if (!empty($map['InstanceType'])) {
+                $model->instanceType = $map['InstanceType'];
+            }
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -211,14 +246,8 @@ class CreateElasticityAssuranceRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -229,38 +258,9 @@ class CreateElasticityAssuranceRequest extends Model
                 }
             }
         }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['PeriodUnit'])) {
-            $model->periodUnit = $map['PeriodUnit'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['AssuranceTimes'])) {
-            $model->assuranceTimes = $map['AssuranceTimes'];
-        }
-        if (isset($map['InstanceAmount'])) {
-            $model->instanceAmount = $map['InstanceAmount'];
-        }
-        if (isset($map['InstanceCpuCoreCount'])) {
-            $model->instanceCpuCoreCount = $map['InstanceCpuCoreCount'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['ZoneId'])) {
             if (!empty($map['ZoneId'])) {
                 $model->zoneId = $map['ZoneId'];
-            }
-        }
-        if (isset($map['InstanceType'])) {
-            if (!empty($map['InstanceType'])) {
-                $model->instanceType = $map['InstanceType'];
             }
         }
 

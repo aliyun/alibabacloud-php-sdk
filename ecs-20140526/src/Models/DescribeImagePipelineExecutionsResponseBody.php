@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelineExecutionsResponseBody extends Model
 {
     /**
+     * @var imagePipelineExecution
+     */
+    public $imagePipelineExecution;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -23,22 +33,12 @@ class DescribeImagePipelineExecutionsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var imagePipelineExecution
-     */
-    public $imagePipelineExecution;
     protected $_name = [
+        'imagePipelineExecution' => 'ImagePipelineExecution',
+        'maxResults'             => 'MaxResults',
         'nextToken'              => 'NextToken',
         'requestId'              => 'RequestId',
         'totalCount'             => 'TotalCount',
-        'maxResults'             => 'MaxResults',
-        'imagePipelineExecution' => 'ImagePipelineExecution',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class DescribeImagePipelineExecutionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imagePipelineExecution) {
+            $res['ImagePipelineExecution'] = null !== $this->imagePipelineExecution ? $this->imagePipelineExecution->toMap() : null;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -56,12 +62,6 @@ class DescribeImagePipelineExecutionsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->imagePipelineExecution) {
-            $res['ImagePipelineExecution'] = null !== $this->imagePipelineExecution ? $this->imagePipelineExecution->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class DescribeImagePipelineExecutionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImagePipelineExecution'])) {
+            $model->imagePipelineExecution = imagePipelineExecution::fromMap($map['ImagePipelineExecution']);
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -83,12 +89,6 @@ class DescribeImagePipelineExecutionsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['ImagePipelineExecution'])) {
-            $model->imagePipelineExecution = imagePipelineExecution::fromMap($map['ImagePipelineExecution']);
         }
 
         return $model;

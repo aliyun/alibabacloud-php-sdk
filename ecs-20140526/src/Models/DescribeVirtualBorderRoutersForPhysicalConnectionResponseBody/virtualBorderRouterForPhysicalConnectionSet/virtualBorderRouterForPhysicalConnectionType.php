@@ -11,12 +11,17 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $activationTime;
 
     /**
      * @var string
      */
     public $circuitCode;
+
+    /**
+     * @var string
+     */
+    public $creationTime;
 
     /**
      * @var string
@@ -31,7 +36,7 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     /**
      * @var string
      */
-    public $activationTime;
+    public $vbrId;
 
     /**
      * @var int
@@ -39,22 +44,17 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $vbrOwnerUid;
 
     /**
-     * @var string
-     */
-    public $vbrId;
-
-    /**
      * @var int
      */
     public $vlanId;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
+        'activationTime'  => 'ActivationTime',
         'circuitCode'     => 'CircuitCode',
+        'creationTime'    => 'CreationTime',
         'recoveryTime'    => 'RecoveryTime',
         'terminationTime' => 'TerminationTime',
-        'activationTime'  => 'ActivationTime',
-        'vbrOwnerUid'     => 'VbrOwnerUid',
         'vbrId'           => 'VbrId',
+        'vbrOwnerUid'     => 'VbrOwnerUid',
         'vlanId'          => 'VlanId',
     ];
 
@@ -65,11 +65,14 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
+        if (null !== $this->activationTime) {
+            $res['ActivationTime'] = $this->activationTime;
         }
         if (null !== $this->circuitCode) {
             $res['CircuitCode'] = $this->circuitCode;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->recoveryTime) {
             $res['RecoveryTime'] = $this->recoveryTime;
@@ -77,14 +80,11 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
         if (null !== $this->terminationTime) {
             $res['TerminationTime'] = $this->terminationTime;
         }
-        if (null !== $this->activationTime) {
-            $res['ActivationTime'] = $this->activationTime;
+        if (null !== $this->vbrId) {
+            $res['VbrId'] = $this->vbrId;
         }
         if (null !== $this->vbrOwnerUid) {
             $res['VbrOwnerUid'] = $this->vbrOwnerUid;
-        }
-        if (null !== $this->vbrId) {
-            $res['VbrId'] = $this->vbrId;
         }
         if (null !== $this->vlanId) {
             $res['VlanId'] = $this->vlanId;
@@ -101,11 +101,14 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
+        if (isset($map['ActivationTime'])) {
+            $model->activationTime = $map['ActivationTime'];
         }
         if (isset($map['CircuitCode'])) {
             $model->circuitCode = $map['CircuitCode'];
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['RecoveryTime'])) {
             $model->recoveryTime = $map['RecoveryTime'];
@@ -113,14 +116,11 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
         if (isset($map['TerminationTime'])) {
             $model->terminationTime = $map['TerminationTime'];
         }
-        if (isset($map['ActivationTime'])) {
-            $model->activationTime = $map['ActivationTime'];
+        if (isset($map['VbrId'])) {
+            $model->vbrId = $map['VbrId'];
         }
         if (isset($map['VbrOwnerUid'])) {
             $model->vbrOwnerUid = $map['VbrOwnerUid'];
-        }
-        if (isset($map['VbrId'])) {
-            $model->vbrId = $map['VbrId'];
         }
         if (isset($map['VlanId'])) {
             $model->vlanId = $map['VlanId'];

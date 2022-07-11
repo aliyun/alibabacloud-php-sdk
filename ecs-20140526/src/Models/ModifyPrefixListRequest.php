@@ -11,19 +11,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyPrefixListRequest extends Model
 {
     /**
-     * @var int
+     * @var addEntry[]
      */
-    public $ownerId;
+    public $addEntry;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $description;
 
     /**
      * @var string
@@ -31,19 +26,9 @@ class ModifyPrefixListRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
-
-    /**
-     * @var addEntry[]
-     */
-    public $addEntry;
-
-    /**
-     * @var removeEntry[]
-     */
-    public $removeEntry;
+    public $ownerId;
 
     /**
      * @var string
@@ -58,18 +43,33 @@ class ModifyPrefixListRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $regionId;
+
+    /**
+     * @var removeEntry[]
+     */
+    public $removeEntry;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
         'addEntry'             => 'AddEntry',
-        'removeEntry'          => 'RemoveEntry',
+        'description'          => 'Description',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'prefixListId'         => 'PrefixListId',
         'prefixListName'       => 'PrefixListName',
-        'description'          => 'Description',
+        'regionId'             => 'RegionId',
+        'removeEntry'          => 'RemoveEntry',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -79,21 +79,6 @@ class ModifyPrefixListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->addEntry) {
             $res['AddEntry'] = [];
             if (null !== $this->addEntry && \is_array($this->addEntry)) {
@@ -102,6 +87,24 @@ class ModifyPrefixListRequest extends Model
                     $res['AddEntry'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->prefixListId) {
+            $res['PrefixListId'] = $this->prefixListId;
+        }
+        if (null !== $this->prefixListName) {
+            $res['PrefixListName'] = $this->prefixListName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->removeEntry) {
             $res['RemoveEntry'] = [];
@@ -112,14 +115,11 @@ class ModifyPrefixListRequest extends Model
                 }
             }
         }
-        if (null !== $this->prefixListId) {
-            $res['PrefixListId'] = $this->prefixListId;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->prefixListName) {
-            $res['PrefixListName'] = $this->prefixListName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -133,21 +133,6 @@ class ModifyPrefixListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AddEntry'])) {
             if (!empty($map['AddEntry'])) {
                 $model->addEntry = [];
@@ -156,6 +141,24 @@ class ModifyPrefixListRequest extends Model
                     $model->addEntry[$n++] = null !== $item ? addEntry::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PrefixListId'])) {
+            $model->prefixListId = $map['PrefixListId'];
+        }
+        if (isset($map['PrefixListName'])) {
+            $model->prefixListName = $map['PrefixListName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RemoveEntry'])) {
             if (!empty($map['RemoveEntry'])) {
@@ -166,14 +169,11 @@ class ModifyPrefixListRequest extends Model
                 }
             }
         }
-        if (isset($map['PrefixListId'])) {
-            $model->prefixListId = $map['PrefixListId'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['PrefixListName'])) {
-            $model->prefixListName = $map['PrefixListName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class cpuOptions extends Model
 {
     /**
+     * @var int
+     */
+    public $coreCount;
+
+    /**
      * @var string
      */
     public $numa;
@@ -16,15 +21,10 @@ class cpuOptions extends Model
     /**
      * @var int
      */
-    public $coreCount;
-
-    /**
-     * @var int
-     */
     public $threadsPerCore;
     protected $_name = [
-        'numa'           => 'Numa',
         'coreCount'      => 'CoreCount',
+        'numa'           => 'Numa',
         'threadsPerCore' => 'ThreadsPerCore',
     ];
 
@@ -35,11 +35,11 @@ class cpuOptions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->numa) {
-            $res['Numa'] = $this->numa;
-        }
         if (null !== $this->coreCount) {
             $res['CoreCount'] = $this->coreCount;
+        }
+        if (null !== $this->numa) {
+            $res['Numa'] = $this->numa;
         }
         if (null !== $this->threadsPerCore) {
             $res['ThreadsPerCore'] = $this->threadsPerCore;
@@ -56,11 +56,11 @@ class cpuOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Numa'])) {
-            $model->numa = $map['Numa'];
-        }
         if (isset($map['CoreCount'])) {
             $model->coreCount = $map['CoreCount'];
+        }
+        if (isset($map['Numa'])) {
+            $model->numa = $map['Numa'];
         }
         if (isset($map['ThreadsPerCore'])) {
             $model->threadsPerCore = $map['ThreadsPerCore'];

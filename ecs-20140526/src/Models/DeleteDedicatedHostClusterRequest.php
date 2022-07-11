@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DeleteDedicatedHostClusterRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dedicatedHostClusterId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -22,28 +37,13 @@ class DeleteDedicatedHostClusterRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $dedicatedHostClusterId;
     protected $_name = [
+        'dedicatedHostClusterId' => 'DedicatedHostClusterId',
+        'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
+        'regionId'               => 'RegionId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
-        'ownerAccount'           => 'OwnerAccount',
-        'regionId'               => 'RegionId',
-        'dedicatedHostClusterId' => 'DedicatedHostClusterId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DeleteDedicatedHostClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicatedHostClusterId) {
+            $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->dedicatedHostClusterId) {
-            $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DeleteDedicatedHostClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicatedHostClusterId'])) {
+            $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DedicatedHostClusterId'])) {
-            $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
         }
 
         return $model;

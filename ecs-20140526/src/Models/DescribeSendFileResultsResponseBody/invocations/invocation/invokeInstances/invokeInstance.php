@@ -16,22 +16,7 @@ class invokeInstance extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $invocationStatus;
-
-    /**
-     * @var string
-     */
-    public $finishTime;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
+    public $errorCode;
 
     /**
      * @var string
@@ -41,21 +26,36 @@ class invokeInstance extends Model
     /**
      * @var string
      */
-    public $errorCode;
+    public $finishTime;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $invocationStatus;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
         'creationTime'     => 'CreationTime',
-        'startTime'        => 'StartTime',
-        'invocationStatus' => 'InvocationStatus',
-        'finishTime'       => 'FinishTime',
-        'updateTime'       => 'UpdateTime',
-        'errorInfo'        => 'ErrorInfo',
         'errorCode'        => 'ErrorCode',
+        'errorInfo'        => 'ErrorInfo',
+        'finishTime'       => 'FinishTime',
         'instanceId'       => 'InstanceId',
+        'invocationStatus' => 'InvocationStatus',
+        'startTime'        => 'StartTime',
+        'updateTime'       => 'UpdateTime',
     ];
 
     public function validate()
@@ -68,26 +68,26 @@ class invokeInstance extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->invocationStatus) {
-            $res['InvocationStatus'] = $this->invocationStatus;
-        }
-        if (null !== $this->finishTime) {
-            $res['FinishTime'] = $this->finishTime;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorInfo) {
             $res['ErrorInfo'] = $this->errorInfo;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->invocationStatus) {
+            $res['InvocationStatus'] = $this->invocationStatus;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -104,26 +104,26 @@ class invokeInstance extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['InvocationStatus'])) {
-            $model->invocationStatus = $map['InvocationStatus'];
-        }
-        if (isset($map['FinishTime'])) {
-            $model->finishTime = $map['FinishTime'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorInfo'])) {
             $model->errorInfo = $map['ErrorInfo'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InvocationStatus'])) {
+            $model->invocationStatus = $map['InvocationStatus'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

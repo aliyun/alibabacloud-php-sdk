@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeCapacityReservationsResponseBody extends Model
 {
     /**
+     * @var capacityReservationSet
+     */
+    public $capacityReservationSet;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -23,22 +33,12 @@ class DescribeCapacityReservationsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var capacityReservationSet
-     */
-    public $capacityReservationSet;
     protected $_name = [
+        'capacityReservationSet' => 'CapacityReservationSet',
+        'maxResults'             => 'MaxResults',
         'nextToken'              => 'NextToken',
         'requestId'              => 'RequestId',
         'totalCount'             => 'TotalCount',
-        'maxResults'             => 'MaxResults',
-        'capacityReservationSet' => 'CapacityReservationSet',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class DescribeCapacityReservationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->capacityReservationSet) {
+            $res['CapacityReservationSet'] = null !== $this->capacityReservationSet ? $this->capacityReservationSet->toMap() : null;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -56,12 +62,6 @@ class DescribeCapacityReservationsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->capacityReservationSet) {
-            $res['CapacityReservationSet'] = null !== $this->capacityReservationSet ? $this->capacityReservationSet->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class DescribeCapacityReservationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CapacityReservationSet'])) {
+            $model->capacityReservationSet = capacityReservationSet::fromMap($map['CapacityReservationSet']);
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -83,12 +89,6 @@ class DescribeCapacityReservationsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['CapacityReservationSet'])) {
-            $model->capacityReservationSet = capacityReservationSet::fromMap($map['CapacityReservationSet']);
         }
 
         return $model;

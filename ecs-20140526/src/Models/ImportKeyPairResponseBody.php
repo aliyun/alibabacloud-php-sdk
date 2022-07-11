@@ -11,7 +11,7 @@ class ImportKeyPairResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $keyPairFingerPrint;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ImportKeyPairResponseBody extends Model
     /**
      * @var string
      */
-    public $keyPairFingerPrint;
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'keyPairName'        => 'KeyPairName',
         'keyPairFingerPrint' => 'KeyPairFingerPrint',
+        'keyPairName'        => 'KeyPairName',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ImportKeyPairResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->keyPairFingerPrint) {
+            $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
         }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
-        if (null !== $this->keyPairFingerPrint) {
-            $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ImportKeyPairResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['KeyPairFingerPrint'])) {
+            $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
         }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
-        if (isset($map['KeyPairFingerPrint'])) {
-            $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

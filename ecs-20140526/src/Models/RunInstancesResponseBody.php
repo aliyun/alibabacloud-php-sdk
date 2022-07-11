@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class RunInstancesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var instanceIdSets
      */
-    public $requestId;
+    public $instanceIdSets;
 
     /**
      * @var string
@@ -20,19 +20,19 @@ class RunInstancesResponseBody extends Model
     public $orderId;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var float
      */
     public $tradePrice;
-
-    /**
-     * @var instanceIdSets
-     */
-    public $instanceIdSets;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'orderId'        => 'OrderId',
-        'tradePrice'     => 'TradePrice',
         'instanceIdSets' => 'InstanceIdSets',
+        'orderId'        => 'OrderId',
+        'requestId'      => 'RequestId',
+        'tradePrice'     => 'TradePrice',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class RunInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->instanceIdSets) {
+            $res['InstanceIdSets'] = null !== $this->instanceIdSets ? $this->instanceIdSets->toMap() : null;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
-        }
-        if (null !== $this->instanceIdSets) {
-            $res['InstanceIdSets'] = null !== $this->instanceIdSets ? $this->instanceIdSets->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class RunInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['InstanceIdSets'])) {
+            $model->instanceIdSets = instanceIdSets::fromMap($map['InstanceIdSets']);
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
-        }
-        if (isset($map['InstanceIdSets'])) {
-            $model->instanceIdSets = instanceIdSets::fromMap($map['InstanceIdSets']);
         }
 
         return $model;

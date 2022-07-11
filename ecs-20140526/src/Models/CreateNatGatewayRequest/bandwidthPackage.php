@@ -14,18 +14,18 @@ class bandwidthPackage extends Model
     public $bandwidth;
 
     /**
-     * @var string
-     */
-    public $zone;
-
-    /**
      * @var int
      */
     public $ipCount;
+
+    /**
+     * @var string
+     */
+    public $zone;
     protected $_name = [
         'bandwidth' => 'Bandwidth',
-        'zone'      => 'Zone',
         'ipCount'   => 'IpCount',
+        'zone'      => 'Zone',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class bandwidthPackage extends Model
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->zone) {
-            $res['Zone'] = $this->zone;
-        }
         if (null !== $this->ipCount) {
             $res['IpCount'] = $this->ipCount;
+        }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class bandwidthPackage extends Model
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['Zone'])) {
-            $model->zone = $map['Zone'];
-        }
         if (isset($map['IpCount'])) {
             $model->ipCount = $map['IpCount'];
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

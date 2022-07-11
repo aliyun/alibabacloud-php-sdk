@@ -9,9 +9,69 @@ use AlibabaCloud\Tea\Model;
 class RunCommandShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $commandContent;
+
+    /**
+     * @var string
+     */
+    public $contentEncoding;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var bool
+     */
+    public $enableParameter;
+
+    /**
+     * @var string
+     */
+    public $frequency;
+
+    /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $keepCommand;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $parametersShrink;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $repeatMode;
 
     /**
      * @var string
@@ -24,44 +84,9 @@ class RunCommandShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $commandContent;
-
-    /**
-     * @var string
-     */
-    public $workingDir;
+    public $timed;
 
     /**
      * @var int
@@ -69,39 +94,9 @@ class RunCommandShrinkRequest extends Model
     public $timeout;
 
     /**
-     * @var bool
-     */
-    public $enableParameter;
-
-    /**
      * @var string
      */
-    public $repeatMode;
-
-    /**
-     * @var bool
-     */
-    public $timed;
-
-    /**
-     * @var string
-     */
-    public $frequency;
-
-    /**
-     * @var string
-     */
-    public $parametersShrink;
-
-    /**
-     * @var bool
-     */
-    public $keepCommand;
-
-    /**
-     * @var string
-     */
-    public $contentEncoding;
+    public $type;
 
     /**
      * @var string
@@ -112,28 +107,33 @@ class RunCommandShrinkRequest extends Model
      * @var string
      */
     public $windowsPasswordName;
+
+    /**
+     * @var string
+     */
+    public $workingDir;
     protected $_name = [
+        'commandContent'       => 'CommandContent',
+        'contentEncoding'      => 'ContentEncoding',
+        'description'          => 'Description',
+        'enableParameter'      => 'EnableParameter',
+        'frequency'            => 'Frequency',
+        'instanceId'           => 'InstanceId',
+        'keepCommand'          => 'KeepCommand',
+        'name'                 => 'Name',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'parametersShrink'     => 'Parameters',
+        'regionId'             => 'RegionId',
+        'repeatMode'           => 'RepeatMode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'instanceId'           => 'InstanceId',
-        'name'                 => 'Name',
-        'description'          => 'Description',
-        'type'                 => 'Type',
-        'commandContent'       => 'CommandContent',
-        'workingDir'           => 'WorkingDir',
-        'timeout'              => 'Timeout',
-        'enableParameter'      => 'EnableParameter',
-        'repeatMode'           => 'RepeatMode',
         'timed'                => 'Timed',
-        'frequency'            => 'Frequency',
-        'parametersShrink'     => 'Parameters',
-        'keepCommand'          => 'KeepCommand',
-        'contentEncoding'      => 'ContentEncoding',
+        'timeout'              => 'Timeout',
+        'type'                 => 'Type',
         'username'             => 'Username',
         'windowsPasswordName'  => 'WindowsPasswordName',
+        'workingDir'           => 'WorkingDir',
     ];
 
     public function validate()
@@ -143,8 +143,44 @@ class RunCommandShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commandContent) {
+            $res['CommandContent'] = $this->commandContent;
+        }
+        if (null !== $this->contentEncoding) {
+            $res['ContentEncoding'] = $this->contentEncoding;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableParameter) {
+            $res['EnableParameter'] = $this->enableParameter;
+        }
+        if (null !== $this->frequency) {
+            $res['Frequency'] = $this->frequency;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->keepCommand) {
+            $res['KeepCommand'] = $this->keepCommand;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->parametersShrink) {
+            $res['Parameters'] = $this->parametersShrink;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->repeatMode) {
+            $res['RepeatMode'] = $this->repeatMode;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -152,59 +188,23 @@ class RunCommandShrinkRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->commandContent) {
-            $res['CommandContent'] = $this->commandContent;
-        }
-        if (null !== $this->workingDir) {
-            $res['WorkingDir'] = $this->workingDir;
+        if (null !== $this->timed) {
+            $res['Timed'] = $this->timed;
         }
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
-        if (null !== $this->enableParameter) {
-            $res['EnableParameter'] = $this->enableParameter;
-        }
-        if (null !== $this->repeatMode) {
-            $res['RepeatMode'] = $this->repeatMode;
-        }
-        if (null !== $this->timed) {
-            $res['Timed'] = $this->timed;
-        }
-        if (null !== $this->frequency) {
-            $res['Frequency'] = $this->frequency;
-        }
-        if (null !== $this->parametersShrink) {
-            $res['Parameters'] = $this->parametersShrink;
-        }
-        if (null !== $this->keepCommand) {
-            $res['KeepCommand'] = $this->keepCommand;
-        }
-        if (null !== $this->contentEncoding) {
-            $res['ContentEncoding'] = $this->contentEncoding;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
         if (null !== $this->windowsPasswordName) {
             $res['WindowsPasswordName'] = $this->windowsPasswordName;
+        }
+        if (null !== $this->workingDir) {
+            $res['WorkingDir'] = $this->workingDir;
         }
 
         return $res;
@@ -218,8 +218,46 @@ class RunCommandShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommandContent'])) {
+            $model->commandContent = $map['CommandContent'];
+        }
+        if (isset($map['ContentEncoding'])) {
+            $model->contentEncoding = $map['ContentEncoding'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EnableParameter'])) {
+            $model->enableParameter = $map['EnableParameter'];
+        }
+        if (isset($map['Frequency'])) {
+            $model->frequency = $map['Frequency'];
+        }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
+        if (isset($map['KeepCommand'])) {
+            $model->keepCommand = $map['KeepCommand'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Parameters'])) {
+            $model->parametersShrink = $map['Parameters'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RepeatMode'])) {
+            $model->repeatMode = $map['RepeatMode'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -227,61 +265,23 @@ class RunCommandShrinkRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['CommandContent'])) {
-            $model->commandContent = $map['CommandContent'];
-        }
-        if (isset($map['WorkingDir'])) {
-            $model->workingDir = $map['WorkingDir'];
+        if (isset($map['Timed'])) {
+            $model->timed = $map['Timed'];
         }
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }
-        if (isset($map['EnableParameter'])) {
-            $model->enableParameter = $map['EnableParameter'];
-        }
-        if (isset($map['RepeatMode'])) {
-            $model->repeatMode = $map['RepeatMode'];
-        }
-        if (isset($map['Timed'])) {
-            $model->timed = $map['Timed'];
-        }
-        if (isset($map['Frequency'])) {
-            $model->frequency = $map['Frequency'];
-        }
-        if (isset($map['Parameters'])) {
-            $model->parametersShrink = $map['Parameters'];
-        }
-        if (isset($map['KeepCommand'])) {
-            $model->keepCommand = $map['KeepCommand'];
-        }
-        if (isset($map['ContentEncoding'])) {
-            $model->contentEncoding = $map['ContentEncoding'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }
         if (isset($map['WindowsPasswordName'])) {
             $model->windowsPasswordName = $map['WindowsPasswordName'];
+        }
+        if (isset($map['WorkingDir'])) {
+            $model->workingDir = $map['WorkingDir'];
         }
 
         return $model;

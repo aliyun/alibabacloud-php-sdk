@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class autoProvisioningGroupHistory extends Model
 {
     /**
+     * @var activityDetails
+     */
+    public $activityDetails;
+
+    /**
      * @var string
      */
-    public $status;
+    public $lastEventTime;
 
     /**
      * @var string
@@ -22,23 +27,18 @@ class autoProvisioningGroupHistory extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $status;
 
     /**
      * @var string
      */
-    public $lastEventTime;
-
-    /**
-     * @var activityDetails
-     */
-    public $activityDetails;
+    public $taskId;
     protected $_name = [
-        'status'          => 'Status',
-        'startTime'       => 'StartTime',
-        'taskId'          => 'TaskId',
-        'lastEventTime'   => 'LastEventTime',
         'activityDetails' => 'ActivityDetails',
+        'lastEventTime'   => 'LastEventTime',
+        'startTime'       => 'StartTime',
+        'status'          => 'Status',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class autoProvisioningGroupHistory extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->activityDetails) {
+            $res['ActivityDetails'] = null !== $this->activityDetails ? $this->activityDetails->toMap() : null;
         }
         if (null !== $this->lastEventTime) {
             $res['LastEventTime'] = $this->lastEventTime;
         }
-        if (null !== $this->activityDetails) {
-            $res['ActivityDetails'] = null !== $this->activityDetails ? $this->activityDetails->toMap() : null;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class autoProvisioningGroupHistory extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['ActivityDetails'])) {
+            $model->activityDetails = activityDetails::fromMap($map['ActivityDetails']);
         }
         if (isset($map['LastEventTime'])) {
             $model->lastEventTime = $map['LastEventTime'];
         }
-        if (isset($map['ActivityDetails'])) {
-            $model->activityDetails = activityDetails::fromMap($map['ActivityDetails']);
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

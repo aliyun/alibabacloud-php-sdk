@@ -17,12 +17,22 @@ class imagePipelineExecutionSet extends Model
     /**
      * @var string
      */
+    public $executionId;
+
+    /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @var string
+     */
     public $imagePipelineId;
 
     /**
      * @var string
      */
-    public $status;
+    public $message;
 
     /**
      * @var string
@@ -37,17 +47,7 @@ class imagePipelineExecutionSet extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $imageId;
-
-    /**
-     * @var string
-     */
-    public $executionId;
+    public $status;
 
     /**
      * @var tags
@@ -55,13 +55,13 @@ class imagePipelineExecutionSet extends Model
     public $tags;
     protected $_name = [
         'creationTime'    => 'CreationTime',
+        'executionId'     => 'ExecutionId',
+        'imageId'         => 'ImageId',
         'imagePipelineId' => 'ImagePipelineId',
-        'status'          => 'Status',
+        'message'         => 'Message',
         'modifiedTime'    => 'ModifiedTime',
         'resourceGroupId' => 'ResourceGroupId',
-        'message'         => 'Message',
-        'imageId'         => 'ImageId',
-        'executionId'     => 'ExecutionId',
+        'status'          => 'Status',
         'tags'            => 'Tags',
     ];
 
@@ -75,11 +75,17 @@ class imagePipelineExecutionSet extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+        if (null !== $this->executionId) {
+            $res['ExecutionId'] = $this->executionId;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
         if (null !== $this->imagePipelineId) {
             $res['ImagePipelineId'] = $this->imagePipelineId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
@@ -87,14 +93,8 @@ class imagePipelineExecutionSet extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->executionId) {
-            $res['ExecutionId'] = $this->executionId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -114,11 +114,17 @@ class imagePipelineExecutionSet extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+        if (isset($map['ExecutionId'])) {
+            $model->executionId = $map['ExecutionId'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
         if (isset($map['ImagePipelineId'])) {
             $model->imagePipelineId = $map['ImagePipelineId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
@@ -126,14 +132,8 @@ class imagePipelineExecutionSet extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['ExecutionId'])) {
-            $model->executionId = $map['ExecutionId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

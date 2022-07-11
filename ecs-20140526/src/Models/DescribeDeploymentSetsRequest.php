@@ -9,24 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeploymentSetsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $deploymentSetIds;
+
+    /**
+     * @var string
+     */
+    public $deploymentSetName;
+
+    /**
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $granularity;
+
+    /**
+     * @var string
+     */
+    public $networkType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var int
@@ -41,51 +56,36 @@ class DescribeDeploymentSetsRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $deploymentSetIds;
+    public $resourceOwnerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $networkType;
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $strategy;
-
-    /**
-     * @var string
-     */
-    public $deploymentSetName;
-
-    /**
-     * @var string
-     */
-    public $granularity;
-
-    /**
-     * @var string
-     */
-    public $domain;
     protected $_name = [
+        'deploymentSetIds'     => 'DeploymentSetIds',
+        'deploymentSetName'    => 'DeploymentSetName',
+        'domain'               => 'Domain',
+        'granularity'          => 'Granularity',
+        'networkType'          => 'NetworkType',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'ownerAccount'         => 'OwnerAccount',
-        'deploymentSetIds'     => 'DeploymentSetIds',
-        'networkType'          => 'NetworkType',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'strategy'             => 'Strategy',
-        'deploymentSetName'    => 'DeploymentSetName',
-        'granularity'          => 'Granularity',
-        'domain'               => 'Domain',
     ];
 
     public function validate()
@@ -95,17 +95,26 @@ class DescribeDeploymentSetsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deploymentSetIds) {
+            $res['DeploymentSetIds'] = $this->deploymentSetIds;
+        }
+        if (null !== $this->deploymentSetName) {
+            $res['DeploymentSetName'] = $this->deploymentSetName;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->granularity) {
+            $res['Granularity'] = $this->granularity;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -113,26 +122,17 @@ class DescribeDeploymentSetsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->deploymentSetIds) {
-            $res['DeploymentSetIds'] = $this->deploymentSetIds;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
-        }
-        if (null !== $this->deploymentSetName) {
-            $res['DeploymentSetName'] = $this->deploymentSetName;
-        }
-        if (null !== $this->granularity) {
-            $res['Granularity'] = $this->granularity;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
         }
 
         return $res;
@@ -146,17 +146,26 @@ class DescribeDeploymentSetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeploymentSetIds'])) {
+            $model->deploymentSetIds = $map['DeploymentSetIds'];
+        }
+        if (isset($map['DeploymentSetName'])) {
+            $model->deploymentSetName = $map['DeploymentSetName'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['Granularity'])) {
+            $model->granularity = $map['Granularity'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -164,26 +173,17 @@ class DescribeDeploymentSetsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['DeploymentSetIds'])) {
-            $model->deploymentSetIds = $map['DeploymentSetIds'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
-        }
-        if (isset($map['DeploymentSetName'])) {
-            $model->deploymentSetName = $map['DeploymentSetName'];
-        }
-        if (isset($map['Granularity'])) {
-            $model->granularity = $map['Granularity'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
         }
 
         return $model;

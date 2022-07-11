@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $CPU;
 
     /**
      * @var string
      */
     public $creationTime;
-
-    /**
-     * @var bool
-     */
-    public $isSpot;
-
-    /**
-     * @var int
-     */
-    public $CPU;
 
     /**
      * @var string
@@ -36,22 +26,27 @@ class instance extends Model
     /**
      * @var string
      */
-    public $networkType;
-
-    /**
-     * @var string
-     */
     public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var bool
      */
     public $ioOptimized;
+
+    /**
+     * @var bool
+     */
+    public $isSpot;
+
+    /**
+     * @var int
+     */
+    public $memory;
+
+    /**
+     * @var string
+     */
+    public $networkType;
 
     /**
      * @var string
@@ -61,25 +56,30 @@ class instance extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $regionId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $memory;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'status'       => 'Status',
-        'creationTime' => 'CreationTime',
-        'isSpot'       => 'IsSpot',
         'CPU'          => 'CPU',
+        'creationTime' => 'CreationTime',
         'instanceId'   => 'InstanceId',
-        'networkType'  => 'NetworkType',
         'instanceType' => 'InstanceType',
-        'regionId'     => 'RegionId',
         'ioOptimized'  => 'IoOptimized',
-        'osType'       => 'OsType',
-        'zoneId'       => 'ZoneId',
+        'isSpot'       => 'IsSpot',
         'memory'       => 'Memory',
+        'networkType'  => 'NetworkType',
+        'osType'       => 'OsType',
+        'regionId'     => 'RegionId',
+        'status'       => 'Status',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->CPU) {
+            $res['CPU'] = $this->CPU;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->isSpot) {
-            $res['IsSpot'] = $this->isSpot;
-        }
-        if (null !== $this->CPU) {
-            $res['CPU'] = $this->CPU;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
+        }
+        if (null !== $this->isSpot) {
+            $res['IsSpot'] = $this->isSpot;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->memory) {
-            $res['Memory'] = $this->memory;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CPU'])) {
+            $model->CPU = $map['CPU'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['IsSpot'])) {
-            $model->isSpot = $map['IsSpot'];
-        }
-        if (isset($map['CPU'])) {
-            $model->CPU = $map['CPU'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];
+        }
+        if (isset($map['IsSpot'])) {
+            $model->isSpot = $map['IsSpot'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['Memory'])) {
-            $model->memory = $map['Memory'];
         }
 
         return $model;

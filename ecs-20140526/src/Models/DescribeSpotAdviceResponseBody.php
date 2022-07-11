@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotAdviceResponseBody extends Model
 {
     /**
+     * @var availableSpotZones
+     */
+    public $availableSpotZones;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -18,15 +23,10 @@ class DescribeSpotAdviceResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var availableSpotZones
-     */
-    public $availableSpotZones;
     protected $_name = [
+        'availableSpotZones' => 'AvailableSpotZones',
         'regionId'           => 'RegionId',
         'requestId'          => 'RequestId',
-        'availableSpotZones' => 'AvailableSpotZones',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeSpotAdviceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->availableSpotZones) {
+            $res['AvailableSpotZones'] = null !== $this->availableSpotZones ? $this->availableSpotZones->toMap() : null;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->availableSpotZones) {
-            $res['AvailableSpotZones'] = null !== $this->availableSpotZones ? $this->availableSpotZones->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeSpotAdviceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableSpotZones'])) {
+            $model->availableSpotZones = availableSpotZones::fromMap($map['AvailableSpotZones']);
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['AvailableSpotZones'])) {
-            $model->availableSpotZones = availableSpotZones::fromMap($map['AvailableSpotZones']);
         }
 
         return $model;

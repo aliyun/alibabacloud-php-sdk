@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypeFamiliesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var instanceTypeFamilies
      */
     public $instanceTypeFamilies;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'instanceTypeFamilies' => 'InstanceTypeFamilies',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeInstanceTypeFamiliesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceTypeFamilies) {
             $res['InstanceTypeFamilies'] = null !== $this->instanceTypeFamilies ? $this->instanceTypeFamilies->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeInstanceTypeFamiliesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceTypeFamilies'])) {
             $model->instanceTypeFamilies = instanceTypeFamilies::fromMap($map['InstanceTypeFamilies']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

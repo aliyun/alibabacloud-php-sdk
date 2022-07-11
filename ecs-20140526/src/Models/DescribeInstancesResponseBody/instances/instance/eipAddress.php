@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class eipAddress extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $isSupportUnassociate;
+    public $allocationId;
+
+    /**
+     * @var int
+     */
+    public $bandwidth;
 
     /**
      * @var string
@@ -24,20 +29,15 @@ class eipAddress extends Model
     public $ipAddress;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $bandwidth;
-
-    /**
-     * @var string
-     */
-    public $allocationId;
+    public $isSupportUnassociate;
     protected $_name = [
-        'isSupportUnassociate' => 'IsSupportUnassociate',
+        'allocationId'         => 'AllocationId',
+        'bandwidth'            => 'Bandwidth',
         'internetChargeType'   => 'InternetChargeType',
         'ipAddress'            => 'IpAddress',
-        'bandwidth'            => 'Bandwidth',
-        'allocationId'         => 'AllocationId',
+        'isSupportUnassociate' => 'IsSupportUnassociate',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class eipAddress extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isSupportUnassociate) {
-            $res['IsSupportUnassociate'] = $this->isSupportUnassociate;
+        if (null !== $this->allocationId) {
+            $res['AllocationId'] = $this->allocationId;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
@@ -56,11 +59,8 @@ class eipAddress extends Model
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->allocationId) {
-            $res['AllocationId'] = $this->allocationId;
+        if (null !== $this->isSupportUnassociate) {
+            $res['IsSupportUnassociate'] = $this->isSupportUnassociate;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class eipAddress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsSupportUnassociate'])) {
-            $model->isSupportUnassociate = $map['IsSupportUnassociate'];
+        if (isset($map['AllocationId'])) {
+            $model->allocationId = $map['AllocationId'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
@@ -83,11 +86,8 @@ class eipAddress extends Model
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['AllocationId'])) {
-            $model->allocationId = $map['AllocationId'];
+        if (isset($map['IsSupportUnassociate'])) {
+            $model->isSupportUnassociate = $map['IsSupportUnassociate'];
         }
 
         return $model;

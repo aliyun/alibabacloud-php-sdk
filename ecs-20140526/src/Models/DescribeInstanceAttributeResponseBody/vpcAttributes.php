@@ -12,12 +12,12 @@ class vpcAttributes extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $natIpAddress;
 
     /**
-     * @var string
+     * @var privateIpAddress
      */
-    public $natIpAddress;
+    public $privateIpAddress;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class vpcAttributes extends Model
     public $vSwitchId;
 
     /**
-     * @var privateIpAddress
+     * @var string
      */
-    public $privateIpAddress;
+    public $vpcId;
     protected $_name = [
-        'vpcId'            => 'VpcId',
         'natIpAddress'     => 'NatIpAddress',
-        'vSwitchId'        => 'VSwitchId',
         'privateIpAddress' => 'PrivateIpAddress',
+        'vSwitchId'        => 'VSwitchId',
+        'vpcId'            => 'VpcId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class vpcAttributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->natIpAddress) {
             $res['NatIpAddress'] = $this->natIpAddress;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = null !== $this->privateIpAddress ? $this->privateIpAddress->toMap() : null;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = null !== $this->privateIpAddress ? $this->privateIpAddress->toMap() : null;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class vpcAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['NatIpAddress'])) {
             $model->natIpAddress = $map['NatIpAddress'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = privateIpAddress::fromMap($map['PrivateIpAddress']);
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = privateIpAddress::fromMap($map['PrivateIpAddress']);
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

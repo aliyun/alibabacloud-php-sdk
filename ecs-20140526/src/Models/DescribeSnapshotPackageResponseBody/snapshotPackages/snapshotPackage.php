@@ -19,19 +19,19 @@ class snapshotPackage extends Model
     public $endTime;
 
     /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var int
      */
     public $initCapacity;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'displayName'  => 'DisplayName',
         'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
         'initCapacity' => 'InitCapacity',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class snapshotPackage extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->initCapacity) {
             $res['InitCapacity'] = $this->initCapacity;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class snapshotPackage extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['InitCapacity'])) {
             $model->initCapacity = $map['InitCapacity'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

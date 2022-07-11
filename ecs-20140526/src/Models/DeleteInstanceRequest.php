@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -24,31 +39,16 @@ class DeleteInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var bool
-     */
-    public $force;
-
-    /**
      * @var bool
      */
     public $terminateSubscription;
     protected $_name = [
+        'force'                 => 'Force',
+        'instanceId'            => 'InstanceId',
+        'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'instanceId'            => 'InstanceId',
-        'ownerAccount'          => 'OwnerAccount',
-        'force'                 => 'Force',
         'terminateSubscription' => 'TerminateSubscription',
     ];
 
@@ -59,6 +59,15 @@ class DeleteInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -67,15 +76,6 @@ class DeleteInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->force) {
-            $res['Force'] = $this->force;
         }
         if (null !== $this->terminateSubscription) {
             $res['TerminateSubscription'] = $this->terminateSubscription;
@@ -92,6 +92,15 @@ class DeleteInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,15 +109,6 @@ class DeleteInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['Force'])) {
-            $model->force = $map['Force'];
         }
         if (isset($map['TerminateSubscription'])) {
             $model->terminateSubscription = $map['TerminateSubscription'];

@@ -14,9 +14,9 @@ class EipNotifyPaidResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $data;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class EipNotifyPaidResponseBody extends Model
     /**
      * @var string
      */
-    public $data;
+    public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $requestId;
+    public $success;
     protected $_name = [
         'code'      => 'code',
-        'success'   => 'success',
-        'message'   => 'message',
         'data'      => 'data',
+        'message'   => 'message',
         'requestId' => 'requestId',
+        'success'   => 'success',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class EipNotifyPaidResponseBody extends Model
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->data) {
+            $res['data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
-        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class EipNotifyPaidResponseBody extends Model
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['data'])) {
+            $model->data = $map['data'];
         }
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
-        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
         }
 
         return $model;

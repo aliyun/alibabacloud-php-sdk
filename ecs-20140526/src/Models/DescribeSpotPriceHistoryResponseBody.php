@@ -12,11 +12,6 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $currency;
 
     /**
@@ -25,13 +20,18 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public $nextOffset;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var spotPrices
      */
     public $spotPrices;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'currency'   => 'Currency',
         'nextOffset' => 'NextOffset',
+        'requestId'  => 'RequestId',
         'spotPrices' => 'SpotPrices',
     ];
 
@@ -42,14 +42,14 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
         if (null !== $this->nextOffset) {
             $res['NextOffset'] = $this->nextOffset;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->spotPrices) {
             $res['SpotPrices'] = null !== $this->spotPrices ? $this->spotPrices->toMap() : null;
@@ -66,14 +66,14 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
         if (isset($map['NextOffset'])) {
             $model->nextOffset = $map['NextOffset'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SpotPrices'])) {
             $model->spotPrices = spotPrices::fromMap($map['SpotPrices']);

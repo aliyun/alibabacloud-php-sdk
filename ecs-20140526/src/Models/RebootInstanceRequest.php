@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class RebootInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
+    public $forceStop;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,34 +42,14 @@ class RebootInstanceRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var bool
-     */
-    public $forceStop;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
     protected $_name = [
+        'dryRun'               => 'DryRun',
+        'forceStop'            => 'ForceStop',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'instanceId'           => 'InstanceId',
-        'forceStop'            => 'ForceStop',
-        'ownerAccount'         => 'OwnerAccount',
-        'dryRun'               => 'DryRun',
     ];
 
     public function validate()
@@ -59,6 +59,18 @@ class RebootInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->forceStop) {
+            $res['ForceStop'] = $this->forceStop;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -67,18 +79,6 @@ class RebootInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->forceStop) {
-            $res['ForceStop'] = $this->forceStop;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -92,6 +92,18 @@ class RebootInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ForceStop'])) {
+            $model->forceStop = $map['ForceStop'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,18 +112,6 @@ class RebootInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ForceStop'])) {
-            $model->forceStop = $map['ForceStop'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
         }
 
         return $model;

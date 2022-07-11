@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AssignPrivateIpAddressesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var assignedPrivateIpAddressesSet
      */
     public $assignedPrivateIpAddressesSet;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                     => 'RequestId',
         'assignedPrivateIpAddressesSet' => 'AssignedPrivateIpAddressesSet',
+        'requestId'                     => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class AssignPrivateIpAddressesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->assignedPrivateIpAddressesSet) {
             $res['AssignedPrivateIpAddressesSet'] = null !== $this->assignedPrivateIpAddressesSet ? $this->assignedPrivateIpAddressesSet->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class AssignPrivateIpAddressesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AssignedPrivateIpAddressesSet'])) {
             $model->assignedPrivateIpAddressesSet = assignedPrivateIpAddressesSet::fromMap($map['AssignedPrivateIpAddressesSet']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostTypesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var dedicatedHostTypes
      */
     public $dedicatedHostTypes;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
         'dedicatedHostTypes' => 'DedicatedHostTypes',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeDedicatedHostTypesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dedicatedHostTypes) {
             $res['DedicatedHostTypes'] = null !== $this->dedicatedHostTypes ? $this->dedicatedHostTypes->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeDedicatedHostTypesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DedicatedHostTypes'])) {
             $model->dedicatedHostTypes = dedicatedHostTypes::fromMap($map['DedicatedHostTypes']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

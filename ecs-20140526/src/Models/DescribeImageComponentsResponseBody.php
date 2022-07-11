@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageComponentsResponseBody extends Model
 {
     /**
+     * @var imageComponent
+     */
+    public $imageComponent;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -23,22 +33,12 @@ class DescribeImageComponentsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var imageComponent
-     */
-    public $imageComponent;
     protected $_name = [
+        'imageComponent' => 'ImageComponent',
+        'maxResults'     => 'MaxResults',
         'nextToken'      => 'NextToken',
         'requestId'      => 'RequestId',
         'totalCount'     => 'TotalCount',
-        'maxResults'     => 'MaxResults',
-        'imageComponent' => 'ImageComponent',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class DescribeImageComponentsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageComponent) {
+            $res['ImageComponent'] = null !== $this->imageComponent ? $this->imageComponent->toMap() : null;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -56,12 +62,6 @@ class DescribeImageComponentsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->imageComponent) {
-            $res['ImageComponent'] = null !== $this->imageComponent ? $this->imageComponent->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class DescribeImageComponentsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageComponent'])) {
+            $model->imageComponent = imageComponent::fromMap($map['ImageComponent']);
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -83,12 +89,6 @@ class DescribeImageComponentsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['ImageComponent'])) {
-            $model->imageComponent = imageComponent::fromMap($map['ImageComponent']);
         }
 
         return $model;

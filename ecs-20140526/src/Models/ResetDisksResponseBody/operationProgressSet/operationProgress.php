@@ -12,12 +12,12 @@ class operationProgress extends Model
     /**
      * @var string
      */
-    public $errorMsg;
+    public $errorCode;
 
     /**
      * @var string
      */
-    public $errorCode;
+    public $errorMsg;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class operationProgress extends Model
      */
     public $relatedItemSet;
     protected $_name = [
-        'errorMsg'        => 'ErrorMsg',
         'errorCode'       => 'ErrorCode',
+        'errorMsg'        => 'ErrorMsg',
         'operationStatus' => 'OperationStatus',
         'relatedItemSet'  => 'RelatedItemSet',
     ];
@@ -42,11 +42,11 @@ class operationProgress extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
         }
         if (null !== $this->operationStatus) {
             $res['OperationStatus'] = $this->operationStatus;
@@ -66,11 +66,11 @@ class operationProgress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
         }
         if (isset($map['OperationStatus'])) {
             $model->operationStatus = $map['OperationStatus'];

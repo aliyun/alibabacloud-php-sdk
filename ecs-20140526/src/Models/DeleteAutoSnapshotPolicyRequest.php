@@ -26,18 +26,18 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $autoSnapshotPolicyId;
 
     /**
      * @var string
      */
-    public $autoSnapshotPolicyId;
+    public $regionId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'regionId',
         'autoSnapshotPolicyId' => 'autoSnapshotPolicyId',
+        'regionId'             => 'regionId',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class DeleteAutoSnapshotPolicyRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->regionId) {
-            $res['regionId'] = $this->regionId;
-        }
         if (null !== $this->autoSnapshotPolicyId) {
             $res['autoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
+        }
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class DeleteAutoSnapshotPolicyRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['regionId'])) {
-            $model->regionId = $map['regionId'];
-        }
         if (isset($map['autoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['autoSnapshotPolicyId'];
+        }
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
 
         return $model;

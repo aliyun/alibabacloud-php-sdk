@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\commands;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\commands\command\parameterDefinitions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\commands\command\parameterNames;
 use AlibabaCloud\Tea\Model;
 
@@ -12,47 +13,7 @@ class command extends Model
     /**
      * @var string
      */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $timeout;
-
-    /**
-     * @var int
-     */
-    public $invokeTimes;
-
-    /**
-     * @var string
-     */
-    public $commandId;
-
-    /**
-     * @var string
-     */
-    public $workingDir;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $provider;
+    public $category;
 
     /**
      * @var string
@@ -62,7 +23,27 @@ class command extends Model
     /**
      * @var string
      */
-    public $category;
+    public $commandId;
+
+    /**
+     * @var string
+     */
+    public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var bool
+     */
+    public $enableParameter;
+
+    /**
+     * @var int
+     */
+    public $invokeTimes;
 
     /**
      * @var bool
@@ -75,30 +56,56 @@ class command extends Model
     public $name;
 
     /**
-     * @var bool
+     * @var parameterDefinitions
      */
-    public $enableParameter;
+    public $parameterDefinitions;
 
     /**
      * @var parameterNames
      */
     public $parameterNames;
+
+    /**
+     * @var string
+     */
+    public $provider;
+
+    /**
+     * @var int
+     */
+    public $timeout;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $version;
+
+    /**
+     * @var string
+     */
+    public $workingDir;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
-        'type'            => 'Type',
-        'timeout'         => 'Timeout',
-        'invokeTimes'     => 'InvokeTimes',
-        'commandId'       => 'CommandId',
-        'workingDir'      => 'WorkingDir',
-        'description'     => 'Description',
-        'version'         => 'Version',
-        'provider'        => 'Provider',
-        'commandContent'  => 'CommandContent',
-        'category'        => 'Category',
-        'latest'          => 'Latest',
-        'name'            => 'Name',
-        'enableParameter' => 'EnableParameter',
-        'parameterNames'  => 'ParameterNames',
+        'category'             => 'Category',
+        'commandContent'       => 'CommandContent',
+        'commandId'            => 'CommandId',
+        'creationTime'         => 'CreationTime',
+        'description'          => 'Description',
+        'enableParameter'      => 'EnableParameter',
+        'invokeTimes'          => 'InvokeTimes',
+        'latest'               => 'Latest',
+        'name'                 => 'Name',
+        'parameterDefinitions' => 'ParameterDefinitions',
+        'parameterNames'       => 'ParameterNames',
+        'provider'             => 'Provider',
+        'timeout'              => 'Timeout',
+        'type'                 => 'Type',
+        'version'              => 'Version',
+        'workingDir'           => 'WorkingDir',
     ];
 
     public function validate()
@@ -108,38 +115,26 @@ class command extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
-        }
-        if (null !== $this->invokeTimes) {
-            $res['InvokeTimes'] = $this->invokeTimes;
-        }
-        if (null !== $this->commandId) {
-            $res['CommandId'] = $this->commandId;
-        }
-        if (null !== $this->workingDir) {
-            $res['WorkingDir'] = $this->workingDir;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->provider) {
-            $res['Provider'] = $this->provider;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->commandId) {
+            $res['CommandId'] = $this->commandId;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableParameter) {
+            $res['EnableParameter'] = $this->enableParameter;
+        }
+        if (null !== $this->invokeTimes) {
+            $res['InvokeTimes'] = $this->invokeTimes;
         }
         if (null !== $this->latest) {
             $res['Latest'] = $this->latest;
@@ -147,11 +142,26 @@ class command extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->enableParameter) {
-            $res['EnableParameter'] = $this->enableParameter;
+        if (null !== $this->parameterDefinitions) {
+            $res['ParameterDefinitions'] = null !== $this->parameterDefinitions ? $this->parameterDefinitions->toMap() : null;
         }
         if (null !== $this->parameterNames) {
             $res['ParameterNames'] = null !== $this->parameterNames ? $this->parameterNames->toMap() : null;
+        }
+        if (null !== $this->provider) {
+            $res['Provider'] = $this->provider;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+        if (null !== $this->workingDir) {
+            $res['WorkingDir'] = $this->workingDir;
         }
 
         return $res;
@@ -165,38 +175,26 @@ class command extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
-        }
-        if (isset($map['InvokeTimes'])) {
-            $model->invokeTimes = $map['InvokeTimes'];
-        }
-        if (isset($map['CommandId'])) {
-            $model->commandId = $map['CommandId'];
-        }
-        if (isset($map['WorkingDir'])) {
-            $model->workingDir = $map['WorkingDir'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['Provider'])) {
-            $model->provider = $map['Provider'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['CommandId'])) {
+            $model->commandId = $map['CommandId'];
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EnableParameter'])) {
+            $model->enableParameter = $map['EnableParameter'];
+        }
+        if (isset($map['InvokeTimes'])) {
+            $model->invokeTimes = $map['InvokeTimes'];
         }
         if (isset($map['Latest'])) {
             $model->latest = $map['Latest'];
@@ -204,11 +202,26 @@ class command extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['EnableParameter'])) {
-            $model->enableParameter = $map['EnableParameter'];
+        if (isset($map['ParameterDefinitions'])) {
+            $model->parameterDefinitions = parameterDefinitions::fromMap($map['ParameterDefinitions']);
         }
         if (isset($map['ParameterNames'])) {
             $model->parameterNames = parameterNames::fromMap($map['ParameterNames']);
+        }
+        if (isset($map['Provider'])) {
+            $model->provider = $map['Provider'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
+        }
+        if (isset($map['WorkingDir'])) {
+            $model->workingDir = $map['WorkingDir'];
         }
 
         return $model;

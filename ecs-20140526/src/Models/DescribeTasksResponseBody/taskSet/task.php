@@ -16,11 +16,6 @@ class task extends Model
     /**
      * @var string
      */
-    public $taskStatus;
-
-    /**
-     * @var string
-     */
     public $finishedTime;
 
     /**
@@ -31,19 +26,24 @@ class task extends Model
     /**
      * @var string
      */
+    public $taskAction;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
      * @var string
      */
-    public $taskAction;
+    public $taskStatus;
     protected $_name = [
         'creationTime'  => 'CreationTime',
-        'taskStatus'    => 'TaskStatus',
         'finishedTime'  => 'FinishedTime',
         'supportCancel' => 'SupportCancel',
-        'taskId'        => 'TaskId',
         'taskAction'    => 'TaskAction',
+        'taskId'        => 'TaskId',
+        'taskStatus'    => 'TaskStatus',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class task extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
         if (null !== $this->finishedTime) {
             $res['FinishedTime'] = $this->finishedTime;
         }
         if (null !== $this->supportCancel) {
             $res['SupportCancel'] = $this->supportCancel;
         }
+        if (null !== $this->taskAction) {
+            $res['TaskAction'] = $this->taskAction;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->taskAction) {
-            $res['TaskAction'] = $this->taskAction;
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class task extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
         if (isset($map['FinishedTime'])) {
             $model->finishedTime = $map['FinishedTime'];
         }
         if (isset($map['SupportCancel'])) {
             $model->supportCancel = $map['SupportCancel'];
         }
+        if (isset($map['TaskAction'])) {
+            $model->taskAction = $map['TaskAction'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['TaskAction'])) {
-            $model->taskAction = $map['TaskAction'];
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;

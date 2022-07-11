@@ -11,21 +11,21 @@ class CreateDedicatedBlockStorageClusterResponseBody extends Model
     /**
      * @var string
      */
+    public $dedicatedBlockStorageClusterId;
+
+    /**
+     * @var string
+     */
     public $dedicatedBlockStorageClusterOrderId;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $dedicatedBlockStorageClusterId;
     protected $_name = [
+        'dedicatedBlockStorageClusterId'      => 'DedicatedBlockStorageClusterId',
         'dedicatedBlockStorageClusterOrderId' => 'DedicatedBlockStorageClusterOrderId',
         'requestId'                           => 'RequestId',
-        'dedicatedBlockStorageClusterId'      => 'DedicatedBlockStorageClusterId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateDedicatedBlockStorageClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicatedBlockStorageClusterId) {
+            $res['DedicatedBlockStorageClusterId'] = $this->dedicatedBlockStorageClusterId;
+        }
         if (null !== $this->dedicatedBlockStorageClusterOrderId) {
             $res['DedicatedBlockStorageClusterOrderId'] = $this->dedicatedBlockStorageClusterOrderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->dedicatedBlockStorageClusterId) {
-            $res['DedicatedBlockStorageClusterId'] = $this->dedicatedBlockStorageClusterId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateDedicatedBlockStorageClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicatedBlockStorageClusterId'])) {
+            $model->dedicatedBlockStorageClusterId = $map['DedicatedBlockStorageClusterId'];
+        }
         if (isset($map['DedicatedBlockStorageClusterOrderId'])) {
             $model->dedicatedBlockStorageClusterOrderId = $map['DedicatedBlockStorageClusterOrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DedicatedBlockStorageClusterId'])) {
-            $model->dedicatedBlockStorageClusterId = $map['DedicatedBlockStorageClusterId'];
         }
 
         return $model;

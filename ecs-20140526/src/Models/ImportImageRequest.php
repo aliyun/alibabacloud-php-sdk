@@ -11,9 +11,64 @@ use AlibabaCloud\Tea\Model;
 class ImportImageRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $architecture;
+
+    /**
+     * @var string
+     */
+    public $bootMode;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $detectionStrategy;
+
+    /**
+     * @var diskDeviceMapping[]
+     */
+    public $diskDeviceMapping;
+
+    /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
+     * @var string
+     */
+    public $licenseType;
+
+    /**
+     * @var string
+     */
+    public $OSType;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $platform;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -28,77 +83,28 @@ class ImportImageRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $imageName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $architecture;
-
-    /**
-     * @var string
-     */
-    public $OSType;
-
-    /**
-     * @var string
-     */
-    public $platform;
-
-    /**
-     * @var string
-     */
-    public $bootMode;
-
-    /**
-     * @var string
-     */
     public $roleName;
-
-    /**
-     * @var string
-     */
-    public $licenseType;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var diskDeviceMapping[]
-     */
-    public $diskDeviceMapping;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
+        'architecture'         => 'Architecture',
+        'bootMode'             => 'BootMode',
+        'description'          => 'Description',
+        'detectionStrategy'    => 'DetectionStrategy',
+        'diskDeviceMapping'    => 'DiskDeviceMapping',
+        'imageName'            => 'ImageName',
+        'licenseType'          => 'LicenseType',
+        'OSType'               => 'OSType',
         'ownerId'              => 'OwnerId',
+        'platform'             => 'Platform',
+        'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'imageName'            => 'ImageName',
-        'description'          => 'Description',
-        'architecture'         => 'Architecture',
-        'OSType'               => 'OSType',
-        'platform'             => 'Platform',
-        'bootMode'             => 'BootMode',
         'roleName'             => 'RoleName',
-        'licenseType'          => 'LicenseType',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'diskDeviceMapping'    => 'DiskDeviceMapping',
         'tag'                  => 'Tag',
     ];
 
@@ -109,44 +115,17 @@ class ImportImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->imageName) {
-            $res['ImageName'] = $this->imageName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
-        }
-        if (null !== $this->OSType) {
-            $res['OSType'] = $this->OSType;
-        }
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
         }
         if (null !== $this->bootMode) {
             $res['BootMode'] = $this->bootMode;
         }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->licenseType) {
-            $res['LicenseType'] = $this->licenseType;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->detectionStrategy) {
+            $res['DetectionStrategy'] = $this->detectionStrategy;
         }
         if (null !== $this->diskDeviceMapping) {
             $res['DiskDeviceMapping'] = [];
@@ -156,6 +135,36 @@ class ImportImageRequest extends Model
                     $res['DiskDeviceMapping'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
+        }
+        if (null !== $this->licenseType) {
+            $res['LicenseType'] = $this->licenseType;
+        }
+        if (null !== $this->OSType) {
+            $res['OSType'] = $this->OSType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -178,44 +187,17 @@ class ImportImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ImageName'])) {
-            $model->imageName = $map['ImageName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
-        }
-        if (isset($map['OSType'])) {
-            $model->OSType = $map['OSType'];
-        }
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
         }
         if (isset($map['BootMode'])) {
             $model->bootMode = $map['BootMode'];
         }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['LicenseType'])) {
-            $model->licenseType = $map['LicenseType'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['DetectionStrategy'])) {
+            $model->detectionStrategy = $map['DetectionStrategy'];
         }
         if (isset($map['DiskDeviceMapping'])) {
             if (!empty($map['DiskDeviceMapping'])) {
@@ -225,6 +207,36 @@ class ImportImageRequest extends Model
                     $model->diskDeviceMapping[$n++] = null !== $item ? diskDeviceMapping::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
+        }
+        if (isset($map['LicenseType'])) {
+            $model->licenseType = $map['LicenseType'];
+        }
+        if (isset($map['OSType'])) {
+            $model->OSType = $map['OSType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

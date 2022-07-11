@@ -11,12 +11,7 @@ class CreateKeyPairResponseBody extends Model
     /**
      * @var string
      */
-    public $privateKeyBody;
-
-    /**
-     * @var string
-     */
-    public $keyPairName;
+    public $keyPairFingerPrint;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class CreateKeyPairResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $keyPairName;
 
     /**
      * @var string
      */
-    public $keyPairFingerPrint;
+    public $privateKeyBody;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'privateKeyBody'     => 'PrivateKeyBody',
-        'keyPairName'        => 'KeyPairName',
-        'keyPairId'          => 'KeyPairId',
-        'requestId'          => 'RequestId',
         'keyPairFingerPrint' => 'KeyPairFingerPrint',
+        'keyPairId'          => 'KeyPairId',
+        'keyPairName'        => 'KeyPairName',
+        'privateKeyBody'     => 'PrivateKeyBody',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateKeyPairResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->privateKeyBody) {
-            $res['PrivateKeyBody'] = $this->privateKeyBody;
-        }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
+        if (null !== $this->keyPairFingerPrint) {
+            $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
         }
         if (null !== $this->keyPairId) {
             $res['KeyPairId'] = $this->keyPairId;
         }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->privateKeyBody) {
+            $res['PrivateKeyBody'] = $this->privateKeyBody;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->keyPairFingerPrint) {
-            $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateKeyPairResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrivateKeyBody'])) {
-            $model->privateKeyBody = $map['PrivateKeyBody'];
-        }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
+        if (isset($map['KeyPairFingerPrint'])) {
+            $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
         }
         if (isset($map['KeyPairId'])) {
             $model->keyPairId = $map['KeyPairId'];
         }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['PrivateKeyBody'])) {
+            $model->privateKeyBody = $map['PrivateKeyBody'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['KeyPairFingerPrint'])) {
-            $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
         }
 
         return $model;

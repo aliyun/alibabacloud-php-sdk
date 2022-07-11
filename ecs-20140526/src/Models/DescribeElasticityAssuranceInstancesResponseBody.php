@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticityAssuranceInstancesResponseBody extends Model
 {
     /**
+     * @var elasticityAssuranceItem
+     */
+    public $elasticityAssuranceItem;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -23,22 +33,12 @@ class DescribeElasticityAssuranceInstancesResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var elasticityAssuranceItem
-     */
-    public $elasticityAssuranceItem;
     protected $_name = [
+        'elasticityAssuranceItem' => 'ElasticityAssuranceItem',
+        'maxResults'              => 'MaxResults',
         'nextToken'               => 'NextToken',
         'requestId'               => 'RequestId',
         'totalCount'              => 'TotalCount',
-        'maxResults'              => 'MaxResults',
-        'elasticityAssuranceItem' => 'ElasticityAssuranceItem',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class DescribeElasticityAssuranceInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->elasticityAssuranceItem) {
+            $res['ElasticityAssuranceItem'] = null !== $this->elasticityAssuranceItem ? $this->elasticityAssuranceItem->toMap() : null;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -56,12 +62,6 @@ class DescribeElasticityAssuranceInstancesResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->elasticityAssuranceItem) {
-            $res['ElasticityAssuranceItem'] = null !== $this->elasticityAssuranceItem ? $this->elasticityAssuranceItem->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class DescribeElasticityAssuranceInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ElasticityAssuranceItem'])) {
+            $model->elasticityAssuranceItem = elasticityAssuranceItem::fromMap($map['ElasticityAssuranceItem']);
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -83,12 +89,6 @@ class DescribeElasticityAssuranceInstancesResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['ElasticityAssuranceItem'])) {
-            $model->elasticityAssuranceItem = elasticityAssuranceItem::fromMap($map['ElasticityAssuranceItem']);
         }
 
         return $model;

@@ -11,9 +11,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSharePermissionResponseBody extends Model
 {
     /**
+     * @var accounts
+     */
+    public $accounts;
+
+    /**
      * @var string
      */
-    public $requestId;
+    public $imageId;
 
     /**
      * @var int
@@ -26,19 +31,14 @@ class DescribeImageSharePermissionResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $imageId;
-
-    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var shareGroups
@@ -46,18 +46,18 @@ class DescribeImageSharePermissionResponseBody extends Model
     public $shareGroups;
 
     /**
-     * @var accounts
+     * @var int
      */
-    public $accounts;
+    public $totalCount;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'accounts'    => 'Accounts',
+        'imageId'     => 'ImageId',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
-        'imageId'     => 'ImageId',
         'regionId'    => 'RegionId',
+        'requestId'   => 'RequestId',
         'shareGroups' => 'ShareGroups',
-        'accounts'    => 'Accounts',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -67,8 +67,11 @@ class DescribeImageSharePermissionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->accounts) {
+            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -76,20 +79,17 @@ class DescribeImageSharePermissionResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->shareGroups) {
             $res['ShareGroups'] = null !== $this->shareGroups ? $this->shareGroups->toMap() : null;
         }
-        if (null !== $this->accounts) {
-            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -103,8 +103,11 @@ class DescribeImageSharePermissionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Accounts'])) {
+            $model->accounts = accounts::fromMap($map['Accounts']);
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -112,20 +115,17 @@ class DescribeImageSharePermissionResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ShareGroups'])) {
             $model->shareGroups = shareGroups::fromMap($map['ShareGroups']);
         }
-        if (isset($map['Accounts'])) {
-            $model->accounts = accounts::fromMap($map['Accounts']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

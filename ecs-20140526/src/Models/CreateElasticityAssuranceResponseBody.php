@@ -11,7 +11,7 @@ class CreateElasticityAssuranceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $orderId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CreateElasticityAssuranceResponseBody extends Model
     /**
      * @var string
      */
-    public $orderId;
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'privatePoolOptionsId' => 'PrivatePoolOptionsId',
         'orderId'              => 'OrderId',
+        'privatePoolOptionsId' => 'PrivatePoolOptionsId',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateElasticityAssuranceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->privatePoolOptionsId) {
             $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateElasticityAssuranceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['PrivatePoolOptionsId'])) {
             $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

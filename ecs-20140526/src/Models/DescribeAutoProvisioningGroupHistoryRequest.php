@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupHistoryRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $autoProvisioningGroupId;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $endTime;
 
     /**
      * @var string
@@ -29,9 +24,9 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $ownerId;
 
     /**
      * @var int
@@ -46,28 +41,33 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
     /**
      * @var string
      */
-    public $autoProvisioningGroupId;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
     protected $_name = [
-        'ownerId'                 => 'OwnerId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'autoProvisioningGroupId' => 'AutoProvisioningGroupId',
+        'endTime'                 => 'EndTime',
         'ownerAccount'            => 'OwnerAccount',
-        'regionId'                => 'RegionId',
+        'ownerId'                 => 'OwnerId',
         'pageNumber'              => 'PageNumber',
         'pageSize'                => 'PageSize',
-        'autoProvisioningGroupId' => 'AutoProvisioningGroupId',
+        'regionId'                => 'RegionId',
+        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
+        'resourceOwnerId'         => 'ResourceOwnerId',
         'startTime'               => 'StartTime',
-        'endTime'                 => 'EndTime',
     ];
 
     public function validate()
@@ -77,20 +77,17 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->autoProvisioningGroupId) {
+            $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -98,14 +95,17 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->autoProvisioningGroupId) {
-            $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -119,20 +119,17 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AutoProvisioningGroupId'])) {
+            $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -140,14 +137,17 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['AutoProvisioningGroupId'])) {
-            $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

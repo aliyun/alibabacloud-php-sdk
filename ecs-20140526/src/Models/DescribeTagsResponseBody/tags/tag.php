@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @var string
+     * @var resourceTypeCount
      */
-    public $tagValue;
+    public $resourceTypeCount;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @var resourceTypeCount
+     * @var string
      */
-    public $resourceTypeCount;
+    public $tagValue;
     protected $_name = [
-        'tagValue'          => 'TagValue',
-        'tagKey'            => 'TagKey',
         'resourceTypeCount' => 'ResourceTypeCount',
+        'tagKey'            => 'TagKey',
+        'tagValue'          => 'TagValue',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class tag extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
+        if (null !== $this->resourceTypeCount) {
+            $res['ResourceTypeCount'] = null !== $this->resourceTypeCount ? $this->resourceTypeCount->toMap() : null;
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
-        if (null !== $this->resourceTypeCount) {
-            $res['ResourceTypeCount'] = null !== $this->resourceTypeCount ? $this->resourceTypeCount->toMap() : null;
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class tag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
+        if (isset($map['ResourceTypeCount'])) {
+            $model->resourceTypeCount = resourceTypeCount::fromMap($map['ResourceTypeCount']);
         }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
-        if (isset($map['ResourceTypeCount'])) {
-            $model->resourceTypeCount = resourceTypeCount::fromMap($map['ResourceTypeCount']);
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
 
         return $model;

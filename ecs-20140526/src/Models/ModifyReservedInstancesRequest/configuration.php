@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class configuration extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $reservedInstanceName;
+    public $instanceAmount;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $reservedInstanceName;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class configuration extends Model
     /**
      * @var string
      */
-    public $instanceType;
-
-    /**
-     * @var int
-     */
-    public $instanceAmount;
+    public $zoneId;
     protected $_name = [
-        'reservedInstanceName' => 'ReservedInstanceName',
-        'zoneId'               => 'ZoneId',
-        'scope'                => 'Scope',
-        'instanceType'         => 'InstanceType',
         'instanceAmount'       => 'InstanceAmount',
+        'instanceType'         => 'InstanceType',
+        'reservedInstanceName' => 'ReservedInstanceName',
+        'scope'                => 'Scope',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class configuration extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reservedInstanceName) {
-            $res['ReservedInstanceName'] = $this->reservedInstanceName;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->scope) {
-            $res['Scope'] = $this->scope;
+        if (null !== $this->instanceAmount) {
+            $res['InstanceAmount'] = $this->instanceAmount;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->instanceAmount) {
-            $res['InstanceAmount'] = $this->instanceAmount;
+        if (null !== $this->reservedInstanceName) {
+            $res['ReservedInstanceName'] = $this->reservedInstanceName;
+        }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class configuration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReservedInstanceName'])) {
-            $model->reservedInstanceName = $map['ReservedInstanceName'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['Scope'])) {
-            $model->scope = $map['Scope'];
+        if (isset($map['InstanceAmount'])) {
+            $model->instanceAmount = $map['InstanceAmount'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['InstanceAmount'])) {
-            $model->instanceAmount = $map['InstanceAmount'];
+        if (isset($map['ReservedInstanceName'])) {
+            $model->reservedInstanceName = $map['ReservedInstanceName'];
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

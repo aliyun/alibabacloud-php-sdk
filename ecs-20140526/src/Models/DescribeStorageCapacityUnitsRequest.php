@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageCapacityUnitsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $allocationType;
+
+    /**
      * @var int
      */
-    public $ownerId;
+    public $capacity;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $name;
 
     /**
      * @var string
@@ -30,9 +30,9 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $ownerId;
 
     /**
      * @var int
@@ -47,22 +47,17 @@ class DescribeStorageCapacityUnitsRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $capacity;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $allocationType;
+    public $resourceOwnerAccount;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $storageCapacityUnitId;
+    public $resourceOwnerId;
 
     /**
      * @var string[]
@@ -70,22 +65,27 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public $status;
 
     /**
+     * @var string[]
+     */
+    public $storageCapacityUnitId;
+
+    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'allocationType'        => 'AllocationType',
+        'capacity'              => 'Capacity',
+        'name'                  => 'Name',
         'ownerAccount'          => 'OwnerAccount',
-        'regionId'              => 'RegionId',
+        'ownerId'               => 'OwnerId',
         'pageNumber'            => 'PageNumber',
         'pageSize'              => 'PageSize',
-        'name'                  => 'Name',
-        'capacity'              => 'Capacity',
-        'allocationType'        => 'AllocationType',
-        'storageCapacityUnitId' => 'StorageCapacityUnitId',
+        'regionId'              => 'RegionId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
         'status'                => 'Status',
+        'storageCapacityUnitId' => 'StorageCapacityUnitId',
         'tag'                   => 'Tag',
     ];
 
@@ -96,20 +96,20 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->allocationType) {
+            $res['AllocationType'] = $this->allocationType;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->capacity) {
+            $res['Capacity'] = $this->capacity;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -117,20 +117,20 @@ class DescribeStorageCapacityUnitsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->capacity) {
-            $res['Capacity'] = $this->capacity;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->allocationType) {
-            $res['AllocationType'] = $this->allocationType;
-        }
-        if (null !== $this->storageCapacityUnitId) {
-            $res['StorageCapacityUnitId'] = $this->storageCapacityUnitId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageCapacityUnitId) {
+            $res['StorageCapacityUnitId'] = $this->storageCapacityUnitId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -153,20 +153,20 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AllocationType'])) {
+            $model->allocationType = $map['AllocationType'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['Capacity'])) {
+            $model->capacity = $map['Capacity'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -174,23 +174,23 @@ class DescribeStorageCapacityUnitsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Capacity'])) {
-            $model->capacity = $map['Capacity'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['AllocationType'])) {
-            $model->allocationType = $map['AllocationType'];
-        }
-        if (isset($map['StorageCapacityUnitId'])) {
-            if (!empty($map['StorageCapacityUnitId'])) {
-                $model->storageCapacityUnitId = $map['StorageCapacityUnitId'];
-            }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = $map['Status'];
+            }
+        }
+        if (isset($map['StorageCapacityUnitId'])) {
+            if (!empty($map['StorageCapacityUnitId'])) {
+                $model->storageCapacityUnitId = $map['StorageCapacityUnitId'];
             }
         }
         if (isset($map['Tag'])) {

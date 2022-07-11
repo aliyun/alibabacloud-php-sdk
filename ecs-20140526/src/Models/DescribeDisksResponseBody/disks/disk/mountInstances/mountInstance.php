@@ -16,16 +16,16 @@ class mountInstance extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $device;
 
     /**
      * @var string
      */
-    public $device;
+    public $instanceId;
     protected $_name = [
         'attachedTime' => 'AttachedTime',
-        'instanceId'   => 'InstanceId',
         'device'       => 'Device',
+        'instanceId'   => 'InstanceId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class mountInstance extends Model
         if (null !== $this->attachedTime) {
             $res['AttachedTime'] = $this->attachedTime;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->device) {
             $res['Device'] = $this->device;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class mountInstance extends Model
         if (isset($map['AttachedTime'])) {
             $model->attachedTime = $map['AttachedTime'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

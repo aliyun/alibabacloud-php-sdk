@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class localStorageCapacity extends Model
 {
     /**
+     * @var int
+     */
+    public $availableDisk;
+
+    /**
      * @var string
      */
     public $dataDiskCategory;
@@ -16,15 +21,10 @@ class localStorageCapacity extends Model
     /**
      * @var int
      */
-    public $availableDisk;
-
-    /**
-     * @var int
-     */
     public $totalDisk;
     protected $_name = [
-        'dataDiskCategory' => 'DataDiskCategory',
         'availableDisk'    => 'AvailableDisk',
+        'dataDiskCategory' => 'DataDiskCategory',
         'totalDisk'        => 'TotalDisk',
     ];
 
@@ -35,11 +35,11 @@ class localStorageCapacity extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataDiskCategory) {
-            $res['DataDiskCategory'] = $this->dataDiskCategory;
-        }
         if (null !== $this->availableDisk) {
             $res['AvailableDisk'] = $this->availableDisk;
+        }
+        if (null !== $this->dataDiskCategory) {
+            $res['DataDiskCategory'] = $this->dataDiskCategory;
         }
         if (null !== $this->totalDisk) {
             $res['TotalDisk'] = $this->totalDisk;
@@ -56,11 +56,11 @@ class localStorageCapacity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataDiskCategory'])) {
-            $model->dataDiskCategory = $map['DataDiskCategory'];
-        }
         if (isset($map['AvailableDisk'])) {
             $model->availableDisk = $map['AvailableDisk'];
+        }
+        if (isset($map['DataDiskCategory'])) {
+            $model->dataDiskCategory = $map['DataDiskCategory'];
         }
         if (isset($map['TotalDisk'])) {
             $model->totalDisk = $map['TotalDisk'];

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkInterfacePermissionResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var networkInterfacePermission
      */
     public $networkInterfacePermission;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                  => 'RequestId',
         'networkInterfacePermission' => 'NetworkInterfacePermission',
+        'requestId'                  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class CreateNetworkInterfacePermissionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->networkInterfacePermission) {
             $res['NetworkInterfacePermission'] = null !== $this->networkInterfacePermission ? $this->networkInterfacePermission->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class CreateNetworkInterfacePermissionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NetworkInterfacePermission'])) {
             $model->networkInterfacePermission = networkInterfacePermission::fromMap($map['NetworkInterfacePermission']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

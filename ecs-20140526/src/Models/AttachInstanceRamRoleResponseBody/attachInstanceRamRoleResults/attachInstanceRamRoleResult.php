@@ -16,12 +16,12 @@ class attachInstanceRamRoleResult extends Model
     /**
      * @var string
      */
-    public $message;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $message;
 
     /**
      * @var bool
@@ -29,8 +29,8 @@ class attachInstanceRamRoleResult extends Model
     public $success;
     protected $_name = [
         'code'       => 'Code',
-        'message'    => 'Message',
         'instanceId' => 'InstanceId',
+        'message'    => 'Message',
         'success'    => 'Success',
     ];
 
@@ -44,11 +44,11 @@ class attachInstanceRamRoleResult extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -68,11 +68,11 @@ class attachInstanceRamRoleResult extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

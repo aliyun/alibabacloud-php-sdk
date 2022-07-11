@@ -11,15 +11,15 @@ class CreateStorageSetResponseBody extends Model
     /**
      * @var string
      */
-    public $storageSetId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $storageSetId;
     protected $_name = [
-        'storageSetId' => 'StorageSetId',
         'requestId'    => 'RequestId',
+        'storageSetId' => 'StorageSetId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateStorageSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->storageSetId) {
-            $res['StorageSetId'] = $this->storageSetId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->storageSetId) {
+            $res['StorageSetId'] = $this->storageSetId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateStorageSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StorageSetId'])) {
-            $model->storageSetId = $map['StorageSetId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StorageSetId'])) {
+            $model->storageSetId = $map['StorageSetId'];
         }
 
         return $model;

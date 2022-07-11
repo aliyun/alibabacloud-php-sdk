@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var string
      */
     public $category;
-
-    /**
-     * @var string
-     */
-    public $diskName;
 
     /**
      * @var string
@@ -31,13 +21,29 @@ class systemDisk extends Model
     /**
      * @var string
      */
+    public $diskName;
+
+    /**
+     * @var string
+     */
     public $performanceLevel;
+
+    /**
+     * @var int
+     */
+    public $size;
+
+    /**
+     * @var string
+     */
+    public $storageClusterId;
     protected $_name = [
-        'size'             => 'Size',
         'category'         => 'Category',
-        'diskName'         => 'DiskName',
         'description'      => 'Description',
+        'diskName'         => 'DiskName',
         'performanceLevel' => 'PerformanceLevel',
+        'size'             => 'Size',
+        'storageClusterId' => 'StorageClusterId',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class systemDisk extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
-        }
-        if (null !== $this->diskName) {
-            $res['DiskName'] = $this->diskName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->diskName) {
+            $res['DiskName'] = $this->diskName;
+        }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
+        }
+        if (null !== $this->storageClusterId) {
+            $res['StorageClusterId'] = $this->storageClusterId;
         }
 
         return $res;
@@ -74,20 +83,23 @@ class systemDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
-        }
-        if (isset($map['DiskName'])) {
-            $model->diskName = $map['DiskName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DiskName'])) {
+            $model->diskName = $map['DiskName'];
+        }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
+        if (isset($map['StorageClusterId'])) {
+            $model->storageClusterId = $map['StorageClusterId'];
         }
 
         return $model;

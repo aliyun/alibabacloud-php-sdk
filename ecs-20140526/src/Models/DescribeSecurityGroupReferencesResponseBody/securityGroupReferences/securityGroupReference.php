@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class securityGroupReference extends Model
 {
     /**
-     * @var string
-     */
-    public $securityGroupId;
-
-    /**
      * @var referencingSecurityGroups
      */
     public $referencingSecurityGroups;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
     protected $_name = [
-        'securityGroupId'           => 'SecurityGroupId',
         'referencingSecurityGroups' => 'ReferencingSecurityGroups',
+        'securityGroupId'           => 'SecurityGroupId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class securityGroupReference extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
         if (null !== $this->referencingSecurityGroups) {
             $res['ReferencingSecurityGroups'] = null !== $this->referencingSecurityGroups ? $this->referencingSecurityGroups->toMap() : null;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class securityGroupReference extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
         if (isset($map['ReferencingSecurityGroups'])) {
             $model->referencingSecurityGroups = referencingSecurityGroups::fromMap($map['ReferencingSecurityGroups']);
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         return $model;

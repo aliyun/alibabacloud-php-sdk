@@ -16,17 +16,12 @@ class RenewInstanceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $expectedRenewDay;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $instanceId;
 
     /**
      * @var string
@@ -34,9 +29,9 @@ class RenewInstanceRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
+    public $ownerId;
 
     /**
      * @var int
@@ -49,19 +44,24 @@ class RenewInstanceRequest extends Model
     public $periodUnit;
 
     /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
      * @var int
      */
-    public $expectedRenewDay;
+    public $resourceOwnerId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'expectedRenewDay'     => 'ExpectedRenewDay',
         'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'period'               => 'Period',
         'periodUnit'           => 'PeriodUnit',
-        'expectedRenewDay'     => 'ExpectedRenewDay',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -74,20 +74,17 @@ class RenewInstanceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->expectedRenewDay) {
+            $res['ExpectedRenewDay'] = $this->expectedRenewDay;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -95,8 +92,11 @@ class RenewInstanceRequest extends Model
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
-        if (null !== $this->expectedRenewDay) {
-            $res['ExpectedRenewDay'] = $this->expectedRenewDay;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -113,20 +113,17 @@ class RenewInstanceRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ExpectedRenewDay'])) {
+            $model->expectedRenewDay = $map['ExpectedRenewDay'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
@@ -134,8 +131,11 @@ class RenewInstanceRequest extends Model
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
-        if (isset($map['ExpectedRenewDay'])) {
-            $model->expectedRenewDay = $map['ExpectedRenewDay'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

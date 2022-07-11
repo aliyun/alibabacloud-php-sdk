@@ -11,15 +11,15 @@ class networkAttributes extends Model
     /**
      * @var int
      */
-    public $udpTimeout;
+    public $slbUdpTimeout;
 
     /**
      * @var int
      */
-    public $slbUdpTimeout;
+    public $udpTimeout;
     protected $_name = [
-        'udpTimeout'    => 'UdpTimeout',
         'slbUdpTimeout' => 'SlbUdpTimeout',
+        'udpTimeout'    => 'UdpTimeout',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class networkAttributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->udpTimeout) {
-            $res['UdpTimeout'] = $this->udpTimeout;
-        }
         if (null !== $this->slbUdpTimeout) {
             $res['SlbUdpTimeout'] = $this->slbUdpTimeout;
+        }
+        if (null !== $this->udpTimeout) {
+            $res['UdpTimeout'] = $this->udpTimeout;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class networkAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UdpTimeout'])) {
-            $model->udpTimeout = $map['UdpTimeout'];
-        }
         if (isset($map['SlbUdpTimeout'])) {
             $model->slbUdpTimeout = $map['SlbUdpTimeout'];
+        }
+        if (isset($map['UdpTimeout'])) {
+            $model->udpTimeout = $map['UdpTimeout'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instanceCloudAssistantStatus extends Model
 {
     /**
+     * @var int
+     */
+    public $activeTaskCount;
+
+    /**
      * @var string
      */
     public $cloudAssistantStatus;
@@ -16,17 +21,12 @@ class instanceCloudAssistantStatus extends Model
     /**
      * @var string
      */
-    public $lastInvokedTime;
+    public $cloudAssistantVersion;
 
     /**
      * @var string
      */
-    public $cloudAssistantVersion;
-
-    /**
-     * @var int
-     */
-    public $activeTaskCount;
+    public $instanceId;
 
     /**
      * @var int
@@ -36,12 +36,12 @@ class instanceCloudAssistantStatus extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $lastHeartbeatTime;
 
     /**
      * @var string
      */
-    public $lastHeartbeatTime;
+    public $lastInvokedTime;
 
     /**
      * @var string
@@ -53,13 +53,13 @@ class instanceCloudAssistantStatus extends Model
      */
     public $supportSessionManager;
     protected $_name = [
-        'cloudAssistantStatus'  => 'CloudAssistantStatus',
-        'lastInvokedTime'       => 'LastInvokedTime',
-        'cloudAssistantVersion' => 'CloudAssistantVersion',
         'activeTaskCount'       => 'ActiveTaskCount',
-        'invocationCount'       => 'InvocationCount',
+        'cloudAssistantStatus'  => 'CloudAssistantStatus',
+        'cloudAssistantVersion' => 'CloudAssistantVersion',
         'instanceId'            => 'InstanceId',
+        'invocationCount'       => 'InvocationCount',
         'lastHeartbeatTime'     => 'LastHeartbeatTime',
+        'lastInvokedTime'       => 'LastInvokedTime',
         'OSType'                => 'OSType',
         'supportSessionManager' => 'SupportSessionManager',
     ];
@@ -71,26 +71,26 @@ class instanceCloudAssistantStatus extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activeTaskCount) {
+            $res['ActiveTaskCount'] = $this->activeTaskCount;
+        }
         if (null !== $this->cloudAssistantStatus) {
             $res['CloudAssistantStatus'] = $this->cloudAssistantStatus;
-        }
-        if (null !== $this->lastInvokedTime) {
-            $res['LastInvokedTime'] = $this->lastInvokedTime;
         }
         if (null !== $this->cloudAssistantVersion) {
             $res['CloudAssistantVersion'] = $this->cloudAssistantVersion;
         }
-        if (null !== $this->activeTaskCount) {
-            $res['ActiveTaskCount'] = $this->activeTaskCount;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->invocationCount) {
             $res['InvocationCount'] = $this->invocationCount;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->lastHeartbeatTime) {
             $res['LastHeartbeatTime'] = $this->lastHeartbeatTime;
+        }
+        if (null !== $this->lastInvokedTime) {
+            $res['LastInvokedTime'] = $this->lastInvokedTime;
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
@@ -110,26 +110,26 @@ class instanceCloudAssistantStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActiveTaskCount'])) {
+            $model->activeTaskCount = $map['ActiveTaskCount'];
+        }
         if (isset($map['CloudAssistantStatus'])) {
             $model->cloudAssistantStatus = $map['CloudAssistantStatus'];
-        }
-        if (isset($map['LastInvokedTime'])) {
-            $model->lastInvokedTime = $map['LastInvokedTime'];
         }
         if (isset($map['CloudAssistantVersion'])) {
             $model->cloudAssistantVersion = $map['CloudAssistantVersion'];
         }
-        if (isset($map['ActiveTaskCount'])) {
-            $model->activeTaskCount = $map['ActiveTaskCount'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InvocationCount'])) {
             $model->invocationCount = $map['InvocationCount'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['LastHeartbeatTime'])) {
             $model->lastHeartbeatTime = $map['LastHeartbeatTime'];
+        }
+        if (isset($map['LastInvokedTime'])) {
+            $model->lastInvokedTime = $map['LastInvokedTime'];
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];

@@ -15,14 +15,9 @@ use AlibabaCloud\Tea\Model;
 class resourcesInfo extends Model
 {
     /**
-     * @var bool
+     * @var dataDiskCategories
      */
-    public $ioOptimized;
-
-    /**
-     * @var systemDiskCategories
-     */
-    public $systemDiskCategories;
+    public $dataDiskCategories;
 
     /**
      * @var instanceGenerations
@@ -30,9 +25,9 @@ class resourcesInfo extends Model
     public $instanceGenerations;
 
     /**
-     * @var dataDiskCategories
+     * @var instanceTypeFamilies
      */
-    public $dataDiskCategories;
+    public $instanceTypeFamilies;
 
     /**
      * @var instanceTypes
@@ -40,22 +35,27 @@ class resourcesInfo extends Model
     public $instanceTypes;
 
     /**
-     * @var instanceTypeFamilies
+     * @var bool
      */
-    public $instanceTypeFamilies;
+    public $ioOptimized;
 
     /**
      * @var networkTypes
      */
     public $networkTypes;
+
+    /**
+     * @var systemDiskCategories
+     */
+    public $systemDiskCategories;
     protected $_name = [
-        'ioOptimized'          => 'IoOptimized',
-        'systemDiskCategories' => 'SystemDiskCategories',
-        'instanceGenerations'  => 'InstanceGenerations',
         'dataDiskCategories'   => 'DataDiskCategories',
-        'instanceTypes'        => 'InstanceTypes',
+        'instanceGenerations'  => 'InstanceGenerations',
         'instanceTypeFamilies' => 'InstanceTypeFamilies',
+        'instanceTypes'        => 'InstanceTypes',
+        'ioOptimized'          => 'IoOptimized',
         'networkTypes'         => 'NetworkTypes',
+        'systemDiskCategories' => 'SystemDiskCategories',
     ];
 
     public function validate()
@@ -65,26 +65,26 @@ class resourcesInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ioOptimized) {
-            $res['IoOptimized'] = $this->ioOptimized;
-        }
-        if (null !== $this->systemDiskCategories) {
-            $res['SystemDiskCategories'] = null !== $this->systemDiskCategories ? $this->systemDiskCategories->toMap() : null;
+        if (null !== $this->dataDiskCategories) {
+            $res['DataDiskCategories'] = null !== $this->dataDiskCategories ? $this->dataDiskCategories->toMap() : null;
         }
         if (null !== $this->instanceGenerations) {
             $res['InstanceGenerations'] = null !== $this->instanceGenerations ? $this->instanceGenerations->toMap() : null;
         }
-        if (null !== $this->dataDiskCategories) {
-            $res['DataDiskCategories'] = null !== $this->dataDiskCategories ? $this->dataDiskCategories->toMap() : null;
+        if (null !== $this->instanceTypeFamilies) {
+            $res['InstanceTypeFamilies'] = null !== $this->instanceTypeFamilies ? $this->instanceTypeFamilies->toMap() : null;
         }
         if (null !== $this->instanceTypes) {
             $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
         }
-        if (null !== $this->instanceTypeFamilies) {
-            $res['InstanceTypeFamilies'] = null !== $this->instanceTypeFamilies ? $this->instanceTypeFamilies->toMap() : null;
+        if (null !== $this->ioOptimized) {
+            $res['IoOptimized'] = $this->ioOptimized;
         }
         if (null !== $this->networkTypes) {
             $res['NetworkTypes'] = null !== $this->networkTypes ? $this->networkTypes->toMap() : null;
+        }
+        if (null !== $this->systemDiskCategories) {
+            $res['SystemDiskCategories'] = null !== $this->systemDiskCategories ? $this->systemDiskCategories->toMap() : null;
         }
 
         return $res;
@@ -98,26 +98,26 @@ class resourcesInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IoOptimized'])) {
-            $model->ioOptimized = $map['IoOptimized'];
-        }
-        if (isset($map['SystemDiskCategories'])) {
-            $model->systemDiskCategories = systemDiskCategories::fromMap($map['SystemDiskCategories']);
+        if (isset($map['DataDiskCategories'])) {
+            $model->dataDiskCategories = dataDiskCategories::fromMap($map['DataDiskCategories']);
         }
         if (isset($map['InstanceGenerations'])) {
             $model->instanceGenerations = instanceGenerations::fromMap($map['InstanceGenerations']);
         }
-        if (isset($map['DataDiskCategories'])) {
-            $model->dataDiskCategories = dataDiskCategories::fromMap($map['DataDiskCategories']);
+        if (isset($map['InstanceTypeFamilies'])) {
+            $model->instanceTypeFamilies = instanceTypeFamilies::fromMap($map['InstanceTypeFamilies']);
         }
         if (isset($map['InstanceTypes'])) {
             $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
         }
-        if (isset($map['InstanceTypeFamilies'])) {
-            $model->instanceTypeFamilies = instanceTypeFamilies::fromMap($map['InstanceTypeFamilies']);
+        if (isset($map['IoOptimized'])) {
+            $model->ioOptimized = $map['IoOptimized'];
         }
         if (isset($map['NetworkTypes'])) {
             $model->networkTypes = networkTypes::fromMap($map['NetworkTypes']);
+        }
+        if (isset($map['SystemDiskCategories'])) {
+            $model->systemDiskCategories = systemDiskCategories::fromMap($map['SystemDiskCategories']);
         }
 
         return $model;

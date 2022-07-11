@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ResetDiskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $diskId;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,24 +41,15 @@ class ResetDiskRequest extends Model
     /**
      * @var string
      */
-    public $diskId;
-
-    /**
-     * @var string
-     */
     public $snapshotId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'diskId'               => 'DiskId',
+        'dryRun'               => 'DryRun',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'diskId'               => 'DiskId',
         'snapshotId'           => 'SnapshotId',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -53,6 +59,15 @@ class ResetDiskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -62,14 +77,8 @@ class ResetDiskRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->diskId) {
-            $res['DiskId'] = $this->diskId;
-        }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -83,6 +92,15 @@ class ResetDiskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DiskId'])) {
+            $model->diskId = $map['DiskId'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -92,14 +110,8 @@ class ResetDiskRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['DiskId'])) {
-            $model->diskId = $map['DiskId'];
-        }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

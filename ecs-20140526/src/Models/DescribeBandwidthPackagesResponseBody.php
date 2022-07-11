@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthPackagesResponseBody extends Model
 {
     /**
+     * @var bandwidthPackages
+     */
+    public $bandwidthPackages;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -22,23 +32,13 @@ class DescribeBandwidthPackagesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
     public $totalCount;
-
-    /**
-     * @var bandwidthPackages
-     */
-    public $bandwidthPackages;
     protected $_name = [
+        'bandwidthPackages' => 'BandwidthPackages',
+        'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'requestId'         => 'RequestId',
-        'pageNumber'        => 'PageNumber',
         'totalCount'        => 'TotalCount',
-        'bandwidthPackages' => 'BandwidthPackages',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeBandwidthPackagesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthPackages) {
+            $res['BandwidthPackages'] = null !== $this->bandwidthPackages ? $this->bandwidthPackages->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->bandwidthPackages) {
-            $res['BandwidthPackages'] = null !== $this->bandwidthPackages ? $this->bandwidthPackages->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeBandwidthPackagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthPackages'])) {
+            $model->bandwidthPackages = bandwidthPackages::fromMap($map['BandwidthPackages']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['BandwidthPackages'])) {
-            $model->bandwidthPackages = bandwidthPackages::fromMap($map['BandwidthPackages']);
         }
 
         return $model;

@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var bool
-     */
-    public $isDefault;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
+    public $availableIpAddressCount;
 
     /**
      * @var string
@@ -41,12 +21,17 @@ class vSwitch extends Model
     /**
      * @var string
      */
+    public $creationTime;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $availableIpAddressCount;
+    public $isDefault;
 
     /**
      * @var string
@@ -56,24 +41,39 @@ class vSwitch extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
 
     /**
      * @var string
      */
     public $vSwitchName;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'creationTime'            => 'CreationTime',
-        'status'                  => 'Status',
-        'vpcId'                   => 'VpcId',
-        'isDefault'               => 'IsDefault',
-        'vSwitchId'               => 'VSwitchId',
-        'cidrBlock'               => 'CidrBlock',
-        'description'             => 'Description',
         'availableIpAddressCount' => 'AvailableIpAddressCount',
+        'cidrBlock'               => 'CidrBlock',
+        'creationTime'            => 'CreationTime',
+        'description'             => 'Description',
+        'isDefault'               => 'IsDefault',
         'resourceGroupId'         => 'ResourceGroupId',
-        'zoneId'                  => 'ZoneId',
+        'status'                  => 'Status',
+        'vSwitchId'               => 'VSwitchId',
         'vSwitchName'             => 'VSwitchName',
+        'vpcId'                   => 'VpcId',
+        'zoneId'                  => 'ZoneId',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class vSwitch extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->availableIpAddressCount) {
+            $res['AvailableIpAddressCount'] = $this->availableIpAddressCount;
         }
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->availableIpAddressCount) {
-            $res['AvailableIpAddressCount'] = $this->availableIpAddressCount;
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class vSwitch extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['AvailableIpAddressCount'])) {
+            $model->availableIpAddressCount = $map['AvailableIpAddressCount'];
         }
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['AvailableIpAddressCount'])) {
-            $model->availableIpAddressCount = $map['AvailableIpAddressCount'];
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

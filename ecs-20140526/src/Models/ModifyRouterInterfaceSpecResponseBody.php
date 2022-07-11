@@ -11,15 +11,15 @@ class ModifyRouterInterfaceSpecResponseBody extends Model
     /**
      * @var string
      */
-    public $spec;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $spec;
     protected $_name = [
-        'spec'      => 'Spec',
         'requestId' => 'RequestId',
+        'spec'      => 'Spec',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ModifyRouterInterfaceSpecResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ModifyRouterInterfaceSpecResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
 
         return $model;

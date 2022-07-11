@@ -11,15 +11,15 @@ class securityOptions extends Model
     /**
      * @var string
      */
-    public $trustedSystemMode;
+    public $confidentialComputingMode;
 
     /**
      * @var string
      */
-    public $confidentialComputingMode;
+    public $trustedSystemMode;
     protected $_name = [
-        'trustedSystemMode'         => 'TrustedSystemMode',
         'confidentialComputingMode' => 'ConfidentialComputingMode',
+        'trustedSystemMode'         => 'TrustedSystemMode',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class securityOptions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trustedSystemMode) {
-            $res['TrustedSystemMode'] = $this->trustedSystemMode;
-        }
         if (null !== $this->confidentialComputingMode) {
             $res['ConfidentialComputingMode'] = $this->confidentialComputingMode;
+        }
+        if (null !== $this->trustedSystemMode) {
+            $res['TrustedSystemMode'] = $this->trustedSystemMode;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class securityOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TrustedSystemMode'])) {
-            $model->trustedSystemMode = $map['TrustedSystemMode'];
-        }
         if (isset($map['ConfidentialComputingMode'])) {
             $model->confidentialComputingMode = $map['ConfidentialComputingMode'];
+        }
+        if (isset($map['TrustedSystemMode'])) {
+            $model->trustedSystemMode = $map['TrustedSystemMode'];
         }
 
         return $model;

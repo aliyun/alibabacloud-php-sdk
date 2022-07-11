@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostsChargeTypeResponseBody extends Model
 {
     /**
+     * @var feeOfInstances
+     */
+    public $feeOfInstances;
+
+    /**
      * @var string
      */
     public $orderId;
@@ -18,15 +23,10 @@ class ModifyDedicatedHostsChargeTypeResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var feeOfInstances
-     */
-    public $feeOfInstances;
     protected $_name = [
+        'feeOfInstances' => 'FeeOfInstances',
         'orderId'        => 'OrderId',
         'requestId'      => 'RequestId',
-        'feeOfInstances' => 'FeeOfInstances',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ModifyDedicatedHostsChargeTypeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->feeOfInstances) {
+            $res['FeeOfInstances'] = null !== $this->feeOfInstances ? $this->feeOfInstances->toMap() : null;
+        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->feeOfInstances) {
-            $res['FeeOfInstances'] = null !== $this->feeOfInstances ? $this->feeOfInstances->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ModifyDedicatedHostsChargeTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeeOfInstances'])) {
+            $model->feeOfInstances = feeOfInstances::fromMap($map['FeeOfInstances']);
+        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['FeeOfInstances'])) {
-            $model->feeOfInstances = feeOfInstances::fromMap($map['FeeOfInstances']);
         }
 
         return $model;

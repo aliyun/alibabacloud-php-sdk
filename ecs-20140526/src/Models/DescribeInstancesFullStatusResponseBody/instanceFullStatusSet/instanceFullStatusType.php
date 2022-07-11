@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class instanceFullStatusType extends Model
 {
     /**
+     * @var healthStatus
+     */
+    public $healthStatus;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -25,16 +30,11 @@ class instanceFullStatusType extends Model
      * @var status
      */
     public $status;
-
-    /**
-     * @var healthStatus
-     */
-    public $healthStatus;
     protected $_name = [
+        'healthStatus'            => 'HealthStatus',
         'instanceId'              => 'InstanceId',
         'scheduledSystemEventSet' => 'ScheduledSystemEventSet',
         'status'                  => 'Status',
-        'healthStatus'            => 'HealthStatus',
     ];
 
     public function validate()
@@ -44,6 +44,9 @@ class instanceFullStatusType extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = null !== $this->healthStatus ? $this->healthStatus->toMap() : null;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -52,9 +55,6 @@ class instanceFullStatusType extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
-        }
-        if (null !== $this->healthStatus) {
-            $res['HealthStatus'] = null !== $this->healthStatus ? $this->healthStatus->toMap() : null;
         }
 
         return $res;
@@ -68,6 +68,9 @@ class instanceFullStatusType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = healthStatus::fromMap($map['HealthStatus']);
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -76,9 +79,6 @@ class instanceFullStatusType extends Model
         }
         if (isset($map['Status'])) {
             $model->status = status::fromMap($map['Status']);
-        }
-        if (isset($map['HealthStatus'])) {
-            $model->healthStatus = healthStatus::fromMap($map['HealthStatus']);
         }
 
         return $model;

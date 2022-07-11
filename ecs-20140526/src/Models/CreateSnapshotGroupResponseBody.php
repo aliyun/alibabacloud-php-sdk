@@ -11,15 +11,15 @@ class CreateSnapshotGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $snapshotGroupId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $snapshotGroupId;
     protected $_name = [
-        'snapshotGroupId' => 'SnapshotGroupId',
         'requestId'       => 'RequestId',
+        'snapshotGroupId' => 'SnapshotGroupId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateSnapshotGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapshotGroupId) {
-            $res['SnapshotGroupId'] = $this->snapshotGroupId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->snapshotGroupId) {
+            $res['SnapshotGroupId'] = $this->snapshotGroupId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateSnapshotGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SnapshotGroupId'])) {
-            $model->snapshotGroupId = $map['SnapshotGroupId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnapshotGroupId'])) {
+            $model->snapshotGroupId = $map['SnapshotGroupId'];
         }
 
         return $model;

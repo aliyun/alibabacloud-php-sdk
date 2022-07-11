@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class AttachInstanceRamRoleResponseBody extends Model
 {
     /**
+     * @var attachInstanceRamRoleResults
+     */
+    public $attachInstanceRamRoleResults;
+
+    /**
+     * @var int
+     */
+    public $failCount;
+
+    /**
      * @var string
      */
     public $ramRoleName;
@@ -23,22 +33,12 @@ class AttachInstanceRamRoleResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $failCount;
-
-    /**
-     * @var attachInstanceRamRoleResults
-     */
-    public $attachInstanceRamRoleResults;
     protected $_name = [
+        'attachInstanceRamRoleResults' => 'AttachInstanceRamRoleResults',
+        'failCount'                    => 'FailCount',
         'ramRoleName'                  => 'RamRoleName',
         'requestId'                    => 'RequestId',
         'totalCount'                   => 'TotalCount',
-        'failCount'                    => 'FailCount',
-        'attachInstanceRamRoleResults' => 'AttachInstanceRamRoleResults',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class AttachInstanceRamRoleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachInstanceRamRoleResults) {
+            $res['AttachInstanceRamRoleResults'] = null !== $this->attachInstanceRamRoleResults ? $this->attachInstanceRamRoleResults->toMap() : null;
+        }
+        if (null !== $this->failCount) {
+            $res['FailCount'] = $this->failCount;
+        }
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
         }
@@ -56,12 +62,6 @@ class AttachInstanceRamRoleResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->failCount) {
-            $res['FailCount'] = $this->failCount;
-        }
-        if (null !== $this->attachInstanceRamRoleResults) {
-            $res['AttachInstanceRamRoleResults'] = null !== $this->attachInstanceRamRoleResults ? $this->attachInstanceRamRoleResults->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class AttachInstanceRamRoleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachInstanceRamRoleResults'])) {
+            $model->attachInstanceRamRoleResults = attachInstanceRamRoleResults::fromMap($map['AttachInstanceRamRoleResults']);
+        }
+        if (isset($map['FailCount'])) {
+            $model->failCount = $map['FailCount'];
+        }
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
         }
@@ -83,12 +89,6 @@ class AttachInstanceRamRoleResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['FailCount'])) {
-            $model->failCount = $map['FailCount'];
-        }
-        if (isset($map['AttachInstanceRamRoleResults'])) {
-            $model->attachInstanceRamRoleResults = attachInstanceRamRoleResults::fromMap($map['AttachInstanceRamRoleResults']);
         }
 
         return $model;

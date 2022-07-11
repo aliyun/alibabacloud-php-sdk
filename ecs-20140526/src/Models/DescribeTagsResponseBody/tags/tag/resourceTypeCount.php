@@ -11,7 +11,17 @@ class resourceTypeCount extends Model
     /**
      * @var int
      */
-    public $instance;
+    public $ddh;
+
+    /**
+     * @var int
+     */
+    public $disk;
+
+    /**
+     * @var int
+     */
+    public $eni;
 
     /**
      * @var int
@@ -21,12 +31,22 @@ class resourceTypeCount extends Model
     /**
      * @var int
      */
-    public $ddh;
+    public $instance;
 
     /**
      * @var int
      */
-    public $snapshotPolicy;
+    public $keyPair;
+
+    /**
+     * @var int
+     */
+    public $launchTemplate;
+
+    /**
+     * @var int
+     */
+    public $reservedInstance;
 
     /**
      * @var int
@@ -41,44 +61,24 @@ class resourceTypeCount extends Model
     /**
      * @var int
      */
-    public $reservedInstance;
-
-    /**
-     * @var int
-     */
-    public $launchTemplate;
-
-    /**
-     * @var int
-     */
-    public $eni;
-
-    /**
-     * @var int
-     */
-    public $disk;
-
-    /**
-     * @var int
-     */
-    public $keyPair;
+    public $snapshotPolicy;
 
     /**
      * @var int
      */
     public $volume;
     protected $_name = [
-        'instance'         => 'Instance',
-        'image'            => 'Image',
         'ddh'              => 'Ddh',
-        'snapshotPolicy'   => 'SnapshotPolicy',
+        'disk'             => 'Disk',
+        'eni'              => 'Eni',
+        'image'            => 'Image',
+        'instance'         => 'Instance',
+        'keyPair'          => 'KeyPair',
+        'launchTemplate'   => 'LaunchTemplate',
+        'reservedInstance' => 'ReservedInstance',
         'securitygroup'    => 'Securitygroup',
         'snapshot'         => 'Snapshot',
-        'reservedInstance' => 'ReservedInstance',
-        'launchTemplate'   => 'LaunchTemplate',
-        'eni'              => 'Eni',
-        'disk'             => 'Disk',
-        'keyPair'          => 'KeyPair',
+        'snapshotPolicy'   => 'SnapshotPolicy',
         'volume'           => 'Volume',
     ];
 
@@ -89,17 +89,29 @@ class resourceTypeCount extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instance) {
-            $res['Instance'] = $this->instance;
+        if (null !== $this->ddh) {
+            $res['Ddh'] = $this->ddh;
+        }
+        if (null !== $this->disk) {
+            $res['Disk'] = $this->disk;
+        }
+        if (null !== $this->eni) {
+            $res['Eni'] = $this->eni;
         }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
-        if (null !== $this->ddh) {
-            $res['Ddh'] = $this->ddh;
+        if (null !== $this->instance) {
+            $res['Instance'] = $this->instance;
         }
-        if (null !== $this->snapshotPolicy) {
-            $res['SnapshotPolicy'] = $this->snapshotPolicy;
+        if (null !== $this->keyPair) {
+            $res['KeyPair'] = $this->keyPair;
+        }
+        if (null !== $this->launchTemplate) {
+            $res['LaunchTemplate'] = $this->launchTemplate;
+        }
+        if (null !== $this->reservedInstance) {
+            $res['ReservedInstance'] = $this->reservedInstance;
         }
         if (null !== $this->securitygroup) {
             $res['Securitygroup'] = $this->securitygroup;
@@ -107,20 +119,8 @@ class resourceTypeCount extends Model
         if (null !== $this->snapshot) {
             $res['Snapshot'] = $this->snapshot;
         }
-        if (null !== $this->reservedInstance) {
-            $res['ReservedInstance'] = $this->reservedInstance;
-        }
-        if (null !== $this->launchTemplate) {
-            $res['LaunchTemplate'] = $this->launchTemplate;
-        }
-        if (null !== $this->eni) {
-            $res['Eni'] = $this->eni;
-        }
-        if (null !== $this->disk) {
-            $res['Disk'] = $this->disk;
-        }
-        if (null !== $this->keyPair) {
-            $res['KeyPair'] = $this->keyPair;
+        if (null !== $this->snapshotPolicy) {
+            $res['SnapshotPolicy'] = $this->snapshotPolicy;
         }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
@@ -137,17 +137,29 @@ class resourceTypeCount extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Instance'])) {
-            $model->instance = $map['Instance'];
+        if (isset($map['Ddh'])) {
+            $model->ddh = $map['Ddh'];
+        }
+        if (isset($map['Disk'])) {
+            $model->disk = $map['Disk'];
+        }
+        if (isset($map['Eni'])) {
+            $model->eni = $map['Eni'];
         }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
-        if (isset($map['Ddh'])) {
-            $model->ddh = $map['Ddh'];
+        if (isset($map['Instance'])) {
+            $model->instance = $map['Instance'];
         }
-        if (isset($map['SnapshotPolicy'])) {
-            $model->snapshotPolicy = $map['SnapshotPolicy'];
+        if (isset($map['KeyPair'])) {
+            $model->keyPair = $map['KeyPair'];
+        }
+        if (isset($map['LaunchTemplate'])) {
+            $model->launchTemplate = $map['LaunchTemplate'];
+        }
+        if (isset($map['ReservedInstance'])) {
+            $model->reservedInstance = $map['ReservedInstance'];
         }
         if (isset($map['Securitygroup'])) {
             $model->securitygroup = $map['Securitygroup'];
@@ -155,20 +167,8 @@ class resourceTypeCount extends Model
         if (isset($map['Snapshot'])) {
             $model->snapshot = $map['Snapshot'];
         }
-        if (isset($map['ReservedInstance'])) {
-            $model->reservedInstance = $map['ReservedInstance'];
-        }
-        if (isset($map['LaunchTemplate'])) {
-            $model->launchTemplate = $map['LaunchTemplate'];
-        }
-        if (isset($map['Eni'])) {
-            $model->eni = $map['Eni'];
-        }
-        if (isset($map['Disk'])) {
-            $model->disk = $map['Disk'];
-        }
-        if (isset($map['KeyPair'])) {
-            $model->keyPair = $map['KeyPair'];
+        if (isset($map['SnapshotPolicy'])) {
+            $model->snapshotPolicy = $map['SnapshotPolicy'];
         }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];

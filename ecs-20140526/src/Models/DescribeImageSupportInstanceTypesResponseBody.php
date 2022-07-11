@@ -12,12 +12,12 @@ class DescribeImageSupportInstanceTypesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $imageId;
 
     /**
-     * @var string
+     * @var instanceTypes
      */
-    public $imageId;
+    public $instanceTypes;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribeImageSupportInstanceTypesResponseBody extends Model
     public $regionId;
 
     /**
-     * @var instanceTypes
+     * @var string
      */
-    public $instanceTypes;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'imageId'       => 'ImageId',
-        'regionId'      => 'RegionId',
         'instanceTypes' => 'InstanceTypes',
+        'regionId'      => 'RegionId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class DescribeImageSupportInstanceTypesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->instanceTypes) {
+            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class DescribeImageSupportInstanceTypesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['InstanceTypes'])) {
+            $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['InstanceTypes'])) {
-            $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

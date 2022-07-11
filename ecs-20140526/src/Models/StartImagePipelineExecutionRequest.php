@@ -10,14 +10,29 @@ use AlibabaCloud\Tea\Model;
 class StartImagePipelineExecutionRequest extends Model
 {
     /**
-     * @var templateTag[]
+     * @var string
      */
-    public $templateTag;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $imagePipelineId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -30,33 +45,18 @@ class StartImagePipelineExecutionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
+     * @var templateTag[]
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $imagePipelineId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
+    public $templateTag;
     protected $_name = [
-        'templateTag'          => 'TemplateTag',
+        'clientToken'          => 'ClientToken',
+        'imagePipelineId'      => 'ImagePipelineId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'imagePipelineId'      => 'ImagePipelineId',
-        'clientToken'          => 'ClientToken',
+        'templateTag'          => 'TemplateTag',
     ];
 
     public function validate()
@@ -66,6 +66,27 @@ class StartImagePipelineExecutionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->imagePipelineId) {
+            $res['ImagePipelineId'] = $this->imagePipelineId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->templateTag) {
             $res['TemplateTag'] = [];
             if (null !== $this->templateTag && \is_array($this->templateTag)) {
@@ -74,27 +95,6 @@ class StartImagePipelineExecutionRequest extends Model
                     $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->imagePipelineId) {
-            $res['ImagePipelineId'] = $this->imagePipelineId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -108,6 +108,27 @@ class StartImagePipelineExecutionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ImagePipelineId'])) {
+            $model->imagePipelineId = $map['ImagePipelineId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['TemplateTag'])) {
             if (!empty($map['TemplateTag'])) {
                 $model->templateTag = [];
@@ -116,27 +137,6 @@ class StartImagePipelineExecutionRequest extends Model
                     $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ImagePipelineId'])) {
-            $model->imagePipelineId = $map['ImagePipelineId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

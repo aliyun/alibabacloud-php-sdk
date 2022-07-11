@@ -10,14 +10,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeploymentSetsResponseBody extends Model
 {
     /**
-     * @var int
+     * @var deploymentSets
      */
-    public $pageSize;
+    public $deploymentSets;
 
     /**
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -28,23 +38,13 @@ class DescribeDeploymentSetsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var deploymentSets
-     */
-    public $deploymentSets;
     protected $_name = [
-        'pageSize'       => 'PageSize',
+        'deploymentSets' => 'DeploymentSets',
         'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
         'requestId'      => 'RequestId',
         'totalCount'     => 'TotalCount',
-        'regionId'       => 'RegionId',
-        'deploymentSets' => 'DeploymentSets',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeDeploymentSetsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->deploymentSets) {
+            $res['DeploymentSets'] = null !== $this->deploymentSets ? $this->deploymentSets->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->deploymentSets) {
-            $res['DeploymentSets'] = null !== $this->deploymentSets ? $this->deploymentSets->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeDeploymentSetsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['DeploymentSets'])) {
+            $model->deploymentSets = deploymentSets::fromMap($map['DeploymentSets']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DeploymentSets'])) {
-            $model->deploymentSets = deploymentSets::fromMap($map['DeploymentSets']);
         }
 
         return $model;

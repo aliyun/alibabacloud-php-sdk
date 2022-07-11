@@ -16,16 +16,16 @@ class instance extends Model
     /**
      * @var string
      */
-    public $privatePoolOptionsMatchCriteria;
+    public $privatePoolOptionsId;
 
     /**
      * @var string
      */
-    public $privatePoolOptionsId;
+    public $privatePoolOptionsMatchCriteria;
     protected $_name = [
         'instanceId'                      => 'InstanceId',
-        'privatePoolOptionsMatchCriteria' => 'PrivatePoolOptionsMatchCriteria',
         'privatePoolOptionsId'            => 'PrivatePoolOptionsId',
+        'privatePoolOptionsMatchCriteria' => 'PrivatePoolOptionsMatchCriteria',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class instance extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->privatePoolOptionsMatchCriteria) {
-            $res['PrivatePoolOptionsMatchCriteria'] = $this->privatePoolOptionsMatchCriteria;
-        }
         if (null !== $this->privatePoolOptionsId) {
             $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
+        }
+        if (null !== $this->privatePoolOptionsMatchCriteria) {
+            $res['PrivatePoolOptionsMatchCriteria'] = $this->privatePoolOptionsMatchCriteria;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class instance extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PrivatePoolOptionsMatchCriteria'])) {
-            $model->privatePoolOptionsMatchCriteria = $map['PrivatePoolOptionsMatchCriteria'];
-        }
         if (isset($map['PrivatePoolOptionsId'])) {
             $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
+        }
+        if (isset($map['PrivatePoolOptionsMatchCriteria'])) {
+            $model->privatePoolOptionsMatchCriteria = $map['PrivatePoolOptionsMatchCriteria'];
         }
 
         return $model;

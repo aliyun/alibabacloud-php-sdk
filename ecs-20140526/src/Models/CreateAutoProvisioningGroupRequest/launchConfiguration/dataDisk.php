@@ -11,27 +11,17 @@ class dataDisk extends Model
     /**
      * @var string
      */
-    public $performanceLevel;
+    public $category;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $kmsKeyId;
+    public $deleteWithInstance;
 
     /**
      * @var string
      */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $snapshotId;
-
-    /**
-     * @var int
-     */
-    public $size;
 
     /**
      * @var string
@@ -44,30 +34,40 @@ class dataDisk extends Model
     public $diskName;
 
     /**
-     * @var string
-     */
-    public $category;
-
-    /**
-     * @var bool
-     */
-    public $deleteWithInstance;
-
-    /**
      * @var bool
      */
     public $encrypted;
+
+    /**
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
+     * @var string
+     */
+    public $performanceLevel;
+
+    /**
+     * @var int
+     */
+    public $size;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
-        'performanceLevel'   => 'PerformanceLevel',
-        'kmsKeyId'           => 'KmsKeyId',
-        'description'        => 'Description',
-        'snapshotId'         => 'SnapshotId',
-        'size'               => 'Size',
-        'device'             => 'Device',
-        'diskName'           => 'DiskName',
         'category'           => 'Category',
         'deleteWithInstance' => 'DeleteWithInstance',
+        'description'        => 'Description',
+        'device'             => 'Device',
+        'diskName'           => 'DiskName',
         'encrypted'          => 'Encrypted',
+        'kmsKeyId'           => 'KmsKeyId',
+        'performanceLevel'   => 'PerformanceLevel',
+        'size'               => 'Size',
+        'snapshotId'         => 'SnapshotId',
     ];
 
     public function validate()
@@ -77,20 +77,14 @@ class dataDisk extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->performanceLevel) {
-            $res['PerformanceLevel'] = $this->performanceLevel;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
-        if (null !== $this->kmsKeyId) {
-            $res['KmsKeyId'] = $this->kmsKeyId;
+        if (null !== $this->deleteWithInstance) {
+            $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->snapshotId) {
-            $res['SnapshotId'] = $this->snapshotId;
-        }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
         }
         if (null !== $this->device) {
             $res['Device'] = $this->device;
@@ -98,14 +92,20 @@ class dataDisk extends Model
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->deleteWithInstance) {
-            $res['DeleteWithInstance'] = $this->deleteWithInstance;
-        }
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+        if (null !== $this->performanceLevel) {
+            $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -119,20 +119,14 @@ class dataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PerformanceLevel'])) {
-            $model->performanceLevel = $map['PerformanceLevel'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
-        if (isset($map['KmsKeyId'])) {
-            $model->kmsKeyId = $map['KmsKeyId'];
+        if (isset($map['DeleteWithInstance'])) {
+            $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['SnapshotId'])) {
-            $model->snapshotId = $map['SnapshotId'];
-        }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
         }
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
@@ -140,14 +134,20 @@ class dataDisk extends Model
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['DeleteWithInstance'])) {
-            $model->deleteWithInstance = $map['DeleteWithInstance'];
-        }
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
+        }
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
+        }
+        if (isset($map['PerformanceLevel'])) {
+            $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

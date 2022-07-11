@@ -26,18 +26,18 @@ class CancelAutoSnapshotPolicyRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $diskIds;
 
     /**
      * @var string
      */
-    public $diskIds;
+    public $regionId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'regionId',
         'diskIds'              => 'diskIds',
+        'regionId'             => 'regionId',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class CancelAutoSnapshotPolicyRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->regionId) {
-            $res['regionId'] = $this->regionId;
-        }
         if (null !== $this->diskIds) {
             $res['diskIds'] = $this->diskIds;
+        }
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class CancelAutoSnapshotPolicyRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['regionId'])) {
-            $model->regionId = $map['regionId'];
-        }
         if (isset($map['diskIds'])) {
             $model->diskIds = $map['diskIds'];
+        }
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
 
         return $model;

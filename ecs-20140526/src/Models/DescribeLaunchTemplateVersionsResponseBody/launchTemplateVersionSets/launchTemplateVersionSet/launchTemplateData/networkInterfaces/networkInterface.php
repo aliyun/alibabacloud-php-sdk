@@ -12,17 +12,22 @@ class networkInterface extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
     public $networkInterfaceName;
 
     /**
      * @var string
      */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $networkInterfaceTrafficMode;
 
     /**
      * @var string
@@ -38,13 +43,20 @@ class networkInterface extends Model
      * @var securityGroupIds
      */
     public $securityGroupIds;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
     protected $_name = [
-        'networkInterfaceName' => 'NetworkInterfaceName',
-        'vSwitchId'            => 'VSwitchId',
-        'description'          => 'Description',
-        'primaryIpAddress'     => 'PrimaryIpAddress',
-        'securityGroupId'      => 'SecurityGroupId',
-        'securityGroupIds'     => 'SecurityGroupIds',
+        'description'                 => 'Description',
+        'instanceType'                => 'InstanceType',
+        'networkInterfaceName'        => 'NetworkInterfaceName',
+        'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
+        'primaryIpAddress'            => 'PrimaryIpAddress',
+        'securityGroupId'             => 'SecurityGroupId',
+        'securityGroupIds'            => 'SecurityGroupIds',
+        'vSwitchId'                   => 'VSwitchId',
     ];
 
     public function validate()
@@ -54,14 +66,17 @@ class networkInterface extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
         }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->networkInterfaceTrafficMode) {
+            $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
         }
         if (null !== $this->primaryIpAddress) {
             $res['PrimaryIpAddress'] = $this->primaryIpAddress;
@@ -71,6 +86,9 @@ class networkInterface extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -84,14 +102,17 @@ class networkInterface extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
         }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['NetworkInterfaceTrafficMode'])) {
+            $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
         }
         if (isset($map['PrimaryIpAddress'])) {
             $model->primaryIpAddress = $map['PrimaryIpAddress'];
@@ -101,6 +122,9 @@ class networkInterface extends Model
         }
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

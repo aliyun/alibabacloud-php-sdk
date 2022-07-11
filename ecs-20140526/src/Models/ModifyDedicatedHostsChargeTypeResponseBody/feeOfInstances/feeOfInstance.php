@@ -11,21 +11,21 @@ class feeOfInstance extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $currency;
 
     /**
      * @var string
      */
     public $fee;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'currency'   => 'Currency',
         'fee'        => 'Fee',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class feeOfInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
         if (null !== $this->fee) {
             $res['Fee'] = $this->fee;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class feeOfInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
         if (isset($map['Fee'])) {
             $model->fee = $map['Fee'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

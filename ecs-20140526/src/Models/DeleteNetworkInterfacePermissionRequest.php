@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkInterfacePermissionRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
+     * @var string
+     */
+    public $networkInterfacePermissionId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -22,34 +42,14 @@ class DeleteNetworkInterfacePermissionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $networkInterfacePermissionId;
-
-    /**
-     * @var bool
-     */
-    public $force;
     protected $_name = [
+        'force'                        => 'Force',
+        'networkInterfacePermissionId' => 'NetworkInterfacePermissionId',
+        'ownerAccount'                 => 'OwnerAccount',
         'ownerId'                      => 'OwnerId',
+        'regionId'                     => 'RegionId',
         'resourceOwnerAccount'         => 'ResourceOwnerAccount',
         'resourceOwnerId'              => 'ResourceOwnerId',
-        'ownerAccount'                 => 'OwnerAccount',
-        'regionId'                     => 'RegionId',
-        'networkInterfacePermissionId' => 'NetworkInterfacePermissionId',
-        'force'                        => 'Force',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DeleteNetworkInterfacePermissionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
+        if (null !== $this->networkInterfacePermissionId) {
+            $res['NetworkInterfacePermissionId'] = $this->networkInterfacePermissionId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->networkInterfacePermissionId) {
-            $res['NetworkInterfacePermissionId'] = $this->networkInterfacePermissionId;
-        }
-        if (null !== $this->force) {
-            $res['Force'] = $this->force;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DeleteNetworkInterfacePermissionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
+        if (isset($map['NetworkInterfacePermissionId'])) {
+            $model->networkInterfacePermissionId = $map['NetworkInterfacePermissionId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['NetworkInterfacePermissionId'])) {
-            $model->networkInterfacePermissionId = $map['NetworkInterfacePermissionId'];
-        }
-        if (isset($map['Force'])) {
-            $model->force = $map['Force'];
         }
 
         return $model;

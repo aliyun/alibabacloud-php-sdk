@@ -11,32 +11,7 @@ class virtualBorderRouterType extends Model
     /**
      * @var string
      */
-    public $vlanInterfaceId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $circuitCode;
-
-    /**
-     * @var string
-     */
-    public $physicalConnectionOwnerUid;
-
-    /**
-     * @var string
-     */
-    public $localGatewayIp;
+    public $accessPointId;
 
     /**
      * @var string
@@ -46,7 +21,32 @@ class virtualBorderRouterType extends Model
     /**
      * @var string
      */
-    public $physicalConnectionBusinessStatus;
+    public $circuitCode;
+
+    /**
+     * @var string
+     */
+    public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $localGatewayIp;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $peerGatewayIp;
 
     /**
      * @var string
@@ -56,12 +56,17 @@ class virtualBorderRouterType extends Model
     /**
      * @var string
      */
-    public $routeTableId;
+    public $physicalConnectionBusinessStatus;
 
     /**
      * @var string
      */
-    public $description;
+    public $physicalConnectionId;
+
+    /**
+     * @var string
+     */
+    public $physicalConnectionOwnerUid;
 
     /**
      * @var string
@@ -76,22 +81,17 @@ class virtualBorderRouterType extends Model
     /**
      * @var string
      */
+    public $routeTableId;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $terminationTime;
-
-    /**
-     * @var string
-     */
-    public $peerGatewayIp;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $accessPointId;
 
     /**
      * @var string
@@ -99,35 +99,35 @@ class virtualBorderRouterType extends Model
     public $vbrId;
 
     /**
-     * @var string
-     */
-    public $physicalConnectionId;
-
-    /**
      * @var int
      */
     public $vlanId;
+
+    /**
+     * @var string
+     */
+    public $vlanInterfaceId;
     protected $_name = [
-        'vlanInterfaceId'                  => 'VlanInterfaceId',
-        'status'                           => 'Status',
-        'creationTime'                     => 'CreationTime',
-        'circuitCode'                      => 'CircuitCode',
-        'physicalConnectionOwnerUid'       => 'PhysicalConnectionOwnerUid',
-        'localGatewayIp'                   => 'LocalGatewayIp',
+        'accessPointId'                    => 'AccessPointId',
         'activationTime'                   => 'ActivationTime',
-        'physicalConnectionBusinessStatus' => 'PhysicalConnectionBusinessStatus',
-        'peeringSubnetMask'                => 'PeeringSubnetMask',
-        'routeTableId'                     => 'RouteTableId',
+        'circuitCode'                      => 'CircuitCode',
+        'creationTime'                     => 'CreationTime',
         'description'                      => 'Description',
+        'localGatewayIp'                   => 'LocalGatewayIp',
+        'name'                             => 'Name',
+        'peerGatewayIp'                    => 'PeerGatewayIp',
+        'peeringSubnetMask'                => 'PeeringSubnetMask',
+        'physicalConnectionBusinessStatus' => 'PhysicalConnectionBusinessStatus',
+        'physicalConnectionId'             => 'PhysicalConnectionId',
+        'physicalConnectionOwnerUid'       => 'PhysicalConnectionOwnerUid',
         'physicalConnectionStatus'         => 'PhysicalConnectionStatus',
         'recoveryTime'                     => 'RecoveryTime',
+        'routeTableId'                     => 'RouteTableId',
+        'status'                           => 'Status',
         'terminationTime'                  => 'TerminationTime',
-        'peerGatewayIp'                    => 'PeerGatewayIp',
-        'name'                             => 'Name',
-        'accessPointId'                    => 'AccessPointId',
         'vbrId'                            => 'VbrId',
-        'physicalConnectionId'             => 'PhysicalConnectionId',
         'vlanId'                           => 'VlanId',
+        'vlanInterfaceId'                  => 'VlanInterfaceId',
     ];
 
     public function validate()
@@ -137,38 +137,41 @@ class virtualBorderRouterType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vlanInterfaceId) {
-            $res['VlanInterfaceId'] = $this->vlanInterfaceId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->circuitCode) {
-            $res['CircuitCode'] = $this->circuitCode;
-        }
-        if (null !== $this->physicalConnectionOwnerUid) {
-            $res['PhysicalConnectionOwnerUid'] = $this->physicalConnectionOwnerUid;
-        }
-        if (null !== $this->localGatewayIp) {
-            $res['LocalGatewayIp'] = $this->localGatewayIp;
+        if (null !== $this->accessPointId) {
+            $res['AccessPointId'] = $this->accessPointId;
         }
         if (null !== $this->activationTime) {
             $res['ActivationTime'] = $this->activationTime;
         }
-        if (null !== $this->physicalConnectionBusinessStatus) {
-            $res['PhysicalConnectionBusinessStatus'] = $this->physicalConnectionBusinessStatus;
+        if (null !== $this->circuitCode) {
+            $res['CircuitCode'] = $this->circuitCode;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->localGatewayIp) {
+            $res['LocalGatewayIp'] = $this->localGatewayIp;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->peerGatewayIp) {
+            $res['PeerGatewayIp'] = $this->peerGatewayIp;
         }
         if (null !== $this->peeringSubnetMask) {
             $res['PeeringSubnetMask'] = $this->peeringSubnetMask;
         }
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
+        if (null !== $this->physicalConnectionBusinessStatus) {
+            $res['PhysicalConnectionBusinessStatus'] = $this->physicalConnectionBusinessStatus;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->physicalConnectionId) {
+            $res['PhysicalConnectionId'] = $this->physicalConnectionId;
+        }
+        if (null !== $this->physicalConnectionOwnerUid) {
+            $res['PhysicalConnectionOwnerUid'] = $this->physicalConnectionOwnerUid;
         }
         if (null !== $this->physicalConnectionStatus) {
             $res['PhysicalConnectionStatus'] = $this->physicalConnectionStatus;
@@ -176,26 +179,23 @@ class virtualBorderRouterType extends Model
         if (null !== $this->recoveryTime) {
             $res['RecoveryTime'] = $this->recoveryTime;
         }
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->terminationTime) {
             $res['TerminationTime'] = $this->terminationTime;
-        }
-        if (null !== $this->peerGatewayIp) {
-            $res['PeerGatewayIp'] = $this->peerGatewayIp;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->accessPointId) {
-            $res['AccessPointId'] = $this->accessPointId;
         }
         if (null !== $this->vbrId) {
             $res['VbrId'] = $this->vbrId;
         }
-        if (null !== $this->physicalConnectionId) {
-            $res['PhysicalConnectionId'] = $this->physicalConnectionId;
-        }
         if (null !== $this->vlanId) {
             $res['VlanId'] = $this->vlanId;
+        }
+        if (null !== $this->vlanInterfaceId) {
+            $res['VlanInterfaceId'] = $this->vlanInterfaceId;
         }
 
         return $res;
@@ -209,38 +209,41 @@ class virtualBorderRouterType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VlanInterfaceId'])) {
-            $model->vlanInterfaceId = $map['VlanInterfaceId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['CircuitCode'])) {
-            $model->circuitCode = $map['CircuitCode'];
-        }
-        if (isset($map['PhysicalConnectionOwnerUid'])) {
-            $model->physicalConnectionOwnerUid = $map['PhysicalConnectionOwnerUid'];
-        }
-        if (isset($map['LocalGatewayIp'])) {
-            $model->localGatewayIp = $map['LocalGatewayIp'];
+        if (isset($map['AccessPointId'])) {
+            $model->accessPointId = $map['AccessPointId'];
         }
         if (isset($map['ActivationTime'])) {
             $model->activationTime = $map['ActivationTime'];
         }
-        if (isset($map['PhysicalConnectionBusinessStatus'])) {
-            $model->physicalConnectionBusinessStatus = $map['PhysicalConnectionBusinessStatus'];
+        if (isset($map['CircuitCode'])) {
+            $model->circuitCode = $map['CircuitCode'];
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['LocalGatewayIp'])) {
+            $model->localGatewayIp = $map['LocalGatewayIp'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['PeerGatewayIp'])) {
+            $model->peerGatewayIp = $map['PeerGatewayIp'];
         }
         if (isset($map['PeeringSubnetMask'])) {
             $model->peeringSubnetMask = $map['PeeringSubnetMask'];
         }
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
+        if (isset($map['PhysicalConnectionBusinessStatus'])) {
+            $model->physicalConnectionBusinessStatus = $map['PhysicalConnectionBusinessStatus'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['PhysicalConnectionId'])) {
+            $model->physicalConnectionId = $map['PhysicalConnectionId'];
+        }
+        if (isset($map['PhysicalConnectionOwnerUid'])) {
+            $model->physicalConnectionOwnerUid = $map['PhysicalConnectionOwnerUid'];
         }
         if (isset($map['PhysicalConnectionStatus'])) {
             $model->physicalConnectionStatus = $map['PhysicalConnectionStatus'];
@@ -248,26 +251,23 @@ class virtualBorderRouterType extends Model
         if (isset($map['RecoveryTime'])) {
             $model->recoveryTime = $map['RecoveryTime'];
         }
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['TerminationTime'])) {
             $model->terminationTime = $map['TerminationTime'];
-        }
-        if (isset($map['PeerGatewayIp'])) {
-            $model->peerGatewayIp = $map['PeerGatewayIp'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['AccessPointId'])) {
-            $model->accessPointId = $map['AccessPointId'];
         }
         if (isset($map['VbrId'])) {
             $model->vbrId = $map['VbrId'];
         }
-        if (isset($map['PhysicalConnectionId'])) {
-            $model->physicalConnectionId = $map['PhysicalConnectionId'];
-        }
         if (isset($map['VlanId'])) {
             $model->vlanId = $map['VlanId'];
+        }
+        if (isset($map['VlanInterfaceId'])) {
+            $model->vlanInterfaceId = $map['VlanInterfaceId'];
         }
 
         return $model;

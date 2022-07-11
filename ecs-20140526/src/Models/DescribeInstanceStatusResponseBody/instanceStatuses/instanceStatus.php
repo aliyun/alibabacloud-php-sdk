@@ -11,15 +11,15 @@ class instanceStatus extends Model
     /**
      * @var string
      */
-    public $status;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
         'instanceId' => 'InstanceId',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class instanceStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class instanceStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

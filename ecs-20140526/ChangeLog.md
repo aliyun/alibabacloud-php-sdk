@@ -1,3 +1,6 @@
+2022-07-11 Version: 2.1.1
+- Support Storage And Network Features For LaunchTemplate.
+
 2021-08-27 Version: 2.1.0
 - DescribeSecurityGroups support query by next token.
 

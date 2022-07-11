@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatusResponseBody extends Model
 {
     /**
+     * @var instanceStatuses
+     */
+    public $instanceStatuses;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -22,23 +32,13 @@ class DescribeInstanceStatusResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
     public $totalCount;
-
-    /**
-     * @var instanceStatuses
-     */
-    public $instanceStatuses;
     protected $_name = [
+        'instanceStatuses' => 'InstanceStatuses',
+        'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'requestId'        => 'RequestId',
-        'pageNumber'       => 'PageNumber',
         'totalCount'       => 'TotalCount',
-        'instanceStatuses' => 'InstanceStatuses',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeInstanceStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceStatuses) {
+            $res['InstanceStatuses'] = null !== $this->instanceStatuses ? $this->instanceStatuses->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->instanceStatuses) {
-            $res['InstanceStatuses'] = null !== $this->instanceStatuses ? $this->instanceStatuses->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeInstanceStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceStatuses'])) {
+            $model->instanceStatuses = instanceStatuses::fromMap($map['InstanceStatuses']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['InstanceStatuses'])) {
-            $model->instanceStatuses = instanceStatuses::fromMap($map['InstanceStatuses']);
         }
 
         return $model;

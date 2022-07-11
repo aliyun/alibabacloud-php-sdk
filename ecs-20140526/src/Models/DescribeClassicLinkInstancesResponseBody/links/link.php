@@ -11,15 +11,15 @@ class link extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $vpcId;
     protected $_name = [
-        'vpcId'      => 'VpcId',
         'instanceId' => 'InstanceId',
+        'vpcId'      => 'VpcId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class link extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class link extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

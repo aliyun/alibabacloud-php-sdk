@@ -11,15 +11,15 @@ class DescribeInstanceVncPasswdResponseBody extends Model
     /**
      * @var string
      */
-    public $vncPasswd;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $vncPasswd;
     protected $_name = [
-        'vncPasswd' => 'VncPasswd',
         'requestId' => 'RequestId',
+        'vncPasswd' => 'VncPasswd',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeInstanceVncPasswdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vncPasswd) {
-            $res['VncPasswd'] = $this->vncPasswd;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vncPasswd) {
+            $res['VncPasswd'] = $this->vncPasswd;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeInstanceVncPasswdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VncPasswd'])) {
-            $model->vncPasswd = $map['VncPasswd'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VncPasswd'])) {
+            $model->vncPasswd = $map['VncPasswd'];
         }
 
         return $model;

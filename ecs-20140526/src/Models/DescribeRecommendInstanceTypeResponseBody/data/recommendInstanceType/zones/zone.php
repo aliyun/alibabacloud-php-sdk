@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
-     * @var string
-     */
-    public $zoneNo;
-
-    /**
      * @var networkTypes
      */
     public $networkTypes;
+
+    /**
+     * @var string
+     */
+    public $zoneNo;
     protected $_name = [
-        'zoneNo'       => 'ZoneNo',
         'networkTypes' => 'NetworkTypes',
+        'zoneNo'       => 'ZoneNo',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class zone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneNo) {
-            $res['ZoneNo'] = $this->zoneNo;
-        }
         if (null !== $this->networkTypes) {
             $res['NetworkTypes'] = null !== $this->networkTypes ? $this->networkTypes->toMap() : null;
+        }
+        if (null !== $this->zoneNo) {
+            $res['ZoneNo'] = $this->zoneNo;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class zone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneNo'])) {
-            $model->zoneNo = $map['ZoneNo'];
-        }
         if (isset($map['NetworkTypes'])) {
             $model->networkTypes = networkTypes::fromMap($map['NetworkTypes']);
+        }
+        if (isset($map['ZoneNo'])) {
+            $model->zoneNo = $map['ZoneNo'];
         }
 
         return $model;

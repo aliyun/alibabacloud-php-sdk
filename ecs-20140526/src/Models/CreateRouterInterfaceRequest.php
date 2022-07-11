@@ -11,52 +11,22 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $accessPointId;
+
+    /**
+     * @var bool
+     */
+    public $autoPay;
 
     /**
      * @var string
      */
-    public $role;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $oppositeRegionId;
-
-    /**
-     * @var string
-     */
-    public $spec;
-
-    /**
-     * @var string
-     */
-    public $routerType;
-
-    /**
-     * @var string
-     */
-    public $routerId;
-
-    /**
-     * @var string
-     */
-    public $oppositeInterfaceId;
-
-    /**
-     * @var string
-     */
-    public $oppositeRouterId;
-
-    /**
-     * @var string
-     */
-    public $oppositeRouterType;
-
-    /**
-     * @var string
-     */
-    public $oppositeInterfaceOwnerId;
+    public $description;
 
     /**
      * @var string
@@ -71,7 +41,12 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @var string
      */
-    public $accessPointId;
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -81,12 +56,37 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $oppositeInterfaceId;
 
     /**
      * @var string
      */
-    public $name;
+    public $oppositeInterfaceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $oppositeRegionId;
+
+    /**
+     * @var string
+     */
+    public $oppositeRouterId;
+
+    /**
+     * @var string
+     */
+    public $oppositeRouterType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -96,27 +96,12 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @var string
      */
-    public $instanceChargeType;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
-     * @var string
-     */
     public $pricingCycle;
 
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $regionId;
 
     /**
      * @var string
@@ -131,38 +116,53 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $role;
+
+    /**
+     * @var string
+     */
+    public $routerId;
+
+    /**
+     * @var string
+     */
+    public $routerType;
+
+    /**
+     * @var string
+     */
+    public $spec;
 
     /**
      * @var string
      */
     public $userCidr;
     protected $_name = [
-        'regionId'                 => 'RegionId',
-        'role'                     => 'Role',
-        'oppositeRegionId'         => 'OppositeRegionId',
-        'spec'                     => 'Spec',
-        'routerType'               => 'RouterType',
-        'routerId'                 => 'RouterId',
-        'oppositeInterfaceId'      => 'OppositeInterfaceId',
-        'oppositeRouterId'         => 'OppositeRouterId',
-        'oppositeRouterType'       => 'OppositeRouterType',
-        'oppositeInterfaceOwnerId' => 'OppositeInterfaceOwnerId',
+        'accessPointId'            => 'AccessPointId',
+        'autoPay'                  => 'AutoPay',
+        'clientToken'              => 'ClientToken',
+        'description'              => 'Description',
         'healthCheckSourceIp'      => 'HealthCheckSourceIp',
         'healthCheckTargetIp'      => 'HealthCheckTargetIp',
-        'accessPointId'            => 'AccessPointId',
-        'oppositeAccessPointId'    => 'OppositeAccessPointId',
-        'description'              => 'Description',
-        'name'                     => 'Name',
-        'period'                   => 'Period',
         'instanceChargeType'       => 'InstanceChargeType',
-        'autoPay'                  => 'AutoPay',
-        'pricingCycle'             => 'PricingCycle',
-        'clientToken'              => 'ClientToken',
+        'name'                     => 'Name',
+        'oppositeAccessPointId'    => 'OppositeAccessPointId',
+        'oppositeInterfaceId'      => 'OppositeInterfaceId',
+        'oppositeInterfaceOwnerId' => 'OppositeInterfaceOwnerId',
+        'oppositeRegionId'         => 'OppositeRegionId',
+        'oppositeRouterId'         => 'OppositeRouterId',
+        'oppositeRouterType'       => 'OppositeRouterType',
+        'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
+        'period'                   => 'Period',
+        'pricingCycle'             => 'PricingCycle',
+        'regionId'                 => 'RegionId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
-        'ownerAccount'             => 'OwnerAccount',
+        'role'                     => 'Role',
+        'routerId'                 => 'RouterId',
+        'routerType'               => 'RouterType',
+        'spec'                     => 'Spec',
         'userCidr'                 => 'UserCidr',
     ];
 
@@ -173,35 +173,17 @@ class CreateRouterInterfaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->accessPointId) {
+            $res['AccessPointId'] = $this->accessPointId;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
         }
-        if (null !== $this->oppositeRegionId) {
-            $res['OppositeRegionId'] = $this->oppositeRegionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
-        }
-        if (null !== $this->routerType) {
-            $res['RouterType'] = $this->routerType;
-        }
-        if (null !== $this->routerId) {
-            $res['RouterId'] = $this->routerId;
-        }
-        if (null !== $this->oppositeInterfaceId) {
-            $res['OppositeInterfaceId'] = $this->oppositeInterfaceId;
-        }
-        if (null !== $this->oppositeRouterId) {
-            $res['OppositeRouterId'] = $this->oppositeRouterId;
-        }
-        if (null !== $this->oppositeRouterType) {
-            $res['OppositeRouterType'] = $this->oppositeRouterType;
-        }
-        if (null !== $this->oppositeInterfaceOwnerId) {
-            $res['OppositeInterfaceOwnerId'] = $this->oppositeInterfaceOwnerId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->healthCheckSourceIp) {
             $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
@@ -209,35 +191,44 @@ class CreateRouterInterfaceRequest extends Model
         if (null !== $this->healthCheckTargetIp) {
             $res['HealthCheckTargetIp'] = $this->healthCheckTargetIp;
         }
-        if (null !== $this->accessPointId) {
-            $res['AccessPointId'] = $this->accessPointId;
-        }
-        if (null !== $this->oppositeAccessPointId) {
-            $res['OppositeAccessPointId'] = $this->oppositeAccessPointId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->oppositeAccessPointId) {
+            $res['OppositeAccessPointId'] = $this->oppositeAccessPointId;
+        }
+        if (null !== $this->oppositeInterfaceId) {
+            $res['OppositeInterfaceId'] = $this->oppositeInterfaceId;
+        }
+        if (null !== $this->oppositeInterfaceOwnerId) {
+            $res['OppositeInterfaceOwnerId'] = $this->oppositeInterfaceOwnerId;
+        }
+        if (null !== $this->oppositeRegionId) {
+            $res['OppositeRegionId'] = $this->oppositeRegionId;
+        }
+        if (null !== $this->oppositeRouterId) {
+            $res['OppositeRouterId'] = $this->oppositeRouterId;
+        }
+        if (null !== $this->oppositeRouterType) {
+            $res['OppositeRouterType'] = $this->oppositeRouterType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
         }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -245,8 +236,17 @@ class CreateRouterInterfaceRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->routerId) {
+            $res['RouterId'] = $this->routerId;
+        }
+        if (null !== $this->routerType) {
+            $res['RouterType'] = $this->routerType;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
         if (null !== $this->userCidr) {
             $res['UserCidr'] = $this->userCidr;
@@ -263,35 +263,17 @@ class CreateRouterInterfaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AccessPointId'])) {
+            $model->accessPointId = $map['AccessPointId'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
         }
-        if (isset($map['OppositeRegionId'])) {
-            $model->oppositeRegionId = $map['OppositeRegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
-        }
-        if (isset($map['RouterType'])) {
-            $model->routerType = $map['RouterType'];
-        }
-        if (isset($map['RouterId'])) {
-            $model->routerId = $map['RouterId'];
-        }
-        if (isset($map['OppositeInterfaceId'])) {
-            $model->oppositeInterfaceId = $map['OppositeInterfaceId'];
-        }
-        if (isset($map['OppositeRouterId'])) {
-            $model->oppositeRouterId = $map['OppositeRouterId'];
-        }
-        if (isset($map['OppositeRouterType'])) {
-            $model->oppositeRouterType = $map['OppositeRouterType'];
-        }
-        if (isset($map['OppositeInterfaceOwnerId'])) {
-            $model->oppositeInterfaceOwnerId = $map['OppositeInterfaceOwnerId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['HealthCheckSourceIp'])) {
             $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];
@@ -299,35 +281,44 @@ class CreateRouterInterfaceRequest extends Model
         if (isset($map['HealthCheckTargetIp'])) {
             $model->healthCheckTargetIp = $map['HealthCheckTargetIp'];
         }
-        if (isset($map['AccessPointId'])) {
-            $model->accessPointId = $map['AccessPointId'];
-        }
-        if (isset($map['OppositeAccessPointId'])) {
-            $model->oppositeAccessPointId = $map['OppositeAccessPointId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['OppositeAccessPointId'])) {
+            $model->oppositeAccessPointId = $map['OppositeAccessPointId'];
+        }
+        if (isset($map['OppositeInterfaceId'])) {
+            $model->oppositeInterfaceId = $map['OppositeInterfaceId'];
+        }
+        if (isset($map['OppositeInterfaceOwnerId'])) {
+            $model->oppositeInterfaceOwnerId = $map['OppositeInterfaceOwnerId'];
+        }
+        if (isset($map['OppositeRegionId'])) {
+            $model->oppositeRegionId = $map['OppositeRegionId'];
+        }
+        if (isset($map['OppositeRouterId'])) {
+            $model->oppositeRouterId = $map['OppositeRouterId'];
+        }
+        if (isset($map['OppositeRouterType'])) {
+            $model->oppositeRouterType = $map['OppositeRouterType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
         }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -335,8 +326,17 @@ class CreateRouterInterfaceRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['RouterId'])) {
+            $model->routerId = $map['RouterId'];
+        }
+        if (isset($map['RouterType'])) {
+            $model->routerType = $map['RouterType'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
         if (isset($map['UserCidr'])) {
             $model->userCidr = $map['UserCidr'];

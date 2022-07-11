@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupsRequest extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $ownerId;
+    public $autoProvisioningGroupId;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
+    public $autoProvisioningGroupName;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $resourceOwnerId;
+    public $autoProvisioningGroupStatus;
 
     /**
      * @var string
@@ -29,9 +29,9 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $ownerId;
 
     /**
      * @var int
@@ -44,30 +44,30 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $autoProvisioningGroupId;
-
-    /**
-     * @var string[]
-     */
-    public $autoProvisioningGroupStatus;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $autoProvisioningGroupName;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'                     => 'OwnerId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
+        'autoProvisioningGroupId'     => 'AutoProvisioningGroupId',
+        'autoProvisioningGroupName'   => 'AutoProvisioningGroupName',
+        'autoProvisioningGroupStatus' => 'AutoProvisioningGroupStatus',
         'ownerAccount'                => 'OwnerAccount',
-        'regionId'                    => 'RegionId',
+        'ownerId'                     => 'OwnerId',
         'pageNumber'                  => 'PageNumber',
         'pageSize'                    => 'PageSize',
-        'autoProvisioningGroupId'     => 'AutoProvisioningGroupId',
-        'autoProvisioningGroupStatus' => 'AutoProvisioningGroupStatus',
-        'autoProvisioningGroupName'   => 'AutoProvisioningGroupName',
+        'regionId'                    => 'RegionId',
+        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
+        'resourceOwnerId'             => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -77,20 +77,20 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->autoProvisioningGroupId) {
+            $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->autoProvisioningGroupName) {
+            $res['AutoProvisioningGroupName'] = $this->autoProvisioningGroupName;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->autoProvisioningGroupStatus) {
+            $res['AutoProvisioningGroupStatus'] = $this->autoProvisioningGroupStatus;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -98,14 +98,14 @@ class DescribeAutoProvisioningGroupsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->autoProvisioningGroupId) {
-            $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->autoProvisioningGroupStatus) {
-            $res['AutoProvisioningGroupStatus'] = $this->autoProvisioningGroupStatus;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->autoProvisioningGroupName) {
-            $res['AutoProvisioningGroupName'] = $this->autoProvisioningGroupName;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -119,20 +119,24 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AutoProvisioningGroupId'])) {
+            if (!empty($map['AutoProvisioningGroupId'])) {
+                $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
+            }
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['AutoProvisioningGroupName'])) {
+            $model->autoProvisioningGroupName = $map['AutoProvisioningGroupName'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['AutoProvisioningGroupStatus'])) {
+            if (!empty($map['AutoProvisioningGroupStatus'])) {
+                $model->autoProvisioningGroupStatus = $map['AutoProvisioningGroupStatus'];
+            }
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -140,18 +144,14 @@ class DescribeAutoProvisioningGroupsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['AutoProvisioningGroupId'])) {
-            if (!empty($map['AutoProvisioningGroupId'])) {
-                $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['AutoProvisioningGroupStatus'])) {
-            if (!empty($map['AutoProvisioningGroupStatus'])) {
-                $model->autoProvisioningGroupStatus = $map['AutoProvisioningGroupStatus'];
-            }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['AutoProvisioningGroupName'])) {
-            $model->autoProvisioningGroupName = $map['AutoProvisioningGroupName'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

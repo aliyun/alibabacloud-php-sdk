@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ImportSnapshotRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ossBucket;
+
+    /**
+     * @var string
+     */
+    public $ossObject;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -26,36 +41,21 @@ class ImportSnapshotRequest extends Model
     /**
      * @var string
      */
-    public $snapshotName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ossBucket;
-
-    /**
-     * @var string
-     */
-    public $ossObject;
-
-    /**
-     * @var string
-     */
     public $roleName;
+
+    /**
+     * @var string
+     */
+    public $snapshotName;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'snapshotName'         => 'SnapshotName',
-        'regionId'             => 'RegionId',
         'ossBucket'            => 'OssBucket',
         'ossObject'            => 'OssObject',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'roleName'             => 'RoleName',
+        'snapshotName'         => 'SnapshotName',
     ];
 
     public function validate()
@@ -65,8 +65,17 @@ class ImportSnapshotRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ossBucket) {
+            $res['OssBucket'] = $this->ossBucket;
+        }
+        if (null !== $this->ossObject) {
+            $res['OssObject'] = $this->ossObject;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,20 +83,11 @@ class ImportSnapshotRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->snapshotName) {
-            $res['SnapshotName'] = $this->snapshotName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ossBucket) {
-            $res['OssBucket'] = $this->ossBucket;
-        }
-        if (null !== $this->ossObject) {
-            $res['OssObject'] = $this->ossObject;
-        }
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
+        }
+        if (null !== $this->snapshotName) {
+            $res['SnapshotName'] = $this->snapshotName;
         }
 
         return $res;
@@ -101,8 +101,17 @@ class ImportSnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OssBucket'])) {
+            $model->ossBucket = $map['OssBucket'];
+        }
+        if (isset($map['OssObject'])) {
+            $model->ossObject = $map['OssObject'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -110,20 +119,11 @@ class ImportSnapshotRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['SnapshotName'])) {
-            $model->snapshotName = $map['SnapshotName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OssBucket'])) {
-            $model->ossBucket = $map['OssBucket'];
-        }
-        if (isset($map['OssObject'])) {
-            $model->ossObject = $map['OssObject'];
-        }
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
+        }
+        if (isset($map['SnapshotName'])) {
+            $model->snapshotName = $map['SnapshotName'];
         }
 
         return $model;

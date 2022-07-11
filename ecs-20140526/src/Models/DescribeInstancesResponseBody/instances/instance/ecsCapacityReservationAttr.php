@@ -11,15 +11,15 @@ class ecsCapacityReservationAttr extends Model
     /**
      * @var string
      */
-    public $capacityReservationPreference;
+    public $capacityReservationId;
 
     /**
      * @var string
      */
-    public $capacityReservationId;
+    public $capacityReservationPreference;
     protected $_name = [
-        'capacityReservationPreference' => 'CapacityReservationPreference',
         'capacityReservationId'         => 'CapacityReservationId',
+        'capacityReservationPreference' => 'CapacityReservationPreference',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ecsCapacityReservationAttr extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->capacityReservationPreference) {
-            $res['CapacityReservationPreference'] = $this->capacityReservationPreference;
-        }
         if (null !== $this->capacityReservationId) {
             $res['CapacityReservationId'] = $this->capacityReservationId;
+        }
+        if (null !== $this->capacityReservationPreference) {
+            $res['CapacityReservationPreference'] = $this->capacityReservationPreference;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ecsCapacityReservationAttr extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CapacityReservationPreference'])) {
-            $model->capacityReservationPreference = $map['CapacityReservationPreference'];
-        }
         if (isset($map['CapacityReservationId'])) {
             $model->capacityReservationId = $map['CapacityReservationId'];
+        }
+        if (isset($map['CapacityReservationPreference'])) {
+            $model->capacityReservationPreference = $map['CapacityReservationPreference'];
         }
 
         return $model;

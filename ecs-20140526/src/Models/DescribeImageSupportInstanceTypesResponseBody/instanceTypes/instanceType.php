@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class instanceType extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $instanceTypeId;
+    public $cpuCoreCount;
 
     /**
      * @var string
@@ -19,18 +19,18 @@ class instanceType extends Model
     public $instanceTypeFamily;
 
     /**
-     * @var int
+     * @var string
      */
-    public $cpuCoreCount;
+    public $instanceTypeId;
 
     /**
      * @var float
      */
     public $memorySize;
     protected $_name = [
-        'instanceTypeId'     => 'InstanceTypeId',
-        'instanceTypeFamily' => 'InstanceTypeFamily',
         'cpuCoreCount'       => 'CpuCoreCount',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
+        'instanceTypeId'     => 'InstanceTypeId',
         'memorySize'         => 'MemorySize',
     ];
 
@@ -41,14 +41,14 @@ class instanceType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceTypeId) {
-            $res['InstanceTypeId'] = $this->instanceTypeId;
+        if (null !== $this->cpuCoreCount) {
+            $res['CpuCoreCount'] = $this->cpuCoreCount;
         }
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
-        if (null !== $this->cpuCoreCount) {
-            $res['CpuCoreCount'] = $this->cpuCoreCount;
+        if (null !== $this->instanceTypeId) {
+            $res['InstanceTypeId'] = $this->instanceTypeId;
         }
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
@@ -65,14 +65,14 @@ class instanceType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceTypeId'])) {
-            $model->instanceTypeId = $map['InstanceTypeId'];
+        if (isset($map['CpuCoreCount'])) {
+            $model->cpuCoreCount = $map['CpuCoreCount'];
         }
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
-        if (isset($map['CpuCoreCount'])) {
-            $model->cpuCoreCount = $map['CpuCoreCount'];
+        if (isset($map['InstanceTypeId'])) {
+            $model->instanceTypeId = $map['InstanceTypeId'];
         }
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];

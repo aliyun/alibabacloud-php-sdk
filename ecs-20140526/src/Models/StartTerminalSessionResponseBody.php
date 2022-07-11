@@ -16,12 +16,12 @@ class StartTerminalSessionResponseBody extends Model
     /**
      * @var string
      */
-    public $sessionId;
+    public $securityToken;
 
     /**
      * @var string
      */
-    public $securityToken;
+    public $sessionId;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class StartTerminalSessionResponseBody extends Model
     public $webSocketUrl;
     protected $_name = [
         'requestId'     => 'RequestId',
-        'sessionId'     => 'SessionId',
         'securityToken' => 'SecurityToken',
+        'sessionId'     => 'SessionId',
         'webSocketUrl'  => 'WebSocketUrl',
     ];
 
@@ -44,11 +44,11 @@ class StartTerminalSessionResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
-        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
         if (null !== $this->webSocketUrl) {
             $res['WebSocketUrl'] = $this->webSocketUrl;
@@ -68,11 +68,11 @@ class StartTerminalSessionResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
-        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
         if (isset($map['WebSocketUrl'])) {
             $model->webSocketUrl = $map['WebSocketUrl'];

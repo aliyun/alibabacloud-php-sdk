@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class instanceType extends Model
 {
     /**
-     * @var string
-     */
-    public $supportIoOptimized;
-
-    /**
      * @var int
      */
     public $cores;
 
     /**
-     * @var int
+     * @var string
      */
-    public $memory;
+    public $generation;
 
     /**
      * @var string
@@ -34,16 +29,21 @@ class instanceType extends Model
     public $instanceTypeFamily;
 
     /**
+     * @var int
+     */
+    public $memory;
+
+    /**
      * @var string
      */
-    public $generation;
+    public $supportIoOptimized;
     protected $_name = [
-        'supportIoOptimized' => 'SupportIoOptimized',
         'cores'              => 'Cores',
-        'memory'             => 'Memory',
+        'generation'         => 'Generation',
         'instanceType'       => 'InstanceType',
         'instanceTypeFamily' => 'InstanceTypeFamily',
-        'generation'         => 'Generation',
+        'memory'             => 'Memory',
+        'supportIoOptimized' => 'SupportIoOptimized',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class instanceType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportIoOptimized) {
-            $res['SupportIoOptimized'] = $this->supportIoOptimized;
-        }
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
-        if (null !== $this->memory) {
-            $res['Memory'] = $this->memory;
+        if (null !== $this->generation) {
+            $res['Generation'] = $this->generation;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -68,8 +65,11 @@ class instanceType extends Model
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
-        if (null !== $this->generation) {
-            $res['Generation'] = $this->generation;
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->supportIoOptimized) {
+            $res['SupportIoOptimized'] = $this->supportIoOptimized;
         }
 
         return $res;
@@ -83,14 +83,11 @@ class instanceType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportIoOptimized'])) {
-            $model->supportIoOptimized = $map['SupportIoOptimized'];
-        }
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
-        if (isset($map['Memory'])) {
-            $model->memory = $map['Memory'];
+        if (isset($map['Generation'])) {
+            $model->generation = $map['Generation'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
@@ -98,8 +95,11 @@ class instanceType extends Model
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
-        if (isset($map['Generation'])) {
-            $model->generation = $map['Generation'];
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['SupportIoOptimized'])) {
+            $model->supportIoOptimized = $map['SupportIoOptimized'];
         }
 
         return $model;

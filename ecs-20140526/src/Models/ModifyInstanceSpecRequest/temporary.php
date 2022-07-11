@@ -11,21 +11,21 @@ class temporary extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $endTime;
 
     /**
      * @var int
      */
     public $internetMaxBandwidthOut;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'startTime'               => 'StartTime',
         'endTime'                 => 'EndTime',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
+        'startTime'               => 'StartTime',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class temporary extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class temporary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

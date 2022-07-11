@@ -16,7 +16,7 @@ class supplyInfo extends Model
     /**
      * @var string
      */
-    public $supplyStatus;
+    public $supplyEndTime;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class supplyInfo extends Model
     /**
      * @var string
      */
-    public $supplyEndTime;
+    public $supplyStatus;
     protected $_name = [
         'amount'          => 'Amount',
-        'supplyStatus'    => 'SupplyStatus',
-        'supplyStartTime' => 'SupplyStartTime',
         'supplyEndTime'   => 'SupplyEndTime',
+        'supplyStartTime' => 'SupplyStartTime',
+        'supplyStatus'    => 'SupplyStatus',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class supplyInfo extends Model
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
-        if (null !== $this->supplyStatus) {
-            $res['SupplyStatus'] = $this->supplyStatus;
+        if (null !== $this->supplyEndTime) {
+            $res['SupplyEndTime'] = $this->supplyEndTime;
         }
         if (null !== $this->supplyStartTime) {
             $res['SupplyStartTime'] = $this->supplyStartTime;
         }
-        if (null !== $this->supplyEndTime) {
-            $res['SupplyEndTime'] = $this->supplyEndTime;
+        if (null !== $this->supplyStatus) {
+            $res['SupplyStatus'] = $this->supplyStatus;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class supplyInfo extends Model
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
-        if (isset($map['SupplyStatus'])) {
-            $model->supplyStatus = $map['SupplyStatus'];
+        if (isset($map['SupplyEndTime'])) {
+            $model->supplyEndTime = $map['SupplyEndTime'];
         }
         if (isset($map['SupplyStartTime'])) {
             $model->supplyStartTime = $map['SupplyStartTime'];
         }
-        if (isset($map['SupplyEndTime'])) {
-            $model->supplyEndTime = $map['SupplyEndTime'];
+        if (isset($map['SupplyStatus'])) {
+            $model->supplyStatus = $map['SupplyStatus'];
         }
 
         return $model;

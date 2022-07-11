@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountAttributesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var accountAttributeItems
      */
     public $accountAttributeItems;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'             => 'RequestId',
         'accountAttributeItems' => 'AccountAttributeItems',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeAccountAttributesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accountAttributeItems) {
             $res['AccountAttributeItems'] = null !== $this->accountAttributeItems ? $this->accountAttributeItems->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeAccountAttributesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AccountAttributeItems'])) {
             $model->accountAttributeItems = accountAttributeItems::fromMap($map['AccountAttributeItems']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

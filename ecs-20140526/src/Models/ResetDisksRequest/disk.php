@@ -11,15 +11,15 @@ class disk extends Model
     /**
      * @var string
      */
-    public $snapshotId;
+    public $diskId;
 
     /**
      * @var string
      */
-    public $diskId;
+    public $snapshotId;
     protected $_name = [
-        'snapshotId' => 'SnapshotId',
         'diskId'     => 'DiskId',
+        'snapshotId' => 'SnapshotId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class disk extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapshotId) {
-            $res['SnapshotId'] = $this->snapshotId;
-        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class disk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SnapshotId'])) {
-            $model->snapshotId = $map['SnapshotId'];
-        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

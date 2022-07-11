@@ -11,15 +11,15 @@ class DescribeInstanceVncUrlResponseBody extends Model
     /**
      * @var string
      */
-    public $vncUrl;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $vncUrl;
     protected $_name = [
-        'vncUrl'    => 'VncUrl',
         'requestId' => 'RequestId',
+        'vncUrl'    => 'VncUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeInstanceVncUrlResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vncUrl) {
-            $res['VncUrl'] = $this->vncUrl;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vncUrl) {
+            $res['VncUrl'] = $this->vncUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeInstanceVncUrlResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VncUrl'])) {
-            $model->vncUrl = $map['VncUrl'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VncUrl'])) {
+            $model->vncUrl = $map['VncUrl'];
         }
 
         return $model;

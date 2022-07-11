@@ -11,15 +11,15 @@ class associatedPublicIp extends Model
     /**
      * @var string
      */
-    public $publicIpAddress;
+    public $allocationId;
 
     /**
      * @var string
      */
-    public $allocationId;
+    public $publicIpAddress;
     protected $_name = [
-        'publicIpAddress' => 'PublicIpAddress',
         'allocationId'    => 'AllocationId',
+        'publicIpAddress' => 'PublicIpAddress',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class associatedPublicIp extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->publicIpAddress) {
-            $res['PublicIpAddress'] = $this->publicIpAddress;
-        }
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
+        }
+        if (null !== $this->publicIpAddress) {
+            $res['PublicIpAddress'] = $this->publicIpAddress;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class associatedPublicIp extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PublicIpAddress'])) {
-            $model->publicIpAddress = $map['PublicIpAddress'];
-        }
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
+        }
+        if (isset($map['PublicIpAddress'])) {
+            $model->publicIpAddress = $map['PublicIpAddress'];
         }
 
         return $model;

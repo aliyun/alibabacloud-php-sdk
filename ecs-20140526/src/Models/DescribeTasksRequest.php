@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
+    public $ownerAccount;
 
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $ownerId;
 
     /**
      * @var int
@@ -36,27 +36,17 @@ class DescribeTasksRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
      * @var string
      */
-    public $taskIds;
+    public $resourceOwnerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskAction;
-
-    /**
-     * @var string
-     */
-    public $taskStatus;
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -66,20 +56,30 @@ class DescribeTasksRequest extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $taskAction;
+
+    /**
+     * @var string
+     */
+    public $taskIds;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
     protected $_name = [
+        'endTime'              => 'EndTime',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'taskIds'              => 'TaskIds',
-        'taskAction'           => 'TaskAction',
-        'taskStatus'           => 'TaskStatus',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'startTime'            => 'StartTime',
-        'endTime'              => 'EndTime',
+        'taskAction'           => 'TaskAction',
+        'taskIds'              => 'TaskIds',
+        'taskStatus'           => 'TaskStatus',
     ];
 
     public function validate()
@@ -89,14 +89,14 @@ class DescribeTasksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -104,26 +104,26 @@ class DescribeTasksRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->taskAction) {
-            $res['TaskAction'] = $this->taskAction;
-        }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->taskAction) {
+            $res['TaskAction'] = $this->taskAction;
+        }
+        if (null !== $this->taskIds) {
+            $res['TaskIds'] = $this->taskIds;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -137,14 +137,14 @@ class DescribeTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -152,26 +152,26 @@ class DescribeTasksRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TaskIds'])) {
-            $model->taskIds = $map['TaskIds'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['TaskAction'])) {
-            $model->taskAction = $map['TaskAction'];
-        }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['TaskAction'])) {
+            $model->taskAction = $map['TaskAction'];
+        }
+        if (isset($map['TaskIds'])) {
+            $model->taskIds = $map['TaskIds'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;

@@ -11,22 +11,22 @@ class ModifyRouterInterfaceSpecRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $routerInterfaceId;
-
-    /**
-     * @var string
-     */
-    public $spec;
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -41,26 +41,26 @@ class ModifyRouterInterfaceSpecRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $routerInterfaceId;
 
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $spec;
 
     /**
      * @var string
      */
     public $userCidr;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'routerInterfaceId'    => 'RouterInterfaceId',
-        'spec'                 => 'Spec',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'clientToken'          => 'ClientToken',
         'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'routerInterfaceId'    => 'RouterInterfaceId',
+        'spec'                 => 'Spec',
         'userCidr'             => 'UserCidr',
     ];
 
@@ -71,17 +71,17 @@ class ModifyRouterInterfaceSpecRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->routerInterfaceId) {
-            $res['RouterInterfaceId'] = $this->routerInterfaceId;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -89,11 +89,11 @@ class ModifyRouterInterfaceSpecRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->routerInterfaceId) {
+            $res['RouterInterfaceId'] = $this->routerInterfaceId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
         if (null !== $this->userCidr) {
             $res['UserCidr'] = $this->userCidr;
@@ -110,17 +110,17 @@ class ModifyRouterInterfaceSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['RouterInterfaceId'])) {
-            $model->routerInterfaceId = $map['RouterInterfaceId'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -128,11 +128,11 @@ class ModifyRouterInterfaceSpecRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['RouterInterfaceId'])) {
+            $model->routerInterfaceId = $map['RouterInterfaceId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
         if (isset($map['UserCidr'])) {
             $model->userCidr = $map['UserCidr'];

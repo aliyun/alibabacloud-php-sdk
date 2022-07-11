@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedBlockStorageClustersResponseBody extends Model
 {
     /**
+     * @var dedicatedBlockStorageClusters
+     */
+    public $dedicatedBlockStorageClusters;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -18,15 +23,10 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var dedicatedBlockStorageClusters
-     */
-    public $dedicatedBlockStorageClusters;
     protected $_name = [
+        'dedicatedBlockStorageClusters' => 'DedicatedBlockStorageClusters',
         'nextToken'                     => 'NextToken',
         'requestId'                     => 'RequestId',
-        'dedicatedBlockStorageClusters' => 'DedicatedBlockStorageClusters',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicatedBlockStorageClusters) {
+            $res['DedicatedBlockStorageClusters'] = null !== $this->dedicatedBlockStorageClusters ? $this->dedicatedBlockStorageClusters->toMap() : null;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->dedicatedBlockStorageClusters) {
-            $res['DedicatedBlockStorageClusters'] = null !== $this->dedicatedBlockStorageClusters ? $this->dedicatedBlockStorageClusters->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicatedBlockStorageClusters'])) {
+            $model->dedicatedBlockStorageClusters = dedicatedBlockStorageClusters::fromMap($map['DedicatedBlockStorageClusters']);
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DedicatedBlockStorageClusters'])) {
-            $model->dedicatedBlockStorageClusters = dedicatedBlockStorageClusters::fromMap($map['DedicatedBlockStorageClusters']);
         }
 
         return $model;

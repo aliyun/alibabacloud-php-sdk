@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class targetCapacitySpecification extends Model
 {
     /**
-     * @var float
-     */
-    public $spotTargetCapacity;
-
-    /**
-     * @var float
-     */
-    public $payAsYouGoTargetCapacity;
-
-    /**
      * @var string
      */
     public $defaultTargetCapacityType;
@@ -26,11 +16,21 @@ class targetCapacitySpecification extends Model
     /**
      * @var float
      */
+    public $payAsYouGoTargetCapacity;
+
+    /**
+     * @var float
+     */
+    public $spotTargetCapacity;
+
+    /**
+     * @var float
+     */
     public $totalTargetCapacity;
     protected $_name = [
-        'spotTargetCapacity'        => 'SpotTargetCapacity',
-        'payAsYouGoTargetCapacity'  => 'PayAsYouGoTargetCapacity',
         'defaultTargetCapacityType' => 'DefaultTargetCapacityType',
+        'payAsYouGoTargetCapacity'  => 'PayAsYouGoTargetCapacity',
+        'spotTargetCapacity'        => 'SpotTargetCapacity',
         'totalTargetCapacity'       => 'TotalTargetCapacity',
     ];
 
@@ -41,14 +41,14 @@ class targetCapacitySpecification extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spotTargetCapacity) {
-            $res['SpotTargetCapacity'] = $this->spotTargetCapacity;
+        if (null !== $this->defaultTargetCapacityType) {
+            $res['DefaultTargetCapacityType'] = $this->defaultTargetCapacityType;
         }
         if (null !== $this->payAsYouGoTargetCapacity) {
             $res['PayAsYouGoTargetCapacity'] = $this->payAsYouGoTargetCapacity;
         }
-        if (null !== $this->defaultTargetCapacityType) {
-            $res['DefaultTargetCapacityType'] = $this->defaultTargetCapacityType;
+        if (null !== $this->spotTargetCapacity) {
+            $res['SpotTargetCapacity'] = $this->spotTargetCapacity;
         }
         if (null !== $this->totalTargetCapacity) {
             $res['TotalTargetCapacity'] = $this->totalTargetCapacity;
@@ -65,14 +65,14 @@ class targetCapacitySpecification extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpotTargetCapacity'])) {
-            $model->spotTargetCapacity = $map['SpotTargetCapacity'];
+        if (isset($map['DefaultTargetCapacityType'])) {
+            $model->defaultTargetCapacityType = $map['DefaultTargetCapacityType'];
         }
         if (isset($map['PayAsYouGoTargetCapacity'])) {
             $model->payAsYouGoTargetCapacity = $map['PayAsYouGoTargetCapacity'];
         }
-        if (isset($map['DefaultTargetCapacityType'])) {
-            $model->defaultTargetCapacityType = $map['DefaultTargetCapacityType'];
+        if (isset($map['SpotTargetCapacity'])) {
+            $model->spotTargetCapacity = $map['SpotTargetCapacity'];
         }
         if (isset($map['TotalTargetCapacity'])) {
             $model->totalTargetCapacity = $map['TotalTargetCapacity'];

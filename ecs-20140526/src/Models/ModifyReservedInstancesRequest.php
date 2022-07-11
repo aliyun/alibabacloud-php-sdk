@@ -10,24 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyReservedInstancesRequest extends Model
 {
     /**
-     * @var int
+     * @var configuration[]
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $configuration;
 
     /**
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -40,17 +35,22 @@ class ModifyReservedInstancesRequest extends Model
     public $reservedInstanceId;
 
     /**
-     * @var configuration[]
+     * @var string
      */
-    public $configuration;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'configuration'        => 'Configuration',
         'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'reservedInstanceId'   => 'ReservedInstanceId',
-        'configuration'        => 'Configuration',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -60,24 +60,6 @@ class ModifyReservedInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->reservedInstanceId) {
-            $res['ReservedInstanceId'] = $this->reservedInstanceId;
-        }
         if (null !== $this->configuration) {
             $res['Configuration'] = [];
             if (null !== $this->configuration && \is_array($this->configuration)) {
@@ -86,6 +68,24 @@ class ModifyReservedInstancesRequest extends Model
                     $res['Configuration'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->reservedInstanceId) {
+            $res['ReservedInstanceId'] = $this->reservedInstanceId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -99,17 +99,20 @@ class ModifyReservedInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['Configuration'])) {
+            if (!empty($map['Configuration'])) {
+                $model->configuration = [];
+                $n                    = 0;
+                foreach ($map['Configuration'] as $item) {
+                    $model->configuration[$n++] = null !== $item ? configuration::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -119,14 +122,11 @@ class ModifyReservedInstancesRequest extends Model
                 $model->reservedInstanceId = $map['ReservedInstanceId'];
             }
         }
-        if (isset($map['Configuration'])) {
-            if (!empty($map['Configuration'])) {
-                $model->configuration = [];
-                $n                    = 0;
-                foreach ($map['Configuration'] as $item) {
-                    $model->configuration[$n++] = null !== $item ? configuration::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

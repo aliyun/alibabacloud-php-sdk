@@ -15,18 +15,18 @@ class DescribePrefixListAssociationsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var prefixListAssociations
      */
     public $prefixListAssociations;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'nextToken'              => 'NextToken',
-        'requestId'              => 'RequestId',
         'prefixListAssociations' => 'PrefixListAssociations',
+        'requestId'              => 'RequestId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribePrefixListAssociationsResponseBody extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->prefixListAssociations) {
             $res['PrefixListAssociations'] = null !== $this->prefixListAssociations ? $this->prefixListAssociations->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribePrefixListAssociationsResponseBody extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PrefixListAssociations'])) {
             $model->prefixListAssociations = prefixListAssociations::fromMap($map['PrefixListAssociations']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

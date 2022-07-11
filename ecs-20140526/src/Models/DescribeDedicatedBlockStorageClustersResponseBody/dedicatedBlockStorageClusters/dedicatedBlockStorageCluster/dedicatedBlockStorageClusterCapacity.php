@@ -11,15 +11,15 @@ class dedicatedBlockStorageClusterCapacity extends Model
     /**
      * @var int
      */
-    public $totalCapacity;
+    public $availableCapacity;
 
     /**
      * @var int
      */
-    public $availableCapacity;
+    public $totalCapacity;
     protected $_name = [
-        'totalCapacity'     => 'TotalCapacity',
         'availableCapacity' => 'AvailableCapacity',
+        'totalCapacity'     => 'TotalCapacity',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class dedicatedBlockStorageClusterCapacity extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCapacity) {
-            $res['TotalCapacity'] = $this->totalCapacity;
-        }
         if (null !== $this->availableCapacity) {
             $res['AvailableCapacity'] = $this->availableCapacity;
+        }
+        if (null !== $this->totalCapacity) {
+            $res['TotalCapacity'] = $this->totalCapacity;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class dedicatedBlockStorageClusterCapacity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCapacity'])) {
-            $model->totalCapacity = $map['TotalCapacity'];
-        }
         if (isset($map['AvailableCapacity'])) {
             $model->availableCapacity = $map['AvailableCapacity'];
+        }
+        if (isset($map['TotalCapacity'])) {
+            $model->totalCapacity = $map['TotalCapacity'];
         }
 
         return $model;

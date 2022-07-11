@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var string
      */
     public $category;
@@ -22,10 +17,15 @@ class dataDisk extends Model
      * @var string
      */
     public $performanceLevel;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
-        'size'             => 'Size',
         'category'         => 'Category',
         'performanceLevel' => 'PerformanceLevel',
+        'size'             => 'Size',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class dataDisk extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class dataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

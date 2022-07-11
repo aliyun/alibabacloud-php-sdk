@@ -10,29 +10,19 @@ use AlibabaCloud\Tea\Model;
 class CreatePrefixListRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $addressFamily;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $description;
 
     /**
      * @var entry[]
@@ -47,12 +37,12 @@ class CreatePrefixListRequest extends Model
     /**
      * @var string
      */
-    public $addressFamily;
+    public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $ownerId;
 
     /**
      * @var string
@@ -62,19 +52,29 @@ class CreatePrefixListRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'entry'                => 'Entry',
-        'maxEntries'           => 'MaxEntries',
         'addressFamily'        => 'AddressFamily',
         'clientToken'          => 'ClientToken',
-        'prefixListName'       => 'PrefixListName',
         'description'          => 'Description',
+        'entry'                => 'Entry',
+        'maxEntries'           => 'MaxEntries',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'prefixListName'       => 'PrefixListName',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -84,20 +84,14 @@ class CreatePrefixListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->addressFamily) {
+            $res['AddressFamily'] = $this->addressFamily;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->entry) {
             $res['Entry'] = [];
@@ -111,17 +105,23 @@ class CreatePrefixListRequest extends Model
         if (null !== $this->maxEntries) {
             $res['MaxEntries'] = $this->maxEntries;
         }
-        if (null !== $this->addressFamily) {
-            $res['AddressFamily'] = $this->addressFamily;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->prefixListName) {
             $res['PrefixListName'] = $this->prefixListName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -135,20 +135,14 @@ class CreatePrefixListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AddressFamily'])) {
+            $model->addressFamily = $map['AddressFamily'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Entry'])) {
             if (!empty($map['Entry'])) {
@@ -162,17 +156,23 @@ class CreatePrefixListRequest extends Model
         if (isset($map['MaxEntries'])) {
             $model->maxEntries = $map['MaxEntries'];
         }
-        if (isset($map['AddressFamily'])) {
-            $model->addressFamily = $map['AddressFamily'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PrefixListName'])) {
             $model->prefixListName = $map['PrefixListName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

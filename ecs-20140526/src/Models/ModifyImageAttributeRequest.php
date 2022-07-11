@@ -4,29 +4,30 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyImageAttributeRequest\features;
 use AlibabaCloud\Tea\Model;
 
 class ModifyImageAttributeRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $bootMode;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
+    public $description;
 
     /**
-     * @var int
+     * @var features
      */
-    public $resourceOwnerId;
+    public $features;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $imageFamily;
 
     /**
      * @var string
@@ -41,45 +42,51 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $imageFamily;
-
-    /**
-     * @var string
-     */
-    public $bootMode;
-
-    /**
-     * @var string
-     */
     public $licenseType;
 
     /**
      * @var string
      */
-    public $description;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
+        'bootMode'             => 'BootMode',
+        'description'          => 'Description',
+        'features'             => 'Features',
+        'imageFamily'          => 'ImageFamily',
         'imageId'              => 'ImageId',
         'imageName'            => 'ImageName',
-        'status'               => 'Status',
-        'imageFamily'          => 'ImageFamily',
-        'bootMode'             => 'BootMode',
         'licenseType'          => 'LicenseType',
-        'description'          => 'Description',
         'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -89,17 +96,17 @@ class ModifyImageAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->bootMode) {
+            $res['BootMode'] = $this->bootMode;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->features) {
+            $res['Features'] = null !== $this->features ? $this->features->toMap() : null;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->imageFamily) {
+            $res['ImageFamily'] = $this->imageFamily;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -107,23 +114,26 @@ class ModifyImageAttributeRequest extends Model
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->imageFamily) {
-            $res['ImageFamily'] = $this->imageFamily;
-        }
-        if (null !== $this->bootMode) {
-            $res['BootMode'] = $this->bootMode;
-        }
         if (null !== $this->licenseType) {
             $res['LicenseType'] = $this->licenseType;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -137,17 +147,17 @@ class ModifyImageAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BootMode'])) {
+            $model->bootMode = $map['BootMode'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['Features'])) {
+            $model->features = features::fromMap($map['Features']);
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ImageFamily'])) {
+            $model->imageFamily = $map['ImageFamily'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -155,23 +165,26 @@ class ModifyImageAttributeRequest extends Model
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ImageFamily'])) {
-            $model->imageFamily = $map['ImageFamily'];
-        }
-        if (isset($map['BootMode'])) {
-            $model->bootMode = $map['BootMode'];
-        }
         if (isset($map['LicenseType'])) {
             $model->licenseType = $map['LicenseType'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

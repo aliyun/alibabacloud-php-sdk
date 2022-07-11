@@ -10,9 +10,24 @@ use AlibabaCloud\Tea\Model;
 class CancelImagePipelineExecutionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $executionId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -25,32 +40,17 @@ class CancelImagePipelineExecutionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var templateTag[]
      */
     public $templateTag;
-
-    /**
-     * @var string
-     */
-    public $executionId;
     protected $_name = [
+        'executionId'          => 'ExecutionId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
         'templateTag'          => 'TemplateTag',
-        'executionId'          => 'ExecutionId',
     ];
 
     public function validate()
@@ -60,20 +60,23 @@ class CancelImagePipelineExecutionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->executionId) {
+            $res['ExecutionId'] = $this->executionId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->templateTag) {
             $res['TemplateTag'] = [];
@@ -83,9 +86,6 @@ class CancelImagePipelineExecutionRequest extends Model
                     $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->executionId) {
-            $res['ExecutionId'] = $this->executionId;
         }
 
         return $res;
@@ -99,20 +99,23 @@ class CancelImagePipelineExecutionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExecutionId'])) {
+            $model->executionId = $map['ExecutionId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TemplateTag'])) {
             if (!empty($map['TemplateTag'])) {
@@ -122,9 +125,6 @@ class CancelImagePipelineExecutionRequest extends Model
                     $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ExecutionId'])) {
-            $model->executionId = $map['ExecutionId'];
         }
 
         return $model;

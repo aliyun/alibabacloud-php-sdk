@@ -16,12 +16,12 @@ class inactiveDisk extends Model
     /**
      * @var string
      */
-    public $deviceSize;
+    public $deviceCategory;
 
     /**
      * @var string
      */
-    public $deviceCategory;
+    public $deviceSize;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class inactiveDisk extends Model
     public $releaseTime;
     protected $_name = [
         'creationTime'   => 'CreationTime',
-        'deviceSize'     => 'DeviceSize',
         'deviceCategory' => 'DeviceCategory',
+        'deviceSize'     => 'DeviceSize',
         'deviceType'     => 'DeviceType',
         'releaseTime'    => 'ReleaseTime',
     ];
@@ -50,11 +50,11 @@ class inactiveDisk extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->deviceSize) {
-            $res['DeviceSize'] = $this->deviceSize;
-        }
         if (null !== $this->deviceCategory) {
             $res['DeviceCategory'] = $this->deviceCategory;
+        }
+        if (null !== $this->deviceSize) {
+            $res['DeviceSize'] = $this->deviceSize;
         }
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
@@ -77,11 +77,11 @@ class inactiveDisk extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['DeviceSize'])) {
-            $model->deviceSize = $map['DeviceSize'];
-        }
         if (isset($map['DeviceCategory'])) {
             $model->deviceCategory = $map['DeviceCategory'];
+        }
+        if (isset($map['DeviceSize'])) {
+            $model->deviceSize = $map['DeviceSize'];
         }
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];

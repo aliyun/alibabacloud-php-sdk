@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateRouterInterfaceResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $orderId;
@@ -21,10 +16,15 @@ class CreateRouterInterfaceResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $routerInterfaceId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'orderId'           => 'OrderId',
+        'requestId'         => 'RequestId',
         'routerInterfaceId' => 'RouterInterfaceId',
     ];
 
@@ -35,11 +35,11 @@ class CreateRouterInterfaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->routerInterfaceId) {
             $res['RouterInterfaceId'] = $this->routerInterfaceId;
@@ -56,11 +56,11 @@ class CreateRouterInterfaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RouterInterfaceId'])) {
             $model->routerInterfaceId = $map['RouterInterfaceId'];

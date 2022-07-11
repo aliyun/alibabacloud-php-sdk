@@ -12,27 +12,12 @@ class autoSnapshotPolicy extends Model
     /**
      * @var string
      */
-    public $timePoints;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $status;
+    public $autoSnapshotPolicyId;
 
     /**
      * @var string
      */
     public $autoSnapshotPolicyName;
-
-    /**
-     * @var string
-     */
-    public $targetCopyRegions;
 
     /**
      * @var int
@@ -42,17 +27,7 @@ class autoSnapshotPolicy extends Model
     /**
      * @var string
      */
-    public $autoSnapshotPolicyId;
-
-    /**
-     * @var int
-     */
-    public $retentionDays;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $creationTime;
 
     /**
      * @var int
@@ -67,32 +42,63 @@ class autoSnapshotPolicy extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repeatWeekdays;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var int
      */
-    public $volumeNums;
+    public $retentionDays;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var tags
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $targetCopyRegions;
+
+    /**
+     * @var string
+     */
+    public $timePoints;
+
+    /**
+     * @var int
+     */
+    public $volumeNums;
     protected $_name = [
-        'timePoints'                   => 'TimePoints',
-        'creationTime'                 => 'CreationTime',
-        'status'                       => 'Status',
-        'autoSnapshotPolicyName'       => 'AutoSnapshotPolicyName',
-        'targetCopyRegions'            => 'TargetCopyRegions',
-        'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
         'autoSnapshotPolicyId'         => 'AutoSnapshotPolicyId',
-        'retentionDays'                => 'RetentionDays',
-        'regionId'                     => 'RegionId',
+        'autoSnapshotPolicyName'       => 'AutoSnapshotPolicyName',
+        'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
+        'creationTime'                 => 'CreationTime',
         'diskNums'                     => 'DiskNums',
         'enableCrossRegionCopy'        => 'EnableCrossRegionCopy',
+        'regionId'                     => 'RegionId',
         'repeatWeekdays'               => 'RepeatWeekdays',
-        'volumeNums'                   => 'VolumeNums',
+        'resourceGroupId'              => 'ResourceGroupId',
+        'retentionDays'                => 'RetentionDays',
+        'status'                       => 'Status',
         'tags'                         => 'Tags',
+        'targetCopyRegions'            => 'TargetCopyRegions',
+        'timePoints'                   => 'TimePoints',
+        'volumeNums'                   => 'VolumeNums',
     ];
 
     public function validate()
@@ -102,32 +108,17 @@ class autoSnapshotPolicy extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timePoints) {
-            $res['TimePoints'] = $this->timePoints;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->autoSnapshotPolicyId) {
+            $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
         if (null !== $this->autoSnapshotPolicyName) {
             $res['AutoSnapshotPolicyName'] = $this->autoSnapshotPolicyName;
         }
-        if (null !== $this->targetCopyRegions) {
-            $res['TargetCopyRegions'] = $this->targetCopyRegions;
-        }
         if (null !== $this->copiedSnapshotsRetentionDays) {
             $res['CopiedSnapshotsRetentionDays'] = $this->copiedSnapshotsRetentionDays;
         }
-        if (null !== $this->autoSnapshotPolicyId) {
-            $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
-        }
-        if (null !== $this->retentionDays) {
-            $res['RetentionDays'] = $this->retentionDays;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->diskNums) {
             $res['DiskNums'] = $this->diskNums;
@@ -135,14 +126,32 @@ class autoSnapshotPolicy extends Model
         if (null !== $this->enableCrossRegionCopy) {
             $res['EnableCrossRegionCopy'] = $this->enableCrossRegionCopy;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->repeatWeekdays) {
             $res['RepeatWeekdays'] = $this->repeatWeekdays;
         }
-        if (null !== $this->volumeNums) {
-            $res['VolumeNums'] = $this->volumeNums;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->retentionDays) {
+            $res['RetentionDays'] = $this->retentionDays;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->targetCopyRegions) {
+            $res['TargetCopyRegions'] = $this->targetCopyRegions;
+        }
+        if (null !== $this->timePoints) {
+            $res['TimePoints'] = $this->timePoints;
+        }
+        if (null !== $this->volumeNums) {
+            $res['VolumeNums'] = $this->volumeNums;
         }
 
         return $res;
@@ -156,32 +165,17 @@ class autoSnapshotPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimePoints'])) {
-            $model->timePoints = $map['TimePoints'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AutoSnapshotPolicyId'])) {
+            $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
         }
         if (isset($map['AutoSnapshotPolicyName'])) {
             $model->autoSnapshotPolicyName = $map['AutoSnapshotPolicyName'];
         }
-        if (isset($map['TargetCopyRegions'])) {
-            $model->targetCopyRegions = $map['TargetCopyRegions'];
-        }
         if (isset($map['CopiedSnapshotsRetentionDays'])) {
             $model->copiedSnapshotsRetentionDays = $map['CopiedSnapshotsRetentionDays'];
         }
-        if (isset($map['AutoSnapshotPolicyId'])) {
-            $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
-        }
-        if (isset($map['RetentionDays'])) {
-            $model->retentionDays = $map['RetentionDays'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['DiskNums'])) {
             $model->diskNums = $map['DiskNums'];
@@ -189,14 +183,32 @@ class autoSnapshotPolicy extends Model
         if (isset($map['EnableCrossRegionCopy'])) {
             $model->enableCrossRegionCopy = $map['EnableCrossRegionCopy'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RepeatWeekdays'])) {
             $model->repeatWeekdays = $map['RepeatWeekdays'];
         }
-        if (isset($map['VolumeNums'])) {
-            $model->volumeNums = $map['VolumeNums'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RetentionDays'])) {
+            $model->retentionDays = $map['RetentionDays'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TargetCopyRegions'])) {
+            $model->targetCopyRegions = $map['TargetCopyRegions'];
+        }
+        if (isset($map['TimePoints'])) {
+            $model->timePoints = $map['TimePoints'];
+        }
+        if (isset($map['VolumeNums'])) {
+            $model->volumeNums = $map['VolumeNums'];
         }
 
         return $model;

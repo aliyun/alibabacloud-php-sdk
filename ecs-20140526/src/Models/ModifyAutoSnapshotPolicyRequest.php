@@ -9,6 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoSnapshotPolicyRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dataDiskPolicyEnabled;
+
+    /**
+     * @var int
+     */
+    public $dataDiskPolicyRetentionDays;
+
+    /**
+     * @var bool
+     */
+    public $dataDiskPolicyRetentionLastWeek;
+
+    /**
+     * @var int
+     */
+    public $dataDiskPolicyTimePeriod;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -31,11 +56,6 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     /**
      * @var int
      */
-    public $systemDiskPolicyTimePeriod;
-
-    /**
-     * @var int
-     */
     public $systemDiskPolicyRetentionDays;
 
     /**
@@ -44,42 +64,22 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public $systemDiskPolicyRetentionLastWeek;
 
     /**
-     * @var bool
-     */
-    public $dataDiskPolicyEnabled;
-
-    /**
      * @var int
      */
-    public $dataDiskPolicyTimePeriod;
-
-    /**
-     * @var int
-     */
-    public $dataDiskPolicyRetentionDays;
-
-    /**
-     * @var bool
-     */
-    public $dataDiskPolicyRetentionLastWeek;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $systemDiskPolicyTimePeriod;
     protected $_name = [
+        'dataDiskPolicyEnabled'             => 'DataDiskPolicyEnabled',
+        'dataDiskPolicyRetentionDays'       => 'DataDiskPolicyRetentionDays',
+        'dataDiskPolicyRetentionLastWeek'   => 'DataDiskPolicyRetentionLastWeek',
+        'dataDiskPolicyTimePeriod'          => 'DataDiskPolicyTimePeriod',
+        'ownerAccount'                      => 'OwnerAccount',
         'ownerId'                           => 'OwnerId',
         'resourceOwnerAccount'              => 'ResourceOwnerAccount',
         'resourceOwnerId'                   => 'ResourceOwnerId',
         'systemDiskPolicyEnabled'           => 'SystemDiskPolicyEnabled',
-        'systemDiskPolicyTimePeriod'        => 'SystemDiskPolicyTimePeriod',
         'systemDiskPolicyRetentionDays'     => 'SystemDiskPolicyRetentionDays',
         'systemDiskPolicyRetentionLastWeek' => 'SystemDiskPolicyRetentionLastWeek',
-        'dataDiskPolicyEnabled'             => 'DataDiskPolicyEnabled',
-        'dataDiskPolicyTimePeriod'          => 'DataDiskPolicyTimePeriod',
-        'dataDiskPolicyRetentionDays'       => 'DataDiskPolicyRetentionDays',
-        'dataDiskPolicyRetentionLastWeek'   => 'DataDiskPolicyRetentionLastWeek',
-        'ownerAccount'                      => 'OwnerAccount',
+        'systemDiskPolicyTimePeriod'        => 'SystemDiskPolicyTimePeriod',
     ];
 
     public function validate()
@@ -89,6 +89,21 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataDiskPolicyEnabled) {
+            $res['DataDiskPolicyEnabled'] = $this->dataDiskPolicyEnabled;
+        }
+        if (null !== $this->dataDiskPolicyRetentionDays) {
+            $res['DataDiskPolicyRetentionDays'] = $this->dataDiskPolicyRetentionDays;
+        }
+        if (null !== $this->dataDiskPolicyRetentionLastWeek) {
+            $res['DataDiskPolicyRetentionLastWeek'] = $this->dataDiskPolicyRetentionLastWeek;
+        }
+        if (null !== $this->dataDiskPolicyTimePeriod) {
+            $res['DataDiskPolicyTimePeriod'] = $this->dataDiskPolicyTimePeriod;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -101,29 +116,14 @@ class ModifyAutoSnapshotPolicyRequest extends Model
         if (null !== $this->systemDiskPolicyEnabled) {
             $res['SystemDiskPolicyEnabled'] = $this->systemDiskPolicyEnabled;
         }
-        if (null !== $this->systemDiskPolicyTimePeriod) {
-            $res['SystemDiskPolicyTimePeriod'] = $this->systemDiskPolicyTimePeriod;
-        }
         if (null !== $this->systemDiskPolicyRetentionDays) {
             $res['SystemDiskPolicyRetentionDays'] = $this->systemDiskPolicyRetentionDays;
         }
         if (null !== $this->systemDiskPolicyRetentionLastWeek) {
             $res['SystemDiskPolicyRetentionLastWeek'] = $this->systemDiskPolicyRetentionLastWeek;
         }
-        if (null !== $this->dataDiskPolicyEnabled) {
-            $res['DataDiskPolicyEnabled'] = $this->dataDiskPolicyEnabled;
-        }
-        if (null !== $this->dataDiskPolicyTimePeriod) {
-            $res['DataDiskPolicyTimePeriod'] = $this->dataDiskPolicyTimePeriod;
-        }
-        if (null !== $this->dataDiskPolicyRetentionDays) {
-            $res['DataDiskPolicyRetentionDays'] = $this->dataDiskPolicyRetentionDays;
-        }
-        if (null !== $this->dataDiskPolicyRetentionLastWeek) {
-            $res['DataDiskPolicyRetentionLastWeek'] = $this->dataDiskPolicyRetentionLastWeek;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->systemDiskPolicyTimePeriod) {
+            $res['SystemDiskPolicyTimePeriod'] = $this->systemDiskPolicyTimePeriod;
         }
 
         return $res;
@@ -137,6 +137,21 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataDiskPolicyEnabled'])) {
+            $model->dataDiskPolicyEnabled = $map['DataDiskPolicyEnabled'];
+        }
+        if (isset($map['DataDiskPolicyRetentionDays'])) {
+            $model->dataDiskPolicyRetentionDays = $map['DataDiskPolicyRetentionDays'];
+        }
+        if (isset($map['DataDiskPolicyRetentionLastWeek'])) {
+            $model->dataDiskPolicyRetentionLastWeek = $map['DataDiskPolicyRetentionLastWeek'];
+        }
+        if (isset($map['DataDiskPolicyTimePeriod'])) {
+            $model->dataDiskPolicyTimePeriod = $map['DataDiskPolicyTimePeriod'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -149,29 +164,14 @@ class ModifyAutoSnapshotPolicyRequest extends Model
         if (isset($map['SystemDiskPolicyEnabled'])) {
             $model->systemDiskPolicyEnabled = $map['SystemDiskPolicyEnabled'];
         }
-        if (isset($map['SystemDiskPolicyTimePeriod'])) {
-            $model->systemDiskPolicyTimePeriod = $map['SystemDiskPolicyTimePeriod'];
-        }
         if (isset($map['SystemDiskPolicyRetentionDays'])) {
             $model->systemDiskPolicyRetentionDays = $map['SystemDiskPolicyRetentionDays'];
         }
         if (isset($map['SystemDiskPolicyRetentionLastWeek'])) {
             $model->systemDiskPolicyRetentionLastWeek = $map['SystemDiskPolicyRetentionLastWeek'];
         }
-        if (isset($map['DataDiskPolicyEnabled'])) {
-            $model->dataDiskPolicyEnabled = $map['DataDiskPolicyEnabled'];
-        }
-        if (isset($map['DataDiskPolicyTimePeriod'])) {
-            $model->dataDiskPolicyTimePeriod = $map['DataDiskPolicyTimePeriod'];
-        }
-        if (isset($map['DataDiskPolicyRetentionDays'])) {
-            $model->dataDiskPolicyRetentionDays = $map['DataDiskPolicyRetentionDays'];
-        }
-        if (isset($map['DataDiskPolicyRetentionLastWeek'])) {
-            $model->dataDiskPolicyRetentionLastWeek = $map['DataDiskPolicyRetentionLastWeek'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['SystemDiskPolicyTimePeriod'])) {
+            $model->systemDiskPolicyTimePeriod = $map['SystemDiskPolicyTimePeriod'];
         }
 
         return $model;

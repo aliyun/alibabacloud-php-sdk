@@ -14,18 +14,18 @@ class cpuOptions extends Model
     public $core;
 
     /**
-     * @var int
-     */
-    public $threadsPerCore;
-
-    /**
      * @var string
      */
     public $numa;
+
+    /**
+     * @var int
+     */
+    public $threadsPerCore;
     protected $_name = [
         'core'           => 'Core',
-        'threadsPerCore' => 'ThreadsPerCore',
         'numa'           => 'Numa',
+        'threadsPerCore' => 'ThreadsPerCore',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class cpuOptions extends Model
         if (null !== $this->core) {
             $res['Core'] = $this->core;
         }
-        if (null !== $this->threadsPerCore) {
-            $res['ThreadsPerCore'] = $this->threadsPerCore;
-        }
         if (null !== $this->numa) {
             $res['Numa'] = $this->numa;
+        }
+        if (null !== $this->threadsPerCore) {
+            $res['ThreadsPerCore'] = $this->threadsPerCore;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class cpuOptions extends Model
         if (isset($map['Core'])) {
             $model->core = $map['Core'];
         }
-        if (isset($map['ThreadsPerCore'])) {
-            $model->threadsPerCore = $map['ThreadsPerCore'];
-        }
         if (isset($map['Numa'])) {
             $model->numa = $map['Numa'];
+        }
+        if (isset($map['ThreadsPerCore'])) {
+            $model->threadsPerCore = $map['ThreadsPerCore'];
         }
 
         return $model;

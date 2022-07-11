@@ -17,28 +17,28 @@ class detachInstanceRamRoleResult extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
     public $instanceId;
-
-    /**
-     * @var bool
-     */
-    public $success;
 
     /**
      * @var instanceRamRoleSets
      */
     public $instanceRamRoleSets;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'code'                => 'Code',
-        'message'             => 'Message',
         'instanceId'          => 'InstanceId',
-        'success'             => 'Success',
         'instanceRamRoleSets' => 'InstanceRamRoleSets',
+        'message'             => 'Message',
+        'success'             => 'Success',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class detachInstanceRamRoleResult extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->instanceRamRoleSets) {
             $res['InstanceRamRoleSets'] = null !== $this->instanceRamRoleSets ? $this->instanceRamRoleSets->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class detachInstanceRamRoleResult extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['InstanceRamRoleSets'])) {
             $model->instanceRamRoleSets = instanceRamRoleSets::fromMap($map['InstanceRamRoleSets']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

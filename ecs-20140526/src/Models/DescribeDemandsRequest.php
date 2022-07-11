@@ -10,24 +10,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeDemandsRequest extends Model
 {
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $demandId;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $ownerId;
+    public $demandStatus;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
+    public $demandType;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $resourceOwnerId;
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $instanceTypeFamily;
 
     /**
      * @var string
@@ -35,9 +50,9 @@ class DescribeDemandsRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $ownerId;
 
     /**
      * @var int
@@ -50,61 +65,46 @@ class DescribeDemandsRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $dryRun;
+    public $regionId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $demandStatus;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $demandId;
-
-    /**
-     * @var string
-     */
-    public $instanceTypeFamily;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $demandType;
     protected $_name = [
-        'tag'                  => 'Tag',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'demandId'             => 'DemandId',
+        'demandStatus'         => 'DemandStatus',
+        'demandType'           => 'DemandType',
+        'dryRun'               => 'DryRun',
+        'instanceChargeType'   => 'InstanceChargeType',
+        'instanceType'         => 'InstanceType',
+        'instanceTypeFamily'   => 'InstanceTypeFamily',
         'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'dryRun'               => 'DryRun',
-        'demandStatus'         => 'DemandStatus',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
         'zoneId'               => 'ZoneId',
-        'demandId'             => 'DemandId',
-        'instanceTypeFamily'   => 'InstanceTypeFamily',
-        'instanceType'         => 'InstanceType',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'demandType'           => 'DemandType',
     ];
 
     public function validate()
@@ -114,6 +114,48 @@ class DescribeDemandsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->demandId) {
+            $res['DemandId'] = $this->demandId;
+        }
+        if (null !== $this->demandStatus) {
+            $res['DemandStatus'] = $this->demandStatus;
+        }
+        if (null !== $this->demandType) {
+            $res['DemandType'] = $this->demandType;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -123,50 +165,8 @@ class DescribeDemandsRequest extends Model
                 }
             }
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->demandStatus) {
-            $res['DemandStatus'] = $this->demandStatus;
-        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->demandId) {
-            $res['DemandId'] = $this->demandId;
-        }
-        if (null !== $this->instanceTypeFamily) {
-            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->demandType) {
-            $res['DemandType'] = $this->demandType;
         }
 
         return $res;
@@ -180,6 +180,50 @@ class DescribeDemandsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DemandId'])) {
+            $model->demandId = $map['DemandId'];
+        }
+        if (isset($map['DemandStatus'])) {
+            if (!empty($map['DemandStatus'])) {
+                $model->demandStatus = $map['DemandStatus'];
+            }
+        }
+        if (isset($map['DemandType'])) {
+            $model->demandType = $map['DemandType'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['InstanceTypeFamily'])) {
+            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -189,52 +233,8 @@ class DescribeDemandsRequest extends Model
                 }
             }
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['DemandStatus'])) {
-            if (!empty($map['DemandStatus'])) {
-                $model->demandStatus = $map['DemandStatus'];
-            }
-        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['DemandId'])) {
-            $model->demandId = $map['DemandId'];
-        }
-        if (isset($map['InstanceTypeFamily'])) {
-            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['DemandType'])) {
-            $model->demandType = $map['DemandType'];
         }
 
         return $model;

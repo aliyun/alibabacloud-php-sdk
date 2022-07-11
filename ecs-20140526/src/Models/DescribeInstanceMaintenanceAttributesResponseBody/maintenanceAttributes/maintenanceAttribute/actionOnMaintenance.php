@@ -15,18 +15,18 @@ class actionOnMaintenance extends Model
     public $defaultValue;
 
     /**
-     * @var string
-     */
-    public $value;
-
-    /**
      * @var supportedValues
      */
     public $supportedValues;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'defaultValue'    => 'DefaultValue',
-        'value'           => 'Value',
         'supportedValues' => 'SupportedValues',
+        'value'           => 'Value',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class actionOnMaintenance extends Model
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->supportedValues) {
             $res['SupportedValues'] = null !== $this->supportedValues ? $this->supportedValues->toMap() : null;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class actionOnMaintenance extends Model
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['SupportedValues'])) {
             $model->supportedValues = supportedValues::fromMap($map['SupportedValues']);
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

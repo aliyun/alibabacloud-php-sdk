@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class allocatedResource extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $usedAmount;
+    public $instanceType;
 
     /**
      * @var int
@@ -19,19 +19,19 @@ class allocatedResource extends Model
     public $totalAmount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $zoneId;
+    public $usedAmount;
 
     /**
      * @var string
      */
-    public $instanceType;
+    public $zoneId;
     protected $_name = [
-        'usedAmount'   => 'UsedAmount',
-        'totalAmount'  => 'TotalAmount',
-        'zoneId'       => 'zoneId',
         'instanceType' => 'InstanceType',
+        'totalAmount'  => 'TotalAmount',
+        'usedAmount'   => 'UsedAmount',
+        'zoneId'       => 'zoneId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class allocatedResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->usedAmount) {
-            $res['UsedAmount'] = $this->usedAmount;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->totalAmount) {
             $res['TotalAmount'] = $this->totalAmount;
         }
+        if (null !== $this->usedAmount) {
+            $res['UsedAmount'] = $this->usedAmount;
+        }
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class allocatedResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UsedAmount'])) {
-            $model->usedAmount = $map['UsedAmount'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['TotalAmount'])) {
             $model->totalAmount = $map['TotalAmount'];
         }
+        if (isset($map['UsedAmount'])) {
+            $model->usedAmount = $map['UsedAmount'];
+        }
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;

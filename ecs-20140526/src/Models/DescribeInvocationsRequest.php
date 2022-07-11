@@ -9,36 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $invokeId;
-
-    /**
      * @var string
      */
     public $commandId;
@@ -54,14 +24,14 @@ class DescribeInvocationsRequest extends Model
     public $commandType;
 
     /**
-     * @var bool
-     */
-    public $timed;
-
-    /**
      * @var string
      */
-    public $invokeStatus;
+    public $contentEncoding;
+
+    /**
+     * @var bool
+     */
+    public $includeOutput;
 
     /**
      * @var string
@@ -71,12 +41,22 @@ class DescribeInvocationsRequest extends Model
     /**
      * @var string
      */
-    public $contentEncoding;
+    public $invokeId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $includeOutput;
+    public $invokeStatus;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -91,25 +71,45 @@ class DescribeInvocationsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repeatMode;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var bool
+     */
+    public $timed;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'invokeId'             => 'InvokeId',
         'commandId'            => 'CommandId',
         'commandName'          => 'CommandName',
         'commandType'          => 'CommandType',
-        'timed'                => 'Timed',
-        'invokeStatus'         => 'InvokeStatus',
-        'instanceId'           => 'InstanceId',
         'contentEncoding'      => 'ContentEncoding',
         'includeOutput'        => 'IncludeOutput',
+        'instanceId'           => 'InstanceId',
+        'invokeId'             => 'InvokeId',
+        'invokeStatus'         => 'InvokeStatus',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
         'repeatMode'           => 'RepeatMode',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'timed'                => 'Timed',
     ];
 
     public function validate()
@@ -119,24 +119,6 @@ class DescribeInvocationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->invokeId) {
-            $res['InvokeId'] = $this->invokeId;
-        }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
@@ -146,20 +128,26 @@ class DescribeInvocationsRequest extends Model
         if (null !== $this->commandType) {
             $res['CommandType'] = $this->commandType;
         }
-        if (null !== $this->timed) {
-            $res['Timed'] = $this->timed;
-        }
-        if (null !== $this->invokeStatus) {
-            $res['InvokeStatus'] = $this->invokeStatus;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->contentEncoding) {
             $res['ContentEncoding'] = $this->contentEncoding;
         }
         if (null !== $this->includeOutput) {
             $res['IncludeOutput'] = $this->includeOutput;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->invokeId) {
+            $res['InvokeId'] = $this->invokeId;
+        }
+        if (null !== $this->invokeStatus) {
+            $res['InvokeStatus'] = $this->invokeStatus;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -167,8 +155,20 @@ class DescribeInvocationsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->repeatMode) {
             $res['RepeatMode'] = $this->repeatMode;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->timed) {
+            $res['Timed'] = $this->timed;
         }
 
         return $res;
@@ -182,24 +182,6 @@ class DescribeInvocationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InvokeId'])) {
-            $model->invokeId = $map['InvokeId'];
-        }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
@@ -209,20 +191,26 @@ class DescribeInvocationsRequest extends Model
         if (isset($map['CommandType'])) {
             $model->commandType = $map['CommandType'];
         }
-        if (isset($map['Timed'])) {
-            $model->timed = $map['Timed'];
-        }
-        if (isset($map['InvokeStatus'])) {
-            $model->invokeStatus = $map['InvokeStatus'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ContentEncoding'])) {
             $model->contentEncoding = $map['ContentEncoding'];
         }
         if (isset($map['IncludeOutput'])) {
             $model->includeOutput = $map['IncludeOutput'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InvokeId'])) {
+            $model->invokeId = $map['InvokeId'];
+        }
+        if (isset($map['InvokeStatus'])) {
+            $model->invokeStatus = $map['InvokeStatus'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -230,8 +218,20 @@ class DescribeInvocationsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RepeatMode'])) {
             $model->repeatMode = $map['RepeatMode'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Timed'])) {
+            $model->timed = $map['Timed'];
         }
 
         return $model;

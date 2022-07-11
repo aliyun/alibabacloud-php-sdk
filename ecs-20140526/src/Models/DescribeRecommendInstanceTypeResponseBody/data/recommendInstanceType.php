@@ -18,7 +18,17 @@ class recommendInstanceType extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $instanceChargeType;
+
+    /**
+     * @var instanceType
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $networkType;
 
     /**
      * @var int
@@ -28,7 +38,7 @@ class recommendInstanceType extends Model
     /**
      * @var string
      */
-    public $networkType;
+    public $regionId;
 
     /**
      * @var string
@@ -43,33 +53,23 @@ class recommendInstanceType extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
+    public $zoneId;
 
     /**
      * @var zones
      */
     public $zones;
-
-    /**
-     * @var instanceType
-     */
-    public $instanceType;
     protected $_name = [
         'commodityCode'      => 'CommodityCode',
-        'zoneId'             => 'ZoneId',
-        'priority'           => 'Priority',
+        'instanceChargeType' => 'InstanceChargeType',
+        'instanceType'       => 'InstanceType',
         'networkType'        => 'NetworkType',
+        'priority'           => 'Priority',
+        'regionId'           => 'RegionId',
         'scene'              => 'Scene',
         'spotStrategy'       => 'SpotStrategy',
-        'regionId'           => 'RegionId',
-        'instanceChargeType' => 'InstanceChargeType',
+        'zoneId'             => 'ZoneId',
         'zones'              => 'Zones',
-        'instanceType'       => 'InstanceType',
     ];
 
     public function validate()
@@ -82,14 +82,20 @@ class recommendInstanceType extends Model
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = null !== $this->instanceType ? $this->instanceType->toMap() : null;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -97,17 +103,11 @@ class recommendInstanceType extends Model
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->zones) {
             $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = null !== $this->instanceType ? $this->instanceType->toMap() : null;
         }
 
         return $res;
@@ -124,14 +124,20 @@ class recommendInstanceType extends Model
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = instanceType::fromMap($map['InstanceType']);
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
@@ -139,17 +145,11 @@ class recommendInstanceType extends Model
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['Zones'])) {
             $model->zones = zones::fromMap($map['Zones']);
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = instanceType::fromMap($map['InstanceType']);
         }
 
         return $model;

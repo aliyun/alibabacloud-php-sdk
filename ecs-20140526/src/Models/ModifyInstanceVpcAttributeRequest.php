@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceVpcAttributeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $privateIpAddress;
 
     /**
      * @var string
@@ -24,9 +39,9 @@ class ModifyInstanceVpcAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $instanceId;
+    public $securityGroupId;
 
     /**
      * @var string
@@ -36,32 +51,17 @@ class ModifyInstanceVpcAttributeRequest extends Model
     /**
      * @var string
      */
-    public $privateIpAddress;
-
-    /**
-     * @var string
-     */
     public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string[]
-     */
-    public $securityGroupId;
     protected $_name = [
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'privateIpAddress'     => 'PrivateIpAddress',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'instanceId'           => 'InstanceId',
-        'vSwitchId'            => 'VSwitchId',
-        'privateIpAddress'     => 'PrivateIpAddress',
-        'vpcId'                => 'VpcId',
-        'ownerAccount'         => 'OwnerAccount',
         'securityGroupId'      => 'SecurityGroupId',
+        'vSwitchId'            => 'VSwitchId',
+        'vpcId'                => 'VpcId',
     ];
 
     public function validate()
@@ -71,8 +71,17 @@ class ModifyInstanceVpcAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -80,23 +89,14 @@ class ModifyInstanceVpcAttributeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
-        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         return $res;
@@ -110,8 +110,17 @@ class ModifyInstanceVpcAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -119,25 +128,16 @@ class ModifyInstanceVpcAttributeRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['SecurityGroupId'])) {
             if (!empty($map['SecurityGroupId'])) {
                 $model->securityGroupId = $map['SecurityGroupId'];
             }
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

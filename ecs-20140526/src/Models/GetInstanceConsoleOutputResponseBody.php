@@ -11,12 +11,7 @@ class GetInstanceConsoleOutputResponseBody extends Model
     /**
      * @var string
      */
-    public $lastUpdateTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $consoleOutput;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class GetInstanceConsoleOutputResponseBody extends Model
     /**
      * @var string
      */
-    public $consoleOutput;
+    public $lastUpdateTime;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
+        'consoleOutput'  => 'ConsoleOutput',
+        'instanceId'     => 'InstanceId',
         'lastUpdateTime' => 'LastUpdateTime',
         'requestId'      => 'RequestId',
-        'instanceId'     => 'InstanceId',
-        'consoleOutput'  => 'ConsoleOutput',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetInstanceConsoleOutputResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->consoleOutput) {
+            $res['ConsoleOutput'] = $this->consoleOutput;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->lastUpdateTime) {
             $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->consoleOutput) {
-            $res['ConsoleOutput'] = $this->consoleOutput;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetInstanceConsoleOutputResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConsoleOutput'])) {
+            $model->consoleOutput = $map['ConsoleOutput'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['LastUpdateTime'])) {
             $model->lastUpdateTime = $map['LastUpdateTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ConsoleOutput'])) {
-            $model->consoleOutput = $map['ConsoleOutput'];
         }
 
         return $model;

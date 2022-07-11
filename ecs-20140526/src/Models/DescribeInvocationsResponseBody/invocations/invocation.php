@@ -12,6 +12,31 @@ class invocation extends Model
     /**
      * @var string
      */
+    public $commandContent;
+
+    /**
+     * @var string
+     */
+    public $commandDescription;
+
+    /**
+     * @var string
+     */
+    public $commandId;
+
+    /**
+     * @var string
+     */
+    public $commandName;
+
+    /**
+     * @var string
+     */
+    public $commandType;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
@@ -27,17 +52,12 @@ class invocation extends Model
     /**
      * @var string
      */
-    public $repeatMode;
+    public $invokeId;
 
     /**
-     * @var string
+     * @var invokeInstances
      */
-    public $commandId;
-
-    /**
-     * @var string
-     */
-    public $commandType;
+    public $invokeInstances;
 
     /**
      * @var string
@@ -50,24 +70,19 @@ class invocation extends Model
     public $parameters;
 
     /**
+     * @var string
+     */
+    public $repeatMode;
+
+    /**
      * @var bool
      */
     public $timed;
 
     /**
-     * @var string
+     * @var int
      */
-    public $commandContent;
-
-    /**
-     * @var string
-     */
-    public $commandName;
-
-    /**
-     * @var string
-     */
-    public $invokeId;
+    public $timeout;
 
     /**
      * @var string
@@ -75,24 +90,27 @@ class invocation extends Model
     public $username;
 
     /**
-     * @var invokeInstances
+     * @var string
      */
-    public $invokeInstances;
+    public $workingDir;
     protected $_name = [
-        'creationTime'     => 'CreationTime',
-        'frequency'        => 'Frequency',
-        'invocationStatus' => 'InvocationStatus',
-        'repeatMode'       => 'RepeatMode',
-        'commandId'        => 'CommandId',
-        'commandType'      => 'CommandType',
-        'invokeStatus'     => 'InvokeStatus',
-        'parameters'       => 'Parameters',
-        'timed'            => 'Timed',
-        'commandContent'   => 'CommandContent',
-        'commandName'      => 'CommandName',
-        'invokeId'         => 'InvokeId',
-        'username'         => 'Username',
-        'invokeInstances'  => 'InvokeInstances',
+        'commandContent'     => 'CommandContent',
+        'commandDescription' => 'CommandDescription',
+        'commandId'          => 'CommandId',
+        'commandName'        => 'CommandName',
+        'commandType'        => 'CommandType',
+        'creationTime'       => 'CreationTime',
+        'frequency'          => 'Frequency',
+        'invocationStatus'   => 'InvocationStatus',
+        'invokeId'           => 'InvokeId',
+        'invokeInstances'    => 'InvokeInstances',
+        'invokeStatus'       => 'InvokeStatus',
+        'parameters'         => 'Parameters',
+        'repeatMode'         => 'RepeatMode',
+        'timed'              => 'Timed',
+        'timeout'            => 'Timeout',
+        'username'           => 'Username',
+        'workingDir'         => 'WorkingDir',
     ];
 
     public function validate()
@@ -102,6 +120,21 @@ class invocation extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commandContent) {
+            $res['CommandContent'] = $this->commandContent;
+        }
+        if (null !== $this->commandDescription) {
+            $res['CommandDescription'] = $this->commandDescription;
+        }
+        if (null !== $this->commandId) {
+            $res['CommandId'] = $this->commandId;
+        }
+        if (null !== $this->commandName) {
+            $res['CommandName'] = $this->commandName;
+        }
+        if (null !== $this->commandType) {
+            $res['CommandType'] = $this->commandType;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
@@ -111,14 +144,11 @@ class invocation extends Model
         if (null !== $this->invocationStatus) {
             $res['InvocationStatus'] = $this->invocationStatus;
         }
-        if (null !== $this->repeatMode) {
-            $res['RepeatMode'] = $this->repeatMode;
+        if (null !== $this->invokeId) {
+            $res['InvokeId'] = $this->invokeId;
         }
-        if (null !== $this->commandId) {
-            $res['CommandId'] = $this->commandId;
-        }
-        if (null !== $this->commandType) {
-            $res['CommandType'] = $this->commandType;
+        if (null !== $this->invokeInstances) {
+            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
         }
         if (null !== $this->invokeStatus) {
             $res['InvokeStatus'] = $this->invokeStatus;
@@ -126,23 +156,20 @@ class invocation extends Model
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
+        if (null !== $this->repeatMode) {
+            $res['RepeatMode'] = $this->repeatMode;
+        }
         if (null !== $this->timed) {
             $res['Timed'] = $this->timed;
         }
-        if (null !== $this->commandContent) {
-            $res['CommandContent'] = $this->commandContent;
-        }
-        if (null !== $this->commandName) {
-            $res['CommandName'] = $this->commandName;
-        }
-        if (null !== $this->invokeId) {
-            $res['InvokeId'] = $this->invokeId;
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
-        if (null !== $this->invokeInstances) {
-            $res['InvokeInstances'] = null !== $this->invokeInstances ? $this->invokeInstances->toMap() : null;
+        if (null !== $this->workingDir) {
+            $res['WorkingDir'] = $this->workingDir;
         }
 
         return $res;
@@ -156,6 +183,21 @@ class invocation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommandContent'])) {
+            $model->commandContent = $map['CommandContent'];
+        }
+        if (isset($map['CommandDescription'])) {
+            $model->commandDescription = $map['CommandDescription'];
+        }
+        if (isset($map['CommandId'])) {
+            $model->commandId = $map['CommandId'];
+        }
+        if (isset($map['CommandName'])) {
+            $model->commandName = $map['CommandName'];
+        }
+        if (isset($map['CommandType'])) {
+            $model->commandType = $map['CommandType'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
@@ -165,14 +207,11 @@ class invocation extends Model
         if (isset($map['InvocationStatus'])) {
             $model->invocationStatus = $map['InvocationStatus'];
         }
-        if (isset($map['RepeatMode'])) {
-            $model->repeatMode = $map['RepeatMode'];
+        if (isset($map['InvokeId'])) {
+            $model->invokeId = $map['InvokeId'];
         }
-        if (isset($map['CommandId'])) {
-            $model->commandId = $map['CommandId'];
-        }
-        if (isset($map['CommandType'])) {
-            $model->commandType = $map['CommandType'];
+        if (isset($map['InvokeInstances'])) {
+            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
         }
         if (isset($map['InvokeStatus'])) {
             $model->invokeStatus = $map['InvokeStatus'];
@@ -180,23 +219,20 @@ class invocation extends Model
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
+        if (isset($map['RepeatMode'])) {
+            $model->repeatMode = $map['RepeatMode'];
+        }
         if (isset($map['Timed'])) {
             $model->timed = $map['Timed'];
         }
-        if (isset($map['CommandContent'])) {
-            $model->commandContent = $map['CommandContent'];
-        }
-        if (isset($map['CommandName'])) {
-            $model->commandName = $map['CommandName'];
-        }
-        if (isset($map['InvokeId'])) {
-            $model->invokeId = $map['InvokeId'];
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }
-        if (isset($map['InvokeInstances'])) {
-            $model->invokeInstances = invokeInstances::fromMap($map['InvokeInstances']);
+        if (isset($map['WorkingDir'])) {
+            $model->workingDir = $map['WorkingDir'];
         }
 
         return $model;

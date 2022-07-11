@@ -11,12 +11,37 @@ class DescribeRenewalPriceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $expectedRenewDay;
 
     /**
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $priceUnit;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
 
     /**
      * @var string
@@ -31,43 +56,18 @@ class DescribeRenewalPriceRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $resourceId;
-
-    /**
-     * @var int
-     */
-    public $period;
-
-    /**
-     * @var string
-     */
-    public $priceUnit;
-
-    /**
-     * @var int
-     */
-    public $expectedRenewDay;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'expectedRenewDay'     => 'ExpectedRenewDay',
         'ownerAccount'         => 'OwnerAccount',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'resourceType'         => 'ResourceType',
-        'resourceId'           => 'ResourceId',
+        'ownerId'              => 'OwnerId',
         'period'               => 'Period',
         'priceUnit'            => 'PriceUnit',
-        'expectedRenewDay'     => 'ExpectedRenewDay',
+        'regionId'             => 'RegionId',
+        'resourceId'           => 'ResourceId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceType'         => 'ResourceType',
     ];
 
     public function validate()
@@ -77,26 +77,14 @@ class DescribeRenewalPriceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->expectedRenewDay) {
+            $res['ExpectedRenewDay'] = $this->expectedRenewDay;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -104,8 +92,20 @@ class DescribeRenewalPriceRequest extends Model
         if (null !== $this->priceUnit) {
             $res['PriceUnit'] = $this->priceUnit;
         }
-        if (null !== $this->expectedRenewDay) {
-            $res['ExpectedRenewDay'] = $this->expectedRenewDay;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -119,26 +119,14 @@ class DescribeRenewalPriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ExpectedRenewDay'])) {
+            $model->expectedRenewDay = $map['ExpectedRenewDay'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
@@ -146,8 +134,20 @@ class DescribeRenewalPriceRequest extends Model
         if (isset($map['PriceUnit'])) {
             $model->priceUnit = $map['PriceUnit'];
         }
-        if (isset($map['ExpectedRenewDay'])) {
-            $model->expectedRenewDay = $map['ExpectedRenewDay'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

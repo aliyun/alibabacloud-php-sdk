@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class spotOptions extends Model
 {
     /**
-     * @var int
-     */
-    public $instancePoolsToUseCount;
-
-    /**
      * @var string
      */
     public $allocationStrategy;
@@ -22,10 +17,15 @@ class spotOptions extends Model
      * @var string
      */
     public $instanceInterruptionBehavior;
+
+    /**
+     * @var int
+     */
+    public $instancePoolsToUseCount;
     protected $_name = [
-        'instancePoolsToUseCount'      => 'InstancePoolsToUseCount',
         'allocationStrategy'           => 'AllocationStrategy',
         'instanceInterruptionBehavior' => 'InstanceInterruptionBehavior',
+        'instancePoolsToUseCount'      => 'InstancePoolsToUseCount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class spotOptions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instancePoolsToUseCount) {
-            $res['InstancePoolsToUseCount'] = $this->instancePoolsToUseCount;
-        }
         if (null !== $this->allocationStrategy) {
             $res['AllocationStrategy'] = $this->allocationStrategy;
         }
         if (null !== $this->instanceInterruptionBehavior) {
             $res['InstanceInterruptionBehavior'] = $this->instanceInterruptionBehavior;
+        }
+        if (null !== $this->instancePoolsToUseCount) {
+            $res['InstancePoolsToUseCount'] = $this->instancePoolsToUseCount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class spotOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstancePoolsToUseCount'])) {
-            $model->instancePoolsToUseCount = $map['InstancePoolsToUseCount'];
-        }
         if (isset($map['AllocationStrategy'])) {
             $model->allocationStrategy = $map['AllocationStrategy'];
         }
         if (isset($map['InstanceInterruptionBehavior'])) {
             $model->instanceInterruptionBehavior = $map['InstanceInterruptionBehavior'];
+        }
+        if (isset($map['InstancePoolsToUseCount'])) {
+            $model->instancePoolsToUseCount = $map['InstancePoolsToUseCount'];
         }
 
         return $model;

@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifySnapshotAttributeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var bool
+     */
+    public $disableInstantAccess;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,36 +41,21 @@ class ModifySnapshotAttributeRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
     public $snapshotId;
 
     /**
      * @var string
      */
     public $snapshotName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var bool
-     */
-    public $disableInstantAccess;
     protected $_name = [
+        'description'          => 'Description',
+        'disableInstantAccess' => 'DisableInstantAccess',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
         'snapshotId'           => 'SnapshotId',
         'snapshotName'         => 'SnapshotName',
-        'description'          => 'Description',
-        'disableInstantAccess' => 'DisableInstantAccess',
     ];
 
     public function validate()
@@ -65,6 +65,15 @@ class ModifySnapshotAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->disableInstantAccess) {
+            $res['DisableInstantAccess'] = $this->disableInstantAccess;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -74,20 +83,11 @@ class ModifySnapshotAttributeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->disableInstantAccess) {
-            $res['DisableInstantAccess'] = $this->disableInstantAccess;
         }
 
         return $res;
@@ -101,6 +101,15 @@ class ModifySnapshotAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DisableInstantAccess'])) {
+            $model->disableInstantAccess = $map['DisableInstantAccess'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -110,20 +119,11 @@ class ModifySnapshotAttributeRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['DisableInstantAccess'])) {
-            $model->disableInstantAccess = $map['DisableInstantAccess'];
         }
 
         return $model;

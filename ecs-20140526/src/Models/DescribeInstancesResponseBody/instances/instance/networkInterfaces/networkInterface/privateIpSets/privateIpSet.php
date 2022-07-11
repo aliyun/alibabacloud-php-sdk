@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class privateIpSet extends Model
 {
     /**
-     * @var string
-     */
-    public $privateIpAddress;
-
-    /**
      * @var bool
      */
     public $primary;
+
+    /**
+     * @var string
+     */
+    public $privateIpAddress;
     protected $_name = [
-        'privateIpAddress' => 'PrivateIpAddress',
         'primary'          => 'Primary',
+        'privateIpAddress' => 'PrivateIpAddress',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class privateIpSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
-        }
         if (null !== $this->primary) {
             $res['Primary'] = $this->primary;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class privateIpSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
-        }
         if (isset($map['Primary'])) {
             $model->primary = $map['Primary'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
 
         return $model;

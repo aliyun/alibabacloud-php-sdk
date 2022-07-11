@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @var float
      */
     public $maxPrice;
@@ -27,17 +32,12 @@ class launchTemplateConfig extends Model
      * @var float
      */
     public $weightedCapacity;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
     protected $_name = [
+        'instanceType'     => 'InstanceType',
         'maxPrice'         => 'MaxPrice',
         'priority'         => 'Priority',
         'vSwitchId'        => 'VSwitchId',
         'weightedCapacity' => 'WeightedCapacity',
-        'instanceType'     => 'InstanceType',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class launchTemplateConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
         if (null !== $this->maxPrice) {
             $res['MaxPrice'] = $this->maxPrice;
         }
@@ -58,9 +61,6 @@ class launchTemplateConfig extends Model
         }
         if (null !== $this->weightedCapacity) {
             $res['WeightedCapacity'] = $this->weightedCapacity;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class launchTemplateConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
         if (isset($map['MaxPrice'])) {
             $model->maxPrice = $map['MaxPrice'];
         }
@@ -85,9 +88,6 @@ class launchTemplateConfig extends Model
         }
         if (isset($map['WeightedCapacity'])) {
             $model->weightedCapacity = $map['WeightedCapacity'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;

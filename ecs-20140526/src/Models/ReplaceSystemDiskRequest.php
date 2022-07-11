@@ -15,29 +15,9 @@ class ReplaceSystemDiskRequest extends Model
     public $systemDisk;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $imageId;
+    public $architecture;
 
     /**
      * @var string
@@ -47,12 +27,32 @@ class ReplaceSystemDiskRequest extends Model
     /**
      * @var string
      */
+    public $diskId;
+
+    /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $keyPairName;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $useAdditionalService;
+    public $ownerId;
 
     /**
      * @var string
@@ -67,44 +67,44 @@ class ReplaceSystemDiskRequest extends Model
     /**
      * @var string
      */
-    public $keyPairName;
-
-    /**
-     * @var string
-     */
-    public $diskId;
-
-    /**
-     * @var string
-     */
     public $platform;
 
     /**
      * @var string
      */
-    public $architecture;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $securityEnhancementStrategy;
+
+    /**
+     * @var bool
+     */
+    public $useAdditionalService;
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
-        'ownerId'                     => 'OwnerId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
-        'instanceId'                  => 'InstanceId',
-        'imageId'                     => 'ImageId',
+        'architecture'                => 'Architecture',
         'clientToken'                 => 'ClientToken',
+        'diskId'                      => 'DiskId',
+        'imageId'                     => 'ImageId',
+        'instanceId'                  => 'InstanceId',
+        'keyPairName'                 => 'KeyPairName',
         'ownerAccount'                => 'OwnerAccount',
-        'useAdditionalService'        => 'UseAdditionalService',
+        'ownerId'                     => 'OwnerId',
         'password'                    => 'Password',
         'passwordInherit'             => 'PasswordInherit',
-        'keyPairName'                 => 'KeyPairName',
-        'diskId'                      => 'DiskId',
         'platform'                    => 'Platform',
-        'architecture'                => 'Architecture',
+        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
+        'resourceOwnerId'             => 'ResourceOwnerId',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
+        'useAdditionalService'        => 'UseAdditionalService',
     ];
 
     public function validate()
@@ -117,29 +117,29 @@ class ReplaceSystemDiskRequest extends Model
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->architecture) {
+            $res['Architecture'] = $this->architecture;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->useAdditionalService) {
-            $res['UseAdditionalService'] = $this->useAdditionalService;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -147,20 +147,20 @@ class ReplaceSystemDiskRequest extends Model
         if (null !== $this->passwordInherit) {
             $res['PasswordInherit'] = $this->passwordInherit;
         }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->diskId) {
-            $res['DiskId'] = $this->diskId;
-        }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-        if (null !== $this->architecture) {
-            $res['Architecture'] = $this->architecture;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->securityEnhancementStrategy) {
             $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
+        }
+        if (null !== $this->useAdditionalService) {
+            $res['UseAdditionalService'] = $this->useAdditionalService;
         }
 
         return $res;
@@ -177,29 +177,29 @@ class ReplaceSystemDiskRequest extends Model
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['Architecture'])) {
+            $model->architecture = $map['Architecture'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['DiskId'])) {
+            $model->diskId = $map['DiskId'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['UseAdditionalService'])) {
-            $model->useAdditionalService = $map['UseAdditionalService'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
@@ -207,20 +207,20 @@ class ReplaceSystemDiskRequest extends Model
         if (isset($map['PasswordInherit'])) {
             $model->passwordInherit = $map['PasswordInherit'];
         }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['DiskId'])) {
-            $model->diskId = $map['DiskId'];
-        }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-        if (isset($map['Architecture'])) {
-            $model->architecture = $map['Architecture'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SecurityEnhancementStrategy'])) {
             $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
+        }
+        if (isset($map['UseAdditionalService'])) {
+            $model->useAdditionalService = $map['UseAdditionalService'];
         }
 
         return $model;

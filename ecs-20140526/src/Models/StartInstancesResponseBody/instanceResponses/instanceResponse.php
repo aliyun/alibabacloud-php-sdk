@@ -16,7 +16,7 @@ class instanceResponse extends Model
     /**
      * @var string
      */
-    public $message;
+    public $currentStatus;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class instanceResponse extends Model
     /**
      * @var string
      */
-    public $currentStatus;
+    public $message;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class instanceResponse extends Model
     public $previousStatus;
     protected $_name = [
         'code'           => 'Code',
-        'message'        => 'Message',
-        'instanceId'     => 'InstanceId',
         'currentStatus'  => 'CurrentStatus',
+        'instanceId'     => 'InstanceId',
+        'message'        => 'Message',
         'previousStatus' => 'PreviousStatus',
     ];
 
@@ -50,14 +50,14 @@ class instanceResponse extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->currentStatus) {
+            $res['CurrentStatus'] = $this->currentStatus;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->currentStatus) {
-            $res['CurrentStatus'] = $this->currentStatus;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->previousStatus) {
             $res['PreviousStatus'] = $this->previousStatus;
@@ -77,14 +77,14 @@ class instanceResponse extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['CurrentStatus'])) {
+            $model->currentStatus = $map['CurrentStatus'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['CurrentStatus'])) {
-            $model->currentStatus = $map['CurrentStatus'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['PreviousStatus'])) {
             $model->previousStatus = $map['PreviousStatus'];

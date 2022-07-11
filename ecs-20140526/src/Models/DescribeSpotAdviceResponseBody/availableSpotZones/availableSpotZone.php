@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class availableSpotZone extends Model
 {
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
      * @var availableSpotResources
      */
     public $availableSpotResources;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'zoneId'                 => 'ZoneId',
         'availableSpotResources' => 'AvailableSpotResources',
+        'zoneId'                 => 'ZoneId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class availableSpotZone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->availableSpotResources) {
             $res['AvailableSpotResources'] = null !== $this->availableSpotResources ? $this->availableSpotResources->toMap() : null;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class availableSpotZone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['AvailableSpotResources'])) {
             $model->availableSpotResources = availableSpotResources::fromMap($map['AvailableSpotResources']);
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

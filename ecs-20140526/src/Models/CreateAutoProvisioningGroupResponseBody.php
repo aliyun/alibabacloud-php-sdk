@@ -15,18 +15,18 @@ class CreateAutoProvisioningGroupResponseBody extends Model
     public $autoProvisioningGroupId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var launchResults
      */
     public $launchResults;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'autoProvisioningGroupId' => 'AutoProvisioningGroupId',
-        'requestId'               => 'RequestId',
         'launchResults'           => 'LaunchResults',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class CreateAutoProvisioningGroupResponseBody extends Model
         if (null !== $this->autoProvisioningGroupId) {
             $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->launchResults) {
             $res['LaunchResults'] = null !== $this->launchResults ? $this->launchResults->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class CreateAutoProvisioningGroupResponseBody extends Model
         if (isset($map['AutoProvisioningGroupId'])) {
             $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LaunchResults'])) {
             $model->launchResults = launchResults::fromMap($map['LaunchResults']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

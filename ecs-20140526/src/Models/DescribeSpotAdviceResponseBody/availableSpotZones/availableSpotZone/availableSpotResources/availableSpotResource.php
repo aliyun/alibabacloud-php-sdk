@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class availableSpotResource extends Model
 {
     /**
-     * @var string
-     */
-    public $interruptRateDesc;
-
-    /**
      * @var int
      */
     public $averageSpotDiscount;
@@ -24,13 +19,18 @@ class availableSpotResource extends Model
     public $instanceType;
 
     /**
+     * @var string
+     */
+    public $interruptRateDesc;
+
+    /**
      * @var float
      */
     public $interruptionRate;
     protected $_name = [
-        'interruptRateDesc'   => 'InterruptRateDesc',
         'averageSpotDiscount' => 'AverageSpotDiscount',
         'instanceType'        => 'InstanceType',
+        'interruptRateDesc'   => 'InterruptRateDesc',
         'interruptionRate'    => 'InterruptionRate',
     ];
 
@@ -41,14 +41,14 @@ class availableSpotResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->interruptRateDesc) {
-            $res['InterruptRateDesc'] = $this->interruptRateDesc;
-        }
         if (null !== $this->averageSpotDiscount) {
             $res['AverageSpotDiscount'] = $this->averageSpotDiscount;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->interruptRateDesc) {
+            $res['InterruptRateDesc'] = $this->interruptRateDesc;
         }
         if (null !== $this->interruptionRate) {
             $res['InterruptionRate'] = $this->interruptionRate;
@@ -65,14 +65,14 @@ class availableSpotResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InterruptRateDesc'])) {
-            $model->interruptRateDesc = $map['InterruptRateDesc'];
-        }
         if (isset($map['AverageSpotDiscount'])) {
             $model->averageSpotDiscount = $map['AverageSpotDiscount'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['InterruptRateDesc'])) {
+            $model->interruptRateDesc = $map['InterruptRateDesc'];
         }
         if (isset($map['InterruptionRate'])) {
             $model->interruptionRate = $map['InterruptionRate'];

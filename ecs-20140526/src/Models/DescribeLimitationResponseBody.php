@@ -16,16 +16,16 @@ class DescribeLimitationResponseBody extends Model
     /**
      * @var string
      */
-    public $value;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $value;
     protected $_name = [
         'limitation' => 'Limitation',
-        'value'      => 'Value',
         'requestId'  => 'RequestId',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeLimitationResponseBody extends Model
         if (null !== $this->limitation) {
             $res['Limitation'] = $this->limitation;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeLimitationResponseBody extends Model
         if (isset($map['Limitation'])) {
             $model->limitation = $map['Limitation'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

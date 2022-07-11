@@ -16,16 +16,16 @@ class ImportSnapshotResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $snapshotId;
 
     /**
      * @var string
      */
-    public $snapshotId;
+    public $taskId;
     protected $_name = [
         'requestId'  => 'RequestId',
-        'taskId'     => 'TaskId',
         'snapshotId' => 'SnapshotId',
+        'taskId'     => 'TaskId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ImportSnapshotResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ImportSnapshotResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

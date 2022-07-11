@@ -12,21 +12,6 @@ class routeEntry extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $nextHopType;
-
-    /**
-     * @var string
-     */
     public $destinationCidrBlock;
 
     /**
@@ -37,20 +22,35 @@ class routeEntry extends Model
     /**
      * @var string
      */
-    public $routeTableId;
+    public $nextHopType;
 
     /**
      * @var nextHops
      */
     public $nextHops;
+
+    /**
+     * @var string
+     */
+    public $routeTableId;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'                 => 'Type',
-        'status'               => 'Status',
-        'nextHopType'          => 'NextHopType',
         'destinationCidrBlock' => 'DestinationCidrBlock',
         'instanceId'           => 'InstanceId',
-        'routeTableId'         => 'RouteTableId',
+        'nextHopType'          => 'NextHopType',
         'nextHops'             => 'NextHops',
+        'routeTableId'         => 'RouteTableId',
+        'status'               => 'Status',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class routeEntry extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->nextHopType) {
-            $res['NextHopType'] = $this->nextHopType;
-        }
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
+        if (null !== $this->nextHopType) {
+            $res['NextHopType'] = $this->nextHopType;
         }
         if (null !== $this->nextHops) {
             $res['NextHops'] = null !== $this->nextHops ? $this->nextHops->toMap() : null;
+        }
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class routeEntry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['NextHopType'])) {
-            $model->nextHopType = $map['NextHopType'];
-        }
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
+        if (isset($map['NextHopType'])) {
+            $model->nextHopType = $map['NextHopType'];
         }
         if (isset($map['NextHops'])) {
             $model->nextHops = nextHops::fromMap($map['NextHops']);
+        }
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

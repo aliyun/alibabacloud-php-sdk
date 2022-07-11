@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class maintenanceAttribute extends Model
 {
     /**
-     * @var bool
+     * @var actionOnMaintenance
      */
-    public $notifyOnMaintenance;
+    public $actionOnMaintenance;
 
     /**
      * @var string
@@ -26,14 +26,14 @@ class maintenanceAttribute extends Model
     public $maintenanceWindows;
 
     /**
-     * @var actionOnMaintenance
+     * @var bool
      */
-    public $actionOnMaintenance;
+    public $notifyOnMaintenance;
     protected $_name = [
-        'notifyOnMaintenance' => 'NotifyOnMaintenance',
+        'actionOnMaintenance' => 'ActionOnMaintenance',
         'instanceId'          => 'InstanceId',
         'maintenanceWindows'  => 'MaintenanceWindows',
-        'actionOnMaintenance' => 'ActionOnMaintenance',
+        'notifyOnMaintenance' => 'NotifyOnMaintenance',
     ];
 
     public function validate()
@@ -43,8 +43,8 @@ class maintenanceAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->notifyOnMaintenance) {
-            $res['NotifyOnMaintenance'] = $this->notifyOnMaintenance;
+        if (null !== $this->actionOnMaintenance) {
+            $res['ActionOnMaintenance'] = null !== $this->actionOnMaintenance ? $this->actionOnMaintenance->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -52,8 +52,8 @@ class maintenanceAttribute extends Model
         if (null !== $this->maintenanceWindows) {
             $res['MaintenanceWindows'] = null !== $this->maintenanceWindows ? $this->maintenanceWindows->toMap() : null;
         }
-        if (null !== $this->actionOnMaintenance) {
-            $res['ActionOnMaintenance'] = null !== $this->actionOnMaintenance ? $this->actionOnMaintenance->toMap() : null;
+        if (null !== $this->notifyOnMaintenance) {
+            $res['NotifyOnMaintenance'] = $this->notifyOnMaintenance;
         }
 
         return $res;
@@ -67,8 +67,8 @@ class maintenanceAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NotifyOnMaintenance'])) {
-            $model->notifyOnMaintenance = $map['NotifyOnMaintenance'];
+        if (isset($map['ActionOnMaintenance'])) {
+            $model->actionOnMaintenance = actionOnMaintenance::fromMap($map['ActionOnMaintenance']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -76,8 +76,8 @@ class maintenanceAttribute extends Model
         if (isset($map['MaintenanceWindows'])) {
             $model->maintenanceWindows = maintenanceWindows::fromMap($map['MaintenanceWindows']);
         }
-        if (isset($map['ActionOnMaintenance'])) {
-            $model->actionOnMaintenance = actionOnMaintenance::fromMap($map['ActionOnMaintenance']);
+        if (isset($map['NotifyOnMaintenance'])) {
+            $model->notifyOnMaintenance = $map['NotifyOnMaintenance'];
         }
 
         return $model;

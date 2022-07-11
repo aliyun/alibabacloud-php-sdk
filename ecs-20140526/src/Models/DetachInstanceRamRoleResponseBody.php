@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DetachInstanceRamRoleResponseBody extends Model
 {
     /**
+     * @var detachInstanceRamRoleResults
+     */
+    public $detachInstanceRamRoleResults;
+
+    /**
+     * @var int
+     */
+    public $failCount;
+
+    /**
      * @var string
      */
     public $ramRoleName;
@@ -23,22 +33,12 @@ class DetachInstanceRamRoleResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $failCount;
-
-    /**
-     * @var detachInstanceRamRoleResults
-     */
-    public $detachInstanceRamRoleResults;
     protected $_name = [
+        'detachInstanceRamRoleResults' => 'DetachInstanceRamRoleResults',
+        'failCount'                    => 'FailCount',
         'ramRoleName'                  => 'RamRoleName',
         'requestId'                    => 'RequestId',
         'totalCount'                   => 'TotalCount',
-        'failCount'                    => 'FailCount',
-        'detachInstanceRamRoleResults' => 'DetachInstanceRamRoleResults',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class DetachInstanceRamRoleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detachInstanceRamRoleResults) {
+            $res['DetachInstanceRamRoleResults'] = null !== $this->detachInstanceRamRoleResults ? $this->detachInstanceRamRoleResults->toMap() : null;
+        }
+        if (null !== $this->failCount) {
+            $res['FailCount'] = $this->failCount;
+        }
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
         }
@@ -56,12 +62,6 @@ class DetachInstanceRamRoleResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->failCount) {
-            $res['FailCount'] = $this->failCount;
-        }
-        if (null !== $this->detachInstanceRamRoleResults) {
-            $res['DetachInstanceRamRoleResults'] = null !== $this->detachInstanceRamRoleResults ? $this->detachInstanceRamRoleResults->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class DetachInstanceRamRoleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DetachInstanceRamRoleResults'])) {
+            $model->detachInstanceRamRoleResults = detachInstanceRamRoleResults::fromMap($map['DetachInstanceRamRoleResults']);
+        }
+        if (isset($map['FailCount'])) {
+            $model->failCount = $map['FailCount'];
+        }
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
         }
@@ -83,12 +89,6 @@ class DetachInstanceRamRoleResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['FailCount'])) {
-            $model->failCount = $map['FailCount'];
-        }
-        if (isset($map['DetachInstanceRamRoleResults'])) {
-            $model->detachInstanceRamRoleResults = detachInstanceRamRoleResults::fromMap($map['DetachInstanceRamRoleResults']);
         }
 
         return $model;

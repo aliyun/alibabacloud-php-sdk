@@ -11,7 +11,12 @@ class diskDeviceMapping extends Model
     /**
      * @var string
      */
-    public $type;
+    public $device;
+
+    /**
+     * @var string
+     */
+    public $format;
 
     /**
      * @var string
@@ -21,27 +26,12 @@ class diskDeviceMapping extends Model
     /**
      * @var string
      */
-    public $progress;
-
-    /**
-     * @var string
-     */
-    public $snapshotId;
-
-    /**
-     * @var string
-     */
     public $importOSSObject;
 
     /**
      * @var string
      */
-    public $device;
-
-    /**
-     * @var string
-     */
-    public $size;
+    public $progress;
 
     /**
      * @var int
@@ -51,17 +41,27 @@ class diskDeviceMapping extends Model
     /**
      * @var string
      */
-    public $format;
+    public $size;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'            => 'Type',
-        'importOSSBucket' => 'ImportOSSBucket',
-        'progress'        => 'Progress',
-        'snapshotId'      => 'SnapshotId',
-        'importOSSObject' => 'ImportOSSObject',
         'device'          => 'Device',
-        'size'            => 'Size',
-        'remainTime'      => 'RemainTime',
         'format'          => 'Format',
+        'importOSSBucket' => 'ImportOSSBucket',
+        'importOSSObject' => 'ImportOSSObject',
+        'progress'        => 'Progress',
+        'remainTime'      => 'RemainTime',
+        'size'            => 'Size',
+        'snapshotId'      => 'SnapshotId',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class diskDeviceMapping extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
+        }
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
         }
         if (null !== $this->importOSSBucket) {
             $res['ImportOSSBucket'] = $this->importOSSBucket;
         }
-        if (null !== $this->progress) {
-            $res['Progress'] = $this->progress;
-        }
-        if (null !== $this->snapshotId) {
-            $res['SnapshotId'] = $this->snapshotId;
-        }
         if (null !== $this->importOSSObject) {
             $res['ImportOSSObject'] = $this->importOSSObject;
         }
-        if (null !== $this->device) {
-            $res['Device'] = $this->device;
-        }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
         }
         if (null !== $this->remainTime) {
             $res['RemainTime'] = $this->remainTime;
         }
-        if (null !== $this->format) {
-            $res['Format'] = $this->format;
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class diskDeviceMapping extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
+        }
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
         }
         if (isset($map['ImportOSSBucket'])) {
             $model->importOSSBucket = $map['ImportOSSBucket'];
         }
-        if (isset($map['Progress'])) {
-            $model->progress = $map['Progress'];
-        }
-        if (isset($map['SnapshotId'])) {
-            $model->snapshotId = $map['SnapshotId'];
-        }
         if (isset($map['ImportOSSObject'])) {
             $model->importOSSObject = $map['ImportOSSObject'];
         }
-        if (isset($map['Device'])) {
-            $model->device = $map['Device'];
-        }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
         }
         if (isset($map['RemainTime'])) {
             $model->remainTime = $map['RemainTime'];
         }
-        if (isset($map['Format'])) {
-            $model->format = $map['Format'];
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

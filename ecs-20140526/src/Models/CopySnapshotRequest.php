@@ -10,9 +10,34 @@ use AlibabaCloud\Tea\Model;
 class CopySnapshotRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $destinationRegionId;
+
+    /**
+     * @var string
+     */
+    public $destinationSnapshotDescription;
+
+    /**
+     * @var string
+     */
+    public $destinationSnapshotName;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -25,24 +50,9 @@ class CopySnapshotRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $resourceGroupId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $destinationRegionId;
+    public $retentionDays;
 
     /**
      * @var string
@@ -50,31 +60,21 @@ class CopySnapshotRequest extends Model
     public $snapshotId;
 
     /**
-     * @var string
+     * @var tag[]
      */
-    public $destinationSnapshotName;
-
-    /**
-     * @var string
-     */
-    public $destinationSnapshotDescription;
-
-    /**
-     * @var int
-     */
-    public $retentionDays;
+    public $tag;
     protected $_name = [
+        'destinationRegionId'            => 'DestinationRegionId',
+        'destinationSnapshotDescription' => 'DestinationSnapshotDescription',
+        'destinationSnapshotName'        => 'DestinationSnapshotName',
         'ownerId'                        => 'OwnerId',
+        'regionId'                       => 'RegionId',
+        'resourceGroupId'                => 'ResourceGroupId',
         'resourceOwnerAccount'           => 'ResourceOwnerAccount',
         'resourceOwnerId'                => 'ResourceOwnerId',
-        'resourceGroupId'                => 'ResourceGroupId',
-        'tag'                            => 'Tag',
-        'regionId'                       => 'RegionId',
-        'destinationRegionId'            => 'DestinationRegionId',
-        'snapshotId'                     => 'SnapshotId',
-        'destinationSnapshotName'        => 'DestinationSnapshotName',
-        'destinationSnapshotDescription' => 'DestinationSnapshotDescription',
         'retentionDays'                  => 'RetentionDays',
+        'snapshotId'                     => 'SnapshotId',
+        'tag'                            => 'Tag',
     ];
 
     public function validate()
@@ -84,8 +84,23 @@ class CopySnapshotRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->destinationRegionId) {
+            $res['DestinationRegionId'] = $this->destinationRegionId;
+        }
+        if (null !== $this->destinationSnapshotDescription) {
+            $res['DestinationSnapshotDescription'] = $this->destinationSnapshotDescription;
+        }
+        if (null !== $this->destinationSnapshotName) {
+            $res['DestinationSnapshotName'] = $this->destinationSnapshotName;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -93,8 +108,11 @@ class CopySnapshotRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->retentionDays) {
+            $res['RetentionDays'] = $this->retentionDays;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -104,24 +122,6 @@ class CopySnapshotRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->destinationRegionId) {
-            $res['DestinationRegionId'] = $this->destinationRegionId;
-        }
-        if (null !== $this->snapshotId) {
-            $res['SnapshotId'] = $this->snapshotId;
-        }
-        if (null !== $this->destinationSnapshotName) {
-            $res['DestinationSnapshotName'] = $this->destinationSnapshotName;
-        }
-        if (null !== $this->destinationSnapshotDescription) {
-            $res['DestinationSnapshotDescription'] = $this->destinationSnapshotDescription;
-        }
-        if (null !== $this->retentionDays) {
-            $res['RetentionDays'] = $this->retentionDays;
         }
 
         return $res;
@@ -135,8 +135,23 @@ class CopySnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DestinationRegionId'])) {
+            $model->destinationRegionId = $map['DestinationRegionId'];
+        }
+        if (isset($map['DestinationSnapshotDescription'])) {
+            $model->destinationSnapshotDescription = $map['DestinationSnapshotDescription'];
+        }
+        if (isset($map['DestinationSnapshotName'])) {
+            $model->destinationSnapshotName = $map['DestinationSnapshotName'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -144,8 +159,11 @@ class CopySnapshotRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['RetentionDays'])) {
+            $model->retentionDays = $map['RetentionDays'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -155,24 +173,6 @@ class CopySnapshotRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DestinationRegionId'])) {
-            $model->destinationRegionId = $map['DestinationRegionId'];
-        }
-        if (isset($map['SnapshotId'])) {
-            $model->snapshotId = $map['SnapshotId'];
-        }
-        if (isset($map['DestinationSnapshotName'])) {
-            $model->destinationSnapshotName = $map['DestinationSnapshotName'];
-        }
-        if (isset($map['DestinationSnapshotDescription'])) {
-            $model->destinationSnapshotDescription = $map['DestinationSnapshotDescription'];
-        }
-        if (isset($map['RetentionDays'])) {
-            $model->retentionDays = $map['RetentionDays'];
         }
 
         return $model;

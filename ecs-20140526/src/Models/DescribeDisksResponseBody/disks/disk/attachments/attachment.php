@@ -11,7 +11,7 @@ class attachment extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $attachedTime;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class attachment extends Model
     /**
      * @var string
      */
-    public $attachedTime;
+    public $instanceId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'device'       => 'Device',
         'attachedTime' => 'AttachedTime',
+        'device'       => 'Device',
+        'instanceId'   => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class attachment extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->attachedTime) {
+            $res['AttachedTime'] = $this->attachedTime;
         }
         if (null !== $this->device) {
             $res['Device'] = $this->device;
         }
-        if (null !== $this->attachedTime) {
-            $res['AttachedTime'] = $this->attachedTime;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class attachment extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['AttachedTime'])) {
+            $model->attachedTime = $map['AttachedTime'];
         }
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
         }
-        if (isset($map['AttachedTime'])) {
-            $model->attachedTime = $map['AttachedTime'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

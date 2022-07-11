@@ -12,6 +12,11 @@ class AttachKeyPairResponseBody extends Model
     /**
      * @var string
      */
+    public $failCount;
+
+    /**
+     * @var string
+     */
     public $keyPairName;
 
     /**
@@ -20,25 +25,20 @@ class AttachKeyPairResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $failCount;
-
-    /**
      * @var results
      */
     public $results;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
+        'failCount'   => 'FailCount',
         'keyPairName' => 'KeyPairName',
         'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
-        'failCount'   => 'FailCount',
         'results'     => 'Results',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class AttachKeyPairResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->failCount) {
+            $res['FailCount'] = $this->failCount;
+        }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->failCount) {
-            $res['FailCount'] = $this->failCount;
-        }
         if (null !== $this->results) {
             $res['Results'] = null !== $this->results ? $this->results->toMap() : null;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class AttachKeyPairResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FailCount'])) {
+            $model->failCount = $map['FailCount'];
+        }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['FailCount'])) {
-            $model->failCount = $map['FailCount'];
-        }
         if (isset($map['Results'])) {
             $model->results = results::fromMap($map['Results']);
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

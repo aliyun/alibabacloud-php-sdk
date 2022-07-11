@@ -11,7 +11,7 @@ class region extends Model
     /**
      * @var string
      */
-    public $status;
+    public $localName;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class region extends Model
     /**
      * @var string
      */
-    public $localName;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $status;
     protected $_name = [
-        'status'         => 'Status',
-        'regionEndpoint' => 'RegionEndpoint',
         'localName'      => 'LocalName',
+        'regionEndpoint' => 'RegionEndpoint',
         'regionId'       => 'RegionId',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class region extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->localName) {
+            $res['LocalName'] = $this->localName;
         }
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
         }
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class region extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['LocalName'])) {
+            $model->localName = $map['LocalName'];
         }
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
         }
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

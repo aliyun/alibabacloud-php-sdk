@@ -11,15 +11,15 @@ class referencingSecurityGroup extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
+    public $aliUid;
 
     /**
      * @var string
      */
-    public $aliUid;
+    public $securityGroupId;
     protected $_name = [
-        'securityGroupId' => 'SecurityGroupId',
         'aliUid'          => 'AliUid',
+        'securityGroupId' => 'SecurityGroupId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class referencingSecurityGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class referencingSecurityGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         return $model;

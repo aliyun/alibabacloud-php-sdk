@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DetachDiskRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $deleteWithInstance;
+
+    /**
+     * @var string
+     */
+    public $diskId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,34 +42,14 @@ class DetachDiskRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $diskId;
-
-    /**
-     * @var bool
-     */
-    public $deleteWithInstance;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'deleteWithInstance'   => 'DeleteWithInstance',
+        'diskId'               => 'DiskId',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'instanceId'           => 'InstanceId',
-        'diskId'               => 'DiskId',
-        'deleteWithInstance'   => 'DeleteWithInstance',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,6 +59,18 @@ class DetachDiskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deleteWithInstance) {
+            $res['DeleteWithInstance'] = $this->deleteWithInstance;
+        }
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -67,18 +79,6 @@ class DetachDiskRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->diskId) {
-            $res['DiskId'] = $this->diskId;
-        }
-        if (null !== $this->deleteWithInstance) {
-            $res['DeleteWithInstance'] = $this->deleteWithInstance;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,6 +92,18 @@ class DetachDiskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeleteWithInstance'])) {
+            $model->deleteWithInstance = $map['DeleteWithInstance'];
+        }
+        if (isset($map['DiskId'])) {
+            $model->diskId = $map['DiskId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,18 +112,6 @@ class DetachDiskRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['DiskId'])) {
-            $model->diskId = $map['DiskId'];
-        }
-        if (isset($map['DeleteWithInstance'])) {
-            $model->deleteWithInstance = $map['DeleteWithInstance'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

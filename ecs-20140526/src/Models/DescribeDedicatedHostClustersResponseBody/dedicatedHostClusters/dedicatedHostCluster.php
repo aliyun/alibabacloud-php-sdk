@@ -12,9 +12,9 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostCluster extends Model
 {
     /**
-     * @var string
+     * @var dedicatedHostClusterCapacity
      */
-    public $description;
+    public $dedicatedHostClusterCapacity;
 
     /**
      * @var string
@@ -24,12 +24,17 @@ class dedicatedHostCluster extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $dedicatedHostClusterName;
+
+    /**
+     * @var dedicatedHostIds
+     */
+    public $dedicatedHostIds;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $description;
 
     /**
      * @var string
@@ -39,7 +44,7 @@ class dedicatedHostCluster extends Model
     /**
      * @var string
      */
-    public $dedicatedHostClusterName;
+    public $resourceGroupId;
 
     /**
      * @var tags
@@ -47,24 +52,19 @@ class dedicatedHostCluster extends Model
     public $tags;
 
     /**
-     * @var dedicatedHostIds
+     * @var string
      */
-    public $dedicatedHostIds;
-
-    /**
-     * @var dedicatedHostClusterCapacity
-     */
-    public $dedicatedHostClusterCapacity;
+    public $zoneId;
     protected $_name = [
-        'description'                  => 'Description',
-        'dedicatedHostClusterId'       => 'DedicatedHostClusterId',
-        'resourceGroupId'              => 'ResourceGroupId',
-        'zoneId'                       => 'ZoneId',
-        'regionId'                     => 'RegionId',
-        'dedicatedHostClusterName'     => 'DedicatedHostClusterName',
-        'tags'                         => 'Tags',
-        'dedicatedHostIds'             => 'DedicatedHostIds',
         'dedicatedHostClusterCapacity' => 'DedicatedHostClusterCapacity',
+        'dedicatedHostClusterId'       => 'DedicatedHostClusterId',
+        'dedicatedHostClusterName'     => 'DedicatedHostClusterName',
+        'dedicatedHostIds'             => 'DedicatedHostIds',
+        'description'                  => 'Description',
+        'regionId'                     => 'RegionId',
+        'resourceGroupId'              => 'ResourceGroupId',
+        'tags'                         => 'Tags',
+        'zoneId'                       => 'ZoneId',
     ];
 
     public function validate()
@@ -74,32 +74,32 @@ class dedicatedHostCluster extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->dedicatedHostClusterCapacity) {
+            $res['DedicatedHostClusterCapacity'] = null !== $this->dedicatedHostClusterCapacity ? $this->dedicatedHostClusterCapacity->toMap() : null;
         }
         if (null !== $this->dedicatedHostClusterId) {
             $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->dedicatedHostClusterName) {
             $res['DedicatedHostClusterName'] = $this->dedicatedHostClusterName;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->dedicatedHostIds) {
             $res['DedicatedHostIds'] = null !== $this->dedicatedHostIds ? $this->dedicatedHostIds->toMap() : null;
         }
-        if (null !== $this->dedicatedHostClusterCapacity) {
-            $res['DedicatedHostClusterCapacity'] = null !== $this->dedicatedHostClusterCapacity ? $this->dedicatedHostClusterCapacity->toMap() : null;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -113,32 +113,32 @@ class dedicatedHostCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['DedicatedHostClusterCapacity'])) {
+            $model->dedicatedHostClusterCapacity = dedicatedHostClusterCapacity::fromMap($map['DedicatedHostClusterCapacity']);
         }
         if (isset($map['DedicatedHostClusterId'])) {
             $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DedicatedHostClusterName'])) {
             $model->dedicatedHostClusterName = $map['DedicatedHostClusterName'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['DedicatedHostIds'])) {
             $model->dedicatedHostIds = dedicatedHostIds::fromMap($map['DedicatedHostIds']);
         }
-        if (isset($map['DedicatedHostClusterCapacity'])) {
-            $model->dedicatedHostClusterCapacity = dedicatedHostClusterCapacity::fromMap($map['DedicatedHostClusterCapacity']);
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

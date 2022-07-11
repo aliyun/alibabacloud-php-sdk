@@ -4,12 +4,44 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\arn;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\dataDisk;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\tag;
 use AlibabaCloud\Tea\Model;
 
 class launchConfiguration extends Model
 {
+    /**
+     * @var arn[]
+     */
+    public $arn;
+
+    /**
+     * @var string
+     */
+    public $creditSpecification;
+
+    /**
+     * @var dataDisk[]
+     */
+    public $dataDisk;
+
+    /**
+     * @var string
+     */
+    public $deploymentSetId;
+
+    /**
+     * @var string
+     */
+    public $hostName;
+
+    /**
+     * @var string[]
+     */
+    public $hostNames;
+
     /**
      * @var string
      */
@@ -18,12 +50,12 @@ class launchConfiguration extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
+    public $instanceDescription;
 
     /**
      * @var string
      */
-    public $ioOptimized;
+    public $instanceName;
 
     /**
      * @var string
@@ -43,17 +75,7 @@ class launchConfiguration extends Model
     /**
      * @var string
      */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $hostName;
-
-    /**
-     * @var string
-     */
-    public $instanceDescription;
+    public $ioOptimized;
 
     /**
      * @var string
@@ -63,42 +85,7 @@ class launchConfiguration extends Model
     /**
      * @var string
      */
-    public $ramRoleName;
-
-    /**
-     * @var string
-     */
-    public $securityEnhancementStrategy;
-
-    /**
-     * @var string
-     */
-    public $userData;
-
-    /**
-     * @var string
-     */
-    public $systemDiskCategory;
-
-    /**
-     * @var int
-     */
-    public $systemDiskSize;
-
-    /**
-     * @var string
-     */
-    public $systemDiskName;
-
-    /**
-     * @var string
-     */
-    public $systemDiskDescription;
-
-    /**
-     * @var string
-     */
-    public $systemDiskPerformanceLevel;
+    public $password;
 
     /**
      * @var bool
@@ -108,22 +95,57 @@ class launchConfiguration extends Model
     /**
      * @var string
      */
+    public $ramRoleName;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
      * @var string
      */
-    public $creditSpecification;
+    public $securityEnhancementStrategy;
 
     /**
      * @var string
      */
-    public $deploymentSetId;
+    public $securityGroupId;
 
     /**
-     * @var dataDisk[]
+     * @var string[]
      */
-    public $dataDisk;
+    public $securityGroupIds;
+
+    /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
+     * @var string
+     */
+    public $systemDiskCategory;
+
+    /**
+     * @var string
+     */
+    public $systemDiskDescription;
+
+    /**
+     * @var string
+     */
+    public $systemDiskName;
+
+    /**
+     * @var string
+     */
+    public $systemDiskPerformanceLevel;
+
+    /**
+     * @var int
+     */
+    public $systemDiskSize;
 
     /**
      * @var tag[]
@@ -131,35 +153,39 @@ class launchConfiguration extends Model
     public $tag;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $hostNames;
+    public $userData;
     protected $_name = [
+        'arn'                         => 'Arn',
+        'creditSpecification'         => 'CreditSpecification',
+        'dataDisk'                    => 'DataDisk',
+        'deploymentSetId'             => 'DeploymentSetId',
+        'hostName'                    => 'HostName',
+        'hostNames'                   => 'HostNames',
         'imageId'                     => 'ImageId',
-        'securityGroupId'             => 'SecurityGroupId',
-        'ioOptimized'                 => 'IoOptimized',
+        'instanceDescription'         => 'InstanceDescription',
+        'instanceName'                => 'InstanceName',
         'internetChargeType'          => 'InternetChargeType',
         'internetMaxBandwidthIn'      => 'InternetMaxBandwidthIn',
         'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
-        'instanceName'                => 'InstanceName',
-        'hostName'                    => 'HostName',
-        'instanceDescription'         => 'InstanceDescription',
+        'ioOptimized'                 => 'IoOptimized',
         'keyPairName'                 => 'KeyPairName',
-        'ramRoleName'                 => 'RamRoleName',
-        'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
-        'userData'                    => 'UserData',
-        'systemDiskCategory'          => 'SystemDiskCategory',
-        'systemDiskSize'              => 'SystemDiskSize',
-        'systemDiskName'              => 'SystemDiskName',
-        'systemDiskDescription'       => 'SystemDiskDescription',
-        'systemDiskPerformanceLevel'  => 'SystemDiskPerformanceLevel',
+        'password'                    => 'Password',
         'passwordInherit'             => 'PasswordInherit',
+        'ramRoleName'                 => 'RamRoleName',
         'resourceGroupId'             => 'ResourceGroupId',
-        'creditSpecification'         => 'CreditSpecification',
-        'deploymentSetId'             => 'DeploymentSetId',
-        'dataDisk'                    => 'DataDisk',
+        'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
+        'securityGroupId'             => 'SecurityGroupId',
+        'securityGroupIds'            => 'SecurityGroupIds',
+        'systemDisk'                  => 'SystemDisk',
+        'systemDiskCategory'          => 'SystemDiskCategory',
+        'systemDiskDescription'       => 'SystemDiskDescription',
+        'systemDiskName'              => 'SystemDiskName',
+        'systemDiskPerformanceLevel'  => 'SystemDiskPerformanceLevel',
+        'systemDiskSize'              => 'SystemDiskSize',
         'tag'                         => 'Tag',
-        'hostNames'                   => 'HostNames',
+        'userData'                    => 'UserData',
     ];
 
     public function validate()
@@ -169,71 +195,17 @@ class launchConfiguration extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->ioOptimized) {
-            $res['IoOptimized'] = $this->ioOptimized;
-        }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
-        }
-        if (null !== $this->internetMaxBandwidthIn) {
-            $res['InternetMaxBandwidthIn'] = $this->internetMaxBandwidthIn;
-        }
-        if (null !== $this->internetMaxBandwidthOut) {
-            $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->instanceDescription) {
-            $res['InstanceDescription'] = $this->instanceDescription;
-        }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->ramRoleName) {
-            $res['RamRoleName'] = $this->ramRoleName;
-        }
-        if (null !== $this->securityEnhancementStrategy) {
-            $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
-        }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->systemDiskCategory) {
-            $res['SystemDiskCategory'] = $this->systemDiskCategory;
-        }
-        if (null !== $this->systemDiskSize) {
-            $res['SystemDiskSize'] = $this->systemDiskSize;
-        }
-        if (null !== $this->systemDiskName) {
-            $res['SystemDiskName'] = $this->systemDiskName;
-        }
-        if (null !== $this->systemDiskDescription) {
-            $res['SystemDiskDescription'] = $this->systemDiskDescription;
-        }
-        if (null !== $this->systemDiskPerformanceLevel) {
-            $res['SystemDiskPerformanceLevel'] = $this->systemDiskPerformanceLevel;
-        }
-        if (null !== $this->passwordInherit) {
-            $res['PasswordInherit'] = $this->passwordInherit;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->arn) {
+            $res['Arn'] = [];
+            if (null !== $this->arn && \is_array($this->arn)) {
+                $n = 0;
+                foreach ($this->arn as $item) {
+                    $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->creditSpecification) {
             $res['CreditSpecification'] = $this->creditSpecification;
-        }
-        if (null !== $this->deploymentSetId) {
-            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
         if (null !== $this->dataDisk) {
             $res['DataDisk'] = [];
@@ -244,6 +216,78 @@ class launchConfiguration extends Model
                 }
             }
         }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->hostNames) {
+            $res['HostNames'] = $this->hostNames;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->instanceDescription) {
+            $res['InstanceDescription'] = $this->instanceDescription;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
+        if (null !== $this->internetMaxBandwidthIn) {
+            $res['InternetMaxBandwidthIn'] = $this->internetMaxBandwidthIn;
+        }
+        if (null !== $this->internetMaxBandwidthOut) {
+            $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
+        }
+        if (null !== $this->ioOptimized) {
+            $res['IoOptimized'] = $this->ioOptimized;
+        }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+        if (null !== $this->passwordInherit) {
+            $res['PasswordInherit'] = $this->passwordInherit;
+        }
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->securityEnhancementStrategy) {
+            $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->systemDiskCategory) {
+            $res['SystemDiskCategory'] = $this->systemDiskCategory;
+        }
+        if (null !== $this->systemDiskDescription) {
+            $res['SystemDiskDescription'] = $this->systemDiskDescription;
+        }
+        if (null !== $this->systemDiskName) {
+            $res['SystemDiskName'] = $this->systemDiskName;
+        }
+        if (null !== $this->systemDiskPerformanceLevel) {
+            $res['SystemDiskPerformanceLevel'] = $this->systemDiskPerformanceLevel;
+        }
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -253,8 +297,8 @@ class launchConfiguration extends Model
                 }
             }
         }
-        if (null !== $this->hostNames) {
-            $res['HostNames'] = $this->hostNames;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -268,71 +312,17 @@ class launchConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['IoOptimized'])) {
-            $model->ioOptimized = $map['IoOptimized'];
-        }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
-        }
-        if (isset($map['InternetMaxBandwidthIn'])) {
-            $model->internetMaxBandwidthIn = $map['InternetMaxBandwidthIn'];
-        }
-        if (isset($map['InternetMaxBandwidthOut'])) {
-            $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
-        if (isset($map['InstanceDescription'])) {
-            $model->instanceDescription = $map['InstanceDescription'];
-        }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['RamRoleName'])) {
-            $model->ramRoleName = $map['RamRoleName'];
-        }
-        if (isset($map['SecurityEnhancementStrategy'])) {
-            $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
-        }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
-        if (isset($map['SystemDiskCategory'])) {
-            $model->systemDiskCategory = $map['SystemDiskCategory'];
-        }
-        if (isset($map['SystemDiskSize'])) {
-            $model->systemDiskSize = $map['SystemDiskSize'];
-        }
-        if (isset($map['SystemDiskName'])) {
-            $model->systemDiskName = $map['SystemDiskName'];
-        }
-        if (isset($map['SystemDiskDescription'])) {
-            $model->systemDiskDescription = $map['SystemDiskDescription'];
-        }
-        if (isset($map['SystemDiskPerformanceLevel'])) {
-            $model->systemDiskPerformanceLevel = $map['SystemDiskPerformanceLevel'];
-        }
-        if (isset($map['PasswordInherit'])) {
-            $model->passwordInherit = $map['PasswordInherit'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['Arn'])) {
+            if (!empty($map['Arn'])) {
+                $model->arn = [];
+                $n          = 0;
+                foreach ($map['Arn'] as $item) {
+                    $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['CreditSpecification'])) {
             $model->creditSpecification = $map['CreditSpecification'];
-        }
-        if (isset($map['DeploymentSetId'])) {
-            $model->deploymentSetId = $map['DeploymentSetId'];
         }
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
@@ -343,6 +333,82 @@ class launchConfiguration extends Model
                 }
             }
         }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
+        if (isset($map['HostNames'])) {
+            if (!empty($map['HostNames'])) {
+                $model->hostNames = $map['HostNames'];
+            }
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['InstanceDescription'])) {
+            $model->instanceDescription = $map['InstanceDescription'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
+        if (isset($map['InternetMaxBandwidthIn'])) {
+            $model->internetMaxBandwidthIn = $map['InternetMaxBandwidthIn'];
+        }
+        if (isset($map['InternetMaxBandwidthOut'])) {
+            $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
+        }
+        if (isset($map['IoOptimized'])) {
+            $model->ioOptimized = $map['IoOptimized'];
+        }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+        if (isset($map['PasswordInherit'])) {
+            $model->passwordInherit = $map['PasswordInherit'];
+        }
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SecurityEnhancementStrategy'])) {
+            $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = $map['SecurityGroupIds'];
+            }
+        }
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['SystemDiskCategory'])) {
+            $model->systemDiskCategory = $map['SystemDiskCategory'];
+        }
+        if (isset($map['SystemDiskDescription'])) {
+            $model->systemDiskDescription = $map['SystemDiskDescription'];
+        }
+        if (isset($map['SystemDiskName'])) {
+            $model->systemDiskName = $map['SystemDiskName'];
+        }
+        if (isset($map['SystemDiskPerformanceLevel'])) {
+            $model->systemDiskPerformanceLevel = $map['SystemDiskPerformanceLevel'];
+        }
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -352,10 +418,8 @@ class launchConfiguration extends Model
                 }
             }
         }
-        if (isset($map['HostNames'])) {
-            if (!empty($map['HostNames'])) {
-                $model->hostNames = $map['HostNames'];
-            }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

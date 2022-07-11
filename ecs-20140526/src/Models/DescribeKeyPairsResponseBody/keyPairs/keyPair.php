@@ -17,12 +17,12 @@ class keyPair extends Model
     /**
      * @var string
      */
-    public $keyPairName;
+    public $keyPairFingerPrint;
 
     /**
      * @var string
      */
-    public $keyPairFingerPrint;
+    public $keyPairName;
 
     /**
      * @var string
@@ -35,8 +35,8 @@ class keyPair extends Model
     public $tags;
     protected $_name = [
         'creationTime'       => 'CreationTime',
-        'keyPairName'        => 'KeyPairName',
         'keyPairFingerPrint' => 'KeyPairFingerPrint',
+        'keyPairName'        => 'KeyPairName',
         'resourceGroupId'    => 'ResourceGroupId',
         'tags'               => 'Tags',
     ];
@@ -51,11 +51,11 @@ class keyPair extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
-        }
         if (null !== $this->keyPairFingerPrint) {
             $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
+        }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -78,11 +78,11 @@ class keyPair extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
-        }
         if (isset($map['KeyPairFingerPrint'])) {
             $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
+        }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

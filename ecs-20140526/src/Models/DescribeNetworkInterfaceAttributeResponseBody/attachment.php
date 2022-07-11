@@ -20,19 +20,19 @@ class attachment extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $trunkNetworkInterfaceId;
-
-    /**
      * @var memberNetworkInterfaceIds
      */
     public $memberNetworkInterfaceIds;
+
+    /**
+     * @var string
+     */
+    public $trunkNetworkInterfaceId;
     protected $_name = [
         'deviceIndex'               => 'DeviceIndex',
         'instanceId'                => 'InstanceId',
-        'trunkNetworkInterfaceId'   => 'TrunkNetworkInterfaceId',
         'memberNetworkInterfaceIds' => 'MemberNetworkInterfaceIds',
+        'trunkNetworkInterfaceId'   => 'TrunkNetworkInterfaceId',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class attachment extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->trunkNetworkInterfaceId) {
-            $res['TrunkNetworkInterfaceId'] = $this->trunkNetworkInterfaceId;
-        }
         if (null !== $this->memberNetworkInterfaceIds) {
             $res['MemberNetworkInterfaceIds'] = null !== $this->memberNetworkInterfaceIds ? $this->memberNetworkInterfaceIds->toMap() : null;
+        }
+        if (null !== $this->trunkNetworkInterfaceId) {
+            $res['TrunkNetworkInterfaceId'] = $this->trunkNetworkInterfaceId;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class attachment extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['TrunkNetworkInterfaceId'])) {
-            $model->trunkNetworkInterfaceId = $map['TrunkNetworkInterfaceId'];
-        }
         if (isset($map['MemberNetworkInterfaceIds'])) {
             $model->memberNetworkInterfaceIds = memberNetworkInterfaceIds::fromMap($map['MemberNetworkInterfaceIds']);
+        }
+        if (isset($map['TrunkNetworkInterfaceId'])) {
+            $model->trunkNetworkInterfaceId = $map['TrunkNetworkInterfaceId'];
         }
 
         return $model;

@@ -10,41 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $diskId;
-
-    /**
-     * @var string
-     */
-    public $snapshotName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $retentionDays;
-
-    /**
      * @var string
      */
     public $category;
@@ -57,12 +22,12 @@ class CreateSnapshotRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $description;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $diskId;
 
     /**
      * @var bool
@@ -75,23 +40,58 @@ class CreateSnapshotRequest extends Model
     public $instantAccessRetentionDays;
 
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $retentionDays;
+
+    /**
+     * @var string
+     */
+    public $snapshotName;
+
+    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'ownerId'                    => 'OwnerId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'diskId'                     => 'DiskId',
-        'snapshotName'               => 'SnapshotName',
-        'description'                => 'Description',
-        'retentionDays'              => 'RetentionDays',
         'category'                   => 'Category',
         'clientToken'                => 'ClientToken',
-        'ownerAccount'               => 'OwnerAccount',
-        'resourceGroupId'            => 'ResourceGroupId',
+        'description'                => 'Description',
+        'diskId'                     => 'DiskId',
         'instantAccess'              => 'InstantAccess',
         'instantAccessRetentionDays' => 'InstantAccessRetentionDays',
+        'ownerAccount'               => 'OwnerAccount',
+        'ownerId'                    => 'OwnerId',
+        'resourceGroupId'            => 'ResourceGroupId',
+        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
+        'resourceOwnerId'            => 'ResourceOwnerId',
+        'retentionDays'              => 'RetentionDays',
+        'snapshotName'               => 'SnapshotName',
         'tag'                        => 'Tag',
     ];
 
@@ -102,8 +102,32 @@ class CreateSnapshotRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->instantAccess) {
+            $res['InstantAccess'] = $this->instantAccess;
+        }
+        if (null !== $this->instantAccessRetentionDays) {
+            $res['InstantAccessRetentionDays'] = $this->instantAccessRetentionDays;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -111,35 +135,11 @@ class CreateSnapshotRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->diskId) {
-            $res['DiskId'] = $this->diskId;
-        }
-        if (null !== $this->snapshotName) {
-            $res['SnapshotName'] = $this->snapshotName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->retentionDays) {
             $res['RetentionDays'] = $this->retentionDays;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->instantAccess) {
-            $res['InstantAccess'] = $this->instantAccess;
-        }
-        if (null !== $this->instantAccessRetentionDays) {
-            $res['InstantAccessRetentionDays'] = $this->instantAccessRetentionDays;
+        if (null !== $this->snapshotName) {
+            $res['SnapshotName'] = $this->snapshotName;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -162,8 +162,32 @@ class CreateSnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DiskId'])) {
+            $model->diskId = $map['DiskId'];
+        }
+        if (isset($map['InstantAccess'])) {
+            $model->instantAccess = $map['InstantAccess'];
+        }
+        if (isset($map['InstantAccessRetentionDays'])) {
+            $model->instantAccessRetentionDays = $map['InstantAccessRetentionDays'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -171,35 +195,11 @@ class CreateSnapshotRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['DiskId'])) {
-            $model->diskId = $map['DiskId'];
-        }
-        if (isset($map['SnapshotName'])) {
-            $model->snapshotName = $map['SnapshotName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['RetentionDays'])) {
             $model->retentionDays = $map['RetentionDays'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['InstantAccess'])) {
-            $model->instantAccess = $map['InstantAccess'];
-        }
-        if (isset($map['InstantAccessRetentionDays'])) {
-            $model->instantAccessRetentionDays = $map['InstantAccessRetentionDays'];
+        if (isset($map['SnapshotName'])) {
+            $model->snapshotName = $map['SnapshotName'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

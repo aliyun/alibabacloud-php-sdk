@@ -11,7 +11,12 @@ class EipFillProductRequest extends Model
     /**
      * @var string
      */
-    public $data;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,25 +36,20 @@ class EipFillProductRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
     public $userCidr;
+
+    /**
+     * @var string
+     */
+    public $data;
     protected $_name = [
-        'data'                 => 'data',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
         'userCidr'             => 'UserCidr',
+        'data'                 => 'data',
     ];
 
     public function validate()
@@ -59,8 +59,11 @@ class EipFillProductRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -71,14 +74,11 @@ class EipFillProductRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->userCidr) {
             $res['UserCidr'] = $this->userCidr;
+        }
+        if (null !== $this->data) {
+            $res['data'] = $this->data;
         }
 
         return $res;
@@ -92,8 +92,11 @@ class EipFillProductRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -104,14 +107,11 @@ class EipFillProductRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['UserCidr'])) {
             $model->userCidr = $map['UserCidr'];
+        }
+        if (isset($map['data'])) {
+            $model->data = $map['data'];
         }
 
         return $model;

@@ -9,34 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeLaunchTemplateVersionsRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $ownerId;
+    public $defaultVersion;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var int[]
-     */
-    public $launchTemplateVersion;
+    public $detailFlag;
 
     /**
      * @var string
@@ -49,9 +29,9 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $launchTemplateName;
 
     /**
-     * @var int
+     * @var int[]
      */
-    public $minVersion;
+    public $launchTemplateVersion;
 
     /**
      * @var int
@@ -59,14 +39,19 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $maxVersion;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $defaultVersion;
+    public $minVersion;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $detailFlag;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -77,21 +62,36 @@ class DescribeLaunchTemplateVersionsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'ownerAccount'          => 'OwnerAccount',
-        'regionId'              => 'RegionId',
-        'launchTemplateVersion' => 'LaunchTemplateVersion',
-        'launchTemplateId'      => 'LaunchTemplateId',
-        'launchTemplateName'    => 'LaunchTemplateName',
-        'minVersion'            => 'MinVersion',
-        'maxVersion'            => 'MaxVersion',
         'defaultVersion'        => 'DefaultVersion',
         'detailFlag'            => 'DetailFlag',
+        'launchTemplateId'      => 'LaunchTemplateId',
+        'launchTemplateName'    => 'LaunchTemplateName',
+        'launchTemplateVersion' => 'LaunchTemplateVersion',
+        'maxVersion'            => 'MaxVersion',
+        'minVersion'            => 'MinVersion',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
         'pageNumber'            => 'PageNumber',
         'pageSize'              => 'PageSize',
+        'regionId'              => 'RegionId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -101,23 +101,11 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->defaultVersion) {
+            $res['DefaultVersion'] = $this->defaultVersion;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->launchTemplateVersion) {
-            $res['LaunchTemplateVersion'] = $this->launchTemplateVersion;
+        if (null !== $this->detailFlag) {
+            $res['DetailFlag'] = $this->detailFlag;
         }
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
@@ -125,23 +113,35 @@ class DescribeLaunchTemplateVersionsRequest extends Model
         if (null !== $this->launchTemplateName) {
             $res['LaunchTemplateName'] = $this->launchTemplateName;
         }
-        if (null !== $this->minVersion) {
-            $res['MinVersion'] = $this->minVersion;
+        if (null !== $this->launchTemplateVersion) {
+            $res['LaunchTemplateVersion'] = $this->launchTemplateVersion;
         }
         if (null !== $this->maxVersion) {
             $res['MaxVersion'] = $this->maxVersion;
         }
-        if (null !== $this->defaultVersion) {
-            $res['DefaultVersion'] = $this->defaultVersion;
+        if (null !== $this->minVersion) {
+            $res['MinVersion'] = $this->minVersion;
         }
-        if (null !== $this->detailFlag) {
-            $res['DetailFlag'] = $this->detailFlag;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -155,25 +155,11 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['DefaultVersion'])) {
+            $model->defaultVersion = $map['DefaultVersion'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['LaunchTemplateVersion'])) {
-            if (!empty($map['LaunchTemplateVersion'])) {
-                $model->launchTemplateVersion = $map['LaunchTemplateVersion'];
-            }
+        if (isset($map['DetailFlag'])) {
+            $model->detailFlag = $map['DetailFlag'];
         }
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
@@ -181,23 +167,37 @@ class DescribeLaunchTemplateVersionsRequest extends Model
         if (isset($map['LaunchTemplateName'])) {
             $model->launchTemplateName = $map['LaunchTemplateName'];
         }
-        if (isset($map['MinVersion'])) {
-            $model->minVersion = $map['MinVersion'];
+        if (isset($map['LaunchTemplateVersion'])) {
+            if (!empty($map['LaunchTemplateVersion'])) {
+                $model->launchTemplateVersion = $map['LaunchTemplateVersion'];
+            }
         }
         if (isset($map['MaxVersion'])) {
             $model->maxVersion = $map['MaxVersion'];
         }
-        if (isset($map['DefaultVersion'])) {
-            $model->defaultVersion = $map['DefaultVersion'];
+        if (isset($map['MinVersion'])) {
+            $model->minVersion = $map['MinVersion'];
         }
-        if (isset($map['DetailFlag'])) {
-            $model->detailFlag = $map['DetailFlag'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

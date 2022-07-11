@@ -11,15 +11,15 @@ class dedicatedHostAttribute extends Model
     /**
      * @var string
      */
-    public $dedicatedHostName;
+    public $dedicatedHostId;
 
     /**
      * @var string
      */
-    public $dedicatedHostId;
+    public $dedicatedHostName;
     protected $_name = [
-        'dedicatedHostName' => 'DedicatedHostName',
         'dedicatedHostId'   => 'DedicatedHostId',
+        'dedicatedHostName' => 'DedicatedHostName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class dedicatedHostAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dedicatedHostName) {
-            $res['DedicatedHostName'] = $this->dedicatedHostName;
-        }
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
+        }
+        if (null !== $this->dedicatedHostName) {
+            $res['DedicatedHostName'] = $this->dedicatedHostName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class dedicatedHostAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DedicatedHostName'])) {
-            $model->dedicatedHostName = $map['DedicatedHostName'];
-        }
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];
+        }
+        if (isset($map['DedicatedHostName'])) {
+            $model->dedicatedHostName = $map['DedicatedHostName'];
         }
 
         return $model;

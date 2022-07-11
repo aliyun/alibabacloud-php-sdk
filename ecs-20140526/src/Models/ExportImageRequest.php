@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExportImageRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $imageFormat;
 
     /**
      * @var string
@@ -44,23 +29,38 @@ class ExportImageRequest extends Model
     public $OSSPrefix;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $imageFormat;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $roleName;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
+        'imageFormat'          => 'ImageFormat',
         'imageId'              => 'ImageId',
         'OSSBucket'            => 'OSSBucket',
         'OSSPrefix'            => 'OSSPrefix',
-        'imageFormat'          => 'ImageFormat',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'roleName'             => 'RoleName',
     ];
 
@@ -71,17 +71,8 @@ class ExportImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->imageFormat) {
+            $res['ImageFormat'] = $this->imageFormat;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -92,8 +83,17 @@ class ExportImageRequest extends Model
         if (null !== $this->OSSPrefix) {
             $res['OSSPrefix'] = $this->OSSPrefix;
         }
-        if (null !== $this->imageFormat) {
-            $res['ImageFormat'] = $this->imageFormat;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
@@ -110,17 +110,8 @@ class ExportImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ImageFormat'])) {
+            $model->imageFormat = $map['ImageFormat'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -131,8 +122,17 @@ class ExportImageRequest extends Model
         if (isset($map['OSSPrefix'])) {
             $model->OSSPrefix = $map['OSSPrefix'];
         }
-        if (isset($map['ImageFormat'])) {
-            $model->imageFormat = $map['ImageFormat'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];

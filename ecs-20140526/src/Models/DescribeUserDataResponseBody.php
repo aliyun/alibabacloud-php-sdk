@@ -11,27 +11,27 @@ class DescribeUserDataResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var string
      */
-    public $userData;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'instanceId' => 'InstanceId',
-        'userData'   => 'UserData',
         'regionId'   => 'RegionId',
+        'requestId'  => 'RequestId',
+        'userData'   => 'UserData',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeUserDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeUserDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

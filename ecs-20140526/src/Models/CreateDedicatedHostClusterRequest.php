@@ -10,9 +10,39 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostClusterRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dedicatedHostClusterName;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -25,21 +55,6 @@ class CreateDedicatedHostClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
-
-    /**
      * @var tag[]
      */
     public $tag;
@@ -47,34 +62,19 @@ class CreateDedicatedHostClusterRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $dedicatedHostClusterName;
-
-    /**
-     * @var string
-     */
-    public $description;
     protected $_name = [
-        'ownerId'                  => 'OwnerId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'ownerAccount'             => 'OwnerAccount',
-        'regionId'                 => 'RegionId',
-        'dryRun'                   => 'DryRun',
-        'tag'                      => 'Tag',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'zoneId'                   => 'ZoneId',
         'dedicatedHostClusterName' => 'DedicatedHostClusterName',
         'description'              => 'Description',
+        'dryRun'                   => 'DryRun',
+        'ownerAccount'             => 'OwnerAccount',
+        'ownerId'                  => 'OwnerId',
+        'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'tag'                      => 'Tag',
+        'zoneId'                   => 'ZoneId',
     ];
 
     public function validate()
@@ -84,23 +84,32 @@ class CreateDedicatedHostClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicatedHostClusterName) {
+            $res['DedicatedHostClusterName'] = $this->dedicatedHostClusterName;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -111,17 +120,8 @@ class CreateDedicatedHostClusterRequest extends Model
                 }
             }
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->dedicatedHostClusterName) {
-            $res['DedicatedHostClusterName'] = $this->dedicatedHostClusterName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -135,23 +135,32 @@ class CreateDedicatedHostClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicatedHostClusterName'])) {
+            $model->dedicatedHostClusterName = $map['DedicatedHostClusterName'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -162,17 +171,8 @@ class CreateDedicatedHostClusterRequest extends Model
                 }
             }
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['DedicatedHostClusterName'])) {
-            $model->dedicatedHostClusterName = $map['DedicatedHostClusterName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
 
         return $model;

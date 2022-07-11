@@ -11,15 +11,15 @@ class privatePoolOptions extends Model
     /**
      * @var string
      */
-    public $matchCriteria;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $matchCriteria;
     protected $_name = [
-        'matchCriteria' => 'MatchCriteria',
         'id'            => 'Id',
+        'matchCriteria' => 'MatchCriteria',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class privatePoolOptions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->matchCriteria) {
-            $res['MatchCriteria'] = $this->matchCriteria;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->matchCriteria) {
+            $res['MatchCriteria'] = $this->matchCriteria;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class privatePoolOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MatchCriteria'])) {
-            $model->matchCriteria = $map['MatchCriteria'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MatchCriteria'])) {
+            $model->matchCriteria = $map['MatchCriteria'];
         }
 
         return $model;

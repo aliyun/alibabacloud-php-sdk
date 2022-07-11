@@ -11,15 +11,15 @@ class instanceRamRoleSet extends Model
     /**
      * @var string
      */
-    public $ramRoleName;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $ramRoleName;
     protected $_name = [
-        'ramRoleName' => 'RamRoleName',
         'instanceId'  => 'InstanceId',
+        'ramRoleName' => 'RamRoleName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class instanceRamRoleSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ramRoleName) {
-            $res['RamRoleName'] = $this->ramRoleName;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class instanceRamRoleSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RamRoleName'])) {
-            $model->ramRoleName = $map['RamRoleName'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
 
         return $model;

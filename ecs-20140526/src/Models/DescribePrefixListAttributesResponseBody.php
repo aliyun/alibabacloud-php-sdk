@@ -12,7 +12,22 @@ class DescribePrefixListAttributesResponseBody extends Model
     /**
      * @var string
      */
+    public $addressFamily;
+
+    /**
+     * @var string
+     */
     public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var entries
+     */
+    public $entries;
 
     /**
      * @var int
@@ -22,17 +37,7 @@ class DescribePrefixListAttributesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $addressFamily;
+    public $prefixListId;
 
     /**
      * @var string
@@ -42,21 +47,16 @@ class DescribePrefixListAttributesResponseBody extends Model
     /**
      * @var string
      */
-    public $prefixListId;
-
-    /**
-     * @var entries
-     */
-    public $entries;
+    public $requestId;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'maxEntries'     => 'MaxEntries',
-        'requestId'      => 'RequestId',
-        'description'    => 'Description',
         'addressFamily'  => 'AddressFamily',
-        'prefixListName' => 'PrefixListName',
-        'prefixListId'   => 'PrefixListId',
+        'creationTime'   => 'CreationTime',
+        'description'    => 'Description',
         'entries'        => 'Entries',
+        'maxEntries'     => 'MaxEntries',
+        'prefixListId'   => 'PrefixListId',
+        'prefixListName' => 'PrefixListName',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class DescribePrefixListAttributesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressFamily) {
+            $res['AddressFamily'] = $this->addressFamily;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->maxEntries) {
-            $res['MaxEntries'] = $this->maxEntries;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->addressFamily) {
-            $res['AddressFamily'] = $this->addressFamily;
+        if (null !== $this->entries) {
+            $res['Entries'] = null !== $this->entries ? $this->entries->toMap() : null;
         }
-        if (null !== $this->prefixListName) {
-            $res['PrefixListName'] = $this->prefixListName;
+        if (null !== $this->maxEntries) {
+            $res['MaxEntries'] = $this->maxEntries;
         }
         if (null !== $this->prefixListId) {
             $res['PrefixListId'] = $this->prefixListId;
         }
-        if (null !== $this->entries) {
-            $res['Entries'] = null !== $this->entries ? $this->entries->toMap() : null;
+        if (null !== $this->prefixListName) {
+            $res['PrefixListName'] = $this->prefixListName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class DescribePrefixListAttributesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressFamily'])) {
+            $model->addressFamily = $map['AddressFamily'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['MaxEntries'])) {
-            $model->maxEntries = $map['MaxEntries'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['AddressFamily'])) {
-            $model->addressFamily = $map['AddressFamily'];
+        if (isset($map['Entries'])) {
+            $model->entries = entries::fromMap($map['Entries']);
         }
-        if (isset($map['PrefixListName'])) {
-            $model->prefixListName = $map['PrefixListName'];
+        if (isset($map['MaxEntries'])) {
+            $model->maxEntries = $map['MaxEntries'];
         }
         if (isset($map['PrefixListId'])) {
             $model->prefixListId = $map['PrefixListId'];
         }
-        if (isset($map['Entries'])) {
-            $model->entries = entries::fromMap($map['Entries']);
+        if (isset($map['PrefixListName'])) {
+            $model->prefixListName = $map['PrefixListName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

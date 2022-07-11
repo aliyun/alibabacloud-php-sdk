@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AssignIpv6AddressesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var ipv6Sets
      */
-    public $requestId;
+    public $ipv6Sets;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class AssignIpv6AddressesResponseBody extends Model
     public $networkInterfaceId;
 
     /**
-     * @var ipv6Sets
+     * @var string
      */
-    public $ipv6Sets;
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'networkInterfaceId' => 'NetworkInterfaceId',
         'ipv6Sets'           => 'Ipv6Sets',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class AssignIpv6AddressesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->ipv6Sets) {
+            $res['Ipv6Sets'] = null !== $this->ipv6Sets ? $this->ipv6Sets->toMap() : null;
         }
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
-        if (null !== $this->ipv6Sets) {
-            $res['Ipv6Sets'] = null !== $this->ipv6Sets ? $this->ipv6Sets->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class AssignIpv6AddressesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Ipv6Sets'])) {
+            $model->ipv6Sets = ipv6Sets::fromMap($map['Ipv6Sets']);
         }
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
-        if (isset($map['Ipv6Sets'])) {
-            $model->ipv6Sets = ipv6Sets::fromMap($map['Ipv6Sets']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

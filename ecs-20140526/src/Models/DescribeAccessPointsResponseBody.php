@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessPointsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var accessPointSet
      */
-    public $requestId;
+    public $accessPointSet;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeAccessPointsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var accessPointSet
-     */
-    public $accessPointSet;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'accessPointSet' => 'AccessPointSet',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'requestId'      => 'RequestId',
         'totalCount'     => 'TotalCount',
-        'accessPointSet' => 'AccessPointSet',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeAccessPointsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->accessPointSet) {
+            $res['AccessPointSet'] = null !== $this->accessPointSet ? $this->accessPointSet->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -57,11 +57,11 @@ class DescribeAccessPointsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->accessPointSet) {
-            $res['AccessPointSet'] = null !== $this->accessPointSet ? $this->accessPointSet->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeAccessPointsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AccessPointSet'])) {
+            $model->accessPointSet = accessPointSet::fromMap($map['AccessPointSet']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -84,11 +84,11 @@ class DescribeAccessPointsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['AccessPointSet'])) {
-            $model->accessPointSet = accessPointSet::fromMap($map['AccessPointSet']);
         }
 
         return $model;

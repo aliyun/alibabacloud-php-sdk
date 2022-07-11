@@ -10,14 +10,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelineExecutionsRequest extends Model
 {
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $executionId;
+
+    /**
+     * @var string
+     */
+    public $imagePipelineId;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -32,49 +57,24 @@ class DescribeImagePipelineExecutionsRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $imagePipelineId;
-
-    /**
-     * @var string
-     */
-    public $executionId;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
-     * @var string
+     * @var tag[]
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
+    public $tag;
     protected $_name = [
-        'tag'                  => 'Tag',
+        'executionId'          => 'ExecutionId',
+        'imagePipelineId'      => 'ImagePipelineId',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'imagePipelineId'      => 'ImagePipelineId',
-        'executionId'          => 'ExecutionId',
         'status'               => 'Status',
-        'nextToken'            => 'NextToken',
-        'maxResults'           => 'MaxResults',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -84,6 +84,36 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->executionId) {
+            $res['ExecutionId'] = $this->executionId;
+        }
+        if (null !== $this->imagePipelineId) {
+            $res['ImagePipelineId'] = $this->imagePipelineId;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -92,36 +122,6 @@ class DescribeImagePipelineExecutionsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->imagePipelineId) {
-            $res['ImagePipelineId'] = $this->imagePipelineId;
-        }
-        if (null !== $this->executionId) {
-            $res['ExecutionId'] = $this->executionId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
 
         return $res;
@@ -135,6 +135,36 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExecutionId'])) {
+            $model->executionId = $map['ExecutionId'];
+        }
+        if (isset($map['ImagePipelineId'])) {
+            $model->imagePipelineId = $map['ImagePipelineId'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -143,36 +173,6 @@ class DescribeImagePipelineExecutionsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ImagePipelineId'])) {
-            $model->imagePipelineId = $map['ImagePipelineId'];
-        }
-        if (isset($map['ExecutionId'])) {
-            $model->executionId = $map['ExecutionId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
 
         return $model;

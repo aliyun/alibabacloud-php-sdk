@@ -9,9 +9,44 @@ use AlibabaCloud\Tea\Model;
 class InvokeCommandRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $commandId;
+
+    /**
+     * @var string
+     */
+    public $frequency;
+
+    /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var mixed[]
+     */
+    public $parameters;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $repeatMode;
 
     /**
      * @var string
@@ -24,44 +59,9 @@ class InvokeCommandRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $commandId;
-
-    /**
-     * @var string
-     */
-    public $repeatMode;
-
-    /**
      * @var bool
      */
     public $timed;
-
-    /**
-     * @var string
-     */
-    public $frequency;
-
-    /**
-     * @var mixed[]
-     */
-    public $parameters;
 
     /**
      * @var string
@@ -73,17 +73,17 @@ class InvokeCommandRequest extends Model
      */
     public $windowsPasswordName;
     protected $_name = [
+        'commandId'            => 'CommandId',
+        'frequency'            => 'Frequency',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'parameters'           => 'Parameters',
+        'regionId'             => 'RegionId',
+        'repeatMode'           => 'RepeatMode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'instanceId'           => 'InstanceId',
-        'commandId'            => 'CommandId',
-        'repeatMode'           => 'RepeatMode',
         'timed'                => 'Timed',
-        'frequency'            => 'Frequency',
-        'parameters'           => 'Parameters',
         'username'             => 'Username',
         'windowsPasswordName'  => 'WindowsPasswordName',
     ];
@@ -95,8 +95,29 @@ class InvokeCommandRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commandId) {
+            $res['CommandId'] = $this->commandId;
+        }
+        if (null !== $this->frequency) {
+            $res['Frequency'] = $this->frequency;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->repeatMode) {
+            $res['RepeatMode'] = $this->repeatMode;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -104,29 +125,8 @@ class InvokeCommandRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->commandId) {
-            $res['CommandId'] = $this->commandId;
-        }
-        if (null !== $this->repeatMode) {
-            $res['RepeatMode'] = $this->repeatMode;
-        }
         if (null !== $this->timed) {
             $res['Timed'] = $this->timed;
-        }
-        if (null !== $this->frequency) {
-            $res['Frequency'] = $this->frequency;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -146,8 +146,31 @@ class InvokeCommandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommandId'])) {
+            $model->commandId = $map['CommandId'];
+        }
+        if (isset($map['Frequency'])) {
+            $model->frequency = $map['Frequency'];
+        }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RepeatMode'])) {
+            $model->repeatMode = $map['RepeatMode'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -155,31 +178,8 @@ class InvokeCommandRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
-        }
-        if (isset($map['CommandId'])) {
-            $model->commandId = $map['CommandId'];
-        }
-        if (isset($map['RepeatMode'])) {
-            $model->repeatMode = $map['RepeatMode'];
-        }
         if (isset($map['Timed'])) {
             $model->timed = $map['Timed'];
-        }
-        if (isset($map['Frequency'])) {
-            $model->frequency = $map['Frequency'];
-        }
-        if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

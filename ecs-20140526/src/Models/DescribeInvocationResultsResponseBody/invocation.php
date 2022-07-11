@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class invocation extends Model
 {
     /**
-     * @var int
+     * @var invocationResults
      */
-    public $pageSize;
+    public $invocationResults;
 
     /**
      * @var int
@@ -22,17 +22,17 @@ class invocation extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
-     * @var invocationResults
+     * @var int
      */
-    public $invocationResults;
+    public $totalCount;
     protected $_name = [
-        'pageSize'          => 'PageSize',
-        'pageNumber'        => 'PageNumber',
-        'totalCount'        => 'TotalCount',
         'invocationResults' => 'InvocationResults',
+        'pageNumber'        => 'PageNumber',
+        'pageSize'          => 'PageSize',
+        'totalCount'        => 'TotalCount',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class invocation extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->invocationResults) {
+            $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->invocationResults) {
-            $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class invocation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['InvocationResults'])) {
+            $model->invocationResults = invocationResults::fromMap($map['InvocationResults']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['InvocationResults'])) {
-            $model->invocationResults = invocationResults::fromMap($map['InvocationResults']);
         }
 
         return $model;

@@ -12,12 +12,12 @@ class diskEventType extends Model
     /**
      * @var string
      */
-    public $eventId;
+    public $eventEndTime;
 
     /**
      * @var string
      */
-    public $eventEndTime;
+    public $eventId;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class diskEventType extends Model
     public $eventTime;
 
     /**
-     * @var string
-     */
-    public $impactLevel;
-
-    /**
      * @var eventType
      */
     public $eventType;
+
+    /**
+     * @var string
+     */
+    public $impactLevel;
     protected $_name = [
-        'eventId'      => 'EventId',
         'eventEndTime' => 'EventEndTime',
+        'eventId'      => 'EventId',
         'eventTime'    => 'EventTime',
-        'impactLevel'  => 'ImpactLevel',
         'eventType'    => 'EventType',
+        'impactLevel'  => 'ImpactLevel',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class diskEventType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventId) {
-            $res['EventId'] = $this->eventId;
-        }
         if (null !== $this->eventEndTime) {
             $res['EventEndTime'] = $this->eventEndTime;
+        }
+        if (null !== $this->eventId) {
+            $res['EventId'] = $this->eventId;
         }
         if (null !== $this->eventTime) {
             $res['EventTime'] = $this->eventTime;
         }
-        if (null !== $this->impactLevel) {
-            $res['ImpactLevel'] = $this->impactLevel;
-        }
         if (null !== $this->eventType) {
             $res['EventType'] = null !== $this->eventType ? $this->eventType->toMap() : null;
+        }
+        if (null !== $this->impactLevel) {
+            $res['ImpactLevel'] = $this->impactLevel;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class diskEventType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventId'])) {
-            $model->eventId = $map['EventId'];
-        }
         if (isset($map['EventEndTime'])) {
             $model->eventEndTime = $map['EventEndTime'];
+        }
+        if (isset($map['EventId'])) {
+            $model->eventId = $map['EventId'];
         }
         if (isset($map['EventTime'])) {
             $model->eventTime = $map['EventTime'];
         }
-        if (isset($map['ImpactLevel'])) {
-            $model->impactLevel = $map['ImpactLevel'];
-        }
         if (isset($map['EventType'])) {
             $model->eventType = eventType::fromMap($map['EventType']);
+        }
+        if (isset($map['ImpactLevel'])) {
+            $model->impactLevel = $map['ImpactLevel'];
         }
 
         return $model;

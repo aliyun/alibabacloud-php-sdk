@@ -21,12 +21,17 @@ class storageSet extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $storageSetId;
+
+    /**
+     * @var string
+     */
+    public $storageSetName;
 
     /**
      * @var int
@@ -36,20 +41,15 @@ class storageSet extends Model
     /**
      * @var string
      */
-    public $storageSetName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $zoneId;
     protected $_name = [
         'creationTime'              => 'CreationTime',
         'description'               => 'Description',
-        'zoneId'                    => 'ZoneId',
-        'storageSetId'              => 'StorageSetId',
-        'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
-        'storageSetName'            => 'StorageSetName',
         'regionId'                  => 'RegionId',
+        'storageSetId'              => 'StorageSetId',
+        'storageSetName'            => 'StorageSetName',
+        'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
+        'zoneId'                    => 'ZoneId',
     ];
 
     public function validate()
@@ -65,20 +65,20 @@ class storageSet extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->storageSetId) {
             $res['StorageSetId'] = $this->storageSetId;
         }
-        if (null !== $this->storageSetPartitionNumber) {
-            $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
-        }
         if (null !== $this->storageSetName) {
             $res['StorageSetName'] = $this->storageSetName;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->storageSetPartitionNumber) {
+            $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -98,20 +98,20 @@ class storageSet extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StorageSetId'])) {
             $model->storageSetId = $map['StorageSetId'];
         }
-        if (isset($map['StorageSetPartitionNumber'])) {
-            $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
-        }
         if (isset($map['StorageSetName'])) {
             $model->storageSetName = $map['StorageSetName'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['StorageSetPartitionNumber'])) {
+            $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

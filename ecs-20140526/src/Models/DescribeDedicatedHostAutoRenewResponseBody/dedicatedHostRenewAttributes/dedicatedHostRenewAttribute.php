@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostRenewAttribute extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoRenewEnabled;
+
+    /**
      * @var string
      */
-    public $periodUnit;
+    public $autoRenewWithEcs;
+
+    /**
+     * @var string
+     */
+    public $dedicatedHostId;
 
     /**
      * @var int
@@ -21,23 +31,19 @@ class dedicatedHostRenewAttribute extends Model
     /**
      * @var string
      */
-    public $dedicatedHostId;
+    public $periodUnit;
 
     /**
      * @var string
      */
     public $renewalStatus;
-
-    /**
-     * @var bool
-     */
-    public $autoRenewEnabled;
     protected $_name = [
-        'periodUnit'       => 'PeriodUnit',
-        'duration'         => 'Duration',
-        'dedicatedHostId'  => 'DedicatedHostId',
-        'renewalStatus'    => 'RenewalStatus',
         'autoRenewEnabled' => 'AutoRenewEnabled',
+        'autoRenewWithEcs' => 'AutoRenewWithEcs',
+        'dedicatedHostId'  => 'DedicatedHostId',
+        'duration'         => 'Duration',
+        'periodUnit'       => 'PeriodUnit',
+        'renewalStatus'    => 'RenewalStatus',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class dedicatedHostRenewAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->periodUnit) {
-            $res['PeriodUnit'] = $this->periodUnit;
+        if (null !== $this->autoRenewEnabled) {
+            $res['AutoRenewEnabled'] = $this->autoRenewEnabled;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->autoRenewWithEcs) {
+            $res['AutoRenewWithEcs'] = $this->autoRenewWithEcs;
         }
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
+        }
         if (null !== $this->renewalStatus) {
             $res['RenewalStatus'] = $this->renewalStatus;
-        }
-        if (null !== $this->autoRenewEnabled) {
-            $res['AutoRenewEnabled'] = $this->autoRenewEnabled;
         }
 
         return $res;
@@ -74,20 +83,23 @@ class dedicatedHostRenewAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PeriodUnit'])) {
-            $model->periodUnit = $map['PeriodUnit'];
+        if (isset($map['AutoRenewEnabled'])) {
+            $model->autoRenewEnabled = $map['AutoRenewEnabled'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['AutoRenewWithEcs'])) {
+            $model->autoRenewWithEcs = $map['AutoRenewWithEcs'];
         }
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];
         }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
+        }
         if (isset($map['RenewalStatus'])) {
             $model->renewalStatus = $map['RenewalStatus'];
-        }
-        if (isset($map['AutoRenewEnabled'])) {
-            $model->autoRenewEnabled = $map['AutoRenewEnabled'];
         }
 
         return $model;

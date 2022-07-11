@@ -11,15 +11,15 @@ class CopySnapshotResponseBody extends Model
     /**
      * @var string
      */
-    public $snapshotId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $snapshotId;
     protected $_name = [
-        'snapshotId' => 'SnapshotId',
         'requestId'  => 'RequestId',
+        'snapshotId' => 'SnapshotId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CopySnapshotResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapshotId) {
-            $res['SnapshotId'] = $this->snapshotId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CopySnapshotResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SnapshotId'])) {
-            $model->snapshotId = $map['SnapshotId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

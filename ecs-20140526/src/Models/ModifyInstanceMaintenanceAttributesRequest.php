@@ -10,24 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMaintenanceAttributesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $actionOnMaintenance;
 
     /**
      * @var string[]
@@ -40,6 +25,21 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     public $maintenanceWindow;
 
     /**
+     * @var bool
+     */
+    public $notifyOnMaintenance;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -47,22 +47,22 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     /**
      * @var string
      */
-    public $actionOnMaintenance;
+    public $resourceOwnerAccount;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $notifyOnMaintenance;
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'actionOnMaintenance'  => 'ActionOnMaintenance',
         'instanceId'           => 'InstanceId',
         'maintenanceWindow'    => 'MaintenanceWindow',
-        'regionId'             => 'RegionId',
-        'actionOnMaintenance'  => 'ActionOnMaintenance',
         'notifyOnMaintenance'  => 'NotifyOnMaintenance',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -72,17 +72,8 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->actionOnMaintenance) {
+            $res['ActionOnMaintenance'] = $this->actionOnMaintenance;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -96,14 +87,23 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                 }
             }
         }
+        if (null !== $this->notifyOnMaintenance) {
+            $res['NotifyOnMaintenance'] = $this->notifyOnMaintenance;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->actionOnMaintenance) {
-            $res['ActionOnMaintenance'] = $this->actionOnMaintenance;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->notifyOnMaintenance) {
-            $res['NotifyOnMaintenance'] = $this->notifyOnMaintenance;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -117,17 +117,8 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['ActionOnMaintenance'])) {
+            $model->actionOnMaintenance = $map['ActionOnMaintenance'];
         }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
@@ -143,14 +134,23 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                 }
             }
         }
+        if (isset($map['NotifyOnMaintenance'])) {
+            $model->notifyOnMaintenance = $map['NotifyOnMaintenance'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ActionOnMaintenance'])) {
-            $model->actionOnMaintenance = $map['ActionOnMaintenance'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['NotifyOnMaintenance'])) {
-            $model->notifyOnMaintenance = $map['NotifyOnMaintenance'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

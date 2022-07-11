@@ -11,17 +11,22 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $accessPointId;
 
     /**
      * @var string
      */
-    public $type;
+    public $circuitCode;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -29,9 +34,19 @@ class CreatePhysicalConnectionRequest extends Model
     public $lineOperator;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
-    public $bandwidth;
+    public $ownerId;
 
     /**
      * @var string
@@ -51,27 +66,7 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $circuitCode;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $regionId;
 
     /**
      * @var string
@@ -86,30 +81,35 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $type;
 
     /**
      * @var string
      */
     public $userCidr;
+
+    /**
+     * @var int
+     */
+    public $bandwidth;
     protected $_name = [
-        'regionId'                      => 'RegionId',
         'accessPointId'                 => 'AccessPointId',
-        'type'                          => 'Type',
+        'circuitCode'                   => 'CircuitCode',
+        'clientToken'                   => 'ClientToken',
+        'description'                   => 'Description',
         'lineOperator'                  => 'LineOperator',
-        'bandwidth'                     => 'bandwidth',
+        'name'                          => 'Name',
+        'ownerAccount'                  => 'OwnerAccount',
+        'ownerId'                       => 'OwnerId',
         'peerLocation'                  => 'PeerLocation',
         'portType'                      => 'PortType',
         'redundantPhysicalConnectionId' => 'RedundantPhysicalConnectionId',
-        'description'                   => 'Description',
-        'name'                          => 'Name',
-        'circuitCode'                   => 'CircuitCode',
-        'clientToken'                   => 'ClientToken',
-        'ownerId'                       => 'OwnerId',
+        'regionId'                      => 'RegionId',
         'resourceOwnerAccount'          => 'ResourceOwnerAccount',
         'resourceOwnerId'               => 'ResourceOwnerId',
-        'ownerAccount'                  => 'OwnerAccount',
+        'type'                          => 'Type',
         'userCidr'                      => 'UserCidr',
+        'bandwidth'                     => 'bandwidth',
     ];
 
     public function validate()
@@ -119,20 +119,29 @@ class CreatePhysicalConnectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->accessPointId) {
             $res['AccessPointId'] = $this->accessPointId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->circuitCode) {
+            $res['CircuitCode'] = $this->circuitCode;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->lineOperator) {
             $res['LineOperator'] = $this->lineOperator;
         }
-        if (null !== $this->bandwidth) {
-            $res['bandwidth'] = $this->bandwidth;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->peerLocation) {
             $res['PeerLocation'] = $this->peerLocation;
@@ -143,20 +152,8 @@ class CreatePhysicalConnectionRequest extends Model
         if (null !== $this->redundantPhysicalConnectionId) {
             $res['RedundantPhysicalConnectionId'] = $this->redundantPhysicalConnectionId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->circuitCode) {
-            $res['CircuitCode'] = $this->circuitCode;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -164,11 +161,14 @@ class CreatePhysicalConnectionRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->userCidr) {
             $res['UserCidr'] = $this->userCidr;
+        }
+        if (null !== $this->bandwidth) {
+            $res['bandwidth'] = $this->bandwidth;
         }
 
         return $res;
@@ -182,20 +182,29 @@ class CreatePhysicalConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AccessPointId'])) {
             $model->accessPointId = $map['AccessPointId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['CircuitCode'])) {
+            $model->circuitCode = $map['CircuitCode'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['LineOperator'])) {
             $model->lineOperator = $map['LineOperator'];
         }
-        if (isset($map['bandwidth'])) {
-            $model->bandwidth = $map['bandwidth'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PeerLocation'])) {
             $model->peerLocation = $map['PeerLocation'];
@@ -206,20 +215,8 @@ class CreatePhysicalConnectionRequest extends Model
         if (isset($map['RedundantPhysicalConnectionId'])) {
             $model->redundantPhysicalConnectionId = $map['RedundantPhysicalConnectionId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['CircuitCode'])) {
-            $model->circuitCode = $map['CircuitCode'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -227,11 +224,14 @@ class CreatePhysicalConnectionRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['UserCidr'])) {
             $model->userCidr = $map['UserCidr'];
+        }
+        if (isset($map['bandwidth'])) {
+            $model->bandwidth = $map['bandwidth'];
         }
 
         return $model;

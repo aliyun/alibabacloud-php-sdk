@@ -11,15 +11,15 @@ class entry extends Model
     /**
      * @var string
      */
-    public $description;
+    public $cidr;
 
     /**
      * @var string
      */
-    public $cidr;
+    public $description;
     protected $_name = [
-        'description' => 'Description',
         'cidr'        => 'Cidr',
+        'description' => 'Description',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class entry extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->cidr) {
             $res['Cidr'] = $this->cidr;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class entry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['Cidr'])) {
             $model->cidr = $map['Cidr'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         return $model;

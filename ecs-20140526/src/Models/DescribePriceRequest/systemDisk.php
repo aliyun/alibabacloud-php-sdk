@@ -14,18 +14,18 @@ class systemDisk extends Model
     public $category;
 
     /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var string
      */
     public $performanceLevel;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
         'category'         => 'Category',
-        'size'             => 'Size',
         'performanceLevel' => 'PerformanceLevel',
+        'size'             => 'Size',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class systemDisk extends Model
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class systemDisk extends Model
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;
