@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody;
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody\clusterStatus\apiServerLoadBalancerStatus;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody\clusterStatus\configSourceStatus;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody\clusterStatus\pilotLoadBalancerStatus;
 use AlibabaCloud\Tea\Model;
 
@@ -32,11 +31,6 @@ class clusterStatus extends Model
     public $auditProjectStatus;
 
     /**
-     * @var configSourceStatus
-     */
-    public $configSourceStatus;
-
-    /**
      * @var string
      */
     public $controlPlaneProjectStatus;
@@ -60,7 +54,6 @@ class clusterStatus extends Model
         'apiServerEIPStatus'          => 'ApiServerEIPStatus',
         'apiServerLoadBalancerStatus' => 'ApiServerLoadBalancerStatus',
         'auditProjectStatus'          => 'AuditProjectStatus',
-        'configSourceStatus'          => 'ConfigSourceStatus',
         'controlPlaneProjectStatus'   => 'ControlPlaneProjectStatus',
         'logtailStatusRecord'         => 'LogtailStatusRecord',
         'pilotLoadBalancerStatus'     => 'PilotLoadBalancerStatus',
@@ -85,9 +78,6 @@ class clusterStatus extends Model
         }
         if (null !== $this->auditProjectStatus) {
             $res['AuditProjectStatus'] = $this->auditProjectStatus;
-        }
-        if (null !== $this->configSourceStatus) {
-            $res['ConfigSourceStatus'] = null !== $this->configSourceStatus ? $this->configSourceStatus->toMap() : null;
         }
         if (null !== $this->controlPlaneProjectStatus) {
             $res['ControlPlaneProjectStatus'] = $this->controlPlaneProjectStatus;
@@ -124,9 +114,6 @@ class clusterStatus extends Model
         }
         if (isset($map['AuditProjectStatus'])) {
             $model->auditProjectStatus = $map['AuditProjectStatus'];
-        }
-        if (isset($map['ConfigSourceStatus'])) {
-            $model->configSourceStatus = configSourceStatus::fromMap($map['ConfigSourceStatus']);
         }
         if (isset($map['ControlPlaneProjectStatus'])) {
             $model->controlPlaneProjectStatus = $map['ControlPlaneProjectStatus'];

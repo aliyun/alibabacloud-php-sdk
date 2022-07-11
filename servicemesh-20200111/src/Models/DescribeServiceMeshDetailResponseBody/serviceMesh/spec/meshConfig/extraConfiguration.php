@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailRespo
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\istioCRHistory;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\multiBuffer;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\NFDConfiguration;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\OPAScopeInjection;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\rateLimit;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\sidecarProxyInitResourceLimit;
@@ -47,6 +48,11 @@ class extraConfiguration extends Model
     public $multiBuffer;
 
     /**
+     * @var NFDConfiguration
+     */
+    public $NFDConfiguration;
+
+    /**
      * @var OPAScopeInjection
      */
     public $OPAScopeInjection;
@@ -77,6 +83,7 @@ class extraConfiguration extends Model
         'istioCRHistory'                  => 'IstioCRHistory',
         'lifecycle'                       => 'Lifecycle',
         'multiBuffer'                     => 'MultiBuffer',
+        'NFDConfiguration'                => 'NFDConfiguration',
         'OPAScopeInjection'               => 'OPAScopeInjection',
         'rateLimit'                       => 'RateLimit',
         'sidecarProxyInitResourceLimit'   => 'SidecarProxyInitResourceLimit',
@@ -108,6 +115,9 @@ class extraConfiguration extends Model
         }
         if (null !== $this->multiBuffer) {
             $res['MultiBuffer'] = null !== $this->multiBuffer ? $this->multiBuffer->toMap() : null;
+        }
+        if (null !== $this->NFDConfiguration) {
+            $res['NFDConfiguration'] = null !== $this->NFDConfiguration ? $this->NFDConfiguration->toMap() : null;
         }
         if (null !== $this->OPAScopeInjection) {
             $res['OPAScopeInjection'] = null !== $this->OPAScopeInjection ? $this->OPAScopeInjection->toMap() : null;
@@ -155,6 +165,9 @@ class extraConfiguration extends Model
         }
         if (isset($map['MultiBuffer'])) {
             $model->multiBuffer = multiBuffer::fromMap($map['MultiBuffer']);
+        }
+        if (isset($map['NFDConfiguration'])) {
+            $model->NFDConfiguration = NFDConfiguration::fromMap($map['NFDConfiguration']);
         }
         if (isset($map['OPAScopeInjection'])) {
             $model->OPAScopeInjection = OPAScopeInjection::fromMap($map['OPAScopeInjection']);

@@ -219,6 +219,16 @@ class UpdateMeshFeatureRequest extends Model
     public $mysqlFilterEnabled;
 
     /**
+     * @var bool
+     */
+    public $NFDEnabled;
+
+    /**
+     * @var bool
+     */
+    public $NFDLabelPruned;
+
+    /**
      * @var string
      */
     public $OPAInjectorCPULimit;
@@ -389,87 +399,113 @@ class UpdateMeshFeatureRequest extends Model
     public $tracing;
 
     /**
+     * @var string
+     */
+    public $tracingOnExtZipkinLimitCPU;
+
+    /**
+     * @var string
+     */
+    public $tracingOnExtZipkinLimitMemory;
+
+    /**
+     * @var string
+     */
+    public $tracingOnExtZipkinRequestCPU;
+
+    /**
+     * @var string
+     */
+    public $tracingOnExtZipkinRequestMemory;
+
+    /**
      * @var bool
      */
     public $webAssemblyFilterEnabled;
     protected $_name = [
-        'accessLogEnabled'               => 'AccessLogEnabled',
-        'accessLogFile'                  => 'AccessLogFile',
-        'accessLogFormat'                => 'AccessLogFormat',
-        'accessLogProject'               => 'AccessLogProject',
-        'accessLogServiceEnabled'        => 'AccessLogServiceEnabled',
-        'accessLogServiceHost'           => 'AccessLogServiceHost',
-        'accessLogServicePort'           => 'AccessLogServicePort',
-        'auditProject'                   => 'AuditProject',
-        'autoInjectionPolicyEnabled'     => 'AutoInjectionPolicyEnabled',
-        'CRAggregationEnabled'           => 'CRAggregationEnabled',
-        'clusterSpec'                    => 'ClusterSpec',
-        'cniEnabled'                     => 'CniEnabled',
-        'cniExcludeNamespaces'           => 'CniExcludeNamespaces',
-        'configSourceEnabled'            => 'ConfigSourceEnabled',
-        'configSourceNacosID'            => 'ConfigSourceNacosID',
-        'customizedPrometheus'           => 'CustomizedPrometheus',
-        'customizedZipkin'               => 'CustomizedZipkin',
-        'DNSProxyingEnabled'             => 'DNSProxyingEnabled',
-        'discoverySelectors'             => 'DiscoverySelectors',
-        'dubboFilterEnabled'             => 'DubboFilterEnabled',
-        'enableAudit'                    => 'EnableAudit',
-        'enableCRHistory'                => 'EnableCRHistory',
-        'enableNamespacesByDefault'      => 'EnableNamespacesByDefault',
-        'enableSDSServer'                => 'EnableSDSServer',
-        'excludeIPRanges'                => 'ExcludeIPRanges',
-        'excludeInboundPorts'            => 'ExcludeInboundPorts',
-        'excludeOutboundPorts'           => 'ExcludeOutboundPorts',
-        'filterGatewayClusterConfig'     => 'FilterGatewayClusterConfig',
-        'gatewayAPIEnabled'              => 'GatewayAPIEnabled',
-        'globalRateLimitEnabled'         => 'GlobalRateLimitEnabled',
-        'http10Enabled'                  => 'Http10Enabled',
-        'includeIPRanges'                => 'IncludeIPRanges',
-        'includeInboundPorts'            => 'IncludeInboundPorts',
-        'integrateKiali'                 => 'IntegrateKiali',
-        'kialiEnabled'                   => 'KialiEnabled',
-        'lifecycle'                      => 'Lifecycle',
-        'localityLBConf'                 => 'LocalityLBConf',
-        'localityLoadBalancing'          => 'LocalityLoadBalancing',
-        'MSEEnabled'                     => 'MSEEnabled',
-        'multiBufferEnabled'             => 'MultiBufferEnabled',
-        'multiBufferPollDelay'           => 'MultiBufferPollDelay',
-        'mysqlFilterEnabled'             => 'MysqlFilterEnabled',
-        'OPAInjectorCPULimit'            => 'OPAInjectorCPULimit',
-        'OPAInjectorCPURequirement'      => 'OPAInjectorCPURequirement',
-        'OPAInjectorMemoryLimit'         => 'OPAInjectorMemoryLimit',
-        'OPAInjectorMemoryRequirement'   => 'OPAInjectorMemoryRequirement',
-        'OPALimitCPU'                    => 'OPALimitCPU',
-        'OPALimitMemory'                 => 'OPALimitMemory',
-        'OPALogLevel'                    => 'OPALogLevel',
-        'OPARequestCPU'                  => 'OPARequestCPU',
-        'OPARequestMemory'               => 'OPARequestMemory',
-        'OPAScopeInjected'               => 'OPAScopeInjected',
-        'opaEnabled'                     => 'OpaEnabled',
-        'openAgentPolicy'                => 'OpenAgentPolicy',
-        'outboundTrafficPolicy'          => 'OutboundTrafficPolicy',
-        'prometheusUrl'                  => 'PrometheusUrl',
-        'proxyInitCPUResourceLimit'      => 'ProxyInitCPUResourceLimit',
-        'proxyInitCPUResourceRequest'    => 'ProxyInitCPUResourceRequest',
-        'proxyInitMemoryResourceLimit'   => 'ProxyInitMemoryResourceLimit',
-        'proxyInitMemoryResourceRequest' => 'ProxyInitMemoryResourceRequest',
-        'proxyLimitCPU'                  => 'ProxyLimitCPU',
-        'proxyLimitMemory'               => 'ProxyLimitMemory',
-        'proxyRequestCPU'                => 'ProxyRequestCPU',
-        'proxyRequestMemory'             => 'ProxyRequestMemory',
-        'redisFilterEnabled'             => 'RedisFilterEnabled',
-        'serviceMeshId'                  => 'ServiceMeshId',
-        'sidecarInjectorLimitCPU'        => 'SidecarInjectorLimitCPU',
-        'sidecarInjectorLimitMemory'     => 'SidecarInjectorLimitMemory',
-        'sidecarInjectorRequestCPU'      => 'SidecarInjectorRequestCPU',
-        'sidecarInjectorRequestMemory'   => 'SidecarInjectorRequestMemory',
-        'sidecarInjectorWebhookAsYaml'   => 'SidecarInjectorWebhookAsYaml',
-        'telemetry'                      => 'Telemetry',
-        'terminationDrainDuration'       => 'TerminationDrainDuration',
-        'thriftFilterEnabled'            => 'ThriftFilterEnabled',
-        'traceSampling'                  => 'TraceSampling',
-        'tracing'                        => 'Tracing',
-        'webAssemblyFilterEnabled'       => 'WebAssemblyFilterEnabled',
+        'accessLogEnabled'                => 'AccessLogEnabled',
+        'accessLogFile'                   => 'AccessLogFile',
+        'accessLogFormat'                 => 'AccessLogFormat',
+        'accessLogProject'                => 'AccessLogProject',
+        'accessLogServiceEnabled'         => 'AccessLogServiceEnabled',
+        'accessLogServiceHost'            => 'AccessLogServiceHost',
+        'accessLogServicePort'            => 'AccessLogServicePort',
+        'auditProject'                    => 'AuditProject',
+        'autoInjectionPolicyEnabled'      => 'AutoInjectionPolicyEnabled',
+        'CRAggregationEnabled'            => 'CRAggregationEnabled',
+        'clusterSpec'                     => 'ClusterSpec',
+        'cniEnabled'                      => 'CniEnabled',
+        'cniExcludeNamespaces'            => 'CniExcludeNamespaces',
+        'configSourceEnabled'             => 'ConfigSourceEnabled',
+        'configSourceNacosID'             => 'ConfigSourceNacosID',
+        'customizedPrometheus'            => 'CustomizedPrometheus',
+        'customizedZipkin'                => 'CustomizedZipkin',
+        'DNSProxyingEnabled'              => 'DNSProxyingEnabled',
+        'discoverySelectors'              => 'DiscoverySelectors',
+        'dubboFilterEnabled'              => 'DubboFilterEnabled',
+        'enableAudit'                     => 'EnableAudit',
+        'enableCRHistory'                 => 'EnableCRHistory',
+        'enableNamespacesByDefault'       => 'EnableNamespacesByDefault',
+        'enableSDSServer'                 => 'EnableSDSServer',
+        'excludeIPRanges'                 => 'ExcludeIPRanges',
+        'excludeInboundPorts'             => 'ExcludeInboundPorts',
+        'excludeOutboundPorts'            => 'ExcludeOutboundPorts',
+        'filterGatewayClusterConfig'      => 'FilterGatewayClusterConfig',
+        'gatewayAPIEnabled'               => 'GatewayAPIEnabled',
+        'globalRateLimitEnabled'          => 'GlobalRateLimitEnabled',
+        'http10Enabled'                   => 'Http10Enabled',
+        'includeIPRanges'                 => 'IncludeIPRanges',
+        'includeInboundPorts'             => 'IncludeInboundPorts',
+        'integrateKiali'                  => 'IntegrateKiali',
+        'kialiEnabled'                    => 'KialiEnabled',
+        'lifecycle'                       => 'Lifecycle',
+        'localityLBConf'                  => 'LocalityLBConf',
+        'localityLoadBalancing'           => 'LocalityLoadBalancing',
+        'MSEEnabled'                      => 'MSEEnabled',
+        'multiBufferEnabled'              => 'MultiBufferEnabled',
+        'multiBufferPollDelay'            => 'MultiBufferPollDelay',
+        'mysqlFilterEnabled'              => 'MysqlFilterEnabled',
+        'NFDEnabled'                      => 'NFDEnabled',
+        'NFDLabelPruned'                  => 'NFDLabelPruned',
+        'OPAInjectorCPULimit'             => 'OPAInjectorCPULimit',
+        'OPAInjectorCPURequirement'       => 'OPAInjectorCPURequirement',
+        'OPAInjectorMemoryLimit'          => 'OPAInjectorMemoryLimit',
+        'OPAInjectorMemoryRequirement'    => 'OPAInjectorMemoryRequirement',
+        'OPALimitCPU'                     => 'OPALimitCPU',
+        'OPALimitMemory'                  => 'OPALimitMemory',
+        'OPALogLevel'                     => 'OPALogLevel',
+        'OPARequestCPU'                   => 'OPARequestCPU',
+        'OPARequestMemory'                => 'OPARequestMemory',
+        'OPAScopeInjected'                => 'OPAScopeInjected',
+        'opaEnabled'                      => 'OpaEnabled',
+        'openAgentPolicy'                 => 'OpenAgentPolicy',
+        'outboundTrafficPolicy'           => 'OutboundTrafficPolicy',
+        'prometheusUrl'                   => 'PrometheusUrl',
+        'proxyInitCPUResourceLimit'       => 'ProxyInitCPUResourceLimit',
+        'proxyInitCPUResourceRequest'     => 'ProxyInitCPUResourceRequest',
+        'proxyInitMemoryResourceLimit'    => 'ProxyInitMemoryResourceLimit',
+        'proxyInitMemoryResourceRequest'  => 'ProxyInitMemoryResourceRequest',
+        'proxyLimitCPU'                   => 'ProxyLimitCPU',
+        'proxyLimitMemory'                => 'ProxyLimitMemory',
+        'proxyRequestCPU'                 => 'ProxyRequestCPU',
+        'proxyRequestMemory'              => 'ProxyRequestMemory',
+        'redisFilterEnabled'              => 'RedisFilterEnabled',
+        'serviceMeshId'                   => 'ServiceMeshId',
+        'sidecarInjectorLimitCPU'         => 'SidecarInjectorLimitCPU',
+        'sidecarInjectorLimitMemory'      => 'SidecarInjectorLimitMemory',
+        'sidecarInjectorRequestCPU'       => 'SidecarInjectorRequestCPU',
+        'sidecarInjectorRequestMemory'    => 'SidecarInjectorRequestMemory',
+        'sidecarInjectorWebhookAsYaml'    => 'SidecarInjectorWebhookAsYaml',
+        'telemetry'                       => 'Telemetry',
+        'terminationDrainDuration'        => 'TerminationDrainDuration',
+        'thriftFilterEnabled'             => 'ThriftFilterEnabled',
+        'traceSampling'                   => 'TraceSampling',
+        'tracing'                         => 'Tracing',
+        'tracingOnExtZipkinLimitCPU'      => 'TracingOnExtZipkinLimitCPU',
+        'tracingOnExtZipkinLimitMemory'   => 'TracingOnExtZipkinLimitMemory',
+        'tracingOnExtZipkinRequestCPU'    => 'TracingOnExtZipkinRequestCPU',
+        'tracingOnExtZipkinRequestMemory' => 'TracingOnExtZipkinRequestMemory',
+        'webAssemblyFilterEnabled'        => 'WebAssemblyFilterEnabled',
     ];
 
     public function validate()
@@ -605,6 +641,12 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->mysqlFilterEnabled) {
             $res['MysqlFilterEnabled'] = $this->mysqlFilterEnabled;
         }
+        if (null !== $this->NFDEnabled) {
+            $res['NFDEnabled'] = $this->NFDEnabled;
+        }
+        if (null !== $this->NFDLabelPruned) {
+            $res['NFDLabelPruned'] = $this->NFDLabelPruned;
+        }
         if (null !== $this->OPAInjectorCPULimit) {
             $res['OPAInjectorCPULimit'] = $this->OPAInjectorCPULimit;
         }
@@ -706,6 +748,18 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->tracing) {
             $res['Tracing'] = $this->tracing;
+        }
+        if (null !== $this->tracingOnExtZipkinLimitCPU) {
+            $res['TracingOnExtZipkinLimitCPU'] = $this->tracingOnExtZipkinLimitCPU;
+        }
+        if (null !== $this->tracingOnExtZipkinLimitMemory) {
+            $res['TracingOnExtZipkinLimitMemory'] = $this->tracingOnExtZipkinLimitMemory;
+        }
+        if (null !== $this->tracingOnExtZipkinRequestCPU) {
+            $res['TracingOnExtZipkinRequestCPU'] = $this->tracingOnExtZipkinRequestCPU;
+        }
+        if (null !== $this->tracingOnExtZipkinRequestMemory) {
+            $res['TracingOnExtZipkinRequestMemory'] = $this->tracingOnExtZipkinRequestMemory;
         }
         if (null !== $this->webAssemblyFilterEnabled) {
             $res['WebAssemblyFilterEnabled'] = $this->webAssemblyFilterEnabled;
@@ -848,6 +902,12 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['MysqlFilterEnabled'])) {
             $model->mysqlFilterEnabled = $map['MysqlFilterEnabled'];
         }
+        if (isset($map['NFDEnabled'])) {
+            $model->NFDEnabled = $map['NFDEnabled'];
+        }
+        if (isset($map['NFDLabelPruned'])) {
+            $model->NFDLabelPruned = $map['NFDLabelPruned'];
+        }
         if (isset($map['OPAInjectorCPULimit'])) {
             $model->OPAInjectorCPULimit = $map['OPAInjectorCPULimit'];
         }
@@ -949,6 +1009,18 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['Tracing'])) {
             $model->tracing = $map['Tracing'];
+        }
+        if (isset($map['TracingOnExtZipkinLimitCPU'])) {
+            $model->tracingOnExtZipkinLimitCPU = $map['TracingOnExtZipkinLimitCPU'];
+        }
+        if (isset($map['TracingOnExtZipkinLimitMemory'])) {
+            $model->tracingOnExtZipkinLimitMemory = $map['TracingOnExtZipkinLimitMemory'];
+        }
+        if (isset($map['TracingOnExtZipkinRequestCPU'])) {
+            $model->tracingOnExtZipkinRequestCPU = $map['TracingOnExtZipkinRequestCPU'];
+        }
+        if (isset($map['TracingOnExtZipkinRequestMemory'])) {
+            $model->tracingOnExtZipkinRequestMemory = $map['TracingOnExtZipkinRequestMemory'];
         }
         if (isset($map['WebAssemblyFilterEnabled'])) {
             $model->webAssemblyFilterEnabled = $map['WebAssemblyFilterEnabled'];

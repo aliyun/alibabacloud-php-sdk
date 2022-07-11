@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeMeshWorkloadVersionStatusResponse extends Model
+class UpdateASMNamespaceFromGuestClusterResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeMeshWorkloadVersionStatusResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeMeshWorkloadVersionStatusResponseBody
+     * @var UpdateASMNamespaceFromGuestClusterResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeMeshWorkloadVersionStatusResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeMeshWorkloadVersionStatusResponse
+     * @return UpdateASMNamespaceFromGuestClusterResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeMeshWorkloadVersionStatusResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeMeshWorkloadVersionStatusResponseBody::fromMap($map['body']);
+            $model->body = UpdateASMNamespaceFromGuestClusterResponseBody::fromMap($map['body']);
         }
 
         return $model;

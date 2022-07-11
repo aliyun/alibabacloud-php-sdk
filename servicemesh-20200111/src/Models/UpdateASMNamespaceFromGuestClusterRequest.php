@@ -6,19 +6,19 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeMeshWorkloadVersionStatusRequest extends Model
+class UpdateASMNamespaceFromGuestClusterRequest extends Model
 {
     /**
      * @var string
      */
-    public $namespace;
+    public $k8sClusterId;
 
     /**
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
-        'namespace'     => 'Namespace',
+        'k8sClusterId'  => 'K8sClusterId',
         'serviceMeshId' => 'ServiceMeshId',
     ];
 
@@ -29,8 +29,8 @@ class DescribeMeshWorkloadVersionStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
+        if (null !== $this->k8sClusterId) {
+            $res['K8sClusterId'] = $this->k8sClusterId;
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
@@ -42,13 +42,13 @@ class DescribeMeshWorkloadVersionStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeMeshWorkloadVersionStatusRequest
+     * @return UpdateASMNamespaceFromGuestClusterRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
+        if (isset($map['K8sClusterId'])) {
+            $model->k8sClusterId = $map['K8sClusterId'];
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
