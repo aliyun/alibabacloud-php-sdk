@@ -30,7 +30,7 @@ class functionConfig extends Model
     public $functionName;
 
     /**
-     * @description 函数 provider
+     * @description 函数 provider，可选值为 FunctionCompute 、CloudProdLogDispatch。当值为 FunctionCompute 时，endpoint、accountid 、regionName 、serviceName 、functionName 必选。
      *
      * @var string
      */

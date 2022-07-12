@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class Machine extends Model
 {
     /**
-     * @description ip 地址
+     * @description 机器 ip 地址。
      *
      * @var string
      */
     public $ip;
 
     /**
-     * @description 上次心跳时间
+     * @description 最后一次心跳时间。Unix时间戳格式，表示从1970-1-1 00:00:00 UTC计算起的秒数。
      *
      * @var int
      */
     public $lastHeartbeatTime;
 
     /**
-     * @description 机器的唯一标识
+     * @description 机器的唯一标识。
      *
      * @var string
      */
     public $machineUniqueid;
 
     /**
-     * @description 用户自定义标识
+     * @description 机器的用户自定义标识。
      *
      * @var string
      */

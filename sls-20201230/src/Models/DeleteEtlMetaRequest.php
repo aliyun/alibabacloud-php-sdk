@@ -6,48 +6,32 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EtlMeta extends Model
+class DeleteEtlMetaRequest extends Model
 {
     /**
-     * @description 是否启用
-     *
-     * @var bool
-     */
-    public $enable;
-
-    /**
-     * @description key
+     * @description key。由 ascii 可打印字符组成，包括数字、英文大小写字母、下划线、连字符、英文标点符号等组成，长度在[1,255]之间。
      *
      * @var string
      */
     public $etlMetaKey;
 
     /**
-     * @description 名字
+     * @description 名字。由数字、大小写字母、下划线_、连字符-组成，长度需要在[2,64]之间。
      *
      * @var string
      */
     public $etlMetaName;
 
     /**
-     * @description tag
+     * @description 此处固定为 "__all_etl_meta_tag_match__"
      *
      * @var string
      */
     public $etlMetaTag;
-
-    /**
-     * @description value
-     *
-     * @var string
-     */
-    public $etlMetaValue;
     protected $_name = [
-        'enable'       => 'enable',
-        'etlMetaKey'   => 'etlMetaKey',
-        'etlMetaName'  => 'etlMetaName',
-        'etlMetaTag'   => 'etlMetaTag',
-        'etlMetaValue' => 'etlMetaValue',
+        'etlMetaKey'  => 'etlMetaKey',
+        'etlMetaName' => 'etlMetaName',
+        'etlMetaTag'  => 'etlMetaTag',
     ];
 
     public function validate()
@@ -57,9 +41,6 @@ class EtlMeta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enable) {
-            $res['enable'] = $this->enable;
-        }
         if (null !== $this->etlMetaKey) {
             $res['etlMetaKey'] = $this->etlMetaKey;
         }
@@ -69,9 +50,6 @@ class EtlMeta extends Model
         if (null !== $this->etlMetaTag) {
             $res['etlMetaTag'] = $this->etlMetaTag;
         }
-        if (null !== $this->etlMetaValue) {
-            $res['etlMetaValue'] = $this->etlMetaValue;
-        }
 
         return $res;
     }
@@ -79,14 +57,11 @@ class EtlMeta extends Model
     /**
      * @param array $map
      *
-     * @return EtlMeta
+     * @return DeleteEtlMetaRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['enable'])) {
-            $model->enable = $map['enable'];
-        }
         if (isset($map['etlMetaKey'])) {
             $model->etlMetaKey = $map['etlMetaKey'];
         }
@@ -95,9 +70,6 @@ class EtlMeta extends Model
         }
         if (isset($map['etlMetaTag'])) {
             $model->etlMetaTag = $map['etlMetaTag'];
-        }
-        if (isset($map['etlMetaValue'])) {
-            $model->etlMetaValue = $map['etlMetaValue'];
         }
 
         return $model;

@@ -6,28 +6,24 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListProjectRequest extends Model
+class ListEtlMetaNameRequest extends Model
 {
     /**
+     * @description 默认值为 0。
+     *
      * @var int
      */
     public $offset;
 
     /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @description 默认值为 500。
+     * @description 默认值 200。
      *
      * @var int
      */
     public $size;
     protected $_name = [
-        'offset'      => 'offset',
-        'projectName' => 'projectName',
-        'size'        => 'size',
+        'offset' => 'offset',
+        'size'   => 'size',
     ];
 
     public function validate()
@@ -40,9 +36,6 @@ class ListProjectRequest extends Model
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
         }
-        if (null !== $this->projectName) {
-            $res['projectName'] = $this->projectName;
-        }
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -53,16 +46,13 @@ class ListProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListProjectRequest
+     * @return ListEtlMetaNameRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];
-        }
-        if (isset($map['projectName'])) {
-            $model->projectName = $map['projectName'];
         }
         if (isset($map['size'])) {
             $model->size = $map['size'];

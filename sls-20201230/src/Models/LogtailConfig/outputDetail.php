@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class outputDetail extends Model
 {
     /**
-     * @description endpoint
+     * @description 日志项目的 endpoint。
      *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @description logstoreName
+     * @description 输出的目标 logstore 名称。
      *
      * @var string
      */
     public $logstoreName;
 
     /**
-     * @description 地域
+     * @description 地域。
      *
      * @var string
      */

@@ -6,48 +6,42 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EtlMeta extends Model
+class ListEtlMetaRequest extends Model
 {
     /**
-     * @description 是否启用
-     *
-     * @var bool
-     */
-    public $enable;
-
-    /**
-     * @description key
-     *
      * @var string
      */
     public $etlMetaKey;
 
     /**
-     * @description 名字
-     *
      * @var string
      */
     public $etlMetaName;
 
     /**
-     * @description tag
-     *
      * @var string
      */
     public $etlMetaTag;
 
     /**
-     * @description value
+     * @description 默认值 0。
      *
-     * @var string
+     * @var int
      */
-    public $etlMetaValue;
+    public $offset;
+
+    /**
+     * @description 默认值 200.
+     *
+     * @var int
+     */
+    public $size;
     protected $_name = [
-        'enable'       => 'enable',
-        'etlMetaKey'   => 'etlMetaKey',
-        'etlMetaName'  => 'etlMetaName',
-        'etlMetaTag'   => 'etlMetaTag',
-        'etlMetaValue' => 'etlMetaValue',
+        'etlMetaKey'  => 'etlMetaKey',
+        'etlMetaName' => 'etlMetaName',
+        'etlMetaTag'  => 'etlMetaTag',
+        'offset'      => 'offset',
+        'size'        => 'size',
     ];
 
     public function validate()
@@ -57,9 +51,6 @@ class EtlMeta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enable) {
-            $res['enable'] = $this->enable;
-        }
         if (null !== $this->etlMetaKey) {
             $res['etlMetaKey'] = $this->etlMetaKey;
         }
@@ -69,8 +60,11 @@ class EtlMeta extends Model
         if (null !== $this->etlMetaTag) {
             $res['etlMetaTag'] = $this->etlMetaTag;
         }
-        if (null !== $this->etlMetaValue) {
-            $res['etlMetaValue'] = $this->etlMetaValue;
+        if (null !== $this->offset) {
+            $res['offset'] = $this->offset;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
 
         return $res;
@@ -79,14 +73,11 @@ class EtlMeta extends Model
     /**
      * @param array $map
      *
-     * @return EtlMeta
+     * @return ListEtlMetaRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['enable'])) {
-            $model->enable = $map['enable'];
-        }
         if (isset($map['etlMetaKey'])) {
             $model->etlMetaKey = $map['etlMetaKey'];
         }
@@ -96,8 +87,11 @@ class EtlMeta extends Model
         if (isset($map['etlMetaTag'])) {
             $model->etlMetaTag = $map['etlMetaTag'];
         }
-        if (isset($map['etlMetaValue'])) {
-            $model->etlMetaValue = $map['etlMetaValue'];
+        if (isset($map['offset'])) {
+            $model->offset = $map['offset'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
 
         return $model;

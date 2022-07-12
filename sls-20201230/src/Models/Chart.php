@@ -13,7 +13,7 @@ class Chart extends Model
     /**
      * @description action
      *
-     * @var string[]
+     * @var mixed[]
      */
     public $action;
 
@@ -32,14 +32,14 @@ class Chart extends Model
     public $search;
 
     /**
-     * @description 图表标题
+     * @description 图表标题。支持大小写英文字母、数字、下划线_、连字符-，连字符与下划线不能作为名称开头与结尾，长度必须在[2,64] 之间。
      *
      * @var string
      */
     public $title;
 
     /**
-     * @description 图标类型
+     * @description 图表的类型。
      *
      * @var string
      */

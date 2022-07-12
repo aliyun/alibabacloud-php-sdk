@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\ExternalStore\parameter;
 use AlibabaCloud\Tea\Model;
 
 class ExternalStore extends Model
 {
     /**
-     * @description 名称
+     * @description 外部存储的名称。
      *
      * @var string
      */
@@ -19,12 +18,12 @@ class ExternalStore extends Model
     /**
      * @description 参数
      *
-     * @var parameter
+     * @var mixed[]
      */
     public $parameter;
 
     /**
-     * @description 类型
+     * @description 类型。可选 rds-vpc 或者 oss
      *
      * @var string
      */
@@ -46,7 +45,7 @@ class ExternalStore extends Model
             $res['externalStoreName'] = $this->externalStoreName;
         }
         if (null !== $this->parameter) {
-            $res['parameter'] = null !== $this->parameter ? $this->parameter->toMap() : null;
+            $res['parameter'] = $this->parameter;
         }
         if (null !== $this->storeType) {
             $res['storeType'] = $this->storeType;
@@ -67,7 +66,7 @@ class ExternalStore extends Model
             $model->externalStoreName = $map['externalStoreName'];
         }
         if (isset($map['parameter'])) {
-            $model->parameter = parameter::fromMap($map['parameter']);
+            $model->parameter = $map['parameter'];
         }
         if (isset($map['storeType'])) {
             $model->storeType = $map['storeType'];

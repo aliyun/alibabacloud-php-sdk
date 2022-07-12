@@ -10,56 +10,56 @@ use AlibabaCloud\Tea\Model;
 class LogtailConfig extends Model
 {
     /**
-     * @description configName
+     * @description logtail 配置的名称。
      *
      * @var string
      */
     public $configName;
 
     /**
-     * @description 创建时间
+     * @description 创建时间，unix 时间戳。
      *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description inputDetail
+     * @description logtail 输入的详细配置。
      *
      * @var mixed[]
      */
     public $inputDetail;
 
     /**
-     * @description inputType
+     * @description logtail 读取日志的输入类型。
      *
      * @var string
      */
     public $inputType;
 
     /**
-     * @description 修改时间
+     * @description 最后一次修改时间，unix 时间戳。
      *
      * @var int
      */
     public $lastModifyTime;
 
     /**
-     * @description 日志样例
+     * @description 日志样例，可以用于自动生成正则捕获字段。
      *
      * @var string
      */
     public $logSample;
 
     /**
-     * @description outputDetail
+     * @description logtail 输出的详细配置。
      *
      * @var outputDetail
      */
     public $outputDetail;
 
     /**
-     * @description outputType
+     * @description logtail 输出的目标类型。这里固定选择 LogService。
      *
      * @var string
      */

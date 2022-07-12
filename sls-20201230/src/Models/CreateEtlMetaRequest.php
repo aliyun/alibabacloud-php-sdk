@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EtlMeta extends Model
+class CreateEtlMetaRequest extends Model
 {
     /**
      * @description 是否启用
@@ -16,30 +16,28 @@ class EtlMeta extends Model
     public $enable;
 
     /**
-     * @description key
+     * @description key。由 ascii 可打印字符组成，包括数字、英文大小写字母、下划线、连字符、英文标点符号等组成，长度在[1,255]之间。
      *
      * @var string
      */
     public $etlMetaKey;
 
     /**
-     * @description 名字
+     * @description 名字。由数字、大小写字母、下划线_、连字符-组成，长度需要在[2,64]之间。
      *
      * @var string
      */
     public $etlMetaName;
 
     /**
-     * @description tag
+     * @description key。由 ascii 可打印字符组成，包括数字、英文大小写字母、下划线、连字符、英文标点符号等组成，长度在[1,128]之间。
      *
      * @var string
      */
     public $etlMetaTag;
 
     /**
-     * @description value
-     *
-     * @var string
+     * @var mixed[]
      */
     public $etlMetaValue;
     protected $_name = [
@@ -79,7 +77,7 @@ class EtlMeta extends Model
     /**
      * @param array $map
      *
-     * @return EtlMeta
+     * @return CreateEtlMetaRequest
      */
     public static function fromMap($map = [])
     {

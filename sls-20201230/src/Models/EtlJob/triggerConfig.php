@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class triggerConfig extends Model
 {
     /**
-     * @description 最大重试次数
+     * @description 最大重试次数，必须在[0,100] 之间
      *
      * @var int
      */
@@ -23,7 +23,7 @@ class triggerConfig extends Model
     public $roleArn;
 
     /**
-     * @description 开始位置
+     * @description 开始位置，可选 latest、at-unixtime， 默认 latest。
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class triggerConfig extends Model
     public $startingUnixtime;
 
     /**
-     * @description 触发间隔
+     * @description 触发间隔，单位为秒，必须在 [3,600] 之间
      *
      * @var int
      */

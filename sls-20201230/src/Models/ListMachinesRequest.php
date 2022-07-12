@@ -16,7 +16,7 @@ class ListMachinesRequest extends Model
     public $offset;
 
     /**
-     * @description 分页查询时，设置的每页行数。默认值为100，最大值为500。
+     * @description 分页查询时，设置的每页行数。默认值为2000。
      *
      * @var int
      */

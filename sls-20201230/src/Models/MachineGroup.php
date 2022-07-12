@@ -24,7 +24,7 @@ class MachineGroup extends Model
     public $groupName;
 
     /**
-     * @description 机器组种类。
+     * @description 机器组种类。目前固定为空字符串。
      *
      * @var string
      */

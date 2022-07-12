@@ -36,7 +36,7 @@ class EtlJob extends Model
     /**
      * @description 参数列表
      *
-     * @var string[]
+     * @var mixed[]
      */
     public $functionParameter;
 
