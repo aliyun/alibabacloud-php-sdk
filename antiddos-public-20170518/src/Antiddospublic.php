@@ -648,6 +648,9 @@ class Antiddospublic extends OpenApiClient
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
         }
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

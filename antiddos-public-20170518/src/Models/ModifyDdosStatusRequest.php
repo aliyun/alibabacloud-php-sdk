@@ -22,10 +22,16 @@ class ModifyDdosStatusRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
     protected $_name = [
         'ddosRegionId' => 'DdosRegionId',
         'instanceId'   => 'InstanceId',
         'instanceType' => 'InstanceType',
+        'internetIp'   => 'InternetIp',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ModifyDdosStatusRequest extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ModifyDdosStatusRequest extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
         }
 
         return $model;
