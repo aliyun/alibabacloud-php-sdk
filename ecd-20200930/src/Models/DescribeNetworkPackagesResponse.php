@@ -4,55 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesResponse\networkPackages;
 use AlibabaCloud\Tea\Model;
 
 class DescribeNetworkPackagesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $nextToken;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $statusCode;
 
     /**
-     * @var networkPackages[]
+     * @var DescribeNetworkPackagesResponseBody
      */
-    public $networkPackages;
+    public $body;
     protected $_name = [
-        'nextToken'       => 'NextToken',
-        'requestId'       => 'RequestId',
-        'networkPackages' => 'NetworkPackages',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('networkPackages', $this->networkPackages, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->networkPackages) {
-            $res['NetworkPackages'] = [];
-            if (null !== $this->networkPackages && \is_array($this->networkPackages)) {
-                $n = 0;
-                foreach ($this->networkPackages as $item) {
-                    $res['NetworkPackages'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +59,14 @@ class DescribeNetworkPackagesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['NetworkPackages'])) {
-            if (!empty($map['NetworkPackages'])) {
-                $model->networkPackages = [];
-                $n                      = 0;
-                foreach ($map['NetworkPackages'] as $item) {
-                    $model->networkPackages[$n++] = null !== $item ? networkPackages::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeNetworkPackagesResponseBody::fromMap($map['body']);
         }
 
         return $model;

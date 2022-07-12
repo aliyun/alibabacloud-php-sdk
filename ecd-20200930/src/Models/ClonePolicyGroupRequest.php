@@ -30,9 +30,6 @@ class ClonePolicyGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

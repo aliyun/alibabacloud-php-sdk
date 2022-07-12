@@ -24,8 +24,6 @@ class DeleteNASFileSystemsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileSystemId', $this->fileSystemId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

@@ -29,6 +29,11 @@ class CreateSimpleOfficeSiteRequest extends Model
     public $cidrBlock;
 
     /**
+     * @var bool
+     */
+    public $cloudBoxOfficeSite;
+
+    /**
      * @var string
      */
     public $desktopAccessType;
@@ -44,6 +49,11 @@ class CreateSimpleOfficeSiteRequest extends Model
     public $enableInternetAccess;
 
     /**
+     * @var bool
+     */
+    public $needVerifyZeroDevice;
+
+    /**
      * @var string
      */
     public $officeSiteName;
@@ -54,6 +64,11 @@ class CreateSimpleOfficeSiteRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $vSwitchId;
+
+    /**
      * @var string
      */
     public $verifyCode;
@@ -62,18 +77,19 @@ class CreateSimpleOfficeSiteRequest extends Model
         'cenId'                => 'CenId',
         'cenOwnerId'           => 'CenOwnerId',
         'cidrBlock'            => 'CidrBlock',
+        'cloudBoxOfficeSite'   => 'CloudBoxOfficeSite',
         'desktopAccessType'    => 'DesktopAccessType',
         'enableAdminAccess'    => 'EnableAdminAccess',
         'enableInternetAccess' => 'EnableInternetAccess',
+        'needVerifyZeroDevice' => 'NeedVerifyZeroDevice',
         'officeSiteName'       => 'OfficeSiteName',
         'regionId'             => 'RegionId',
+        'vSwitchId'            => 'VSwitchId',
         'verifyCode'           => 'VerifyCode',
     ];
 
     public function validate()
     {
-        Model::validateRequired('cidrBlock', $this->cidrBlock, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -91,6 +107,9 @@ class CreateSimpleOfficeSiteRequest extends Model
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
+        if (null !== $this->cloudBoxOfficeSite) {
+            $res['CloudBoxOfficeSite'] = $this->cloudBoxOfficeSite;
+        }
         if (null !== $this->desktopAccessType) {
             $res['DesktopAccessType'] = $this->desktopAccessType;
         }
@@ -100,11 +119,17 @@ class CreateSimpleOfficeSiteRequest extends Model
         if (null !== $this->enableInternetAccess) {
             $res['EnableInternetAccess'] = $this->enableInternetAccess;
         }
+        if (null !== $this->needVerifyZeroDevice) {
+            $res['NeedVerifyZeroDevice'] = $this->needVerifyZeroDevice;
+        }
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->verifyCode) {
             $res['VerifyCode'] = $this->verifyCode;
@@ -133,6 +158,9 @@ class CreateSimpleOfficeSiteRequest extends Model
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
+        if (isset($map['CloudBoxOfficeSite'])) {
+            $model->cloudBoxOfficeSite = $map['CloudBoxOfficeSite'];
+        }
         if (isset($map['DesktopAccessType'])) {
             $model->desktopAccessType = $map['DesktopAccessType'];
         }
@@ -142,11 +170,19 @@ class CreateSimpleOfficeSiteRequest extends Model
         if (isset($map['EnableInternetAccess'])) {
             $model->enableInternetAccess = $map['EnableInternetAccess'];
         }
+        if (isset($map['NeedVerifyZeroDevice'])) {
+            $model->needVerifyZeroDevice = $map['NeedVerifyZeroDevice'];
+        }
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            if (!empty($map['VSwitchId'])) {
+                $model->vSwitchId = $map['VSwitchId'];
+            }
         }
         if (isset($map['VerifyCode'])) {
             $model->verifyCode = $map['VerifyCode'];

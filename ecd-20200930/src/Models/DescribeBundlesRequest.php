@@ -34,6 +34,11 @@ class DescribeBundlesRequest extends Model
     public $desktopTypeFamily;
 
     /**
+     * @var string
+     */
+    public $fotaChannel;
+
+    /**
      * @var bool
      */
     public $fromDesktopGroup;
@@ -67,24 +72,36 @@ class DescribeBundlesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $supportMultiSession;
+
+    /**
+     * @var bool
+     */
+    public $volumeEncryptionEnabled;
     protected $_name = [
-        'bundleId'          => 'BundleId',
-        'bundleType'        => 'BundleType',
-        'checkStock'        => 'CheckStock',
-        'cpuCount'          => 'CpuCount',
-        'desktopTypeFamily' => 'DesktopTypeFamily',
-        'fromDesktopGroup'  => 'FromDesktopGroup',
-        'gpuCount'          => 'GpuCount',
-        'maxResults'        => 'MaxResults',
-        'memorySize'        => 'MemorySize',
-        'nextToken'         => 'NextToken',
-        'protocolType'      => 'ProtocolType',
-        'regionId'          => 'RegionId',
+        'bundleId'                => 'BundleId',
+        'bundleType'              => 'BundleType',
+        'checkStock'              => 'CheckStock',
+        'cpuCount'                => 'CpuCount',
+        'desktopTypeFamily'       => 'DesktopTypeFamily',
+        'fotaChannel'             => 'FotaChannel',
+        'fromDesktopGroup'        => 'FromDesktopGroup',
+        'gpuCount'                => 'GpuCount',
+        'maxResults'              => 'MaxResults',
+        'memorySize'              => 'MemorySize',
+        'nextToken'               => 'NextToken',
+        'protocolType'            => 'ProtocolType',
+        'regionId'                => 'RegionId',
+        'supportMultiSession'     => 'SupportMultiSession',
+        'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -104,6 +121,9 @@ class DescribeBundlesRequest extends Model
         }
         if (null !== $this->desktopTypeFamily) {
             $res['DesktopTypeFamily'] = $this->desktopTypeFamily;
+        }
+        if (null !== $this->fotaChannel) {
+            $res['FotaChannel'] = $this->fotaChannel;
         }
         if (null !== $this->fromDesktopGroup) {
             $res['FromDesktopGroup'] = $this->fromDesktopGroup;
@@ -125,6 +145,12 @@ class DescribeBundlesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->supportMultiSession) {
+            $res['SupportMultiSession'] = $this->supportMultiSession;
+        }
+        if (null !== $this->volumeEncryptionEnabled) {
+            $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
         }
 
         return $res;
@@ -155,6 +181,9 @@ class DescribeBundlesRequest extends Model
         if (isset($map['DesktopTypeFamily'])) {
             $model->desktopTypeFamily = $map['DesktopTypeFamily'];
         }
+        if (isset($map['FotaChannel'])) {
+            $model->fotaChannel = $map['FotaChannel'];
+        }
         if (isset($map['FromDesktopGroup'])) {
             $model->fromDesktopGroup = $map['FromDesktopGroup'];
         }
@@ -175,6 +204,12 @@ class DescribeBundlesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SupportMultiSession'])) {
+            $model->supportMultiSession = $map['SupportMultiSession'];
+        }
+        if (isset($map['VolumeEncryptionEnabled'])) {
+            $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];
         }
 
         return $model;

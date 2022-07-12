@@ -36,10 +36,6 @@ class ModifyUserToDesktopGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
-        Model::validateRequired('newEndUserIds', $this->newEndUserIds, true);
-        Model::validateRequired('oldEndUserIds', $this->oldEndUserIds, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

@@ -4,45 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesResponse\desktopItems;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDesktopIdsByVulNamesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var desktopItems[]
+     * @var int
      */
-    public $desktopItems;
+    public $statusCode;
+
+    /**
+     * @var DescribeDesktopIdsByVulNamesResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'desktopItems' => 'DesktopItems',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('desktopItems', $this->desktopItems, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->desktopItems) {
-            $res['DesktopItems'] = [];
-            if (null !== $this->desktopItems && \is_array($this->desktopItems)) {
-                $n = 0;
-                foreach ($this->desktopItems as $item) {
-                    $res['DesktopItems'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +59,14 @@ class DescribeDesktopIdsByVulNamesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DesktopItems'])) {
-            if (!empty($map['DesktopItems'])) {
-                $model->desktopItems = [];
-                $n                   = 0;
-                foreach ($map['DesktopItems'] as $item) {
-                    $model->desktopItems[$n++] = null !== $item ? desktopItems::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeDesktopIdsByVulNamesResponseBody::fromMap($map['body']);
         }
 
         return $model;

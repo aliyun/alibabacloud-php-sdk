@@ -48,8 +48,6 @@ class ListDirectoryUsersRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('directoryId', $this->directoryId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

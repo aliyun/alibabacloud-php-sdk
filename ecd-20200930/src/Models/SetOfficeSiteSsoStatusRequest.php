@@ -30,9 +30,6 @@ class SetOfficeSiteSsoStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('enableSso', $this->enableSso, true);
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

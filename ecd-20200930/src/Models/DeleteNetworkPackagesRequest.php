@@ -24,8 +24,6 @@ class DeleteNetworkPackagesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('networkPackageId', $this->networkPackageId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

@@ -30,9 +30,6 @@ class ModifyNASDefaultMountTargetRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileSystemId', $this->fileSystemId, true);
-        Model::validateRequired('mountTargetDomain', $this->mountTargetDomain, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

@@ -42,8 +42,6 @@ class DescribeSuspEventQuaraFilesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

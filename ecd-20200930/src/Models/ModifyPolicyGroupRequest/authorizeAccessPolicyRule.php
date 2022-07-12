@@ -24,7 +24,6 @@ class authorizeAccessPolicyRule extends Model
 
     public function validate()
     {
-        Model::validateRequired('cidrIp', $this->cidrIp, true);
     }
 
     public function toMap()

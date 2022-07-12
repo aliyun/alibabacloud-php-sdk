@@ -42,9 +42,6 @@ class DescribeVulDetailsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

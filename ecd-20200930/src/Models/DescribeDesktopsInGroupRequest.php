@@ -42,9 +42,6 @@ class DescribeDesktopsInGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
-        Model::validateRequired('payType', $this->payType, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

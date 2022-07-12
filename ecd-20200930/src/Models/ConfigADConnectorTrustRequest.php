@@ -30,9 +30,6 @@ class ConfigADConnectorTrustRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('trustKey', $this->trustKey, true);
     }
 
     public function toMap()

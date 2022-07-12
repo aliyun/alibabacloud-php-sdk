@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateADConnectorOfficeSiteRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $adHostname;
+
+    /**
      * @var int
      */
     public $bandwidth;
@@ -76,7 +81,17 @@ class CreateADConnectorOfficeSiteRequest extends Model
     /**
      * @var string
      */
+    public $protocolType;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $specification;
 
     /**
      * @var string[]
@@ -93,6 +108,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
      */
     public $verifyCode;
     protected $_name = [
+        'adHostname'           => 'AdHostname',
         'bandwidth'            => 'Bandwidth',
         'cenId'                => 'CenId',
         'cenOwnerId'           => 'CenOwnerId',
@@ -106,7 +122,9 @@ class CreateADConnectorOfficeSiteRequest extends Model
         'enableInternetAccess' => 'EnableInternetAccess',
         'mfaEnabled'           => 'MfaEnabled',
         'officeSiteName'       => 'OfficeSiteName',
+        'protocolType'         => 'ProtocolType',
         'regionId'             => 'RegionId',
+        'specification'        => 'Specification',
         'subDomainDnsAddress'  => 'SubDomainDnsAddress',
         'subDomainName'        => 'SubDomainName',
         'verifyCode'           => 'VerifyCode',
@@ -114,16 +132,14 @@ class CreateADConnectorOfficeSiteRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('cenId', $this->cenId, true);
-        Model::validateRequired('cidrBlock', $this->cidrBlock, true);
-        Model::validateRequired('dnsAddress', $this->dnsAddress, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adHostname) {
+            $res['AdHostname'] = $this->adHostname;
+        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
@@ -163,8 +179,14 @@ class CreateADConnectorOfficeSiteRequest extends Model
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
         }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->specification) {
+            $res['Specification'] = $this->specification;
         }
         if (null !== $this->subDomainDnsAddress) {
             $res['SubDomainDnsAddress'] = $this->subDomainDnsAddress;
@@ -187,6 +209,9 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdHostname'])) {
+            $model->adHostname = $map['AdHostname'];
+        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
@@ -228,8 +253,14 @@ class CreateADConnectorOfficeSiteRequest extends Model
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
         }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Specification'])) {
+            $model->specification = $map['Specification'];
         }
         if (isset($map['SubDomainDnsAddress'])) {
             if (!empty($map['SubDomainDnsAddress'])) {

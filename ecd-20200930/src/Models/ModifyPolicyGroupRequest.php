@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\authorizeSecu
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\clientType;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\revokeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\revokeSecurityPolicyRule;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\usbSupplyRedirectRule;
 use AlibabaCloud\Tea\Model;
 
 class ModifyPolicyGroupRequest extends Model
@@ -22,6 +23,11 @@ class ModifyPolicyGroupRequest extends Model
      * @var authorizeSecurityPolicyRule[]
      */
     public $authorizeSecurityPolicyRule;
+
+    /**
+     * @var string
+     */
+    public $cameraRedirect;
 
     /**
      * @var clientType[]
@@ -66,6 +72,11 @@ class ModifyPolicyGroupRequest extends Model
     /**
      * @var string
      */
+    public $netRedirect;
+
+    /**
+     * @var string
+     */
     public $policyGroupId;
 
     /**
@@ -82,6 +93,26 @@ class ModifyPolicyGroupRequest extends Model
      * @var string
      */
     public $printerRedirection;
+
+    /**
+     * @var string
+     */
+    public $recording;
+
+    /**
+     * @var string
+     */
+    public $recordingEndTime;
+
+    /**
+     * @var int
+     */
+    public $recordingFps;
+
+    /**
+     * @var string
+     */
+    public $recordingStartTime;
 
     /**
      * @var string
@@ -104,6 +135,11 @@ class ModifyPolicyGroupRequest extends Model
     public $usbRedirect;
 
     /**
+     * @var usbSupplyRedirectRule[]
+     */
+    public $usbSupplyRedirectRule;
+
+    /**
      * @var string
      */
     public $visualQuality;
@@ -112,11 +148,6 @@ class ModifyPolicyGroupRequest extends Model
      * @var string
      */
     public $watermark;
-
-    /**
-     * @var string
-     */
-    public $watermarkCustomText;
 
     /**
      * @var string
@@ -130,6 +161,7 @@ class ModifyPolicyGroupRequest extends Model
     protected $_name = [
         'authorizeAccessPolicyRule'   => 'AuthorizeAccessPolicyRule',
         'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
+        'cameraRedirect'              => 'CameraRedirect',
         'clientType'                  => 'ClientType',
         'clipboard'                   => 'Clipboard',
         'domainList'                  => 'DomainList',
@@ -138,25 +170,28 @@ class ModifyPolicyGroupRequest extends Model
         'html5FileTransfer'           => 'Html5FileTransfer',
         'localDrive'                  => 'LocalDrive',
         'name'                        => 'Name',
+        'netRedirect'                 => 'NetRedirect',
         'policyGroupId'               => 'PolicyGroupId',
         'preemptLogin'                => 'PreemptLogin',
         'preemptLoginUser'            => 'PreemptLoginUser',
         'printerRedirection'          => 'PrinterRedirection',
+        'recording'                   => 'Recording',
+        'recordingEndTime'            => 'RecordingEndTime',
+        'recordingFps'                => 'RecordingFps',
+        'recordingStartTime'          => 'RecordingStartTime',
         'regionId'                    => 'RegionId',
         'revokeAccessPolicyRule'      => 'RevokeAccessPolicyRule',
         'revokeSecurityPolicyRule'    => 'RevokeSecurityPolicyRule',
         'usbRedirect'                 => 'UsbRedirect',
+        'usbSupplyRedirectRule'       => 'UsbSupplyRedirectRule',
         'visualQuality'               => 'VisualQuality',
         'watermark'                   => 'Watermark',
-        'watermarkCustomText'         => 'WatermarkCustomText',
         'watermarkTransparency'       => 'WatermarkTransparency',
         'watermarkType'               => 'WatermarkType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -179,6 +214,9 @@ class ModifyPolicyGroupRequest extends Model
                     $res['AuthorizeSecurityPolicyRule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->cameraRedirect) {
+            $res['CameraRedirect'] = $this->cameraRedirect;
         }
         if (null !== $this->clientType) {
             $res['ClientType'] = [];
@@ -210,6 +248,9 @@ class ModifyPolicyGroupRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->netRedirect) {
+            $res['NetRedirect'] = $this->netRedirect;
+        }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
@@ -221,6 +262,18 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->printerRedirection) {
             $res['PrinterRedirection'] = $this->printerRedirection;
+        }
+        if (null !== $this->recording) {
+            $res['Recording'] = $this->recording;
+        }
+        if (null !== $this->recordingEndTime) {
+            $res['RecordingEndTime'] = $this->recordingEndTime;
+        }
+        if (null !== $this->recordingFps) {
+            $res['RecordingFps'] = $this->recordingFps;
+        }
+        if (null !== $this->recordingStartTime) {
+            $res['RecordingStartTime'] = $this->recordingStartTime;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -246,14 +299,20 @@ class ModifyPolicyGroupRequest extends Model
         if (null !== $this->usbRedirect) {
             $res['UsbRedirect'] = $this->usbRedirect;
         }
+        if (null !== $this->usbSupplyRedirectRule) {
+            $res['UsbSupplyRedirectRule'] = [];
+            if (null !== $this->usbSupplyRedirectRule && \is_array($this->usbSupplyRedirectRule)) {
+                $n = 0;
+                foreach ($this->usbSupplyRedirectRule as $item) {
+                    $res['UsbSupplyRedirectRule'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->visualQuality) {
             $res['VisualQuality'] = $this->visualQuality;
         }
         if (null !== $this->watermark) {
             $res['Watermark'] = $this->watermark;
-        }
-        if (null !== $this->watermarkCustomText) {
-            $res['WatermarkCustomText'] = $this->watermarkCustomText;
         }
         if (null !== $this->watermarkTransparency) {
             $res['WatermarkTransparency'] = $this->watermarkTransparency;
@@ -291,6 +350,9 @@ class ModifyPolicyGroupRequest extends Model
                 }
             }
         }
+        if (isset($map['CameraRedirect'])) {
+            $model->cameraRedirect = $map['CameraRedirect'];
+        }
         if (isset($map['ClientType'])) {
             if (!empty($map['ClientType'])) {
                 $model->clientType = [];
@@ -321,6 +383,9 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['NetRedirect'])) {
+            $model->netRedirect = $map['NetRedirect'];
+        }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
@@ -334,6 +399,18 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['PrinterRedirection'])) {
             $model->printerRedirection = $map['PrinterRedirection'];
+        }
+        if (isset($map['Recording'])) {
+            $model->recording = $map['Recording'];
+        }
+        if (isset($map['RecordingEndTime'])) {
+            $model->recordingEndTime = $map['RecordingEndTime'];
+        }
+        if (isset($map['RecordingFps'])) {
+            $model->recordingFps = $map['RecordingFps'];
+        }
+        if (isset($map['RecordingStartTime'])) {
+            $model->recordingStartTime = $map['RecordingStartTime'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -359,14 +436,20 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['UsbRedirect'])) {
             $model->usbRedirect = $map['UsbRedirect'];
         }
+        if (isset($map['UsbSupplyRedirectRule'])) {
+            if (!empty($map['UsbSupplyRedirectRule'])) {
+                $model->usbSupplyRedirectRule = [];
+                $n                            = 0;
+                foreach ($map['UsbSupplyRedirectRule'] as $item) {
+                    $model->usbSupplyRedirectRule[$n++] = null !== $item ? usbSupplyRedirectRule::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['VisualQuality'])) {
             $model->visualQuality = $map['VisualQuality'];
         }
         if (isset($map['Watermark'])) {
             $model->watermark = $map['Watermark'];
-        }
-        if (isset($map['WatermarkCustomText'])) {
-            $model->watermarkCustomText = $map['WatermarkCustomText'];
         }
         if (isset($map['WatermarkTransparency'])) {
             $model->watermarkTransparency = $map['WatermarkTransparency'];

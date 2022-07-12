@@ -54,13 +54,6 @@ class DescribeFlowMetricRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
-        Model::validateRequired('metricType', $this->metricType, true);
-        Model::validateRequired('period', $this->period, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('startTime', $this->startTime, true);
     }
 
     public function toMap()

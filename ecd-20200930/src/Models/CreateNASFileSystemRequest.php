@@ -16,6 +16,11 @@ class CreateNASFileSystemRequest extends Model
     /**
      * @var string
      */
+    public $encryptType;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -34,6 +39,7 @@ class CreateNASFileSystemRequest extends Model
     public $storageType;
     protected $_name = [
         'description'  => 'Description',
+        'encryptType'  => 'EncryptType',
         'name'         => 'Name',
         'officeSiteId' => 'OfficeSiteId',
         'regionId'     => 'RegionId',
@@ -42,8 +48,6 @@ class CreateNASFileSystemRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -51,6 +55,9 @@ class CreateNASFileSystemRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->encryptType) {
+            $res['EncryptType'] = $this->encryptType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -78,6 +85,9 @@ class CreateNASFileSystemRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EncryptType'])) {
+            $model->encryptType = $map['EncryptType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

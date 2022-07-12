@@ -24,6 +24,11 @@ class DescribeUsersInGroupRequest extends Model
     public $endUserId;
 
     /**
+     * @var string
+     */
+    public $filter;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -34,22 +39,27 @@ class DescribeUsersInGroupRequest extends Model
     public $nextToken;
 
     /**
+     * @var bool
+     */
+    public $queryUserDetail;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'connectState'   => 'ConnectState',
-        'desktopGroupId' => 'DesktopGroupId',
-        'endUserId'      => 'EndUserId',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'regionId'       => 'RegionId',
+        'connectState'    => 'ConnectState',
+        'desktopGroupId'  => 'DesktopGroupId',
+        'endUserId'       => 'EndUserId',
+        'filter'          => 'Filter',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'queryUserDetail' => 'QueryUserDetail',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -64,11 +74,17 @@ class DescribeUsersInGroupRequest extends Model
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->queryUserDetail) {
+            $res['QueryUserDetail'] = $this->queryUserDetail;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -94,11 +110,17 @@ class DescribeUsersInGroupRequest extends Model
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['QueryUserDetail'])) {
+            $model->queryUserDetail = $map['QueryUserDetail'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

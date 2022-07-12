@@ -12,13 +12,18 @@ class DescribeZonesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $zoneType;
     protected $_name = [
         'regionId' => 'RegionId',
+        'zoneType' => 'ZoneType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -26,6 +31,9 @@ class DescribeZonesRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->zoneType) {
+            $res['ZoneType'] = $this->zoneType;
         }
 
         return $res;
@@ -41,6 +49,9 @@ class DescribeZonesRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ZoneType'])) {
+            $model->zoneType = $map['ZoneType'];
         }
 
         return $model;

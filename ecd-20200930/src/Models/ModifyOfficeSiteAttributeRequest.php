@@ -19,6 +19,11 @@ class ModifyOfficeSiteAttributeRequest extends Model
     public $needVerifyLoginRisk;
 
     /**
+     * @var bool
+     */
+    public $needVerifyZeroDevice;
+
+    /**
      * @var string
      */
     public $officeSiteId;
@@ -33,17 +38,16 @@ class ModifyOfficeSiteAttributeRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'desktopAccessType'   => 'DesktopAccessType',
-        'needVerifyLoginRisk' => 'NeedVerifyLoginRisk',
-        'officeSiteId'        => 'OfficeSiteId',
-        'officeSiteName'      => 'OfficeSiteName',
-        'regionId'            => 'RegionId',
+        'desktopAccessType'    => 'DesktopAccessType',
+        'needVerifyLoginRisk'  => 'NeedVerifyLoginRisk',
+        'needVerifyZeroDevice' => 'NeedVerifyZeroDevice',
+        'officeSiteId'         => 'OfficeSiteId',
+        'officeSiteName'       => 'OfficeSiteName',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -54,6 +58,9 @@ class ModifyOfficeSiteAttributeRequest extends Model
         }
         if (null !== $this->needVerifyLoginRisk) {
             $res['NeedVerifyLoginRisk'] = $this->needVerifyLoginRisk;
+        }
+        if (null !== $this->needVerifyZeroDevice) {
+            $res['NeedVerifyZeroDevice'] = $this->needVerifyZeroDevice;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
@@ -81,6 +88,9 @@ class ModifyOfficeSiteAttributeRequest extends Model
         }
         if (isset($map['NeedVerifyLoginRisk'])) {
             $model->needVerifyLoginRisk = $map['NeedVerifyLoginRisk'];
+        }
+        if (isset($map['NeedVerifyZeroDevice'])) {
+            $model->needVerifyZeroDevice = $map['NeedVerifyZeroDevice'];
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];

@@ -9,53 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulOverviewResponse extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $asapCount;
+    public $headers;
 
     /**
      * @var int
      */
-    public $laterCount;
+    public $statusCode;
 
     /**
-     * @var int
+     * @var DescribeVulOverviewResponseBody
      */
-    public $nntfCount;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $body;
     protected $_name = [
-        'asapCount'  => 'AsapCount',
-        'laterCount' => 'LaterCount',
-        'nntfCount'  => 'NntfCount',
-        'requestId'  => 'RequestId',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('asapCount', $this->asapCount, true);
-        Model::validateRequired('laterCount', $this->laterCount, true);
-        Model::validateRequired('nntfCount', $this->nntfCount, true);
-        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->asapCount) {
-            $res['AsapCount'] = $this->asapCount;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->laterCount) {
-            $res['LaterCount'] = $this->laterCount;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->nntfCount) {
-            $res['NntfCount'] = $this->nntfCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +59,14 @@ class DescribeVulOverviewResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AsapCount'])) {
-            $model->asapCount = $map['AsapCount'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['LaterCount'])) {
-            $model->laterCount = $map['LaterCount'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['NntfCount'])) {
-            $model->nntfCount = $map['NntfCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['body'])) {
+            $model->body = DescribeVulOverviewResponseBody::fromMap($map['body']);
         }
 
         return $model;

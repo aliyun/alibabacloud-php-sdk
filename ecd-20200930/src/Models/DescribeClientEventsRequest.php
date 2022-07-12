@@ -21,6 +21,11 @@ class DescribeClientEventsRequest extends Model
     /**
      * @var string
      */
+    public $desktopName;
+
+    /**
+     * @var string
+     */
     public $directoryId;
 
     /**
@@ -56,6 +61,11 @@ class DescribeClientEventsRequest extends Model
     /**
      * @var string
      */
+    public $officeSiteName;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -63,22 +73,23 @@ class DescribeClientEventsRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'desktopId'    => 'DesktopId',
-        'desktopIp'    => 'DesktopIp',
-        'directoryId'  => 'DirectoryId',
-        'endTime'      => 'EndTime',
-        'endUserId'    => 'EndUserId',
-        'eventType'    => 'EventType',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
-        'startTime'    => 'StartTime',
+        'desktopId'      => 'DesktopId',
+        'desktopIp'      => 'DesktopIp',
+        'desktopName'    => 'DesktopName',
+        'directoryId'    => 'DirectoryId',
+        'endTime'        => 'EndTime',
+        'endUserId'      => 'EndUserId',
+        'eventType'      => 'EventType',
+        'maxResults'     => 'MaxResults',
+        'nextToken'      => 'NextToken',
+        'officeSiteId'   => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'regionId'       => 'RegionId',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -89,6 +100,9 @@ class DescribeClientEventsRequest extends Model
         }
         if (null !== $this->desktopIp) {
             $res['DesktopIp'] = $this->desktopIp;
+        }
+        if (null !== $this->desktopName) {
+            $res['DesktopName'] = $this->desktopName;
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
@@ -110,6 +124,9 @@ class DescribeClientEventsRequest extends Model
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->officeSiteName) {
+            $res['OfficeSiteName'] = $this->officeSiteName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -135,6 +152,9 @@ class DescribeClientEventsRequest extends Model
         if (isset($map['DesktopIp'])) {
             $model->desktopIp = $map['DesktopIp'];
         }
+        if (isset($map['DesktopName'])) {
+            $model->desktopName = $map['DesktopName'];
+        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
@@ -155,6 +175,9 @@ class DescribeClientEventsRequest extends Model
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['OfficeSiteName'])) {
+            $model->officeSiteName = $map['OfficeSiteName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

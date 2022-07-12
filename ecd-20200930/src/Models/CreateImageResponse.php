@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateImageResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $imageId;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $statusCode;
+
+    /**
+     * @var CreateImageResponseBody
+     */
+    public $body;
     protected $_name = [
-        'imageId'   => 'ImageId',
-        'requestId' => 'RequestId',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageId', $this->imageId, true);
-        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class CreateImageResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = CreateImageResponseBody::fromMap($map['body']);
         }
 
         return $model;

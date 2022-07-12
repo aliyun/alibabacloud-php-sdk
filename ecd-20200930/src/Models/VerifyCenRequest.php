@@ -42,9 +42,6 @@ class VerifyCenRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('cenId', $this->cenId, true);
-        Model::validateRequired('cidrBlock', $this->cidrBlock, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

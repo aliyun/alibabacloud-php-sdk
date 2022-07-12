@@ -48,10 +48,6 @@ class RunCommandRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('commandContent', $this->commandContent, true);
-        Model::validateRequired('desktopId', $this->desktopId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

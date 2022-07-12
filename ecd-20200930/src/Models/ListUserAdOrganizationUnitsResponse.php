@@ -4,45 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsResponse\OUNames;
 use AlibabaCloud\Tea\Model;
 
 class ListUserAdOrganizationUnitsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var OUNames[]
+     * @var int
      */
-    public $OUNames;
+    public $statusCode;
+
+    /**
+     * @var ListUserAdOrganizationUnitsResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'OUNames'   => 'OUNames',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('OUNames', $this->OUNames, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->OUNames) {
-            $res['OUNames'] = [];
-            if (null !== $this->OUNames && \is_array($this->OUNames)) {
-                $n = 0;
-                foreach ($this->OUNames as $item) {
-                    $res['OUNames'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +59,14 @@ class ListUserAdOrganizationUnitsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['OUNames'])) {
-            if (!empty($map['OUNames'])) {
-                $model->OUNames = [];
-                $n              = 0;
-                foreach ($map['OUNames'] as $item) {
-                    $model->OUNames[$n++] = null !== $item ? OUNames::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = ListUserAdOrganizationUnitsResponseBody::fromMap($map['body']);
         }
 
         return $model;

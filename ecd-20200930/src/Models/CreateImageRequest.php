@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateImageRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoCleanUserdata;
+
+    /**
      * @var string
      */
     public $description;
@@ -17,6 +22,11 @@ class CreateImageRequest extends Model
      * @var string
      */
     public $desktopId;
+
+    /**
+     * @var string
+     */
+    public $diskType;
 
     /**
      * @var string
@@ -43,8 +53,10 @@ class CreateImageRequest extends Model
      */
     public $snapshotIds;
     protected $_name = [
+        'autoCleanUserdata' => 'AutoCleanUserdata',
         'description'       => 'Description',
         'desktopId'         => 'DesktopId',
+        'diskType'          => 'DiskType',
         'imageName'         => 'ImageName',
         'imageResourceType' => 'ImageResourceType',
         'regionId'          => 'RegionId',
@@ -54,18 +66,22 @@ class CreateImageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('desktopId', $this->desktopId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoCleanUserdata) {
+            $res['AutoCleanUserdata'] = $this->autoCleanUserdata;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
+        }
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
         }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
@@ -94,11 +110,17 @@ class CreateImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoCleanUserdata'])) {
+            $model->autoCleanUserdata = $map['AutoCleanUserdata'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
+        }
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
         }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];

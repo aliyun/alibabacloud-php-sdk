@@ -4,65 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\VerifyCenResponse\routeEntries;
 use AlibabaCloud\Tea\Model;
 
 class VerifyCenResponse extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var routeEntries[]
-     */
-    public $routeEntries;
-
-    /**
      * @var string[]
      */
-    public $cidrBlocks;
+    public $headers;
+
+    /**
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var VerifyCenResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
-        'routeEntries' => 'RouteEntries',
-        'cidrBlocks'   => 'CidrBlocks',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('routeEntries', $this->routeEntries, true);
-        Model::validateRequired('cidrBlocks', $this->cidrBlocks, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->routeEntries) {
-            $res['RouteEntries'] = [];
-            if (null !== $this->routeEntries && \is_array($this->routeEntries)) {
-                $n = 0;
-                foreach ($this->routeEntries as $item) {
-                    $res['RouteEntries'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->cidrBlocks) {
-            $res['CidrBlocks'] = $this->cidrBlocks;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -76,25 +59,14 @@ class VerifyCenResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['RouteEntries'])) {
-            if (!empty($map['RouteEntries'])) {
-                $model->routeEntries = [];
-                $n                   = 0;
-                foreach ($map['RouteEntries'] as $item) {
-                    $model->routeEntries[$n++] = null !== $item ? routeEntries::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['CidrBlocks'])) {
-            if (!empty($map['CidrBlocks'])) {
-                $model->cidrBlocks = $map['CidrBlocks'];
-            }
+        if (isset($map['body'])) {
+            $model->body = VerifyCenResponseBody::fromMap($map['body']);
         }
 
         return $model;

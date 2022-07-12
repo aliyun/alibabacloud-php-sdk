@@ -30,8 +30,6 @@ class SendVerifyCodeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('verifyCodeAction', $this->verifyCodeAction, true);
     }
 
     public function toMap()

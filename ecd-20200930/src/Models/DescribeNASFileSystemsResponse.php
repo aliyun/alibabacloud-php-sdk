@@ -4,55 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponse\fileSystems;
 use AlibabaCloud\Tea\Model;
 
 class DescribeNASFileSystemsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $nextToken;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $statusCode;
 
     /**
-     * @var fileSystems[]
+     * @var DescribeNASFileSystemsResponseBody
      */
-    public $fileSystems;
+    public $body;
     protected $_name = [
-        'nextToken'   => 'NextToken',
-        'requestId'   => 'RequestId',
-        'fileSystems' => 'FileSystems',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('fileSystems', $this->fileSystems, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->fileSystems) {
-            $res['FileSystems'] = [];
-            if (null !== $this->fileSystems && \is_array($this->fileSystems)) {
-                $n = 0;
-                foreach ($this->fileSystems as $item) {
-                    $res['FileSystems'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +59,14 @@ class DescribeNASFileSystemsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['FileSystems'])) {
-            if (!empty($map['FileSystems'])) {
-                $model->fileSystems = [];
-                $n                  = 0;
-                foreach ($map['FileSystems'] as $item) {
-                    $model->fileSystems[$n++] = null !== $item ? fileSystems::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeNASFileSystemsResponseBody::fromMap($map['body']);
         }
 
         return $model;

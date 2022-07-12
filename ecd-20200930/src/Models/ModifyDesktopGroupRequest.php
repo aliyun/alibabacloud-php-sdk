@@ -19,6 +19,16 @@ class ModifyDesktopGroupRequest extends Model
     public $allowBufferCount;
 
     /**
+     * @var int
+     */
+    public $bindAmount;
+
+    /**
+     * @var string
+     */
+    public $classify;
+
+    /**
      * @var string
      */
     public $comments;
@@ -34,9 +44,19 @@ class ModifyDesktopGroupRequest extends Model
     public $desktopGroupName;
 
     /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
      * @var int
      */
     public $keepDuration;
+
+    /**
+     * @var int
+     */
+    public $loadPolicy;
 
     /**
      * @var int
@@ -75,10 +95,14 @@ class ModifyDesktopGroupRequest extends Model
     protected $_name = [
         'allowAutoSetup'   => 'AllowAutoSetup',
         'allowBufferCount' => 'AllowBufferCount',
+        'bindAmount'       => 'BindAmount',
+        'classify'         => 'Classify',
         'comments'         => 'Comments',
         'desktopGroupId'   => 'DesktopGroupId',
         'desktopGroupName' => 'DesktopGroupName',
+        'imageId'          => 'ImageId',
         'keepDuration'     => 'KeepDuration',
+        'loadPolicy'       => 'LoadPolicy',
         'maxDesktopsCount' => 'MaxDesktopsCount',
         'minDesktopsCount' => 'MinDesktopsCount',
         'ownBundleId'      => 'OwnBundleId',
@@ -90,8 +114,6 @@ class ModifyDesktopGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -103,6 +125,12 @@ class ModifyDesktopGroupRequest extends Model
         if (null !== $this->allowBufferCount) {
             $res['AllowBufferCount'] = $this->allowBufferCount;
         }
+        if (null !== $this->bindAmount) {
+            $res['BindAmount'] = $this->bindAmount;
+        }
+        if (null !== $this->classify) {
+            $res['Classify'] = $this->classify;
+        }
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
@@ -112,8 +140,14 @@ class ModifyDesktopGroupRequest extends Model
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
         }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
         if (null !== $this->keepDuration) {
             $res['KeepDuration'] = $this->keepDuration;
+        }
+        if (null !== $this->loadPolicy) {
+            $res['LoadPolicy'] = $this->loadPolicy;
         }
         if (null !== $this->maxDesktopsCount) {
             $res['MaxDesktopsCount'] = $this->maxDesktopsCount;
@@ -154,6 +188,12 @@ class ModifyDesktopGroupRequest extends Model
         if (isset($map['AllowBufferCount'])) {
             $model->allowBufferCount = $map['AllowBufferCount'];
         }
+        if (isset($map['BindAmount'])) {
+            $model->bindAmount = $map['BindAmount'];
+        }
+        if (isset($map['Classify'])) {
+            $model->classify = $map['Classify'];
+        }
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
@@ -163,8 +203,14 @@ class ModifyDesktopGroupRequest extends Model
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
         }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
         if (isset($map['KeepDuration'])) {
             $model->keepDuration = $map['KeepDuration'];
+        }
+        if (isset($map['LoadPolicy'])) {
+            $model->loadPolicy = $map['LoadPolicy'];
         }
         if (isset($map['MaxDesktopsCount'])) {
             $model->maxDesktopsCount = $map['MaxDesktopsCount'];

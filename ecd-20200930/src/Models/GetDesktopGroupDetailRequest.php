@@ -24,8 +24,6 @@ class GetDesktopGroupDetailRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

@@ -42,11 +42,6 @@ class ConfigADConnectorUserRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainPassword', $this->domainPassword, true);
-        Model::validateRequired('domainUserName', $this->domainUserName, true);
-        Model::validateRequired('OUName', $this->OUName, true);
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

@@ -60,9 +60,6 @@ class DescribeGroupedVulRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

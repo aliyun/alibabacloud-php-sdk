@@ -24,8 +24,6 @@ class DeletePolicyGroupsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

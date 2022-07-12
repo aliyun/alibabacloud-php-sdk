@@ -54,12 +54,6 @@ class OperateVulsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('desktopId', $this->desktopId, true);
-        Model::validateRequired('operateType', $this->operateType, true);
-        Model::validateRequired('precondition', $this->precondition, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('type', $this->type, true);
-        Model::validateRequired('vulName', $this->vulName, true);
     }
 
     public function toMap()

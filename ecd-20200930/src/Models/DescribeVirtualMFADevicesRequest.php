@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeVirtualMFADevicesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $directoryId;
-
-    /**
      * @var string[]
      */
     public $endUserId;
@@ -38,7 +33,6 @@ class DescribeVirtualMFADevicesRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'directoryId'  => 'DirectoryId',
         'endUserId'    => 'EndUserId',
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
@@ -48,15 +42,11 @@ class DescribeVirtualMFADevicesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
-        }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
@@ -84,9 +74,6 @@ class DescribeVirtualMFADevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DirectoryId'])) {
-            $model->directoryId = $map['DirectoryId'];
-        }
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
                 $model->endUserId = $map['EndUserId'];

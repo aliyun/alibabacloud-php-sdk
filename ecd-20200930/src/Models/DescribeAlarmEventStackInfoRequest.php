@@ -42,10 +42,6 @@ class DescribeAlarmEventStackInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('desktopId', $this->desktopId, true);
-        Model::validateRequired('eventName', $this->eventName, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('uniqueInfo', $this->uniqueInfo, true);
     }
 
     public function toMap()

@@ -43,9 +43,6 @@ class ModifyOperateVulRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('operateType', $this->operateType, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

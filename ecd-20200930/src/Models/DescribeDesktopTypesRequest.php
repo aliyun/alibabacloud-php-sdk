@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopTypesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appliedScope;
+
+    /**
      * @var int
      */
     public $cpuCount;
@@ -41,25 +46,34 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @var string
      */
+    public $orderType;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
+        'appliedScope'       => 'AppliedScope',
         'cpuCount'           => 'CpuCount',
         'desktopIdForModify' => 'DesktopIdForModify',
         'desktopTypeId'      => 'DesktopTypeId',
         'gpuCount'           => 'GpuCount',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'memorySize'         => 'MemorySize',
+        'orderType'          => 'OrderType',
         'regionId'           => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appliedScope) {
+            $res['AppliedScope'] = $this->appliedScope;
+        }
         if (null !== $this->cpuCount) {
             $res['CpuCount'] = $this->cpuCount;
         }
@@ -78,6 +92,9 @@ class DescribeDesktopTypesRequest extends Model
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -93,6 +110,9 @@ class DescribeDesktopTypesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppliedScope'])) {
+            $model->appliedScope = $map['AppliedScope'];
+        }
         if (isset($map['CpuCount'])) {
             $model->cpuCount = $map['CpuCount'];
         }
@@ -110,6 +130,9 @@ class DescribeDesktopTypesRequest extends Model
         }
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

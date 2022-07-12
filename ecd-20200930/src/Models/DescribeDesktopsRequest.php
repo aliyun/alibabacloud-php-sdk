@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDesktopsRequest extends Model
@@ -59,6 +60,11 @@ class DescribeDesktopsRequest extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $managementFlag;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -76,6 +82,11 @@ class DescribeDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $officeSiteName;
+
+    /**
+     * @var string
+     */
     public $policyGroupId;
 
     /**
@@ -84,9 +95,19 @@ class DescribeDesktopsRequest extends Model
     public $protocolType;
 
     /**
+     * @var bool
+     */
+    public $queryFotaUpdate;
+
+    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
@@ -103,18 +124,21 @@ class DescribeDesktopsRequest extends Model
         'expiredTime'        => 'ExpiredTime',
         'filterDesktopGroup' => 'FilterDesktopGroup',
         'groupId'            => 'GroupId',
+        'managementFlag'     => 'ManagementFlag',
         'maxResults'         => 'MaxResults',
         'nextToken'          => 'NextToken',
         'officeSiteId'       => 'OfficeSiteId',
+        'officeSiteName'     => 'OfficeSiteName',
         'policyGroupId'      => 'PolicyGroupId',
         'protocolType'       => 'ProtocolType',
+        'queryFotaUpdate'    => 'QueryFotaUpdate',
         'regionId'           => 'RegionId',
+        'tag'                => 'Tag',
         'userName'           => 'UserName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -150,6 +174,9 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->managementFlag) {
+            $res['ManagementFlag'] = $this->managementFlag;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -159,14 +186,29 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+        if (null !== $this->officeSiteName) {
+            $res['OfficeSiteName'] = $this->officeSiteName;
+        }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
+        if (null !== $this->queryFotaUpdate) {
+            $res['QueryFotaUpdate'] = $this->queryFotaUpdate;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -219,6 +261,9 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['ManagementFlag'])) {
+            $model->managementFlag = $map['ManagementFlag'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -228,14 +273,29 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+        if (isset($map['OfficeSiteName'])) {
+            $model->officeSiteName = $map['OfficeSiteName'];
+        }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
+        if (isset($map['QueryFotaUpdate'])) {
+            $model->queryFotaUpdate = $map['QueryFotaUpdate'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

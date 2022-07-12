@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ExportDesktopListInfoRequest extends Model
@@ -29,11 +30,6 @@ class ExportDesktopListInfoRequest extends Model
     public $desktopStatus;
 
     /**
-     * @var string
-     */
-    public $directoryId;
-
-    /**
      * @var string[]
      */
     public $endUserId;
@@ -47,6 +43,11 @@ class ExportDesktopListInfoRequest extends Model
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $langType;
 
     /**
      * @var int
@@ -74,6 +75,11 @@ class ExportDesktopListInfoRequest extends Model
     public $regionId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $userName;
@@ -82,21 +88,21 @@ class ExportDesktopListInfoRequest extends Model
         'desktopId'     => 'DesktopId',
         'desktopName'   => 'DesktopName',
         'desktopStatus' => 'DesktopStatus',
-        'directoryId'   => 'DirectoryId',
         'endUserId'     => 'EndUserId',
         'expiredTime'   => 'ExpiredTime',
         'groupId'       => 'GroupId',
+        'langType'      => 'LangType',
         'maxResults'    => 'MaxResults',
         'nextToken'     => 'NextToken',
         'officeSiteId'  => 'OfficeSiteId',
         'policyGroupId' => 'PolicyGroupId',
         'regionId'      => 'RegionId',
+        'tag'           => 'Tag',
         'userName'      => 'UserName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -114,9 +120,6 @@ class ExportDesktopListInfoRequest extends Model
         if (null !== $this->desktopStatus) {
             $res['DesktopStatus'] = $this->desktopStatus;
         }
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
-        }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
@@ -125,6 +128,9 @@ class ExportDesktopListInfoRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->langType) {
+            $res['LangType'] = $this->langType;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -140,6 +146,15 @@ class ExportDesktopListInfoRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -170,9 +185,6 @@ class ExportDesktopListInfoRequest extends Model
         if (isset($map['DesktopStatus'])) {
             $model->desktopStatus = $map['DesktopStatus'];
         }
-        if (isset($map['DirectoryId'])) {
-            $model->directoryId = $map['DirectoryId'];
-        }
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
                 $model->endUserId = $map['EndUserId'];
@@ -183,6 +195,9 @@ class ExportDesktopListInfoRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['LangType'])) {
+            $model->langType = $map['LangType'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -198,6 +213,15 @@ class ExportDesktopListInfoRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

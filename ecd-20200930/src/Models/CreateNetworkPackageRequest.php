@@ -66,9 +66,6 @@ class CreateNetworkPackageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('bandwidth', $this->bandwidth, true);
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

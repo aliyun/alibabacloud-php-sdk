@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopGroupRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allClassifyUsers;
+
+    /**
      * @var int
      */
     public $allowAutoSetup;
@@ -24,6 +29,11 @@ class CreateDesktopGroupRequest extends Model
     public $autoPay;
 
     /**
+     * @var int
+     */
+    public $bindAmount;
+
+    /**
      * @var string
      */
     public $bundleId;
@@ -32,6 +42,11 @@ class CreateDesktopGroupRequest extends Model
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $classify;
 
     /**
      * @var string
@@ -67,6 +82,11 @@ class CreateDesktopGroupRequest extends Model
      * @var int
      */
     public $keepDuration;
+
+    /**
+     * @var int
+     */
+    public $loadPolicy;
 
     /**
      * @var int
@@ -119,15 +139,28 @@ class CreateDesktopGroupRequest extends Model
     public $scaleStrategyId;
 
     /**
+     * @var bool
+     */
+    public $volumeEncryptionEnabled;
+
+    /**
+     * @var string
+     */
+    public $volumeEncryptionKey;
+
+    /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
+        'allClassifyUsers'        => 'AllClassifyUsers',
         'allowAutoSetup'          => 'AllowAutoSetup',
         'allowBufferCount'        => 'AllowBufferCount',
         'autoPay'                 => 'AutoPay',
+        'bindAmount'              => 'BindAmount',
         'bundleId'                => 'BundleId',
         'chargeType'              => 'ChargeType',
+        'classify'                => 'Classify',
         'clientToken'             => 'ClientToken',
         'comments'                => 'Comments',
         'defaultInitDesktopCount' => 'DefaultInitDesktopCount',
@@ -135,6 +168,7 @@ class CreateDesktopGroupRequest extends Model
         'directoryId'             => 'DirectoryId',
         'endUserIds'              => 'EndUserIds',
         'keepDuration'            => 'KeepDuration',
+        'loadPolicy'              => 'LoadPolicy',
         'maxDesktopsCount'        => 'MaxDesktopsCount',
         'minDesktopsCount'        => 'MinDesktopsCount',
         'officeSiteId'            => 'OfficeSiteId',
@@ -145,20 +179,21 @@ class CreateDesktopGroupRequest extends Model
         'regionId'                => 'RegionId',
         'resetType'               => 'ResetType',
         'scaleStrategyId'         => 'ScaleStrategyId',
+        'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
+        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
         'vpcId'                   => 'VpcId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('bundleId', $this->bundleId, true);
-        Model::validateRequired('endUserIds', $this->endUserIds, true);
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allClassifyUsers) {
+            $res['AllClassifyUsers'] = $this->allClassifyUsers;
+        }
         if (null !== $this->allowAutoSetup) {
             $res['AllowAutoSetup'] = $this->allowAutoSetup;
         }
@@ -168,11 +203,17 @@ class CreateDesktopGroupRequest extends Model
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+        if (null !== $this->bindAmount) {
+            $res['BindAmount'] = $this->bindAmount;
+        }
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->classify) {
+            $res['Classify'] = $this->classify;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -194,6 +235,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (null !== $this->keepDuration) {
             $res['KeepDuration'] = $this->keepDuration;
+        }
+        if (null !== $this->loadPolicy) {
+            $res['LoadPolicy'] = $this->loadPolicy;
         }
         if (null !== $this->maxDesktopsCount) {
             $res['MaxDesktopsCount'] = $this->maxDesktopsCount;
@@ -225,6 +269,12 @@ class CreateDesktopGroupRequest extends Model
         if (null !== $this->scaleStrategyId) {
             $res['ScaleStrategyId'] = $this->scaleStrategyId;
         }
+        if (null !== $this->volumeEncryptionEnabled) {
+            $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
+        }
+        if (null !== $this->volumeEncryptionKey) {
+            $res['VolumeEncryptionKey'] = $this->volumeEncryptionKey;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -240,6 +290,9 @@ class CreateDesktopGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllClassifyUsers'])) {
+            $model->allClassifyUsers = $map['AllClassifyUsers'];
+        }
         if (isset($map['AllowAutoSetup'])) {
             $model->allowAutoSetup = $map['AllowAutoSetup'];
         }
@@ -249,11 +302,17 @@ class CreateDesktopGroupRequest extends Model
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+        if (isset($map['BindAmount'])) {
+            $model->bindAmount = $map['BindAmount'];
+        }
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['Classify'])) {
+            $model->classify = $map['Classify'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -277,6 +336,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (isset($map['KeepDuration'])) {
             $model->keepDuration = $map['KeepDuration'];
+        }
+        if (isset($map['LoadPolicy'])) {
+            $model->loadPolicy = $map['LoadPolicy'];
         }
         if (isset($map['MaxDesktopsCount'])) {
             $model->maxDesktopsCount = $map['MaxDesktopsCount'];
@@ -307,6 +369,12 @@ class CreateDesktopGroupRequest extends Model
         }
         if (isset($map['ScaleStrategyId'])) {
             $model->scaleStrategyId = $map['ScaleStrategyId'];
+        }
+        if (isset($map['VolumeEncryptionEnabled'])) {
+            $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];
+        }
+        if (isset($map['VolumeEncryptionKey'])) {
+            $model->volumeEncryptionKey = $map['VolumeEncryptionKey'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

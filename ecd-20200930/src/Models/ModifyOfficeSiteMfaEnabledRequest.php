@@ -30,9 +30,6 @@ class ModifyOfficeSiteMfaEnabledRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('mfaEnabled', $this->mfaEnabled, true);
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

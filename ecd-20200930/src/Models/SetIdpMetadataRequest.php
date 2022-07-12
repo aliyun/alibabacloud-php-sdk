@@ -36,8 +36,6 @@ class SetIdpMetadataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('idpMetadata', $this->idpMetadata, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

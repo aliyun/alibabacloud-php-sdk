@@ -4,55 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTagResourcesResponse\tagResources;
 use AlibabaCloud\Tea\Model;
 
 class ListTagResourcesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $nextToken;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $statusCode;
 
     /**
-     * @var tagResources[]
+     * @var ListTagResourcesResponseBody
      */
-    public $tagResources;
+    public $body;
     protected $_name = [
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
-        'tagResources' => 'TagResources',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('tagResources', $this->tagResources, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->tagResources) {
-            $res['TagResources'] = [];
-            if (null !== $this->tagResources && \is_array($this->tagResources)) {
-                $n = 0;
-                foreach ($this->tagResources as $item) {
-                    $res['TagResources'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +59,14 @@ class ListTagResourcesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['TagResources'])) {
-            if (!empty($map['TagResources'])) {
-                $model->tagResources = [];
-                $n                   = 0;
-                foreach ($map['TagResources'] as $item) {
-                    $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListTagResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,43 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskProgressResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $createTime;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $statusCode;
 
     /**
-     * @var string
+     * @var DescribeScanTaskProgressResponseBody
      */
-    public $taskStatus;
+    public $body;
     protected $_name = [
-        'createTime' => 'CreateTime',
-        'requestId'  => 'RequestId',
-        'taskStatus' => 'TaskStatus',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('createTime', $this->createTime, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('taskStatus', $this->taskStatus, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class DescribeScanTaskProgressResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
+        if (isset($map['body'])) {
+            $model->body = DescribeScanTaskProgressResponseBody::fromMap($map['body']);
         }
 
         return $model;

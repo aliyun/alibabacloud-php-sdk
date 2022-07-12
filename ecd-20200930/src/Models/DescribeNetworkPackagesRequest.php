@@ -42,7 +42,6 @@ class DescribeNetworkPackagesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

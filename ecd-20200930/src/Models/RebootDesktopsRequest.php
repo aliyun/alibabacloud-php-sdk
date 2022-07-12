@@ -24,8 +24,6 @@ class RebootDesktopsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('desktopId', $this->desktopId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

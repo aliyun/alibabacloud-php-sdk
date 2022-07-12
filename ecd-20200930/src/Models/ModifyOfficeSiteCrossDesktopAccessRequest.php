@@ -30,9 +30,6 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('enableCrossDesktopAccess', $this->enableCrossDesktopAccess, true);
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

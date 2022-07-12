@@ -24,11 +24,6 @@ class ExportDesktopGroupInfoRequest extends Model
     public $desktopGroupName;
 
     /**
-     * @var string
-     */
-    public $directoryId;
-
-    /**
      * @var string[]
      */
     public $endUserId;
@@ -37,6 +32,11 @@ class ExportDesktopGroupInfoRequest extends Model
      * @var string
      */
     public $expiredTime;
+
+    /**
+     * @var string
+     */
+    public $langType;
 
     /**
      * @var int
@@ -66,9 +66,9 @@ class ExportDesktopGroupInfoRequest extends Model
         'chargeType'       => 'ChargeType',
         'desktopGroupId'   => 'DesktopGroupId',
         'desktopGroupName' => 'DesktopGroupName',
-        'directoryId'      => 'DirectoryId',
         'endUserId'        => 'EndUserId',
         'expiredTime'      => 'ExpiredTime',
+        'langType'         => 'LangType',
         'maxResults'       => 'MaxResults',
         'nextToken'        => 'NextToken',
         'officeSiteId'     => 'OfficeSiteId',
@@ -78,7 +78,6 @@ class ExportDesktopGroupInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -93,14 +92,14 @@ class ExportDesktopGroupInfoRequest extends Model
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
         }
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
-        }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->langType) {
+            $res['LangType'] = $this->langType;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -140,9 +139,6 @@ class ExportDesktopGroupInfoRequest extends Model
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
         }
-        if (isset($map['DirectoryId'])) {
-            $model->directoryId = $map['DirectoryId'];
-        }
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
                 $model->endUserId = $map['EndUserId'];
@@ -150,6 +146,9 @@ class ExportDesktopGroupInfoRequest extends Model
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['LangType'])) {
+            $model->langType = $map['LangType'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

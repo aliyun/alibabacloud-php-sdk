@@ -11,6 +11,11 @@ class ModifyADConnectorDirectoryRequest extends Model
     /**
      * @var string
      */
+    public $adHostname;
+
+    /**
+     * @var string
+     */
     public $directoryId;
 
     /**
@@ -46,6 +51,11 @@ class ModifyADConnectorDirectoryRequest extends Model
     /**
      * @var string
      */
+    public $OUName;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -58,6 +68,7 @@ class ModifyADConnectorDirectoryRequest extends Model
      */
     public $subDomainName;
     protected $_name = [
+        'adHostname'          => 'AdHostname',
         'directoryId'         => 'DirectoryId',
         'directoryName'       => 'DirectoryName',
         'dnsAddress'          => 'DnsAddress',
@@ -65,6 +76,7 @@ class ModifyADConnectorDirectoryRequest extends Model
         'domainPassword'      => 'DomainPassword',
         'domainUserName'      => 'DomainUserName',
         'mfaEnabled'          => 'MfaEnabled',
+        'OUName'              => 'OUName',
         'regionId'            => 'RegionId',
         'subDomainDnsAddress' => 'SubDomainDnsAddress',
         'subDomainName'       => 'SubDomainName',
@@ -72,13 +84,14 @@ class ModifyADConnectorDirectoryRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('directoryId', $this->directoryId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adHostname) {
+            $res['AdHostname'] = $this->adHostname;
+        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
@@ -99,6 +112,9 @@ class ModifyADConnectorDirectoryRequest extends Model
         }
         if (null !== $this->mfaEnabled) {
             $res['MfaEnabled'] = $this->mfaEnabled;
+        }
+        if (null !== $this->OUName) {
+            $res['OUName'] = $this->OUName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -121,6 +137,9 @@ class ModifyADConnectorDirectoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdHostname'])) {
+            $model->adHostname = $map['AdHostname'];
+        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
@@ -143,6 +162,9 @@ class ModifyADConnectorDirectoryRequest extends Model
         }
         if (isset($map['MfaEnabled'])) {
             $model->mfaEnabled = $map['MfaEnabled'];
+        }
+        if (isset($map['OUName'])) {
+            $model->OUName = $map['OUName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

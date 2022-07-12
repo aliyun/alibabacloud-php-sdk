@@ -21,6 +21,11 @@ class AddUserToDesktopGroupRequest extends Model
     /**
      * @var string[]
      */
+    public $desktopGroupIds;
+
+    /**
+     * @var string[]
+     */
     public $endUserIds;
 
     /**
@@ -28,17 +33,15 @@ class AddUserToDesktopGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'desktopGroupId' => 'DesktopGroupId',
-        'endUserIds'     => 'EndUserIds',
-        'regionId'       => 'RegionId',
+        'clientToken'     => 'ClientToken',
+        'desktopGroupId'  => 'DesktopGroupId',
+        'desktopGroupIds' => 'DesktopGroupIds',
+        'endUserIds'      => 'EndUserIds',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
-        Model::validateRequired('endUserIds', $this->endUserIds, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -49,6 +52,9 @@ class AddUserToDesktopGroupRequest extends Model
         }
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
+        }
+        if (null !== $this->desktopGroupIds) {
+            $res['DesktopGroupIds'] = $this->desktopGroupIds;
         }
         if (null !== $this->endUserIds) {
             $res['EndUserIds'] = $this->endUserIds;
@@ -73,6 +79,11 @@ class AddUserToDesktopGroupRequest extends Model
         }
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
+        }
+        if (isset($map['DesktopGroupIds'])) {
+            if (!empty($map['DesktopGroupIds'])) {
+                $model->desktopGroupIds = $map['DesktopGroupIds'];
+            }
         }
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {

@@ -16,6 +16,11 @@ class RemoveUserFromDesktopGroupRequest extends Model
     /**
      * @var string[]
      */
+    public $desktopGroupIds;
+
+    /**
+     * @var string[]
+     */
     public $endUserIds;
 
     /**
@@ -23,16 +28,14 @@ class RemoveUserFromDesktopGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'desktopGroupId' => 'DesktopGroupId',
-        'endUserIds'     => 'EndUserIds',
-        'regionId'       => 'RegionId',
+        'desktopGroupId'  => 'DesktopGroupId',
+        'desktopGroupIds' => 'DesktopGroupIds',
+        'endUserIds'      => 'EndUserIds',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
-        Model::validateRequired('endUserIds', $this->endUserIds, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -40,6 +43,9 @@ class RemoveUserFromDesktopGroupRequest extends Model
         $res = [];
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
+        }
+        if (null !== $this->desktopGroupIds) {
+            $res['DesktopGroupIds'] = $this->desktopGroupIds;
         }
         if (null !== $this->endUserIds) {
             $res['EndUserIds'] = $this->endUserIds;
@@ -61,6 +67,11 @@ class RemoveUserFromDesktopGroupRequest extends Model
         $model = new self();
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
+        }
+        if (isset($map['DesktopGroupIds'])) {
+            if (!empty($map['DesktopGroupIds'])) {
+                $model->desktopGroupIds = $map['DesktopGroupIds'];
+            }
         }
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {

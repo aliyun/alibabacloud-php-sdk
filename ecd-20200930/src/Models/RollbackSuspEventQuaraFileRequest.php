@@ -30,8 +30,6 @@ class RollbackSuspEventQuaraFileRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('quaraFieldId', $this->quaraFieldId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

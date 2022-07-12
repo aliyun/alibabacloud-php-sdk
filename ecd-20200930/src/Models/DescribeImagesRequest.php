@@ -14,6 +14,11 @@ class DescribeImagesRequest extends Model
     public $desktopInstanceType;
 
     /**
+     * @var string
+     */
+    public $fotaChannel;
+
+    /**
      * @var bool
      */
     public $gpuCategory;
@@ -69,6 +74,7 @@ class DescribeImagesRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopInstanceType' => 'DesktopInstanceType',
+        'fotaChannel'         => 'FotaChannel',
         'gpuCategory'         => 'GpuCategory',
         'gpuDriverVersion'    => 'GpuDriverVersion',
         'imageId'             => 'ImageId',
@@ -84,7 +90,6 @@ class DescribeImagesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -92,6 +97,9 @@ class DescribeImagesRequest extends Model
         $res = [];
         if (null !== $this->desktopInstanceType) {
             $res['DesktopInstanceType'] = $this->desktopInstanceType;
+        }
+        if (null !== $this->fotaChannel) {
+            $res['FotaChannel'] = $this->fotaChannel;
         }
         if (null !== $this->gpuCategory) {
             $res['GpuCategory'] = $this->gpuCategory;
@@ -140,6 +148,9 @@ class DescribeImagesRequest extends Model
         $model = new self();
         if (isset($map['DesktopInstanceType'])) {
             $model->desktopInstanceType = $map['DesktopInstanceType'];
+        }
+        if (isset($map['FotaChannel'])) {
+            $model->fotaChannel = $map['FotaChannel'];
         }
         if (isset($map['GpuCategory'])) {
             $model->gpuCategory = $map['GpuCategory'];

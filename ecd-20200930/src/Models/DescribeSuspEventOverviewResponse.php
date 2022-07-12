@@ -9,53 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventOverviewResponse extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $remindCount;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $headers;
 
     /**
      * @var int
      */
-    public $seriousCount;
+    public $statusCode;
 
     /**
-     * @var int
+     * @var DescribeSuspEventOverviewResponseBody
      */
-    public $suspiciousCount;
+    public $body;
     protected $_name = [
-        'remindCount'     => 'RemindCount',
-        'requestId'       => 'RequestId',
-        'seriousCount'    => 'SeriousCount',
-        'suspiciousCount' => 'SuspiciousCount',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('remindCount', $this->remindCount, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('seriousCount', $this->seriousCount, true);
-        Model::validateRequired('suspiciousCount', $this->suspiciousCount, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remindCount) {
-            $res['RemindCount'] = $this->remindCount;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->seriousCount) {
-            $res['SeriousCount'] = $this->seriousCount;
-        }
-        if (null !== $this->suspiciousCount) {
-            $res['SuspiciousCount'] = $this->suspiciousCount;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +59,14 @@ class DescribeSuspEventOverviewResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RemindCount'])) {
-            $model->remindCount = $map['RemindCount'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['SeriousCount'])) {
-            $model->seriousCount = $map['SeriousCount'];
-        }
-        if (isset($map['SuspiciousCount'])) {
-            $model->suspiciousCount = $map['SuspiciousCount'];
+        if (isset($map['body'])) {
+            $model->body = DescribeSuspEventOverviewResponseBody::fromMap($map['body']);
         }
 
         return $model;

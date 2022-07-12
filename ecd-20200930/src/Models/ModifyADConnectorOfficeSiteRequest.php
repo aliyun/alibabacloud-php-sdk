@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyADConnectorOfficeSiteRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $adHostname;
+
+    /**
      * @var string[]
      */
     public $dnsAddress;
@@ -36,6 +41,11 @@ class ModifyADConnectorOfficeSiteRequest extends Model
     /**
      * @var string
      */
+    public $OUName;
+
+    /**
+     * @var string
+     */
     public $officeSiteId;
 
     /**
@@ -58,11 +68,13 @@ class ModifyADConnectorOfficeSiteRequest extends Model
      */
     public $subDomainName;
     protected $_name = [
+        'adHostname'          => 'AdHostname',
         'dnsAddress'          => 'DnsAddress',
         'domainName'          => 'DomainName',
         'domainPassword'      => 'DomainPassword',
         'domainUserName'      => 'DomainUserName',
         'mfaEnabled'          => 'MfaEnabled',
+        'OUName'              => 'OUName',
         'officeSiteId'        => 'OfficeSiteId',
         'officeSiteName'      => 'OfficeSiteName',
         'regionId'            => 'RegionId',
@@ -72,13 +84,14 @@ class ModifyADConnectorOfficeSiteRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adHostname) {
+            $res['AdHostname'] = $this->adHostname;
+        }
         if (null !== $this->dnsAddress) {
             $res['DnsAddress'] = $this->dnsAddress;
         }
@@ -93,6 +106,9 @@ class ModifyADConnectorOfficeSiteRequest extends Model
         }
         if (null !== $this->mfaEnabled) {
             $res['MfaEnabled'] = $this->mfaEnabled;
+        }
+        if (null !== $this->OUName) {
+            $res['OUName'] = $this->OUName;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
@@ -121,6 +137,9 @@ class ModifyADConnectorOfficeSiteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdHostname'])) {
+            $model->adHostname = $map['AdHostname'];
+        }
         if (isset($map['DnsAddress'])) {
             if (!empty($map['DnsAddress'])) {
                 $model->dnsAddress = $map['DnsAddress'];
@@ -137,6 +156,9 @@ class ModifyADConnectorOfficeSiteRequest extends Model
         }
         if (isset($map['MfaEnabled'])) {
             $model->mfaEnabled = $map['MfaEnabled'];
+        }
+        if (isset($map['OUName'])) {
+            $model->OUName = $map['OUName'];
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];

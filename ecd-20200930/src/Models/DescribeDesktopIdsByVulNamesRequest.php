@@ -42,10 +42,6 @@ class DescribeDesktopIdsByVulNamesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('type', $this->type, true);
-        Model::validateRequired('vulName', $this->vulName, true);
     }
 
     public function toMap()

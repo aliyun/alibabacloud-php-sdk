@@ -4,45 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulDetailsResponse\cves;
 use AlibabaCloud\Tea\Model;
 
 class DescribeVulDetailsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var cves[]
+     * @var int
      */
-    public $cves;
+    public $statusCode;
+
+    /**
+     * @var DescribeVulDetailsResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'cves'      => 'Cves',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('cves', $this->cves, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->cves) {
-            $res['Cves'] = [];
-            if (null !== $this->cves && \is_array($this->cves)) {
-                $n = 0;
-                foreach ($this->cves as $item) {
-                    $res['Cves'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +59,14 @@ class DescribeVulDetailsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Cves'])) {
-            if (!empty($map['Cves'])) {
-                $model->cves = [];
-                $n           = 0;
-                foreach ($map['Cves'] as $item) {
-                    $model->cves[$n++] = null !== $item ? cves::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeVulDetailsResponseBody::fromMap($map['body']);
         }
 
         return $model;

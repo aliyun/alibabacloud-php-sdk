@@ -40,6 +40,11 @@ class CreateDesktopsRequest extends Model
     public $desktopName;
 
     /**
+     * @var bool
+     */
+    public $desktopNameSuffix;
+
+    /**
      * @var string
      */
     public $directoryId;
@@ -105,37 +110,47 @@ class CreateDesktopsRequest extends Model
     public $userName;
 
     /**
+     * @var bool
+     */
+    public $volumeEncryptionEnabled;
+
+    /**
+     * @var string
+     */
+    public $volumeEncryptionKey;
+
+    /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'amount'         => 'Amount',
-        'autoPay'        => 'AutoPay',
-        'autoRenew'      => 'AutoRenew',
-        'bundleId'       => 'BundleId',
-        'chargeType'     => 'ChargeType',
-        'desktopName'    => 'DesktopName',
-        'directoryId'    => 'DirectoryId',
-        'endUserId'      => 'EndUserId',
-        'groupId'        => 'GroupId',
-        'hostname'       => 'Hostname',
-        'officeSiteId'   => 'OfficeSiteId',
-        'period'         => 'Period',
-        'periodUnit'     => 'PeriodUnit',
-        'policyGroupId'  => 'PolicyGroupId',
-        'promotionId'    => 'PromotionId',
-        'regionId'       => 'RegionId',
-        'tag'            => 'Tag',
-        'userAssignMode' => 'UserAssignMode',
-        'userName'       => 'UserName',
-        'vpcId'          => 'VpcId',
+        'amount'                  => 'Amount',
+        'autoPay'                 => 'AutoPay',
+        'autoRenew'               => 'AutoRenew',
+        'bundleId'                => 'BundleId',
+        'chargeType'              => 'ChargeType',
+        'desktopName'             => 'DesktopName',
+        'desktopNameSuffix'       => 'DesktopNameSuffix',
+        'directoryId'             => 'DirectoryId',
+        'endUserId'               => 'EndUserId',
+        'groupId'                 => 'GroupId',
+        'hostname'                => 'Hostname',
+        'officeSiteId'            => 'OfficeSiteId',
+        'period'                  => 'Period',
+        'periodUnit'              => 'PeriodUnit',
+        'policyGroupId'           => 'PolicyGroupId',
+        'promotionId'             => 'PromotionId',
+        'regionId'                => 'RegionId',
+        'tag'                     => 'Tag',
+        'userAssignMode'          => 'UserAssignMode',
+        'userName'                => 'UserName',
+        'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
+        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
+        'vpcId'                   => 'VpcId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('bundleId', $this->bundleId, true);
-        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -158,6 +173,9 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
+        }
+        if (null !== $this->desktopNameSuffix) {
+            $res['DesktopNameSuffix'] = $this->desktopNameSuffix;
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
@@ -204,6 +222,12 @@ class CreateDesktopsRequest extends Model
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+        if (null !== $this->volumeEncryptionEnabled) {
+            $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
+        }
+        if (null !== $this->volumeEncryptionKey) {
+            $res['VolumeEncryptionKey'] = $this->volumeEncryptionKey;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -236,6 +260,9 @@ class CreateDesktopsRequest extends Model
         }
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
+        }
+        if (isset($map['DesktopNameSuffix'])) {
+            $model->desktopNameSuffix = $map['DesktopNameSuffix'];
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
@@ -283,6 +310,12 @@ class CreateDesktopsRequest extends Model
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+        if (isset($map['VolumeEncryptionEnabled'])) {
+            $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];
+        }
+        if (isset($map['VolumeEncryptionKey'])) {
+            $model->volumeEncryptionKey = $map['VolumeEncryptionKey'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

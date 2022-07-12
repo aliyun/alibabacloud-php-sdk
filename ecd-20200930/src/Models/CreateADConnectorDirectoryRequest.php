@@ -54,6 +54,11 @@ class CreateADConnectorDirectoryRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $specification;
+
+    /**
      * @var string[]
      */
     public $subDomainDnsAddress;
@@ -77,6 +82,7 @@ class CreateADConnectorDirectoryRequest extends Model
         'enableAdminAccess'   => 'EnableAdminAccess',
         'mfaEnabled'          => 'MfaEnabled',
         'regionId'            => 'RegionId',
+        'specification'       => 'Specification',
         'subDomainDnsAddress' => 'SubDomainDnsAddress',
         'subDomainName'       => 'SubDomainName',
         'vSwitchId'           => 'VSwitchId',
@@ -84,12 +90,6 @@ class CreateADConnectorDirectoryRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dnsAddress', $this->dnsAddress, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('domainPassword', $this->domainPassword, true);
-        Model::validateRequired('domainUserName', $this->domainUserName, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('vSwitchId', $this->vSwitchId, true);
     }
 
     public function toMap()
@@ -121,6 +121,9 @@ class CreateADConnectorDirectoryRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->specification) {
+            $res['Specification'] = $this->specification;
         }
         if (null !== $this->subDomainDnsAddress) {
             $res['SubDomainDnsAddress'] = $this->subDomainDnsAddress;
@@ -171,6 +174,9 @@ class CreateADConnectorDirectoryRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Specification'])) {
+            $model->specification = $map['Specification'];
         }
         if (isset($map['SubDomainDnsAddress'])) {
             if (!empty($map['SubDomainDnsAddress'])) {

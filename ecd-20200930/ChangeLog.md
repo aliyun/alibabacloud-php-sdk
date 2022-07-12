@@ -1,3 +1,6 @@
+2022-07-12 Version: 2.0.7
+- Upgrade sdk to same version.
+
 2021-12-20 Version: 1.0.2
 - Rebuild desktop using image id.
 
