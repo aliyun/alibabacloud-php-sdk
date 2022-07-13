@@ -91,6 +91,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribePerspectiveRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribePerspectiveResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\FeedbackRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\FeedbackResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\GenerateUserAccessTokenRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\GenerateUserAccessTokenResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAsyncResultRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAsyncResultResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetInstancePublishTaskStateRequest;
@@ -2205,6 +2207,67 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->feedbackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateUserAccessTokenRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GenerateUserAccessTokenResponse
+     */
+    public function generateUserAccessTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $query['ExtraInfo'] = $request->extraInfo;
+        }
+        if (!Utils::isUnset($request->foreignId)) {
+            $query['ForeignId'] = $request->foreignId;
+        }
+        if (!Utils::isUnset($request->nick)) {
+            $query['Nick'] = $request->nick;
+        }
+        if (!Utils::isUnset($request->telephone)) {
+            $query['Telephone'] = $request->telephone;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateUserAccessToken',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateUserAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateUserAccessTokenRequest $request
+     *
+     * @return GenerateUserAccessTokenResponse
+     */
+    public function generateUserAccessToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateUserAccessTokenWithOptions($request, $runtime);
     }
 
     /**
