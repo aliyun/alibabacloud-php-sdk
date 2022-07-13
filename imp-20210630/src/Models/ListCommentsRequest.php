@@ -16,6 +16,13 @@ class ListCommentsRequest extends Model
     public $appId;
 
     /**
+     * @description 弹幕创建者ID。
+     *
+     * @var string
+     */
+    public $creatorId;
+
+    /**
      * @description 查询弹幕消息列表的分页页数。应该从1开始，每次分页拉取时递增。
      *
      * @var int
@@ -50,12 +57,13 @@ class ListCommentsRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'appId'    => 'AppId',
-        'pageNum'  => 'PageNum',
-        'pageSize' => 'PageSize',
-        'roomId'   => 'RoomId',
-        'sortType' => 'SortType',
-        'userId'   => 'UserId',
+        'appId'     => 'AppId',
+        'creatorId' => 'CreatorId',
+        'pageNum'   => 'PageNum',
+        'pageSize'  => 'PageSize',
+        'roomId'    => 'RoomId',
+        'sortType'  => 'SortType',
+        'userId'    => 'UserId',
     ];
 
     public function validate()
@@ -67,6 +75,9 @@ class ListCommentsRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->creatorId) {
+            $res['CreatorId'] = $this->creatorId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -97,6 +108,9 @@ class ListCommentsRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['CreatorId'])) {
+            $model->creatorId = $map['CreatorId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

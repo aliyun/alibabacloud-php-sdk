@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteCommentRequest extends Model
+class DeleteCommentByCreatorIdRequest extends Model
 {
     /**
      * @description 应用唯一标识，可以包含小写字母、数字，长度为6个字符。
@@ -79,7 +79,7 @@ class DeleteCommentRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteCommentRequest
+     * @return DeleteCommentByCreatorIdRequest
      */
     public static function fromMap($map = [])
     {
