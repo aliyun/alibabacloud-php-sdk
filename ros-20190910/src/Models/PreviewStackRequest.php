@@ -37,6 +37,11 @@ class PreviewStackRequest extends Model
     /**
      * @var string
      */
+    public $stackId;
+
+    /**
+     * @var string
+     */
     public $stackName;
 
     /**
@@ -89,6 +94,7 @@ class PreviewStackRequest extends Model
         'parallelism'             => 'Parallelism',
         'parameters'              => 'Parameters',
         'regionId'                => 'RegionId',
+        'stackId'                 => 'StackId',
         'stackName'               => 'StackName',
         'stackPolicyBody'         => 'StackPolicyBody',
         'stackPolicyURL'          => 'StackPolicyURL',
@@ -128,6 +134,9 @@ class PreviewStackRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
         if (null !== $this->stackName) {
             $res['StackName'] = $this->stackName;
@@ -191,6 +200,9 @@ class PreviewStackRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
         if (isset($map['StackName'])) {
             $model->stackName = $map['StackName'];

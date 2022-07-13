@@ -11,6 +11,11 @@ class resources extends Model
     /**
      * @var string
      */
+    public $action;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -22,6 +27,11 @@ class resources extends Model
      * @var mixed[]
      */
     public $properties;
+
+    /**
+     * @var string
+     */
+    public $replacement;
 
     /**
      * @var string[]
@@ -38,9 +48,11 @@ class resources extends Model
      */
     public $stack;
     protected $_name = [
+        'action'            => 'Action',
         'description'       => 'Description',
         'logicalResourceId' => 'LogicalResourceId',
         'properties'        => 'Properties',
+        'replacement'       => 'Replacement',
         'requiredBy'        => 'RequiredBy',
         'resourceType'      => 'ResourceType',
         'stack'             => 'Stack',
@@ -53,6 +65,9 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->action) {
+            $res['Action'] = $this->action;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -61,6 +76,9 @@ class resources extends Model
         }
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
+        }
+        if (null !== $this->replacement) {
+            $res['Replacement'] = $this->replacement;
         }
         if (null !== $this->requiredBy) {
             $res['RequiredBy'] = $this->requiredBy;
@@ -83,6 +101,9 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Action'])) {
+            $model->action = $map['Action'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -91,6 +112,9 @@ class resources extends Model
         }
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];
+        }
+        if (isset($map['Replacement'])) {
+            $model->replacement = $map['Replacement'];
         }
         if (isset($map['RequiredBy'])) {
             if (!empty($map['RequiredBy'])) {
