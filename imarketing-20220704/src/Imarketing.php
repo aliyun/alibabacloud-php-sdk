@@ -9,11 +9,17 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceShrinkRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBrandPageRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBrandPageResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartPageRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartPageResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetUserFinishedAdRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetUserFinishedAdResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingShrinkRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\SendSmsRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\SendSmsResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -142,6 +148,113 @@ class Imarketing extends OpenApiClient
     }
 
     /**
+     * @param GetBrandPageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetBrandPageResponse
+     */
+    public function getBrandPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountNo)) {
+            $query['AccountNo'] = $request->accountNo;
+        }
+        if (!Utils::isUnset($request->mainId)) {
+            $query['MainId'] = $request->mainId;
+        }
+        if (!Utils::isUnset($request->mainName)) {
+            $query['MainName'] = $request->mainName;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBrandPage',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBrandPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBrandPageRequest $request
+     *
+     * @return GetBrandPageResponse
+     */
+    public function getBrandPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBrandPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMainPartPageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetMainPartPageResponse
+     */
+    public function getMainPartPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mainId)) {
+            $query['MainId'] = $request->mainId;
+        }
+        if (!Utils::isUnset($request->mainName)) {
+            $query['MainName'] = $request->mainName;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMainPartPage',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMainPartPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMainPartPageRequest $request
+     *
+     * @return GetMainPartPageResponse
+     */
+    public function getMainPartPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMainPartPageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetUserFinishedAdRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -195,6 +308,9 @@ class Imarketing extends OpenApiClient
         if (!Utils::isUnset($tmpReq->app)) {
             $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
         }
+        if (!Utils::isUnset($tmpReq->device)) {
+            $request->deviceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->device), 'Device', 'json');
+        }
         if (!Utils::isUnset($tmpReq->ext)) {
             $request->extShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
         }
@@ -233,5 +349,48 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAdvertisingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendSmsRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return SendSmsResponse
+     */
+    public function sendSmsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->phoneNumbers)) {
+            $query['PhoneNumbers'] = $request->phoneNumbers;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendSms',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendSmsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendSmsRequest $request
+     *
+     * @return SendSmsResponse
+     */
+    public function sendSms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendSmsWithOptions($request, $runtime);
     }
 }

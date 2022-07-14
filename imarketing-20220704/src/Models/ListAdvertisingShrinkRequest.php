@@ -23,6 +23,11 @@ class ListAdvertisingShrinkRequest extends Model
     /**
      * @var string
      */
+    public $deviceShrink;
+
+    /**
+     * @var string
+     */
     public $extShrink;
 
     /**
@@ -53,13 +58,14 @@ class ListAdvertisingShrinkRequest extends Model
      */
     public $userShrink;
     protected $_name = [
-        'appShrink'  => 'App',
-        'dealtype'   => 'Dealtype',
-        'extShrink'  => 'Ext',
-        'id'         => 'Id',
-        'impShrink'  => 'Imp',
-        'test'       => 'Test',
-        'userShrink' => 'User',
+        'appShrink'    => 'App',
+        'dealtype'     => 'Dealtype',
+        'deviceShrink' => 'Device',
+        'extShrink'    => 'Ext',
+        'id'           => 'Id',
+        'impShrink'    => 'Imp',
+        'test'         => 'Test',
+        'userShrink'   => 'User',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class ListAdvertisingShrinkRequest extends Model
         }
         if (null !== $this->dealtype) {
             $res['Dealtype'] = $this->dealtype;
+        }
+        if (null !== $this->deviceShrink) {
+            $res['Device'] = $this->deviceShrink;
         }
         if (null !== $this->extShrink) {
             $res['Ext'] = $this->extShrink;
@@ -107,6 +116,9 @@ class ListAdvertisingShrinkRequest extends Model
         }
         if (isset($map['Dealtype'])) {
             $model->dealtype = $map['Dealtype'];
+        }
+        if (isset($map['Device'])) {
+            $model->deviceShrink = $map['Device'];
         }
         if (isset($map['Ext'])) {
             $model->extShrink = $map['Ext'];

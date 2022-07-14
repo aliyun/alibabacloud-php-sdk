@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imarketing\V20220704\Models;
 
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingRequest\app;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingRequest\device;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingRequest\imp;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingRequest\user;
 use AlibabaCloud\Tea\Model;
@@ -22,6 +23,11 @@ class ListAdvertisingRequest extends Model
      * @var int
      */
     public $dealtype;
+
+    /**
+     * @var device
+     */
+    public $device;
 
     /**
      * @var mixed[]
@@ -58,6 +64,7 @@ class ListAdvertisingRequest extends Model
     protected $_name = [
         'app'      => 'App',
         'dealtype' => 'Dealtype',
+        'device'   => 'Device',
         'ext'      => 'Ext',
         'id'       => 'Id',
         'imp'      => 'Imp',
@@ -77,6 +84,9 @@ class ListAdvertisingRequest extends Model
         }
         if (null !== $this->dealtype) {
             $res['Dealtype'] = $this->dealtype;
+        }
+        if (null !== $this->device) {
+            $res['Device'] = null !== $this->device ? $this->device->toMap() : null;
         }
         if (null !== $this->ext) {
             $res['Ext'] = $this->ext;
@@ -116,6 +126,9 @@ class ListAdvertisingRequest extends Model
         }
         if (isset($map['Dealtype'])) {
             $model->dealtype = $map['Dealtype'];
+        }
+        if (isset($map['Device'])) {
+            $model->device = device::fromMap($map['Device']);
         }
         if (isset($map['Ext'])) {
             $model->ext = $map['Ext'];
