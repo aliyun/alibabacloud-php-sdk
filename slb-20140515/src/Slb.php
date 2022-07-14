@@ -112,6 +112,8 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ListTLSCipherPoliciesRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ListTLSCipherPoliciesResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerInstanceChargeTypeRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerInstanceChargeTypeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerInstanceSpecRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerInstanceSpecResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerInternetSpecRequest;
@@ -196,13 +198,12 @@ class Slb extends OpenApiClient
             'cn-shenzhen'                 => 'slb.aliyuncs.com',
             'cn-hongkong'                 => 'slb.aliyuncs.com',
             'ap-southeast-1'              => 'slb.aliyuncs.com',
-            'us-west-1'                   => 'slb.aliyuncs.com',
             'us-east-1'                   => 'slb.aliyuncs.com',
+            'us-west-1'                   => 'slb.aliyuncs.com',
             'cn-shanghai-finance-1'       => 'slb.aliyuncs.com',
             'cn-shenzhen-finance-1'       => 'slb.aliyuncs.com',
             'cn-north-2-gov-1'            => 'slb.aliyuncs.com',
             'ap-northeast-2-pop'          => 'slb.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'slb.aliyuncs.com',
             'cn-beijing-finance-pop'      => 'slb.aliyuncs.com',
             'cn-beijing-gov-1'            => 'slb.aliyuncs.com',
             'cn-beijing-nu16-b01'         => 'slb.aliyuncs.com',
@@ -227,6 +228,7 @@ class Slb extends OpenApiClient
             'cn-shenzhen-su18-b01'        => 'slb.aliyuncs.com',
             'cn-wuhan'                    => 'slb.aliyuncs.com',
             'cn-yushanfang'               => 'slb.aliyuncs.com',
+            'cn-zhangbei'                 => 'slb.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'slb.aliyuncs.com',
             'cn-zhangjiakou-na62-a01'     => 'slb.aliyuncs.com',
             'cn-zhengzhou-nebula-1'       => 'slb.aliyuncs.com',
@@ -735,6 +737,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->duration)) {
             $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
         }
         if (!Utils::isUnset($request->internetChargeType)) {
             $query['InternetChargeType'] = $request->internetChargeType;
@@ -3938,6 +3943,70 @@ class Slb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyLoadBalancerInstanceChargeTypeRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ModifyLoadBalancerInstanceChargeTypeResponse
+     */
+    public function modifyLoadBalancerInstanceChargeTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLoadBalancerInstanceChargeType',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyLoadBalancerInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyLoadBalancerInstanceChargeTypeRequest $request
+     *
+     * @return ModifyLoadBalancerInstanceChargeTypeResponse
+     */
+    public function modifyLoadBalancerInstanceChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLoadBalancerInstanceChargeTypeWithOptions($request, $runtime);
     }
 
     /**

@@ -70,6 +70,11 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
     public $internetChargeType;
 
     /**
@@ -193,6 +198,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
         'deleteProtection'             => 'DeleteProtection',
         'endTime'                      => 'EndTime',
         'endTimeStamp'                 => 'EndTimeStamp',
+        'instanceChargeType'           => 'InstanceChargeType',
         'internetChargeType'           => 'InternetChargeType',
         'listenerPorts'                => 'ListenerPorts',
         'listenerPortsAndProtocal'     => 'ListenerPortsAndProtocal',
@@ -257,6 +263,9 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
         }
         if (null !== $this->endTimeStamp) {
             $res['EndTimeStamp'] = $this->endTimeStamp;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
@@ -371,6 +380,9 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
         }
         if (isset($map['EndTimeStamp'])) {
             $model->endTimeStamp = $map['EndTimeStamp'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];

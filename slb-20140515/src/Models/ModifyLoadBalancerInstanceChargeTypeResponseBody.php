@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetAccessControlListAttributeResponseBody extends Model
+class ModifyLoadBalancerInstanceChargeTypeResponseBody extends Model
 {
     /**
      * @var string
@@ -33,7 +33,7 @@ class SetAccessControlListAttributeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SetAccessControlListAttributeResponseBody
+     * @return ModifyLoadBalancerInstanceChargeTypeResponseBody
      */
     public static function fromMap($map = [])
     {

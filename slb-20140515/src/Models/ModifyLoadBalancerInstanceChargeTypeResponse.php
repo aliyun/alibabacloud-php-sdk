@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopLoadBalancerListenerResponse extends Model
+class ModifyLoadBalancerInstanceChargeTypeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class StopLoadBalancerListenerResponse extends Model
     public $statusCode;
 
     /**
-     * @var StopLoadBalancerListenerResponseBody
+     * @var ModifyLoadBalancerInstanceChargeTypeResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class StopLoadBalancerListenerResponse extends Model
     /**
      * @param array $map
      *
-     * @return StopLoadBalancerListenerResponse
+     * @return ModifyLoadBalancerInstanceChargeTypeResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class StopLoadBalancerListenerResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = StopLoadBalancerListenerResponseBody::fromMap($map['body']);
+            $model->body = ModifyLoadBalancerInstanceChargeTypeResponseBody::fromMap($map['body']);
         }
 
         return $model;

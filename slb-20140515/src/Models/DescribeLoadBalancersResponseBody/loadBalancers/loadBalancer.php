@@ -47,6 +47,11 @@ class loadBalancer extends Model
     /**
      * @var string
      */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
     public $internetChargeType;
 
     /**
@@ -141,6 +146,7 @@ class loadBalancer extends Model
         'createTime'                   => 'CreateTime',
         'createTimeStamp'              => 'CreateTimeStamp',
         'deleteProtection'             => 'DeleteProtection',
+        'instanceChargeType'           => 'InstanceChargeType',
         'internetChargeType'           => 'InternetChargeType',
         'internetChargeTypeAlias'      => 'InternetChargeTypeAlias',
         'loadBalancerId'               => 'LoadBalancerId',
@@ -188,6 +194,9 @@ class loadBalancer extends Model
         }
         if (null !== $this->deleteProtection) {
             $res['DeleteProtection'] = $this->deleteProtection;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
@@ -275,6 +284,9 @@ class loadBalancer extends Model
         }
         if (isset($map['DeleteProtection'])) {
             $model->deleteProtection = $map['DeleteProtection'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
