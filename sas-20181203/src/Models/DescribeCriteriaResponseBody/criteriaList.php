@@ -11,6 +11,11 @@ class criteriaList extends Model
     /**
      * @var string
      */
+    public $multiValues;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -23,9 +28,10 @@ class criteriaList extends Model
      */
     public $values;
     protected $_name = [
-        'name'   => 'Name',
-        'type'   => 'Type',
-        'values' => 'Values',
+        'multiValues' => 'MultiValues',
+        'name'        => 'Name',
+        'type'        => 'Type',
+        'values'      => 'Values',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class criteriaList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->multiValues) {
+            $res['MultiValues'] = $this->multiValues;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -56,6 +65,9 @@ class criteriaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MultiValues'])) {
+            $model->multiValues = $map['MultiValues'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

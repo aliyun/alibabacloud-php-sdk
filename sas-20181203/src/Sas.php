@@ -150,6 +150,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCaptchaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCodesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceAntiBruteForceRulesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceRebootStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceRebootStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsRequest;
@@ -372,6 +374,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListR
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RebootMachineRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RebootMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsRequest;
@@ -404,62 +408,62 @@ class Sas extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
             'cn-hangzhou'                 => 'tds.aliyuncs.com',
-            'ap-southeast-3'              => 'tds.ap-southeast-3.aliyuncs.com',
-            'ap-northeast-1'              => 'tds.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'tds.aliyuncs.com',
-            'ap-south-1'                  => 'tds.aliyuncs.com',
             'ap-southeast-1'              => 'tds.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'              => 'tds.aliyuncs.com',
-            'ap-southeast-5'              => 'tds.aliyuncs.com',
-            'cn-beijing'                  => 'tds.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'tds.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'tds.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'tds.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'tds.aliyuncs.com',
-            'cn-chengdu'                  => 'tds.aliyuncs.com',
-            'cn-edge-1'                   => 'tds.aliyuncs.com',
-            'cn-fujian'                   => 'tds.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'tds.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'tds.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'tds.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'tds.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'tds.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'tds.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'tds.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'tds.aliyuncs.com',
-            'cn-hongkong'                 => 'tds.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'tds.aliyuncs.com',
-            'cn-huhehaote'                => 'tds.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'tds.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'tds.aliyuncs.com',
-            'cn-qingdao'                  => 'tds.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'tds.aliyuncs.com',
-            'cn-shanghai'                 => 'tds.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'tds.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'tds.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'tds.aliyuncs.com',
-            'cn-shanghai-inner'           => 'tds.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'tds.aliyuncs.com',
-            'cn-shenzhen'                 => 'tds.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'tds.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'tds.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'tds.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'tds.aliyuncs.com',
-            'cn-wuhan'                    => 'tds.aliyuncs.com',
-            'cn-wulanchabu'               => 'tds.aliyuncs.com',
-            'cn-yushanfang'               => 'tds.aliyuncs.com',
-            'cn-zhangbei'                 => 'tds.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'tds.aliyuncs.com',
-            'cn-zhangjiakou'              => 'tds.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'tds.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'tds.aliyuncs.com',
-            'eu-central-1'                => 'tds.aliyuncs.com',
-            'eu-west-1'                   => 'tds.aliyuncs.com',
-            'eu-west-1-oxs'               => 'tds.aliyuncs.com',
-            'me-east-1'                   => 'tds.aliyuncs.com',
-            'rus-west-1-pop'              => 'tds.aliyuncs.com',
-            'us-east-1'                   => 'tds.aliyuncs.com',
-            'us-west-1'                   => 'tds.aliyuncs.com',
+            'ap-southeast-3'              => 'tds.ap-southeast-3.aliyuncs.com',
+            'ap-northeast-1'              => 'sas.aliyuncs.com',
+            'ap-northeast-2-pop'          => 'sas.aliyuncs.com',
+            'ap-south-1'                  => 'sas.aliyuncs.com',
+            'ap-southeast-2'              => 'sas.aliyuncs.com',
+            'ap-southeast-5'              => 'sas.aliyuncs.com',
+            'cn-beijing'                  => 'sas.aliyuncs.com',
+            'cn-beijing-finance-1'        => 'sas.aliyuncs.com',
+            'cn-beijing-finance-pop'      => 'sas.aliyuncs.com',
+            'cn-beijing-gov-1'            => 'sas.aliyuncs.com',
+            'cn-beijing-nu16-b01'         => 'sas.aliyuncs.com',
+            'cn-chengdu'                  => 'sas.aliyuncs.com',
+            'cn-edge-1'                   => 'sas.aliyuncs.com',
+            'cn-fujian'                   => 'sas.aliyuncs.com',
+            'cn-haidian-cm12-c01'         => 'sas.aliyuncs.com',
+            'cn-hangzhou-bj-b01'          => 'sas.aliyuncs.com',
+            'cn-hangzhou-finance'         => 'sas.aliyuncs.com',
+            'cn-hangzhou-internal-prod-1' => 'sas.aliyuncs.com',
+            'cn-hangzhou-internal-test-1' => 'sas.aliyuncs.com',
+            'cn-hangzhou-internal-test-2' => 'sas.aliyuncs.com',
+            'cn-hangzhou-internal-test-3' => 'sas.aliyuncs.com',
+            'cn-hangzhou-test-306'        => 'sas.aliyuncs.com',
+            'cn-hongkong'                 => 'sas.aliyuncs.com',
+            'cn-hongkong-finance-pop'     => 'sas.aliyuncs.com',
+            'cn-huhehaote'                => 'sas.aliyuncs.com',
+            'cn-huhehaote-nebula-1'       => 'sas.aliyuncs.com',
+            'cn-north-2-gov-1'            => 'sas.aliyuncs.com',
+            'cn-qingdao'                  => 'sas.aliyuncs.com',
+            'cn-qingdao-nebula'           => 'sas.aliyuncs.com',
+            'cn-shanghai'                 => 'sas.aliyuncs.com',
+            'cn-shanghai-et15-b01'        => 'sas.aliyuncs.com',
+            'cn-shanghai-et2-b01'         => 'sas.aliyuncs.com',
+            'cn-shanghai-finance-1'       => 'sas.aliyuncs.com',
+            'cn-shanghai-inner'           => 'sas.aliyuncs.com',
+            'cn-shanghai-internal-test-1' => 'sas.aliyuncs.com',
+            'cn-shenzhen'                 => 'sas.aliyuncs.com',
+            'cn-shenzhen-finance-1'       => 'sas.aliyuncs.com',
+            'cn-shenzhen-inner'           => 'sas.aliyuncs.com',
+            'cn-shenzhen-st4-d01'         => 'sas.aliyuncs.com',
+            'cn-shenzhen-su18-b01'        => 'sas.aliyuncs.com',
+            'cn-wuhan'                    => 'sas.aliyuncs.com',
+            'cn-wulanchabu'               => 'sas.aliyuncs.com',
+            'cn-yushanfang'               => 'sas.aliyuncs.com',
+            'cn-zhangbei'                 => 'sas.aliyuncs.com',
+            'cn-zhangbei-na61-b01'        => 'sas.aliyuncs.com',
+            'cn-zhangjiakou'              => 'sas.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01'     => 'sas.aliyuncs.com',
+            'cn-zhengzhou-nebula-1'       => 'sas.aliyuncs.com',
+            'eu-central-1'                => 'sas.aliyuncs.com',
+            'eu-west-1'                   => 'sas.aliyuncs.com',
+            'eu-west-1-oxs'               => 'sas.aliyuncs.com',
+            'me-east-1'                   => 'sas.aliyuncs.com',
+            'rus-west-1-pop'              => 'sas.aliyuncs.com',
+            'us-east-1'                   => 'sas.aliyuncs.com',
+            'us-west-1'                   => 'sas.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -4460,6 +4464,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceAntiBruteForceRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceRebootStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeInstanceRebootStatusResponse
+     */
+    public function describeInstanceRebootStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceRebootStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceRebootStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceRebootStatusRequest $request
+     *
+     * @return DescribeInstanceRebootStatusResponse
+     */
+    public function describeInstanceRebootStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceRebootStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -10609,6 +10656,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryGroupedSecurityEventMarkMissListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RebootMachineRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RebootMachineResponse
+     */
+    public function rebootMachineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebootMachine',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebootMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RebootMachineRequest $request
+     *
+     * @return RebootMachineResponse
+     */
+    public function rebootMachine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebootMachineWithOptions($request, $runtime);
     }
 
     /**
