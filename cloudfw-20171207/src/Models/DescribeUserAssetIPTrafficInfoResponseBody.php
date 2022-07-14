@@ -4,8 +4,6 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAssetIPTrafficInfoResponseBody\inTrafficInfo;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAssetIPTrafficInfoResponseBody\outTrafficInfo;
 use AlibabaCloud\Tea\Model;
 
 class DescribeUserAssetIPTrafficInfoResponseBody extends Model
@@ -18,18 +16,29 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $endTime;
 
     /**
-     * @description 入方向流量信息
-     *
-     * @var inTrafficInfo
+     * @var int
      */
-    public $inTrafficInfo;
+    public $inBps;
 
     /**
-     * @description 出方向流量信息
-     *
-     * @var outTrafficInfo
+     * @var int
      */
-    public $outTrafficInfo;
+    public $inPps;
+
+    /**
+     * @var int
+     */
+    public $newConn;
+
+    /**
+     * @var int
+     */
+    public $outBps;
+
+    /**
+     * @var int
+     */
+    public $outPps;
 
     /**
      * @description Id of the request
@@ -39,17 +48,26 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $sessionCount;
+
+    /**
      * @description 开始时间
      *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'        => 'EndTime',
-        'inTrafficInfo'  => 'InTrafficInfo',
-        'outTrafficInfo' => 'OutTrafficInfo',
-        'requestId'      => 'RequestId',
-        'startTime'      => 'StartTime',
+        'endTime'      => 'EndTime',
+        'inBps'        => 'InBps',
+        'inPps'        => 'InPps',
+        'newConn'      => 'NewConn',
+        'outBps'       => 'OutBps',
+        'outPps'       => 'OutPps',
+        'requestId'    => 'RequestId',
+        'sessionCount' => 'SessionCount',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -62,14 +80,26 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->inTrafficInfo) {
-            $res['InTrafficInfo'] = null !== $this->inTrafficInfo ? $this->inTrafficInfo->toMap() : null;
+        if (null !== $this->inBps) {
+            $res['InBps'] = $this->inBps;
         }
-        if (null !== $this->outTrafficInfo) {
-            $res['OutTrafficInfo'] = null !== $this->outTrafficInfo ? $this->outTrafficInfo->toMap() : null;
+        if (null !== $this->inPps) {
+            $res['InPps'] = $this->inPps;
+        }
+        if (null !== $this->newConn) {
+            $res['NewConn'] = $this->newConn;
+        }
+        if (null !== $this->outBps) {
+            $res['OutBps'] = $this->outBps;
+        }
+        if (null !== $this->outPps) {
+            $res['OutPps'] = $this->outPps;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sessionCount) {
+            $res['SessionCount'] = $this->sessionCount;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -89,14 +119,26 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['InTrafficInfo'])) {
-            $model->inTrafficInfo = inTrafficInfo::fromMap($map['InTrafficInfo']);
+        if (isset($map['InBps'])) {
+            $model->inBps = $map['InBps'];
         }
-        if (isset($map['OutTrafficInfo'])) {
-            $model->outTrafficInfo = outTrafficInfo::fromMap($map['OutTrafficInfo']);
+        if (isset($map['InPps'])) {
+            $model->inPps = $map['InPps'];
+        }
+        if (isset($map['NewConn'])) {
+            $model->newConn = $map['NewConn'];
+        }
+        if (isset($map['OutBps'])) {
+            $model->outBps = $map['OutBps'];
+        }
+        if (isset($map['OutPps'])) {
+            $model->outPps = $map['OutPps'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SessionCount'])) {
+            $model->sessionCount = $map['SessionCount'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

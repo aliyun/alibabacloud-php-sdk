@@ -9,27 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDestinationIPRequest extends Model
 {
     /**
-     * @description ACL覆盖情况, 枚举值.
-     * Uncovered (未覆盖)
-     * @var string
-     */
-    public $aclCoverage;
-
-    /**
-     * @description 应用名
-     *
-     * @var string
-     */
-    public $applicationName;
-
-    /**
-     * @description 分类, 枚举值.
-     * NotAliYun (非云产品分类)
-     * @var string
-     */
-    public $categoryId;
-
-    /**
      * @description 当前页
      *
      * @var string
@@ -93,23 +72,11 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public $publicIP;
 
     /**
-     * @description 安全建议, 枚举值: pass, alert, drop. 默认值为空
-     *
-     * @var string
-     */
-    public $securitySuggest;
-
-    /**
      * @description 顺序, 枚举值, 可选:asc, desc
      *
      * @var string
      */
     public $sort;
-
-    /**
-     * @var string
-     */
-    public $sourceIp;
 
     /**
      * @description 开始时间,Unix timestamp, 精确到秒
@@ -118,22 +85,17 @@ class DescribeOutgoingDestinationIPRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'aclCoverage'     => 'AclCoverage',
-        'applicationName' => 'ApplicationName',
-        'categoryId'      => 'CategoryId',
-        'currentPage'     => 'CurrentPage',
-        'dstIP'           => 'DstIP',
-        'endTime'         => 'EndTime',
-        'lang'            => 'Lang',
-        'order'           => 'Order',
-        'pageSize'        => 'PageSize',
-        'port'            => 'Port',
-        'privateIP'       => 'PrivateIP',
-        'publicIP'        => 'PublicIP',
-        'securitySuggest' => 'SecuritySuggest',
-        'sort'            => 'Sort',
-        'sourceIp'        => 'SourceIp',
-        'startTime'       => 'StartTime',
+        'currentPage' => 'CurrentPage',
+        'dstIP'       => 'DstIP',
+        'endTime'     => 'EndTime',
+        'lang'        => 'Lang',
+        'order'       => 'Order',
+        'pageSize'    => 'PageSize',
+        'port'        => 'Port',
+        'privateIP'   => 'PrivateIP',
+        'publicIP'    => 'PublicIP',
+        'sort'        => 'Sort',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -143,15 +105,6 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclCoverage) {
-            $res['AclCoverage'] = $this->aclCoverage;
-        }
-        if (null !== $this->applicationName) {
-            $res['ApplicationName'] = $this->applicationName;
-        }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -179,14 +132,8 @@ class DescribeOutgoingDestinationIPRequest extends Model
         if (null !== $this->publicIP) {
             $res['PublicIP'] = $this->publicIP;
         }
-        if (null !== $this->securitySuggest) {
-            $res['SecuritySuggest'] = $this->securitySuggest;
-        }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -203,15 +150,6 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclCoverage'])) {
-            $model->aclCoverage = $map['AclCoverage'];
-        }
-        if (isset($map['ApplicationName'])) {
-            $model->applicationName = $map['ApplicationName'];
-        }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -239,14 +177,8 @@ class DescribeOutgoingDestinationIPRequest extends Model
         if (isset($map['PublicIP'])) {
             $model->publicIP = $map['PublicIP'];
         }
-        if (isset($map['SecuritySuggest'])) {
-            $model->securitySuggest = $map['SecuritySuggest'];
-        }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

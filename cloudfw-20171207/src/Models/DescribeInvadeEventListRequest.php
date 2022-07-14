@@ -93,13 +93,6 @@ class DescribeInvadeEventListRequest extends Model
     public $pageSize;
 
     /**
-     * @description 处理状态
-     *
-     * @var string
-     */
-    public $processStatus;
-
-    /**
      * @description 处理状态列表
      *
      * @var int[]
@@ -139,7 +132,6 @@ class DescribeInvadeEventListRequest extends Model
         'lang'               => 'Lang',
         'memberUid'          => 'MemberUid',
         'pageSize'           => 'PageSize',
-        'processStatus'      => 'ProcessStatus',
         'processStatusList'  => 'ProcessStatusList',
         'riskLevel'          => 'RiskLevel',
         'sourceIp'           => 'SourceIp',
@@ -188,9 +180,6 @@ class DescribeInvadeEventListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->processStatus) {
-            $res['ProcessStatus'] = $this->processStatus;
         }
         if (null !== $this->processStatusList) {
             $res['ProcessStatusList'] = $this->processStatusList;
@@ -251,9 +240,6 @@ class DescribeInvadeEventListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['ProcessStatus'])) {
-            $model->processStatus = $map['ProcessStatus'];
         }
         if (isset($map['ProcessStatusList'])) {
             if (!empty($map['ProcessStatusList'])) {

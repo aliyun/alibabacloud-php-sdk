@@ -1293,9 +1293,6 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->processStatus)) {
-            $query['ProcessStatus'] = $request->processStatus;
-        }
         if (!Utils::isUnset($request->processStatusList)) {
             $query['ProcessStatusList'] = $request->processStatusList;
         }
@@ -1348,15 +1345,6 @@ class Cloudfw extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->aclCoverage)) {
-            $query['AclCoverage'] = $request->aclCoverage;
-        }
-        if (!Utils::isUnset($request->applicationName)) {
-            $query['ApplicationName'] = $request->applicationName;
-        }
-        if (!Utils::isUnset($request->categoryId)) {
-            $query['CategoryId'] = $request->categoryId;
-        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -1384,14 +1372,8 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->publicIP)) {
             $query['PublicIP'] = $request->publicIP;
         }
-        if (!Utils::isUnset($request->securitySuggest)) {
-            $query['SecuritySuggest'] = $request->securitySuggest;
-        }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -1436,9 +1418,6 @@ class Cloudfw extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->aclCoverage)) {
-            $query['AclCoverage'] = $request->aclCoverage;
-        }
         if (!Utils::isUnset($request->categoryId)) {
             $query['CategoryId'] = $request->categoryId;
         }
@@ -1463,14 +1442,8 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->publicIP)) {
             $query['PublicIP'] = $request->publicIP;
         }
-        if (!Utils::isUnset($request->securitySuggest)) {
-            $query['SecuritySuggest'] = $request->securitySuggest;
-        }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
