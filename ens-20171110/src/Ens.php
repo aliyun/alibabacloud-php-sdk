@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateARMServerInstancesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateARMServerInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskRequest;
@@ -276,6 +278,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseARMServerInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseARMServerInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleasePostPaidInstanceRequest;
@@ -289,6 +293,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RemovePublicIpsFromEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemovePublicIpsFromEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveVSwitchesFromEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveVSwitchesFromEpnInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RenewARMServerInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RenewARMServerInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleApplicationRequest;
@@ -837,6 +843,82 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authorizeSecurityGroupEgressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateARMServerInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateARMServerInstancesResponse
+     */
+    public function createARMServerInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->frequency)) {
+            $query['Frequency'] = $request->frequency;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->resolution)) {
+            $query['Resolution'] = $request->resolution;
+        }
+        if (!Utils::isUnset($request->serverType)) {
+            $query['ServerType'] = $request->serverType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateARMServerInstances',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateARMServerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateARMServerInstancesRequest $request
+     *
+     * @return CreateARMServerInstancesResponse
+     */
+    public function createARMServerInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createARMServerInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -3833,9 +3915,6 @@ class Ens extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ensRegionId)) {
             $query['EnsRegionId'] = $request->ensRegionId;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7380,6 +7459,49 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param ReleaseARMServerInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ReleaseARMServerInstanceResponse
+     */
+    public function releaseARMServerInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseARMServerInstance',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseARMServerInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseARMServerInstanceRequest $request
+     *
+     * @return ReleaseARMServerInstanceResponse
+     */
+    public function releaseARMServerInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseARMServerInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReleaseInstanceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -7652,6 +7774,55 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeVSwitchesFromEpnInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewARMServerInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RenewARMServerInstanceResponse
+     */
+    public function renewARMServerInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewARMServerInstance',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewARMServerInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewARMServerInstanceRequest $request
+     *
+     * @return RenewARMServerInstanceResponse
+     */
+    public function renewARMServerInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewARMServerInstanceWithOptions($request, $runtime);
     }
 
     /**

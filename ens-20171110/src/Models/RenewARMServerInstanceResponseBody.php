@@ -6,14 +6,16 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeEnsRegionsRequest extends Model
+class RenewARMServerInstanceResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
      * @var string
      */
-    public $ensRegionId;
+    public $requestId;
     protected $_name = [
-        'ensRegionId' => 'EnsRegionId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class DescribeEnsRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ensRegionId) {
-            $res['EnsRegionId'] = $this->ensRegionId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class DescribeEnsRegionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeEnsRegionsRequest
+     * @return RenewARMServerInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnsRegionId'])) {
-            $model->ensRegionId = $map['EnsRegionId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
