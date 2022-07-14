@@ -25,6 +25,11 @@ class smsTemplateList extends Model
     public $orderId;
 
     /**
+     * @var int
+     */
+    public $outerTemplateType;
+
+    /**
      * @var reason
      */
     public $reason;
@@ -49,14 +54,15 @@ class smsTemplateList extends Model
      */
     public $templateType;
     protected $_name = [
-        'auditStatus'     => 'AuditStatus',
-        'createDate'      => 'CreateDate',
-        'orderId'         => 'OrderId',
-        'reason'          => 'Reason',
-        'templateCode'    => 'TemplateCode',
-        'templateContent' => 'TemplateContent',
-        'templateName'    => 'TemplateName',
-        'templateType'    => 'TemplateType',
+        'auditStatus'       => 'AuditStatus',
+        'createDate'        => 'CreateDate',
+        'orderId'           => 'OrderId',
+        'outerTemplateType' => 'OuterTemplateType',
+        'reason'            => 'Reason',
+        'templateCode'      => 'TemplateCode',
+        'templateContent'   => 'TemplateContent',
+        'templateName'      => 'TemplateName',
+        'templateType'      => 'TemplateType',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class smsTemplateList extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->outerTemplateType) {
+            $res['OuterTemplateType'] = $this->outerTemplateType;
         }
         if (null !== $this->reason) {
             $res['Reason'] = null !== $this->reason ? $this->reason->toMap() : null;
@@ -110,6 +119,9 @@ class smsTemplateList extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['OuterTemplateType'])) {
+            $model->outerTemplateType = $map['OuterTemplateType'];
         }
         if (isset($map['Reason'])) {
             $model->reason = reason::fromMap($map['Reason']);
