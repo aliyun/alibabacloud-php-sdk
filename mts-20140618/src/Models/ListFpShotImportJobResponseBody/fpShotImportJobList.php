@@ -56,6 +56,11 @@ class fpShotImportJobList extends Model
     /**
      * @var string
      */
+    public $processMessage;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -72,6 +77,7 @@ class fpShotImportJobList extends Model
         'input'          => 'Input',
         'message'        => 'Message',
         'pipelineId'     => 'PipelineId',
+        'processMessage' => 'ProcessMessage',
         'status'         => 'Status',
         'userData'       => 'UserData',
     ];
@@ -109,6 +115,9 @@ class fpShotImportJobList extends Model
         }
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
+        }
+        if (null !== $this->processMessage) {
+            $res['ProcessMessage'] = $this->processMessage;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -154,6 +163,9 @@ class fpShotImportJobList extends Model
         }
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
+        }
+        if (isset($map['ProcessMessage'])) {
+            $model->processMessage = $map['ProcessMessage'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

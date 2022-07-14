@@ -26,6 +26,11 @@ class BindInputBucketRequest extends Model
     /**
      * @var string
      */
+    public $referer;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -41,6 +46,7 @@ class BindInputBucketRequest extends Model
         'bucket'               => 'Bucket',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'referer'              => 'Referer',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'roleArn'              => 'RoleArn',
@@ -61,6 +67,9 @@ class BindInputBucketRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->referer) {
+            $res['Referer'] = $this->referer;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -91,6 +100,9 @@ class BindInputBucketRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Referer'])) {
+            $model->referer = $map['Referer'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

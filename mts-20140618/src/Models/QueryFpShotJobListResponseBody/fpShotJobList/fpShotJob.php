@@ -74,33 +74,21 @@ class fpShotJob extends Model
     /**
      * @var string
      */
-    public $transactionId;
-
-    /**
-     * @var string
-     */
-    public $txHash;
-
-    /**
-     * @var string
-     */
     public $userData;
     protected $_name = [
-        'code'          => 'Code',
-        'creationTime'  => 'CreationTime',
-        'fileId'        => 'FileId',
-        'finishTime'    => 'FinishTime',
-        'fpShotConfig'  => 'FpShotConfig',
-        'fpShotResult'  => 'FpShotResult',
-        'id'            => 'Id',
-        'input'         => 'Input',
-        'inputFile'     => 'InputFile',
-        'message'       => 'Message',
-        'pipelineId'    => 'PipelineId',
-        'state'         => 'State',
-        'transactionId' => 'TransactionId',
-        'txHash'        => 'TxHash',
-        'userData'      => 'UserData',
+        'code'         => 'Code',
+        'creationTime' => 'CreationTime',
+        'fileId'       => 'FileId',
+        'finishTime'   => 'FinishTime',
+        'fpShotConfig' => 'FpShotConfig',
+        'fpShotResult' => 'FpShotResult',
+        'id'           => 'Id',
+        'input'        => 'Input',
+        'inputFile'    => 'InputFile',
+        'message'      => 'Message',
+        'pipelineId'   => 'PipelineId',
+        'state'        => 'State',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -145,12 +133,6 @@ class fpShotJob extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->transactionId) {
-            $res['TransactionId'] = $this->transactionId;
-        }
-        if (null !== $this->txHash) {
-            $res['TxHash'] = $this->txHash;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -202,12 +184,6 @@ class fpShotJob extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['TransactionId'])) {
-            $model->transactionId = $map['TransactionId'];
-        }
-        if (isset($map['TxHash'])) {
-            $model->txHash = $map['TxHash'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

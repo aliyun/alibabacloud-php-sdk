@@ -16,10 +16,16 @@ class mediaBucket extends Model
     /**
      * @var string
      */
+    public $referer;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
-        'bucket' => 'Bucket',
-        'type'   => 'Type',
+        'bucket'  => 'Bucket',
+        'referer' => 'Referer',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class mediaBucket extends Model
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
+        }
+        if (null !== $this->referer) {
+            $res['Referer'] = $this->referer;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -49,6 +58,9 @@ class mediaBucket extends Model
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
+        }
+        if (isset($map['Referer'])) {
+            $model->referer = $map['Referer'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

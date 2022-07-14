@@ -16,11 +16,6 @@ class fpShotConfig extends Model
     /**
      * @var string
      */
-    public $notary;
-
-    /**
-     * @var string
-     */
     public $primaryKey;
 
     /**
@@ -29,7 +24,6 @@ class fpShotConfig extends Model
     public $saveType;
     protected $_name = [
         'fpDBId'     => 'FpDBId',
-        'notary'     => 'Notary',
         'primaryKey' => 'PrimaryKey',
         'saveType'   => 'SaveType',
     ];
@@ -43,9 +37,6 @@ class fpShotConfig extends Model
         $res = [];
         if (null !== $this->fpDBId) {
             $res['FpDBId'] = $this->fpDBId;
-        }
-        if (null !== $this->notary) {
-            $res['Notary'] = $this->notary;
         }
         if (null !== $this->primaryKey) {
             $res['PrimaryKey'] = $this->primaryKey;
@@ -67,9 +58,6 @@ class fpShotConfig extends Model
         $model = new self();
         if (isset($map['FpDBId'])) {
             $model->fpDBId = $map['FpDBId'];
-        }
-        if (isset($map['Notary'])) {
-            $model->notary = $map['Notary'];
         }
         if (isset($map['PrimaryKey'])) {
             $model->primaryKey = $map['PrimaryKey'];
