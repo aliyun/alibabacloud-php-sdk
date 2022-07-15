@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\AuthorizeSecurityGroupRequest\permissions;
 use AlibabaCloud\Tea\Model;
 
 class AuthorizeSecurityGroupRequest extends Model
@@ -52,6 +53,11 @@ class AuthorizeSecurityGroupRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var permissions[]
+     */
+    public $permissions;
 
     /**
      * @var string
@@ -127,6 +133,7 @@ class AuthorizeSecurityGroupRequest extends Model
         'nicType'                 => 'NicType',
         'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
+        'permissions'             => 'Permissions',
         'policy'                  => 'Policy',
         'portRange'               => 'PortRange',
         'priority'                => 'Priority',
@@ -175,6 +182,15 @@ class AuthorizeSecurityGroupRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->permissions) {
+            $res['Permissions'] = [];
+            if (null !== $this->permissions && \is_array($this->permissions)) {
+                $n = 0;
+                foreach ($this->permissions as $item) {
+                    $res['Permissions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
@@ -253,6 +269,15 @@ class AuthorizeSecurityGroupRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Permissions'])) {
+            if (!empty($map['Permissions'])) {
+                $model->permissions = [];
+                $n                  = 0;
+                foreach ($map['Permissions'] as $item) {
+                    $model->permissions[$n++] = null !== $item ? permissions::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];

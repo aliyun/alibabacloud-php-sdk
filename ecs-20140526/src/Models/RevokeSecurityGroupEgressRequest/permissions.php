@@ -2,18 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
+namespace AlibabaCloud\SDK\Ecs\V20140526\Models\RevokeSecurityGroupEgressRequest;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\RevokeSecurityGroupEgressRequest\permissions;
 use AlibabaCloud\Tea\Model;
 
-class RevokeSecurityGroupEgressRequest extends Model
+class permissions extends Model
 {
-    /**
-     * @var string
-     */
-    public $clientToken;
-
     /**
      * @var string
      */
@@ -35,7 +29,7 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $destGroupOwnerAccount;
 
     /**
-     * @var int
+     * @var string
      */
     public $destGroupOwnerId;
 
@@ -67,21 +61,6 @@ class RevokeSecurityGroupEgressRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var permissions[]
-     */
-    public $permissions;
-
-    /**
-     * @var string
-     */
     public $policy;
 
     /**
@@ -97,26 +76,6 @@ class RevokeSecurityGroupEgressRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityGroupId;
-
-    /**
-     * @var string
-     */
     public $sourceCidrIp;
 
     /**
@@ -124,7 +83,6 @@ class RevokeSecurityGroupEgressRequest extends Model
      */
     public $sourcePortRange;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
         'description'           => 'Description',
         'destCidrIp'            => 'DestCidrIp',
         'destGroupId'           => 'DestGroupId',
@@ -135,16 +93,9 @@ class RevokeSecurityGroupEgressRequest extends Model
         'ipv6DestCidrIp'        => 'Ipv6DestCidrIp',
         'ipv6SourceCidrIp'      => 'Ipv6SourceCidrIp',
         'nicType'               => 'NicType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'permissions'           => 'Permissions',
         'policy'                => 'Policy',
         'portRange'             => 'PortRange',
         'priority'              => 'Priority',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'securityGroupId'       => 'SecurityGroupId',
         'sourceCidrIp'          => 'SourceCidrIp',
         'sourcePortRange'       => 'SourcePortRange',
     ];
@@ -156,9 +107,6 @@ class RevokeSecurityGroupEgressRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -189,21 +137,6 @@ class RevokeSecurityGroupEgressRequest extends Model
         if (null !== $this->nicType) {
             $res['NicType'] = $this->nicType;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->permissions) {
-            $res['Permissions'] = [];
-            if (null !== $this->permissions && \is_array($this->permissions)) {
-                $n = 0;
-                foreach ($this->permissions as $item) {
-                    $res['Permissions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
@@ -212,18 +145,6 @@ class RevokeSecurityGroupEgressRequest extends Model
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->sourceCidrIp) {
             $res['SourceCidrIp'] = $this->sourceCidrIp;
@@ -238,14 +159,11 @@ class RevokeSecurityGroupEgressRequest extends Model
     /**
      * @param array $map
      *
-     * @return RevokeSecurityGroupEgressRequest
+     * @return permissions
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -276,21 +194,6 @@ class RevokeSecurityGroupEgressRequest extends Model
         if (isset($map['NicType'])) {
             $model->nicType = $map['NicType'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Permissions'])) {
-            if (!empty($map['Permissions'])) {
-                $model->permissions = [];
-                $n                  = 0;
-                foreach ($map['Permissions'] as $item) {
-                    $model->permissions[$n++] = null !== $item ? permissions::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
@@ -299,18 +202,6 @@ class RevokeSecurityGroupEgressRequest extends Model
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['SourceCidrIp'])) {
             $model->sourceCidrIp = $map['SourceCidrIp'];
