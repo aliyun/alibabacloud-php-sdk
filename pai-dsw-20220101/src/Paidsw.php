@@ -848,6 +848,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->paymentType)) {
             $query['PaymentType'] = $request->paymentType;
         }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }

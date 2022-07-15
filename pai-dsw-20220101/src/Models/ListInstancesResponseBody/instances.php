@@ -175,6 +175,11 @@ class instances extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $resourceName;
+
+    /**
      * @description 实例状态
      *
      * @var string
@@ -253,6 +258,7 @@ class instances extends Model
         'reasonMessage'              => 'ReasonMessage',
         'requestedResource'          => 'RequestedResource',
         'resourceId'                 => 'ResourceId',
+        'resourceName'               => 'ResourceName',
         'status'                     => 'Status',
         'terminalUrl'                => 'TerminalUrl',
         'userId'                     => 'UserId',
@@ -344,6 +350,9 @@ class instances extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -455,6 +464,9 @@ class instances extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -52,6 +52,11 @@ class ListInstancesRequest extends Model
     public $paymentType;
 
     /**
+     * @var string
+     */
+    public $resourceId;
+
+    /**
      * @description 排序字段
      *
      * @var string
@@ -79,6 +84,7 @@ class ListInstancesRequest extends Model
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'paymentType'     => 'PaymentType',
+        'resourceId'      => 'ResourceId',
         'sortBy'          => 'SortBy',
         'status'          => 'Status',
         'workspaceId'     => 'WorkspaceId',
@@ -111,6 +117,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -153,6 +162,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

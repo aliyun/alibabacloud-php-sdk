@@ -203,6 +203,11 @@ class GetInstanceResponseBody extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $resourceName;
+
+    /**
      * @description 实例状态
      *
      * @var string
@@ -292,6 +297,7 @@ class GetInstanceResponseBody extends Model
         'requestId'                  => 'RequestId',
         'requestedResource'          => 'RequestedResource',
         'resourceId'                 => 'ResourceId',
+        'resourceName'               => 'ResourceName',
         'status'                     => 'Status',
         'success'                    => 'Success',
         'terminalUrl'                => 'TerminalUrl',
@@ -396,6 +402,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -522,6 +531,9 @@ class GetInstanceResponseBody extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
