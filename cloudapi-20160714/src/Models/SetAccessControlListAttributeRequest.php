@@ -6,25 +6,25 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ResetAppCodeRequest extends Model
+class SetAccessControlListAttributeRequest extends Model
 {
     /**
      * @var string
      */
-    public $appCode;
+    public $aclId;
 
     /**
      * @var string
      */
-    public $newAppCode;
+    public $aclName;
 
     /**
      * @var string
      */
     public $securityToken;
     protected $_name = [
-        'appCode'       => 'AppCode',
-        'newAppCode'    => 'NewAppCode',
+        'aclId'         => 'AclId',
+        'aclName'       => 'AclName',
         'securityToken' => 'SecurityToken',
     ];
 
@@ -35,11 +35,11 @@ class ResetAppCodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appCode) {
-            $res['AppCode'] = $this->appCode;
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
         }
-        if (null !== $this->newAppCode) {
-            $res['NewAppCode'] = $this->newAppCode;
+        if (null !== $this->aclName) {
+            $res['AclName'] = $this->aclName;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -51,16 +51,16 @@ class ResetAppCodeRequest extends Model
     /**
      * @param array $map
      *
-     * @return ResetAppCodeRequest
+     * @return SetAccessControlListAttributeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppCode'])) {
-            $model->appCode = $map['AppCode'];
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
         }
-        if (isset($map['NewAppCode'])) {
-            $model->newAppCode = $map['NewAppCode'];
+        if (isset($map['AclName'])) {
+            $model->aclName = $map['AclName'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

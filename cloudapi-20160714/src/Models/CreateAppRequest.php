@@ -12,7 +12,22 @@ class CreateAppRequest extends Model
     /**
      * @var string
      */
+    public $appCode;
+
+    /**
+     * @var string
+     */
+    public $appKey;
+
+    /**
+     * @var string
+     */
     public $appName;
+
+    /**
+     * @var string
+     */
+    public $appSecret;
 
     /**
      * @var string
@@ -34,7 +49,10 @@ class CreateAppRequest extends Model
      */
     public $tag;
     protected $_name = [
+        'appCode'       => 'AppCode',
+        'appKey'        => 'AppKey',
         'appName'       => 'AppName',
+        'appSecret'     => 'AppSecret',
         'description'   => 'Description',
         'securityToken' => 'SecurityToken',
         'source'        => 'Source',
@@ -48,8 +66,17 @@ class CreateAppRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appCode) {
+            $res['AppCode'] = $this->appCode;
+        }
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->appSecret) {
+            $res['AppSecret'] = $this->appSecret;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -81,8 +108,17 @@ class CreateAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppCode'])) {
+            $model->appCode = $map['AppCode'];
+        }
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['AppSecret'])) {
+            $model->appSecret = $map['AppSecret'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

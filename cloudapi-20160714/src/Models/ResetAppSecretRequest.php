@@ -16,9 +16,15 @@ class ResetAppSecretRequest extends Model
     /**
      * @var string
      */
+    public $newAppSecret;
+
+    /**
+     * @var string
+     */
     public $securityToken;
     protected $_name = [
         'appKey'        => 'AppKey',
+        'newAppSecret'  => 'NewAppSecret',
         'securityToken' => 'SecurityToken',
     ];
 
@@ -31,6 +37,9 @@ class ResetAppSecretRequest extends Model
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+        if (null !== $this->newAppSecret) {
+            $res['NewAppSecret'] = $this->newAppSecret;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -49,6 +58,9 @@ class ResetAppSecretRequest extends Model
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+        if (isset($map['NewAppSecret'])) {
+            $model->newAppSecret = $map['NewAppSecret'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

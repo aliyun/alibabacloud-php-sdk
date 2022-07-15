@@ -59,6 +59,11 @@ class domainItem extends Model
     public $domainWebSocketStatus;
 
     /**
+     * @var bool
+     */
+    public $isHttpRedirectToHttps;
+
+    /**
      * @var string
      */
     public $wildcardDomainPatterns;
@@ -73,6 +78,7 @@ class domainItem extends Model
         'domainName'             => 'DomainName',
         'domainRemark'           => 'DomainRemark',
         'domainWebSocketStatus'  => 'DomainWebSocketStatus',
+        'isHttpRedirectToHttps'  => 'IsHttpRedirectToHttps',
         'wildcardDomainPatterns' => 'WildcardDomainPatterns',
     ];
 
@@ -112,6 +118,9 @@ class domainItem extends Model
         }
         if (null !== $this->domainWebSocketStatus) {
             $res['DomainWebSocketStatus'] = $this->domainWebSocketStatus;
+        }
+        if (null !== $this->isHttpRedirectToHttps) {
+            $res['IsHttpRedirectToHttps'] = $this->isHttpRedirectToHttps;
         }
         if (null !== $this->wildcardDomainPatterns) {
             $res['WildcardDomainPatterns'] = $this->wildcardDomainPatterns;
@@ -157,6 +166,9 @@ class domainItem extends Model
         }
         if (isset($map['DomainWebSocketStatus'])) {
             $model->domainWebSocketStatus = $map['DomainWebSocketStatus'];
+        }
+        if (isset($map['IsHttpRedirectToHttps'])) {
+            $model->isHttpRedirectToHttps = $map['IsHttpRedirectToHttps'];
         }
         if (isset($map['WildcardDomainPatterns'])) {
             $model->wildcardDomainPatterns = $map['WildcardDomainPatterns'];

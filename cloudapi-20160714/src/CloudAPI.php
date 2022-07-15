@@ -285,6 +285,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByAppResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByGroupRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SdkGenerateByGroupResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetAccessControlListAttributeRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetAccessControlListAttributeResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetApisAuthoritiesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetApisAuthoritiesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetAppsAuthoritiesRequest;
@@ -1036,8 +1038,17 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appSecret)) {
+            $query['AppSecret'] = $request->appSecret;
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
@@ -6770,6 +6781,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->instanceSpec)) {
             $query['InstanceSpec'] = $request->instanceSpec;
         }
+        if (!Utils::isUnset($request->modifyAction)) {
+            $query['ModifyAction'] = $request->modifyAction;
+        }
         if (!Utils::isUnset($request->token)) {
             $query['Token'] = $request->token;
         }
@@ -7775,6 +7789,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->appCode)) {
             $query['AppCode'] = $request->appCode;
         }
+        if (!Utils::isUnset($request->newAppCode)) {
+            $query['NewAppCode'] = $request->newAppCode;
+        }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
@@ -7820,6 +7837,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appKey)) {
             $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->newAppSecret)) {
+            $query['NewAppSecret'] = $request->newAppSecret;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
@@ -7999,6 +8019,55 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sdkGenerateByGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetAccessControlListAttributeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SetAccessControlListAttributeResponse
+     */
+    public function setAccessControlListAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAccessControlListAttribute',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetAccessControlListAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetAccessControlListAttributeRequest $request
+     *
+     * @return SetAccessControlListAttributeResponse
+     */
+    public function setAccessControlListAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAccessControlListAttributeWithOptions($request, $runtime);
     }
 
     /**

@@ -26,11 +26,17 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @var string
      */
+    public $modifyAction;
+
+    /**
+     * @var string
+     */
     public $token;
     protected $_name = [
         'autoPay'      => 'AutoPay',
         'instanceId'   => 'InstanceId',
         'instanceSpec' => 'InstanceSpec',
+        'modifyAction' => 'ModifyAction',
         'token'        => 'Token',
     ];
 
@@ -49,6 +55,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
+        }
+        if (null !== $this->modifyAction) {
+            $res['ModifyAction'] = $this->modifyAction;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -73,6 +82,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
+        }
+        if (isset($map['ModifyAction'])) {
+            $model->modifyAction = $map['ModifyAction'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
