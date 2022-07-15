@@ -19,6 +19,11 @@ class checkWarnings extends Model
     public $checkWarningId;
 
     /**
+     * @var int
+     */
+    public $fixStatus;
+
+    /**
      * @var string
      */
     public $item;
@@ -27,6 +32,11 @@ class checkWarnings extends Model
      * @var string
      */
     public $level;
+
+    /**
+     * @var string
+     */
+    public $reason;
 
     /**
      * @var int
@@ -45,8 +55,10 @@ class checkWarnings extends Model
     protected $_name = [
         'checkId'        => 'CheckId',
         'checkWarningId' => 'CheckWarningId',
+        'fixStatus'      => 'FixStatus',
         'item'           => 'Item',
         'level'          => 'Level',
+        'reason'         => 'Reason',
         'status'         => 'Status',
         'type'           => 'Type',
         'uuid'           => 'Uuid',
@@ -65,11 +77,17 @@ class checkWarnings extends Model
         if (null !== $this->checkWarningId) {
             $res['CheckWarningId'] = $this->checkWarningId;
         }
+        if (null !== $this->fixStatus) {
+            $res['FixStatus'] = $this->fixStatus;
+        }
         if (null !== $this->item) {
             $res['Item'] = $this->item;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -98,11 +116,17 @@ class checkWarnings extends Model
         if (isset($map['CheckWarningId'])) {
             $model->checkWarningId = $map['CheckWarningId'];
         }
+        if (isset($map['FixStatus'])) {
+            $model->fixStatus = $map['FixStatus'];
+        }
         if (isset($map['Item'])) {
             $model->item = $map['Item'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

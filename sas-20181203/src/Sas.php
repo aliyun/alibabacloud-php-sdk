@@ -2556,6 +2556,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->checkId)) {
             $query['CheckId'] = $request->checkId;
         }
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }

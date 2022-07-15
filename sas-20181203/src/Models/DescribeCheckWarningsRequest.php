@@ -14,6 +14,11 @@ class DescribeCheckWarningsRequest extends Model
     public $checkId;
 
     /**
+     * @var string
+     */
+    public $checkType;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -44,6 +49,7 @@ class DescribeCheckWarningsRequest extends Model
     public $uuid;
     protected $_name = [
         'checkId'     => 'CheckId',
+        'checkType'   => 'CheckType',
         'currentPage' => 'CurrentPage',
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
@@ -61,6 +67,9 @@ class DescribeCheckWarningsRequest extends Model
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
+        }
+        if (null !== $this->checkType) {
+            $res['CheckType'] = $this->checkType;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -94,6 +103,9 @@ class DescribeCheckWarningsRequest extends Model
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
+        }
+        if (isset($map['CheckType'])) {
+            $model->checkType = $map['CheckType'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];

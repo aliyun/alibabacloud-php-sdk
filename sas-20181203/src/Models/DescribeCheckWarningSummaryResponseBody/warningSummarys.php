@@ -14,6 +14,16 @@ class warningSummarys extends Model
     public $checkCount;
 
     /**
+     * @var bool
+     */
+    public $checkExploit;
+
+    /**
+     * @var bool
+     */
+    public $databaseRisk;
+
+    /**
      * @var int
      */
     public $highWarningCount;
@@ -64,6 +74,8 @@ class warningSummarys extends Model
     public $warningMachineCount;
     protected $_name = [
         'checkCount'          => 'CheckCount',
+        'checkExploit'        => 'CheckExploit',
+        'databaseRisk'        => 'DatabaseRisk',
         'highWarningCount'    => 'HighWarningCount',
         'lastFoundTime'       => 'LastFoundTime',
         'level'               => 'Level',
@@ -85,6 +97,12 @@ class warningSummarys extends Model
         $res = [];
         if (null !== $this->checkCount) {
             $res['CheckCount'] = $this->checkCount;
+        }
+        if (null !== $this->checkExploit) {
+            $res['CheckExploit'] = $this->checkExploit;
+        }
+        if (null !== $this->databaseRisk) {
+            $res['DatabaseRisk'] = $this->databaseRisk;
         }
         if (null !== $this->highWarningCount) {
             $res['HighWarningCount'] = $this->highWarningCount;
@@ -130,6 +148,12 @@ class warningSummarys extends Model
         $model = new self();
         if (isset($map['CheckCount'])) {
             $model->checkCount = $map['CheckCount'];
+        }
+        if (isset($map['CheckExploit'])) {
+            $model->checkExploit = $map['CheckExploit'];
+        }
+        if (isset($map['DatabaseRisk'])) {
+            $model->databaseRisk = $map['DatabaseRisk'];
         }
         if (isset($map['HighWarningCount'])) {
             $model->highWarningCount = $map['HighWarningCount'];

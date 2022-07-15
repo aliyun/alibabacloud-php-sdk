@@ -11,6 +11,16 @@ class warningMachines extends Model
     /**
      * @var int
      */
+    public $authVersion;
+
+    /**
+     * @var bool
+     */
+    public $bind;
+
+    /**
+     * @var int
+     */
     public $highWarningCount;
 
     /**
@@ -68,6 +78,8 @@ class warningMachines extends Model
      */
     public $uuid;
     protected $_name = [
+        'authVersion'        => 'AuthVersion',
+        'bind'               => 'Bind',
         'highWarningCount'   => 'HighWarningCount',
         'instanceId'         => 'InstanceId',
         'instanceName'       => 'InstanceName',
@@ -89,6 +101,12 @@ class warningMachines extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authVersion) {
+            $res['AuthVersion'] = $this->authVersion;
+        }
+        if (null !== $this->bind) {
+            $res['Bind'] = $this->bind;
+        }
         if (null !== $this->highWarningCount) {
             $res['HighWarningCount'] = $this->highWarningCount;
         }
@@ -137,6 +155,12 @@ class warningMachines extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthVersion'])) {
+            $model->authVersion = $map['AuthVersion'];
+        }
+        if (isset($map['Bind'])) {
+            $model->bind = $map['Bind'];
+        }
         if (isset($map['HighWarningCount'])) {
             $model->highWarningCount = $map['HighWarningCount'];
         }
