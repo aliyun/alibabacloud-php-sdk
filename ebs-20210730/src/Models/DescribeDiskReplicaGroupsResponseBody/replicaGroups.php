@@ -46,6 +46,20 @@ class replicaGroups extends Model
     public $pairNumber;
 
     /**
+     * @description 复制组的初始源地域。
+     *
+     * @var string
+     */
+    public $primaryRegion;
+
+    /**
+     * @description 复制组的初始源可用区。
+     *
+     * @var string
+     */
+    public $primaryZone;
+
+    /**
      * @var int
      */
     public $RPO;
@@ -73,6 +87,20 @@ class replicaGroups extends Model
     public $sourceZoneId;
 
     /**
+     * @description 复制组的初始目的地域。
+     *
+     * @var string
+     */
+    public $standbyRegion;
+
+    /**
+     * @description 复制组的初始目的可用区。
+     *
+     * @var string
+     */
+    public $standbyZone;
+
+    /**
      * @var string
      */
     public $status;
@@ -84,11 +112,15 @@ class replicaGroups extends Model
         'lastRecoverPoint'    => 'LastRecoverPoint',
         'pairIds'             => 'PairIds',
         'pairNumber'          => 'PairNumber',
+        'primaryRegion'       => 'PrimaryRegion',
+        'primaryZone'         => 'PrimaryZone',
         'RPO'                 => 'RPO',
         'replicaGroupId'      => 'ReplicaGroupId',
         'site'                => 'Site',
         'sourceRegionId'      => 'SourceRegionId',
         'sourceZoneId'        => 'SourceZoneId',
+        'standbyRegion'       => 'StandbyRegion',
+        'standbyZone'         => 'StandbyZone',
         'status'              => 'Status',
     ];
 
@@ -120,6 +152,12 @@ class replicaGroups extends Model
         if (null !== $this->pairNumber) {
             $res['PairNumber'] = $this->pairNumber;
         }
+        if (null !== $this->primaryRegion) {
+            $res['PrimaryRegion'] = $this->primaryRegion;
+        }
+        if (null !== $this->primaryZone) {
+            $res['PrimaryZone'] = $this->primaryZone;
+        }
         if (null !== $this->RPO) {
             $res['RPO'] = $this->RPO;
         }
@@ -134,6 +172,12 @@ class replicaGroups extends Model
         }
         if (null !== $this->sourceZoneId) {
             $res['SourceZoneId'] = $this->sourceZoneId;
+        }
+        if (null !== $this->standbyRegion) {
+            $res['StandbyRegion'] = $this->standbyRegion;
+        }
+        if (null !== $this->standbyZone) {
+            $res['StandbyZone'] = $this->standbyZone;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -173,6 +217,12 @@ class replicaGroups extends Model
         if (isset($map['PairNumber'])) {
             $model->pairNumber = $map['PairNumber'];
         }
+        if (isset($map['PrimaryRegion'])) {
+            $model->primaryRegion = $map['PrimaryRegion'];
+        }
+        if (isset($map['PrimaryZone'])) {
+            $model->primaryZone = $map['PrimaryZone'];
+        }
         if (isset($map['RPO'])) {
             $model->RPO = $map['RPO'];
         }
@@ -187,6 +237,12 @@ class replicaGroups extends Model
         }
         if (isset($map['SourceZoneId'])) {
             $model->sourceZoneId = $map['SourceZoneId'];
+        }
+        if (isset($map['StandbyRegion'])) {
+            $model->standbyRegion = $map['StandbyRegion'];
+        }
+        if (isset($map['StandbyZone'])) {
+            $model->standbyZone = $map['StandbyZone'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

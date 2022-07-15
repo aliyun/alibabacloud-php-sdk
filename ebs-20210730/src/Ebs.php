@@ -829,12 +829,6 @@ class Ebs extends OpenApiClient
         if (!Utils::isUnset($request->replicaGroupId)) {
             $query['ReplicaGroupId'] = $request->replicaGroupId;
         }
-        if (!Utils::isUnset($request->sourceRegionId)) {
-            $query['SourceRegionId'] = $request->sourceRegionId;
-        }
-        if (!Utils::isUnset($request->sourceZoneId)) {
-            $query['SourceZoneId'] = $request->sourceZoneId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
