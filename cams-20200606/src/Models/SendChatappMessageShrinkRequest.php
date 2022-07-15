@@ -30,6 +30,20 @@ class SendChatappMessageShrinkRequest extends Model
     public $custWabaId;
 
     /**
+     * @description 回落消息内容
+     *
+     * @var string
+     */
+    public $fallBackContent;
+
+    /**
+     * @description 回落策略ID，可在控制台创建策略并查看
+     *
+     * @var string
+     */
+    public $fallBackId;
+
+    /**
      * @description 发送方
      *
      * @var string
@@ -84,6 +98,8 @@ class SendChatappMessageShrinkRequest extends Model
         'channelType'          => 'ChannelType',
         'content'              => 'Content',
         'custWabaId'           => 'CustWabaId',
+        'fallBackContent'      => 'FallBackContent',
+        'fallBackId'           => 'FallBackId',
         'from'                 => 'From',
         'language'             => 'Language',
         'messageType'          => 'MessageType',
@@ -109,6 +125,12 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
+        }
+        if (null !== $this->fallBackContent) {
+            $res['FallBackContent'] = $this->fallBackContent;
+        }
+        if (null !== $this->fallBackId) {
+            $res['FallBackId'] = $this->fallBackId;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -154,6 +176,12 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];
+        }
+        if (isset($map['FallBackContent'])) {
+            $model->fallBackContent = $map['FallBackContent'];
+        }
+        if (isset($map['FallBackId'])) {
+            $model->fallBackId = $map['FallBackId'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

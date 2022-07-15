@@ -374,6 +374,12 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->custWabaId)) {
             $body['CustWabaId'] = $request->custWabaId;
         }
+        if (!Utils::isUnset($request->fallBackContent)) {
+            $body['FallBackContent'] = $request->fallBackContent;
+        }
+        if (!Utils::isUnset($request->fallBackId)) {
+            $body['FallBackId'] = $request->fallBackId;
+        }
         if (!Utils::isUnset($request->from)) {
             $body['From'] = $request->from;
         }

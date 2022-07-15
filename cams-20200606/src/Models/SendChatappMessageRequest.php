@@ -30,6 +30,20 @@ class SendChatappMessageRequest extends Model
     public $custWabaId;
 
     /**
+     * @description 回落消息内容
+     *
+     * @var string
+     */
+    public $fallBackContent;
+
+    /**
+     * @description 回落策略ID，可在控制台创建策略并查看
+     *
+     * @var string
+     */
+    public $fallBackId;
+
+    /**
      * @description 发送方
      *
      * @var string
@@ -81,17 +95,19 @@ class SendChatappMessageRequest extends Model
      */
     public $type;
     protected $_name = [
-        'channelType'    => 'ChannelType',
-        'content'        => 'Content',
-        'custWabaId'     => 'CustWabaId',
-        'from'           => 'From',
-        'language'       => 'Language',
-        'messageType'    => 'MessageType',
-        'payload'        => 'Payload',
-        'templateCode'   => 'TemplateCode',
-        'templateParams' => 'TemplateParams',
-        'to'             => 'To',
-        'type'           => 'Type',
+        'channelType'     => 'ChannelType',
+        'content'         => 'Content',
+        'custWabaId'      => 'CustWabaId',
+        'fallBackContent' => 'FallBackContent',
+        'fallBackId'      => 'FallBackId',
+        'from'            => 'From',
+        'language'        => 'Language',
+        'messageType'     => 'MessageType',
+        'payload'         => 'Payload',
+        'templateCode'    => 'TemplateCode',
+        'templateParams'  => 'TemplateParams',
+        'to'              => 'To',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -109,6 +125,12 @@ class SendChatappMessageRequest extends Model
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
+        }
+        if (null !== $this->fallBackContent) {
+            $res['FallBackContent'] = $this->fallBackContent;
+        }
+        if (null !== $this->fallBackId) {
+            $res['FallBackId'] = $this->fallBackId;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -154,6 +176,12 @@ class SendChatappMessageRequest extends Model
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];
+        }
+        if (isset($map['FallBackContent'])) {
+            $model->fallBackContent = $map['FallBackContent'];
+        }
+        if (isset($map['FallBackId'])) {
+            $model->fallBackId = $map['FallBackId'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
