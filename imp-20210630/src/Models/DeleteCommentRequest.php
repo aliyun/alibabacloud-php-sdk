@@ -23,13 +23,6 @@ class DeleteCommentRequest extends Model
     public $commentIdList;
 
     /**
-     * @description 弹幕的创建者ID。
-     *
-     * @var string
-     */
-    public $creatorId;
-
-    /**
      * @description 直播间唯一标识，在调用CreateRoom返回。
      *
      * @var string
@@ -45,7 +38,6 @@ class DeleteCommentRequest extends Model
     protected $_name = [
         'appId'         => 'AppId',
         'commentIdList' => 'CommentIdList',
-        'creatorId'     => 'CreatorId',
         'roomId'        => 'RoomId',
         'userId'        => 'UserId',
     ];
@@ -62,9 +54,6 @@ class DeleteCommentRequest extends Model
         }
         if (null !== $this->commentIdList) {
             $res['CommentIdList'] = $this->commentIdList;
-        }
-        if (null !== $this->creatorId) {
-            $res['CreatorId'] = $this->creatorId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -91,9 +80,6 @@ class DeleteCommentRequest extends Model
             if (!empty($map['CommentIdList'])) {
                 $model->commentIdList = $map['CommentIdList'];
             }
-        }
-        if (isset($map['CreatorId'])) {
-            $model->creatorId = $map['CreatorId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

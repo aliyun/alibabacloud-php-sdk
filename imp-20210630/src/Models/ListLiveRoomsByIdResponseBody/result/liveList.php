@@ -44,6 +44,20 @@ class liveList extends Model
     public $coverUrl;
 
     /**
+     * @description 直播的创建时间。单位为ms。
+     *
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @description 直播的结束时间。单位为ms。
+     *
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @description 直播拓展字段。
      *
      * @var string[]
@@ -86,6 +100,13 @@ class liveList extends Model
     public $roomId;
 
     /**
+     * @description 直播的开始时间。单位为ms。
+     *
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @description 直播状态，0-在播 1-下播。
      *
      * @var int
@@ -111,12 +132,15 @@ class liveList extends Model
         'appId'       => 'AppId',
         'chatId'      => 'ChatId',
         'coverUrl'    => 'CoverUrl',
+        'createTime'  => 'CreateTime',
+        'endTime'     => 'EndTime',
         'extension'   => 'Extension',
         'liveId'      => 'LiveId',
         'notice'      => 'Notice',
         'onlineCount' => 'OnlineCount',
         'pv'          => 'Pv',
         'roomId'      => 'RoomId',
+        'startTime'   => 'StartTime',
         'status'      => 'Status',
         'title'       => 'Title',
         'uv'          => 'Uv',
@@ -144,6 +168,12 @@ class liveList extends Model
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
@@ -161,6 +191,9 @@ class liveList extends Model
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -198,6 +231,12 @@ class liveList extends Model
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
@@ -215,6 +254,9 @@ class liveList extends Model
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -43,8 +43,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRoomResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteRecordFileInfoRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteRecordFileInfoResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteSensitiveWordRequest;
@@ -72,8 +70,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomStatisticsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomStatisticsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRoomUserStatisticsResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetRecordFileInfoRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetRecordFileInfoResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetStandardRoomJumpUrlRequest;
@@ -86,8 +82,6 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListCommentsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListCommentsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveFilesRequest;
-use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveFilesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsByIdRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsByIdResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsByIdShrinkRequest;
@@ -852,9 +846,6 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($request->commentIdList)) {
             $bodyFlat['CommentIdList'] = $request->commentIdList;
         }
-        if (!Utils::isUnset($request->creatorId)) {
-            $body['CreatorId'] = $request->creatorId;
-        }
         if (!Utils::isUnset($request->roomId)) {
             $body['RoomId'] = $request->roomId;
         }
@@ -1091,55 +1082,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLiveRoomWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteRecordFileInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteRecordFileInfoResponse
-     */
-    public function deleteRecordFileInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteRecordFileInfo',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteRecordFileInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteRecordFileInfoRequest $request
-     *
-     * @return DeleteRecordFileInfoResponse
-     */
-    public function deleteRecordFileInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRecordFileInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1767,55 +1709,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param GetRecordFileInfoRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetRecordFileInfoResponse
-     */
-    public function getRecordFileInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRecordFileInfo',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetRecordFileInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetRecordFileInfoRequest $request
-     *
-     * @return GetRecordFileInfoResponse
-     */
-    public function getRecordFileInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRecordFileInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetRoomRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -2137,64 +2030,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConferenceUsersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListLiveFilesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListLiveFilesResponse
-     */
-    public function listLiveFilesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->liveId)) {
-            $query['LiveId'] = $request->liveId;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListLiveFiles',
-            'version'     => '2021-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListLiveFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListLiveFilesRequest $request
-     *
-     * @return ListLiveFilesResponse
-     */
-    public function listLiveFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listLiveFilesWithOptions($request, $runtime);
     }
 
     /**
