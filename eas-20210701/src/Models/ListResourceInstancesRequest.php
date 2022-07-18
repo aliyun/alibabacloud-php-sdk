@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListResourceInstancesRequest extends Model
 {
     /**
+     * @description 付费类型
+     * PostPaid后付费
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @description 请求的页码（默认为1）
      *
      * @var int
@@ -22,6 +29,7 @@ class ListResourceInstancesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -33,6 +41,9 @@ class ListResourceInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -51,6 +62,9 @@ class ListResourceInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

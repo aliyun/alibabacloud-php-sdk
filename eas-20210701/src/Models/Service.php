@@ -170,6 +170,13 @@ class Service extends Model
     public $serviceName;
 
     /**
+     * @description 服务的部署来源
+     *
+     * @var string
+     */
+    public $source;
+
+    /**
      * @description 服务的状态
      *
      * @var string
@@ -220,6 +227,7 @@ class Service extends Model
         'serviceConfig'    => 'ServiceConfig',
         'serviceId'        => 'ServiceId',
         'serviceName'      => 'ServiceName',
+        'source'           => 'Source',
         'status'           => 'Status',
         'totalInstance'    => 'TotalInstance',
         'updatetime'       => 'Updatetime',
@@ -301,6 +309,9 @@ class Service extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -394,6 +405,9 @@ class Service extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

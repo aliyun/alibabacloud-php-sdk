@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Eas\V20210701;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceLogRequest;
@@ -20,6 +22,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceMirrorRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateStressRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateStressResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstancesResponse;
@@ -31,7 +36,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceResponse;
-use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteStressResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceResponse;
@@ -41,6 +48,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeStressResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstanceWorkerRequest;
@@ -53,10 +62,18 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListStressesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ReportStressResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\StartBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StartServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\StartStressResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\StopBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StopServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\StopStressResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceRequest;
@@ -71,6 +88,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceVersionRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceVersionResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateStressRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateStressResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -125,6 +144,48 @@ class Eas extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateBenchmarkTaskRequest $request
+     *
+     * @return CreateBenchmarkTaskResponse
+     */
+    public function createBenchmarkTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createBenchmarkTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateBenchmarkTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateBenchmarkTaskResponse
+     */
+    public function createBenchmarkTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBenchmarkTask',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/benchmark-tasks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -509,6 +570,92 @@ class Eas extends OpenApiClient
         ]);
 
         return CreateServiceMirrorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateStressRequest $request
+     *
+     * @return CreateStressResponse
+     */
+    public function createStress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createStressWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateStressRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateStressResponse
+     */
+    public function createStressWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStress',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/stress',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $TaskName
+     *
+     * @return DeleteBenchmarkTaskResponse
+     */
+    public function deleteBenchmarkTask($ClusterId, $TaskName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $TaskName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteBenchmarkTaskResponse
+     */
+    public function deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
+    {
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBenchmarkTask',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -927,32 +1074,83 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @param string $ClusterId
+     * @param string $StressName
+     *
+     * @return DeleteStressResponse
      */
-    public function describeRegions()
+    public function deleteStress($ClusterId, $StressName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeRegionsWithOptions($headers, $runtime);
+        return $this->deleteStressWithOptions($ClusterId, $StressName, $headers, $runtime);
     }
 
     /**
+     * @param string         $ClusterId
+     * @param string         $StressName
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
-     * @return DescribeRegionsResponse
+     * @return DeleteStressResponse
      */
-    public function describeRegionsWithOptions($headers, $runtime)
+    public function deleteStressWithOptions($ClusterId, $StressName, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $StressName = OpenApiUtilClient::getEncodeParam($StressName);
+        $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
+            'action'      => 'DeleteStress',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/regions',
+            'pathname'    => '/api/v2/stress/' . $ClusterId . '/' . $StressName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $TaskName
+     *
+     * @return DescribeBenchmarkTaskResponse
+     */
+    public function describeBenchmarkTask($ClusterId, $TaskName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $TaskName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeBenchmarkTaskResponse
+     */
+    public function describeBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
+    {
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBenchmarkTask',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -960,7 +1158,51 @@ class Eas extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $TaskName
+     *
+     * @return DescribeBenchmarkTaskReportResponse
+     */
+    public function describeBenchmarkTaskReport($ClusterId, $TaskName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $TaskName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeBenchmarkTaskReportResponse
+     */
+    public function describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $headers, $runtime)
+    {
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBenchmarkTaskReport',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '/report',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBenchmarkTaskReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1339,6 +1581,87 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param string $ClusterId
+     * @param string $StressName
+     *
+     * @return DescribeStressResponse
+     */
+    public function describeStress($ClusterId, $StressName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeStressWithOptions($ClusterId, $StressName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $StressName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeStressResponse
+     */
+    public function describeStressWithOptions($ClusterId, $StressName, $headers, $runtime)
+    {
+        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $StressName = OpenApiUtilClient::getEncodeParam($StressName);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStress',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/stress/' . $ClusterId . '/' . $StressName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListBenchmarkTaskResponse
+     */
+    public function listBenchmarkTask()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listBenchmarkTaskWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListBenchmarkTaskResponse
+     */
+    public function listBenchmarkTaskWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListBenchmarkTask',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/benchmark-tasks',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                            $ClusterId
      * @param string                            $ResourceId
      * @param string                            $InstanceName
@@ -1426,6 +1749,9 @@ class Eas extends OpenApiClient
         $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
         $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
         $query      = [];
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -1669,6 +1995,43 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @return ListStressesResponse
+     */
+    public function listStresses()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listStressesWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListStressesResponse
+     */
+    public function listStressesWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListStresses',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/stress',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                $ClusterId
      * @param string                $ServiceName
      * @param ReleaseServiceRequest $request
@@ -1722,6 +2085,94 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
+     * @param string $StressName
+     *
+     * @return ReportStressResponse
+     */
+    public function reportStress($ClusterId, $StressName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->reportStressWithOptions($ClusterId, $StressName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $StressName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ReportStressResponse
+     */
+    public function reportStressWithOptions($ClusterId, $StressName, $headers, $runtime)
+    {
+        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $StressName = OpenApiUtilClient::getEncodeParam($StressName);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ReportStress',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/stress/' . $ClusterId . '/' . $StressName . '/report',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReportStressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $TaskName
+     *
+     * @return StartBenchmarkTaskResponse
+     */
+    public function startBenchmarkTask($ClusterId, $TaskName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $TaskName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartBenchmarkTaskResponse
+     */
+    public function startBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
+    {
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartBenchmarkTask',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '/start',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
      * @param string $ServiceName
      *
      * @return StartServiceResponse
@@ -1766,6 +2217,94 @@ class Eas extends OpenApiClient
 
     /**
      * @param string $ClusterId
+     * @param string $StressName
+     *
+     * @return StartStressResponse
+     */
+    public function startStress($ClusterId, $StressName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startStressWithOptions($ClusterId, $StressName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $StressName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartStressResponse
+     */
+    public function startStressWithOptions($ClusterId, $StressName, $headers, $runtime)
+    {
+        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $StressName = OpenApiUtilClient::getEncodeParam($StressName);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartStress',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/stress/' . $ClusterId . '/' . $StressName . '/start',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartStressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $TaskName
+     *
+     * @return StopBenchmarkTaskResponse
+     */
+    public function stopBenchmarkTask($ClusterId, $TaskName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $TaskName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopBenchmarkTaskResponse
+     */
+    public function stopBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
+    {
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopBenchmarkTask',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '/stop',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
      * @param string $ServiceName
      *
      * @return StopServiceResponse
@@ -1806,6 +2345,98 @@ class Eas extends OpenApiClient
         ]);
 
         return StopServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $StressName
+     *
+     * @return StopStressResponse
+     */
+    public function stopStress($ClusterId, $StressName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopStressWithOptions($ClusterId, $StressName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $StressName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopStressResponse
+     */
+    public function stopStressWithOptions($ClusterId, $StressName, $headers, $runtime)
+    {
+        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $StressName = OpenApiUtilClient::getEncodeParam($StressName);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopStress',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/stress/' . $ClusterId . '/' . $StressName . '/stop',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopStressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $ClusterId
+     * @param string                     $TaskName
+     * @param UpdateBenchmarkTaskRequest $request
+     *
+     * @return UpdateBenchmarkTaskResponse
+     */
+    public function updateBenchmarkTask($ClusterId, $TaskName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $ClusterId
+     * @param string                     $TaskName
+     * @param UpdateBenchmarkTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateBenchmarkTaskResponse
+     */
+    public function updateBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBenchmarkTask',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2187,5 +2818,53 @@ class Eas extends OpenApiClient
         ]);
 
         return UpdateServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $ClusterId
+     * @param string              $StressName
+     * @param UpdateStressRequest $request
+     *
+     * @return UpdateStressResponse
+     */
+    public function updateStress($ClusterId, $StressName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateStressWithOptions($ClusterId, $StressName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $ClusterId
+     * @param string              $StressName
+     * @param UpdateStressRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateStressResponse
+     */
+    public function updateStressWithOptions($ClusterId, $StressName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $StressName = OpenApiUtilClient::getEncodeParam($StressName);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStress',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/stress/' . $ClusterId . '/' . $StressName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateStressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

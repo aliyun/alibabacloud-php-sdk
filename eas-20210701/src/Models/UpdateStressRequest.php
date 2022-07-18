@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eas\V20210701\Models\DescribeRegionsResponseBody;
+namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class regions extends Model
+class UpdateStressRequest extends Model
 {
     /**
-     * @description 地域Id
-     *
      * @var string
      */
-    public $regionId;
+    public $body;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class regions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class regions extends Model
     /**
      * @param array $map
      *
-     * @return regions
+     * @return UpdateStressRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;
