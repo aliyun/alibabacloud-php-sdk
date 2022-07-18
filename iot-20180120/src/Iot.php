@@ -8,6 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AttachDestinationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AttachDestinationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AttachParserDataSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AttachParserDataSourceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceShrinkRequest;
@@ -117,6 +121,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataAPIServiceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataAPIServiceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataSourceItemRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataSourceItemResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDestinationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDestinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDistributeJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDynamicGroupRequest;
@@ -154,6 +160,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAStaticUpgradeJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAStaticUpgradeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAVerifyJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAVerifyJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateParserDataSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateParserDataSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateParserRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateParserResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductDistributeJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductRequest;
@@ -195,6 +205,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupSubscribeRelationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDataSourceItemRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDataSourceItemResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDestinationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDestinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDistributeJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDynamicGroupRequest;
@@ -225,6 +239,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteOTAFirmwareRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteOTAFirmwareResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteOTAModuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteOTAModuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteParserDataSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteParserDataSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteParserRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteParserResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteProductRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteProductResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteProductTagsRequest;
@@ -255,6 +273,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteThingModelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicRouteTableResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DetachDestinationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DetachDestinationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DetachParserDataSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DetachParserDataSourceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DisableDeviceTunnelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DisableDeviceTunnelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DisableDeviceTunnelShareRequest;
@@ -279,6 +301,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GenerateOTAUploadURLRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GenerateOTAUploadURLResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetDestinationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetDestinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDeviceShadowRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDeviceShadowResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDeviceStatusRequest;
@@ -299,6 +323,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GetGatewayBySubDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetGatewayBySubDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetLoraNodesTaskRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetLoraNodesTaskResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetParserDataSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetParserDataSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetParserRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetParserResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleActionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleActionResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleRequest;
@@ -342,6 +370,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ListAnalyticsDataRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListAnalyticsDataResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListDataSourceItemRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListDataSourceItemResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDestinationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDestinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListDeviceDistributeJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListDeviceDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListDistributedDeviceRequest;
@@ -364,6 +394,12 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTATaskByJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTATaskByJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAUnfinishedTaskByDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAUnfinishedTaskByDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserDataSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserDataSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserDestinationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserDestinationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductByTagsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductByTagsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductTagsRequest;
@@ -389,6 +425,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\PrintByTemplateRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PrintByTemplateResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubBroadcastRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubBroadcastResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PublishScriptRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PublishScriptResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishStudioAppRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishStudioAppResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishThingModelRequest;
@@ -611,6 +649,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\RRpcRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RRpcResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SaveDevicePropRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SaveDevicePropResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SaveScriptRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SaveScriptResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetDeviceDesiredPropertyRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetDeviceDesiredPropertyResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetDeviceGroupTagsRequest;
@@ -633,8 +673,12 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechBySynthesisRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechBySynthesisResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartCpuRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartCpuResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\StartParserRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\StartParserResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\StopParserRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\StopParserResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StopRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StopRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SubscribeTopicRequest;
@@ -660,6 +704,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindSceneRuleFromEdgeInstanceRequest
 use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindSceneRuleFromEdgeInstanceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateConsumerGroupResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateDestinationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateDestinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateDeviceGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateDeviceGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateDeviceShadowRequest;
@@ -677,6 +723,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateJobShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateOTAModuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateOTAModuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateParserDataSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateParserDataSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateParserRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateParserResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateProductFilterConfigRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateProductFilterConfigResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateProductRequest;
@@ -843,6 +893,107 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDataForApiSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachDestinationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AttachDestinationResponse
+     */
+    public function attachDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationId)) {
+            $query['DestinationId'] = $request->destinationId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->isFailover)) {
+            $query['IsFailover'] = $request->isFailover;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachDestination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AttachDestinationRequest $request
+     *
+     * @return AttachDestinationResponse
+     */
+    public function attachDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachDestinationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachParserDataSourceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AttachParserDataSourceResponse
+     */
+    public function attachParserDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachParserDataSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AttachParserDataSourceRequest $request
+     *
+     * @return AttachParserDataSourceResponse
+     */
+    public function attachParserDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachParserDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -3535,8 +3686,17 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->dataSourceId)) {
             $query['DataSourceId'] = $request->dataSourceId;
         }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->scopeType)) {
+            $query['ScopeType'] = $request->scopeType;
         }
         if (!Utils::isUnset($request->topic)) {
             $query['Topic'] = $request->topic;
@@ -3569,6 +3729,61 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataSourceItemWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDestinationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDestinationResponse
+     */
+    public function createDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $query['Configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDestination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDestinationRequest $request
+     *
+     * @return CreateDestinationResponse
+     */
+    public function createDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDestinationWithOptions($request, $runtime);
     }
 
     /**
@@ -4741,6 +4956,104 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param CreateParserRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateParserResponse
+     */
+    public function createParserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateParser',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateParserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateParserRequest $request
+     *
+     * @return CreateParserResponse
+     */
+    public function createParser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createParserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateParserDataSourceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateParserDataSourceResponse
+     */
+    public function createParserDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateParserDataSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateParserDataSourceRequest $request
+     *
+     * @return CreateParserDataSourceResponse
+     */
+    public function createParserDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createParserDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateProductRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -5900,6 +6213,101 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param DeleteDataSourceItemRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDataSourceItemResponse
+     */
+    public function deleteDataSourceItemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->dataSourceItemId)) {
+            $query['DataSourceItemId'] = $request->dataSourceItemId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataSourceItem',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataSourceItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDataSourceItemRequest $request
+     *
+     * @return DeleteDataSourceItemResponse
+     */
+    public function deleteDataSourceItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataSourceItemWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDestinationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteDestinationResponse
+     */
+    public function deleteDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationId)) {
+            $query['DestinationId'] = $request->destinationId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDestination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDestinationRequest $request
+     *
+     * @return DeleteDestinationResponse
+     */
+    public function deleteDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDestinationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDeviceRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -6623,6 +7031,98 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param DeleteParserRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteParserResponse
+     */
+    public function deleteParserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteParser',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteParserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteParserRequest $request
+     *
+     * @return DeleteParserResponse
+     */
+    public function deleteParser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteParserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteParserDataSourceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteParserDataSourceResponse
+     */
+    public function deleteParserDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteParserDataSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteParserDataSourceRequest $request
+     *
+     * @return DeleteParserDataSourceResponse
+     */
+    public function deleteParserDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteParserDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteProductRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -7343,6 +7843,104 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param DetachDestinationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DetachDestinationResponse
+     */
+    public function detachDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationId)) {
+            $query['DestinationId'] = $request->destinationId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachDestination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachDestinationRequest $request
+     *
+     * @return DetachDestinationResponse
+     */
+    public function detachDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachDestinationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachParserDataSourceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DetachParserDataSourceResponse
+     */
+    public function detachParserDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachParserDataSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachParserDataSourceRequest $request
+     *
+     * @return DetachParserDataSourceResponse
+     */
+    public function detachParserDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachParserDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DisableDeviceTunnelRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -7922,6 +8520,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param GetDestinationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetDestinationResponse
+     */
+    public function getDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationId)) {
+            $query['DestinationId'] = $request->destinationId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDestination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDestinationRequest $request
+     *
+     * @return GetDestinationResponse
+     */
+    public function getDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDestinationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDeviceShadowRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -8409,6 +9053,98 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLoraNodesTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetParserRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetParserResponse
+     */
+    public function getParserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetParser',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetParserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetParserRequest $request
+     *
+     * @return GetParserResponse
+     */
+    public function getParser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getParserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetParserDataSourceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetParserDataSourceResponse
+     */
+    public function getParserDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetParserDataSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetParserDataSourceRequest $request
+     *
+     * @return GetParserDataSourceResponse
+     */
+    public function getParserDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getParserDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -9534,6 +10270,61 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param ListDestinationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDestinationResponse
+     */
+    public function listDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $query['Types'] = $request->types;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDestination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDestinationRequest $request
+     *
+     * @return ListDestinationResponse
+     */
+    public function listDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDestinationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDeviceDistributeJobRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -10141,6 +10932,159 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listOTAUnfinishedTaskByDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListParserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListParserResponse
+     */
+    public function listParserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListParser',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListParserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListParserRequest $request
+     *
+     * @return ListParserResponse
+     */
+    public function listParser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listParserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListParserDataSourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListParserDataSourceResponse
+     */
+    public function listParserDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListParserDataSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListParserDataSourceRequest $request
+     *
+     * @return ListParserDataSourceResponse
+     */
+    public function listParserDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listParserDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListParserDestinationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListParserDestinationResponse
+     */
+    public function listParserDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->isFailover)) {
+            $query['IsFailover'] = $request->isFailover;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListParserDestination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListParserDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListParserDestinationRequest $request
+     *
+     * @return ListParserDestinationResponse
+     */
+    public function listParserDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listParserDestinationWithOptions($request, $runtime);
     }
 
     /**
@@ -10815,6 +11759,52 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pubBroadcastWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishScriptRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PublishScriptResponse
+     */
+    public function publishScriptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishScript',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublishScriptRequest $request
+     *
+     * @return PublishScriptResponse
+     */
+    public function publishScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishScriptWithOptions($request, $runtime);
     }
 
     /**
@@ -16629,6 +17619,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param SaveScriptRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SaveScriptResponse
+     */
+    public function saveScriptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        if (!Utils::isUnset($request->scriptDraft)) {
+            $query['ScriptDraft'] = $request->scriptDraft;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveScript',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveScriptRequest $request
+     *
+     * @return SaveScriptResponse
+     */
+    public function saveScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveScriptWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDeviceDesiredPropertyRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -17225,6 +18264,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param StartParserRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return StartParserResponse
+     */
+    public function startParserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartParser',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartParserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartParserRequest $request
+     *
+     * @return StartParserResponse
+     */
+    public function startParser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startParserWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartRuleRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -17268,6 +18353,52 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopParserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return StopParserResponse
+     */
+    public function stopParserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopParser',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopParserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopParserRequest $request
+     *
+     * @return StopParserResponse
+     */
+    public function stopParser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopParserWithOptions($request, $runtime);
     }
 
     /**
@@ -17894,6 +19025,64 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param UpdateDestinationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateDestinationResponse
+     */
+    public function updateDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $query['Configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destinationId)) {
+            $query['DestinationId'] = $request->destinationId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDestination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDestinationRequest $request
+     *
+     * @return UpdateDestinationResponse
+     */
+    public function updateDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDestinationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateDeviceGroupRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -18372,6 +19561,110 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateOTAModuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateParserRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateParserResponse
+     */
+    public function updateParserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parserId)) {
+            $query['ParserId'] = $request->parserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateParser',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateParserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateParserRequest $request
+     *
+     * @return UpdateParserResponse
+     */
+    public function updateParser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateParserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateParserDataSourceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateParserDataSourceResponse
+     */
+    public function updateParserDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateParserDataSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateParserDataSourceRequest $request
+     *
+     * @return UpdateParserDataSourceResponse
+     */
+    public function updateParserDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateParserDataSourceWithOptions($request, $runtime);
     }
 
     /**

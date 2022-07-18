@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDataSourceItemRequest extends Model
+class UpdateParserDataSourceRequest extends Model
 {
     /**
      * @var int
@@ -16,7 +16,7 @@ class CreateDataSourceItemRequest extends Model
     /**
      * @var string
      */
-    public $deviceName;
+    public $description;
 
     /**
      * @var string
@@ -26,24 +26,12 @@ class CreateDataSourceItemRequest extends Model
     /**
      * @var string
      */
-    public $productKey;
-
-    /**
-     * @var string
-     */
-    public $scopeType;
-
-    /**
-     * @var string
-     */
-    public $topic;
+    public $name;
     protected $_name = [
         'dataSourceId'  => 'DataSourceId',
-        'deviceName'    => 'DeviceName',
+        'description'   => 'Description',
         'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
-        'scopeType'     => 'ScopeType',
-        'topic'         => 'Topic',
+        'name'          => 'Name',
     ];
 
     public function validate()
@@ -56,20 +44,14 @@ class CreateDataSourceItemRequest extends Model
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->scopeType) {
-            $res['ScopeType'] = $this->scopeType;
-        }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -78,7 +60,7 @@ class CreateDataSourceItemRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDataSourceItemRequest
+     * @return UpdateParserDataSourceRequest
      */
     public static function fromMap($map = [])
     {
@@ -86,20 +68,14 @@ class CreateDataSourceItemRequest extends Model
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['ScopeType'])) {
-            $model->scopeType = $map['ScopeType'];
-        }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

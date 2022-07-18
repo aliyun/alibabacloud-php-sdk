@@ -1,3 +1,6 @@
+2022-07-18 Version: 3.0.6
+- Iot_20180120 TeaDSL sdk.
+
 2022-07-11 Version: 3.0.5
 - Add new api for rule.
 
