@@ -17,11 +17,25 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 查询凭证（Token）。取值为上一次调用该接口返回的NextToken参数值，初次调用接口时无需设置该参数。
+     * @description 查询凭证（Token）。取值为上一次调用该接口返回的NextToken参数值，初次调用接口时无需设置该参数。如果设置了NextToken，则请求参数PageSize和PageNumber将失效，且返回数据中的TotalCount无效。
      *
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @description 分页查询时的页码。
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @description 分页查询时设置的每页行数。
+     *
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @description 异步复制关系ID列表。您可以指定一个或多个异步复制关系ID进行查询。格式为：pair-cn-dsa****,pair-cn-asd****。
@@ -44,7 +58,7 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $replicaGroupId;
 
     /**
-     * @description production或backup，表示获取本地为主站点或备站点的复制对数据，默认为production。
+     * @description production或backup，表示获取本地为生产站点或灾备站点的复制对数据，默认为production。
      *
      * @var string
      */
@@ -52,6 +66,8 @@ class DescribeDiskReplicaPairsRequest extends Model
     protected $_name = [
         'maxResults'     => 'MaxResults',
         'nextToken'      => 'NextToken',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
         'pairIds'        => 'PairIds',
         'regionId'       => 'RegionId',
         'replicaGroupId' => 'ReplicaGroupId',
@@ -70,6 +86,12 @@ class DescribeDiskReplicaPairsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->pairIds) {
             $res['PairIds'] = $this->pairIds;
@@ -100,6 +122,12 @@ class DescribeDiskReplicaPairsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PairIds'])) {
             $model->pairIds = $map['PairIds'];
