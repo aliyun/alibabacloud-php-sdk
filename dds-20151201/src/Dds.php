@@ -22,8 +22,6 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeBatchRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeBatchResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeResponse;
-use AlibabaCloud\SDK\Dds\V20151201\Models\CreateServerlessDBInstanceRequest;
-use AlibabaCloud\SDK\Dds\V20151201\Models\CreateServerlessDBInstanceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DeleteDBInstanceRequest;
@@ -859,112 +857,6 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNodeBatchWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateServerlessDBInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateServerlessDBInstanceResponse
-     */
-    public function createServerlessDBInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
-        }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
-        }
-        if (!Utils::isUnset($request->capacityUnit)) {
-            $query['CapacityUnit'] = $request->capacityUnit;
-        }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
-        }
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
-        }
-        if (!Utils::isUnset($request->DBInstanceStorage)) {
-            $query['DBInstanceStorage'] = $request->DBInstanceStorage;
-        }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
-        }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
-        }
-        if (!Utils::isUnset($request->periodPriceType)) {
-            $query['PeriodPriceType'] = $request->periodPriceType;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->storageEngine)) {
-            $query['StorageEngine'] = $request->storageEngine;
-        }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateServerlessDBInstance',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateServerlessDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateServerlessDBInstanceRequest $request
-     *
-     * @return CreateServerlessDBInstanceResponse
-     */
-    public function createServerlessDBInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createServerlessDBInstanceWithOptions($request, $runtime);
     }
 
     /**
