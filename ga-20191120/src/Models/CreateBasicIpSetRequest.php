@@ -30,6 +30,13 @@ class CreateBasicIpSetRequest extends Model
     public $clientToken;
 
     /**
+     * @description 公网质量类型
+     *
+     * @var string
+     */
+    public $ispType;
+
+    /**
      * @description RegionId
      *
      * @var string
@@ -39,6 +46,7 @@ class CreateBasicIpSetRequest extends Model
         'accelerateRegionId' => 'AccelerateRegionId',
         'acceleratorId'      => 'AcceleratorId',
         'clientToken'        => 'ClientToken',
+        'ispType'            => 'IspType',
         'regionId'           => 'RegionId',
     ];
 
@@ -57,6 +65,9 @@ class CreateBasicIpSetRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ispType) {
+            $res['IspType'] = $this->ispType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -81,6 +92,9 @@ class CreateBasicIpSetRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['IspType'])) {
+            $model->ispType = $map['IspType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

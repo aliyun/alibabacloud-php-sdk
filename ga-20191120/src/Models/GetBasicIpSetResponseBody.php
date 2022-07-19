@@ -51,6 +51,13 @@ class GetBasicIpSetResponseBody extends Model
     public $ipVersion;
 
     /**
+     * @description 公网质量类型
+     *
+     * @var string
+     */
+    public $ispType;
+
+    /**
      * @description 请求Id
      *
      * @var string
@@ -70,6 +77,7 @@ class GetBasicIpSetResponseBody extends Model
         'ipAddress'          => 'IpAddress',
         'ipSetId'            => 'IpSetId',
         'ipVersion'          => 'IpVersion',
+        'ispType'            => 'IspType',
         'requestId'          => 'RequestId',
         'state'              => 'State',
     ];
@@ -98,6 +106,9 @@ class GetBasicIpSetResponseBody extends Model
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->ispType) {
+            $res['IspType'] = $this->ispType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -134,6 +145,9 @@ class GetBasicIpSetResponseBody extends Model
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['IspType'])) {
+            $model->ispType = $map['IspType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
