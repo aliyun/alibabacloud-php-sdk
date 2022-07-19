@@ -306,6 +306,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClearLogstoreStorageRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClearLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyEmgVulSubmitRequest;
@@ -8520,9 +8522,6 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->instanceSubTypes)) {
-            $query['InstanceSubTypes'] = $request->instanceSubTypes;
-        }
         if (!Utils::isUnset($request->instanceTypes)) {
             $query['InstanceTypes'] = $request->instanceTypes;
         }
@@ -8858,6 +8857,58 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyBackupPolicyStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyClearLogstoreStorageRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyClearLogstoreStorageResponse
+     */
+    public function modifyClearLogstoreStorageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userLogStore)) {
+            $query['UserLogStore'] = $request->userLogStore;
+        }
+        if (!Utils::isUnset($request->userProject)) {
+            $query['UserProject'] = $request->userProject;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClearLogstoreStorage',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyClearLogstoreStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyClearLogstoreStorageRequest $request
+     *
+     * @return ModifyClearLogstoreStorageResponse
+     */
+    public function modifyClearLogstoreStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyClearLogstoreStorageWithOptions($request, $runtime);
     }
 
     /**

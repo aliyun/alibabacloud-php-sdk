@@ -26,11 +26,6 @@ class ListCheckResultRequest extends Model
     /**
      * @var string[]
      */
-    public $instanceSubTypes;
-
-    /**
-     * @var string[]
-     */
     public $instanceTypes;
 
     /**
@@ -73,19 +68,18 @@ class ListCheckResultRequest extends Model
      */
     public $vendors;
     protected $_name = [
-        'checkKey'         => 'CheckKey',
-        'currentPage'      => 'CurrentPage',
-        'instanceIds'      => 'InstanceIds',
-        'instanceSubTypes' => 'InstanceSubTypes',
-        'instanceTypes'    => 'InstanceTypes',
-        'lang'             => 'Lang',
-        'pageSize'         => 'PageSize',
-        'requirementIds'   => 'RequirementIds',
-        'riskLevels'       => 'RiskLevels',
-        'sortTypes'        => 'SortTypes',
-        'standardIds'      => 'StandardIds',
-        'statuses'         => 'Statuses',
-        'vendors'          => 'Vendors',
+        'checkKey'       => 'CheckKey',
+        'currentPage'    => 'CurrentPage',
+        'instanceIds'    => 'InstanceIds',
+        'instanceTypes'  => 'InstanceTypes',
+        'lang'           => 'Lang',
+        'pageSize'       => 'PageSize',
+        'requirementIds' => 'RequirementIds',
+        'riskLevels'     => 'RiskLevels',
+        'sortTypes'      => 'SortTypes',
+        'standardIds'    => 'StandardIds',
+        'statuses'       => 'Statuses',
+        'vendors'        => 'Vendors',
     ];
 
     public function validate()
@@ -103,9 +97,6 @@ class ListCheckResultRequest extends Model
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
-        }
-        if (null !== $this->instanceSubTypes) {
-            $res['InstanceSubTypes'] = $this->instanceSubTypes;
         }
         if (null !== $this->instanceTypes) {
             $res['InstanceTypes'] = $this->instanceTypes;
@@ -155,11 +146,6 @@ class ListCheckResultRequest extends Model
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = $map['InstanceIds'];
-            }
-        }
-        if (isset($map['InstanceSubTypes'])) {
-            if (!empty($map['InstanceSubTypes'])) {
-                $model->instanceSubTypes = $map['InstanceSubTypes'];
             }
         }
         if (isset($map['InstanceTypes'])) {
