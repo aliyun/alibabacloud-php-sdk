@@ -46,6 +46,11 @@ class UpdateMetaTableRequest extends Model
     /**
      * @var string
      */
+    public $schema;
+
+    /**
+     * @var string
+     */
     public $tableGuid;
 
     /**
@@ -65,6 +70,7 @@ class UpdateMetaTableRequest extends Model
         'newOwnerId'    => 'NewOwnerId',
         'projectId'     => 'ProjectId',
         'removedLabels' => 'RemovedLabels',
+        'schema'        => 'Schema',
         'tableGuid'     => 'TableGuid',
         'tableName'     => 'TableName',
         'visibility'    => 'Visibility',
@@ -97,6 +103,9 @@ class UpdateMetaTableRequest extends Model
         }
         if (null !== $this->removedLabels) {
             $res['RemovedLabels'] = $this->removedLabels;
+        }
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
         }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
@@ -139,6 +148,9 @@ class UpdateMetaTableRequest extends Model
         }
         if (isset($map['RemovedLabels'])) {
             $model->removedLabels = $map['RemovedLabels'];
+        }
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
         }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];

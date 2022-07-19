@@ -42,6 +42,11 @@ class SearchMetaTablesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $schema;
     protected $_name = [
         'appGuid'        => 'AppGuid',
         'clusterId'      => 'ClusterId',
@@ -50,6 +55,7 @@ class SearchMetaTablesRequest extends Model
         'keyword'        => 'Keyword',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'schema'         => 'Schema',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class SearchMetaTablesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class SearchMetaTablesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
         }
 
         return $model;

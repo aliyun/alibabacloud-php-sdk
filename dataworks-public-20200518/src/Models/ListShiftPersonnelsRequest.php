@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetDutyRosterRequest extends Model
+class ListShiftPersonnelsRequest extends Model
 {
     /**
      * @var int
      */
     public $beginTime;
-
-    /**
-     * @var string
-     */
-    public $dutyRosterIdentifier;
 
     /**
      * @var int
@@ -26,18 +21,23 @@ class GetDutyRosterRequest extends Model
     /**
      * @var string
      */
-    public $userType;
+    public $shiftPersonUID;
 
     /**
      * @var string
      */
-    public $watchkeeper;
+    public $shiftScheduleIdentifier;
+
+    /**
+     * @var string
+     */
+    public $userType;
     protected $_name = [
-        'beginTime'            => 'BeginTime',
-        'dutyRosterIdentifier' => 'DutyRosterIdentifier',
-        'endTime'              => 'EndTime',
-        'userType'             => 'UserType',
-        'watchkeeper'          => 'Watchkeeper',
+        'beginTime'               => 'BeginTime',
+        'endTime'                 => 'EndTime',
+        'shiftPersonUID'          => 'ShiftPersonUID',
+        'shiftScheduleIdentifier' => 'ShiftScheduleIdentifier',
+        'userType'                => 'UserType',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class GetDutyRosterRequest extends Model
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
-        if (null !== $this->dutyRosterIdentifier) {
-            $res['DutyRosterIdentifier'] = $this->dutyRosterIdentifier;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->shiftPersonUID) {
+            $res['ShiftPersonUID'] = $this->shiftPersonUID;
+        }
+        if (null !== $this->shiftScheduleIdentifier) {
+            $res['ShiftScheduleIdentifier'] = $this->shiftScheduleIdentifier;
+        }
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
-        }
-        if (null !== $this->watchkeeper) {
-            $res['Watchkeeper'] = $this->watchkeeper;
         }
 
         return $res;
@@ -69,7 +69,7 @@ class GetDutyRosterRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetDutyRosterRequest
+     * @return ListShiftPersonnelsRequest
      */
     public static function fromMap($map = [])
     {
@@ -77,17 +77,17 @@ class GetDutyRosterRequest extends Model
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
-        if (isset($map['DutyRosterIdentifier'])) {
-            $model->dutyRosterIdentifier = $map['DutyRosterIdentifier'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['ShiftPersonUID'])) {
+            $model->shiftPersonUID = $map['ShiftPersonUID'];
+        }
+        if (isset($map['ShiftScheduleIdentifier'])) {
+            $model->shiftScheduleIdentifier = $map['ShiftScheduleIdentifier'];
+        }
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
-        }
-        if (isset($map['Watchkeeper'])) {
-            $model->watchkeeper = $map['Watchkeeper'];
         }
 
         return $model;

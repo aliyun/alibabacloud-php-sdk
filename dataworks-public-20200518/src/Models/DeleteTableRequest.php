@@ -26,11 +26,17 @@ class DeleteTableRequest extends Model
     /**
      * @var string
      */
+    public $schema;
+
+    /**
+     * @var string
+     */
     public $tableName;
     protected $_name = [
         'appGuid'   => 'AppGuid',
         'envType'   => 'EnvType',
         'projectId' => 'ProjectId',
+        'schema'    => 'Schema',
         'tableName' => 'TableName',
     ];
 
@@ -49,6 +55,9 @@ class DeleteTableRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
         }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
@@ -73,6 +82,9 @@ class DeleteTableRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];

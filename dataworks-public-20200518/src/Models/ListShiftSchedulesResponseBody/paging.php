@@ -2,18 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDutyRosterResponseBody;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesResponseBody;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDutyRosterResponseBody\paging\dutyRoster;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesResponseBody\paging\shiftSchedules;
 use AlibabaCloud\Tea\Model;
 
 class paging extends Model
 {
-    /**
-     * @var dutyRoster[]
-     */
-    public $dutyRoster;
-
     /**
      * @var int
      */
@@ -25,14 +20,19 @@ class paging extends Model
     public $pageSize;
 
     /**
+     * @var shiftSchedules[]
+     */
+    public $shiftSchedules;
+
+    /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'dutyRoster' => 'DutyRoster',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'totalCount' => 'TotalCount',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'shiftSchedules' => 'ShiftSchedules',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -42,20 +42,20 @@ class paging extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dutyRoster) {
-            $res['DutyRoster'] = [];
-            if (null !== $this->dutyRoster && \is_array($this->dutyRoster)) {
-                $n = 0;
-                foreach ($this->dutyRoster as $item) {
-                    $res['DutyRoster'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->shiftSchedules) {
+            $res['ShiftSchedules'] = [];
+            if (null !== $this->shiftSchedules && \is_array($this->shiftSchedules)) {
+                $n = 0;
+                foreach ($this->shiftSchedules as $item) {
+                    $res['ShiftSchedules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -72,20 +72,20 @@ class paging extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DutyRoster'])) {
-            if (!empty($map['DutyRoster'])) {
-                $model->dutyRoster = [];
-                $n                 = 0;
-                foreach ($map['DutyRoster'] as $item) {
-                    $model->dutyRoster[$n++] = null !== $item ? dutyRoster::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ShiftSchedules'])) {
+            if (!empty($map['ShiftSchedules'])) {
+                $model->shiftSchedules = [];
+                $n                     = 0;
+                foreach ($map['ShiftSchedules'] as $item) {
+                    $model->shiftSchedules[$n++] = null !== $item ? shiftSchedules::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDutyRostersResponse extends Model
+class ListShiftSchedulesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListDutyRostersResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListDutyRostersResponseBody
+     * @var ListShiftSchedulesResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ListDutyRostersResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListDutyRostersResponse
+     * @return ListShiftSchedulesResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ListDutyRostersResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListDutyRostersResponseBody::fromMap($map['body']);
+            $model->body = ListShiftSchedulesResponseBody::fromMap($map['body']);
         }
 
         return $model;

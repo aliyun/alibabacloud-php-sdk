@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDutyRostersResponseBody\paging;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesResponseBody\paging;
 use AlibabaCloud\Tea\Model;
 
-class ListDutyRostersResponseBody extends Model
+class ListShiftSchedulesResponseBody extends Model
 {
     /**
      * @var paging
@@ -45,7 +45,7 @@ class ListDutyRostersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListDutyRostersResponseBody
+     * @return ListShiftSchedulesResponseBody
      */
     public static function fromMap($map = [])
     {

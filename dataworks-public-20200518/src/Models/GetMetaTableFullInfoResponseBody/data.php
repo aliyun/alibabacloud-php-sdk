@@ -97,6 +97,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $schema;
+
+    /**
+     * @var string
+     */
     public $tableGuid;
 
     /**
@@ -131,6 +136,7 @@ class data extends Model
         'partitionKeys'    => 'PartitionKeys',
         'projectId'        => 'ProjectId',
         'projectName'      => 'ProjectName',
+        'schema'           => 'Schema',
         'tableGuid'        => 'TableGuid',
         'tableName'        => 'TableName',
         'tenantId'         => 'TenantId',
@@ -200,6 +206,9 @@ class data extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
         }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
@@ -281,6 +290,9 @@ class data extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
         }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];

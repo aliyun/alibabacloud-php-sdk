@@ -161,8 +161,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskMetricInfoReq
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskMetricInfoResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDutyRosterRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDutyRosterResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetExtensionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetExtensionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileRequest;
@@ -305,8 +303,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDutyRostersRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDutyRostersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListExtensionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListExtensionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFilesRequest;
@@ -363,6 +359,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListRemindsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListRemindsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftPersonnelsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftPersonnelsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListSuccessInstanceAmountRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListSuccessInstanceAmountResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableLevelRequest;
@@ -2534,6 +2534,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->projectId)) {
             $query['ProjectId'] = $request->projectId;
         }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
+        }
         if (!Utils::isUnset($request->tableName)) {
             $query['TableName'] = $request->tableName;
         }
@@ -3545,6 +3548,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectId)) {
             $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
         }
         if (!Utils::isUnset($request->tableName)) {
             $query['TableName'] = $request->tableName;
@@ -4818,61 +4824,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDeploymentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDutyRosterRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetDutyRosterResponse
-     */
-    public function getDutyRosterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $body['BeginTime'] = $request->beginTime;
-        }
-        if (!Utils::isUnset($request->dutyRosterIdentifier)) {
-            $body['DutyRosterIdentifier'] = $request->dutyRosterIdentifier;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->userType)) {
-            $body['UserType'] = $request->userType;
-        }
-        if (!Utils::isUnset($request->watchkeeper)) {
-            $body['Watchkeeper'] = $request->watchkeeper;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDutyRoster',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetDutyRosterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetDutyRosterRequest $request
-     *
-     * @return GetDutyRosterResponse
-     */
-    public function getDutyRoster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDutyRosterWithOptions($request, $runtime);
     }
 
     /**
@@ -8383,58 +8334,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDutyRostersRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListDutyRostersResponse
-     */
-    public function listDutyRostersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->dutyRosterName)) {
-            $body['DutyRosterName'] = $request->dutyRosterName;
-        }
-        if (!Utils::isUnset($request->dutyRosterOwner)) {
-            $body['DutyRosterOwner'] = $request->dutyRosterOwner;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDutyRosters',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDutyRostersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDutyRostersRequest $request
-     *
-     * @return ListDutyRostersResponse
-     */
-    public function listDutyRosters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDutyRostersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListExtensionsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -9930,6 +9829,113 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListShiftPersonnelsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListShiftPersonnelsResponse
+     */
+    public function listShiftPersonnelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $body['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->shiftPersonUID)) {
+            $body['ShiftPersonUID'] = $request->shiftPersonUID;
+        }
+        if (!Utils::isUnset($request->shiftScheduleIdentifier)) {
+            $body['ShiftScheduleIdentifier'] = $request->shiftScheduleIdentifier;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $body['UserType'] = $request->userType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListShiftPersonnels',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListShiftPersonnelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListShiftPersonnelsRequest $request
+     *
+     * @return ListShiftPersonnelsResponse
+     */
+    public function listShiftPersonnels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listShiftPersonnelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListShiftSchedulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListShiftSchedulesResponse
+     */
+    public function listShiftSchedulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->shiftScheduleName)) {
+            $body['ShiftScheduleName'] = $request->shiftScheduleName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListShiftSchedules',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListShiftSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListShiftSchedulesRequest $request
+     *
+     * @return ListShiftSchedulesResponse
+     */
+    public function listShiftSchedules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listShiftSchedulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListSuccessInstanceAmountRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -10889,6 +10895,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -12264,6 +12273,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->projectId)) {
             $query['ProjectId'] = $request->projectId;
         }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
+        }
         if (!Utils::isUnset($request->tableGuid)) {
             $query['TableGuid'] = $request->tableGuid;
         }
@@ -12748,6 +12760,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectId)) {
             $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
         }
         if (!Utils::isUnset($request->tableName)) {
             $query['TableName'] = $request->tableName;
