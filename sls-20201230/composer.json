@@ -12,8 +12,8 @@
   "require": {
     "php": ">5.5",
     "alibabacloud/tea-utils": "^0.2.16",
-    "alibabacloud/gateway-spi": "^0.0.1",
-    "alibabacloud/gateway-sls": "^0.0.3",
+    "alibabacloud/gateway-spi": "^0.0.2",
+    "alibabacloud/gateway-sls": "^0.0.4",
     "alibabacloud/darabonba-openapi": "^0.2.5",
     "alibabacloud/openapi-util": "^0.1.10"
   },

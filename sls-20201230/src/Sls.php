@@ -41,6 +41,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedConfigsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedMachineGroupsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsRequest;
@@ -1365,6 +1366,52 @@ class Sls extends OpenApiClient
         ]);
 
         return GetAppliedConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $configName
+     *
+     * @return GetAppliedMachineGroupsResponse
+     */
+    public function getAppliedMachineGroups($project, $configName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAppliedMachineGroupsWithOptions($project, $configName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $configName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAppliedMachineGroupsResponse
+     */
+    public function getAppliedMachineGroupsWithOptions($project, $configName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $configName         = OpenApiUtilClient::getEncodeParam($configName);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppliedMachineGroups',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/configs/' . $configName . '/machinegroups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppliedMachineGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

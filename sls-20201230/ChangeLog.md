@@ -1,3 +1,6 @@
+2022-07-20 Version: 1.4.1
+- Generated php 2020-12-30 for Sls.
+
 2022-07-12 Version: 1.4.0
 - Add DeleteSavedsearch.
 - Add EtlMeta.
