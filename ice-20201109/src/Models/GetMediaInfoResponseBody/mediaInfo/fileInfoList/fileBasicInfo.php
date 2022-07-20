@@ -16,6 +16,11 @@ class fileBasicInfo extends Model
     public $bitrate;
 
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @description 时长
      *
      * @var string
@@ -72,6 +77,11 @@ class fileBasicInfo extends Model
     public $height;
 
     /**
+     * @var string
+     */
+    public $modifiedTime;
+
+    /**
      * @description 文件存储区域
      *
      * @var string
@@ -85,17 +95,19 @@ class fileBasicInfo extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'duration'   => 'Duration',
-        'fileName'   => 'FileName',
-        'fileSize'   => 'FileSize',
-        'fileStatus' => 'FileStatus',
-        'fileType'   => 'FileType',
-        'fileUrl'    => 'FileUrl',
-        'formatName' => 'FormatName',
-        'height'     => 'Height',
-        'region'     => 'Region',
-        'width'      => 'Width',
+        'bitrate'      => 'Bitrate',
+        'createTime'   => 'CreateTime',
+        'duration'     => 'Duration',
+        'fileName'     => 'FileName',
+        'fileSize'     => 'FileSize',
+        'fileStatus'   => 'FileStatus',
+        'fileType'     => 'FileType',
+        'fileUrl'      => 'FileUrl',
+        'formatName'   => 'FormatName',
+        'height'       => 'Height',
+        'modifiedTime' => 'ModifiedTime',
+        'region'       => 'Region',
+        'width'        => 'Width',
     ];
 
     public function validate()
@@ -107,6 +119,9 @@ class fileBasicInfo extends Model
         $res = [];
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -132,6 +147,9 @@ class fileBasicInfo extends Model
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -152,6 +170,9 @@ class fileBasicInfo extends Model
         $model = new self();
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
@@ -176,6 +197,9 @@ class fileBasicInfo extends Model
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

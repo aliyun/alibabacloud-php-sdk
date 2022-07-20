@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $biz;
+
+    /**
      * @description 媒资业务类型
      *
      * @var string
      */
     public $businessType;
+
+    /**
+     * @var int
+     */
+    public $cateId;
 
     /**
      * @description 分类
@@ -128,13 +138,20 @@ class mediaBasicInfo extends Model
     public $transcodeStatus;
 
     /**
+     * @var string
+     */
+    public $uploadSource;
+
+    /**
      * @description 用户数据
      *
      * @var string
      */
     public $userData;
     protected $_name = [
+        'biz'             => 'Biz',
         'businessType'    => 'BusinessType',
+        'cateId'          => 'CateId',
         'category'        => 'Category',
         'coverURL'        => 'CoverURL',
         'createTime'      => 'CreateTime',
@@ -151,6 +168,7 @@ class mediaBasicInfo extends Model
         'status'          => 'Status',
         'title'           => 'Title',
         'transcodeStatus' => 'TranscodeStatus',
+        'uploadSource'    => 'UploadSource',
         'userData'        => 'UserData',
     ];
 
@@ -161,8 +179,14 @@ class mediaBasicInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->biz) {
+            $res['Biz'] = $this->biz;
+        }
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -212,6 +236,9 @@ class mediaBasicInfo extends Model
         if (null !== $this->transcodeStatus) {
             $res['TranscodeStatus'] = $this->transcodeStatus;
         }
+        if (null !== $this->uploadSource) {
+            $res['UploadSource'] = $this->uploadSource;
+        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -227,8 +254,14 @@ class mediaBasicInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Biz'])) {
+            $model->biz = $map['Biz'];
+        }
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
+        }
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
@@ -277,6 +310,9 @@ class mediaBasicInfo extends Model
         }
         if (isset($map['TranscodeStatus'])) {
             $model->transcodeStatus = $map['TranscodeStatus'];
+        }
+        if (isset($map['UploadSource'])) {
+            $model->uploadSource = $map['UploadSource'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

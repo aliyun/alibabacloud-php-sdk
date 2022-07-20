@@ -16,13 +16,6 @@ class ListMediaBasicInfosRequest extends Model
     public $businessType;
 
     /**
-     * @description 分类
-     *
-     * @var string
-     */
-    public $category;
-
-    /**
      * @description 结束时间
      *
      * @var string
@@ -93,7 +86,6 @@ class ListMediaBasicInfosRequest extends Model
     public $status;
     protected $_name = [
         'businessType'         => 'BusinessType',
-        'category'             => 'Category',
         'endTime'              => 'EndTime',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
         'maxResults'           => 'MaxResults',
@@ -115,9 +107,6 @@ class ListMediaBasicInfosRequest extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -163,9 +152,6 @@ class ListMediaBasicInfosRequest extends Model
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

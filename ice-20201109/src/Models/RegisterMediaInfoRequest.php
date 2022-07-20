@@ -16,11 +16,9 @@ class RegisterMediaInfoRequest extends Model
     public $businessType;
 
     /**
-     * @description 分类
-     *
-     * @var string
+     * @var int
      */
-    public $category;
+    public $cateId;
 
     /**
      * @description 客户端token
@@ -42,13 +40,6 @@ class RegisterMediaInfoRequest extends Model
      * @var string
      */
     public $description;
-
-    /**
-     * @description 用户自定义元数据
-     *
-     * @var string
-     */
-    public $dynamicMetaDataList;
 
     /**
      * @description 媒资媒体url
@@ -99,19 +90,18 @@ class RegisterMediaInfoRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'businessType'        => 'BusinessType',
-        'category'            => 'Category',
-        'clientToken'         => 'ClientToken',
-        'coverURL'            => 'CoverURL',
-        'description'         => 'Description',
-        'dynamicMetaDataList' => 'DynamicMetaDataList',
-        'inputURL'            => 'InputURL',
-        'mediaTags'           => 'MediaTags',
-        'mediaType'           => 'MediaType',
-        'overwrite'           => 'Overwrite',
-        'registerConfig'      => 'RegisterConfig',
-        'title'               => 'Title',
-        'userData'            => 'UserData',
+        'businessType'   => 'BusinessType',
+        'cateId'         => 'CateId',
+        'clientToken'    => 'ClientToken',
+        'coverURL'       => 'CoverURL',
+        'description'    => 'Description',
+        'inputURL'       => 'InputURL',
+        'mediaTags'      => 'MediaTags',
+        'mediaType'      => 'MediaType',
+        'overwrite'      => 'Overwrite',
+        'registerConfig' => 'RegisterConfig',
+        'title'          => 'Title',
+        'userData'       => 'UserData',
     ];
 
     public function validate()
@@ -124,8 +114,8 @@ class RegisterMediaInfoRequest extends Model
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -135,9 +125,6 @@ class RegisterMediaInfoRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->dynamicMetaDataList) {
-            $res['DynamicMetaDataList'] = $this->dynamicMetaDataList;
         }
         if (null !== $this->inputURL) {
             $res['InputURL'] = $this->inputURL;
@@ -175,8 +162,8 @@ class RegisterMediaInfoRequest extends Model
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -186,9 +173,6 @@ class RegisterMediaInfoRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['DynamicMetaDataList'])) {
-            $model->dynamicMetaDataList = $map['DynamicMetaDataList'];
         }
         if (isset($map['InputURL'])) {
             $model->inputURL = $map['InputURL'];

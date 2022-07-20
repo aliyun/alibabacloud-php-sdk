@@ -1,0 +1,64 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\ICE\V20201109\Models;
+
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateResponseBody\customTemplate;
+use AlibabaCloud\Tea\Model;
+
+class CreateCustomTemplateResponseBody extends Model
+{
+    /**
+     * @description 模板信息
+     *
+     * @var customTemplate
+     */
+    public $customTemplate;
+
+    /**
+     * @description 请求ID
+     *
+     * @var string
+     */
+    public $requestId;
+    protected $_name = [
+        'customTemplate' => 'CustomTemplate',
+        'requestId'      => 'RequestId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->customTemplate) {
+            $res['CustomTemplate'] = null !== $this->customTemplate ? $this->customTemplate->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return CreateCustomTemplateResponseBody
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['CustomTemplate'])) {
+            $model->customTemplate = customTemplate::fromMap($map['CustomTemplate']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        return $model;
+    }
+}

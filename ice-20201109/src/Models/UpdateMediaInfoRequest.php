@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaInfoRequest extends Model
 {
     /**
-     * @description 是否以append的形式更新DynamicMetaDataList字段
-     *
-     * @var bool
-     */
-    public $appendDynamicMeta;
-
-    /**
      * @description 是否以append的形式更新Tags字段
      *
      * @var bool
@@ -28,6 +21,11 @@ class UpdateMediaInfoRequest extends Model
      * @var string
      */
     public $businessType;
+
+    /**
+     * @var int
+     */
+    public $cateId;
 
     /**
      * @description 分类
@@ -49,13 +47,6 @@ class UpdateMediaInfoRequest extends Model
      * @var string
      */
     public $description;
-
-    /**
-     * @description 用户自定义元数据
-     *
-     * @var string
-     */
-    public $dynamicMetaDataList;
 
     /**
      * @description 媒资媒体类型
@@ -92,18 +83,17 @@ class UpdateMediaInfoRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'appendDynamicMeta'   => 'AppendDynamicMeta',
-        'appendTags'          => 'AppendTags',
-        'businessType'        => 'BusinessType',
-        'category'            => 'Category',
-        'coverURL'            => 'CoverURL',
-        'description'         => 'Description',
-        'dynamicMetaDataList' => 'DynamicMetaDataList',
-        'inputURL'            => 'InputURL',
-        'mediaId'             => 'MediaId',
-        'mediaTags'           => 'MediaTags',
-        'title'               => 'Title',
-        'userData'            => 'UserData',
+        'appendTags'   => 'AppendTags',
+        'businessType' => 'BusinessType',
+        'cateId'       => 'CateId',
+        'category'     => 'Category',
+        'coverURL'     => 'CoverURL',
+        'description'  => 'Description',
+        'inputURL'     => 'InputURL',
+        'mediaId'      => 'MediaId',
+        'mediaTags'    => 'MediaTags',
+        'title'        => 'Title',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -113,14 +103,14 @@ class UpdateMediaInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appendDynamicMeta) {
-            $res['AppendDynamicMeta'] = $this->appendDynamicMeta;
-        }
         if (null !== $this->appendTags) {
             $res['AppendTags'] = $this->appendTags;
         }
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -130,9 +120,6 @@ class UpdateMediaInfoRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->dynamicMetaDataList) {
-            $res['DynamicMetaDataList'] = $this->dynamicMetaDataList;
         }
         if (null !== $this->inputURL) {
             $res['InputURL'] = $this->inputURL;
@@ -161,14 +148,14 @@ class UpdateMediaInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppendDynamicMeta'])) {
-            $model->appendDynamicMeta = $map['AppendDynamicMeta'];
-        }
         if (isset($map['AppendTags'])) {
             $model->appendTags = $map['AppendTags'];
         }
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
+        }
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
@@ -178,9 +165,6 @@ class UpdateMediaInfoRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['DynamicMetaDataList'])) {
-            $model->dynamicMetaDataList = $map['DynamicMetaDataList'];
         }
         if (isset($map['InputURL'])) {
             $model->inputURL = $map['InputURL'];
