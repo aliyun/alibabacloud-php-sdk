@@ -23,10 +23,22 @@ class resultList extends Model
      * @var int
      */
     public $result;
+
+    /**
+     * @var int
+     */
+    public $score;
+
+    /**
+     * @var string
+     */
+    public $virusType;
     protected $_name = [
-        'ext'     => 'Ext',
-        'hashKey' => 'HashKey',
-        'result'  => 'Result',
+        'ext'       => 'Ext',
+        'hashKey'   => 'HashKey',
+        'result'    => 'Result',
+        'score'     => 'Score',
+        'virusType' => 'VirusType',
     ];
 
     public function validate()
@@ -44,6 +56,12 @@ class resultList extends Model
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
+        }
+        if (null !== $this->virusType) {
+            $res['VirusType'] = $this->virusType;
         }
 
         return $res;
@@ -65,6 +83,12 @@ class resultList extends Model
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
+        if (isset($map['VirusType'])) {
+            $model->virusType = $map['VirusType'];
         }
 
         return $model;
