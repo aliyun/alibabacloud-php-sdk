@@ -34,6 +34,11 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $imageFormat;
 
     /**
+     * @var int
+     */
+    public $margin;
+
+    /**
      * @var string
      */
     public $notifyEndpoint;
@@ -90,6 +95,7 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         'credentialConfigShrink' => 'CredentialConfig',
         'direction'              => 'Direction',
         'imageFormat'            => 'ImageFormat',
+        'margin'                 => 'Margin',
         'notifyEndpoint'         => 'NotifyEndpoint',
         'notifyTopicName'        => 'NotifyTopicName',
         'padding'                => 'Padding',
@@ -123,6 +129,9 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         }
         if (null !== $this->imageFormat) {
             $res['ImageFormat'] = $this->imageFormat;
+        }
+        if (null !== $this->margin) {
+            $res['Margin'] = $this->margin;
         }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
@@ -180,6 +189,9 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         }
         if (isset($map['ImageFormat'])) {
             $model->imageFormat = $map['ImageFormat'];
+        }
+        if (isset($map['Margin'])) {
+            $model->margin = $map['Margin'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];

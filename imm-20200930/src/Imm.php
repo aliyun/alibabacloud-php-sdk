@@ -968,6 +968,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->imageFormat)) {
             $query['ImageFormat'] = $request->imageFormat;
         }
+        if (!Utils::isUnset($request->margin)) {
+            $query['Margin'] = $request->margin;
+        }
         if (!Utils::isUnset($request->notifyEndpoint)) {
             $query['NotifyEndpoint'] = $request->notifyEndpoint;
         }

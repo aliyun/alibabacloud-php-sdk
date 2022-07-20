@@ -35,6 +35,11 @@ class CreateImageSplicingTaskRequest extends Model
     public $imageFormat;
 
     /**
+     * @var int
+     */
+    public $margin;
+
+    /**
      * @var string
      */
     public $notifyEndpoint;
@@ -91,6 +96,7 @@ class CreateImageSplicingTaskRequest extends Model
         'credentialConfig' => 'CredentialConfig',
         'direction'        => 'Direction',
         'imageFormat'      => 'ImageFormat',
+        'margin'           => 'Margin',
         'notifyEndpoint'   => 'NotifyEndpoint',
         'notifyTopicName'  => 'NotifyTopicName',
         'padding'          => 'Padding',
@@ -124,6 +130,9 @@ class CreateImageSplicingTaskRequest extends Model
         }
         if (null !== $this->imageFormat) {
             $res['ImageFormat'] = $this->imageFormat;
+        }
+        if (null !== $this->margin) {
+            $res['Margin'] = $this->margin;
         }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
@@ -187,6 +196,9 @@ class CreateImageSplicingTaskRequest extends Model
         }
         if (isset($map['ImageFormat'])) {
             $model->imageFormat = $map['ImageFormat'];
+        }
+        if (isset($map['Margin'])) {
+            $model->margin = $map['Margin'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
