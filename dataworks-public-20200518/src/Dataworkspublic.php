@@ -11291,6 +11291,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->projectIdentifier)) {
             $body['ProjectIdentifier'] = $request->projectIdentifier;
         }
+        if (!Utils::isUnset($request->skipAllDeployFileExtensions)) {
+            $body['SkipAllDeployFileExtensions'] = $request->skipAllDeployFileExtensions;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);

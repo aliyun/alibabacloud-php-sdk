@@ -27,11 +27,17 @@ class SubmitFileRequest extends Model
      * @var string
      */
     public $projectIdentifier;
+
+    /**
+     * @var bool
+     */
+    public $skipAllDeployFileExtensions;
     protected $_name = [
-        'comment'           => 'Comment',
-        'fileId'            => 'FileId',
-        'projectId'         => 'ProjectId',
-        'projectIdentifier' => 'ProjectIdentifier',
+        'comment'                     => 'Comment',
+        'fileId'                      => 'FileId',
+        'projectId'                   => 'ProjectId',
+        'projectIdentifier'           => 'ProjectIdentifier',
+        'skipAllDeployFileExtensions' => 'SkipAllDeployFileExtensions',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class SubmitFileRequest extends Model
         }
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
+        }
+        if (null !== $this->skipAllDeployFileExtensions) {
+            $res['SkipAllDeployFileExtensions'] = $this->skipAllDeployFileExtensions;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class SubmitFileRequest extends Model
         }
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
+        }
+        if (isset($map['SkipAllDeployFileExtensions'])) {
+            $model->skipAllDeployFileExtensions = $map['SkipAllDeployFileExtensions'];
         }
 
         return $model;
