@@ -20,6 +20,11 @@ class GetDeliveryHistoryJobResponseBody extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $homeRegion;
+
+    /**
      * @var int
      */
     public $jobId;
@@ -56,6 +61,7 @@ class GetDeliveryHistoryJobResponseBody extends Model
     protected $_name = [
         'createdTime' => 'CreatedTime',
         'endTime'     => 'EndTime',
+        'homeRegion'  => 'HomeRegion',
         'jobId'       => 'JobId',
         'jobStatus'   => 'JobStatus',
         'requestId'   => 'RequestId',
@@ -77,6 +83,9 @@ class GetDeliveryHistoryJobResponseBody extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->homeRegion) {
+            $res['HomeRegion'] = $this->homeRegion;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
@@ -122,6 +131,9 @@ class GetDeliveryHistoryJobResponseBody extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['HomeRegion'])) {
+            $model->homeRegion = $map['HomeRegion'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];

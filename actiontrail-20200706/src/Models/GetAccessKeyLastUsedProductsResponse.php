@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeTrailsResponse extends Model
+class GetAccessKeyLastUsedProductsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeTrailsResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeTrailsResponseBody
+     * @var GetAccessKeyLastUsedProductsResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeTrailsResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeTrailsResponse
+     * @return GetAccessKeyLastUsedProductsResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeTrailsResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeTrailsResponseBody::fromMap($map['body']);
+            $model->body = GetAccessKeyLastUsedProductsResponseBody::fromMap($map['body']);
         }
 
         return $model;

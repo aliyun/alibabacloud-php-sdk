@@ -18,6 +18,16 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeTrailsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeTrailsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedEventsRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedEventsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedInfoRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedInfoResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedIpsRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedIpsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedProductsRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedProductsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedResourcesRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedResourcesResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDeliveryHistoryJobRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDeliveryHistoryJobResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetTrailStatusRequest;
@@ -35,6 +45,7 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\UpdateTrailResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Actiontrail extends OpenApiClient
@@ -113,11 +124,29 @@ class Actiontrail extends OpenApiClient
     public function createDeliveryHistoryJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->trailName)) {
+            $query['TrailName'] = $request->trailName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeliveryHistoryJob',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDeliveryHistoryJobResponse::fromMap($this->doRPCRequest('CreateDeliveryHistoryJob', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDeliveryHistoryJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -141,11 +170,50 @@ class Actiontrail extends OpenApiClient
     public function createTrailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventRW)) {
+            $query['EventRW'] = $request->eventRW;
+        }
+        if (!Utils::isUnset($request->isOrganizationTrail)) {
+            $query['IsOrganizationTrail'] = $request->isOrganizationTrail;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $query['OssBucketName'] = $request->ossBucketName;
+        }
+        if (!Utils::isUnset($request->ossKeyPrefix)) {
+            $query['OssKeyPrefix'] = $request->ossKeyPrefix;
+        }
+        if (!Utils::isUnset($request->ossWriteRoleArn)) {
+            $query['OssWriteRoleArn'] = $request->ossWriteRoleArn;
+        }
+        if (!Utils::isUnset($request->slsProjectArn)) {
+            $query['SlsProjectArn'] = $request->slsProjectArn;
+        }
+        if (!Utils::isUnset($request->slsWriteRoleArn)) {
+            $query['SlsWriteRoleArn'] = $request->slsWriteRoleArn;
+        }
+        if (!Utils::isUnset($request->trailRegion)) {
+            $query['TrailRegion'] = $request->trailRegion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTrail',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTrailResponse::fromMap($this->doRPCRequest('CreateTrail', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTrailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -169,11 +237,26 @@ class Actiontrail extends OpenApiClient
     public function deleteDeliveryHistoryJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeliveryHistoryJob',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDeliveryHistoryJobResponse::fromMap($this->doRPCRequest('DeleteDeliveryHistoryJob', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDeliveryHistoryJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -197,11 +280,26 @@ class Actiontrail extends OpenApiClient
     public function deleteTrailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTrail',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTrailResponse::fromMap($this->doRPCRequest('DeleteTrail', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTrailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -225,11 +323,26 @@ class Actiontrail extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -253,11 +366,32 @@ class Actiontrail extends OpenApiClient
     public function describeTrailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->includeOrganizationTrail)) {
+            $query['IncludeOrganizationTrail'] = $request->includeOrganizationTrail;
+        }
+        if (!Utils::isUnset($request->includeShadowTrails)) {
+            $query['IncludeShadowTrails'] = $request->includeShadowTrails;
+        }
+        if (!Utils::isUnset($request->nameList)) {
+            $query['NameList'] = $request->nameList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTrails',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTrailsResponse::fromMap($this->doRPCRequest('DescribeTrails', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTrailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -273,6 +407,248 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
+     * @param GetAccessKeyLastUsedEventsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAccessKeyLastUsedEventsResponse
+     */
+    public function getAccessKeyLastUsedEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessKeyLastUsedEvents',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccessKeyLastUsedEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedEventsRequest $request
+     *
+     * @return GetAccessKeyLastUsedEventsResponse
+     */
+    public function getAccessKeyLastUsedEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessKeyLastUsedEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAccessKeyLastUsedInfoResponse
+     */
+    public function getAccessKeyLastUsedInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessKeyLastUsedInfo',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccessKeyLastUsedInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedInfoRequest $request
+     *
+     * @return GetAccessKeyLastUsedInfoResponse
+     */
+    public function getAccessKeyLastUsedInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessKeyLastUsedInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedIpsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAccessKeyLastUsedIpsResponse
+     */
+    public function getAccessKeyLastUsedIpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessKeyLastUsedIps',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccessKeyLastUsedIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedIpsRequest $request
+     *
+     * @return GetAccessKeyLastUsedIpsResponse
+     */
+    public function getAccessKeyLastUsedIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessKeyLastUsedIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedProductsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAccessKeyLastUsedProductsResponse
+     */
+    public function getAccessKeyLastUsedProductsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessKeyLastUsedProducts',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccessKeyLastUsedProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedProductsRequest $request
+     *
+     * @return GetAccessKeyLastUsedProductsResponse
+     */
+    public function getAccessKeyLastUsedProducts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessKeyLastUsedProductsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedResourcesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAccessKeyLastUsedResourcesResponse
+     */
+    public function getAccessKeyLastUsedResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessKeyLastUsedResources',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccessKeyLastUsedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccessKeyLastUsedResourcesRequest $request
+     *
+     * @return GetAccessKeyLastUsedResourcesResponse
+     */
+    public function getAccessKeyLastUsedResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessKeyLastUsedResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDeliveryHistoryJobRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -281,11 +657,26 @@ class Actiontrail extends OpenApiClient
     public function getDeliveryHistoryJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeliveryHistoryJob',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDeliveryHistoryJobResponse::fromMap($this->doRPCRequest('GetDeliveryHistoryJob', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDeliveryHistoryJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -309,11 +700,29 @@ class Actiontrail extends OpenApiClient
     public function getTrailStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isOrganizationTrail)) {
+            $query['IsOrganizationTrail'] = $request->isOrganizationTrail;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrailStatus',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTrailStatusResponse::fromMap($this->doRPCRequest('GetTrailStatus', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTrailStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -337,11 +746,29 @@ class Actiontrail extends OpenApiClient
     public function listDeliveryHistoryJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeliveryHistoryJobs',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDeliveryHistoryJobsResponse::fromMap($this->doRPCRequest('ListDeliveryHistoryJobs', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDeliveryHistoryJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -365,11 +792,41 @@ class Actiontrail extends OpenApiClient
     public function lookupEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lookupAttribute)) {
+            $query['LookupAttribute'] = $request->lookupAttribute;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LookupEvents',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return LookupEventsResponse::fromMap($this->doRPCRequest('LookupEvents', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return LookupEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -393,11 +850,26 @@ class Actiontrail extends OpenApiClient
     public function startLoggingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartLogging',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartLoggingResponse::fromMap($this->doRPCRequest('StartLogging', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartLoggingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -423,10 +895,21 @@ class Actiontrail extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopLogging',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopLoggingResponse::fromMap($this->doRPCRequest('StopLogging', '2020-07-06', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StopLoggingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -450,11 +933,47 @@ class Actiontrail extends OpenApiClient
     public function updateTrailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventRW)) {
+            $query['EventRW'] = $request->eventRW;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $query['OssBucketName'] = $request->ossBucketName;
+        }
+        if (!Utils::isUnset($request->ossKeyPrefix)) {
+            $query['OssKeyPrefix'] = $request->ossKeyPrefix;
+        }
+        if (!Utils::isUnset($request->ossWriteRoleArn)) {
+            $query['OssWriteRoleArn'] = $request->ossWriteRoleArn;
+        }
+        if (!Utils::isUnset($request->slsProjectArn)) {
+            $query['SlsProjectArn'] = $request->slsProjectArn;
+        }
+        if (!Utils::isUnset($request->slsWriteRoleArn)) {
+            $query['SlsWriteRoleArn'] = $request->slsWriteRoleArn;
+        }
+        if (!Utils::isUnset($request->trailRegion)) {
+            $query['TrailRegion'] = $request->trailRegion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTrail',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTrailResponse::fromMap($this->doRPCRequest('UpdateTrail', '2020-07-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTrailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
