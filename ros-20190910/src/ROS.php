@@ -2386,6 +2386,12 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->changeSetId)) {
             $query['ChangeSetId'] = $request->changeSetId;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }

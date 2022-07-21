@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest\parameters;
 use AlibabaCloud\Tea\Model;
 
 class GetTemplateSummaryRequest extends Model
@@ -12,6 +13,16 @@ class GetTemplateSummaryRequest extends Model
      * @var string
      */
     public $changeSetId;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
 
     /**
      * @var string
@@ -49,6 +60,8 @@ class GetTemplateSummaryRequest extends Model
     public $templateVersion;
     protected $_name = [
         'changeSetId'     => 'ChangeSetId',
+        'clientToken'     => 'ClientToken',
+        'parameters'      => 'Parameters',
         'regionId'        => 'RegionId',
         'stackGroupName'  => 'StackGroupName',
         'stackId'         => 'StackId',
@@ -67,6 +80,18 @@ class GetTemplateSummaryRequest extends Model
         $res = [];
         if (null !== $this->changeSetId) {
             $res['ChangeSetId'] = $this->changeSetId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -103,6 +128,18 @@ class GetTemplateSummaryRequest extends Model
         $model = new self();
         if (isset($map['ChangeSetId'])) {
             $model->changeSetId = $map['ChangeSetId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n                 = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
