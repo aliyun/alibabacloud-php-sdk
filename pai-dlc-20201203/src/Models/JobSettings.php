@@ -23,6 +23,34 @@ class JobSettings extends Model
     public $caller;
 
     /**
+     * @description 允许打开作业容错监控
+     *
+     * @var bool
+     */
+    public $enableErrorMonitoringInAIMaster;
+
+    /**
+     * @description 允许作业使用RDMA
+     *
+     * @var bool
+     */
+    public $enableRDMA;
+
+    /**
+     * @description 允许作业使用潮汐资源
+     *
+     * @var bool
+     */
+    public $enableTideResource;
+
+    /**
+     * @description 用户指定容错监控的配置参数，比如指定是否启动基于log hang的检测
+     *
+     * @var string
+     */
+    public $errorMonitoringArgs;
+
+    /**
      * @description 工作流ID
      *
      * @var string
@@ -36,10 +64,14 @@ class JobSettings extends Model
      */
     public $tags;
     protected $_name = [
-        'businessUserId' => 'BusinessUserId',
-        'caller'         => 'Caller',
-        'pipelineId'     => 'PipelineId',
-        'tags'           => 'Tags',
+        'businessUserId'                  => 'BusinessUserId',
+        'caller'                          => 'Caller',
+        'enableErrorMonitoringInAIMaster' => 'EnableErrorMonitoringInAIMaster',
+        'enableRDMA'                      => 'EnableRDMA',
+        'enableTideResource'              => 'EnableTideResource',
+        'errorMonitoringArgs'             => 'ErrorMonitoringArgs',
+        'pipelineId'                      => 'PipelineId',
+        'tags'                            => 'Tags',
     ];
 
     public function validate()
@@ -54,6 +86,18 @@ class JobSettings extends Model
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
+        }
+        if (null !== $this->enableErrorMonitoringInAIMaster) {
+            $res['EnableErrorMonitoringInAIMaster'] = $this->enableErrorMonitoringInAIMaster;
+        }
+        if (null !== $this->enableRDMA) {
+            $res['EnableRDMA'] = $this->enableRDMA;
+        }
+        if (null !== $this->enableTideResource) {
+            $res['EnableTideResource'] = $this->enableTideResource;
+        }
+        if (null !== $this->errorMonitoringArgs) {
+            $res['ErrorMonitoringArgs'] = $this->errorMonitoringArgs;
         }
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
@@ -78,6 +122,18 @@ class JobSettings extends Model
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
+        }
+        if (isset($map['EnableErrorMonitoringInAIMaster'])) {
+            $model->enableErrorMonitoringInAIMaster = $map['EnableErrorMonitoringInAIMaster'];
+        }
+        if (isset($map['EnableRDMA'])) {
+            $model->enableRDMA = $map['EnableRDMA'];
+        }
+        if (isset($map['EnableTideResource'])) {
+            $model->enableTideResource = $map['EnableTideResource'];
+        }
+        if (isset($map['ErrorMonitoringArgs'])) {
+            $model->errorMonitoringArgs = $map['ErrorMonitoringArgs'];
         }
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];

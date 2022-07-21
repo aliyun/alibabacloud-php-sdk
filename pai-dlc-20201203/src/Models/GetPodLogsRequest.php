@@ -30,6 +30,11 @@ class GetPodLogsRequest extends Model
     public $maxLines;
 
     /**
+     * @var string
+     */
+    public $podUid;
+
+    /**
      * @description 查询的起始时间，默认值：7天前。
      *
      * @var string
@@ -39,6 +44,7 @@ class GetPodLogsRequest extends Model
         'downloadToFile' => 'DownloadToFile',
         'endTime'        => 'EndTime',
         'maxLines'       => 'MaxLines',
+        'podUid'         => 'PodUid',
         'startTime'      => 'StartTime',
     ];
 
@@ -57,6 +63,9 @@ class GetPodLogsRequest extends Model
         }
         if (null !== $this->maxLines) {
             $res['MaxLines'] = $this->maxLines;
+        }
+        if (null !== $this->podUid) {
+            $res['PodUid'] = $this->podUid;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -81,6 +90,9 @@ class GetPodLogsRequest extends Model
         }
         if (isset($map['MaxLines'])) {
             $model->maxLines = $map['MaxLines'];
+        }
+        if (isset($map['PodUid'])) {
+            $model->podUid = $map['PodUid'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

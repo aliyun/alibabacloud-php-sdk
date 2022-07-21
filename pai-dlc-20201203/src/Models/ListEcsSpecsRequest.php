@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListEcsSpecsRequest extends Model
 {
     /**
+     * @description 按加速器类型过滤
+     *
+     * @var string
+     */
+    public $acceleratorType;
+
+    /**
      * @description 排序顺序
      *
      * @var string
@@ -36,10 +43,11 @@ class ListEcsSpecsRequest extends Model
      */
     public $sortBy;
     protected $_name = [
-        'order'      => 'Order',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
+        'acceleratorType' => 'AcceleratorType',
+        'order'           => 'Order',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'sortBy'          => 'SortBy',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class ListEcsSpecsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceleratorType) {
+            $res['AcceleratorType'] = $this->acceleratorType;
+        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -73,6 +84,9 @@ class ListEcsSpecsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceleratorType'])) {
+            $model->acceleratorType = $map['AcceleratorType'];
+        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }

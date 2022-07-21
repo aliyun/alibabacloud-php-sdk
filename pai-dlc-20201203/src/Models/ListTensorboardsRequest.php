@@ -58,6 +58,16 @@ class ListTensorboardsRequest extends Model
     public $sortBy;
 
     /**
+     * @var string
+     */
+    public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
      * @description 起始时间
      *
      * @var string
@@ -99,6 +109,8 @@ class ListTensorboardsRequest extends Model
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'sortBy'        => 'SortBy',
+        'sourceId'      => 'SourceId',
+        'sourceType'    => 'SourceType',
         'startTime'     => 'StartTime',
         'status'        => 'Status',
         'tensorboardId' => 'TensorboardId',
@@ -133,6 +145,12 @@ class ListTensorboardsRequest extends Model
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -181,6 +199,12 @@ class ListTensorboardsRequest extends Model
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

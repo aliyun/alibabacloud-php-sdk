@@ -54,6 +54,13 @@ class GetJobResponseBody extends Model
     public $elasticSpec;
 
     /**
+     * @description 是否开启debugger任务
+     *
+     * @var bool
+     */
+    public $enabledDebugger;
+
+    /**
      * @description 环境变量配置
      *
      * @var string[]
@@ -156,6 +163,13 @@ class GetJobResponseBody extends Model
     public $resourceId;
 
     /**
+     * @description 作业运行时使用的资源级别
+     *
+     * @var string
+     */
+    public $resourceLevel;
+
+    /**
      * @description 作业额外参数配置
      *
      * @var JobSettings
@@ -217,6 +231,7 @@ class GetJobResponseBody extends Model
         'displayName'      => 'DisplayName',
         'duration'         => 'Duration',
         'elasticSpec'      => 'ElasticSpec',
+        'enabledDebugger'  => 'EnabledDebugger',
         'envs'             => 'Envs',
         'gmtCreateTime'    => 'GmtCreateTime',
         'gmtFailedTime'    => 'GmtFailedTime',
@@ -233,6 +248,7 @@ class GetJobResponseBody extends Model
         'reasonMessage'    => 'ReasonMessage',
         'requestId'        => 'RequestId',
         'resourceId'       => 'ResourceId',
+        'resourceLevel'    => 'ResourceLevel',
         'settings'         => 'Settings',
         'status'           => 'Status',
         'thirdpartyLibDir' => 'ThirdpartyLibDir',
@@ -273,6 +289,9 @@ class GetJobResponseBody extends Model
         }
         if (null !== $this->elasticSpec) {
             $res['ElasticSpec'] = null !== $this->elasticSpec ? $this->elasticSpec->toMap() : null;
+        }
+        if (null !== $this->enabledDebugger) {
+            $res['EnabledDebugger'] = $this->enabledDebugger;
         }
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
@@ -334,6 +353,9 @@ class GetJobResponseBody extends Model
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+        if (null !== $this->resourceLevel) {
+            $res['ResourceLevel'] = $this->resourceLevel;
+        }
         if (null !== $this->settings) {
             $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
         }
@@ -394,6 +416,9 @@ class GetJobResponseBody extends Model
         if (isset($map['ElasticSpec'])) {
             $model->elasticSpec = JobElasticSpec::fromMap($map['ElasticSpec']);
         }
+        if (isset($map['EnabledDebugger'])) {
+            $model->enabledDebugger = $map['EnabledDebugger'];
+        }
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
         }
@@ -453,6 +478,9 @@ class GetJobResponseBody extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceLevel'])) {
+            $model->resourceLevel = $map['ResourceLevel'];
         }
         if (isset($map['Settings'])) {
             $model->settings = JobSettings::fromMap($map['Settings']);

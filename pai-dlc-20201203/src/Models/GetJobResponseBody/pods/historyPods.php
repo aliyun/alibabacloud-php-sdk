@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody;
+namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\pods;
 
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\pods\historyPods;
 use AlibabaCloud\Tea\Model;
 
-class pods extends Model
+class historyPods extends Model
 {
     /**
      * @description Pod创建时间（UTC）
@@ -29,13 +28,6 @@ class pods extends Model
      * @var string
      */
     public $gmtStartTime;
-
-    /**
-     * @description 历史Pods
-     *
-     * @var historyPods[]
-     */
-    public $historyPods;
 
     /**
      * @description Pod Ip
@@ -75,7 +67,6 @@ class pods extends Model
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtFinishTime' => 'GmtFinishTime',
         'gmtStartTime'  => 'GmtStartTime',
-        'historyPods'   => 'HistoryPods',
         'ip'            => 'Ip',
         'podId'         => 'PodId',
         'podUid'        => 'PodUid',
@@ -99,15 +90,6 @@ class pods extends Model
         if (null !== $this->gmtStartTime) {
             $res['GmtStartTime'] = $this->gmtStartTime;
         }
-        if (null !== $this->historyPods) {
-            $res['HistoryPods'] = [];
-            if (null !== $this->historyPods && \is_array($this->historyPods)) {
-                $n = 0;
-                foreach ($this->historyPods as $item) {
-                    $res['HistoryPods'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -130,7 +112,7 @@ class pods extends Model
     /**
      * @param array $map
      *
-     * @return pods
+     * @return historyPods
      */
     public static function fromMap($map = [])
     {
@@ -143,15 +125,6 @@ class pods extends Model
         }
         if (isset($map['GmtStartTime'])) {
             $model->gmtStartTime = $map['GmtStartTime'];
-        }
-        if (isset($map['HistoryPods'])) {
-            if (!empty($map['HistoryPods'])) {
-                $model->historyPods = [];
-                $n                  = 0;
-                foreach ($map['HistoryPods'] as $item) {
-                    $model->historyPods[$n++] = null !== $item ? historyPods::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];

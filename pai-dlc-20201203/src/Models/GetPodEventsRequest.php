@@ -23,6 +23,13 @@ class GetPodEventsRequest extends Model
     public $maxEventsNum;
 
     /**
+     * @description 运行实例UID
+     *
+     * @var string
+     */
+    public $podUid;
+
+    /**
      * @description 起始时间
      *
      * @var string
@@ -31,6 +38,7 @@ class GetPodEventsRequest extends Model
     protected $_name = [
         'endTime'      => 'EndTime',
         'maxEventsNum' => 'MaxEventsNum',
+        'podUid'       => 'PodUid',
         'startTime'    => 'StartTime',
     ];
 
@@ -46,6 +54,9 @@ class GetPodEventsRequest extends Model
         }
         if (null !== $this->maxEventsNum) {
             $res['MaxEventsNum'] = $this->maxEventsNum;
+        }
+        if (null !== $this->podUid) {
+            $res['PodUid'] = $this->podUid;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -67,6 +78,9 @@ class GetPodEventsRequest extends Model
         }
         if (isset($map['MaxEventsNum'])) {
             $model->maxEventsNum = $map['MaxEventsNum'];
+        }
+        if (isset($map['PodUid'])) {
+            $model->podUid = $map['PodUid'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

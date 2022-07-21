@@ -23,6 +23,13 @@ class Quota extends Model
     public $clusterName;
 
     /**
+     * @description 是否允许使用潮汐资源
+     *
+     * @var bool
+     */
+    public $enableTideResource;
+
+    /**
      * @description 是否是独占Quota组
      *
      * @var bool
@@ -51,6 +58,13 @@ class Quota extends Model
     public $quotaType;
 
     /**
+     * @description 资源组允许使用的潮汐资源级别
+     *
+     * @var string
+     */
+    public $resourceLevel;
+
+    /**
      * @description 资源总量
      *
      * @var QuotaDetail
@@ -58,20 +72,38 @@ class Quota extends Model
     public $totalQuota;
 
     /**
+     * @description 潮汐资源总量
+     *
+     * @var QuotaDetail
+     */
+    public $totalTideQuota;
+
+    /**
      * @description 资源用量
      *
      * @var QuotaDetail
      */
     public $usedQuota;
+
+    /**
+     * @description 潮汐资源用量
+     *
+     * @var QuotaDetail
+     */
+    public $usedTideQuota;
     protected $_name = [
-        'clusterId'        => 'ClusterId',
-        'clusterName'      => 'ClusterName',
-        'isExclusiveQuota' => 'IsExclusiveQuota',
-        'quotaId'          => 'QuotaId',
-        'quotaName'        => 'QuotaName',
-        'quotaType'        => 'QuotaType',
-        'totalQuota'       => 'TotalQuota',
-        'usedQuota'        => 'UsedQuota',
+        'clusterId'          => 'ClusterId',
+        'clusterName'        => 'ClusterName',
+        'enableTideResource' => 'EnableTideResource',
+        'isExclusiveQuota'   => 'IsExclusiveQuota',
+        'quotaId'            => 'QuotaId',
+        'quotaName'          => 'QuotaName',
+        'quotaType'          => 'QuotaType',
+        'resourceLevel'      => 'ResourceLevel',
+        'totalQuota'         => 'TotalQuota',
+        'totalTideQuota'     => 'TotalTideQuota',
+        'usedQuota'          => 'UsedQuota',
+        'usedTideQuota'      => 'UsedTideQuota',
     ];
 
     public function validate()
@@ -87,6 +119,9 @@ class Quota extends Model
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+        if (null !== $this->enableTideResource) {
+            $res['EnableTideResource'] = $this->enableTideResource;
+        }
         if (null !== $this->isExclusiveQuota) {
             $res['IsExclusiveQuota'] = $this->isExclusiveQuota;
         }
@@ -99,11 +134,20 @@ class Quota extends Model
         if (null !== $this->quotaType) {
             $res['QuotaType'] = $this->quotaType;
         }
+        if (null !== $this->resourceLevel) {
+            $res['ResourceLevel'] = $this->resourceLevel;
+        }
         if (null !== $this->totalQuota) {
             $res['TotalQuota'] = null !== $this->totalQuota ? $this->totalQuota->toMap() : null;
         }
+        if (null !== $this->totalTideQuota) {
+            $res['TotalTideQuota'] = null !== $this->totalTideQuota ? $this->totalTideQuota->toMap() : null;
+        }
         if (null !== $this->usedQuota) {
             $res['UsedQuota'] = null !== $this->usedQuota ? $this->usedQuota->toMap() : null;
+        }
+        if (null !== $this->usedTideQuota) {
+            $res['UsedTideQuota'] = null !== $this->usedTideQuota ? $this->usedTideQuota->toMap() : null;
         }
 
         return $res;
@@ -123,6 +167,9 @@ class Quota extends Model
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+        if (isset($map['EnableTideResource'])) {
+            $model->enableTideResource = $map['EnableTideResource'];
+        }
         if (isset($map['IsExclusiveQuota'])) {
             $model->isExclusiveQuota = $map['IsExclusiveQuota'];
         }
@@ -135,11 +182,20 @@ class Quota extends Model
         if (isset($map['QuotaType'])) {
             $model->quotaType = $map['QuotaType'];
         }
+        if (isset($map['ResourceLevel'])) {
+            $model->resourceLevel = $map['ResourceLevel'];
+        }
         if (isset($map['TotalQuota'])) {
             $model->totalQuota = QuotaDetail::fromMap($map['TotalQuota']);
         }
+        if (isset($map['TotalTideQuota'])) {
+            $model->totalTideQuota = QuotaDetail::fromMap($map['TotalTideQuota']);
+        }
         if (isset($map['UsedQuota'])) {
             $model->usedQuota = QuotaDetail::fromMap($map['UsedQuota']);
+        }
+        if (isset($map['UsedTideQuota'])) {
+            $model->usedTideQuota = QuotaDetail::fromMap($map['UsedTideQuota']);
         }
 
         return $model;

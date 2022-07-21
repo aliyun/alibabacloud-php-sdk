@@ -30,6 +30,11 @@ class GetPodEventsResponseBody extends Model
     public $podId;
 
     /**
+     * @var string
+     */
+    public $podUid;
+
+    /**
      * @description 请求ID
      *
      * @var string
@@ -39,6 +44,7 @@ class GetPodEventsResponseBody extends Model
         'events'    => 'Events',
         'jobId'     => 'JobId',
         'podId'     => 'PodId',
+        'podUid'    => 'PodUid',
         'requestId' => 'RequestId',
     ];
 
@@ -57,6 +63,9 @@ class GetPodEventsResponseBody extends Model
         }
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
+        }
+        if (null !== $this->podUid) {
+            $res['PodUid'] = $this->podUid;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -83,6 +92,9 @@ class GetPodEventsResponseBody extends Model
         }
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
+        }
+        if (isset($map['PodUid'])) {
+            $model->podUid = $map['PodUid'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

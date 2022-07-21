@@ -39,6 +39,13 @@ class JobItem extends Model
     public $duration;
 
     /**
+     * @description 是否开启了debugger分析
+     *
+     * @var bool
+     */
+    public $enabledDebugger;
+
+    /**
      * @description 环境变量配置
      *
      * @var string[]
@@ -102,6 +109,20 @@ class JobItem extends Model
     public $resourceId;
 
     /**
+     * @description 作业运行时的资源级别
+     *
+     * @var string
+     */
+    public $resourceLevel;
+
+    /**
+     * @description 作业运行的资源名称
+     *
+     * @var string
+     */
+    public $resourceName;
+
+    /**
      * @description 作业额外参数
      *
      * @var JobSettings
@@ -161,6 +182,7 @@ class JobItem extends Model
         'dataSources'      => 'DataSources',
         'displayName'      => 'DisplayName',
         'duration'         => 'Duration',
+        'enabledDebugger'  => 'EnabledDebugger',
         'envs'             => 'Envs',
         'gmtCreateTime'    => 'GmtCreateTime',
         'gmtFinishTime'    => 'GmtFinishTime',
@@ -170,6 +192,8 @@ class JobItem extends Model
         'reasonCode'       => 'ReasonCode',
         'reasonMessage'    => 'ReasonMessage',
         'resourceId'       => 'ResourceId',
+        'resourceLevel'    => 'ResourceLevel',
+        'resourceName'     => 'ResourceName',
         'settings'         => 'Settings',
         'status'           => 'Status',
         'thirdpartyLibDir' => 'ThirdpartyLibDir',
@@ -205,6 +229,9 @@ class JobItem extends Model
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+        if (null !== $this->enabledDebugger) {
+            $res['EnabledDebugger'] = $this->enabledDebugger;
+        }
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
         }
@@ -237,6 +264,12 @@ class JobItem extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceLevel) {
+            $res['ResourceLevel'] = $this->resourceLevel;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
         if (null !== $this->settings) {
             $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
@@ -292,6 +325,9 @@ class JobItem extends Model
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+        if (isset($map['EnabledDebugger'])) {
+            $model->enabledDebugger = $map['EnabledDebugger'];
+        }
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
         }
@@ -324,6 +360,12 @@ class JobItem extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceLevel'])) {
+            $model->resourceLevel = $map['ResourceLevel'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
         if (isset($map['Settings'])) {
             $model->settings = JobSettings::fromMap($map['Settings']);

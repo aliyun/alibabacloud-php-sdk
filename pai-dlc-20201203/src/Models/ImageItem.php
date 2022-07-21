@@ -16,6 +16,13 @@ class ImageItem extends Model
     public $acceleratorType;
 
     /**
+     * @description 镜像作者
+     *
+     * @var string
+     */
+    public $authorId;
+
+    /**
      * @description 镜像包含的框架类型
      *
      * @var string
@@ -51,6 +58,7 @@ class ImageItem extends Model
     public $imageUrlVpc;
     protected $_name = [
         'acceleratorType'   => 'AcceleratorType',
+        'authorId'          => 'AuthorId',
         'framework'         => 'Framework',
         'imageProviderType' => 'ImageProviderType',
         'imageTag'          => 'ImageTag',
@@ -67,6 +75,9 @@ class ImageItem extends Model
         $res = [];
         if (null !== $this->acceleratorType) {
             $res['AcceleratorType'] = $this->acceleratorType;
+        }
+        if (null !== $this->authorId) {
+            $res['AuthorId'] = $this->authorId;
         }
         if (null !== $this->framework) {
             $res['Framework'] = $this->framework;
@@ -97,6 +108,9 @@ class ImageItem extends Model
         $model = new self();
         if (isset($map['AcceleratorType'])) {
             $model->acceleratorType = $map['AcceleratorType'];
+        }
+        if (isset($map['AuthorId'])) {
+            $model->authorId = $map['AuthorId'];
         }
         if (isset($map['Framework'])) {
             $model->framework = $map['Framework'];

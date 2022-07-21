@@ -42,12 +42,20 @@ class ListImagesRequest extends Model
      * @var string
      */
     public $sortBy;
+
+    /**
+     * @description 工作空间ID
+     *
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'acceleratorType'   => 'AcceleratorType',
         'framework'         => 'Framework',
         'imageProviderType' => 'ImageProviderType',
         'order'             => 'Order',
         'sortBy'            => 'SortBy',
+        'workspaceId'       => 'WorkspaceId',
     ];
 
     public function validate()
@@ -71,6 +79,9 @@ class ListImagesRequest extends Model
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -98,6 +109,9 @@ class ListImagesRequest extends Model
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

@@ -37,6 +37,11 @@ class ListJobsRequest extends Model
     public $endTime;
 
     /**
+     * @var bool
+     */
+    public $fromAllWorkspaces;
+
+    /**
      * @description 作业类型
      *
      * @var string
@@ -120,22 +125,23 @@ class ListJobsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'businessUserId' => 'BusinessUserId',
-        'caller'         => 'Caller',
-        'displayName'    => 'DisplayName',
-        'endTime'        => 'EndTime',
-        'jobType'        => 'JobType',
-        'order'          => 'Order',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'pipelineId'     => 'PipelineId',
-        'resourceId'     => 'ResourceId',
-        'showOwn'        => 'ShowOwn',
-        'sortBy'         => 'SortBy',
-        'startTime'      => 'StartTime',
-        'status'         => 'Status',
-        'tags'           => 'Tags',
-        'workspaceId'    => 'WorkspaceId',
+        'businessUserId'    => 'BusinessUserId',
+        'caller'            => 'Caller',
+        'displayName'       => 'DisplayName',
+        'endTime'           => 'EndTime',
+        'fromAllWorkspaces' => 'FromAllWorkspaces',
+        'jobType'           => 'JobType',
+        'order'             => 'Order',
+        'pageNumber'        => 'PageNumber',
+        'pageSize'          => 'PageSize',
+        'pipelineId'        => 'PipelineId',
+        'resourceId'        => 'ResourceId',
+        'showOwn'           => 'ShowOwn',
+        'sortBy'            => 'SortBy',
+        'startTime'         => 'StartTime',
+        'status'            => 'Status',
+        'tags'              => 'Tags',
+        'workspaceId'       => 'WorkspaceId',
     ];
 
     public function validate()
@@ -156,6 +162,9 @@ class ListJobsRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->fromAllWorkspaces) {
+            $res['FromAllWorkspaces'] = $this->fromAllWorkspaces;
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
@@ -216,6 +225,9 @@ class ListJobsRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['FromAllWorkspaces'])) {
+            $model->fromAllWorkspaces = $map['FromAllWorkspaces'];
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];

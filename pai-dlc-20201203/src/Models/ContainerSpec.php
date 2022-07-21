@@ -44,6 +44,13 @@ class ContainerSpec extends Model
     public $name;
 
     /**
+     * @description 容器资源
+     *
+     * @var ResourceRequirements
+     */
+    public $resources;
+
+    /**
      * @description 容器内工作目录
      *
      * @var string
@@ -55,6 +62,7 @@ class ContainerSpec extends Model
         'env'        => 'Env',
         'image'      => 'Image',
         'name'       => 'Name',
+        'resources'  => 'Resources',
         'workingDir' => 'WorkingDir',
     ];
 
@@ -85,6 +93,9 @@ class ContainerSpec extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->resources) {
+            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
         }
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
@@ -125,6 +136,9 @@ class ContainerSpec extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Resources'])) {
+            $model->resources = ResourceRequirements::fromMap($map['Resources']);
         }
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];

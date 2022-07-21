@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class JobDispatchSubmitResponseBody extends Model
+class UpdateJobRequest extends Model
 {
     /**
-     * @description 作业Url
+     * @description 设置优先级
      *
-     * @var string
+     * @var int
      */
-    public $jobUrl;
+    public $priority;
     protected $_name = [
-        'jobUrl' => 'JobUrl',
+        'priority' => 'Priority',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class JobDispatchSubmitResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobUrl) {
-            $res['JobUrl'] = $this->jobUrl;
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class JobDispatchSubmitResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return JobDispatchSubmitResponseBody
+     * @return UpdateJobRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobUrl'])) {
-            $model->jobUrl = $map['JobUrl'];
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         return $model;

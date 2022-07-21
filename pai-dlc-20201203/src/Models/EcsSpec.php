@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class EcsSpec extends Model
 {
     /**
+     * @description 加速器类型
+     *
+     * @var string
+     */
+    public $acceleratorType;
+
+    /**
      * @description cpu数量
      *
      * @var int
@@ -37,17 +44,26 @@ class EcsSpec extends Model
     public $instanceType;
 
     /**
+     * @description 是否有库存
+     *
+     * @var bool
+     */
+    public $isAvailable;
+
+    /**
      * @description Memory数量
      *
      * @var int
      */
     public $memory;
     protected $_name = [
-        'cpu'          => 'Cpu',
-        'gpu'          => 'Gpu',
-        'gpuType'      => 'GpuType',
-        'instanceType' => 'InstanceType',
-        'memory'       => 'Memory',
+        'acceleratorType' => 'AcceleratorType',
+        'cpu'             => 'Cpu',
+        'gpu'             => 'Gpu',
+        'gpuType'         => 'GpuType',
+        'instanceType'    => 'InstanceType',
+        'isAvailable'     => 'IsAvailable',
+        'memory'          => 'Memory',
     ];
 
     public function validate()
@@ -57,6 +73,9 @@ class EcsSpec extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceleratorType) {
+            $res['AcceleratorType'] = $this->acceleratorType;
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -68,6 +87,9 @@ class EcsSpec extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->isAvailable) {
+            $res['IsAvailable'] = $this->isAvailable;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -84,6 +106,9 @@ class EcsSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceleratorType'])) {
+            $model->acceleratorType = $map['AcceleratorType'];
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
@@ -95,6 +120,9 @@ class EcsSpec extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['IsAvailable'])) {
+            $model->isAvailable = $map['IsAvailable'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

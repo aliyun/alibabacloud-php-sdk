@@ -26,6 +26,13 @@ class CreateJobRequest extends Model
     public $dataSources;
 
     /**
+     * @description debugger参数
+     *
+     * @var string
+     */
+    public $debuggerConfigContent;
+
+    /**
      * @description 作业显示名称
      *
      * @var string
@@ -64,6 +71,11 @@ class CreateJobRequest extends Model
      * @var string
      */
     public $jobType;
+
+    /**
+     * @var string
+     */
+    public $options;
 
     /**
      * @description 作业优先级
@@ -121,12 +133,14 @@ class CreateJobRequest extends Model
     protected $_name = [
         'codeSource'               => 'CodeSource',
         'dataSources'              => 'DataSources',
+        'debuggerConfigContent'    => 'DebuggerConfigContent',
         'displayName'              => 'DisplayName',
         'elasticSpec'              => 'ElasticSpec',
         'envs'                     => 'Envs',
         'jobMaxRunningTimeMinutes' => 'JobMaxRunningTimeMinutes',
         'jobSpecs'                 => 'JobSpecs',
         'jobType'                  => 'JobType',
+        'options'                  => 'Options',
         'priority'                 => 'Priority',
         'resourceId'               => 'ResourceId',
         'settings'                 => 'Settings',
@@ -156,6 +170,9 @@ class CreateJobRequest extends Model
                 }
             }
         }
+        if (null !== $this->debuggerConfigContent) {
+            $res['DebuggerConfigContent'] = $this->debuggerConfigContent;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -179,6 +196,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -228,6 +248,9 @@ class CreateJobRequest extends Model
                 }
             }
         }
+        if (isset($map['DebuggerConfigContent'])) {
+            $model->debuggerConfigContent = $map['DebuggerConfigContent'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -251,6 +274,9 @@ class CreateJobRequest extends Model
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
+        }
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];

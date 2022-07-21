@@ -49,13 +49,21 @@ class JobSpec extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @description 是否使用竞价实例
+     *
+     * @var bool
+     */
+    public $useSpotInstance;
     protected $_name = [
-        'ecsSpec'        => 'EcsSpec',
-        'extraPodSpec'   => 'ExtraPodSpec',
-        'image'          => 'Image',
-        'podCount'       => 'PodCount',
-        'resourceConfig' => 'ResourceConfig',
-        'type'           => 'Type',
+        'ecsSpec'         => 'EcsSpec',
+        'extraPodSpec'    => 'ExtraPodSpec',
+        'image'           => 'Image',
+        'podCount'        => 'PodCount',
+        'resourceConfig'  => 'ResourceConfig',
+        'type'            => 'Type',
+        'useSpotInstance' => 'UseSpotInstance',
     ];
 
     public function validate()
@@ -82,6 +90,9 @@ class JobSpec extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->useSpotInstance) {
+            $res['UseSpotInstance'] = $this->useSpotInstance;
         }
 
         return $res;
@@ -112,6 +123,9 @@ class JobSpec extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UseSpotInstance'])) {
+            $model->useSpotInstance = $map['UseSpotInstance'];
         }
 
         return $model;

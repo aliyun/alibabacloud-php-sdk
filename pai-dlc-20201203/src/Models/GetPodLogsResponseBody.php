@@ -30,6 +30,13 @@ class GetPodLogsResponseBody extends Model
     public $podId;
 
     /**
+     * @description 实例UID
+     *
+     * @var string
+     */
+    public $podUid;
+
+    /**
      * @description 请求ID
      *
      * @var string
@@ -39,6 +46,7 @@ class GetPodLogsResponseBody extends Model
         'jobId'     => 'JobId',
         'logs'      => 'Logs',
         'podId'     => 'PodId',
+        'podUid'    => 'PodUid',
         'requestId' => 'RequestId',
     ];
 
@@ -57,6 +65,9 @@ class GetPodLogsResponseBody extends Model
         }
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
+        }
+        if (null !== $this->podUid) {
+            $res['PodUid'] = $this->podUid;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -83,6 +94,9 @@ class GetPodLogsResponseBody extends Model
         }
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
+        }
+        if (isset($map['PodUid'])) {
+            $model->podUid = $map['PodUid'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetJobsStatisticsRequest extends Model
+class StopJobsRequest extends Model
 {
     /**
-     * @description 工作空间id
+     * @description 作业ID列表
      *
-     * @var string
+     * @var string[]
      */
-    public $workspaceId;
+    public $jobIds;
     protected $_name = [
-        'workspaceId' => 'WorkspaceId',
+        'jobIds' => 'JobIds',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class GetJobsStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workspaceId) {
-            $res['WorkspaceId'] = $this->workspaceId;
+        if (null !== $this->jobIds) {
+            $res['JobIds'] = $this->jobIds;
         }
 
         return $res;
@@ -35,13 +35,15 @@ class GetJobsStatisticsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetJobsStatisticsRequest
+     * @return StopJobsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkspaceId'])) {
-            $model->workspaceId = $map['WorkspaceId'];
+        if (isset($map['JobIds'])) {
+            if (!empty($map['JobIds'])) {
+                $model->jobIds = $map['JobIds'];
+            }
         }
 
         return $model;

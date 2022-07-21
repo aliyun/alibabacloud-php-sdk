@@ -6,24 +6,22 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetTokenResponseBody extends Model
+class DeleteJobsResponseBody extends Model
 {
     /**
-     * @description RequestId
+     * @var string[]
+     */
+    public $jobIds;
+
+    /**
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description Token
-     *
-     * @var string
-     */
-    public $token;
     protected $_name = [
+        'jobIds'    => 'JobIds',
         'requestId' => 'RequestId',
-        'token'     => 'Token',
     ];
 
     public function validate()
@@ -33,11 +31,11 @@ class GetTokenResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobIds) {
+            $res['JobIds'] = $this->jobIds;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -46,16 +44,18 @@ class GetTokenResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetTokenResponseBody
+     * @return DeleteJobsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobIds'])) {
+            if (!empty($map['JobIds'])) {
+                $model->jobIds = $map['JobIds'];
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
         }
 
         return $model;

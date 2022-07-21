@@ -9,18 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateTensorboardRequest extends Model
 {
     /**
-     * @description 工作空间ID
-     *
-     * @var string
-     */
-    public $workspaceId;
-
-    /**
      * @description DataSource Id
      *
      * @var string
      */
     public $dataSourceId;
+
+    /**
+     * @var string
+     */
+    public $dataSourceType;
 
     /**
      * @var DataSourceItem[]
@@ -49,19 +47,55 @@ class CreateTensorboardRequest extends Model
     public $maxRunningTimeMinutes;
 
     /**
+     * @var string
+     */
+    public $options;
+
+    /**
+     * @var string
+     */
+    public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
      * @description Summary 目录
      *
      * @var string
      */
     public $summaryPath;
+
+    /**
+     * @var string
+     */
+    public $summaryRelativePath;
+
+    /**
+     * @var string
+     */
+    public $uri;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
-        'workspaceId'           => 'WorkspaceId',
         'dataSourceId'          => 'DataSourceId',
+        'dataSourceType'        => 'DataSourceType',
         'dataSources'           => 'DataSources',
         'displayName'           => 'DisplayName',
         'jobId'                 => 'JobId',
         'maxRunningTimeMinutes' => 'MaxRunningTimeMinutes',
+        'options'               => 'Options',
+        'sourceId'              => 'SourceId',
+        'sourceType'            => 'SourceType',
         'summaryPath'           => 'SummaryPath',
+        'summaryRelativePath'   => 'SummaryRelativePath',
+        'uri'                   => 'Uri',
+        'workspaceId'           => 'WorkspaceId',
     ];
 
     public function validate()
@@ -71,11 +105,11 @@ class CreateTensorboardRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workspaceId) {
-            $res['WorkspaceId'] = $this->workspaceId;
-        }
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
+        }
+        if (null !== $this->dataSourceType) {
+            $res['DataSourceType'] = $this->dataSourceType;
         }
         if (null !== $this->dataSources) {
             $res['DataSources'] = [];
@@ -95,8 +129,26 @@ class CreateTensorboardRequest extends Model
         if (null !== $this->maxRunningTimeMinutes) {
             $res['MaxRunningTimeMinutes'] = $this->maxRunningTimeMinutes;
         }
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
+        }
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
         if (null !== $this->summaryPath) {
             $res['SummaryPath'] = $this->summaryPath;
+        }
+        if (null !== $this->summaryRelativePath) {
+            $res['SummaryRelativePath'] = $this->summaryRelativePath;
+        }
+        if (null !== $this->uri) {
+            $res['Uri'] = $this->uri;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -110,11 +162,11 @@ class CreateTensorboardRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkspaceId'])) {
-            $model->workspaceId = $map['WorkspaceId'];
-        }
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
+        }
+        if (isset($map['DataSourceType'])) {
+            $model->dataSourceType = $map['DataSourceType'];
         }
         if (isset($map['DataSources'])) {
             if (!empty($map['DataSources'])) {
@@ -134,8 +186,26 @@ class CreateTensorboardRequest extends Model
         if (isset($map['MaxRunningTimeMinutes'])) {
             $model->maxRunningTimeMinutes = $map['MaxRunningTimeMinutes'];
         }
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
+        }
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
         if (isset($map['SummaryPath'])) {
             $model->summaryPath = $map['SummaryPath'];
+        }
+        if (isset($map['SummaryRelativePath'])) {
+            $model->summaryRelativePath = $map['SummaryRelativePath'];
+        }
+        if (isset($map['Uri'])) {
+            $model->uri = $map['Uri'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

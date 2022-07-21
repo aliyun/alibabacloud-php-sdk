@@ -6,32 +6,24 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetVpcResponseBody extends Model
+class StopJobsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 作业ID列表
+     *
+     * @var string[]
+     */
+    public $jobIds;
+
+    /**
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description Vpc的ID
-     *
-     * @var int
-     */
-    public $vpcId;
-
-    /**
-     * @description Vpc名称
-     *
-     * @var string
-     */
-    public $vpcName;
     protected $_name = [
+        'jobIds'    => 'JobIds',
         'requestId' => 'RequestId',
-        'vpcId'     => 'VpcId',
-        'vpcName'   => 'VpcName',
     ];
 
     public function validate()
@@ -41,14 +33,11 @@ class GetVpcResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobIds) {
+            $res['JobIds'] = $this->jobIds;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vpcName) {
-            $res['VpcName'] = $this->vpcName;
         }
 
         return $res;
@@ -57,19 +46,18 @@ class GetVpcResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetVpcResponseBody
+     * @return StopJobsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobIds'])) {
+            if (!empty($map['JobIds'])) {
+                $model->jobIds = $map['JobIds'];
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VpcName'])) {
-            $model->vpcName = $map['VpcName'];
         }
 
         return $model;

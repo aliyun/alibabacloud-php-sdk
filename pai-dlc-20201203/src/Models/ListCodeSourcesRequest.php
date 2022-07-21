@@ -37,7 +37,7 @@ class ListCodeSourcesRequest extends Model
     public $pageSize;
 
     /**
-     * @description 用于排序的字段名，可选字段名：'DisplayName' 'GmtCreateTime' 'GmtModifyTime'
+     * @description 用于排序的字段名，可选字段名：DisplayName、GmtCreateTime、 GmtModifyTime
      *
      * @var string
      */

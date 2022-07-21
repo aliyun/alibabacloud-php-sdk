@@ -6,24 +6,24 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BatchGetJobsStatisticsResponseBody extends Model
+class UpdateJobResponseBody extends Model
 {
+    /**
+     * @description 作业ID
+     *
+     * @var string
+     */
+    public $jobId;
+
     /**
      * @description 请求ID
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description 每一个工作空间id下面的Job按照状态的分类统计信息
-     *
-     * @var mixed[]
-     */
-    public $statistics;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'statistics' => 'Statistics',
+        'jobId'     => 'JobId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class BatchGetJobsStatisticsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->statistics) {
-            $res['Statistics'] = $this->statistics;
         }
 
         return $res;
@@ -46,16 +46,16 @@ class BatchGetJobsStatisticsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return BatchGetJobsStatisticsResponseBody
+     * @return UpdateJobResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Statistics'])) {
-            $model->statistics = $map['Statistics'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetJobsStatisticsResponse extends Model
+class DeleteJobsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,17 +14,24 @@ class GetJobsStatisticsResponse extends Model
     public $headers;
 
     /**
-     * @var GetJobsStatisticsResponseBody
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var DeleteJobsResponseBody
      */
     public $body;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
         Model::validateRequired('body', $this->body, true);
     }
 
@@ -33,6 +40,9 @@ class GetJobsStatisticsResponse extends Model
         $res = [];
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
+        }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toMap() : null;
@@ -44,7 +54,7 @@ class GetJobsStatisticsResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetJobsStatisticsResponse
+     * @return DeleteJobsResponse
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +62,11 @@ class GetJobsStatisticsResponse extends Model
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
         }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
         if (isset($map['body'])) {
-            $model->body = GetJobsStatisticsResponseBody::fromMap($map['body']);
+            $model->body = DeleteJobsResponseBody::fromMap($map['body']);
         }
 
         return $model;
